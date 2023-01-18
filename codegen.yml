@@ -1,9 +1,9 @@
 overwrite: true
 schema:
-  - https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}/:
+  - https://graphql.contentful.com/content/v1/spaces/${NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/:
       headers:
         Authorization: 'Bearer ${NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}'
-# documents: 'src/**/*.graphql'
+documents: 'src/**/*.graphql'
 generates:
   src/types/generated/graphql.ts:
     plugins:

@@ -1,0 +1,19 @@
+query recipeSlugsCollection($where: RecipeFilter) {
+  recipeCollection(where: $where) {
+    items {
+      slug
+    }
+  }
+}
+
+query recipeCollection($where: RecipeFilter) {
+  recipeCollection(where: $where, order: title_ASC) {
+    items {
+      sys {
+        id
+      }
+      title
+      slug
+    }
+  }
+}
