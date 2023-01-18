@@ -12,8 +12,16 @@
     "typegen:watch": "graphql-codegen --watch --config codegen.yml --require dotenv/config"
   },
   "dependencies": {
+    "@emotion/cache": "^11.10.5",
+    "@emotion/react": "^11.10.5",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.5",
     "@graphql-codegen/typed-document-node": "^2.3.12",
     "@graphql-typed-document-node/core": "^3.1.1",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.5",
+    "@mui/system": "^5.11.5",
+    "@mui/utils": "^5.11.2",
     "@next/font": "13.1.2",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
