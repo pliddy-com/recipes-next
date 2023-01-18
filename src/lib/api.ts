@@ -3,8 +3,8 @@ import { createClient, TypedDocumentNode } from 'urql';
 import {
   RecipeCollectionDocument,
   RecipeCollectionQueryVariables,
-  RecipeSlugsCollectionDocument,
-  RecipeSlugsCollectionQueryVariables,
+  // RecipeSlugsCollectionDocument,
+  // RecipeSlugsCollectionQueryVariables,
 } from 'types/generated/graphql';
 
 import { notNullOrUndefined, ResolvedPromise } from 'lib/typeUtils';
@@ -36,6 +36,7 @@ export async function serverSideGraphQLRequest<
   }
 
   const { data, error } = await serverSideGraphQLRequestClient
+    // @ts-expect-error
     .query(queryDocument, queryVariables)
     .toPromise();
 
@@ -49,7 +50,7 @@ export async function serverSideGraphQLRequest<
   return data;
 }
 
-export const queryRecipeContent = async (
+export const queryRecipeCollectionContent = async (
   queryVariables?: RecipeCollectionQueryVariables
 ) => {
   const { recipeCollection } = await serverSideGraphQLRequest(

@@ -1,6 +1,6 @@
 import { InferGetStaticPropsType } from 'next';
 // import dynamic from 'next/dynamic';
-import { queryRecipeContent } from 'lib/api';
+import { queryRecipeCollectionContent } from 'lib/api';
 
 import Head from 'next/head';
 
@@ -56,7 +56,7 @@ const HomePage = ({
 };
 
 export const getStaticProps = async ({ preview = false }) => {
-  const pageContent = await queryRecipeContent();
+  const pageContent = await queryRecipeCollectionContent();
 
   return { props: { pageContent, preview } };
 };
