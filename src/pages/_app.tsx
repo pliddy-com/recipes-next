@@ -15,7 +15,7 @@ import createEmotionCache from 'lib/createEmotionCache';
 import theme from 'theme';
 
 // TODO: fix issue with default styling on Next Link
-import 'styles/globals.css';
+// import 'styles/globals.css';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -35,14 +35,13 @@ const MyApp = (props: AppLayoutProps) => {
     pageProps,
   } = props ?? {};
 
-  // const getLayout = Component.getLayout || ((page: ReactNode) => page);
+  const getLayout = Component.getLayout || ((page: ReactNode) => page);
 
   return (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Component {...pageProps} />
-        {/* {getLayout(<Component {...pageProps} />)} */}
+        {getLayout(<Component {...pageProps} />)}
       </ThemeProvider>
     </CacheProvider>
   );

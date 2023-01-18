@@ -1,57 +1,28 @@
+import { ReactElement } from 'react';
 import { InferGetStaticPropsType } from 'next';
 // import dynamic from 'next/dynamic';
 import { queryRecipeCollectionContent } from 'lib/api';
 
-import Head from 'next/head';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 
-const PageHead = () => {
-  return (
-    <Head>
-      <meta charSet="utf-8" />
-      <link rel="icon" href="/favicon.ico" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="theme-color" content="#000000" />
-      <meta name="description" content="Patrick's personal recipe collection" />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/apple-touch-icon.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon-32x32.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon-16x16.png"
-      />
-      <link rel="manifest" href="/site.webmanifest" />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#193d60" />
-      <meta name="msapplication-TileColor" content="#ff0000" />
-      <meta name="theme-color" content="#ffffff" />
-
-      <title>Liddy Recipes</title>
-    </Head>
-  );
-};
+import Layout from 'layout/Layout';
+// import Loading from 'components/Loading';
+import RecipeGrid from 'components/RecipeList/RecipeGrid';
 
 const HomePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <>
-      <PageHead />
-      <main>
-        <pre>{JSON.stringify(pageContent, null, 2)}</pre>
-        {/* <div>
-          <p>Recipes</p>
-        </div> */}
-      </main>
-    </>
+    <Container className="main" component="main">
+      <Typography variant="h1">All My Recipes</Typography>
+      <Typography variant="subtitle1" component="h2" gutterBottom>
+        {pageContent && `${pageContent?.length} Total`}
+      </Typography>
+
+      <RecipeGrid recipes={pageContent} />
+      {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
+    </Container>
   );
 };
 
@@ -60,5 +31,7 @@ export const getStaticProps = async ({ preview = false }) => {
 
   return { props: { pageContent, preview } };
 };
+
+HomePage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
 export default HomePage;

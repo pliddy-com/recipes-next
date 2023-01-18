@@ -1,3 +1,28 @@
+query homePageQuery {
+  recipeCollection(order: title_ASC) {
+    total
+    items {
+      ...RecipeDefault
+    }
+  }
+}
+
+query listpageQuery($tag: String!) {
+  tagCollection(where: { slug: $tag }, limit: 1) {
+    total
+    items {
+      linkedFrom {
+        recipeCollection(limit: 12) {
+          total
+          items {
+            ...RecipeDefault
+          }
+        }
+      }
+    }
+  }
+}
+
 query recipeSlugsCollection($where: RecipeFilter) {
   recipeCollection(where: $where) {
     items {
@@ -8,12 +33,90 @@ query recipeSlugsCollection($where: RecipeFilter) {
 
 query recipeCollection($where: RecipeFilter) {
   recipeCollection(where: $where, order: title_ASC) {
+    total
     items {
-      sys {
-        id
-      }
-      title
-      slug
+      ...RecipeDefault
+    }
+  }
+}
+
+fragment TagDefault on Tag {
+  sys {
+    id
+  }
+  __typename
+  title
+  slug
+}
+
+fragment IngredientsDefault on IngredientSection {
+  ... on IngredientSection {
+    sys {
+      id
+    }
+    title
+    slug
+    label
+    ingredientList
+  }
+}
+
+fragment InstructionsDefault on InstructionSection {
+  ... on InstructionSection {
+    sys {
+      id
+    }
+    title
+    slug
+    label
+    instructionList
+  }
+}
+
+fragment ImageDefault on Asset {
+  sys {
+    id
+  }
+  __typename
+  title
+  description
+  contentType
+  fileName
+  size
+  url
+  height
+  width
+}
+
+fragment RecipeDefault on Recipe {
+  sys {
+    id
+  }
+  __typename
+  title
+  slug
+  description {
+    json
+  }
+  abstract
+  image {
+    ...ImageDefault
+  }
+  ingredientsCollection(limit: 10) {
+    items {
+      ...IngredientsDefault
+    }
+  }
+  equipment
+  instructionsCollection(limit: 10) {
+    items {
+      ...InstructionsDefault
+    }
+  }
+  notes
+  tagsCollection(limit: 10) {
+    items {
+      ...TagDefault
     }
   }
 }
