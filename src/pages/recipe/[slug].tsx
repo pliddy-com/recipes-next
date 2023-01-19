@@ -12,12 +12,13 @@ import SiteLayout from 'layout/SiteLayout';
 import { notNullOrUndefined } from 'lib/typeUtils';
 
 import Container from '@mui/material/Container';
+import Recipe from 'components/Recipe/Recipe';
 
 const RecipePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  //   <Content contentData={pageContent} />
-  <pre>{JSON.stringify(pageContent, null, 2)}</pre>
+  <Recipe recipe={pageContent} />
+  // <pre>{JSON.stringify(pageContent, null, 2)}</pre>
 );
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -40,7 +41,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   const slug = context.params?.slug;
 
   if (typeof slug !== 'string') {
-    // TODO: Better handling of this situation. What do we do?
+    // TODO: Handle SSG errors
     throw new Error('Error in SSG!');
   }
 

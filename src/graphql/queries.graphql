@@ -40,14 +40,6 @@ query recipeCollection($where: RecipeFilter) {
   }
 }
 
-query recipeQuery($slug: String!) {
-  recipeCollection(where: { slug: $slug }, limit: 1) {
-    items {
-      ...RecipeDefault
-    }
-  }
-}
-
 fragment TagDefault on Tag {
   sys {
     id
