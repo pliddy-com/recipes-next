@@ -13,6 +13,7 @@
     "typegen:watch": "graphql-codegen --watch --config codegen.yml --require dotenv/config"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.16.2",
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.10.5",
     "@emotion/server": "^11.10.0",

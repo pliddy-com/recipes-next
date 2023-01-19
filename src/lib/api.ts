@@ -3,8 +3,9 @@ import { createClient, TypedDocumentNode } from 'urql';
 import {
   RecipeCollectionDocument,
   RecipeCollectionQueryVariables,
-  // RecipeSlugsCollectionDocument,
-  // RecipeSlugsCollectionQueryVariables,
+  RecipeSlugsCollectionDocument,
+  RecipeSlugsCollectionQueryVariables,
+  // RecipeQueryDocument,
 } from 'types/generated/graphql';
 
 import { notNullOrUndefined, ResolvedPromise } from 'lib/typeUtils';
@@ -62,3 +63,31 @@ export const queryRecipeCollectionContent = async (
     ? recipeCollection.items.filter(notNullOrUndefined)
     : [];
 };
+
+export const queryPageSlugs = async (
+  queryVariables: RecipeSlugsCollectionQueryVariables
+) => {
+  const { recipeCollection } = await serverSideGraphQLRequest(
+    RecipeSlugsCollectionDocument,
+    queryVariables
+  );
+
+  return recipeCollection
+    ? recipeCollection.items.filter(notNullOrUndefined)
+    : [];
+};
+
+// export type PageContentQueryResults = ResolvedPromise<
+//   ReturnType<typeof queryPageContent>
+// >;
+
+// export const queryPageContent = async (
+//   queryVariables: PageContentCollectionQueryVariables
+// ) => {
+//   const { pageCollection } = await serverSideGraphQLRequest(
+//     PageContentCollectionDocument,
+//     queryVariables
+//   );
+
+//   return pageCollection ? pageCollection.items.filter(notNullOrUndefined) : [];
+// };
