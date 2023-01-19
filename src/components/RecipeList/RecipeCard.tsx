@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 
 import TagButtons from 'components/TagButtons';
 
-import { Maybe, Recipe, Tag } from 'types/generated/graphql';
+import { Maybe, RecipeDefaultFragment, Tag } from 'types/generated/graphql';
 
 import theme from 'theme';
 
@@ -43,7 +43,7 @@ const imgSizes = {
 };
 
 type RecipeCardProps = {
-  recipe: Maybe<Recipe>;
+  recipe: Maybe<RecipeDefaultFragment>;
 };
 
 const RecipeCard = ({ recipe }: RecipeCardProps) => {

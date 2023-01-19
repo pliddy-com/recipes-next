@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "prettier --check . && next lint",
     "lint:fix": "prettier --write . && next lint --fix",
+    "typecheck": "tsc",
     "typegen": "graphql-codegen --config codegen.yml --require dotenv/config",
     "typegen:watch": "graphql-codegen --watch --config codegen.yml --require dotenv/config"
   },
