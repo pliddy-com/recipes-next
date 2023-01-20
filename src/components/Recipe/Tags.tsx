@@ -3,24 +3,21 @@ import Typography from '@mui/material/Typography';
 
 import TagButtons from 'components/TagButtons';
 
-import { RecipeTagsCollection, Tag } from 'schema';
+import { TagDefaultFragment, Tag } from 'types/generated/graphql';
 
 type TagsProps = {
-  collection?: RecipeTagsCollection;
+  tags: TagDefaultFragment[];
 };
 
-const Tags = ({ collection }: TagsProps) => {
-  if (!collection) return null;
-
-  const { items } = collection ?? {};
-  const tags = items as Array<Tag>;
+const Tags = ({ tags }: TagsProps) => {
+  if (!tags) return null;
 
   return (
     <Box>
       <Typography variant="h2" gutterBottom>
         Tags
       </Typography>
-      <TagButtons tags={tags} />
+      <TagButtons tags={tags as Tag[]} />
     </Box>
   );
 };

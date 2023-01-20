@@ -6,20 +6,14 @@ import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import {
-  RecipeInstructionsCollection,
-  InstructionSection,
-} from 'types/generated/graphql';
+import { InstructionsDefaultFragment } from 'types/generated/graphql';
 
 type InstructionsProps = {
-  collection?: RecipeInstructionsCollection;
+  sections?: InstructionsDefaultFragment[];
 };
 
-const Instructions = ({ collection }: InstructionsProps) => {
-  if (!collection) return null;
-
-  const { items } = collection ?? {};
-  const groups = items as InstructionSection[];
+const Instructions = ({ sections }: InstructionsProps) => {
+  if (!sections) return null;
 
   // use num to set starting value for each instructionList section
   // so numbering is continuous across list sections
@@ -30,9 +24,9 @@ const Instructions = ({ collection }: InstructionsProps) => {
       <Typography variant="h2" gutterBottom>
         Instructions
       </Typography>
-      {groups &&
-        groups.map((group: InstructionSection) => {
-          const { label, instructionList } = group ?? {};
+      {sections &&
+        sections.map((section) => {
+          const { label, instructionList } = section ?? {};
           const instructions = instructionList as Array<string>;
           return (
             <Stack key={label} direction="column" spacing={0}>

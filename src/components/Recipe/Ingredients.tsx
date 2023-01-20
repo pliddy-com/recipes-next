@@ -7,29 +7,23 @@ import Typography from '@mui/material/Typography';
 
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 
-import {
-  RecipeIngredientsCollection,
-  IngredientSection,
-} from 'types/generated/graphql';
+import { IngredientsDefaultFragment } from 'types/generated/graphql';
 
 type IngredientsProps = {
-  collection?: RecipeIngredientsCollection;
+  sections: IngredientsDefaultFragment[];
 };
 
-const Ingredients = ({ collection }: IngredientsProps) => {
-  if (!collection) return null;
-
-  const { items } = collection ?? {};
-  const groups = items as Array<IngredientSection>;
+const Ingredients = ({ sections }: IngredientsProps) => {
+  if (!sections) return null;
 
   return (
     <Stack direction="column" spacing={1}>
       <Typography variant="h2" gutterBottom>
         Ingredients
       </Typography>
-      {groups &&
-        groups.map((group: IngredientSection) => {
-          const { label, ingredientList } = group ?? {};
+      {sections &&
+        sections.map((section) => {
+          const { label, ingredientList } = section ?? {};
           const ingredients = ingredientList as Array<string>;
 
           return (

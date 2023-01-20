@@ -50,27 +50,23 @@ fragment TagDefault on Tag {
 }
 
 fragment IngredientsDefault on IngredientSection {
-  ... on IngredientSection {
-    sys {
-      id
-    }
-    title
-    slug
-    label
-    ingredientList
+  sys {
+    id
   }
+  title
+  slug
+  label
+  ingredientList
 }
 
 fragment InstructionsDefault on InstructionSection {
-  ... on InstructionSection {
-    sys {
-      id
-    }
-    title
-    slug
-    label
-    instructionList
+  sys {
+    id
   }
+  title
+  slug
+  label
+  instructionList
 }
 
 fragment ImageDefault on Asset {

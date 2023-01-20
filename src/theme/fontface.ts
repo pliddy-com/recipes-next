@@ -1,5 +1,5 @@
 const regularFontPath = '/fonts/Inter-Regular.ttf';
-const mediumFontPath = 'fonts/Inter-Medium.ttf';
+const mediumFontPath = '/fonts/Inter-Medium.ttf';
 
 const Inter = `
   font-display: swap;

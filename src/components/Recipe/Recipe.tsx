@@ -18,7 +18,12 @@ import Tags from 'components/Recipe/Tags';
 // TODO: componentize
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import { RecipeDefaultFragment } from 'types/generated/graphql';
+import {
+  RecipeDefaultFragment,
+  IngredientsDefaultFragment,
+  InstructionsDefaultFragment,
+  TagDefaultFragment,
+} from 'types/generated/graphql';
 
 import theme from 'theme';
 
@@ -38,7 +43,7 @@ const imgSizes = {
 };
 
 type RecipeProps = {
-  recipe?: RecipeDefaultFragment;
+  recipe: RecipeDefaultFragment;
 };
 
 const Recipe = ({ recipe }: RecipeProps) => {
@@ -88,6 +93,8 @@ const Recipe = ({ recipe }: RecipeProps) => {
     width: 4032
   */
 
+  console.log({ ingredientsCollection });
+
   return (
     <Container className="main" component="main">
       <Grid container direction="row" spacing={2}>
@@ -112,19 +119,29 @@ const Recipe = ({ recipe }: RecipeProps) => {
         )}
       </Grid>
       <Stack direction="column" spacing={3}>
-        {ingredientsCollection && (
-          <Ingredients collection={ingredientsCollection} />
+        {ingredientsCollection && ingredientsCollection.items && (
+          <Ingredients
+            sections={
+              ingredientsCollection.items as IngredientsDefaultFragment[]
+            }
+          />
         )}
 
         {equipment && <Equipment equipment={equipment} />}
 
         {instructionsCollection && (
-          <Instructions collection={instructionsCollection} />
+          <Instructions
+            sections={
+              instructionsCollection.items as InstructionsDefaultFragment[]
+            }
+          />
         )}
 
         {notes && <Notes notes={notes} />}
 
-        {tagsCollection && <Tags collection={tagsCollection} />}
+        {tagsCollection && (
+          <Tags tags={tagsCollection.items as TagDefaultFragment[]} />
+        )}
 
         {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
       </Stack>
