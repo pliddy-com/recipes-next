@@ -12,12 +12,28 @@ import SiteLayout from 'layout/SiteLayout';
 import { notNullOrUndefined } from 'lib/typeUtils';
 
 import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+
+import RecipeGrid from '@/components/RecipeGrid/RecipeGrid';
+import { RecipeDefaultFragment } from '@/types/generated/graphql';
 
 const CategoryPage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Container>
-    <pre>{JSON.stringify(pageContent, null, 2)}</pre>
+  <Container className="main" component="main">
+    <Typography variant="h1">All My Recipes</Typography>
+    <Typography variant="subtitle1" component="h2" gutterBottom>
+      {pageContent &&
+        `${pageContent?.linkedFrom?.recipeCollection?.items.length} Total`}
+    </Typography>
+
+    <RecipeGrid
+      recipes={
+        pageContent?.linkedFrom?.recipeCollection
+          ?.items as RecipeDefaultFragment[]
+      }
+    />
+    {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
   </Container>
 );
 

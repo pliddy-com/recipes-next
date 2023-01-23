@@ -96,38 +96,29 @@ export const queryCategorySlugs = async (
     queryVariables
   );
 
-  // console.log(
-  //   'taxonomyCollection.items.childrenCollection.items',
-  //   taxonomyCollection?.items[0]?.childrenCollection?.items
-  // );
-
   const { items } = taxonomyCollection?.items[0]?.childrenCollection ?? {};
 
-  console.log('items:', items);
+  const results = items
+    ?.map((child) => {
+      const { slug } = child ?? {};
 
-  const results = items?.map((child) => {
-    const { slug } = child ?? {};
+      if (child?.__typename === 'Taxonomy') {
+        const children = child?.childrenCollection?.items?.map((childItem) => {
+          return childItem?.slug;
+        });
 
-    if (child?.__typename === 'Taxonomy') {
-      const children = child?.childrenCollection?.items?.map((childItem) => {
-        return childItem?.slug;
-      });
+        children?.push(slug);
 
-      children?.push(slug);
+        return children;
+      }
 
-      console.log('children:', children);
+      return slug;
+    })
+    .flat();
 
-      return children;
-    }
+  console.log('results:', results);
 
-    console.log('slug:', slug);
-
-    return slug;
-  });
-
-  console.log('results:', results?.flat());
-
-  return results ? results?.flat().filter(notNullOrUndefined) : [];
+  return results ? results?.filter(notNullOrUndefined) : [];
 };
 
 export const queryListPageContent = async (
