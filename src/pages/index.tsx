@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 
 import Layout from 'layout/SiteLayout';
 // import Loading from 'components/Loading';
-import RecipeGrid from 'components/RecipeList/RecipeGrid';
+import RecipeList from '@/components/RecipeGrid/RecipeGrid';
 
 const HomePage = ({
   pageContent,
@@ -20,7 +20,7 @@ const HomePage = ({
         {pageContent && `${pageContent?.length} Total`}
       </Typography>
 
-      <RecipeGrid recipes={pageContent} />
+      <RecipeList recipes={pageContent} />
       {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </Container>
   );

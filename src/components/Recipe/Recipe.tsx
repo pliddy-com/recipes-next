@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 // import { useParams } from 'react-router-dom';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -92,8 +92,6 @@ const Recipe = ({ recipe }: RecipeProps) => {
     url: "https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg"
     width: 4032
   */
-
-  console.log({ ingredientsCollection });
 
   return (
     <Container className="main" component="main">

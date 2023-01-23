@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "npm run typegen && next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "npm run typegen && next build",
+    "start": "npm run build && next start",
     "lint": "prettier --check . && next lint",
     "lint:fix": "prettier --write . && next lint --fix",
     "typecheck": "tsc",

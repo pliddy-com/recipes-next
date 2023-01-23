@@ -1,14 +1,14 @@
-import { ReactElement, useEffect, useState } from 'react';
-import Head from 'next/head';
+import { ReactElement } from 'react';
+// import Head from 'next/head';
 
 // import Header from 'layout/components/Header/Header';
 
 // import { getNavContent } from 'lib/api';
 
-import {
-  Maybe,
-  // Menu
-} from 'types/generated/graphql';
+// import {
+//   Maybe,
+//   // Menu
+// } from 'types/generated/graphql';
 
 type LayoutProps = {
   children?: ReactElement[] | ReactElement;

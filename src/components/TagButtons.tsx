@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 // import { Link } from 'react-router-dom';
-import Link, { LinkProps } from 'next/link';
+import Link from 'next/link';
 
 import { Tag } from 'types/generated/graphql';
 

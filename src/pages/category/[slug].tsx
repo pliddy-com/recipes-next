@@ -6,27 +6,28 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 
-import { queryPageSlugs, queryRecipeCollectionContent } from 'lib/api';
+import { queryCategorySlugs, queryListPageContent } from 'lib/api';
 
 import SiteLayout from 'layout/SiteLayout';
 import { notNullOrUndefined } from 'lib/typeUtils';
 
-import Recipe from 'components/Recipe/Recipe';
+import Container from '@mui/material/Container';
 
-const RecipePage = ({
+const CategoryPage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Recipe recipe={pageContent} />
-  // <pre>{JSON.stringify(pageContent, null, 2)}</pre>
+  <Container>
+    <pre>{JSON.stringify(pageContent, null, 2)}</pre>
+  </Container>
 );
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugQueryResults = await queryPageSlugs({
-    where: { slug_not: 'error' },
+  const slugQueryResults = await queryCategorySlugs({
+    where: { slug: 'categories', slug_not: 'error' },
   });
 
   const paths = slugQueryResults
-    .map(({ slug }) => slug)
+    .map((slug) => slug)
     .filter(notNullOrUndefined)
     .map((slug) => ({
       params: { slug },
@@ -44,13 +45,15 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     throw new Error('Error in SSG!');
   }
 
-  const [pageContent] = await queryRecipeCollectionContent({
+  const [pageContent] = await queryListPageContent({
     where: { slug },
   });
 
   return { props: { pageContent, preview: Boolean(preview) } };
 };
 
-RecipePage.getLayout = (page: ReactElement) => <SiteLayout>{page}</SiteLayout>;
+CategoryPage.getLayout = (page: ReactElement) => (
+  <SiteLayout>{page}</SiteLayout>
+);
 
-export default RecipePage;
+export default CategoryPage;

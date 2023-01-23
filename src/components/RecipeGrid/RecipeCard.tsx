@@ -1,5 +1,5 @@
 // import { Link } from 'react-router-dom';
-import Link, { LinkProps } from 'next/link';
+import Link from 'next/link';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -47,6 +47,11 @@ type RecipeCardProps = {
 };
 
 const RecipeCard = ({ recipe }: RecipeCardProps) => {
+  const isLg = useMediaQuery(theme.breakpoints.up('lg'));
+  const isMd = useMediaQuery(theme.breakpoints.up('md'));
+  const isSm = useMediaQuery(theme.breakpoints.up('sm'));
+  const size = isLg ? 'lg' : isMd ? 'md' : isSm ? 'sm' : 'xs';
+
   if (!recipe) return null;
 
   // console.log({ recipe });
@@ -58,11 +63,6 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
   const { url, description: imgAlt } = image ?? {};
   const src = url as string;
   const alt = imgAlt as string;
-
-  const isLg = useMediaQuery(theme.breakpoints.up('lg'));
-  const isMd = useMediaQuery(theme.breakpoints.up('md'));
-  const isSm = useMediaQuery(theme.breakpoints.up('sm'));
-  const size = isLg ? 'lg' : isMd ? 'md' : isSm ? 'sm' : 'xs';
 
   return (
     <Card variant="outlined">

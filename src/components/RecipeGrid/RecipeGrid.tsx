@@ -1,11 +1,11 @@
 import Grid from '@mui/material/Grid';
 
 import Loading from 'components/Loading';
-import RecipeCard from 'components/RecipeList/RecipeCard';
+import RecipeCard from '@/components/RecipeGrid/RecipeCard';
 
 import { Maybe, RecipeDefaultFragment } from 'types/generated/graphql';
 
-type RecipeGridProps = {
+type RecipeGridrops = {
   recipes?: RecipeDefaultFragment[];
 };
 
@@ -15,7 +15,7 @@ const styles = {
   },
 };
 
-const RecipeGrid = ({ recipes }: RecipeGridProps) => {
+const RecipeGrid = ({ recipes }: RecipeGridrops) => {
   if (!recipes) return <Loading />;
 
   return (
