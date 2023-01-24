@@ -29,10 +29,6 @@ export default class MyDocument extends Document {
           <link rel="manifest" href="/site.webmanifest" />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#193d60" />
           <meta name="theme-color" content="#000000" />
-          <meta
-            name="description"
-            content="Patrick's personal recipe collection"
-          />
           <meta name="msapplication-TileColor" content="#ff0000" />
           <meta name="theme-color" content="#ffffff" />
         </Head>

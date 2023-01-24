@@ -22,7 +22,7 @@ const RecipePage = ({
   return (
     <>
       <Head>
-        <meta title={title || 'Liddy Recipes'} />
+        <meta title={title || 'Recipe'} />
       </Head>
       <Recipe recipe={pageContent} />
     </>
