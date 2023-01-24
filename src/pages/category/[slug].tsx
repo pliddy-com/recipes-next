@@ -6,9 +6,11 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 
+import Head from 'next/head';
+
 import { queryCategorySlugs, queryListPageContent } from 'lib/api';
 
-import SiteLayout from 'layout/SiteLayout';
+import Layout from '@/layout/layout';
 import { notNullOrUndefined } from 'lib/typeUtils';
 
 import Container from '@mui/material/Container';
@@ -19,23 +21,33 @@ import { RecipeDefaultFragment } from '@/types/generated/graphql';
 
 const CategoryPage = ({
   pageContent,
-}: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Container className="main" component="main">
-    <Typography variant="h1">All My Recipes</Typography>
-    <Typography variant="subtitle1" component="h2" gutterBottom>
-      {pageContent &&
-        `${pageContent?.linkedFrom?.recipeCollection?.items.length} Total`}
-    </Typography>
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { title } = pageContent?.linkedFrom?.recipeCollection?.items[0] ?? {};
 
-    <RecipeGrid
-      recipes={
-        pageContent?.linkedFrom?.recipeCollection
-          ?.items as RecipeDefaultFragment[]
-      }
-    />
-    {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
-  </Container>
-);
+  return (
+    <>
+      <Head>
+        <meta title={title || 'Category'} />
+      </Head>
+
+      <Container className="main" component="main">
+        <Typography variant="h1">All My Recipes</Typography>
+        <Typography variant="subtitle1" component="h2" gutterBottom>
+          {pageContent &&
+            `${pageContent?.linkedFrom?.recipeCollection?.items.length} Total`}
+        </Typography>
+
+        <RecipeGrid
+          recipes={
+            pageContent?.linkedFrom?.recipeCollection
+              ?.items as RecipeDefaultFragment[]
+          }
+        />
+        {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
+      </Container>
+    </>
+  );
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugQueryResults = await queryCategorySlugs({
@@ -68,8 +80,6 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   return { props: { pageContent, preview: Boolean(preview) } };
 };
 
-CategoryPage.getLayout = (page: ReactElement) => (
-  <SiteLayout>{page}</SiteLayout>
-);
+CategoryPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
 export default CategoryPage;

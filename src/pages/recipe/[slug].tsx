@@ -6,19 +6,29 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 
+import Head from 'next/head';
+
 import { queryPageSlugs, queryRecipeCollectionContent } from 'lib/api';
 
-import SiteLayout from 'layout/SiteLayout';
+import Layout from '@/layout/layout';
 import { notNullOrUndefined } from 'lib/typeUtils';
 
 import Recipe from 'components/Recipe/Recipe';
 
 const RecipePage = ({
   pageContent,
-}: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Recipe recipe={pageContent} />
-  // <pre>{JSON.stringify(pageContent, null, 2)}</pre>
-);
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { title } = pageContent ?? {};
+  return (
+    <>
+      <Head>
+        <meta title={title || 'Liddy Recipes'} />
+      </Head>
+      <Recipe recipe={pageContent} />
+    </>
+    // <pre>{JSON.stringify(pageContent, null, 2)}</pre>
+  );
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugQueryResults = await queryPageSlugs({
@@ -51,6 +61,6 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   return { props: { pageContent, preview: Boolean(preview) } };
 };
 
-RecipePage.getLayout = (page: ReactElement) => <SiteLayout>{page}</SiteLayout>;
+RecipePage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
 export default RecipePage;

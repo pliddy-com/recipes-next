@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-// import Head from 'next/head';
+import Head from 'next/head';
 
 // import Header from 'layout/components/Header/Header';
 
@@ -29,6 +29,12 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
+      <Head>
+        <meta
+          name="description"
+          content="Patrick's personal recipe collection"
+        />
+      </Head>
       {/* <Header navData={navData} /> */}
       <main>{children}</main>
     </>

@@ -6,7 +6,7 @@ import { queryRecipeCollectionContent } from 'lib/api';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import Layout from 'layout/SiteLayout';
+import Layout from '@/layout/layout';
 // import Loading from 'components/Loading';
 import RecipeGrid from '@/components/RecipeGrid/RecipeGrid';
 
