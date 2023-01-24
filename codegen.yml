@@ -6,7 +6,10 @@ schema:
 documents: 'src/**/*.graphql'
 generates:
   src/types/generated/graphql.ts:
+    # preset: 'client'
     plugins:
       - typescript
       - typescript-operations
       - typed-document-node
+    config:
+      - dedupeFragments: true

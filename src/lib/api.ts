@@ -103,9 +103,9 @@ export const queryCategorySlugs = async (
       const { slug } = child ?? {};
 
       if (child?.__typename === 'Taxonomy') {
-        const children = child?.childrenCollection?.items?.map((childItem) => {
-          return childItem?.slug;
-        });
+        const children = child?.childrenCollection?.items?.map(
+          (childItem) => childItem?.slug
+        );
 
         children?.push(slug);
 
@@ -115,8 +115,6 @@ export const queryCategorySlugs = async (
       return slug;
     })
     .flat();
-
-  console.log('results:', results);
 
   return results ? results?.filter(notNullOrUndefined) : [];
 };

@@ -53,7 +53,7 @@ const Recipe = ({ recipe }: RecipeProps) => {
   const isSm = useMediaQuery(theme.breakpoints.up('sm'));
   const size = isMd ? 'md' : isSm ? 'sm' : 'xs';
 
-  //   if (!recipe) return null;
+  if (!recipe) return null;
 
   //   const [recipe, setRecipe] = useState<Recipe>();
 
