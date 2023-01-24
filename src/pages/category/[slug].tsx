@@ -7,6 +7,7 @@ import {
 } from 'next';
 
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import { queryCategorySlugs, queryListPageContent } from 'lib/api';
 
@@ -22,16 +23,17 @@ import { RecipeDefaultFragment } from '@/types/generated/graphql';
 const CategoryPage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { title } = pageContent?.linkedFrom?.recipeCollection?.items[0] ?? {};
+  const sampleRecipe = pageContent?.linkedFrom?.recipeCollection?.items[0];
+  const { title } = sampleRecipe?.tagsCollection?.items[0] ?? {};
 
   return (
     <>
       <Head>
-        <meta title={title || 'Category'} />
+        <meta title={title || 'Category'} key="title" />
       </Head>
 
       <Container className="main" component="main">
-        <Typography variant="h1">All My Recipes</Typography>
+        <Typography variant="h1">{title}</Typography>
         <Typography variant="subtitle1" component="h2" gutterBottom>
           {pageContent &&
             `${pageContent?.linkedFrom?.recipeCollection?.items.length} Total`}

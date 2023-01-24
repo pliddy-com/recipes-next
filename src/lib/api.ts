@@ -27,28 +27,28 @@ const ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
 
 const API_ENDPOINT = `https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}/`;
 
-const serverSideGraphQLRequestClient = createClient({
+const graphQLRequestClient = createClient({
   url: API_ENDPOINT,
   fetchOptions: () => ({
     headers: { authorization: ACCESS_TOKEN ? `Bearer ${ACCESS_TOKEN}` : '' },
   }),
 });
 
-export async function serverSideGraphQLRequest<
+export async function graphQLRequest<
   TDocument extends TypedDocumentNode<
     ResultOf<TDocument>,
     VariablesOf<TDocument>
   >,
   TVars = TDocument extends unknown ? never : VariablesOf<TDocument>
 >(queryDocument: TDocument, queryVariables: TVars) {
-  if (typeof window !== 'undefined') {
-    throw new Error(
-      'This function should only be used on the server to keep it out of the client bundle!'
-    );
-  }
+  // if (typeof window !== 'undefined') {
+  //   throw new Error(
+  //     'This function should only be used on the server to keep it out of the client bundle!'
+  //   );
+  // }
 
-  const { data, error } = await serverSideGraphQLRequestClient
-    // @ts-expect-error query variables typed by serverSideGraphQLRequest
+  const { data, error } = await graphQLRequestClient
+    // @ts-expect-error query variables typed by graphQLRequest
     .query(queryDocument, queryVariables)
     .toPromise();
 
@@ -65,7 +65,7 @@ export async function serverSideGraphQLRequest<
 export const queryRecipeCollectionContent = async (
   queryVariables?: RecipeCollectionQueryVariables
 ) => {
-  const { recipeCollection } = await serverSideGraphQLRequest(
+  const { recipeCollection } = await graphQLRequest(
     RecipeCollectionDocument,
     queryVariables
   );
@@ -78,7 +78,7 @@ export const queryRecipeCollectionContent = async (
 export const queryPageSlugs = async (
   queryVariables: RecipeSlugsCollectionQueryVariables
 ) => {
-  const { recipeCollection } = await serverSideGraphQLRequest(
+  const { recipeCollection } = await graphQLRequest(
     RecipeSlugsCollectionDocument,
     queryVariables
   );
@@ -91,7 +91,7 @@ export const queryPageSlugs = async (
 export const queryCategorySlugs = async (
   queryVariables: TaxonomyCollectionQueryVariables
 ) => {
-  const { taxonomyCollection } = await serverSideGraphQLRequest(
+  const { taxonomyCollection } = await graphQLRequest(
     TaxonomyCollectionDocument,
     queryVariables
   );
@@ -122,10 +122,23 @@ export const queryCategorySlugs = async (
 export const queryListPageContent = async (
   queryVariables: ListPageQueryQueryVariables
 ) => {
-  const { tagCollection } = await serverSideGraphQLRequest(
+  const { tagCollection } = await graphQLRequest(
     ListPageQueryDocument,
     queryVariables
   );
 
   return tagCollection ? tagCollection.items.filter(notNullOrUndefined) : [];
+};
+
+export const queryNavContent = async (
+  queryVariables: TaxonomyCollectionQueryVariables
+) => {
+  const { taxonomyCollection } = await graphQLRequest(
+    TaxonomyCollectionDocument,
+    queryVariables
+  );
+
+  return taxonomyCollection
+    ? taxonomyCollection.items.filter(notNullOrUndefined)
+    : [];
 };
