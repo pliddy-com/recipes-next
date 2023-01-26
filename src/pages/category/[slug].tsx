@@ -28,7 +28,7 @@ const CategoryPage = ({
   return (
     <>
       <Head>
-        <meta title={title || 'Category'} key="title" />
+        <title>{title || 'Category'}</title>
       </Head>
 
       <Container className="main" component="main">

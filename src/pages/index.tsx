@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 import { InferGetStaticPropsType } from 'next';
+import Head from 'next/head';
 // import dynamic from 'next/dynamic';
 import { queryRecipeCollectionContent } from 'lib/api';
 
@@ -14,15 +15,20 @@ const HomePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Container className="main" component="main">
-      <Typography variant="h1">All My Recipes</Typography>
-      <Typography variant="subtitle1" component="h2" gutterBottom>
-        {pageContent && `${pageContent?.length} Total`}
-      </Typography>
+    <>
+      <Head>
+        <title>Recipes</title>
+      </Head>
+      <Container className="main" component="main">
+        <Typography variant="h1">All My Recipes</Typography>
+        <Typography variant="subtitle1" component="h2" gutterBottom>
+          {pageContent && `${pageContent?.length} Total`}
+        </Typography>
 
-      <RecipeGrid recipes={pageContent} />
-      {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
-    </Container>
+        <RecipeGrid recipes={pageContent} />
+        {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
+      </Container>
+    </>
   );
 };
 

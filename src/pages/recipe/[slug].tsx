@@ -22,7 +22,7 @@ const RecipePage = ({
   return (
     <>
       <Head>
-        <meta title={title || 'Recipe'} key="title" />
+        <title>{title || 'Recipe'}</title>
       </Head>
       <Recipe recipe={pageContent} />
     </>

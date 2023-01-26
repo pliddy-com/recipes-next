@@ -32,7 +32,7 @@ const TagPage = ({
   return (
     <>
       <Head>
-        <meta title={title || 'Category'} key="title" />
+        <title>{title || 'Slug'}</title>
       </Head>
 
       <Container className="main" component="main">

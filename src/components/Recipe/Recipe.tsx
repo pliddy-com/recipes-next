@@ -108,10 +108,10 @@ const Recipe = ({ recipe }: RecipeProps) => {
           <Grid item md>
             <img
               alt={alt}
-              src={`${src}?w=${imgSizes.width[size]}&h=${imgSizes.height[size]}&fm=webp`}
+              src={`${src}?h=${imgSizes.height[size]}&fm=webp`}
               style={{ maxWidth: '100%', height: 'auto' }}
               height={imgSizes.height[size]}
-              width={imgSizes.width[size]}
+              // width={imgSizes.width[size]}
             />
           </Grid>
         )}
