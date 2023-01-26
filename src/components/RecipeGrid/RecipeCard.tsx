@@ -54,8 +54,6 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
 
   if (!recipe) return null;
 
-  // console.log({ recipe });
-
   const { title, abstract, image, tagsCollection, slug } = recipe ?? {};
   const { items } = tagsCollection ?? {};
   const tags = items as Array<Tag>;

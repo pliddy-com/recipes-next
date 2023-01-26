@@ -265,6 +265,8 @@ query listPageQuery($where: TagFilter) {
   tagCollection(where: $where, limit: 1) {
     total
     items {
+      slug
+      title
       linkedFrom {
         recipeCollection(limit: 24) {
           total
@@ -289,10 +291,25 @@ query recipeSlugsCollection($where: RecipeFilter) {
 
 # query for category slugs
 
-query categorySlugsCollection($where: TaxonomyFilter) {
-  taxonomyCollection(where: $where) {
+query categorySlugsCollection($where: TagFilter) {
+  tagCollection(where: $where) {
     items {
       slug
+    }
+  }
+}
+
+# query for category slugs
+
+query tagSlugsCollection($where: TagFilter) {
+  tagCollection(where: $where) {
+    items {
+      slug
+      linkedFrom {
+        recipeCollection {
+          total
+        }
+      }
     }
   }
 }

@@ -9,10 +9,13 @@ import {
   // CategorySlugsCollectionQueryVariables,
   ListPageQueryDocument,
   ListPageQueryQueryVariables,
+  TagSlugsCollectionDocument,
+  TagSlugsCollectionQueryVariables,
   TaxonomyCollectionDocument,
   TaxonomyCollectionQueryVariables,
   // TagDefaultFragment,
   // TaxonomyDefaultFragment,
+  // Tag,
 } from 'types/generated/graphql';
 
 import {
@@ -119,6 +122,46 @@ export const queryCategorySlugs = async (
   return results ? results?.filter(notNullOrUndefined) : [];
 };
 
+// TODO: create unique query to find tags applied to recipes
+export const queryTagSlugs = async (
+  queryVariables: TagSlugsCollectionQueryVariables
+) => {
+  const { tagCollection } = await graphQLRequest(
+    TagSlugsCollectionDocument,
+    queryVariables
+  );
+
+  // tagCollection {
+  //   total
+  //   items {
+  //     slug
+  //     linkedFrom {
+  //       recipeCollection {
+  //         total
+  //       }
+  //     }
+  //   }
+  // }
+
+  // TODO: add filter to find if linkedFrom.recipeCollection.total > 0
+  // const hasRecipes = ({ item }: { item: Tag }) => {
+  //   const { total } = item?.linkedFrom?.recipeCollection ?? {};
+
+  //   return total ? total > 0 : false;
+  // };
+
+  return tagCollection
+    ? tagCollection.items
+        .filter(notNullOrUndefined)
+        .filter(
+          (item) =>
+            item?.linkedFrom?.recipeCollection?.total &&
+            item?.linkedFrom?.recipeCollection?.total > 0
+        )
+    : [];
+};
+
+// TODO: check that this query returns only one tag, not all
 export const queryListPageContent = async (
   queryVariables: ListPageQueryQueryVariables
 ) => {

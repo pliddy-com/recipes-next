@@ -8,7 +8,11 @@ import {
 
 import Head from 'next/head';
 
-import { queryCategorySlugs, queryListPageContent } from 'lib/api';
+import {
+  // queryCategorySlugs,
+  queryTagSlugs,
+  queryListPageContent,
+} from 'lib/api';
 
 import Layout from '@/layout/layout';
 import { notNullOrUndefined } from 'lib/typeUtils';
@@ -19,7 +23,7 @@ import Typography from '@mui/material/Typography';
 import RecipeGrid from '@/components/RecipeGrid/RecipeGrid';
 import { RecipeDefaultFragment } from '@/types/generated/graphql';
 
-const CategoryPage = ({
+const TagPage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   // const sampleRecipe = pageContent?.linkedFrom?.recipeCollection?.items[0];
@@ -51,12 +55,12 @@ const CategoryPage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugQueryResults = await queryCategorySlugs({
-    where: { slug: 'categories', slug_not: 'error' },
+  const slugQueryResults = await queryTagSlugs({
+    where: { slug_not: 'error' },
   });
 
   const paths = slugQueryResults
-    .map((slug) => slug)
+    .map((tag) => tag?.slug)
     .filter(notNullOrUndefined)
     .map((slug) => ({
       params: { slug },
@@ -81,6 +85,6 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   return { props: { pageContent, preview: Boolean(preview) } };
 };
 
-CategoryPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+TagPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
-export default CategoryPage;
+export default TagPage;
