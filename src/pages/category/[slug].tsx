@@ -10,7 +10,7 @@ import Head from 'next/head';
 
 import { queryCategorySlugs, queryListPageContent } from 'lib/api';
 
-import Layout from '@/layout/layout';
+import Layout from '@/layout/Layout';
 import { notNullOrUndefined } from 'lib/typeUtils';
 
 import Container from '@mui/material/Container';

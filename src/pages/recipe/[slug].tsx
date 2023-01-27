@@ -10,7 +10,7 @@ import Head from 'next/head';
 
 import { queryPageSlugs, queryRecipeCollectionContent } from 'lib/api';
 
-import Layout from '@/layout/layout';
+import Layout from '@/layout/Layout';
 import { notNullOrUndefined } from 'lib/typeUtils';
 
 import Recipe from 'components/Recipe/Recipe';
