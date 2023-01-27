@@ -10,7 +10,7 @@ import Head from 'next/head';
 
 import { queryPageSlugs, queryRecipeCollectionContent } from 'lib/api';
 
-import Layout from '@/layout/Layout';
+import Layout from 'layout/Layout';
 import { notNullOrUndefined } from 'lib/typeUtils';
 
 import Recipe from 'components/Recipe/Recipe';
@@ -22,7 +22,7 @@ const RecipePage = ({
   return (
     <>
       <Head>
-        <title>Patrick's Recipes | {title || 'Recipe'}</title>
+        <title>{`Patrick's Recipes - ${title}`}</title>
       </Head>
       <Recipe recipe={pageContent} />
     </>

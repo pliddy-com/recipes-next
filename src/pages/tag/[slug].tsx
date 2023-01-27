@@ -10,7 +10,7 @@ import Head from 'next/head';
 
 import { queryTagSlugs, queryListPageContent } from 'lib/api';
 
-import Layout from '@/layout/Layout';
+import Layout from 'layout/Layout';
 import { notNullOrUndefined } from 'lib/typeUtils';
 
 import Container from '@mui/material/Container';
@@ -27,7 +27,7 @@ const TagPage = ({
   return (
     <>
       <Head>
-        <title>Patrick's Recipes | {title || 'Slug'}</title>
+        <title>{`Patrick's Recipes - ${title}`}</title>
       </Head>
 
       <Container className="main" component="main">
