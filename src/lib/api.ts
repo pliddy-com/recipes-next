@@ -5,17 +5,12 @@ import {
   RecipeCollectionQueryVariables,
   RecipeSlugsCollectionDocument,
   RecipeSlugsCollectionQueryVariables,
-  // CategorySlugsCollectionDocument,
-  // CategorySlugsCollectionQueryVariables,
   ListPageQueryDocument,
   ListPageQueryQueryVariables,
   TagSlugsCollectionDocument,
   TagSlugsCollectionQueryVariables,
   TaxonomyCollectionDocument,
   TaxonomyCollectionQueryVariables,
-  // TagDefaultFragment,
-  // TaxonomyDefaultFragment,
-  // Tag,
 } from 'types/generated/graphql';
 
 import {
@@ -23,7 +18,6 @@ import {
   // ResolvedPromise
 } from 'lib/typeUtils';
 import { ResultOf, VariablesOf } from '@graphql-typed-document-node/core';
-// import { ConstructionOutlined } from '@mui/icons-material';
 
 const SPACE_ID = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
 const ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
@@ -142,13 +136,6 @@ export const queryTagSlugs = async (
   //     }
   //   }
   // }
-
-  // TODO: add filter to find if linkedFrom.recipeCollection.total > 0
-  // const hasRecipes = ({ item }: { item: Tag }) => {
-  //   const { total } = item?.linkedFrom?.recipeCollection ?? {};
-
-  //   return total ? total > 0 : false;
-  // };
 
   return tagCollection
     ? tagCollection.items

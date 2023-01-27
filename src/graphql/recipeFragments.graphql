@@ -1,0 +1,73 @@
+# Fragments with default fields for Recipe-specific sections:
+#   * Ingredients
+#   * Instructions
+#   * Image
+#   * Recipe
+
+fragment IngredientsDefault on IngredientSection {
+  sys {
+    id
+  }
+  title
+  slug
+  label
+  ingredientList
+}
+
+fragment InstructionsDefault on InstructionSection {
+  sys {
+    id
+  }
+  title
+  slug
+  label
+  instructionList
+}
+
+fragment ImageDefault on Asset {
+  sys {
+    id
+  }
+  __typename
+  title
+  description
+  contentType
+  fileName
+  size
+  url
+  height
+  width
+}
+
+fragment RecipeDefault on Recipe {
+  sys {
+    id
+  }
+  __typename
+  title
+  slug
+  description {
+    json
+  }
+  abstract
+  image {
+    ...ImageDefault
+  }
+  ingredientsCollection(limit: 10) {
+    items {
+      ...IngredientsDefault
+    }
+  }
+  equipment
+  instructionsCollection(limit: 10) {
+    items {
+      ...InstructionsDefault
+    }
+  }
+  notes
+  tagsCollection(limit: 10) {
+    items {
+      ...TagDefault
+    }
+  }
+}

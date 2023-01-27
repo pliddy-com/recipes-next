@@ -1,238 +1,10 @@
-# Fragments wiht default fields for:
-#   * Tag
-#   * Taxonomy
+# Query for Homepage RecipeCollection (all recipes)
 
-fragment TagDefault on Tag {
-  sys {
-    id
-  }
-  __typename
-  title
-  slug
-}
-
-fragment TaxonomyDefault on Taxonomy {
-  ... on Taxonomy {
-    sys {
-      id
-    }
-    __typename
-    title
-    slug
-  }
-}
-
-# Fragment with fields for Tag with linkedFrom Recipes
-
-fragment TagWithLinks on Tag {
-  ... on Tag {
-    # ...TagDefault
-    sys {
-      id
-    }
-    __typename
-    title
-    slug
-
-    linkedFrom {
-      recipeCollection(limit: 1) {
-        total
-      }
-    }
-  }
-}
-
-# Fragment with Fields for Taxonomy with no children
-
-fragment TaxonomyRoot on Taxonomy {
-  ... on Taxonomy {
-    # ...TaxonomyDefault
-    sys {
-      id
-    }
-    __typename
-    title
-    slug
-
-    tag {
-      # ...TagDefault
-      sys {
-        id
-      }
-      __typename
-      title
-      slug
-    }
-  }
-}
-
-# Fragment with Fields for Taxonomy with children
-
-fragment TaxonomyWithChildren on Taxonomy {
-  ... on Taxonomy {
-    # ...TaxonomyDefault
-    sys {
-      id
-    }
-    __typename
-    title
-    slug
-    tag {
-      ...TagWithLinks
-    }
-    childrenCollection {
-      total
-      items {
-        # ...TagWithLinks
-        ... on Tag {
-          # ...TagDefault
-          sys {
-            id
-          }
-          __typename
-          title
-          slug
-
-          linkedFrom {
-            recipeCollection(limit: 1) {
-              total
-            }
-          }
-        }
-        ...TaxonomyRoot
-      }
-    }
-  }
-}
-
-# Query for Taxonomy with Category & Subcategory levels
-
-query taxonomyCollection($where: TaxonomyFilter) {
-  taxonomyCollection(where: $where, limit: 1) {
+query homePageQuery {
+  recipeCollection(order: title_ASC) {
+    total
     items {
-      # ...TaxonomyDefault
-      sys {
-        id
-      }
-      __typename
-      title
-      slug
-
-      tag {
-        # ...TagDefault
-        sys {
-          id
-        }
-        __typename
-        title
-        slug
-      }
-      childrenCollection(limit: 24) {
-        total
-        items {
-          # ...TagWithLinks
-          ... on Tag {
-            # ...TagDefault
-            sys {
-              id
-            }
-            __typename
-            title
-            slug
-
-            linkedFrom {
-              recipeCollection(limit: 1) {
-                total
-              }
-            }
-          }
-          ...TaxonomyWithChildren
-        }
-      }
-    }
-  }
-}
-
-# Fragments with default fields for Recipe-specific sections:
-#   * Ingredients
-#   * Instructions
-#   * Image
-#   * Recipe
-
-fragment IngredientsDefault on IngredientSection {
-  ... on IngredientSection {
-    sys {
-      id
-    }
-    title
-    slug
-    label
-    ingredientList
-  }
-}
-
-fragment InstructionsDefault on InstructionSection {
-  ... on InstructionSection {
-    sys {
-      id
-    }
-    title
-    slug
-    label
-    instructionList
-  }
-}
-
-fragment ImageDefault on Asset {
-  sys {
-    id
-  }
-  __typename
-  title
-  description
-  contentType
-  fileName
-  size
-  url
-  height
-  width
-}
-
-fragment RecipeDefault on Recipe {
-  sys {
-    id
-  }
-  __typename
-  title
-  slug
-  description {
-    json
-  }
-  abstract
-  image {
-    ...ImageDefault
-  }
-  ingredientsCollection(limit: 10) {
-    items {
-      ...IngredientsDefault
-    }
-  }
-  equipment
-  instructionsCollection(limit: 10) {
-    items {
-      ...InstructionsDefault
-    }
-  }
-  notes
-  tagsCollection(limit: 10) {
-    items {
-      # ...TagDefault
-      sys {
-        id
-      }
-      __typename
-      title
-      slug
+      ...RecipeDefault
     }
   }
 }
@@ -241,17 +13,6 @@ fragment RecipeDefault on Recipe {
 
 query recipeCollection($where: RecipeFilter) {
   recipeCollection(where: $where, order: title_ASC) {
-    total
-    items {
-      ...RecipeDefault
-    }
-  }
-}
-
-# Query for Homepage RecipeCollection (all recipes)
-
-query homePageQuery {
-  recipeCollection(order: title_ASC) {
     total
     items {
       ...RecipeDefault
@@ -314,4 +75,32 @@ query tagSlugsCollection($where: TagFilter) {
   }
 }
 
-# TODO: extend values to include child structures
+# query for Taxonomy with Category & Subcategory levels
+
+query taxonomyCollection($where: TaxonomyFilter) {
+  taxonomyCollection(where: $where, limit: 1) {
+    items {
+      ...TaxonomyDefault
+
+      tag {
+        ...TagDefault
+      }
+
+      childrenCollection(limit: 24) {
+        total
+        items {
+          ... on Tag {
+            ...TagDefault
+
+            linkedFrom {
+              recipeCollection(limit: 1) {
+                total
+              }
+            }
+          }
+          ...TaxonomyWithChildren
+        }
+      }
+    }
+  }
+}

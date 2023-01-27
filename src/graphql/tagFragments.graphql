@@ -1,0 +1,84 @@
+# Fragments with default fields for:
+#   * Tag
+#   * Taxonomy
+
+fragment TagDefault on Tag {
+  sys {
+    id
+  }
+  __typename
+  title
+  slug
+}
+
+fragment TaxonomyDefault on Taxonomy {
+  sys {
+    id
+  }
+  __typename
+  title
+  slug
+}
+
+# Fragment with fields for Tag with linkedFrom Recipes
+
+fragment TagWithLinks on Tag {
+  # ...TagDefault
+  sys {
+    id
+  }
+  __typename
+  title
+  slug
+
+  linkedFrom {
+    recipeCollection(limit: 1) {
+      total
+    }
+  }
+}
+
+# Fragment with Fields for Taxonomy with no children
+
+fragment TaxonomyRoot on Taxonomy {
+  # ...TaxonomyDefault
+  sys {
+    id
+  }
+  __typename
+  title
+  slug
+
+  tag {
+    # ...TagDefault
+    sys {
+      id
+    }
+    __typename
+    title
+    slug
+  }
+}
+
+# Fragment with Fields for Taxonomy with children
+
+fragment TaxonomyWithChildren on Taxonomy {
+  # ...TaxonomyDefault
+  sys {
+    id
+  }
+  __typename
+  title
+  slug
+
+  tag {
+    ...TagWithLinks
+  }
+  childrenCollection {
+    total
+    items {
+      ...TagWithLinks
+      ...TaxonomyRoot
+    }
+  }
+}

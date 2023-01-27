@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "check-env": "node -e 'console.log(process.env)'",
     "predeploy": "npm run export",
     "deploy": "dotenv -- cross-var aws s3 sync --acl public-read out/ %S3_BUCKET%",
     "postdeploy": "dotenv -- cross-var aws cloudfront create-invalidation --distribution-id %DISTRIBUTION_ID% --paths '/*' --no-cli-pager",
     "export": "next build && next export",
-    "dev": "npm run typegen && next dev",
-    "build": "npm run typegen && next build",
-    "start": "npm run build && next start",
+    "predev": "npm run typegen",
+    "dev": "next dev",
+    "prebuild": "npm run typegen",
+    "build": "next build",
+    "prestart": "npm run build",
+    "start": "next start",
     "lint": "prettier --check . && next lint",
     "lint:fix": "prettier --write . && next lint --fix",
     "typecheck": "tsc",
@@ -53,7 +55,6 @@
     "cross-var-no-babel": "^1.2.0",
     "dotenv": "^16.0.3",
     "dotenv-cli": "^7.0.0",
-    "env-var": "^7.3.0",
     "tslint-config-prettier": "^1.18.0",
     "urql": "^3.0.3"
   }
