@@ -42,8 +42,8 @@ export default class MyDocument extends Document {
   }
 }
 
-// `getInitialProps` belongs to `_document` (instead of `_app`),
-// it's compatible with static-site generation (SSG).
+// use getInitialProps in _document, not _app`) for SSG
+
 MyDocument.getInitialProps = async (ctx) => {
   // Resolution order
   //
@@ -71,6 +71,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   // You can consider sharing the same emotion cache between all the SSR requests to speed up performance.
   // However, be aware that it can have global side effects.
+
   const cache = createEmotionCache();
   const { extractCriticalToChunks } = createEmotionServer(cache);
 

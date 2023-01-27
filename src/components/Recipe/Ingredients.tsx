@@ -10,7 +10,7 @@ import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import { IngredientsDefaultFragment } from 'types/generated/graphql';
 
 type IngredientsProps = {
-  sections: IngredientsDefaultFragment[];
+  sections?: IngredientsDefaultFragment[];
 };
 
 const Ingredients = ({ sections }: IngredientsProps) => {
@@ -24,7 +24,7 @@ const Ingredients = ({ sections }: IngredientsProps) => {
       {sections &&
         sections.map((section) => {
           const { label, ingredientList } = section ?? {};
-          const ingredients = ingredientList as Array<string>;
+          const ingredients = ingredientList;
 
           return (
             <Stack key={label} direction="column" spacing={0}>
@@ -32,14 +32,15 @@ const Ingredients = ({ sections }: IngredientsProps) => {
                 <Typography variant="h3">{label}</Typography>
               )}
               <List className="recipeList">
-                {ingredients.map((ingredient: string) => (
-                  <ListItem key={ingredient} disableGutters>
-                    <ListItemIcon>
-                      <RestaurantMenuIcon color="secondary" />
-                    </ListItemIcon>
-                    <ListItemText primary={ingredient} />
-                  </ListItem>
-                ))}
+                {ingredients &&
+                  ingredients.map((ingredient) => (
+                    <ListItem key={ingredient} disableGutters>
+                      <ListItemIcon>
+                        <RestaurantMenuIcon color="secondary" />
+                      </ListItemIcon>
+                      <ListItemText primary={ingredient} />
+                    </ListItem>
+                  ))}
               </List>
             </Stack>
           );

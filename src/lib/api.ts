@@ -125,18 +125,6 @@ export const queryTagSlugs = async (
     queryVariables
   );
 
-  // tagCollection {
-  //   total
-  //   items {
-  //     slug
-  //     linkedFrom {
-  //       recipeCollection {
-  //         total
-  //       }
-  //     }
-  //   }
-  // }
-
   return tagCollection
     ? tagCollection.items
         .filter(notNullOrUndefined)

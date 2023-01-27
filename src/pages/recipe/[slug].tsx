@@ -22,7 +22,7 @@ const RecipePage = ({
   return (
     <>
       <Head>
-        <title>{title || 'Recipe'}</title>
+        <title>Patrick's Recipes | {title || 'Recipe'}</title>
       </Head>
       <Recipe recipe={pageContent} />
     </>

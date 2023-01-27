@@ -22,13 +22,12 @@ import { RecipeDefaultFragment } from '@/types/generated/graphql';
 const CategoryPage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  // const sampleRecipe = pageContent?.linkedFrom?.recipeCollection?.items[0];
   const { title } = pageContent ?? {};
 
   return (
     <>
       <Head>
-        <title>{title || 'Category'}</title>
+        <title>Patrick's Recipes | {title || 'Category'}</title>
       </Head>
 
       <Container className="main" component="main">

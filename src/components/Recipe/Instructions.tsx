@@ -27,20 +27,21 @@ const Instructions = ({ sections }: InstructionsProps) => {
       {sections &&
         sections.map((section) => {
           const { label, instructionList } = section ?? {};
-          const instructions = instructionList as Array<string>;
+          const instructions = instructionList;
           return (
             <Stack key={label} direction="column" spacing={0}>
               <Typography variant="h3">{label}</Typography>
 
               <List className="recipeList">
-                {instructions.map((instruction: string) => (
-                  <ListItem key={`instruction-${num}`} disableGutters>
-                    <ListItemAvatar>
-                      <Avatar color="secondary">{num++}</Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary={instruction} />
-                  </ListItem>
-                ))}
+                {instructions &&
+                  instructions.map((instruction) => (
+                    <ListItem key={`instruction-${num}`} disableGutters>
+                      <ListItemAvatar>
+                        <Avatar color="secondary">{num++}</Avatar>
+                      </ListItemAvatar>
+                      <ListItemText primary={instruction} />
+                    </ListItem>
+                  ))}
               </List>
             </Stack>
           );

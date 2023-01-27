@@ -8,11 +8,7 @@ import {
 
 import Head from 'next/head';
 
-import {
-  // queryCategorySlugs,
-  queryTagSlugs,
-  queryListPageContent,
-} from 'lib/api';
+import { queryTagSlugs, queryListPageContent } from 'lib/api';
 
 import Layout from '@/layout/layout';
 import { notNullOrUndefined } from 'lib/typeUtils';
@@ -26,13 +22,12 @@ import { RecipeDefaultFragment } from '@/types/generated/graphql';
 const TagPage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  // const sampleRecipe = pageContent?.linkedFrom?.recipeCollection?.items[0];
   const { title } = pageContent ?? {};
 
   return (
     <>
       <Head>
-        <title>{title || 'Slug'}</title>
+        <title>Patrick's Recipes | {title || 'Slug'}</title>
       </Head>
 
       <Container className="main" component="main">

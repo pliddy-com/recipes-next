@@ -17,10 +17,10 @@ const HomePage = ({
   return (
     <>
       <Head>
-        <title>Recipes</title>
+        <title>Patrick's Recipes | All Recipes</title>
       </Head>
       <Container className="main" component="main">
-        <Typography variant="h1">All My Recipes</Typography>
+        <Typography variant="h1">All Recipes</Typography>
         <Typography variant="subtitle1" component="h2" gutterBottom>
           {pageContent && `${pageContent?.length} Total`}
         </Typography>

@@ -43,7 +43,7 @@ const imgSizes = {
 };
 
 type RecipeProps = {
-  recipe: RecipeDefaultFragment;
+  recipe?: RecipeDefaultFragment;
 };
 
 const Recipe = ({ recipe }: RecipeProps) => {
@@ -79,8 +79,8 @@ const Recipe = ({ recipe }: RecipeProps) => {
 
   const { json: descriptionDoc } = description ?? {};
   const { url, description: imgAlt } = image ?? {};
-  const src = url as string;
-  const alt = imgAlt as string;
+  const src = url || '';
+  const alt = imgAlt || '';
 
   /*
     contentType: "image/jpeg"
@@ -120,7 +120,7 @@ const Recipe = ({ recipe }: RecipeProps) => {
         {ingredientsCollection && ingredientsCollection.items && (
           <Ingredients
             sections={
-              ingredientsCollection.items as IngredientsDefaultFragment[]
+              ingredientsCollection?.items as IngredientsDefaultFragment[]
             }
           />
         )}
