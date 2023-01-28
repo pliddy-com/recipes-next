@@ -5,12 +5,12 @@ import ListItemText from '@mui/material/ListItemText';
 
 import { Maybe } from 'types/generated/graphql';
 
-type CategoryListItemButtonProps = {
+interface CategoryListItemButtonProps {
   onClick: VoidFunction;
   slug: Maybe<string> | undefined;
   title: Maybe<string> | undefined;
   total?: number;
-};
+}
 
 const CategoryListItemButton = ({
   onClick,

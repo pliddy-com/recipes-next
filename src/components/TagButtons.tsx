@@ -17,9 +17,9 @@ const style = {
   },
 };
 
-type TagButtonsProps = {
+interface TagButtonsProps {
   tags: Array<Tag>;
-};
+}
 
 const TagButtons = ({ tags }: TagButtonsProps) => {
   return (

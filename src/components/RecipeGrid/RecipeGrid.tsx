@@ -5,9 +5,9 @@ import RecipeCard from '@/components/RecipeGrid/RecipeCard';
 
 import { Maybe, RecipeDefaultFragment } from 'types/generated/graphql';
 
-type RecipeGridrops = {
+interface RecipeGridrops {
   recipes?: RecipeDefaultFragment[];
-};
+}
 
 const styles = {
   grid: {

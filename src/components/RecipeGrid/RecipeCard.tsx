@@ -42,9 +42,9 @@ const imgSizes = {
   },
 };
 
-type RecipeCardProps = {
+interface RecipeCardProps {
   recipe: Maybe<RecipeDefaultFragment>;
-};
+}
 
 const RecipeCard = ({ recipe }: RecipeCardProps) => {
   const isLg = useMediaQuery(theme.breakpoints.up('lg'));

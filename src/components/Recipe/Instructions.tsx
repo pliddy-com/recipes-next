@@ -8,9 +8,9 @@ import Typography from '@mui/material/Typography';
 
 import { InstructionsDefaultFragment } from 'types/generated/graphql';
 
-type InstructionsProps = {
+interface InstructionsProps {
   sections?: InstructionsDefaultFragment[];
-};
+}
 
 const Instructions = ({ sections }: InstructionsProps) => {
   if (!sections) return null;

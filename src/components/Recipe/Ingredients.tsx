@@ -9,9 +9,9 @@ import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 
 import { IngredientsDefaultFragment } from 'types/generated/graphql';
 
-type IngredientsProps = {
+interface IngredientsProps {
   sections?: IngredientsDefaultFragment[];
-};
+}
 
 const Ingredients = ({ sections }: IngredientsProps) => {
   if (!sections) return null;

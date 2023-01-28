@@ -15,11 +15,11 @@ import { SxProps, Theme } from '@mui/material';
 
 import { Maybe, Tag, TaxonomyChildrenItem } from 'types/generated/graphql';
 
-type SubcategoryMenuProps = {
+interface SubcategoryMenuProps {
   category: Maybe<TaxonomyChildrenItem>;
   itemStyle: SxProps<Theme> | undefined;
   onClick: VoidFunction;
-};
+}
 
 const SubcategoryMenu = ({
   category,

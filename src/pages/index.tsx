@@ -17,7 +17,7 @@ const HomePage = ({
   return (
     <>
       <Head>
-        <title>Patrick's Recipes | All Recipes</title>
+        <title>Patrick&apos;s Recipes | All Recipes</title>
       </Head>
       <Container className="main" component="main">
         <Typography variant="h1">All Recipes</Typography>

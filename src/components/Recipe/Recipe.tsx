@@ -42,9 +42,9 @@ const imgSizes = {
   },
 };
 
-type RecipeProps = {
+interface RecipeProps {
   recipe?: RecipeDefaultFragment;
-};
+}
 
 const Recipe = ({ recipe }: RecipeProps) => {
   //   const { slug } = useParams() ?? {};

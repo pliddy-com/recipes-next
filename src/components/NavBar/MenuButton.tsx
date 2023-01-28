@@ -5,9 +5,9 @@ const styles = {
   menuIcon: { ml: 'auto' },
 };
 
-type MenuButtonProps = {
+interface MenuButtonProps {
   onClick: VoidFunction;
-};
+}
 
 const MenuButton = ({ onClick }: MenuButtonProps) => {
   return (

@@ -13,10 +13,10 @@ export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 
-type AppLayoutProps = AppProps & {
+interface AppLayoutProps extends AppProps {
   emotionCache: EmotionCache;
   Component: NextPageWithLayout;
-};
+}
 
 const MyApp = (props: AppLayoutProps) => {
   const {

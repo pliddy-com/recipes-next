@@ -9,9 +9,9 @@ import KitchenTwoToneIcon from '@mui/icons-material/KitchenTwoTone';
 
 import { Maybe, Scalars } from 'types/generated/graphql';
 
-type EquipmentProps = {
+interface EquipmentProps {
   equipment?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
+}
 
 const Equipment = ({ equipment }: EquipmentProps) => {
   if (!equipment) return null;

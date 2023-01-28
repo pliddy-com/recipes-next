@@ -3,9 +3,9 @@ import Typography from '@mui/material/Typography';
 
 import { Maybe, Scalars } from 'types/generated/graphql';
 
-type NotesProps = {
+interface NotesProps {
   notes?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
+}
 
 const Notes = ({ notes }: NotesProps) => {
   if (!notes) return null;

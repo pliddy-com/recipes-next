@@ -17,10 +17,10 @@ const styles = {
   },
 };
 
-type CategoryMenuProps = {
+interface CategoryMenuProps {
   category: Maybe<TaxonomyChildrenItem>;
   onClick: VoidFunction;
-};
+}
 
 const CategoryMenu = ({ category, onClick }: CategoryMenuProps) => {
   const { slug, title } = category ?? {};

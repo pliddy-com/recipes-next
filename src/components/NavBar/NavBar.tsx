@@ -9,9 +9,9 @@ import NavMenu from 'components/NavBar/NavMenu/NavMenu';
 
 import { Taxonomy } from 'types/generated/graphql';
 
-type NavBarProps = {
+interface NavBarProps {
   nav?: Taxonomy;
-};
+}
 
 const NavBar = ({ nav }: NavBarProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

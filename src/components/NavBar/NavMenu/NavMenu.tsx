@@ -21,11 +21,11 @@ const styles = {
   },
 };
 
-type NavMenuType = {
+interface NavMenuType {
   isOpen: boolean;
   nav?: Maybe<Taxonomy>;
   onClick: VoidFunction;
-};
+}
 
 const NavMenu = ({ isOpen, nav, onClick }: NavMenuType) => {
   const { childrenCollection } = nav ?? {};

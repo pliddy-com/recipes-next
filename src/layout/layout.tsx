@@ -5,11 +5,11 @@ import NavBar from 'components/NavBar/NavBar';
 
 import { queryNavContent } from 'lib/api';
 
-import { Maybe, Taxonomy } from 'types/generated/graphql';
+import { Taxonomy } from 'types/generated/graphql';
 
-type LayoutProps = {
+interface LayoutProps {
   children?: ReactElement[] | ReactElement;
-};
+}
 
 const Layout = ({ children }: LayoutProps) => {
   const [navData, setNavData] = useState<Taxonomy>();
