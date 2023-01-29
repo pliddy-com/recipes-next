@@ -17,12 +17,12 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import RecipeGrid from '@/components/RecipeGrid/RecipeGrid';
-import { RecipeDefaultFragment } from '@/types/generated/graphql';
 
 const TagPage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = pageContent ?? {};
+  const recipes = pageContent?.linkedFrom?.recipeCollection?.items ?? [];
 
   return (
     <>
@@ -37,12 +37,7 @@ const TagPage = ({
             `${pageContent?.linkedFrom?.recipeCollection?.items.length} Total`}
         </Typography>
 
-        <RecipeGrid
-          recipes={
-            pageContent?.linkedFrom?.recipeCollection
-              ?.items as RecipeDefaultFragment[]
-          }
-        />
+        {recipes && <RecipeGrid recipes={recipes} />}
         {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
       </Container>
     </>

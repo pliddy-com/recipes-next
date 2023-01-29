@@ -16,33 +16,28 @@ import { notNullOrUndefined } from 'lib/typeUtils';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import RecipeGrid from '@/components/RecipeGrid/RecipeGrid';
-import { RecipeDefaultFragment } from '@/types/generated/graphql';
+import RecipeGrid from 'components/RecipeGrid/RecipeGrid';
 
 const CategoryPage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = pageContent ?? {};
+  const recipes = pageContent?.linkedFrom?.recipeCollection?.items ?? [];
 
   return (
     <>
       <Head>
-        <title>{`Patrick's Recipes - ${title}`}</title>
+        <title>{`Patrick's Recipes - ${title || 'Recipe'}`}</title>
       </Head>
 
       <Container className="main" component="main">
-        <Typography variant="h1">{title}</Typography>
+        <Typography variant="h1">{title || 'Recipe'}</Typography>
         <Typography variant="subtitle1" component="h2" gutterBottom>
           {pageContent &&
             `${pageContent?.linkedFrom?.recipeCollection?.items.length} Total`}
         </Typography>
 
-        <RecipeGrid
-          recipes={
-            pageContent?.linkedFrom?.recipeCollection
-              ?.items as RecipeDefaultFragment[]
-          }
-        />
+        {recipes && <RecipeGrid recipes={recipes} />}
         {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
       </Container>
     </>

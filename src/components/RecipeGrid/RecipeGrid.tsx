@@ -6,7 +6,7 @@ import RecipeCard from '@/components/RecipeGrid/RecipeCard';
 import { Maybe, RecipeDefaultFragment } from 'types/generated/graphql';
 
 interface RecipeGridrops {
-  recipes?: RecipeDefaultFragment[];
+  recipes: (RecipeDefaultFragment | null)[];
 }
 
 const styles = {
@@ -21,7 +21,7 @@ const RecipeGrid = ({ recipes }: RecipeGridrops) => {
   return (
     <Grid container spacing={2}>
       {recipes &&
-        recipes.map((recipe: Maybe<RecipeDefaultFragment>) => (
+        recipes.map((recipe) => (
           <Grid item md={4} sm={6} xs={12} key={recipe?.slug} sx={styles.grid}>
             <RecipeCard recipe={recipe} />
           </Grid>

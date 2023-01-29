@@ -19,12 +19,13 @@ const RecipePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = pageContent ?? {};
+
   return (
     <>
       <Head>
-        <title>{`Patrick's Recipes - ${title}`}</title>
+        <title>{`Patrick's Recipes - ${title || 'Recipe'}`}</title>
       </Head>
-      <Recipe recipe={pageContent} />
+      {pageContent && <Recipe recipe={pageContent} />}
     </>
     // <pre>{JSON.stringify(pageContent, null, 2)}</pre>
   );
