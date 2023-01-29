@@ -17,7 +17,7 @@ const Tags = ({ tags }: TagsProps) => {
       <Typography variant="h2" gutterBottom>
         Tags
       </Typography>
-      <TagButtons tags={tags as Tag[]} />
+      <TagButtons tags={tags} />
     </Box>
   );
 };

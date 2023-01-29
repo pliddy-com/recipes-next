@@ -23,7 +23,7 @@ const RecipeGrid = ({ recipes }: RecipeGridrops) => {
       {recipes &&
         recipes.map((recipe) => (
           <Grid item md={4} sm={6} xs={12} key={recipe?.slug} sx={styles.grid}>
-            <RecipeCard recipe={recipe} />
+            {recipe && <RecipeCard recipe={recipe} />}
           </Grid>
         ))}
     </Grid>

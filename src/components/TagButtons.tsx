@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 // import { Link } from 'react-router-dom';
 import Link from 'next/link';
 
-import { Tag } from 'types/generated/graphql';
+import { TagDefaultFragment } from 'types/generated/graphql';
 
 const style = {
   button: {
@@ -18,28 +18,32 @@ const style = {
 };
 
 interface TagButtonsProps {
-  tags: Array<Tag>;
+  tags?: (TagDefaultFragment | null)[];
 }
 
 const TagButtons = ({ tags }: TagButtonsProps) => {
   return (
     <Stack direction="row" sx={style.tags}>
       {tags &&
-        tags.map((tag: Tag) => {
+        tags.map((tag) => {
           const { slug, title } = tag ?? {};
-          return (
-            <Button
-              color="primary"
-              component={Link}
-              key={slug}
-              size="small"
-              sx={style.button}
-              href={`/tag/${slug}`}
-              variant="outlined"
-            >
-              {title}
-            </Button>
-          );
+          {
+            return (
+              tag && (
+                <Button
+                  color="primary"
+                  component={Link}
+                  key={slug}
+                  size="small"
+                  sx={style.button}
+                  href={`/tag/${slug}`}
+                  variant="outlined"
+                >
+                  {title}
+                </Button>
+              )
+            );
+          }
         })}
     </Stack>
   );

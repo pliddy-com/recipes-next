@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom';
 import Link from 'next/link';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -13,7 +12,7 @@ import Typography from '@mui/material/Typography';
 
 import TagButtons from 'components/TagButtons';
 
-import { Maybe, RecipeDefaultFragment, Tag } from 'types/generated/graphql';
+import { RecipeDefaultFragment } from 'types/generated/graphql';
 
 import theme from 'theme';
 
@@ -43,7 +42,7 @@ const imgSizes = {
 };
 
 interface RecipeCardProps {
-  recipe: Maybe<RecipeDefaultFragment>;
+  recipe?: RecipeDefaultFragment;
 }
 
 const RecipeCard = ({ recipe }: RecipeCardProps) => {
@@ -55,12 +54,9 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
   if (!recipe) return null;
 
   const { title, abstract, image, tagsCollection, slug } = recipe ?? {};
-  const { items } = tagsCollection ?? {};
-  const tags = items as Array<Tag>;
-  const { title: category } = tags[0];
-  const { url, description: imgAlt } = image ?? {};
-  const src = url as string;
-  const alt = imgAlt as string;
+  const { items: tags } = tagsCollection ?? {};
+  const { title: category } = tags?.[0] ?? {};
+  const { url, description } = image ?? {};
 
   return (
     <Card variant="outlined">
@@ -69,10 +65,10 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
         {image && (
           <CardMedia
             component="img"
-            image={`${src}?w=${imgSizes.width[size]}&h=${imgSizes.height[size]}&fm=webp`}
+            image={`${url}?w=${imgSizes.width[size]}&h=${imgSizes.height[size]}&fm=webp`}
             width="372"
             height="279"
-            alt={alt}
+            alt={description || 'image'}
           />
         )}
 
@@ -84,9 +80,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
           )}
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <TagButtons tags={tags} />
-      </CardActions>
+      <CardActions>{tags && <TagButtons tags={tags} />}</CardActions>
     </Card>
   );
 };
