@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import { InstructionsDefaultFragment } from 'types/generated/graphql';
 
 interface InstructionsProps {
-  sections?: InstructionsDefaultFragment[];
+  sections?: (InstructionsDefaultFragment | null)[];
 }
 
 const Instructions = ({ sections }: InstructionsProps) => {

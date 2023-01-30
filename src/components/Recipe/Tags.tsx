@@ -6,7 +6,7 @@ import TagButtons from 'components/TagButtons';
 import { TagDefaultFragment, Tag } from 'types/generated/graphql';
 
 interface TagsProps {
-  tags: TagDefaultFragment[];
+  tags: (TagDefaultFragment | null)[];
 }
 
 const Tags = ({ tags }: TagsProps) => {

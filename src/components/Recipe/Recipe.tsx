@@ -1,6 +1,3 @@
-// import { useState, useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
-
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -18,12 +15,7 @@ import Tags from 'components/Recipe/Tags';
 // TODO: componentize
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import {
-  RecipeDefaultFragment,
-  IngredientsDefaultFragment,
-  InstructionsDefaultFragment,
-  TagDefaultFragment,
-} from 'types/generated/graphql';
+import { RecipeDefaultFragment } from 'types/generated/graphql';
 
 import theme from 'theme';
 
@@ -55,17 +47,6 @@ const Recipe = ({ recipe }: RecipeProps) => {
 
   if (!recipe) return null;
 
-  //   const [recipe, setRecipe] = useState<Recipe>();
-
-  //   useEffect(() => {
-  //     const variables = { slug };
-  //     getContent({ query: recipeQuery, variables }).then((res) =>
-  //       setRecipe(res?.recipeCollection?.items?.[0])
-  //     );
-  //   }, [slug]);
-
-  //   if (!recipe) return <Loading />;
-
   const {
     title,
     description,
@@ -81,6 +62,10 @@ const Recipe = ({ recipe }: RecipeProps) => {
   const { url, description: imgAlt } = image ?? {};
   const src = url || '';
   const alt = imgAlt || '';
+
+  const { items: ingredientsSections } = ingredientsCollection ?? {};
+  const { items: instructionsSections } = instructionsCollection ?? {};
+  const { items: tags } = tagsCollection ?? {};
 
   /*
     contentType: "image/jpeg"
@@ -117,29 +102,19 @@ const Recipe = ({ recipe }: RecipeProps) => {
         )}
       </Grid>
       <Stack direction="column" spacing={3}>
-        {ingredientsCollection && ingredientsCollection.items && (
-          <Ingredients
-            sections={
-              ingredientsCollection?.items as IngredientsDefaultFragment[]
-            }
-          />
-        )}
+        {ingredientsCollection &&
+          ingredientsCollection.items &&
+          ingredientsSections && <Ingredients sections={ingredientsSections} />}
 
         {equipment && <Equipment equipment={equipment} />}
 
-        {instructionsCollection && (
-          <Instructions
-            sections={
-              instructionsCollection.items as InstructionsDefaultFragment[]
-            }
-          />
+        {instructionsSections && (
+          <Instructions sections={instructionsSections} />
         )}
 
         {notes && <Notes notes={notes} />}
 
-        {tagsCollection && (
-          <Tags tags={tagsCollection.items as TagDefaultFragment[]} />
-        )}
+        {tags && <Tags tags={tags} />}
 
         {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
       </Stack>
