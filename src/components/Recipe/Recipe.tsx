@@ -80,8 +80,6 @@ const Recipe = ({ recipe }: RecipeProps) => {
     width: 4032
   */
 
-  console.log(image);
-
   return (
     <Container className="main" component="main">
       <Grid container direction="row" spacing={2}>
