@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, Suspense } from 'react';
 
 import {
   GetStaticPaths,
@@ -7,16 +7,26 @@ import {
 } from 'next';
 
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 
 import { queryTagSlugs, queryListPageContent } from 'lib/api';
 
 import Layout from 'layout/Layout';
+import Loading from 'components/Loading';
+
 import { notNullOrUndefined } from 'lib/typeUtils';
 
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import RecipeGrid from '@/components/RecipeGrid/RecipeGrid';
+// import RecipeGrid from '@/components/RecipeGrid/RecipeGrid';
+
+const RecipeGrid = dynamic(
+  import(
+    /* webpackChunkName: 'CategoryGrid' */ 'components/RecipeGrid/RecipeGrid'
+  ),
+  { suspense: true }
+);
 
 const TagPage = ({
   pageContent,
@@ -37,7 +47,10 @@ const TagPage = ({
             `${pageContent?.linkedFrom?.recipeCollection?.items.length} Total`}
         </Typography>
 
-        {recipes && <RecipeGrid recipes={recipes} />}
+        <Suspense fallback={<Loading />}>
+          <RecipeGrid recipes={recipes} />
+        </Suspense>
+
         {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
       </Container>
     </>

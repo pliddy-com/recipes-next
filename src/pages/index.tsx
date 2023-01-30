@@ -1,23 +1,32 @@
-import { ReactElement } from 'react';
+import { ReactElement, Suspense } from 'react';
 import { InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
+
 import { queryRecipeCollectionContent } from 'lib/api';
 
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import Layout from '@/layout/Layout';
-// import Loading from 'components/Loading';
-import RecipeGrid from '@/components/RecipeGrid/RecipeGrid';
+import Layout from 'layout/Layout';
+import Loading from 'components/Loading';
+
+const RecipeGrid = dynamic(
+  import(
+    /* webpackChunkName: 'HomePageGrid' */ 'components/RecipeGrid/RecipeGrid'
+  ),
+  { suspense: true }
+);
 
 const HomePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const title = 'All Recipes';
+
   return (
     <>
       <Head>
-        <title>Patrick&apos;s Recipes | All Recipes</title>
+        <title>Patrick&apos;s Recipes | ${title}</title>
       </Head>
       <Container className="main" component="main">
         <Typography variant="h1">All Recipes</Typography>
@@ -25,7 +34,10 @@ const HomePage = ({
           {pageContent && `${pageContent?.length} Total`}
         </Typography>
 
-        <RecipeGrid recipes={pageContent} />
+        <Suspense fallback={<Loading />}>
+          <RecipeGrid recipes={pageContent} />
+        </Suspense>
+
         {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
       </Container>
     </>
