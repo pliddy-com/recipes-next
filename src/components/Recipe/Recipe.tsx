@@ -4,8 +4,6 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-// import Paper from '@mui/material/Paper';
-
 import DynamicImage from 'components/DynamicImage/DynamicImage';
 import Equipment from 'components/Recipe/Equipment';
 import Ingredients from 'components/Recipe/Ingredients';
@@ -66,16 +64,7 @@ const Recipe = ({ recipe }: RecipeProps) => {
         </Grid>
         {image && (
           <Grid item md>
-            {/* <Paper>Image</Paper> */}
             <DynamicImage image={image} />
-            {/* <Image
-              alt={alt}
-              height={imgSizes.height[size]}
-              priority={true}
-              src={`${src}?h=${imgSizes.height[size]}&fm=webp`}
-              style={{ maxWidth: '100%', height: 'auto' }}
-              width={imgSizes.width[size]}
-            /> */}
           </Grid>
         )}
       </Grid>
