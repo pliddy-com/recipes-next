@@ -16,13 +16,11 @@ const Image = ({ image }: ImageProps) => {
 
   // store dimensions of the reference image element
   const [width, setWidth] = useState(0);
-  // const [height, setHeight] = useState(0);
 
   // update width when there's a change to the reference image
   useEffect(() => {
     const { offsetWidth } = componentRef?.current ?? {};
     offsetWidth && setWidth(offsetWidth);
-    // offsetHeight && setHeight(offsetHeight);
   }, [componentRef]);
 
   const {
