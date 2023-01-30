@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import Layout from '@/layout/Layout';
-import Loading from 'components/Loading';
+import Loading from '@/components/Loading/Loading';
 
 const RecipeGrid = dynamic(
   import(
@@ -26,7 +26,7 @@ const HomePage = ({
   return (
     <>
       <Head>
-        <title>Patrick&apos;s Recipes | {title}</title>
+        <title>{`Patrick's Recipes | ${title}`}</title>
       </Head>
       <Container className="main" component="main">
         <Typography variant="h1">All Recipes</Typography>

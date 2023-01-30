@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import TagButtons from 'components/TagButtons';
+import TagButtons from '@/components/TagButtons/TagButtons';
 
 import { TagDefaultFragment } from 'types/generated/graphql';
 

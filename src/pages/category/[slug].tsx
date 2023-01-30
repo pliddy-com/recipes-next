@@ -12,7 +12,7 @@ import dynamic from 'next/dynamic';
 import { queryCategorySlugs, queryListPageContent } from 'lib/api';
 
 import Layout from '@/layout/Layout';
-import Loading from 'components/Loading';
+import Loading from '@/components/Loading/Loading';
 
 import { notNullOrUndefined } from 'lib/typeUtils';
 

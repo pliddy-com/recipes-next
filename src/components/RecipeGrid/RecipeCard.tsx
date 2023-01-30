@@ -10,7 +10,7 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-import TagButtons from 'components/TagButtons';
+import TagButtons from '@/components/TagButtons/TagButtons';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 

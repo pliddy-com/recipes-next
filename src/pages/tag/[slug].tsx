@@ -12,14 +12,12 @@ import dynamic from 'next/dynamic';
 import { queryTagSlugs, queryListPageContent } from 'lib/api';
 
 import Layout from '@/layout/Layout';
-import Loading from 'components/Loading';
+import Loading from '@/components/Loading/Loading';
 
 import { notNullOrUndefined } from 'lib/typeUtils';
 
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-
-// import RecipeGrid from '@/components/RecipeGrid/RecipeGrid';
 
 const RecipeGrid = dynamic(
   import(
@@ -36,9 +34,7 @@ const TagPage = ({
 
   return (
     <>
-      <Head>
-        <title>{`Patrick's Recipes - ${title}`}</title>
-      </Head>
+      <Head>{<title>{`Patrick's Recipes - ${title}`}</title>}</Head>
 
       <Container className="main" component="main">
         <Typography variant="h1">{title}</Typography>

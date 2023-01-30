@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 
-import Loading from 'components/Loading';
+import Loading from '@/components/Loading/Loading';
 import RecipeCard from '@/components/RecipeGrid/RecipeCard';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
