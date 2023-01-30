@@ -20,9 +20,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 const RecipeGrid = dynamic(
-  import(
-    /* webpackChunkName: 'CategoryGrid' */ 'components/RecipeGrid/RecipeGrid'
-  ),
+  import(/* webpackChunkName: 'TagGrid' */ 'components/RecipeGrid/RecipeGrid'),
   { suspense: true }
 );
 

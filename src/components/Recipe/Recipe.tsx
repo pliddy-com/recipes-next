@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -8,9 +6,9 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 import Equipment from 'components/Recipe/Equipment';
+import Image from 'components/Image/Image';
 import Ingredients from 'components/Recipe/Ingredients';
 import Instructions from 'components/Recipe/Instructions';
-// import Loading from 'components/Loading';
 import Notes from 'components/Recipe/Notes';
 import Tags from 'components/Recipe/Tags';
 
@@ -41,8 +39,6 @@ interface RecipeProps {
 }
 
 const Recipe = ({ recipe }: RecipeProps) => {
-  //   const { slug } = useParams() ?? {};
-
   const isMd = useMediaQuery(theme.breakpoints.up('md'));
   const isSm = useMediaQuery(theme.breakpoints.up('sm'));
   const size = isMd ? 'md' : isSm ? 'sm' : 'xs';
@@ -93,14 +89,15 @@ const Recipe = ({ recipe }: RecipeProps) => {
         </Grid>
         {image && (
           <Grid item md>
-            <Image
+            <Image image={image} />
+            {/* <Image
               alt={alt}
               height={imgSizes.height[size]}
               priority={true}
               src={`${src}?h=${imgSizes.height[size]}&fm=webp`}
               style={{ maxWidth: '100%', height: 'auto' }}
               width={imgSizes.width[size]}
-            />
+            /> */}
           </Grid>
         )}
       </Grid>
