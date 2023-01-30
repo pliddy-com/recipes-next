@@ -17,6 +17,7 @@ const nextConfig = {
         pathname: `/${NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/**`,
       },
     ],
+    unoptimized: true,
   },
   reactStrictMode: true,
 };
