@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Loading from 'components/Loading';
 import RecipeCard from '@/components/RecipeGrid/RecipeCard';
 
-import { Maybe, RecipeDefaultFragment } from 'types/generated/graphql';
+import { RecipeDefaultFragment } from 'types/generated/graphql';
 
 interface RecipeGridrops {
   recipes: (RecipeDefaultFragment | null)[];

@@ -16,8 +16,8 @@ import { SxProps, Theme } from '@mui/material';
 import { Maybe, Tag, TaxonomyChildrenItem } from 'types/generated/graphql';
 
 interface SubcategoryMenuProps {
-  category: Maybe<TaxonomyChildrenItem>;
-  itemStyle: SxProps<Theme> | undefined;
+  category?: Maybe<TaxonomyChildrenItem>;
+  itemStyle?: SxProps<Theme>;
   onClick: VoidFunction;
 }
 

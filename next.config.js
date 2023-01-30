@@ -1,12 +1,24 @@
 /* eslint @typescript-eslint/no-var-requires: "off" */
 // @ts-check
 
+const { NEXT_PUBLIC_CONTENTFUL_SPACE_ID } = process.env;
+
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
-  reactStrictMode: true,
   eslint: {
     dirs: ['./'],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+        pathname: `/${NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/**`,
+      },
+    ],
+  },
+  reactStrictMode: true,
 };
 
 module.exports = nextConfig;

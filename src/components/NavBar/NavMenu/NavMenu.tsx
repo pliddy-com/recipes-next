@@ -9,7 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 import CategoryMenu from 'components/NavBar/NavMenu/CategoryMenu';
 
-import { Maybe, Tag, Taxonomy } from 'types/generated/graphql';
+import { Taxonomy } from 'types/generated/graphql';
 
 const styles = {
   drawer: {
@@ -23,7 +23,7 @@ const styles = {
 
 interface NavMenuType {
   isOpen: boolean;
-  nav?: Maybe<Taxonomy>;
+  nav?: Taxonomy;
   onClick: VoidFunction;
 }
 
@@ -54,18 +54,22 @@ const NavMenu = ({ isOpen, nav, onClick }: NavMenuType) => {
         {categories &&
           categories.map((category) => {
             const categoryTag =
-              category && 'tag' in category ? category.tag : (category as Tag);
-            const { linkedFrom } = categoryTag ?? {};
-            const { recipeCollection } = linkedFrom ?? {};
-            const { total: numRecipes } = recipeCollection ?? {};
+              category && 'tag' in category ? category.tag : category;
 
-            return numRecipes ? (
-              <CategoryMenu
-                key={category?.sys?.id}
-                category={category}
-                onClick={onClick}
-              />
-            ) : null;
+            const { linkedFrom } = categoryTag ?? {};
+
+            if (linkedFrom && 'recipeCollection' in linkedFrom) {
+              const { recipeCollection } = linkedFrom ?? {};
+              const { total: numRecipes } = recipeCollection ?? {};
+
+              return numRecipes ? (
+                <CategoryMenu
+                  key={category?.sys?.id}
+                  category={category}
+                  onClick={onClick}
+                />
+              ) : null;
+            }
           })}
       </List>
     </Drawer>

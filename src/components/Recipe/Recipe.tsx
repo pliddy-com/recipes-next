@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -78,6 +80,8 @@ const Recipe = ({ recipe }: RecipeProps) => {
     width: 4032
   */
 
+  console.log(image);
+
   return (
     <Container className="main" component="main">
       <Grid container direction="row" spacing={2}>
@@ -91,12 +95,13 @@ const Recipe = ({ recipe }: RecipeProps) => {
         </Grid>
         {image && (
           <Grid item md>
-            <img
+            <Image
               alt={alt}
+              height={imgSizes.height[size]}
+              priority={true}
               src={`${src}?h=${imgSizes.height[size]}&fm=webp`}
               style={{ maxWidth: '100%', height: 'auto' }}
-              height={imgSizes.height[size]}
-              // width={imgSizes.width[size]}
+              width={imgSizes.width[size]}
             />
           </Grid>
         )}
