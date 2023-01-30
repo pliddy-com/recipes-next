@@ -1,12 +1,13 @@
-import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
+// import Paper from '@mui/material/Paper';
+
+import DynamicImage from 'components/DynamicImage/DynamicImage';
 import Equipment from 'components/Recipe/Equipment';
-import Image from 'components/Image/Image';
 import Ingredients from 'components/Recipe/Ingredients';
 import Instructions from 'components/Recipe/Instructions';
 import Notes from 'components/Recipe/Notes';
@@ -17,32 +18,11 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
-import theme from 'theme';
-
-const imgSizes = {
-  height: {
-    xs: 426,
-    sm: 636,
-    md: 426,
-    lg: 426,
-  },
-  width: {
-    xs: 568,
-    sm: 848,
-    md: 568,
-    lg: 568,
-  },
-};
-
 interface RecipeProps {
   recipe?: RecipeDefaultFragment;
 }
 
 const Recipe = ({ recipe }: RecipeProps) => {
-  const isMd = useMediaQuery(theme.breakpoints.up('md'));
-  const isSm = useMediaQuery(theme.breakpoints.up('sm'));
-  const size = isMd ? 'md' : isSm ? 'sm' : 'xs';
-
   if (!recipe) return null;
 
   const {
@@ -57,9 +37,6 @@ const Recipe = ({ recipe }: RecipeProps) => {
   } = recipe ?? {};
 
   const { json: descriptionDoc } = description ?? {};
-  const { url, description: imgAlt } = image ?? {};
-  const src = url || '';
-  const alt = imgAlt || '';
 
   const { items: ingredientsSections } = ingredientsCollection ?? {};
   const { items: instructionsSections } = instructionsCollection ?? {};
@@ -89,7 +66,8 @@ const Recipe = ({ recipe }: RecipeProps) => {
         </Grid>
         {image && (
           <Grid item md>
-            <Image image={image} />
+            {/* <Paper>Image</Paper> */}
+            <DynamicImage image={image} />
             {/* <Image
               alt={alt}
               height={imgSizes.height[size]}
