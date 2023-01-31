@@ -9,6 +9,7 @@ import Equipment from '@/components/Recipe/Equipment';
 import Ingredients from '@/components/Recipe/Ingredients';
 import Instructions from '@/components/Recipe/Instructions';
 import Notes from '@/components/Recipe/Notes';
+import RichText from '@/components/RichText/RichText';
 import Tags from '@/components/Recipe/Tags';
 
 // TODO: componentize
@@ -47,9 +48,8 @@ const Recipe = ({ recipe }: RecipeProps) => {
           <Typography variant="h1" gutterBottom>
             {title}
           </Typography>
-          {descriptionDoc && (
-            <Box>{documentToReactComponents(descriptionDoc)}</Box>
-          )}
+          {descriptionDoc && <RichText document={descriptionDoc} />}
+          {/* <Box>{documentToReactComponents(descriptionDoc)}</Box> */}
         </Grid>
         {image && (
           <Grid item md>

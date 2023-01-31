@@ -39,6 +39,48 @@ fragment ImageDefault on Asset {
   width
 }
 
+fragment DescriptionDefault on Recipe {
+  description {
+    json
+    links {
+      entries {
+        inline {
+          __typename
+          sys {
+            id
+            __typename
+          }
+        }
+        hyperlink {
+          __typename
+          sys {
+            id
+            __typename
+          }
+        }
+        block {
+          __typename
+
+          sys {
+            id
+            __typename
+          }
+        }
+      }
+      assets {
+        hyperlink {
+          __typename
+          title
+        }
+        block {
+          __typename
+          title
+        }
+      }
+    }
+  }
+}
+
 fragment RecipeDefault on Recipe {
   sys {
     id
