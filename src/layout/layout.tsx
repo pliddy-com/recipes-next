@@ -1,7 +1,7 @@
 import { ReactElement, useEffect, useState } from 'react';
 import Head from 'next/head';
 
-import NavBar from 'components/NavBar/NavBar';
+import NavBar from '@/components/NavBar/NavBar';
 
 import { queryNavContent } from 'lib/api';
 
