@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-import Box from '@mui/material/Card';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
