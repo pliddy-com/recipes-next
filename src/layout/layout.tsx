@@ -2,6 +2,8 @@ import { ReactElement, useEffect, useState } from 'react';
 
 import NavBar from '@/components/NavBar/NavBar';
 
+import Container from '@mui/material/Container';
+
 import { queryNavContent } from 'lib/api';
 
 import { Taxonomy } from 'types/generated/graphql';
@@ -28,7 +30,9 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <NavBar nav={navData} />
-      <main>{children}</main>
+      <main>
+        <Container className="page">{children}</Container>
+      </main>
     </>
   );
 };

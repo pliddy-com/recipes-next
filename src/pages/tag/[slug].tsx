@@ -14,9 +14,6 @@ import Layout from '@/layout/Layout';
 import Loading from '@/components/Loading/Loading';
 import PageHeadTag from '@/components/PageHeadTag/PageHeadTag';
 
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-
 import { notNullOrUndefined } from 'lib/typeUtils';
 
 import config from '@/lib/config';
@@ -30,25 +27,17 @@ const TagPage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = pageContent ?? {};
-  const recipes = pageContent?.linkedFrom?.recipeCollection?.items ?? [];
+  const content = pageContent?.linkedFrom?.recipeCollection?.items ?? [];
   const { defaultTitle } = config?.microcopy?.tag ?? {};
 
   return (
     <>
       <PageHeadTag title={title} defaultTitle={defaultTitle} />
-      <Container className="page">
-        <Typography variant="h1">{title}</Typography>
-        <Typography variant="subtitle1" component="h2" gutterBottom>
-          {pageContent &&
-            `${pageContent?.linkedFrom?.recipeCollection?.items.length} Total`}
-        </Typography>
+      <Suspense fallback={<Loading />}>
+        <RecipeGrid recipes={content} title={title} />
+      </Suspense>
 
-        <Suspense fallback={<Loading />}>
-          <RecipeGrid recipes={recipes} />
-        </Suspense>
-
-        {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
-      </Container>
+      {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
   );
 };

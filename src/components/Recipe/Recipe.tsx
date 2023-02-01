@@ -1,4 +1,3 @@
-import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -14,11 +13,11 @@ import Tags from '@/components/Recipe/Tags';
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
 interface RecipeProps {
-  recipe?: RecipeDefaultFragment;
+  content?: RecipeDefaultFragment;
 }
 
-const Recipe = ({ recipe }: RecipeProps) => {
-  if (!recipe) return null;
+const Recipe = ({ content }: RecipeProps) => {
+  if (!content) return null;
 
   const {
     title,
@@ -29,7 +28,7 @@ const Recipe = ({ recipe }: RecipeProps) => {
     instructionsCollection,
     notes,
     tagsCollection,
-  } = recipe ?? {};
+  } = content ?? {};
 
   // TODO: pass full description text into rich text component
   //       & destructure json & links inside component (needs types for json & links)
@@ -41,7 +40,7 @@ const Recipe = ({ recipe }: RecipeProps) => {
   const { items: tags } = tagsCollection ?? {};
 
   return (
-    <Container className="page">
+    <>
       <Grid container direction="row" spacing={2}>
         <Grid item md>
           <Typography variant="h1" gutterBottom>
@@ -73,7 +72,7 @@ const Recipe = ({ recipe }: RecipeProps) => {
 
         {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
       </Stack>
-    </Container>
+    </>
   );
 };
 

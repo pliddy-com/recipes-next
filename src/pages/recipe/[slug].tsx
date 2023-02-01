@@ -33,7 +33,7 @@ const RecipePage = ({
     <>
       <PageHeadTag title={title} defaultTitle={defaultTitle} />
       <Suspense fallback={<Loading />}>
-        <Recipe recipe={pageContent} />
+        <Recipe content={pageContent} />
       </Suspense>
     </>
     // <pre>{JSON.stringify(pageContent, null, 2)}</pre>

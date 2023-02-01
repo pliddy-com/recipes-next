@@ -4,9 +4,6 @@ import dynamic from 'next/dynamic';
 
 import { queryRecipeCollectionContent } from 'lib/api';
 
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-
 import Layout from '@/layout/Layout';
 import Loading from '@/components/Loading/Loading';
 import PageHeadTag from '@/components/PageHeadTag/PageHeadTag';
@@ -28,18 +25,11 @@ const HomePage = ({
   return (
     <>
       <PageHeadTag title={defaultTitle} defaultTitle={defaultTitle} />
-      <Container className="page">
-        <Typography variant="h1">All Recipes</Typography>
-        <Typography variant="subtitle1" component="h2" gutterBottom>
-          {pageContent && `${pageContent?.length} Total`}
-        </Typography>
+      <Suspense fallback={<Loading />}>
+        <RecipeGrid recipes={pageContent} title={defaultTitle} />
+      </Suspense>
 
-        <Suspense fallback={<Loading />}>
-          <RecipeGrid recipes={pageContent} />
-        </Suspense>
-
-        {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
-      </Container>
+      {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
   );
 };
