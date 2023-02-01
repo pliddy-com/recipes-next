@@ -1,6 +1,5 @@
 import { ReactElement, Suspense } from 'react';
 import { InferGetStaticPropsType } from 'next';
-import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
 import { queryRecipeCollectionContent } from 'lib/api';
@@ -10,10 +9,13 @@ import Typography from '@mui/material/Typography';
 
 import Layout from '@/layout/Layout';
 import Loading from '@/components/Loading/Loading';
+import PageHeadTag from '@/components/PageHeadTag/PageHeadTag';
+
+import config from '@/lib/config';
 
 const RecipeGrid = dynamic(
   import(
-    /* webpackChunkName: 'HomePageGrid' */ 'components/RecipeGrid/RecipeGrid'
+    /* webpackChunkName: 'IndexGrid' */ 'components/RecipeGrid/RecipeGrid'
   ),
   { suspense: true }
 );
@@ -21,14 +23,16 @@ const RecipeGrid = dynamic(
 const HomePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const title = 'All Recipes';
+  const {
+    microcopy: {
+      index: { defaultTitle },
+    },
+  } = config;
 
   return (
     <>
-      <Head>
-        <title>{`Patrick's Recipes | ${title}`}</title>
-      </Head>
-      <Container className="main" component="main">
+      <PageHeadTag title={defaultTitle} defaultTitle={defaultTitle} />
+      <Container>
         <Typography variant="h1">All Recipes</Typography>
         <Typography variant="subtitle1" component="h2" gutterBottom>
           {pageContent && `${pageContent?.length} Total`}

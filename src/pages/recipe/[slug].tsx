@@ -6,15 +6,17 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 
-import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
 import { queryPageSlugs, queryRecipeContent } from 'lib/api';
 
 import Layout from '@/layout/Layout';
 import Loading from '@/components/Loading/Loading';
+import PageHeadTag from '@/components/PageHeadTag/PageHeadTag';
 
 import { notNullOrUndefined } from 'lib/typeUtils';
+
+import config from '@/lib/config';
 
 const Recipe = dynamic(
   import(/* webpackChunkName: 'Recipe' */ 'components/Recipe/Recipe'),
@@ -26,11 +28,15 @@ const RecipePage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = pageContent ?? {};
 
+  const {
+    microcopy: {
+      recipe: { defaultTitle },
+    },
+  } = config;
+
   return (
     <>
-      <Head>
-        <title>{`Patrick's Recipes - ${title || 'Recipe'}`}</title>
-      </Head>
+      <PageHeadTag title={title} defaultTitle={defaultTitle} />
       <Suspense fallback={<Loading />}>
         <Recipe recipe={pageContent} />
       </Suspense>

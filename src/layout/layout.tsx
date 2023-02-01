@@ -1,5 +1,4 @@
 import { ReactElement, useEffect, useState } from 'react';
-import Head from 'next/head';
 
 import NavBar from '@/components/NavBar/NavBar';
 
@@ -28,14 +27,8 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      <Head>
-        <meta
-          name="description"
-          content="Patrick's personal recipe collection"
-        />
-      </Head>
       <NavBar nav={navData} />
-      <main>{children}</main>
+      <main className="main">{children}</main>
     </>
   );
 };

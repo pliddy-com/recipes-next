@@ -2,7 +2,8 @@
 #   * Ingredients
 #   * Instructions
 #   * Image
-#   * Recipe
+#   * RecipeDefault (full)
+#   * RecipeSummary (card)
 
 fragment IngredientsDefault on IngredientSection {
   sys {

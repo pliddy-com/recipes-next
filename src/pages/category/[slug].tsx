@@ -6,18 +6,20 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 
-import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
 import { queryCategorySlugs, queryListPageContent } from 'lib/api';
 
 import Layout from '@/layout/Layout';
 import Loading from '@/components/Loading/Loading';
+import PageHeadTag from '@/components/PageHeadTag/PageHeadTag';
 
 import { notNullOrUndefined } from 'lib/typeUtils';
 
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+
+import config from '@/lib/config';
 
 const RecipeGrid = dynamic(
   import(
@@ -32,13 +34,17 @@ const CategoryPage = ({
   const { title } = pageContent ?? {};
   const recipes = pageContent?.linkedFrom?.recipeCollection?.items ?? [];
 
+  const {
+    microcopy: {
+      category: { defaultTitle },
+    },
+  } = config;
+
   return (
     <>
-      <Head>
-        <title>{`Patrick's Recipes - ${title || 'Recipe'}`}</title>
-      </Head>
+      <PageHeadTag title={title} defaultTitle={defaultTitle} />
 
-      <Container className="main" component="main">
+      <Container>
         <Typography variant="h1">{title || 'Recipe'}</Typography>
         <Typography variant="subtitle1" component="h2" gutterBottom>
           {pageContent &&
