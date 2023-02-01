@@ -1,6 +1,6 @@
 import { ReactElement, useEffect, useState } from 'react';
 
-import NavBar from '@/components/NavBar/NavBar';
+import NavBar from 'components/NavBar/NavBar';
 
 import Container from '@mui/material/Container';
 

@@ -9,6 +9,12 @@ import KitchenTwoToneIcon from '@mui/icons-material/KitchenTwoTone';
 
 import { Maybe, Scalars } from 'types/generated/graphql';
 
+const styles = {
+  bullets: {
+    height: '32px',
+  },
+};
+
 interface EquipmentProps {
   equipment?: Maybe<Array<Maybe<Scalars['String']>>>;
 }
@@ -26,7 +32,7 @@ const Equipment = ({ equipment }: EquipmentProps) => {
               <ListItemIcon>
                 <KitchenTwoToneIcon color="primary" />
               </ListItemIcon>
-              <ListItemText primary={item} />
+              <ListItemText primary={item} sx={styles.bullets} />
             </ListItem>
           ))}
       </List>

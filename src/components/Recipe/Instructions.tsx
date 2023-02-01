@@ -8,6 +8,12 @@ import Typography from '@mui/material/Typography';
 
 import { InstructionsDefaultFragment } from 'types/generated/graphql';
 
+const styles = {
+  bullets: {
+    height: '32px',
+  },
+};
+
 interface InstructionsProps {
   sections?: (InstructionsDefaultFragment | null)[];
 }
@@ -39,7 +45,7 @@ const Instructions = ({ sections }: InstructionsProps) => {
                       <ListItemAvatar>
                         <Avatar color="secondary">{num++}</Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary={instruction} />
+                      <ListItemText primary={instruction} sx={styles.bullets} />
                     </ListItem>
                   ))}
               </List>

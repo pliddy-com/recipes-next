@@ -10,13 +10,13 @@ import dynamic from 'next/dynamic';
 
 import { queryTagSlugs, queryListPageContent } from 'lib/api';
 
-import Layout from '@/layout/Layout';
-import Loading from '@/components/Loading/Loading';
-import PageHeadTag from '@/components/PageHeadTag/PageHeadTag';
+import Layout from 'layout/Layout';
+import Loading from 'components/Loading/Loading';
+import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
 
 import { notNullOrUndefined } from 'lib/typeUtils';
 
-import config from '@/lib/config';
+import config from 'lib/config';
 
 const RecipeGrid = dynamic(
   import(/* webpackChunkName: 'TagGrid' */ 'components/RecipeGrid/RecipeGrid'),

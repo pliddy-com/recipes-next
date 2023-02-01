@@ -1,6 +1,7 @@
 import fontFaceOverrides from 'theme/fontface';
 
 const baseFontSize = 16;
+const buttonFontSize = 14;
 const fontWeightRegular = 400;
 const fontWeightBold = 500;
 const fontFamily = 'Inter';
@@ -10,7 +11,16 @@ const typeTheme = {
     MuiCssBaseline: {
       styleOverrides: fontFaceOverrides,
     },
-
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontFamily,
+          fontSize: `${buttonFontSize / baseFontSize}rem`,
+          fontWeight: fontWeightBold,
+          lineHeight: baseFontSize / buttonFontSize,
+        },
+      },
+    },
     MuiTypography: {
       defaultProps: {
         variantMapping: {
@@ -26,35 +36,47 @@ const typeTheme = {
     fontWeightRegular,
     fontSize: baseFontSize,
     htmlFontSize: 18,
+    body2: {
+      fontSize: `${baseFontSize / baseFontSize}rem`,
+      fontWeight: fontWeightRegular,
+      letterSpacing: '.1px',
+      lineHeight: 24 / baseFontSize,
+    },
+    body1: {
+      fontSize: `${baseFontSize / baseFontSize}rem`,
+      fontWeight: fontWeightRegular,
+      letterSpacing: '.1px',
+      lineHeight: 24 / baseFontSize,
+    },
     h1: {
       fontFamily,
+      fontSize: `${36 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
-      fontSize: '2.2rem',
     },
     h2: {
       fontFamily,
+      fontSize: `${28 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
-      fontSize: '1.8rem',
     },
     h3: {
       fontFamily,
+      fontSize: `${22 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.125,
-      fontSize: '1.4rem',
     },
     h4: {
       fontFamily,
+      fontSize: `${20 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
-      fontSize: '1.2rem',
       lineHeight: 1.25,
     },
     h5: {
       fontFamily,
+      fontSize: `${18 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
-      fontSize: '1.1rem',
     },
     h6: {
       fontFamily,
@@ -64,7 +86,7 @@ const typeTheme = {
     },
     button: {
       fontFamily,
-      fontSize: '1rem',
+      fontSize: `${18 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
     },

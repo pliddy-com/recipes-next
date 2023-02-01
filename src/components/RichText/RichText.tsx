@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-// import DynamicImage from '@/components/DynamicImage/DynamicImage';
+// import DynamicImage from 'components/DynamicImage/DynamicImage';
 
 import {
   documentToReactComponents,
@@ -31,7 +31,9 @@ type BlockProps = {
 // );
 
 const P = ({ children }: BlockProps) => (
-  <Typography paragraph>{children}</Typography>
+  <Typography variant="body1" paragraph>
+    {children}
+  </Typography>
 );
 
 const H1 = ({ children }: BlockProps) => (

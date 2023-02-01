@@ -2,13 +2,13 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import DynamicImage from '@/components/DynamicImage/DynamicImage';
-import Equipment from '@/components/Recipe/Equipment';
-import Ingredients from '@/components/Recipe/Ingredients';
-import Instructions from '@/components/Recipe/Instructions';
-import Notes from '@/components/Recipe/Notes';
-import RichText from '@/components/RichText/RichText';
-import Tags from '@/components/Recipe/Tags';
+import DynamicImage from 'components/DynamicImage/DynamicImage';
+import Equipment from 'components/Recipe/Equipment';
+import Ingredients from 'components/Recipe/Ingredients';
+import Instructions from 'components/Recipe/Instructions';
+import Notes from 'components/Recipe/Notes';
+import RichText from 'components/RichText/RichText';
+import Tags from 'components/Recipe/Tags';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 

@@ -2,8 +2,8 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-import Loading from '@/components/Loading/Loading';
-import RecipeCard from '@/components/RecipeGrid/RecipeCard';
+import Loading from 'components/Loading/Loading';
+import RecipeCard from 'components/RecipeGrid/RecipeCard';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 

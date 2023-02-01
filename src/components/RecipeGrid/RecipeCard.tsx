@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
@@ -8,8 +9,8 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-import TagButtons from '@/components/TagButtons/TagButtons';
-import DynamicImage from '@/components/DynamicImage/DynamicImage';
+import TagButtons from 'components/TagButtons/TagButtons';
+import DynamicImage from 'components/DynamicImage/DynamicImage';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
@@ -40,8 +41,10 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
       <CardActionArea component={Link} href={`/recipe/${slug}`}>
         <CardHeader title={title} subheader={category} />
         {image && (
-          <CardMedia sx={styles.wrapper}>
-            <DynamicImage image={image} />
+          <CardMedia>
+            <Box sx={styles.wrapper}>
+              <DynamicImage image={image} />
+            </Box>
           </CardMedia>
         )}
 
