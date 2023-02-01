@@ -4,14 +4,25 @@ query homePageQuery {
   recipeCollection(order: title_ASC) {
     total
     items {
-      ...RecipeDefault
+      ...RecipeSummary
     }
   }
 }
 
-# Query for Recipe based on slug
+# Query for Recipe collection based on filter
 
 query recipeCollection($where: RecipeFilter) {
+  recipeCollection(where: $where, order: title_ASC) {
+    total
+    items {
+      ...RecipeSummary
+    }
+  }
+}
+
+# Query for Recipe page
+
+query recipePage($where: RecipeFilter) {
   recipeCollection(where: $where, order: title_ASC) {
     total
     items {
@@ -32,7 +43,7 @@ query listPageQuery($where: TagFilter) {
         recipeCollection(limit: 24) {
           total
           items {
-            ...RecipeDefault
+            ...RecipeSummary
           }
         }
       }

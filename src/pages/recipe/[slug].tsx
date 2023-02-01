@@ -9,7 +9,7 @@ import {
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
-import { queryPageSlugs, queryRecipeCollectionContent } from 'lib/api';
+import { queryPageSlugs, queryRecipeContent } from 'lib/api';
 
 import Layout from '@/layout/Layout';
 import Loading from '@/components/Loading/Loading';
@@ -63,7 +63,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     throw new Error('Error in SSG!');
   }
 
-  const [pageContent] = await queryRecipeCollectionContent({
+  const [pageContent] = await queryRecipeContent({
     where: { slug },
   });
 

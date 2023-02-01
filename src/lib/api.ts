@@ -3,6 +3,8 @@ import { createClient, TypedDocumentNode } from 'urql';
 import {
   RecipeCollectionDocument,
   RecipeCollectionQueryVariables,
+  RecipePageDocument,
+  RecipePageQueryVariables,
   RecipeSlugsCollectionDocument,
   RecipeSlugsCollectionQueryVariables,
   ListPageQueryDocument,
@@ -13,15 +15,13 @@ import {
   TaxonomyCollectionQueryVariables,
 } from 'types/generated/graphql';
 
-import {
-  notNullOrUndefined,
-  // ResolvedPromise
-} from 'lib/typeUtils';
+import { notNullOrUndefined } from 'lib/typeUtils';
 import { ResultOf, VariablesOf } from '@graphql-typed-document-node/core';
 
 const SPACE_ID = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
 const ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
 
+// TODO: move whole string to .env
 const API_ENDPOINT = `https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}/`;
 
 const graphQLRequestClient = createClient({
@@ -59,6 +59,21 @@ export async function graphQLRequest<
   return data;
 }
 
+// used to query content for nav menu taxonomy
+export const queryNavContent = async (
+  queryVariables: TaxonomyCollectionQueryVariables
+) => {
+  const { taxonomyCollection } = await graphQLRequest(
+    TaxonomyCollectionDocument,
+    queryVariables
+  );
+
+  return taxonomyCollection
+    ? taxonomyCollection.items.filter(notNullOrUndefined)
+    : [];
+};
+
+// used to query content for  home index page
 export const queryRecipeCollectionContent = async (
   queryVariables?: RecipeCollectionQueryVariables
 ) => {
@@ -72,6 +87,33 @@ export const queryRecipeCollectionContent = async (
     : [];
 };
 
+// used to query content for tag & category pagepage
+export const queryListPageContent = async (
+  queryVariables: ListPageQueryQueryVariables
+) => {
+  const { tagCollection } = await graphQLRequest(
+    ListPageQueryDocument,
+    queryVariables
+  );
+
+  return tagCollection ? tagCollection.items.filter(notNullOrUndefined) : [];
+};
+
+// used to query content for standalone recipe page
+export const queryRecipeContent = async (
+  queryVariables?: RecipePageQueryVariables
+) => {
+  const { recipeCollection } = await graphQLRequest(
+    RecipePageDocument,
+    queryVariables
+  );
+
+  return recipeCollection
+    ? recipeCollection.items.filter(notNullOrUndefined)
+    : [];
+};
+
+// used by getStaticProps for recipe page
 export const queryPageSlugs = async (
   queryVariables: RecipeSlugsCollectionQueryVariables
 ) => {
@@ -85,6 +127,7 @@ export const queryPageSlugs = async (
     : [];
 };
 
+// used by getStaticProps for category page
 export const queryCategorySlugs = async (
   queryVariables: TaxonomyCollectionQueryVariables
 ) => {
@@ -116,7 +159,7 @@ export const queryCategorySlugs = async (
   return results ? results?.filter(notNullOrUndefined) : [];
 };
 
-// TODO: create unique query to find tags applied to recipes
+// used by getStaticProps for tag page
 export const queryTagSlugs = async (
   queryVariables: TagSlugsCollectionQueryVariables
 ) => {
@@ -133,30 +176,5 @@ export const queryTagSlugs = async (
             item?.linkedFrom?.recipeCollection?.total &&
             item?.linkedFrom?.recipeCollection?.total > 0
         )
-    : [];
-};
-
-// TODO: check that this query returns only one tag, not all
-export const queryListPageContent = async (
-  queryVariables: ListPageQueryQueryVariables
-) => {
-  const { tagCollection } = await graphQLRequest(
-    ListPageQueryDocument,
-    queryVariables
-  );
-
-  return tagCollection ? tagCollection.items.filter(notNullOrUndefined) : [];
-};
-
-export const queryNavContent = async (
-  queryVariables: TaxonomyCollectionQueryVariables
-) => {
-  const { taxonomyCollection } = await graphQLRequest(
-    TaxonomyCollectionDocument,
-    queryVariables
-  );
-
-  return taxonomyCollection
-    ? taxonomyCollection.items.filter(notNullOrUndefined)
     : [];
 };

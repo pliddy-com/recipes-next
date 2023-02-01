@@ -113,3 +113,21 @@ fragment RecipeDefault on Recipe {
     }
   }
 }
+
+fragment RecipeSummary on Recipe {
+  sys {
+    id
+  }
+  __typename
+  title
+  slug
+  abstract
+  image {
+    ...ImageDefault
+  }
+  tagsCollection(limit: 10) {
+    items {
+      ...TagDefault
+    }
+  }
+}
