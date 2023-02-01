@@ -9,12 +9,6 @@ import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 
 import { IngredientsDefaultFragment } from 'types/generated/graphql';
 
-const styles = {
-  bullets: {
-    height: '32px',
-  },
-};
-
 interface IngredientsProps {
   sections?: (IngredientsDefaultFragment | null)[];
 }
@@ -44,7 +38,7 @@ const Ingredients = ({ sections }: IngredientsProps) => {
                       <ListItemIcon>
                         <RestaurantMenuIcon color="secondary" />
                       </ListItemIcon>
-                      <ListItemText primary={ingredient} sx={styles.bullets} />
+                      <ListItemText primary={ingredient} />
                     </ListItem>
                   ))}
               </List>
