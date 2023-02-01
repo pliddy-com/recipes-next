@@ -27,12 +27,7 @@ const RecipePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = pageContent ?? {};
-
-  const {
-    microcopy: {
-      recipe: { defaultTitle },
-    },
-  } = config;
+  const { defaultTitle } = config?.microcopy?.recipe ?? {};
 
   return (
     <>

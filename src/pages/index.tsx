@@ -23,16 +23,12 @@ const RecipeGrid = dynamic(
 const HomePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const {
-    microcopy: {
-      index: { defaultTitle },
-    },
-  } = config;
+  const { defaultTitle } = config?.microcopy?.index ?? {};
 
   return (
     <>
       <PageHeadTag title={defaultTitle} defaultTitle={defaultTitle} />
-      <Container>
+      <Container className="page">
         <Typography variant="h1">All Recipes</Typography>
         <Typography variant="subtitle1" component="h2" gutterBottom>
           {pageContent && `${pageContent?.length} Total`}

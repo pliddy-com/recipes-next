@@ -8,7 +8,7 @@ const containerTheme: ThemeOptions = {
     MuiContainer: {
       styleOverrides: {
         root: {
-          '&.main': {
+          '&.page': {
             marginTop: '5rem',
             paddingBottom: '3rem',
             [breakpoints.up('md')]: {

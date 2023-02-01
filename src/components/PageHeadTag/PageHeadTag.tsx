@@ -5,7 +5,7 @@ interface PageTitleProps {
   defaultTitle?: string;
 }
 
-// TODO: Add description for home, category, tag, and recipe
+// TODO: Add description to data or defaults for home, category, tag, and recipe
 
 const PageHeadTag = ({ title, defaultTitle }: PageTitleProps) => (
   <Head>

@@ -41,7 +41,7 @@ const Recipe = ({ recipe }: RecipeProps) => {
   const { items: tags } = tagsCollection ?? {};
 
   return (
-    <Container className="main" component="main">
+    <Container className="page">
       <Grid container direction="row" spacing={2}>
         <Grid item md>
           <Typography variant="h1" gutterBottom>

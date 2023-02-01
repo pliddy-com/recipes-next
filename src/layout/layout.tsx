@@ -28,7 +28,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <NavBar nav={navData} />
-      <main className="main">{children}</main>
+      <main>{children}</main>
     </>
   );
 };

@@ -33,18 +33,13 @@ const CategoryPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = pageContent ?? {};
   const recipes = pageContent?.linkedFrom?.recipeCollection?.items ?? [];
-
-  const {
-    microcopy: {
-      category: { defaultTitle },
-    },
-  } = config;
+  const { defaultTitle } = config?.microcopy?.category ?? {};
 
   return (
     <>
       <PageHeadTag title={title} defaultTitle={defaultTitle} />
 
-      <Container>
+      <Container className="page">
         <Typography variant="h1">{title || 'Recipe'}</Typography>
         <Typography variant="subtitle1" component="h2" gutterBottom>
           {pageContent &&
