@@ -106,15 +106,18 @@ const renderOptions = (): Options => {
   };
 };
 
+// NOTE: is being passed json object; needs to know type/structure of full rich text payload
+//       and parse json and links children
+
 type RichTextProps = {
-  document: Document;
+  json: Document;
   //   variant?: TypographyProps['variant'];
 };
 
-export const RichText = ({ document }: RichTextProps) => {
+export const RichText = ({ json }: RichTextProps) => {
   //   const { json, links } = document ?? {};
 
-  return <Box>{documentToReactComponents(document, renderOptions())}</Box>;
+  return <Box>{documentToReactComponents(json, renderOptions())}</Box>;
 };
 
 export default RichText;

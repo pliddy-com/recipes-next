@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
@@ -11,9 +10,6 @@ import Instructions from '@/components/Recipe/Instructions';
 import Notes from '@/components/Recipe/Notes';
 import RichText from '@/components/RichText/RichText';
 import Tags from '@/components/Recipe/Tags';
-
-// TODO: componentize
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
@@ -35,6 +31,9 @@ const Recipe = ({ recipe }: RecipeProps) => {
     tagsCollection,
   } = recipe ?? {};
 
+  // TODO: pass full description text into rich text component
+  //       & destructure json & links inside component (needs types for json & links)
+
   const { json: descriptionDoc } = description ?? {};
 
   const { items: ingredientsSections } = ingredientsCollection ?? {};
@@ -48,8 +47,8 @@ const Recipe = ({ recipe }: RecipeProps) => {
           <Typography variant="h1" gutterBottom>
             {title}
           </Typography>
-          {descriptionDoc && <RichText document={descriptionDoc} />}
-          {/* <Box>{documentToReactComponents(descriptionDoc)}</Box> */}
+
+          {descriptionDoc && <RichText json={descriptionDoc} />}
         </Grid>
         {image && (
           <Grid item md>
