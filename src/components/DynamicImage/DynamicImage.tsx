@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import NextImage from 'next/image';
+// import NextImage from 'next/image';
 
 import Box from '@mui/material/Box';
 
@@ -42,10 +42,12 @@ const Image = ({ image }: ImageProps) => {
   return (
     <Box ref={componentRef}>
       {refWidth && refWidth > 0 && (
-        <NextImage
+        <img
           alt={alt || ''}
           height={imgHeight || refHeight}
-          priority={true}
+          // loading="lazy"
+          decoding="async"
+          // priority={true}
           src={`${url}?w=${refWidth}&fm=webp`}
           style={{ maxWidth: '100%', height: 'auto' }}
           width={imgWidth || refWidth}

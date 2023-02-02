@@ -19,6 +19,7 @@ module.exports = {
   /* error rules are listed before warn rules */
   rules: {
     eqeqeq: ['error', 'smart'],
+    '@next/next/no-img-element': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
