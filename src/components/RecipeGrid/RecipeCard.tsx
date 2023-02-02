@@ -27,9 +27,10 @@ const styles = {
 
 interface RecipeCardProps {
   recipe?: RecipeDefaultFragment;
+  index?: number;
 }
 
-const RecipeCard = ({ recipe }: RecipeCardProps) => {
+const RecipeCard = ({ recipe, index }: RecipeCardProps) => {
   if (!recipe) return null;
 
   const { title, abstract, image, tagsCollection, slug } = recipe ?? {};
@@ -43,7 +44,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
         {image && (
           <CardMedia>
             <Box sx={styles.wrapper}>
-              <DynamicImage image={image} />
+              <DynamicImage image={image} lazy={Boolean(index && index > 2)} />
             </Box>
           </CardMedia>
         )}

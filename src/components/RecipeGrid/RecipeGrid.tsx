@@ -29,7 +29,7 @@ const RecipeGrid = ({ recipes, title }: RecipeGridrops) => {
       </Typography>
       <Grid container spacing={2}>
         {recipes &&
-          recipes.map((recipe) => (
+          recipes.map((recipe, index) => (
             <Grid
               item
               md={4}
@@ -38,7 +38,7 @@ const RecipeGrid = ({ recipes, title }: RecipeGridrops) => {
               key={recipe?.slug}
               sx={styles.grid}
             >
-              {recipe && <RecipeCard recipe={recipe} />}
+              {recipe && <RecipeCard recipe={recipe} index={index} />}
             </Grid>
           ))}
       </Grid>

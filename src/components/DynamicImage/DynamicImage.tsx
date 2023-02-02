@@ -9,9 +9,10 @@ import config from 'lib/config';
 
 interface ImageProps {
   image: ImageDefaultFragment;
+  lazy?: boolean;
 }
 
-const Image = ({ image }: ImageProps) => {
+const Image = ({ image, lazy = false }: ImageProps) => {
   const componentRef = useRef<HTMLElement>(null);
 
   // store dimensions of the reference image element
@@ -45,7 +46,7 @@ const Image = ({ image }: ImageProps) => {
         <img
           alt={alt || ''}
           height={imgHeight || refHeight}
-          // loading="lazy"
+          loading={lazy ? 'lazy' : 'eager'}
           decoding="async"
           // priority={true}
           src={`${url}?w=${refWidth}&fm=webp`}

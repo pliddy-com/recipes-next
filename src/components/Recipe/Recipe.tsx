@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -11,6 +12,12 @@ import RichText from 'components/RichText/RichText';
 import Tags from 'components/Recipe/Tags';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
+
+const styles = {
+  image: {
+    marginBottom: '1rem',
+  },
+};
 
 interface RecipeProps {
   content?: RecipeDefaultFragment;
@@ -51,7 +58,9 @@ const Recipe = ({ content }: RecipeProps) => {
         </Grid>
         {image && (
           <Grid item md>
-            <DynamicImage image={image} />
+            <Box sx={styles.image}>
+              <DynamicImage image={image} />
+            </Box>
           </Grid>
         )}
       </Grid>
