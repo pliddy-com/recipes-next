@@ -1,4 +1,7 @@
 module.exports = {
+  env: {
+    es6: true,
+  },
   root: true,
   /* Note the order of extended configs is important because of cascading overrides. */
   extends: [

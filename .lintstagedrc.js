@@ -1,11 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const ESLint = require('eslint').ESLint;
 
-const fixPrettier = 'prettier --ignore-unknown --write';
+const prettierFix = 'prettier --ignore-unknown --write';
 
 const removeIgnoredFiles = async (files) => {
   const eslint = new ESLint();
-  // eslint-disable-next-line no-undef
+
   const isIgnored = await Promise.all(
     files.map((file) => {
       return eslint.isPathIgnored(file);
@@ -16,7 +16,7 @@ const removeIgnoredFiles = async (files) => {
 };
 
 module.exports = {
-  '*.*!({js,jsx,ts,tsx})': fixPrettier,
+  '*.*!({js,jsx,ts,tsx})': prettierFix,
   '*.{js,jsx,ts,tsx}': async (files) => {
     const filesToLint = await removeIgnoredFiles(files);
 

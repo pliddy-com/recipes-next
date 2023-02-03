@@ -3,5 +3,4 @@
 
 npm run typegen
 npm run typecheck
-# npm run lint:fix
 npx lint-staged
