@@ -13,7 +13,7 @@ interface RecipeGridrops {
 }
 
 const styles = {
-  grid: {
+  gridItem: {
     display: 'flex',
   },
 };
@@ -25,7 +25,7 @@ const RecipeGrid = ({ recipes, title }: RecipeGridrops) => {
     <Container className="page">
       <Typography variant="h1">{title}</Typography>
       <Typography variant="subtitle1" component="h2" gutterBottom>
-        {recipes && `${recipes?.length} Total`}
+        {recipes && `${recipes.length} Total`}
       </Typography>
       <Grid container spacing={2}>
         {recipes &&
@@ -36,7 +36,7 @@ const RecipeGrid = ({ recipes, title }: RecipeGridrops) => {
               sm={6}
               xs={12}
               key={recipe?.slug}
-              sx={styles.grid}
+              sx={styles.gridItem}
             >
               {recipe && <RecipeCard recipe={recipe} />}
             </Grid>
