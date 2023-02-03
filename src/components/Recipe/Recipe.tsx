@@ -1,9 +1,11 @@
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import DynamicImage from 'components/DynamicImage/DynamicImage';
+import RecipeImage from 'components/DynamicImage/RecipeImage';
+// import DynamicImage from 'components/DynamicImage/DynamicImage';
 import Equipment from 'components/Recipe/Equipment';
 import Ingredients from 'components/Recipe/Ingredients';
 import Instructions from 'components/Recipe/Instructions';
@@ -47,7 +49,7 @@ const Recipe = ({ content }: RecipeProps) => {
   const { items: tags } = tagsCollection ?? {};
 
   return (
-    <>
+    <Container className="page">
       <Grid container direction="row" spacing={2}>
         <Grid item md>
           <Typography variant="h1" gutterBottom>
@@ -59,7 +61,7 @@ const Recipe = ({ content }: RecipeProps) => {
         {image && (
           <Grid item md>
             <Box sx={styles.image}>
-              <DynamicImage image={image} />
+              <RecipeImage image={image} />
             </Box>
           </Grid>
         )}
@@ -81,7 +83,7 @@ const Recipe = ({ content }: RecipeProps) => {
 
         {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
       </Stack>
-    </>
+    </Container>
   );
 };
 

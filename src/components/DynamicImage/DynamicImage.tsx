@@ -24,6 +24,8 @@ const Image = ({ image, lazy = false }: ImageProps) => {
     offsetWidth && setWidth(offsetWidth);
   }, [componentRef]);
 
+  if (!image) return null;
+
   const {
     images: { aspectRatio, responsiveIncrement },
   } = config;
