@@ -3,32 +3,21 @@ import { ReactNode } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-// import DynamicImage from 'components/DynamicImage/DynamicImage';
-
 import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer';
 
-import {
-  Document,
-  BLOCKS,
-  // INLINES,
-  MARKS,
-} from '@contentful/rich-text-types';
+import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 
-// import { DescriptionDefaultFragment } from 'types/generated/graphql';
+import {
+  RecipeDescription,
+  RecipeDescriptionLinks,
+} from 'types/generated/graphql';
 
 type BlockProps = {
   children: ReactNode | ReactNode[];
-  //   variant?: TypographyProps['variant'];
 };
-
-// const P = ({ children, variant }: BlockProps) => (
-//   <Typography variant={variant} paragraph>
-//     {children}
-//   </Typography>
-// );
 
 const P = ({ children }: BlockProps) => (
   <Typography variant="body1" paragraph>
@@ -60,33 +49,28 @@ const H6 = ({ children }: BlockProps) => (
   <Typography variant="h6">{children}</Typography>
 );
 
-// type RenderOptionProps = {
-//   componentRef: RefObject<HTMLImageElement | HTMLElement>;
-//   links?: ComponentRichTextFragment['links'];
-//   variant?: TypographyProps['variant'];
-// };
+type RenderOptionProps = {
+  links?: RecipeDescriptionLinks;
+};
 
-const renderOptions = (): Options => {
-  //   const { entries } = links ?? {};
-  //   const { inline: assets } = entries ?? {};
+const renderOptions = ({ links }: RenderOptionProps): Options => {
+  const { entries } = links ?? {};
+  const { inline } = entries ?? {};
 
   // create an entry map
-  //   const assetMap = new Map();
+  const entryMap = new Map();
 
-  //   if (assets) {
-  //     for (const asset of assets) {
-  //       assetMap.set(asset?.sys?.id, asset);
-  //     }
-  //   }
+  if (inline) {
+    for (const entry of inline) {
+      entryMap.set(entry?.sys?.id, entry);
+    }
+  }
 
   return {
     renderMark: {
       [MARKS.BOLD]: (text) => <strong>{text}</strong>,
     },
     renderNode: {
-      //   [BLOCKS.PARAGRAPH]: (_node, children) => (
-      //     <P variant={variant}>{children}</P>
-      //   ),
       [BLOCKS.PARAGRAPH]: (_node, children) => <P>{children}</P>,
       [BLOCKS.HEADING_1]: (_node, children) => <H1>{children}</H1>,
       [BLOCKS.HEADING_2]: (_node, children) => <H2>{children}</H2>,
@@ -94,16 +78,10 @@ const renderOptions = (): Options => {
       [BLOCKS.HEADING_4]: (_node, children) => <H4>{children}</H4>,
       [BLOCKS.HEADING_5]: (_node, children) => <H5>{children}</H5>,
       [BLOCKS.HEADING_6]: (_node, children) => <H6>{children}</H6>,
-      //   [INLINES.EMBEDDED_ENTRY]: (node) => {
-      //     const { dam, __typename } = assetMap.get(node.data.target.sys.id);
-      //     const [damAsset] = dam;
-
-      //     if (__typename && __typename === 'Image' && damAsset) {
-      //       return (
-      //         <OptimizedImage damAsset={damAsset} componentRef={componentRef} />
-      //       );
-      //     }
-      //   },
+      [INLINES.EMBEDDED_ENTRY]: (node) => {
+        const { title, slug } = entryMap.get(node.data.target.sys.id);
+        return <a href={slug}>{`${title} `}</a>;
+      },
     },
   };
 };
@@ -112,14 +90,13 @@ const renderOptions = (): Options => {
 //       and parse json and links children
 
 type RichTextProps = {
-  json: Document;
-  //   variant?: TypographyProps['variant'];
+  content: RecipeDescription;
 };
 
-export const RichText = ({ json }: RichTextProps) => {
-  //   const { json, links } = document ?? {};
+export const RichText = ({ content }: RichTextProps) => {
+  const { json, links } = content ?? {};
 
-  return <Box>{documentToReactComponents(json, renderOptions())}</Box>;
+  return <Box>{documentToReactComponents(json, renderOptions({ links }))}</Box>;
 };
 
 export default RichText;

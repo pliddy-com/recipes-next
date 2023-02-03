@@ -12,7 +12,10 @@ import Notes from 'containers/Recipe/Notes';
 import RichText from 'components/RichText/RichText';
 import Tags from 'containers/Recipe/Tags';
 
-import { RecipeDefaultFragment } from 'types/generated/graphql';
+import {
+  RecipeDefaultFragment,
+  RecipeDescription,
+} from 'types/generated/graphql';
 
 import config from 'lib/config';
 
@@ -48,8 +51,9 @@ const Recipe = ({ content }: RecipeProps) => {
 
   // TODO: pass full description text into rich text component
   //       & destructure json & links inside component (needs types for json & links)
+  //       Need to remove typecasting of RecipeDescription
 
-  const { json: descriptionDoc } = description ?? {};
+  // const { json, links } = description ?? {};
 
   const { items: ingredientsSections } = ingredientsCollection ?? {};
   const { items: instructionsSections } = instructionsCollection ?? {};
@@ -63,7 +67,10 @@ const Recipe = ({ content }: RecipeProps) => {
             {title}
           </Typography>
 
-          {descriptionDoc && <RichText json={descriptionDoc} />}
+          {description && (
+            <RichText content={description as RecipeDescription} />
+            // <RichText content={description} />
+          )}
         </Grid>
         {image && (
           <Grid item md>

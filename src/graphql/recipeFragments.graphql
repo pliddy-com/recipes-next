@@ -44,38 +44,40 @@ fragment DescriptionDefault on Recipe {
   description {
     json
     links {
+      assets {
+        block {
+          sys {
+            id
+          }
+          __typename
+          title
+          url
+        }
+        hyperlink {
+          sys {
+            id
+          }
+          __typename
+          title
+          url
+        }
+      }
       entries {
         inline {
           __typename
           sys {
             id
-            __typename
+          }
+          ... on Recipe {
+            slug
+            title
           }
         }
         hyperlink {
           __typename
           sys {
             id
-            __typename
           }
-        }
-        block {
-          __typename
-
-          sys {
-            id
-            __typename
-          }
-        }
-      }
-      assets {
-        hyperlink {
-          __typename
-          title
-        }
-        block {
-          __typename
-          title
         }
       }
     }
@@ -89,9 +91,7 @@ fragment RecipeDefault on Recipe {
   __typename
   title
   slug
-  description {
-    json
-  }
+  ...DescriptionDefault
   abstract
   image {
     ...ImageDefault

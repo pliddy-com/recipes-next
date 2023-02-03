@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 import { queryRecipeCollectionContent } from 'lib/api';
 
-import Layout from 'layout/Layout';
+import Layout from 'layout/layout';
 import Loading from 'components/Loading/Loading';
 import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
 

@@ -23,7 +23,7 @@ query recipeCollection($where: RecipeFilter) {
 # Query for Recipe page
 
 query recipePage($where: RecipeFilter) {
-  recipeCollection(where: $where, order: title_ASC) {
+  recipeCollection(where: $where, order: title_ASC, limit: 1) {
     total
     items {
       ...RecipeDefault
