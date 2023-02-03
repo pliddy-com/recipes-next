@@ -65,8 +65,6 @@ const renderOptions = ({ links }: RenderOptionProps): Options => {
     for (const entry of inline) {
       entryMap.set(entry?.sys?.id, entry);
     }
-
-    console.log({ entryMap });
   }
 
   return {
@@ -86,7 +84,6 @@ const renderOptions = ({ links }: RenderOptionProps): Options => {
         return <Link href={slug}>{`${title} `}</Link>;
       },
       [INLINES.HYPERLINK]: (node, children) => {
-        console.log({ node });
         const {
           data: { uri },
         } = node ?? {};
