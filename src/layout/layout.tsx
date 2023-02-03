@@ -2,8 +2,6 @@ import { ReactElement, useEffect, useState } from 'react';
 
 import NavBar from 'components/NavBar/NavBar';
 
-import Container from '@mui/material/Container';
-
 import { queryNavContent } from 'lib/api';
 
 import { Taxonomy } from 'types/generated/graphql';

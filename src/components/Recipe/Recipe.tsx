@@ -4,8 +4,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import RecipeImage from 'components/DynamicImage/RecipeImage';
-// import DynamicImage from 'components/DynamicImage/DynamicImage';
+import DynamicImage from 'components/DynamicImage/DynamicImage';
 import Equipment from 'components/Recipe/Equipment';
 import Ingredients from 'components/Recipe/Ingredients';
 import Instructions from 'components/Recipe/Instructions';
@@ -14,6 +13,8 @@ import RichText from 'components/RichText/RichText';
 import Tags from 'components/Recipe/Tags';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
+
+import config from 'lib/config';
 
 const styles = {
   image: {
@@ -39,6 +40,12 @@ const Recipe = ({ content }: RecipeProps) => {
     tagsCollection,
   } = content ?? {};
 
+  const {
+    images: {
+      widths: { recipe: imageWidths },
+    },
+  } = config ?? {};
+
   // TODO: pass full description text into rich text component
   //       & destructure json & links inside component (needs types for json & links)
 
@@ -61,7 +68,7 @@ const Recipe = ({ content }: RecipeProps) => {
         {image && (
           <Grid item md>
             <Box sx={styles.image}>
-              <RecipeImage image={image} />
+              <DynamicImage image={image} widths={imageWidths} />
             </Box>
           </Grid>
         )}

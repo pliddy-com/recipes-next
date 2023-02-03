@@ -1,34 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
-// import NextImage from 'next/image';
-
-import Box from '@mui/material/Box';
-
 import { ImageDefaultFragment } from 'types/generated/graphql';
 
-import config from 'lib/config';
+interface WidthProps {
+  viewMin: number;
+  imgWidth: number;
+}
 
 interface ImageProps {
   image: ImageDefaultFragment;
-  lazy?: boolean;
+  widths: WidthProps[];
 }
 
-const Image = ({ image, lazy = false }: ImageProps) => {
-  const componentRef = useRef<HTMLElement>(null);
-
-  // store dimensions of the reference image element
-  const [width, setWidth] = useState(0);
-
-  // update width when there's a change to the reference image
-  useEffect(() => {
-    const { offsetWidth } = componentRef?.current ?? {};
-    offsetWidth && setWidth(offsetWidth);
-  }, [componentRef]);
-
+const Image = ({ image, widths }: ImageProps) => {
   if (!image) return null;
-
-  const {
-    images: { aspectRatio, responsiveIncrement },
-  } = config;
 
   const {
     url,
@@ -37,27 +20,25 @@ const Image = ({ image, lazy = false }: ImageProps) => {
     width: imgWidth,
   } = image ?? {};
 
-  // rounds image width up to nearest factor of 400
-  const refWidth = Math.ceil(width / responsiveIncrement) * responsiveIncrement;
-  const refHeight = refWidth * aspectRatio;
-
-  // TODO: configure priority for preload only if in viewport?
-  return (
-    <Box ref={componentRef}>
-      {refWidth && refWidth > 0 && (
-        <img
-          alt={alt || ''}
-          height={imgHeight || refHeight}
-          loading={lazy ? 'lazy' : 'eager'}
-          decoding="async"
-          // priority={true}
-          src={`${url}?w=${refWidth}&fm=webp`}
-          style={{ maxWidth: '100%', height: 'auto' }}
-          width={imgWidth || refWidth}
+  return url && imgWidth && imgHeight ? (
+    <picture>
+      {widths.map(({ viewMin, imgWidth }) => (
+        <source
+          key={viewMin}
+          media={`(min-width: ${viewMin}px)`}
+          srcSet={`${url}?w=${imgWidth}&fm=webp ${imgWidth}600w`}
+          sizes={`${imgWidth}px`}
         />
-      )}
-    </Box>
-  );
+      ))}
+      <img
+        alt={alt || ''}
+        height={imgHeight}
+        src={url}
+        style={{ maxWidth: '100%', height: 'auto' }}
+        width={imgWidth}
+      />
+    </picture>
+  ) : null;
 };
 
 export default Image;

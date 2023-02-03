@@ -10,10 +10,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
 import TagButtons from 'components/TagButtons/TagButtons';
-// import DynamicImage from 'components/DynamicImage/DynamicImage';
-import CardImage from 'components/DynamicImage/CardImage';
+import DynamicImage from 'components/DynamicImage/DynamicImage';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
+
+import config from 'lib/config';
 
 const styles = {
   abstract: {
@@ -37,6 +38,12 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
   const { items: tags } = tagsCollection ?? {};
   const { title: category } = tags?.[0] ?? {};
 
+  const {
+    images: {
+      widths: { card: imageWidths },
+    },
+  } = config ?? {};
+
   return (
     <Card variant="outlined">
       <CardActionArea component={Link} href={`/recipe/${slug}`}>
@@ -44,7 +51,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
         {image && (
           <CardMedia>
             <Box sx={styles.wrapper}>
-              <CardImage image={image} />
+              <DynamicImage image={image} widths={imageWidths} />
             </Box>
           </CardMedia>
         )}
