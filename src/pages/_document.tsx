@@ -31,6 +31,20 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#000000" />
           <meta name="msapplication-TileColor" content="#ff0000" />
           <meta name="theme-color" content="#ffffff" />
+          <link
+            rel="preload"
+            href="/fonts/Inter-Regular.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin="true"
+          />
+          <link
+            rel="preload"
+            href="/fonts/Inter-Medium.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin="true"
+          />
         </Head>
 
         <body>
