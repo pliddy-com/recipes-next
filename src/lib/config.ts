@@ -1,15 +1,22 @@
 const config = {
   microcopy: {
     category: {
+      defaultDescription: 'A collection of recipies categorized as',
       defaultTitle: 'Category',
     },
     index: {
       defaultTitle: 'All Recipes',
+      description: "Patrick's recipe collection",
     },
     recipe: {
+      defaultDescription: 'A recipe for',
       defaultTitle: 'Recipe',
     },
+    site: {
+      title: "Patrick's Recipes",
+    },
     tag: {
+      defaultDescription: 'A collection of recipies tagged as',
       defaultTitle: 'Tag',
     },
   },

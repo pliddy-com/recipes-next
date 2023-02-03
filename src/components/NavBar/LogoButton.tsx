@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 import Button from '@mui/material/Button';
 
-import colors from 'theme/colors';
-
 import LogoIcon from 'assets/LogoIcon';
+
+import colors from 'theme/colors';
 
 const styles = {
   logo: {

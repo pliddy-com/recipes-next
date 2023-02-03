@@ -8,7 +8,7 @@ import { Maybe, TaxonomyChildrenItem } from 'types/generated/graphql';
 
 const styles = {
   category: {
-    pl: 0,
+    paddingLeft: 0,
   },
 };
 
@@ -46,11 +46,7 @@ const CategoryMenu = ({ category, onClick }: CategoryMenuProps) => {
   return (
     <Box>
       {categoryChildrenCollection ? (
-        <SubcategoryMenu
-          category={category}
-          itemStyle={styles.category}
-          onClick={onClick}
-        />
+        <SubcategoryMenu category={category} onClick={onClick} />
       ) : (
         <ListItem sx={styles.category}>
           <CategoryListItemButton

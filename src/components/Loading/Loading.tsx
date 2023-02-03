@@ -13,6 +13,7 @@ const styles = {
     justifyContent: 'center',
   },
 };
+
 const Loading = () => (
   <Container sx={styles.container}>
     <Box sx={styles.loader}>

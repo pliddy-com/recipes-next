@@ -11,21 +11,20 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 
 import CategoryListItemButton from 'components/NavBar/NavMenu/CategoryListItemButton';
 
-import { SxProps, Theme } from '@mui/material';
-
 import { Maybe, Tag, TaxonomyChildrenItem } from 'types/generated/graphql';
+
+const styles = {
+  item: {
+    paddingLeft: 0,
+  },
+};
 
 interface SubcategoryMenuProps {
   category?: Maybe<TaxonomyChildrenItem>;
-  itemStyle?: SxProps<Theme>;
   onClick: VoidFunction;
 }
 
-const SubcategoryMenu = ({
-  category,
-  itemStyle,
-  onClick,
-}: SubcategoryMenuProps) => {
+const SubcategoryMenu = ({ category, onClick }: SubcategoryMenuProps) => {
   const [open, setOpen] = useState(false);
   const { slug, title } = category ?? {};
 
@@ -48,7 +47,7 @@ const SubcategoryMenu = ({
   return (
     <Box>
       <ListItem
-        sx={itemStyle}
+        sx={styles.item}
         secondaryAction={
           <IconButton edge="end" aria-label="expand" onClick={toggleDropdown}>
             {open ? <ExpandLess /> : <ExpandMore />}

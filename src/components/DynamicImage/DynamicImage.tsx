@@ -20,8 +20,6 @@ const Image = ({ image, widths }: ImageProps) => {
     width: imgWidth,
   } = image ?? {};
 
-  // TODO: add second source tag for each item with double width and '2x' appended
-
   return url && imgWidth && imgHeight ? (
     <picture>
       {widths.map(({ viewMin, imgWidth }) => (

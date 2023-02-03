@@ -28,11 +28,17 @@ const TagPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = pageContent ?? {};
   const content = pageContent?.linkedFrom?.recipeCollection?.items ?? [];
-  const { defaultTitle } = config?.microcopy?.tag ?? {};
+  const { defaultDescription, defaultTitle } = config?.microcopy?.tag ?? {};
+
+  const description = `${defaultDescription} ${title}`;
 
   return (
     <>
-      <PageHeadTag title={title} defaultTitle={defaultTitle} />
+      <PageHeadTag
+        title={title}
+        defaultTitle={defaultTitle}
+        description={description}
+      />
       <Suspense fallback={<Loading />}>
         <RecipeGrid recipes={content} title={title} />
       </Suspense>

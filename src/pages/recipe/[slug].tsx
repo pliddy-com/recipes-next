@@ -26,12 +26,18 @@ const Recipe = dynamic(
 const RecipePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { title } = pageContent ?? {};
-  const { defaultTitle } = config?.microcopy?.recipe ?? {};
+  const { abstract, title } = pageContent ?? {};
+  const { defaultDescription, defaultTitle } = config?.microcopy?.recipe ?? {};
+
+  const description = abstract || `${defaultDescription} ${title}`;
 
   return (
     <>
-      <PageHeadTag title={title} defaultTitle={defaultTitle} />
+      <PageHeadTag
+        title={title}
+        defaultTitle={defaultTitle}
+        description={description}
+      />
       <Suspense fallback={<Loading />}>
         <Recipe content={pageContent} />
       </Suspense>
