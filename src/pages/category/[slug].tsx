@@ -20,7 +20,7 @@ import config from 'lib/config';
 
 const RecipeGrid = dynamic(
   import(
-    /* webpackChunkName: 'CategoryGrid' */ 'components/RecipeGrid/RecipeGrid'
+    /* webpackChunkName: 'CategoryGrid' */ 'containers/RecipeGrid/RecipeGrid'
   ),
   { suspense: true }
 );
