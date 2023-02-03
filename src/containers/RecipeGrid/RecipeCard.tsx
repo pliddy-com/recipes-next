@@ -16,16 +16,7 @@ import { RecipeDefaultFragment } from 'types/generated/graphql';
 
 import config from 'lib/config';
 
-const styles = {
-  abstract: {
-    mb: '2rem',
-  },
-  wrapper: {
-    height: '100%',
-    position: 'relative',
-    width: '100%',
-  },
-};
+import { recipeCardStyles } from 'lib/styles';
 
 interface RecipeCardProps {
   recipe?: RecipeDefaultFragment;
@@ -50,7 +41,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
         <CardHeader title={title} subheader={category} />
         {image && (
           <CardMedia>
-            <Box sx={styles.wrapper}>
+            <Box sx={recipeCardStyles.cardImageWrapper}>
               <DynamicImage image={image} widths={imageWidths} />
             </Box>
           </CardMedia>
@@ -58,7 +49,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
 
         <CardContent>
           {abstract && (
-            <Typography variant="body2" sx={styles.abstract}>
+            <Typography variant="body2" sx={recipeCardStyles.cardAbstract}>
               {abstract}
             </Typography>
           )}

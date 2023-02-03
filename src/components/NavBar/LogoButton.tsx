@@ -4,16 +4,7 @@ import Button from '@mui/material/Button';
 
 import LogoIcon from 'assets/LogoIcon';
 
-import colors from 'theme/colors';
-
-const styles = {
-  logo: {
-    color: colors.common.white,
-    display: 'flex',
-    marginRight: 'auto',
-    textTransform: 'capitalize',
-  },
-};
+import { logoButtonStyles } from 'lib/styles';
 
 const LogoButton = () => {
   return (
@@ -23,7 +14,7 @@ const LogoButton = () => {
       href="/"
       size="large"
       startIcon={<LogoIcon />}
-      sx={styles.logo}
+      sx={logoButtonStyles.logo}
     >
       Recipes
     </Button>

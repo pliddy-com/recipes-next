@@ -11,15 +11,7 @@ import CategoryMenu from 'components/NavBar/NavMenu/CategoryMenu';
 
 import { Taxonomy } from 'types/generated/graphql';
 
-const styles = {
-  drawer: {
-    display: 'block',
-    '& .MuiDrawer-paper': {
-      boxSizing: 'border-box',
-      width: 240,
-    },
-  },
-};
+import { navMenuStyles } from 'lib/styles';
 
 interface NavMenuType {
   isOpen: boolean;
@@ -39,7 +31,7 @@ const NavMenu = ({ isOpen, nav, onClick }: NavMenuType) => {
       }}
       onClose={onClick}
       open={isOpen}
-      sx={styles.drawer}
+      sx={navMenuStyles.menuDrawer}
       variant="temporary"
     >
       <List component="nav">

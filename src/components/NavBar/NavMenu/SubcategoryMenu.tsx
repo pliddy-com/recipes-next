@@ -13,11 +13,7 @@ import CategoryListItemButton from 'components/NavBar/NavMenu/CategoryListItemBu
 
 import { Maybe, Tag, TaxonomyChildrenItem } from 'types/generated/graphql';
 
-const styles = {
-  item: {
-    paddingLeft: 0,
-  },
-};
+import { categoryMenuStyles } from 'lib/styles';
 
 interface SubcategoryMenuProps {
   category?: Maybe<TaxonomyChildrenItem>;
@@ -47,7 +43,7 @@ const SubcategoryMenu = ({ category, onClick }: SubcategoryMenuProps) => {
   return (
     <Box>
       <ListItem
-        sx={styles.item}
+        sx={categoryMenuStyles.menuItem}
         secondaryAction={
           <IconButton edge="end" aria-label="expand" onClick={toggleDropdown}>
             {open ? <ExpandLess /> : <ExpandMore />}

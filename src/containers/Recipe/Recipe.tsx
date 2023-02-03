@@ -19,11 +19,7 @@ import {
 
 import config from 'lib/config';
 
-const styles = {
-  image: {
-    marginBottom: '1rem',
-  },
-};
+import { recipeStyles } from 'lib/styles';
 
 interface RecipeProps {
   content?: RecipeDefaultFragment;
@@ -74,7 +70,7 @@ const Recipe = ({ content }: RecipeProps) => {
         </Grid>
         {image && (
           <Grid item md>
-            <Box sx={styles.image}>
+            <Box sx={recipeStyles.pageImageWrapper}>
               <DynamicImage image={image} widths={imageWidths} />
             </Box>
           </Grid>
