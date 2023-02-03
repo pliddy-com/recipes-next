@@ -6,7 +6,8 @@
     "predeploy": "npm run export",
     "deploy": "dotenv -- cross-var aws s3 sync --acl public-read out/ %S3_BUCKET%",
     "postdeploy": "dotenv -- cross-var aws cloudfront create-invalidation --distribution-id %DISTRIBUTION_ID% --paths '/*' --no-cli-pager",
-    "export": "next build && next export",
+    "preexport": "next build",
+    "export": "next export",
     "predev": "npm run typegen",
     "dev": "next dev",
     "prebuild": "npm run typegen",
@@ -17,7 +18,8 @@
     "lint:fix": "prettier --write . && next lint --fix",
     "typecheck": "tsc",
     "typegen": "graphql-codegen --config codegen.yml --require dotenv/config",
-    "typegen:watch": "graphql-codegen --watch --config codegen.yml --require dotenv/config"
+    "typegen:watch": "graphql-codegen --watch --config codegen.yml --require dotenv/config",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.16.2",
@@ -57,6 +59,7 @@
     "dotenv": "^16.0.3",
     "dotenv-cli": "^7.0.0",
     "tslint-config-prettier": "^1.18.0",
-    "urql": "^3.0.3"
+    "urql": "^3.0.3",
+    "husky": "^8.0.0"
   }
 }

@@ -88,6 +88,7 @@ const renderOptions = ({ links }: RenderOptionProps): Options => {
           data: { uri },
         } = node ?? {};
 
+        console.log({ children });
         return (
           <Link href={uri} target="_blank" rel="noreferrer">
             {children}
