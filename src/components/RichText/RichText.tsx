@@ -1,3 +1,5 @@
+// placeholder comment for lint check
+
 import { ReactNode } from 'react';
 
 import Box from '@mui/material/Box';

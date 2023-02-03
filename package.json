@@ -40,6 +40,7 @@
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.2",
     "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
     "next": "13.1.2",
     "prettier": "^2.8.3",
     "react": "18.2.0",
@@ -58,8 +59,9 @@
     "cross-var-no-babel": "^1.2.0",
     "dotenv": "^16.0.3",
     "dotenv-cli": "^7.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.0",
     "tslint-config-prettier": "^1.18.0",
-    "urql": "^3.0.3",
-    "husky": "^8.0.0"
+    "urql": "^3.0.3"
   }
 }
