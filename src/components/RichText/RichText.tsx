@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
 import {
@@ -64,6 +65,8 @@ const renderOptions = ({ links }: RenderOptionProps): Options => {
     for (const entry of inline) {
       entryMap.set(entry?.sys?.id, entry);
     }
+
+    console.log({ entryMap });
   }
 
   return {
@@ -80,7 +83,19 @@ const renderOptions = ({ links }: RenderOptionProps): Options => {
       [BLOCKS.HEADING_6]: (_node, children) => <H6>{children}</H6>,
       [INLINES.EMBEDDED_ENTRY]: (node) => {
         const { title, slug } = entryMap.get(node.data.target.sys.id);
-        return <a href={slug}>{`${title} `}</a>;
+        return <Link href={slug}>{`${title} `}</Link>;
+      },
+      [INLINES.HYPERLINK]: (node, children) => {
+        console.log({ node });
+        const {
+          data: { uri },
+        } = node ?? {};
+
+        return (
+          <Link href={uri} target="_blank" rel="noreferrer">
+            {children}
+          </Link>
+        );
       },
     },
   };
