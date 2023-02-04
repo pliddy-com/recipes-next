@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import ListItem from '@mui/material/ListItem';
 
-import CategoryListItemButton from 'components/NavBar/NavMenu/CategoryListItemButton';
-import SubcategoryMenu from 'components/NavBar/NavMenu/SubcategoryMenu';
+import CategoryListItemButton from 'components/NavBar/NavMenu/CategoryListItemButton/CategoryListItemButton';
+import SubcategoryMenu from 'components/NavBar/NavMenu/SubcategoryMenu/SubcategoryMenu';
 
 import { Maybe, TaxonomyChildrenItem } from 'types/generated/graphql';
 

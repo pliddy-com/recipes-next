@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import Loading from 'components/Loading/Loading';
-import RecipeCard from 'containers/RecipeGrid/RecipeCard';
+import RecipeCard from 'containers/RecipeGrid/RecipeCard/RecipeCard';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 

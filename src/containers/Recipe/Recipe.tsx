@@ -5,12 +5,12 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 import DynamicImage from 'components/DynamicImage/DynamicImage';
-import Equipment from 'containers/Recipe/Equipment';
-import Ingredients from 'containers/Recipe/Ingredients';
-import Instructions from 'containers/Recipe/Instructions';
-import Notes from 'containers/Recipe/Notes';
+import Equipment from 'containers/Recipe/Equipment/Equipment';
+import Ingredients from 'containers/Recipe/Ingredients/Ingredients';
+import Instructions from 'containers/Recipe/Instructions/Instructions';
+import Notes from 'containers/Recipe/Notes/Notes';
 import RichText from 'components/RichText/RichText';
-import Tags from 'containers/Recipe/Tags';
+import Tags from 'containers/Recipe/Tags/Tags';
 
 import {
   RecipeDefaultFragment,

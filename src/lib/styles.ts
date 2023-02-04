@@ -1,5 +1,7 @@
 import colors from 'theme/colors';
 
+// custom component style
+
 export const loadingStyles = {
   loader: {
     alignItems: 'center',
