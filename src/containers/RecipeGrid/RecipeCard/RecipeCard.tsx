@@ -16,8 +16,6 @@ import { RecipeDefaultFragment } from 'types/generated/graphql';
 
 import config from 'lib/config';
 
-import { recipeCardStyles } from 'lib/styles';
-
 interface RecipeCardProps {
   recipe?: RecipeDefaultFragment;
   preloadImg?: boolean;
@@ -37,12 +35,12 @@ const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
   } = config ?? {};
 
   return (
-    <Card variant="outlined">
+    <Card variant="outlined" className="recipe">
       <CardActionArea component={Link} href={`/recipe/${slug}`}>
         <CardHeader title={title} subheader={category} />
         {image && (
           <CardMedia>
-            <Box sx={recipeCardStyles.cardImageWrapper}>
+            <Box className="imageWrapper">
               <DynamicImage
                 image={image}
                 props={imageProps}
@@ -54,7 +52,7 @@ const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
 
         <CardContent>
           {abstract && (
-            <Typography variant="body2" sx={recipeCardStyles.cardAbstract}>
+            <Typography variant="body2" className="abstract">
               {abstract}
             </Typography>
           )}

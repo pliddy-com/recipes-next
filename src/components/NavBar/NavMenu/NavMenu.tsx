@@ -11,8 +11,6 @@ import CategoryMenu from 'components/NavBar/NavMenu/CategoryMenu/CategoryMenu';
 
 import { Taxonomy } from 'types/generated/graphql';
 
-import { navMenuStyles } from 'lib/styles';
-
 interface NavMenuType {
   isOpen: boolean;
   nav?: Taxonomy;
@@ -31,7 +29,7 @@ const NavMenu = ({ isOpen, nav, onClick }: NavMenuType) => {
       }}
       onClose={onClick}
       open={isOpen}
-      sx={navMenuStyles.menuDrawer}
+      className="menu"
       variant="temporary"
     >
       <List component="nav">

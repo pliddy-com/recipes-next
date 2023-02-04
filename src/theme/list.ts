@@ -13,6 +13,9 @@ const listTheme: ThemeOptions = {
             marginLeft: '.25rem',
           },
           '& .MuiListItem-root': {
+            '&.menuItem': {
+              paddingLeft: 0,
+            },
             '& .MuiListItemIcon-root': {
               alignItems: 'center',
               marginRight: '.5rem',

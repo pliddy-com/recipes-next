@@ -19,8 +19,6 @@ import {
 
 import config from 'lib/config';
 
-import { recipeStyles } from 'lib/styles';
-
 interface RecipeProps {
   content?: RecipeDefaultFragment;
 }
@@ -57,7 +55,7 @@ const Recipe = ({ content }: RecipeProps) => {
 
   return (
     <Container className="page">
-      <Grid container direction="row" spacing={2}>
+      <Grid container direction="row" spacing={4} mb={3}>
         <Grid item md>
           <Typography variant="h1" gutterBottom>
             {title}
@@ -70,7 +68,7 @@ const Recipe = ({ content }: RecipeProps) => {
         </Grid>
         {image && (
           <Grid item md>
-            <Box sx={recipeStyles.pageImageWrapper}>
+            <Box>
               <DynamicImage image={image} props={imageProps} preload={true} />
             </Box>
           </Grid>

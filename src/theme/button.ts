@@ -15,6 +15,15 @@ const buttonTheme: ThemeOptions = {
         },
       },
     },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          '&.menu': {
+            menuIcon: { ml: 'auto' },
+          },
+        },
+      },
+    },
   },
 };
 

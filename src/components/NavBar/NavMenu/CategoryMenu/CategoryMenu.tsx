@@ -6,8 +6,6 @@ import SubcategoryMenu from 'components/NavBar/NavMenu/SubcategoryMenu/Subcatego
 
 import { Maybe, TaxonomyChildrenItem } from 'types/generated/graphql';
 
-import { categoryMenuStyles } from 'lib/styles';
-
 interface CategoryMenuProps {
   category?: Maybe<TaxonomyChildrenItem>;
   onClick: VoidFunction;
@@ -44,7 +42,7 @@ const CategoryMenu = ({ category, onClick }: CategoryMenuProps) => {
       {categoryChildrenCollection ? (
         <SubcategoryMenu category={category} onClick={onClick} />
       ) : (
-        <ListItem sx={categoryMenuStyles.menuItem}>
+        <ListItem className="menuItem">
           <CategoryListItemButton
             slug={slug}
             title={title}

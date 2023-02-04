@@ -40,6 +40,16 @@ const cardTheme: ThemeOptions = {
             padding: '1rem',
             marginTop: 'auto',
           },
+          '&.recipe': {
+            '& .abstract': {
+              marginBottom: '2rem',
+            },
+            '& .imageWrapper': {
+              height: '100%',
+              position: 'relative',
+              width: '100%',
+            },
+          },
         },
       },
     },

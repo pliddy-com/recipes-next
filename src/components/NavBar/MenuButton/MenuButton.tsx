@@ -1,8 +1,6 @@
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { menuButtonStyles } from 'lib/styles';
-
 interface MenuButtonProps {
   onClick: VoidFunction;
 }
@@ -14,7 +12,7 @@ const MenuButton = ({ onClick }: MenuButtonProps) => {
       color="inherit"
       edge="start"
       onClick={onClick}
-      sx={menuButtonStyles.menuIcon}
+      className="menu"
     >
       <MenuIcon />
     </IconButton>

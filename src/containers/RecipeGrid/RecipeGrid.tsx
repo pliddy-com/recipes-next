@@ -7,8 +7,6 @@ import RecipeCard from 'containers/RecipeGrid/RecipeCard/RecipeCard';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
-import { recipeGridStyles } from 'lib/styles';
-
 interface RecipeGridrops {
   recipes: (RecipeDefaultFragment | null)[];
   title?: string | null;
@@ -32,7 +30,7 @@ const RecipeGrid = ({ recipes, title }: RecipeGridrops) => {
               sm={6}
               xs={12}
               key={recipe?.slug}
-              sx={recipeGridStyles.recipeGridItem}
+              className="flex"
             >
               {recipe && <RecipeCard recipe={recipe} preloadImg={index < 3} />}
             </Grid>

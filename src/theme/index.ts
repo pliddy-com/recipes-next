@@ -5,6 +5,8 @@ import baseTheme from 'theme/theme';
 import buttonTheme from 'theme/button';
 import cardTheme from 'theme/card';
 import containerTheme from 'theme/container';
+import drawerTheme from 'theme/drawer';
+import gridTheme from 'theme/grid';
 import listTheme from 'theme/list';
 import typeTheme from 'theme/type';
 
@@ -12,6 +14,8 @@ let build = createTheme(deepmerge(baseTheme, typeTheme));
 build = createTheme(deepmerge(build, buttonTheme));
 build = createTheme(deepmerge(build, cardTheme));
 build = createTheme(deepmerge(build, containerTheme));
+build = createTheme(deepmerge(build, drawerTheme));
+build = createTheme(deepmerge(build, gridTheme));
 build = createTheme(deepmerge(build, listTheme));
 
 // const theme = responsiveFontSizes(build);
