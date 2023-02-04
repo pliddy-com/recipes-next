@@ -81,7 +81,7 @@ const renderOptions = ({ links }: RenderOptionProps): Options => {
       [BLOCKS.HEADING_6]: (_node, children) => <H6>{children}</H6>,
       [INLINES.EMBEDDED_ENTRY]: (node) => {
         const { title, slug } = entryMap.get(node.data.target.sys.id);
-        return <Link href={slug}>{`${title} `}</Link>;
+        return <Link href={slug}>{`${title}`}</Link>;
       },
       [INLINES.HYPERLINK]: (node, children) => {
         const {

@@ -1,5 +1,7 @@
 import { ThemeOptions } from '@mui/material/styles';
 import colors from 'theme/colors';
+import { sansFontFamily, serifFontFamily } from 'theme/type';
+
 const baseTheme: ThemeOptions = {
   palette: {
     primary: {
@@ -13,13 +15,13 @@ const baseTheme: ThemeOptions = {
     },
   },
   typography: {
-    fontFamily: 'Inter',
+    fontFamily: serifFontFamily,
     fontSize: 16,
     fontWeightRegular: 400,
     fontWeightBold: 500,
     htmlFontSize: 18,
     h1: {
-      fontFamily: '"Roboto"',
+      fontFamily: sansFontFamily,
       fontWeight: 500,
       lineHeight: 1.25,
       fontSize: '2.2rem',

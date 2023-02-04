@@ -33,7 +33,7 @@ const NavMenu = ({ isOpen, nav, onClick }: NavMenuType) => {
       variant="temporary"
     >
       <List component="nav">
-        <ListItem disablePadding>
+        <ListItem className="menuItem" disablePadding>
           <ListItemButton component={Link} href="/" onClick={onClick}>
             <ListItemText primary="All Recipes" />
           </ListItemButton>

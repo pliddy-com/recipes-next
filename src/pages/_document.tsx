@@ -3,6 +3,13 @@ import Document, { Head, Html, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from 'lib/createEmotionCache';
 
+import {
+  regularSansFontPath,
+  boldSansFontPath,
+  normalSerifFontPath,
+  italicSerifFontPath,
+} from 'theme/fontface';
+
 export default class MyDocument extends Document {
   render() {
     return (
@@ -33,14 +40,28 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff" />
           <link
             rel="preload"
-            href="/fonts/Inter-Regular.ttf"
+            href={normalSerifFontPath}
             as="font"
             type="font/ttf"
             crossOrigin="true"
           />
           <link
             rel="preload"
-            href="/fonts/Inter-Medium.ttf"
+            href={italicSerifFontPath}
+            as="font"
+            type="font/ttf"
+            crossOrigin="true"
+          />
+          <link
+            rel="preload"
+            href={regularSansFontPath}
+            as="font"
+            type="font/ttf"
+            crossOrigin="true"
+          />
+          <link
+            rel="preload"
+            href={boldSansFontPath}
             as="font"
             type="font/ttf"
             crossOrigin="true"

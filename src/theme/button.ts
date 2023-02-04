@@ -11,6 +11,8 @@ const buttonTheme: ThemeOptions = {
             display: 'flex',
             marginRight: 'auto',
             textTransform: 'capitalize',
+            fontSize: '1rem',
+            fontWeight: '100',
           },
         },
       },

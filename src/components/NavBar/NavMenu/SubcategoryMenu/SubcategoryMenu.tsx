@@ -67,7 +67,7 @@ const SubcategoryMenu = ({ category, onClick }: SubcategoryMenuProps) => {
               const { total } = recipeCollection ?? {};
 
               return total ? (
-                <ListItem key={id}>
+                <ListItem key={id} className="subMenuItem">
                   <CategoryListItemButton
                     slug={slug}
                     title={title}

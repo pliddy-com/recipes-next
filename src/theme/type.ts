@@ -1,10 +1,14 @@
-import fontFaceOverrides from 'theme/fontface';
+import {
+  fontFaceOverrides,
+  fontWeightBold,
+  fontWeightRegular,
+} from 'theme/fontface';
 
-const baseFontSize = 16;
-const buttonFontSize = 14;
-const fontWeightRegular = 400;
-const fontWeightBold = 500;
-const fontFamily = 'Inter';
+export const baseFontSize = 18;
+export const baseRemSize = 16;
+export const buttonFontSize = 14;
+export const serifFontFamily = 'Piazzolla';
+export const sansFontFamily = 'Inter';
 
 const typeTheme = {
   components: {
@@ -14,7 +18,7 @@ const typeTheme = {
     MuiButton: {
       styleOverrides: {
         root: {
-          fontFamily,
+          fontFamily: sansFontFamily,
           fontSize: `${buttonFontSize / baseFontSize}rem`,
           fontWeight: fontWeightBold,
           lineHeight: baseFontSize / buttonFontSize,
@@ -39,62 +43,62 @@ const typeTheme = {
     },
   },
   typography: {
-    fontFamily,
+    serifFontFamily,
     fontWeightBold,
     fontWeightRegular,
     fontSize: baseFontSize,
-    htmlFontSize: 18,
+    htmlFontSize: baseFontSize,
     body2: {
-      fontSize: `${baseFontSize / baseFontSize}rem`,
+      fontSize: `${baseFontSize / baseRemSize}rem`,
       fontWeight: fontWeightRegular,
       letterSpacing: '.1px',
       lineHeight: 24 / baseFontSize,
     },
     body1: {
-      fontSize: `${baseFontSize / baseFontSize}rem`,
+      fontSize: `${baseFontSize / baseRemSize}rem`,
       fontWeight: fontWeightRegular,
       letterSpacing: '.1px',
       lineHeight: 24 / baseFontSize,
     },
     h1: {
-      fontFamily,
+      fontFamily: sansFontFamily,
       fontSize: `${36 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
     },
     h2: {
-      fontFamily,
-      fontSize: `${28 / baseFontSize}rem`,
+      fontFamily: sansFontFamily,
+      fontSize: `${30 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
     },
     h3: {
-      fontFamily,
-      fontSize: `${22 / baseFontSize}rem`,
+      fontFamily: serifFontFamily,
+      fontSize: `${24 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.125,
     },
     h4: {
-      fontFamily,
-      fontSize: `${20 / baseFontSize}rem`,
+      fontFamily: serifFontFamily,
+      fontSize: `${22 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
     },
     h5: {
-      fontFamily,
-      fontSize: `${18 / baseFontSize}rem`,
+      fontFamily: serifFontFamily,
+      fontSize: `${20 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
     },
     h6: {
-      fontFamily,
+      fontFamily: serifFontFamily,
       fontSize: '1rem',
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
     },
     button: {
-      fontFamily,
-      fontSize: `${18 / baseFontSize}rem`,
+      fontFamily: sansFontFamily,
+      fontSize: `${20 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
     },
