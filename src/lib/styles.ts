@@ -1,6 +1,5 @@
-import colors from 'theme/colors';
-
-// custom component style
+// custom component style for unique layout requirements, could be shareable
+// as full screen centered utility class
 
 export const loadingStyles = {
   loader: {
@@ -14,24 +13,21 @@ export const loadingStyles = {
   },
 };
 
-export const logoButtonStyles = {
-  logo: {
-    color: colors.common.white,
-    display: 'flex',
-    marginRight: 'auto',
-    textTransform: 'capitalize',
-  },
-};
+// type of IconButton, add as className to theme
 
 export const menuButtonStyles = {
   menuIcon: { ml: 'auto' },
 };
+
+// type of ListItem, add as className to theme
 
 export const categoryMenuStyles = {
   menuItem: {
     paddingLeft: 0,
   },
 };
+
+// type of Drawer, add as className to theme
 
 export const navMenuStyles = {
   menuDrawer: {
@@ -43,11 +39,15 @@ export const navMenuStyles = {
   },
 };
 
+// custom component style for unique layout requirements, could be shareable
+
 export const recipeStyles = {
   pageImageWrapper: {
     marginBottom: '1rem',
   },
 };
+
+// type of Card, add as className to theme
 
 export const recipeCardStyles = {
   cardAbstract: {
@@ -59,6 +59,8 @@ export const recipeCardStyles = {
     width: '100%',
   },
 };
+
+// type of Grid, add as className to theme (as 'flex')
 
 export const recipeGridStyles = {
   recipeGridItem: {

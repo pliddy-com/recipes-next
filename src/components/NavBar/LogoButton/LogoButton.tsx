@@ -2,9 +2,7 @@ import Link from 'next/link';
 
 import Button from '@mui/material/Button';
 
-import LogoIcon from 'assets/LogoIcon';
-
-import { logoButtonStyles } from 'lib/styles';
+import LogoIcon from 'icons/LogoIcon';
 
 const LogoButton = () => {
   return (
@@ -14,7 +12,7 @@ const LogoButton = () => {
       href="/"
       size="large"
       startIcon={<LogoIcon />}
-      sx={logoButtonStyles.logo}
+      className="logo"
     >
       Recipes
     </Button>
