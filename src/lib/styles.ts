@@ -1,4 +1,4 @@
-// custom component style, shareable as full screen centered utility class
+// utility styles
 
 export const centeredChild = {
   wrapper: {
@@ -10,4 +10,8 @@ export const centeredChild = {
   content: {
     height: '100vh',
   },
+};
+
+export const flex = {
+  display: 'flex',
 };
