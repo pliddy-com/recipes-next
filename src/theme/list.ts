@@ -18,6 +18,7 @@ const listTheme: ThemeOptions = {
               '& .MuiListItemText-root': {
                 '& .MuiListItemText-primary': {
                   fontFamily: sansFontFamily,
+                  color: colors.primary.main,
                 },
               },
             },
@@ -53,6 +54,7 @@ const listTheme: ThemeOptions = {
               paddingLeft: 0,
               '& .MuiListItemText-primary': {
                 fontFamily: sansFontFamily,
+                color: colors.primary.main,
               },
             },
           },

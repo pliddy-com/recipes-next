@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
@@ -55,25 +55,23 @@ const Recipe = ({ content }: RecipeProps) => {
 
   return (
     <Container className="page">
-      <Grid container direction="row" spacing={4} mb={3}>
-        <Grid item md>
-          <Typography variant="h1" gutterBottom>
-            {title}
-          </Typography>
+      <Box>
+        <Typography variant="h1" gutterBottom>
+          {title}
+        </Typography>
 
-          {description && (
-            <RichText content={description as RecipeDescription} />
-            // <RichText content={description} />
-          )}
-        </Grid>
-        {image && (
-          <Grid item md>
-            <Box>
-              <DynamicImage image={image} props={imageProps} preload={true} />
-            </Box>
-          </Grid>
+        {description && (
+          <RichText content={description as RecipeDescription} />
+          // <RichText content={description} />
         )}
-      </Grid>
+      </Box>
+
+      {image && (
+        <Box mb={4} mt={4} ml={2} mr={2}>
+          <DynamicImage image={image} props={imageProps} preload={true} />
+        </Box>
+      )}
+
       <Stack direction="column" spacing={3}>
         {ingredientsCollection &&
           ingredientsCollection.items &&

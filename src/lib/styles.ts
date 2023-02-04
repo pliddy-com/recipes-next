@@ -1,5 +1,7 @@
 // utility styles
 
+import colors from 'theme/colors';
+
 export const centeredChild = {
   wrapper: {
     alignItems: 'center',
@@ -14,4 +16,8 @@ export const centeredChild = {
 
 export const flex = {
   display: 'flex',
+};
+
+export const background = {
+  backgroundColor: colors.common.background,
 };

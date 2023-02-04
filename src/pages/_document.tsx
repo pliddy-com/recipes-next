@@ -10,6 +10,8 @@ import {
   italicSerifFontPath,
 } from 'theme/fontface';
 
+import { background } from 'lib/styles';
+
 export default class MyDocument extends Document {
   render() {
     return (
@@ -68,7 +70,7 @@ export default class MyDocument extends Document {
           />
         </Head>
 
-        <body>
+        <body style={background}>
           <Main />
           <NextScript />
         </body>

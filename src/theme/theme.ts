@@ -3,6 +3,15 @@ import colors from 'theme/colors';
 import { sansFontFamily, serifFontFamily } from 'theme/type';
 
 const baseTheme: ThemeOptions = {
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1920,
+    },
+  },
   palette: {
     primary: {
       main: colors.primary.main,

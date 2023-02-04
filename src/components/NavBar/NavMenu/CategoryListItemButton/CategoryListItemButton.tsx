@@ -24,7 +24,7 @@ const CategoryListItemButton = ({
       href={`/category/${slug}`}
       onClick={onClick}
     >
-      <ListItemText primary={`${title} (${total})`} />
+      <ListItemText primary={`${title} (${total})`} className="menuItem" />
     </ListItemButton>
   );
 };
