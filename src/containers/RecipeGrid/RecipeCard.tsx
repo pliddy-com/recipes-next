@@ -20,9 +20,10 @@ import { recipeCardStyles } from 'lib/styles';
 
 interface RecipeCardProps {
   recipe?: RecipeDefaultFragment;
+  preloadImg?: boolean;
 }
 
-const RecipeCard = ({ recipe }: RecipeCardProps) => {
+const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
   if (!recipe) return null;
 
   const { title, abstract, image, tagsCollection, slug } = recipe ?? {};
@@ -31,7 +32,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
 
   const {
     images: {
-      widths: { card: imageWidths },
+      props: { card: imageProps },
     },
   } = config ?? {};
 
@@ -42,7 +43,11 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
         {image && (
           <CardMedia>
             <Box sx={recipeCardStyles.cardImageWrapper}>
-              <DynamicImage image={image} widths={imageWidths} />
+              <DynamicImage
+                image={image}
+                props={imageProps}
+                preload={preloadImg}
+              />
             </Box>
           </CardMedia>
         )}

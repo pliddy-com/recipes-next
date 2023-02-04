@@ -23,26 +23,21 @@ const config = {
   images: {
     aspectRatio: 0.75,
     responsiveIncrement: 400,
-    widths: {
+    props: {
       recipe: [
         {
-          viewMin: 1200,
-          imgWidth: 600,
-        },
-        {
           viewMin: 900,
-          imgWidth: 400,
+          imgWidth: 568,
         },
         {
-          viewMin: 800,
+          viewMin: 616,
           imgWidth: 800,
         },
         {
-          viewMin: 500,
-          imgWidth: 600,
+          viewMin: 432,
+          imgWidth: 568,
         },
         {
-          viewMin: 320,
           imgWidth: 400,
         },
       ],
@@ -52,11 +47,10 @@ const config = {
           imgWidth: 400,
         },
         {
-          viewMin: 400,
-          imgWidth: 600,
+          viewMin: 435,
+          imgWidth: 568,
         },
         {
-          viewMin: 320,
           imgWidth: 400,
         },
       ],

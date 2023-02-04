@@ -41,7 +41,7 @@ const Recipe = ({ content }: RecipeProps) => {
 
   const {
     images: {
-      widths: { recipe: imageWidths },
+      props: { recipe: imageProps },
     },
   } = config ?? {};
 
@@ -71,7 +71,7 @@ const Recipe = ({ content }: RecipeProps) => {
         {image && (
           <Grid item md>
             <Box sx={recipeStyles.pageImageWrapper}>
-              <DynamicImage image={image} widths={imageWidths} />
+              <DynamicImage image={image} props={imageProps} preload={true} />
             </Box>
           </Grid>
         )}
