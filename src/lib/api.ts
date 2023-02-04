@@ -1,4 +1,5 @@
 import { createClient, TypedDocumentNode } from 'urql';
+import { print } from 'graphql';
 
 import {
   RecipeCollectionDocument,
@@ -59,11 +60,39 @@ export async function graphQLRequest<
   return data;
 }
 
+// use fetch for nav query instead of the gql client to minimize browser bundle size
+
+export async function fetchContent<
+  TDocument extends TypedDocumentNode<
+    ResultOf<TDocument>,
+    VariablesOf<TDocument>
+  >,
+  TVars = TDocument extends unknown ? never : VariablesOf<TDocument>
+>(query: TDocument, variables: TVars) {
+  try {
+    const response = await window.fetch(API_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: ACCESS_TOKEN ? `Bearer ${ACCESS_TOKEN}` : '',
+      },
+      // send the GraphQL query
+      body: JSON.stringify({ query: print(query), variables }),
+    });
+
+    const { data } = await response.json();
+
+    return data;
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 // used to query content for nav menu taxonomy
 export const queryNavContent = async (
   queryVariables: TaxonomyCollectionQueryVariables
 ) => {
-  const { taxonomyCollection } = await graphQLRequest(
+  const { taxonomyCollection } = await fetchContent(
     TaxonomyCollectionDocument,
     queryVariables
   );
