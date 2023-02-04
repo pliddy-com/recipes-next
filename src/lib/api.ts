@@ -38,16 +38,16 @@ export async function graphQLRequest<
     VariablesOf<TDocument>
   >,
   TVars = TDocument extends unknown ? never : VariablesOf<TDocument>
->(queryDocument: TDocument, queryVariables: TVars) {
-  // if (typeof window !== 'undefined') {
-  //   throw new Error(
-  //     'This function should only be used on the server to keep it out of the client bundle!'
-  //   );
-  // }
+>(document: TDocument, variables: TVars) {
+  if (typeof window !== 'undefined') {
+    throw new Error(
+      'This function in only used for Server Side Rendering. Use `fetch` for client side requests.'
+    );
+  }
 
   const { data, error } = await graphQLRequestClient
-    // @ts-expect-error query variables typed by graphQLRequest
-    .query(queryDocument, queryVariables)
+    // @ts-expect-error query variables are typed by graphQLRequest
+    .query(document, variables)
     .toPromise();
 
   if (!data) {
@@ -61,14 +61,13 @@ export async function graphQLRequest<
 }
 
 // use fetch for nav query instead of the gql client to minimize browser bundle size
-
 export async function fetchContent<
   TDocument extends TypedDocumentNode<
     ResultOf<TDocument>,
     VariablesOf<TDocument>
   >,
   TVars = TDocument extends unknown ? never : VariablesOf<TDocument>
->(query: TDocument, variables: TVars) {
+>(document: TDocument, variables: TVars) {
   try {
     const response = await window.fetch(API_ENDPOINT, {
       method: 'POST',
@@ -77,7 +76,7 @@ export async function fetchContent<
         Authorization: ACCESS_TOKEN ? `Bearer ${ACCESS_TOKEN}` : '',
       },
       // send the GraphQL query
-      body: JSON.stringify({ query: print(query), variables }),
+      body: JSON.stringify({ query: print(document), variables }),
     });
 
     const { data } = await response.json();
@@ -90,11 +89,11 @@ export async function fetchContent<
 
 // used to query content for nav menu taxonomy
 export const queryNavContent = async (
-  queryVariables: TaxonomyCollectionQueryVariables
+  variables: TaxonomyCollectionQueryVariables
 ) => {
   const { taxonomyCollection } = await fetchContent(
     TaxonomyCollectionDocument,
-    queryVariables
+    variables
   );
 
   return taxonomyCollection
@@ -104,11 +103,11 @@ export const queryNavContent = async (
 
 // used to query content for  home index page
 export const queryRecipeCollectionContent = async (
-  queryVariables?: RecipeCollectionQueryVariables
+  variables?: RecipeCollectionQueryVariables
 ) => {
   const { recipeCollection } = await graphQLRequest(
     RecipeCollectionDocument,
-    queryVariables
+    variables
   );
 
   return recipeCollection
@@ -118,11 +117,11 @@ export const queryRecipeCollectionContent = async (
 
 // used to query content for tag & category pagepage
 export const queryListPageContent = async (
-  queryVariables: ListPageQueryQueryVariables
+  variables: ListPageQueryQueryVariables
 ) => {
   const { tagCollection } = await graphQLRequest(
     ListPageQueryDocument,
-    queryVariables
+    variables
   );
 
   return tagCollection ? tagCollection.items.filter(notNullOrUndefined) : [];
@@ -130,11 +129,11 @@ export const queryListPageContent = async (
 
 // used to query content for standalone recipe page
 export const queryRecipeContent = async (
-  queryVariables?: RecipePageQueryVariables
+  variables?: RecipePageQueryVariables
 ) => {
   const { recipeCollection } = await graphQLRequest(
     RecipePageDocument,
-    queryVariables
+    variables
   );
 
   return recipeCollection
@@ -144,11 +143,11 @@ export const queryRecipeContent = async (
 
 // used by getStaticProps for recipe page
 export const queryPageSlugs = async (
-  queryVariables: RecipeSlugsCollectionQueryVariables
+  variables: RecipeSlugsCollectionQueryVariables
 ) => {
   const { recipeCollection } = await graphQLRequest(
     RecipeSlugsCollectionDocument,
-    queryVariables
+    variables
   );
 
   return recipeCollection
@@ -158,11 +157,11 @@ export const queryPageSlugs = async (
 
 // used by getStaticProps for category page
 export const queryCategorySlugs = async (
-  queryVariables: TaxonomyCollectionQueryVariables
+  variables: TaxonomyCollectionQueryVariables
 ) => {
   const { taxonomyCollection } = await graphQLRequest(
     TaxonomyCollectionDocument,
-    queryVariables
+    variables
   );
 
   const { items } = taxonomyCollection?.items[0]?.childrenCollection ?? {};
@@ -190,11 +189,11 @@ export const queryCategorySlugs = async (
 
 // used by getStaticProps for tag page
 export const queryTagSlugs = async (
-  queryVariables: TagSlugsCollectionQueryVariables
+  variables: TagSlugsCollectionQueryVariables
 ) => {
   const { tagCollection } = await graphQLRequest(
     TagSlugsCollectionDocument,
-    queryVariables
+    variables
   );
 
   return tagCollection
