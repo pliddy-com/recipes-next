@@ -4,48 +4,38 @@ import Link from 'next/link';
 
 import { TagDefaultFragment } from 'types/generated/graphql';
 
-const style = {
-  button: {
-    borderRadius: '2rem',
-    textTransform: 'capitalize',
-    fontWeight: 300,
-  },
-  tags: {
-    flexWrap: 'wrap',
-    '& .MuiButtonBase-root': { ml: 0, mb: '.5rem', mr: '.5rem' },
-  },
-};
+import { tagButtons } from 'lib/styles';
 
 interface TagButtonsProps {
   tags?: (TagDefaultFragment | null)[];
 }
 
 const TagButtons = ({ tags }: TagButtonsProps) => {
-  return (
-    <Stack direction="row" sx={style.tags}>
+  return tags ? (
+    <Stack direction="row" sx={tagButtons.tags}>
       {tags &&
         tags.map((tag) => {
           const { slug, title } = tag ?? {};
-          {
-            return (
-              tag && (
-                <Button
-                  color="primary"
-                  component={Link}
-                  key={slug}
-                  size="small"
-                  sx={style.button}
-                  href={`/tag/${slug}`}
-                  variant="outlined"
-                >
-                  {title}
-                </Button>
-              )
-            );
-          }
+
+          console.log({ tag, slug, title });
+
+          return tag && slug && title ? (
+            <Button
+              color="primary"
+              component={Link}
+              key={slug}
+              role="button"
+              size="small"
+              sx={tagButtons.button}
+              href={`/tag/${slug}`}
+              variant="outlined"
+            >
+              {title}
+            </Button>
+          ) : null;
         })}
     </Stack>
-  );
+  ) : null;
 };
 
 export default TagButtons;

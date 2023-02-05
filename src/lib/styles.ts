@@ -21,3 +21,15 @@ export const flex = {
 export const background = {
   backgroundColor: colors.common.background,
 };
+
+export const tagButtons = {
+  button: {
+    borderRadius: '2rem',
+    textTransform: 'capitalize',
+    fontWeight: 300,
+  },
+  tags: {
+    flexWrap: 'wrap',
+    '& .MuiButtonBase-root': { ml: 0, mb: '.5rem', mr: '.5rem' },
+  },
+};

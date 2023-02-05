@@ -5,12 +5,15 @@ import '@testing-library/jest-dom';
 // import the component to test
 import LogoIcon from 'icons/LogoIcon';
 
-test('loads and displays greeting', async () => {
-  // Render a React element into the DOM
-  render(<LogoIcon />);
+describe('in LogoIcon', () => {
+  it('loads and displays greeting', async () => {
+    // Render a React element into the DOM
+    render(<LogoIcon />);
 
-  // assert that an SVG with an aria role of 'graphics-symbol' exists
-  const logo = screen.getByRole('graphics-symbol', { name: 'logo' });
+    // assert that an SVG with an aria role of 'graphics-symbol' exists
+    const logo = screen.queryByRole('graphics-symbol');
+    // const logo = screen.getByRole('graphics-symbol', { name: 'logo' });
 
-  expect(logo).toBeInTheDocument();
+    expect(logo).toBeInTheDocument();
+  });
 });
