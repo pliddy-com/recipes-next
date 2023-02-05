@@ -8,7 +8,7 @@ import Layout from 'layout/layout';
 import Loading from 'components/Loading/Loading';
 import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
 
-import config from 'lib/config';
+import { microcopy } from 'lib/config';
 
 const RecipeGrid = dynamic(
   import(
@@ -20,7 +20,7 @@ const RecipeGrid = dynamic(
 const HomePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { defaultTitle, description } = config?.microcopy?.index ?? {};
+  const { defaultTitle, description } = microcopy?.index ?? {};
 
   return (
     <>

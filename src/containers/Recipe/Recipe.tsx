@@ -16,7 +16,7 @@ import {
   RecipeDescription,
 } from 'types/generated/graphql';
 
-import config from 'lib/config';
+import { images } from 'lib/config';
 
 interface RecipeProps {
   content?: RecipeDefaultFragment;
@@ -37,10 +37,8 @@ const Recipe = ({ content }: RecipeProps) => {
   } = content ?? {};
 
   const {
-    images: {
-      props: { recipe: imageProps },
-    },
-  } = config ?? {};
+    props: { recipe: imageProps },
+  } = images ?? {};
 
   // TODO: pass full description text into rich text component
   //       & destructure json & links inside component (needs types for json & links)

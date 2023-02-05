@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Button from '@mui/material/Button';
 
 import LogoIcon from 'icons/LogoIcon';
-import config from 'lib/config';
+import { microcopy } from 'lib/config';
 
 const LogoButton = () => {
   return (
@@ -15,7 +15,7 @@ const LogoButton = () => {
       startIcon={<LogoIcon />}
       className="logo"
     >
-      {config.microcopy.site.title}
+      {microcopy.site.title}
     </Button>
   );
 };

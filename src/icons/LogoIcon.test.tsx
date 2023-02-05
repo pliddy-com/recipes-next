@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import LogoIcon from 'icons/LogoIcon';
+import LogoIcon from './LogoIcon';
 
 describe('in LogoIcon', () => {
   it('loads and displays greeting', () => {

@@ -16,7 +16,7 @@ import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
 
 import { notNullOrUndefined } from 'lib/typeUtils';
 
-import config from 'lib/config';
+import { microcopy } from 'lib/config';
 
 const RecipeGrid = dynamic(
   import(/* webpackChunkName: 'TagGrid' */ 'containers/RecipeGrid/RecipeGrid'),
@@ -28,7 +28,7 @@ const TagPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = pageContent ?? {};
   const content = pageContent?.linkedFrom?.recipeCollection?.items ?? [];
-  const { defaultDescription, defaultTitle } = config?.microcopy?.tag ?? {};
+  const { defaultDescription, defaultTitle } = microcopy?.tag ?? {};
 
   const description = `${defaultDescription} ${title}`;
 

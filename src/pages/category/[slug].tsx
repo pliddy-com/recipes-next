@@ -16,7 +16,7 @@ import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
 
 import { notNullOrUndefined } from 'lib/typeUtils';
 
-import config from 'lib/config';
+import { microcopy } from 'lib/config';
 
 const RecipeGrid = dynamic(
   import(
@@ -30,8 +30,7 @@ const CategoryPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = pageContent ?? {};
   const content = pageContent?.linkedFrom?.recipeCollection?.items ?? [];
-  const { defaultDescription, defaultTitle } =
-    config?.microcopy?.category ?? {};
+  const { defaultDescription, defaultTitle } = microcopy?.category ?? {};
 
   const description = `${defaultDescription} ${title}`;
 

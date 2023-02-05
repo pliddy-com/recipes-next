@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import TagButtons from 'components/TagButtons/TagButtons';
+import TagButtons from './TagButtons';
 
 // import type definitions for sample payloads
 import { TagDefaultFragment } from 'types/generated/graphql';
