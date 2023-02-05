@@ -4,3 +4,4 @@
 npm run typegen
 npm run typecheck
 npx lint-staged
+npm test

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
@@ -11,9 +11,6 @@
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
-    "paths": {
-      "*": ["src/*"]
-    },
     "resolveJsonModule": true,
     "rootDir": "src",
     "skipLibCheck": true,
@@ -23,5 +20,5 @@
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src"],
   "extends": "./node_modules/@tsconfig/recommended/tsconfig.json",
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "out", ".next", ".swc"]
 }
