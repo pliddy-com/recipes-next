@@ -1,19 +1,17 @@
 // import react-testing methods
-import { render, screen, cleanup } from '@testing-library/react';
-// import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
+
 // import the component to test
 import TagButtons from 'components/TagButtons/TagButtons';
 
+// import type definitions for sample payloads
 import { TagDefaultFragment } from 'types/generated/graphql';
 
-describe('in TagButtons', () => {
-  afterEach(() => {
-    cleanup();
-  }); // Default on import: runs it after each test.
-
-  test('renders a row of tag buttons', async () => {
+describe('TagButtons', () => {
+  it('renders a row of tag buttons', async () => {
     const tags: TagDefaultFragment[] = [
       {
         sys: {
@@ -40,12 +38,8 @@ describe('in TagButtons', () => {
     const { slug: slug1, title: title1 } = tags[0];
     const { slug: slug2, title: title2 } = tags[1];
 
-    const tag1 = await screen
-      .getByText(title1 || 'nullOrUndefined')
-      .closest('a');
-    const tag2 = await screen
-      .getByText(title2 || 'nullOrUndefined')
-      .closest('a');
+    const tag1 = title1 && (await screen.getByText(title1).closest('a'));
+    const tag2 = title2 && (await screen.getByText(title2).closest('a'));
 
     expect(tag1).toBeInTheDocument();
     expect(tag1).toHaveAttribute('href', `/tag/${slug1}`);
@@ -54,7 +48,26 @@ describe('in TagButtons', () => {
     expect(tag2).toHaveAttribute('href', `/tag/${slug2}`);
   });
 
-  test('does not render a button if there is no tag properties', async () => {
+  it('does not render if there is no payload', async () => {
+    // no tags props, so should return null
+    render(<TagButtons />);
+
+    const button = screen.queryByRole('button');
+
+    expect(button).toBeNull();
+  });
+
+  it('does not render a button if object in array is null', async () => {
+    const tags = [null];
+    render(<TagButtons tags={tags} />);
+
+    const button = screen.queryByRole('button');
+
+    expect(button).toBeNull();
+  });
+
+  it('does not render a button if there are missing title or slug', async () => {
+    // not title or slug property in tag
     const tags: TagDefaultFragment[] = [
       {
         sys: {
@@ -65,28 +78,8 @@ describe('in TagButtons', () => {
       },
     ];
 
-    // no props on second tag, so should return null
+    // no title or slug property on tag, so should return null
     render(<TagButtons tags={tags} />);
-
-    const { title: title1 } = tags[0] ?? {};
-
-    const tag1 = title1 && screen.getByText(title1).closest('a');
-
-    expect(tag1).toBeUndefined();
-  });
-
-  test('does not render a button if object in array is null', async () => {
-    const tags = [null];
-    render(<TagButtons tags={tags} />);
-
-    const button = screen.queryByRole('button');
-
-    expect(button).toBeNull();
-  });
-
-  test('does not render if there is no payload', async () => {
-    // no tags props, so should return null
-    render(<TagButtons />);
 
     const button = screen.queryByRole('button');
 

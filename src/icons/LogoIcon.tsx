@@ -1,6 +1,8 @@
 import { FC } from 'react';
-import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
+
 import Box from '@mui/material/Box';
+import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
+
 const LogoIcon: FC<SvgIconProps> = () => {
   return (
     <Box role="graphics-symbol" data-testid="logo-svg" aria-label="logo">

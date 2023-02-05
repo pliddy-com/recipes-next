@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 
 import { notNullOrUndefined } from './typeUtils';
 
-describe('notNullOrUndefined()', () => {
+describe('in typeUtils.ts', () => {
   describe('notNullOrUndefined()', () => {
     const nullValue = null;
     const undefinedValue = undefined;

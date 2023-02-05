@@ -17,8 +17,6 @@ const TagButtons = ({ tags }: TagButtonsProps) => {
         tags.map((tag) => {
           const { slug, title } = tag ?? {};
 
-          console.log({ tag, slug, title });
-
           return tag && slug && title ? (
             <Button
               color="primary"
