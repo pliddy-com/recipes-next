@@ -1,6 +1,5 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-// import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
@@ -65,13 +64,18 @@ const Recipe = ({ content }: RecipeProps) => {
           // <RichText content={description} />
         )}
       </Box>
-
       {image && (
-        <Box mb={4} mt={4} ml={2} mr={2}>
+        <Box
+          mx={{
+            xs: 0,
+            sm: 2,
+            md: 4,
+          }}
+          my={4}
+        >
           <DynamicImage image={image} props={imageProps} preload={true} />
         </Box>
       )}
-
       <Stack direction="column" spacing={3}>
         {ingredientsCollection &&
           ingredientsCollection.items &&

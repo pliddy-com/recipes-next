@@ -7,8 +7,8 @@ const baseTheme: ThemeOptions = {
     values: {
       xs: 0,
       sm: 600,
-      md: 900,
-      lg: 1200,
+      md: 800,
+      lg: 960,
       xl: 1920,
     },
   },

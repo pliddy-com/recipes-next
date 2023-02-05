@@ -26,32 +26,32 @@ const config = {
     props: {
       recipe: [
         {
-          viewMin: 900,
-          imgWidth: 568,
+          viewMin: 704,
+          imgWidth: 832,
         },
         {
-          viewMin: 616,
-          imgWidth: 800,
+          viewMin: 448,
+          imgWidth: 624,
         },
         {
-          viewMin: 432,
-          imgWidth: 568,
-        },
-        {
-          imgWidth: 400,
+          imgWidth: 416,
         },
       ],
       card: [
         {
+          viewMin: 740,
+          imgWidth: 446,
+        },
+        {
           viewMin: 600,
-          imgWidth: 400,
+          imgWidth: 336,
         },
         {
           viewMin: 435,
           imgWidth: 568,
         },
         {
-          imgWidth: 400,
+          imgWidth: 336,
         },
       ],
     },
