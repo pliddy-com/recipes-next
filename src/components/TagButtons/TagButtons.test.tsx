@@ -41,6 +41,7 @@ describe('TagButtons', () => {
     const tag1 = title1 && (await screen.getByText(title1).closest('a'));
     const tag2 = title2 && (await screen.getByText(title2).closest('a'));
 
+    // check for correct href links
     expect(tag1).toBeInTheDocument();
     expect(tag1).toHaveAttribute('href', `/tag/${slug1}`);
 
