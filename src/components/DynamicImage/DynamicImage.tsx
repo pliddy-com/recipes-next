@@ -1,10 +1,6 @@
 import PreloadTags from 'components/DynamicImage/PreloadTags/PreloadTags';
 
-import {
-  createMediaQuery,
-  createSrcSet,
-  WidthProps,
-} from 'lib/responsiveImage';
+import responsiveImage, { WidthProps } from 'lib/responsiveImage';
 
 import { ImageDefaultFragment } from 'types/generated/graphql';
 
@@ -16,6 +12,8 @@ export interface ImageProps {
 
 const Image = ({ image, props, preload = false }: ImageProps) => {
   if (!image) return null;
+
+  const { createSrcSet, createMediaQuery } = responsiveImage;
 
   const {
     url,

@@ -37,3 +37,7 @@ export const createMediaQuery = ({
 
   return mediaQuery;
 };
+
+const moduleExports = { createSrcSet, createMediaQuery };
+
+export default moduleExports;
