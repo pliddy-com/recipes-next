@@ -10,11 +10,20 @@ import LogoButton from './LogoButton';
 import config from 'lib/config';
 
 describe('LogoButton', () => {
-  it('renders a logo button', async () => {
+  it('renders a logo button', () => {
+    const expectedLabel = config.microcopy.site.title;
+    const expectedUrl = '/';
+
     render(<LogoButton />);
 
-    // confirm that button has been rendered with correct label
-    const hasLabel = await screen.getByText(config.microcopy.site.title);
-    expect(hasLabel);
+    const component = screen.getByText(expectedLabel).closest('a');
+
+    // console.log(component);
+
+    // button has been rendered with correct label
+    expect(component).toBeInTheDocument();
+
+    // button has correct href
+    expect(component).toHaveAttribute('href', expectedUrl);
   });
 });
