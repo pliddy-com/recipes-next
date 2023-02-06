@@ -86,7 +86,7 @@ describe('PageHeadingTag', () => {
       delete config.microcopy;
     });
 
-    it('it does not render if there is no title or description values in config', async () => {
+    it('it does not render', async () => {
       // no tags props, so should return null
       render(<PageHeadTag />);
 

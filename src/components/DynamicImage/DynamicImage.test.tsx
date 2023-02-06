@@ -15,7 +15,6 @@ import { ImageDefaultFragment } from 'types/generated/graphql';
 jest.mock('next/head');
 
 describe('DynamicImage', () => {
-  const url = 'https://URL.test';
   const props = [
     {
       viewMin: 1000,
@@ -29,8 +28,10 @@ describe('DynamicImage', () => {
       imgWidth: 100,
     },
   ];
-  it('it renders a picture component and generates head elements', () => {
-    const preload = true;
+
+  describe('when there is a url & image data', () => {
+    const url = 'https://URL.test';
+
     const image: ImageDefaultFragment = {
       sys: {
         id: 'sysId',
@@ -47,21 +48,91 @@ describe('DynamicImage', () => {
       width: 400,
     };
 
-    // test that createSrcSet & createMediaQuery are called
-    const srcSetSpy = jest.spyOn(responsiveImage, 'createSrcSet');
-    const mediaQuerySpy = jest.spyOn(responsiveImage, 'createMediaQuery');
+    it('it renders a picture component and generates head elements', () => {
+      const preload = true;
 
-    const expectedAlt = image.description || 'Image Description';
+      // test that createSrcSet & createMediaQuery are called
+      const srcSetSpy = jest.spyOn(responsiveImage, 'createSrcSet');
+      const mediaQuerySpy = jest.spyOn(responsiveImage, 'createMediaQuery');
 
-    const { getByAltText } = render(
-      <DynamicImage image={image} props={props} preload={preload} />
-    );
+      const expectedAlt = image.description || 'Image Description';
 
-    const res = getByAltText(expectedAlt);
-    console.log({ res });
+      const { getByAltText } = render(
+        <DynamicImage image={image} props={props} preload={preload} />
+      );
 
-    // expect srcSet and mediaQuery creators to be called
-    expect(mediaQuerySpy).toHaveBeenCalled();
-    expect(srcSetSpy).toHaveBeenCalled();
+      const pictureTags = document.getElementsByTagName('picture');
+      const sourceTags = document.getElementsByTagName('source');
+      const imgTags = document.getElementsByTagName('source');
+      const linkTags = document.getElementsByTagName('link');
+
+      // expect DynamicImageCompoent to be rendered
+      expect(getByAltText(expectedAlt)).toBeInTheDocument();
+
+      // expect there to be 1 picture tag
+      expect(pictureTags.length === 1);
+      expect(pictureTags[0]).toBeInTheDocument();
+
+      // expect there to be a source tag for each element in props
+      expect(sourceTags.length === props.length);
+      expect(sourceTags[0]).toBeInTheDocument();
+
+      // expect there to be 1 image tag
+      expect(imgTags.length === 1);
+      expect(imgTags[0]).toBeInTheDocument();
+
+      // expect there to be a link tag for each element in props
+      expect(linkTags.length === 1);
+      expect(linkTags[0]).toBeInTheDocument();
+
+      // expect srcSet and mediaQuery creators to be called
+      expect(mediaQuerySpy).toHaveBeenCalled();
+      expect(srcSetSpy).toHaveBeenCalled();
+    });
+
+    it('it does not generate link tags with preload property if preload === false', () => {
+      render(<DynamicImage image={image} props={props} />);
+
+      const pictureTags = document.getElementsByTagName('picture');
+      const linkTags = document.getElementsByTagName('link');
+
+      // expect there to be 1 picture tag
+      expect(pictureTags.length === 1);
+      expect(pictureTags[0]).toBeInTheDocument();
+
+      // expect there to be no link tags if no preload property
+      expect(linkTags.length === 0);
+    });
+  });
+
+  describe('when there is no url or image data', () => {
+    const image: ImageDefaultFragment = {
+      sys: {
+        id: 'sysId',
+        __typename: 'Sys',
+      },
+      __typename: 'Asset',
+      title: 'Image Title',
+      description: 'Image Description',
+      contentType: 'image/jpeg',
+      fileName: 'imageFileName.jpg',
+      size: 999999,
+      url: null,
+      height: null,
+      width: null,
+    };
+
+    it('it does not render', () => {
+      render(<DynamicImage props={props} image={image} />);
+
+      const pictureTags = document.getElementsByTagName('picture');
+      const linkTags = document.getElementsByTagName('link');
+
+      // expect there to be no picture tag
+      expect(pictureTags.length === 0);
+
+      // expect there to be no link tags if no preload property
+      expect(linkTags.length === 0);
+    });
   });
 });

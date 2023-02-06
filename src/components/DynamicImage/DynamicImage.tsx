@@ -10,21 +10,12 @@ export interface ImageProps {
   preload?: boolean;
 }
 
-const Image = ({ image, props, preload = false }: ImageProps) => {
-  if (!image) return null;
-
+const DynamicImage = ({ image, props, preload = false }: ImageProps) => {
   const { createSrcSet, createMediaQuery } = responsiveImage;
 
-  const {
-    url,
-    description: alt,
-    height: imgHeight,
-    width: imgWidth,
-  } = image ?? {};
+  const { url, description: alt, height: imgHeight, width: imgWidth } = image;
 
-  console.log({ image, props, preload });
-
-  return url && imgWidth && imgHeight ? (
+  return url && imgWidth && imgHeight && alt ? (
     <>
       {preload && <PreloadTags props={props} url={url} />}
       <picture>
@@ -43,7 +34,7 @@ const Image = ({ image, props, preload = false }: ImageProps) => {
           );
         })}
         <img
-          alt={alt || ''}
+          alt={alt}
           height={imgHeight}
           src={url}
           style={{ maxWidth: '100%', height: 'auto' }}
@@ -54,4 +45,4 @@ const Image = ({ image, props, preload = false }: ImageProps) => {
   ) : null;
 };
 
-export default Image;
+export default DynamicImage;
