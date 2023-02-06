@@ -8,11 +8,11 @@ import Layout from 'layout/layout';
 import Loading from 'components/Loading/Loading';
 import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
 
-import { microcopy } from 'lib/config';
+import config from 'lib/config';
 
 const RecipeGrid = dynamic(
   import(
-    /* webpackChunkName: 'IndexGrid' */ 'containers/RecipeGrid/RecipeGrid'
+    /* webpackChunkName: 'IndexGrid' */ 'components/RecipeGrid/RecipeGrid'
   ),
   { suspense: true }
 );
@@ -20,7 +20,7 @@ const RecipeGrid = dynamic(
 const HomePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { defaultTitle, description } = microcopy?.index ?? {};
+  const { defaultTitle, description } = config?.microcopy?.index ?? {};
 
   return (
     <>

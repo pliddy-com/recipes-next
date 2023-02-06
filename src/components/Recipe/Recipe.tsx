@@ -4,19 +4,19 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 import DynamicImage from 'components/DynamicImage/DynamicImage';
-import Equipment from 'containers/Recipe/Equipment/Equipment';
-import Ingredients from 'containers/Recipe/Ingredients/Ingredients';
-import Instructions from 'containers/Recipe/Instructions/Instructions';
-import Notes from 'containers/Recipe/Notes/Notes';
+import Equipment from 'components/Recipe/Equipment/Equipment';
+import Ingredients from 'components/Recipe/Ingredients/Ingredients';
+import Instructions from 'components/Recipe/Instructions/Instructions';
+import Notes from 'components/Recipe/Notes/Notes';
 import RichText from 'components/RichText/RichText';
-import Tags from 'containers/Recipe/Tags/Tags';
+import Tags from 'components/Recipe/Tags/Tags';
 
 import {
   RecipeDefaultFragment,
   RecipeDescription,
 } from 'types/generated/graphql';
 
-import { images } from 'lib/config';
+import config from 'lib/config';
 
 interface RecipeProps {
   content?: RecipeDefaultFragment;
@@ -37,8 +37,10 @@ const Recipe = ({ content }: RecipeProps) => {
   } = content ?? {};
 
   const {
-    props: { recipe: imageProps },
-  } = images ?? {};
+    images: {
+      props: { recipe: imageProps },
+    },
+  } = config ?? {};
 
   // TODO: pass full description text into rich text component
   //       & destructure json & links inside component (needs types for json & links)

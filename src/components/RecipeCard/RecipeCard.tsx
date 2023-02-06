@@ -14,7 +14,7 @@ import DynamicImage from 'components/DynamicImage/DynamicImage';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
-import { images } from 'lib/config';
+import config from 'lib/config';
 
 interface RecipeCardProps {
   recipe?: RecipeDefaultFragment;
@@ -29,8 +29,10 @@ const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
   const { title: category } = tags?.[0] ?? {};
 
   const {
-    props: { card: imageProps },
-  } = images ?? {};
+    images: {
+      props: { card: imageProps },
+    },
+  } = config ?? {};
 
   return (
     <Card variant="outlined" className="recipe">

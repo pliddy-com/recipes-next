@@ -16,11 +16,11 @@ import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
 
 import { notNullOrUndefined } from 'lib/typeUtils';
 
-import { microcopy } from 'lib/config';
+import config from 'lib/config';
 
 const RecipeGrid = dynamic(
   import(
-    /* webpackChunkName: 'CategoryGrid' */ 'containers/RecipeGrid/RecipeGrid'
+    /* webpackChunkName: 'CategoryGrid' */ 'components/RecipeGrid/RecipeGrid'
   ),
   { suspense: true }
 );
@@ -30,7 +30,8 @@ const CategoryPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = pageContent ?? {};
   const content = pageContent?.linkedFrom?.recipeCollection?.items ?? [];
-  const { defaultDescription, defaultTitle } = microcopy?.category ?? {};
+  const { defaultDescription, defaultTitle } =
+    config?.microcopy?.category ?? {};
 
   const description = `${defaultDescription} ${title}`;
 

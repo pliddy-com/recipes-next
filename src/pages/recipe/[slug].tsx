@@ -16,10 +16,10 @@ import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
 
 import { notNullOrUndefined } from 'lib/typeUtils';
 
-import { microcopy } from 'lib/config';
+import config from 'lib/config';
 
 const Recipe = dynamic(
-  import(/* webpackChunkName: 'Recipe' */ 'containers/Recipe/Recipe'),
+  import(/* webpackChunkName: 'Recipe' */ 'components/Recipe/Recipe'),
   { suspense: true }
 );
 
@@ -27,7 +27,7 @@ const RecipePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { abstract, title } = pageContent ?? {};
-  const { defaultDescription, defaultTitle } = microcopy?.recipe ?? {};
+  const { defaultDescription, defaultTitle } = config?.microcopy?.recipe ?? {};
 
   const description = abstract || `${defaultDescription} ${title}`;
 

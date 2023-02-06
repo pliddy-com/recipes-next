@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { microcopy } from 'lib/config';
+import config from 'lib/config';
 
 interface PageTitleProps {
   title?: string | null;
@@ -9,19 +9,9 @@ interface PageTitleProps {
 }
 
 const PageHeadTag = ({ title, defaultTitle, description }: PageTitleProps) => {
-  // console.log({ microcopy });
-
-  const { site, index } = microcopy ?? {};
+  const { site, index } = config?.microcopy ?? {};
   const { title: siteTitle } = site ?? {};
   const { description: defaultDescription } = index ?? {};
-
-  // console.log({
-  //   title,
-  //   defaultTitle,
-  //   description,
-  //   defaultDescription,
-  //   siteTitle,
-  // });
 
   return siteTitle || defaultTitle || description || defaultDescription ? (
     <Head>
