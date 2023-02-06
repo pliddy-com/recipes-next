@@ -12,7 +12,7 @@ import config from 'lib/config';
 describe('LogoButton', () => {
   it('renders a logo button', () => {
     const expectedLabel = config.microcopy.site.title;
-    const expectedUrl = '/';
+    const expectedHref = '/';
 
     render(<LogoButton />);
 
@@ -24,6 +24,6 @@ describe('LogoButton', () => {
     expect(component).toBeInTheDocument();
 
     // button has correct href
-    expect(component).toHaveAttribute('href', expectedUrl);
+    expect(component).toHaveAttribute('href', expectedHref);
   });
 });

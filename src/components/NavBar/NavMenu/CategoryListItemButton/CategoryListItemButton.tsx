@@ -20,6 +20,7 @@ const CategoryListItemButton = ({
 }: CategoryListItemButtonProps) => {
   return (
     <ListItemButton
+      aria-label={`${slug} category`}
       component={Link}
       href={`/category/${slug}`}
       onClick={onClick}
