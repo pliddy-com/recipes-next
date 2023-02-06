@@ -17,11 +17,11 @@ module.exports = {
     'out/**',
     '.swc/**',
     '/src/types/generated/**',
+    'coverage/**/*.*',
   ],
   plugins: ['@typescript-eslint'],
   /* error rules are listed before warn rules */
   rules: {
-    eqeqeq: ['error', 'smart'],
     '@next/next/no-img-element': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
@@ -31,6 +31,7 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
+    eqeqeq: ['error', 'smart'],
     'guard-for-in': 'error',
     'no-await-in-loop': 'error',
     'no-constant-binary-expression': 'error',

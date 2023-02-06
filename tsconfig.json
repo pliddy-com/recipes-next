@@ -12,13 +12,13 @@
     "moduleResolution": "node",
     "noEmit": true,
     "resolveJsonModule": true,
-    "rootDir": "src",
+    "rootDir": ".",
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2020",
     "types": ["react/next", "react-dom/next"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src", "__mocks__/next"],
   "extends": "./node_modules/@tsconfig/recommended/tsconfig.json",
   "exclude": ["node_modules", "out", ".next", ".swc"]
 }

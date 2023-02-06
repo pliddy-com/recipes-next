@@ -10,3 +10,6 @@ out/
 package-lock.json
 *.d.ts
 /src/types/generated/
+
+# test coverage
+coverage/

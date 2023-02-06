@@ -6,15 +6,8 @@ import '@testing-library/jest-dom';
 // import the component to test
 import PageHeadTag from './PageHeadTag';
 
-// set up mock next head component
-jest.mock('next/head', () => {
-  return {
-    __esModule: true,
-    default: ({ children }: { children: Array<React.ReactElement> }) => {
-      return <>{children}</>;
-    },
-  };
-});
+// set up mock next head component from root level mocks__
+jest.mock('next/head');
 
 // import config object to mock
 const config = jest.requireMock('lib/config');
@@ -23,7 +16,7 @@ const config = jest.requireMock('lib/config');
 jest.mock('lib/config', () => ({
   microcopy: {
     index: {
-      description: 'Mock Config Default Description',
+      description: 'Mock Config Index Description',
     },
     site: {
       title: 'Mock Config Site Title',
@@ -38,7 +31,7 @@ describe('PageHeadingTag', () => {
   });
 
   describe('when there is a config object', () => {
-    it('renders a Next Head tag with a title and description', async () => {
+    it('it renders a Next Head tag with a title and description', async () => {
       const title = 'Test Title';
       const description = 'Decription';
 
@@ -55,7 +48,7 @@ describe('PageHeadingTag', () => {
       expect(descriptionTag).toBeInTheDocument();
     });
 
-    it('renders a Next Head tag with a default title and description', async () => {
+    it('it renders a Next Head tag with a default title and description', async () => {
       const defaultTitle = config.microcopy.site.title;
       const defaultDescription = config.microcopy.index.description;
 
@@ -72,7 +65,7 @@ describe('PageHeadingTag', () => {
       expect(descriptionTag).toBeInTheDocument();
     });
 
-    it('renders a Next Head tag if no values defaults are passed', async () => {
+    it('it renders a Next Head tag if no values defaults are passed', async () => {
       const defaultDescription = config.microcopy.index.description;
 
       render(<PageHeadTag />);
@@ -87,13 +80,13 @@ describe('PageHeadingTag', () => {
     });
   });
 
-  describe('when there is a config object', () => {
+  describe('when there is no config object', () => {
     // before each test, delete microcopy node from config
     beforeEach(() => {
       delete config.microcopy;
     });
 
-    it('does not render if there is no title or description values in config', async () => {
+    it('it does not render if there is no title or description values in config', async () => {
       // no tags props, so should return null
       render(<PageHeadTag />);
 
