@@ -1,4 +1,4 @@
-// import react-testing methods
+// import testing-library methods
 import { fireEvent, render, screen } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
@@ -7,8 +7,8 @@ import '@testing-library/jest-dom';
 // import the component to test
 import CategoryListItemButton from './CategoryListItemButton';
 
-describe('MenuButton', () => {
-  it('renders a menu button', async () => {
+describe('CategoryListItemButton', () => {
+  it('renders a list item for the menu', async () => {
     const callback = jest.fn();
     const slug = 'slug';
     const title = 'Test Title';

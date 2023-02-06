@@ -25,9 +25,9 @@ const SubcategoryMenu = ({ category, onClick }: SubcategoryMenuProps) => {
   const categoryTag =
     category && 'tag' in category ? category.tag : (category as Tag);
 
-  const categoryChildrenCollection =
+  const categoryChildren =
     category && 'childrenCollection' in category
-      ? category.childrenCollection
+      ? category?.childrenCollection?.items
       : undefined;
 
   const { linkedFrom } = categoryTag ?? {};
@@ -38,12 +38,18 @@ const SubcategoryMenu = ({ category, onClick }: SubcategoryMenuProps) => {
     setOpen(!open);
   };
 
-  return (
+  return slug && title && categoryChildren ? (
     <Box>
       <ListItem
+        data-testid="category item"
         className="menuItem"
         secondaryAction={
-          <IconButton edge="end" aria-label="expand" onClick={toggleDropdown}>
+          <IconButton
+            role="button"
+            edge="end"
+            aria-label="expand"
+            onClick={toggleDropdown}
+          >
             {open ? <ExpandLess /> : <ExpandMore />}
           </IconButton>
         }
@@ -55,19 +61,22 @@ const SubcategoryMenu = ({ category, onClick }: SubcategoryMenuProps) => {
           total={total}
         />
       </ListItem>
-      <Collapse in={open} timeout="auto">
-        <List component="div" disablePadding>
-          {categoryChildrenCollection?.items.map(
-            (child: Maybe<TaxonomyChildrenItem>) => {
-              const { slug, title, sys } = child ?? {};
-              const { id } = sys ?? {};
+      <Collapse in={open} timeout="auto" data-testid={`${title} menu`}>
+        {categoryChildren && (
+          <List component="div" disablePadding>
+            {categoryChildren.map((child) => {
+              const { slug, title } = child ?? {};
               const categoryTag = child as Tag;
               const { linkedFrom } = categoryTag ?? {};
               const { recipeCollection } = linkedFrom ?? {};
               const { total } = recipeCollection ?? {};
 
-              return total ? (
-                <ListItem key={id} className="subMenuItem">
+              return child && slug && title && total ? (
+                <ListItem
+                  key={slug}
+                  className="subMenuItem"
+                  data-testid="subcategory item"
+                >
                   <CategoryListItemButton
                     slug={slug}
                     title={title}
@@ -76,12 +85,12 @@ const SubcategoryMenu = ({ category, onClick }: SubcategoryMenuProps) => {
                   />
                 </ListItem>
               ) : null;
-            }
-          )}
-        </List>
+            })}
+          </List>
+        )}
       </Collapse>
     </Box>
-  );
+  ) : null;
 };
 
 export default SubcategoryMenu;

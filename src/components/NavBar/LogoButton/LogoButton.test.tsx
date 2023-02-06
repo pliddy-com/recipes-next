@@ -1,4 +1,4 @@
-// import react-testing methods
+// import testing-library methods
 import { render, screen } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
@@ -17,8 +17,6 @@ describe('LogoButton', () => {
     render(<LogoButton />);
 
     const component = screen.getByText(expectedLabel).closest('a');
-
-    // console.log(component);
 
     // button has been rendered with correct label
     expect(component).toBeInTheDocument();

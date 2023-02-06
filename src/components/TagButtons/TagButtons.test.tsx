@@ -1,4 +1,4 @@
-// import react-testing methods
+// import testing-library methods
 import { render, screen } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
