@@ -22,6 +22,8 @@ const Image = ({ image, props, preload = false }: ImageProps) => {
     width: imgWidth,
   } = image ?? {};
 
+  console.log({ image, props, preload });
+
   return url && imgWidth && imgHeight ? (
     <>
       {preload && <PreloadTags props={props} url={url} />}

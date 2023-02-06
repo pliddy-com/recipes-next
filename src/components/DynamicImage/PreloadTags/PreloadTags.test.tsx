@@ -29,7 +29,6 @@ describe('PreloadTags', () => {
   ];
 
   it('it renders a set of preload link tags in a Head component', () => {
-    const expectedUrl = 'https://URL.test';
     const expectedImageSizes = '300px';
 
     // test that createSrcSet & createMediaQuery are called
@@ -49,7 +48,7 @@ describe('PreloadTags', () => {
     expect(linkTags.length === props.length).toBe(true);
 
     // expect url & imageSizes tags to be created
-    expect(testTag.textContent?.includes(expectedUrl));
+    expect(testTag.textContent?.includes(url));
     expect(testTag.textContent?.includes(expectedImageSizes));
   });
 });
