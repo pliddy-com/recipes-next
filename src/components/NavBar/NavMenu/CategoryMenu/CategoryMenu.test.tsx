@@ -1,15 +1,17 @@
 // import testing-library methods
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
 
 // import the component to test
-import SubcategoryMenu from './SubcategoryMenu';
+import CategoryMenu from './CategoryMenu';
 
 import { TaxonomyChildrenItem } from 'types/generated/graphql';
 
-describe('SubcategoryMenu', () => {
+// TODO: test conditional (render item for category or menu for subcategory)
+
+describe('CategoryMenu', () => {
   const callback = jest.fn();
 
   describe('if there is a properly structured category property', () => {
@@ -61,7 +63,7 @@ describe('SubcategoryMenu', () => {
       // renders category list item
 
       const { container } = render(
-        <SubcategoryMenu
+        <CategoryMenu
           category={category as TaxonomyChildrenItem}
           onClick={callback}
         />
@@ -86,99 +88,20 @@ describe('SubcategoryMenu', () => {
       // category link has correct href
       expect(subcategoryLink).toHaveAttribute('href', expectedSubcategoryHref);
     });
-
-    it('it handles clicks on the expand/collapse icon', async () => {
-      render(
-        <SubcategoryMenu
-          category={category as TaxonomyChildrenItem}
-          onClick={callback}
-        />
-      );
-
-      const button = await screen.getByRole('button', { name: 'expand' });
-      const menu = await screen.getByTestId(`${category.title} menu`);
-
-      // confirm that menu is hidden
-      await expect(menu).not.toBeVisible();
-
-      // simulate click on expand button
-      fireEvent.click(button);
-
-      // wait and confirm that menu is visible
-      waitFor(() => expect(menu).toBeVisible());
-
-      // simulate click on collapse button
-      fireEvent.click(button);
-
-      // wait and confirm that menu is hidden
-      waitFor(() => expect(menu).not.toBeVisible());
-    });
   });
 
   describe('if there is an improperly structured category property', () => {
-    it('it does not render a menu if slug & title are missing the from category object', () => {
-      const category = {
-        sys: {
-          id: 'sysId',
-        },
-        __typename: 'Taxonomy',
-      };
-
-      render(
-        <SubcategoryMenu
-          category={category as TaxonomyChildrenItem}
-          onClick={callback}
-        />
-      );
-
-      // confirm that menu has not been rendered
-      const categoryLink = screen.queryByRole('link');
-      expect(categoryLink).toBeNull();
-    });
-
     it('it does not render a menu if the category is null', () => {
       const category = null;
 
       const callback = jest.fn();
 
-      render(<SubcategoryMenu category={category} onClick={callback} />);
+      render(<CategoryMenu category={category} onClick={callback} />);
 
       // confirm that menu has not been rendered
       const categoryLink = screen.queryByRole('link');
 
       expect(categoryLink).toBeNull();
-    });
-
-    it('it does not render a menu if the child values are null', () => {
-      const category = {
-        title: 'Category Title',
-        slug: 'category-slug',
-        tag: {
-          title: 'Category Tag Title',
-          slug: 'category-tag-slug',
-          linkedFrom: {
-            recipeCollection: {
-              total: 2,
-            },
-          },
-        },
-        childrenCollection: {
-          items: [null],
-        },
-      };
-
-      const callback = jest.fn();
-
-      const { queryByTestId } = render(
-        <SubcategoryMenu
-          category={category as unknown as TaxonomyChildrenItem}
-          onClick={callback}
-        />
-      );
-
-      const menuItems = queryByTestId('subcategory item');
-
-      expect(menuItems).toBeNull();
     });
   });
 });

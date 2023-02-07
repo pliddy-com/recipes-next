@@ -37,7 +37,7 @@ const CategoryMenu = ({ category, onClick }: CategoryMenuProps) => {
   const recipeCollection = categoryRecipes || tagRecipes;
   const numRecipes = recipeCollection?.total;
 
-  return (
+  return category ? (
     <Box>
       {categoryChildrenCollection ? (
         <SubcategoryMenu category={category} onClick={onClick} />
@@ -52,7 +52,7 @@ const CategoryMenu = ({ category, onClick }: CategoryMenuProps) => {
         </ListItem>
       )}
     </Box>
-  );
+  ) : null;
 };
 
 export default CategoryMenu;
