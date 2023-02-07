@@ -22,19 +22,12 @@ interface RecipeCardProps {
 }
 
 const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
-  if (!recipe) return null;
-
   const { title, abstract, image, tagsCollection, slug } = recipe ?? {};
   const { items: tags } = tagsCollection ?? {};
   const { title: category } = tags?.[0] ?? {};
+  const { card: imageProps } = config?.images?.props ?? {};
 
-  const {
-    images: {
-      props: { card: imageProps },
-    },
-  } = config ?? {};
-
-  return (
+  return recipe && imageProps ? (
     <Card variant="outlined" className="recipe">
       <CardActionArea component={Link} href={`/recipe/${slug}`}>
         <CardHeader title={title} subheader={category} />
@@ -60,7 +53,7 @@ const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
       </CardActionArea>
       <CardActions>{tags && <TagButtons tags={tags} />}</CardActions>
     </Card>
-  );
+  ) : null;
 };
 
 export default RecipeCard;

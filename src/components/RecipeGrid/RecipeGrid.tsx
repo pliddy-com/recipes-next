@@ -27,7 +27,7 @@ const RecipeGrid = ({ recipes, title }: RecipeGridrops) => {
         {recipes &&
           recipes.map((recipe, index) => (
             <Grid item md={6} sm={6} xs={12} key={recipe?.slug} sx={{ flex }}>
-              {recipe && <RecipeCard recipe={recipe} preloadImg={index < 3} />}
+              {recipe && <RecipeCard recipe={recipe} preloadImg={index < 6} />}
             </Grid>
           ))}
       </Grid>
