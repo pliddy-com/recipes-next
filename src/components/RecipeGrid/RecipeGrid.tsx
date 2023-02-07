@@ -14,10 +14,8 @@ interface RecipeGridrops {
   title?: string | null;
 }
 
-const RecipeGrid = ({ recipes, title }: RecipeGridrops) => {
-  if (!recipes) return <Loading />;
-
-  return (
+const RecipeGrid = ({ recipes, title }: RecipeGridrops) =>
+  recipes && recipes.length > 0 ? (
     <Container className="page">
       <Typography variant="h1">{title}</Typography>
       <Typography variant="subtitle1" component="h2" gutterBottom>
@@ -32,7 +30,8 @@ const RecipeGrid = ({ recipes, title }: RecipeGridrops) => {
           ))}
       </Grid>
     </Container>
+  ) : (
+    <Loading />
   );
-};
 
 export default RecipeGrid;
