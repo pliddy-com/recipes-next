@@ -110,4 +110,17 @@ describe('NavMenu', () => {
       waitFor(() => expect(drawer).toBeVisible());
     });
   });
+
+  describe('if there is no nav property', () => {
+    it('it does not render a menu', () => {
+      const nav = undefined;
+      const { container } = render(<NavBar nav={nav} />);
+
+      const menu = container.getElementsByClassName('MuiDrawer-paper')[0];
+      expect(menu).toBeUndefined();
+
+      const button = screen.queryByRole('button', { name: 'open drawer' });
+      expect(button).toBeNull();
+    });
+  });
 });

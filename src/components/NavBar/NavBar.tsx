@@ -24,9 +24,11 @@ const NavBar = ({ nav }: NavBarProps) => {
     <AppBar component="nav">
       <Toolbar>
         <LogoButton />
-        <MenuButton onClick={handleDrawerToggle} />
+        {nav && <MenuButton onClick={handleDrawerToggle} />}
       </Toolbar>
-      <NavMenu nav={nav} onClick={handleDrawerToggle} isOpen={isDrawerOpen} />
+      {nav && (
+        <NavMenu nav={nav} onClick={handleDrawerToggle} isOpen={isDrawerOpen} />
+      )}
     </AppBar>
   );
 };
