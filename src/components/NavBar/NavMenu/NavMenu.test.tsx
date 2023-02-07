@@ -20,7 +20,7 @@ describe('NavMenu', () => {
       slug: 'categories',
       tag: null,
       childrenCollection: {
-        total: 2,
+        total: 3,
         items: [
           {
             sys: {
@@ -87,6 +87,19 @@ describe('NavMenu', () => {
               ],
             },
           },
+          {
+            sys: {
+              id: 'sys-id-6',
+            },
+            __typename: 'Tag',
+            title: 'Category 6',
+            slug: 'category-6',
+            linkedFrom: {
+              recipeCollection: {
+                total: 0,
+              },
+            },
+          },
         ],
       },
     };
@@ -99,6 +112,100 @@ describe('NavMenu', () => {
         <NavMenu nav={nav as Taxonomy} onClick={onClick} isOpen={isOpen} />
       );
       expect(container.getElementsByClassName('menu'));
+    });
+  });
+
+  describe('if there is not a properly structured nav property', () => {
+    const nav = undefined;
+    it('it does not render', () => {
+      const isOpen = false;
+      const onClick = jest.fn();
+
+      const { container } = render(
+        <NavMenu nav={nav} onClick={onClick} isOpen={isOpen} />
+      );
+      expect(container.getElementsByClassName('menu').length).toEqual(0);
+    });
+  });
+
+  describe('if there are not properly structured category tags', () => {
+    const nav = {
+      sys: {
+        id: 'sys-id-0',
+      },
+      __typename: 'Taxonomy',
+      title: 'Categories',
+      slug: 'categories',
+      tag: null,
+      childrenCollection: {
+        total: 3,
+        items: [
+          null,
+          {
+            sys: {
+              id: 'sys-id-1',
+            },
+            __typename: 'Taxonomy',
+            title: 'Category 1',
+            slug: 'category-1',
+            tag: {
+              sys: {
+                id: 'sys-id-2',
+              },
+              __typename: 'Tag',
+              title: 'Category 2 Tag',
+              slug: 'category-2',
+            },
+            childrenCollection: {
+              total: 3,
+              items: [
+                {
+                  sys: {
+                    id: 'sys-id-3',
+                  },
+                  __typename: 'Tag',
+                  title: 'Subcategory 2a',
+                  slug: 'subcategory-2a',
+                  linkedFrom: null,
+                },
+                {
+                  sys: {
+                    id: 'sys-id-4',
+                  },
+                  __typename: 'Tag',
+                  title: 'Subcategory 2a',
+                  slug: 'subcategory-2a',
+                  linkedFrom: {
+                    recipeCollection: null,
+                  },
+                },
+              ],
+            },
+          },
+          {
+            sys: {
+              id: 'sys-id-5',
+            },
+            __typename: 'Tag',
+            title: 'Category 6',
+            slug: 'category-6',
+            linkedFrom: {
+              recipeCollection: null,
+            },
+          },
+        ],
+      },
+    };
+
+    it('it does not render', () => {
+      const isOpen = false;
+      const onClick = jest.fn();
+
+      const { container } = render(
+        <NavMenu nav={nav as Taxonomy} onClick={onClick} isOpen={isOpen} />
+      );
+
+      expect(container.getElementsByClassName('menu').length).toEqual(0);
     });
   });
 });

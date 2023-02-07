@@ -49,7 +49,7 @@ const NavMenu = ({ isOpen, nav, onClick }: NavMenuType) => {
             const { linkedFrom } = categoryTag ?? {};
 
             if (linkedFrom && 'recipeCollection' in linkedFrom) {
-              const { recipeCollection } = linkedFrom ?? {};
+              const { recipeCollection } = linkedFrom;
               const { total: numRecipes } = recipeCollection ?? {};
 
               return numRecipes ? (
