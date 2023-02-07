@@ -52,7 +52,7 @@ const Recipe = ({ content }: RecipeProps) => {
   const { items: instructionsSections } = instructionsCollection ?? {};
   const { items: tags } = tagsCollection ?? {};
 
-  console.log({ equipment });
+  console.log({ ingredientsSections });
 
   return (
     <Container className="page">

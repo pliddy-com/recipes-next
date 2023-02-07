@@ -13,13 +13,13 @@ interface InstructionsProps {
 }
 
 const Instructions = ({ sections }: InstructionsProps) => {
-  if (!sections) return null;
-
   // use num to set starting value for each instructionList section
   // so numbering is continuous across list sections
   let num = 1;
 
-  return (
+  console.log({ sections });
+
+  return sections ? (
     <Stack direction="column" spacing={1}>
       <Typography variant="h2" gutterBottom>
         Instructions
@@ -47,7 +47,7 @@ const Instructions = ({ sections }: InstructionsProps) => {
           );
         })}
     </Stack>
-  );
+  ) : null;
 };
 
 export default Instructions;

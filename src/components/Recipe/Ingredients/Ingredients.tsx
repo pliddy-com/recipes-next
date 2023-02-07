@@ -14,9 +14,7 @@ interface IngredientsProps {
 }
 
 const Ingredients = ({ sections }: IngredientsProps) => {
-  if (!sections) return null;
-
-  return (
+  return sections ? (
     <Stack direction="column" spacing={1}>
       <Typography variant="h2" gutterBottom>
         Ingredients
@@ -24,16 +22,17 @@ const Ingredients = ({ sections }: IngredientsProps) => {
       {sections &&
         sections.map((section) => {
           const { label, ingredientList } = section ?? {};
-          const ingredients = ingredientList;
 
           return (
-            <Stack key={label} direction="column" spacing={0}>
-              {label !== 'Ingredients' && (
-                <Typography variant="h3">{label}</Typography>
-              )}
-              <List className="recipeList">
-                {ingredients &&
-                  ingredients.map((ingredient) => (
+            section &&
+            label &&
+            ingredientList && (
+              <Stack key={label} direction="column" spacing={0}>
+                {label !== 'Ingredients' && (
+                  <Typography variant="h3">{label}</Typography>
+                )}
+                <List className="recipeList">
+                  {ingredientList.map((ingredient) => (
                     <ListItem key={ingredient} disableGutters>
                       <ListItemIcon>
                         <RestaurantMenuIcon color="secondary" />
@@ -41,12 +40,13 @@ const Ingredients = ({ sections }: IngredientsProps) => {
                       <ListItemText primary={ingredient} />
                     </ListItem>
                   ))}
-              </List>
-            </Stack>
+                </List>
+              </Stack>
+            )
           );
         })}
     </Stack>
-  );
+  ) : null;
 };
 
 export default Ingredients;
