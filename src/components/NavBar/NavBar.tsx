@@ -19,6 +19,7 @@ const NavBar = ({ nav }: NavBarProps) => {
   const handleDrawerToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+
   return (
     <AppBar component="nav">
       <Toolbar>
