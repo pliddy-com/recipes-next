@@ -238,7 +238,12 @@ describe('in RichText', () => {
 
   it('does not render the rich text section if there is no content', () => {
     const content = undefined;
-    render(<RichText content={content as unknown as RecipeDescription} />);
+    const { queryByTestId } = render(
+      <RichText content={content as unknown as RecipeDescription} />
+    );
+
+    const richText = queryByTestId('richtext');
+    expect(richText).toBeNull();
   });
 
   it('handles rendering if there are no link entries', () => {

@@ -34,11 +34,7 @@ const Recipe = ({ content }: RecipeProps) => {
     tagsCollection,
   } = content ?? {};
 
-  const {
-    images: {
-      props: { recipe: imageProps },
-    },
-  } = config ?? {};
+  const { recipe: imageProps } = config?.images?.props ?? {};
 
   // TODO: pass full description text into rich text component
   //       & destructure json & links inside component (needs types for json & links)

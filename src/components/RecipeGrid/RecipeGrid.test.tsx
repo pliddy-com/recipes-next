@@ -5,12 +5,12 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import RecipeGrid from 'components/RecipeGrid/RecipeGrid';
+import RecipeGrid from './RecipeGrid';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
 describe('in RecipeGrid', () => {
-  describe('if there is pageContent', () => {
+  describe('if there is page content', () => {
     it('it renders the RecipeGrid if there is content', () => {
       const recipes: (RecipeDefaultFragment | null)[] = [
         {
