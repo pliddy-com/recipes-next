@@ -23,8 +23,6 @@ interface RecipeProps {
 }
 
 const Recipe = ({ content }: RecipeProps) => {
-  if (!content) return null;
-
   const {
     title,
     description,
@@ -52,9 +50,7 @@ const Recipe = ({ content }: RecipeProps) => {
   const { items: instructionsSections } = instructionsCollection ?? {};
   const { items: tags } = tagsCollection ?? {};
 
-  console.log({ ingredientsSections });
-
-  return (
+  return content ? (
     <Container className="page">
       <Box>
         <Typography variant="h1" gutterBottom>
@@ -96,7 +92,7 @@ const Recipe = ({ content }: RecipeProps) => {
         {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
       </Stack>
     </Container>
-  );
+  ) : null;
 };
 
 export default Recipe;

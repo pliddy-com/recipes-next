@@ -86,7 +86,7 @@ const renderOptions = ({ links }: RenderOptionProps): Options => {
       [INLINES.HYPERLINK]: (node, children) => {
         const {
           data: { uri },
-        } = node ?? {};
+        } = node;
 
         return (
           <Link href={uri} target="_blank" rel="noreferrer">
@@ -105,10 +105,14 @@ type RichTextProps = {
   content: RecipeDescription;
 };
 
-export const RichText = ({ content }: RichTextProps) => {
+const RichText = ({ content }: RichTextProps) => {
   const { json, links } = content ?? {};
 
-  return <Box>{documentToReactComponents(json, renderOptions({ links }))}</Box>;
+  return content && json ? (
+    <Box data-testid="richtext">
+      {documentToReactComponents(json, renderOptions({ links }))}
+    </Box>
+  ) : null;
 };
 
 export default RichText;
