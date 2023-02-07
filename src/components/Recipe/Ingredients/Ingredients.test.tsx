@@ -25,17 +25,6 @@ describe('in Ingredients', () => {
         ingredientList: ['section 1 item 1', 'section 1 item 2'],
         __typename: 'IngredientSection',
       },
-      {
-        sys: {
-          id: 'sys-id-2',
-          __typename: 'Sys',
-        },
-        title: 'Section 2 Title',
-        slug: 'section-2-slug',
-        label: 'Section 2 Label',
-        ingredientList: ['section 2 item 1', 'section 2 item 2'],
-        __typename: 'IngredientSection',
-      },
     ];
 
     const expectedSubtitle = sections?.[0].label;
@@ -74,17 +63,6 @@ describe('in Ingredients', () => {
         __typename: 'IngredientSection',
         label: null,
         ingredientList: null,
-      },
-      {
-        sys: {
-          id: 'sys-id-1',
-          __typename: 'Sys',
-        },
-        title: 'Section 1 Title',
-        slug: 'section-1-slug',
-        __typename: 'IngredientSection',
-        label: undefined,
-        ingredientList: undefined,
       },
     ];
 

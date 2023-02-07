@@ -17,8 +17,6 @@ const Instructions = ({ sections }: InstructionsProps) => {
   // so numbering is continuous across list sections
   let num = 1;
 
-  console.log({ sections });
-
   return sections ? (
     <Stack direction="column" spacing={1}>
       <Typography variant="h2" gutterBottom>
@@ -29,21 +27,23 @@ const Instructions = ({ sections }: InstructionsProps) => {
           const { label, instructionList } = section ?? {};
           const instructions = instructionList;
           return (
-            <Stack key={label} direction="column" spacing={0}>
-              <Typography variant="h3">{label}</Typography>
+            instructions && (
+              <Stack key={label} direction="column" spacing={0}>
+                <Typography variant="h3">{label}</Typography>
 
-              <List className="recipeList">
-                {instructions &&
-                  instructions.map((instruction) => (
-                    <ListItem key={`instruction-${num}`} disableGutters>
-                      <ListItemAvatar>
-                        <Avatar color="secondary">{num++}</Avatar>
-                      </ListItemAvatar>
-                      <ListItemText primary={instruction} />
-                    </ListItem>
-                  ))}
-              </List>
-            </Stack>
+                <List className="recipeList">
+                  {instructions &&
+                    instructions.map((instruction) => (
+                      <ListItem key={`instruction-${num}`} disableGutters>
+                        <ListItemAvatar>
+                          <Avatar color="secondary">{num++}</Avatar>
+                        </ListItemAvatar>
+                        <ListItemText primary={instruction} />
+                      </ListItem>
+                    ))}
+                </List>
+              </Stack>
+            )
           );
         })}
     </Stack>
