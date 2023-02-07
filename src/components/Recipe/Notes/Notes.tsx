@@ -7,11 +7,8 @@ interface NotesProps {
   notes?: Maybe<Array<Maybe<Scalars['String']>>>;
 }
 
-const Notes = ({ notes }: NotesProps) => {
-  if (!notes) return null;
-
-  // TODO: use MUI List to format notes
-  return (
+const Notes = ({ notes }: NotesProps) =>
+  notes ? (
     <Box>
       <Typography variant="h2">Notes</Typography>
       {notes && (
@@ -22,7 +19,6 @@ const Notes = ({ notes }: NotesProps) => {
         </ul>
       )}
     </Box>
-  );
-};
+  ) : null;
 
 export default Notes;

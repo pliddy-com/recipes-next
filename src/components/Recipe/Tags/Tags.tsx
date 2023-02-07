@@ -9,17 +9,14 @@ interface TagsProps {
   tags: (TagDefaultFragment | null)[];
 }
 
-const Tags = ({ tags }: TagsProps) => {
-  if (!tags) return null;
-
-  return (
+const Tags = ({ tags }: TagsProps) =>
+  tags && tags.length > 0 ? (
     <Box>
       <Typography variant="h2" gutterBottom>
         Tags
       </Typography>
       <TagButtons tags={tags} />
     </Box>
-  );
-};
+  ) : null;
 
 export default Tags;
