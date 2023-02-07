@@ -20,13 +20,13 @@ jest.mock('lib/config', () => ({
   },
 }));
 
-describe('in RecipeCard', () => {
+describe('RecipeCard', () => {
   afterEach(() => {
     jest.resetModules();
   });
 
   describe('if there are config properties', () => {
-    it('renders the RecipeCard if there is content', () => {
+    it('it renders the RecipeCard if there is content', () => {
       const recipe: Maybe<RecipeDefaultFragment> = {
         sys: {
           id: 'sysid_0',

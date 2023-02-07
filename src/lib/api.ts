@@ -88,7 +88,7 @@ export async function fetchContent<
 }
 
 // used to query content for nav menu taxonomy
-export const queryNavContent = async (
+export const fetchNavContent = async (
   variables: TaxonomyCollectionQueryVariables
 ) => {
   const { taxonomyCollection } = await fetchContent(

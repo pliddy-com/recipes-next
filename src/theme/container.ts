@@ -1,6 +1,8 @@
 import { ThemeOptions } from '@mui/material/styles';
 import { createBreakpoints } from '@mui/system';
 
+import colors from './colors';
+
 const breakpoints = createBreakpoints({});
 
 const containerTheme: ThemeOptions = {
@@ -9,10 +11,11 @@ const containerTheme: ThemeOptions = {
       styleOverrides: {
         root: {
           '&.page': {
-            marginTop: '5rem',
+            backgroundColor: colors.common.white,
+            paddingTop: '5rem',
             paddingBottom: '3rem',
             [breakpoints.up('md')]: {
-              marginTop: '6rem',
+              paddingTop: '6rem',
             },
           },
         },

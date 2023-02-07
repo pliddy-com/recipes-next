@@ -2,7 +2,7 @@ import { ReactElement, useEffect, useState } from 'react';
 
 import NavBar from 'components/NavBar/NavBar';
 
-import { queryNavContent } from 'lib/api';
+import { fetchNavContent } from 'lib/api';
 
 import { Taxonomy } from 'types/generated/graphql';
 
@@ -14,9 +14,11 @@ const Layout = ({ children }: LayoutProps) => {
   const [navData, setNavData] = useState<Taxonomy>();
 
   useEffect(() => {
-    queryNavContent({ where: { slug: 'categories' } })
+    fetchNavContent({ where: { slug: 'categories' } })
       .then((result) => {
+        console.log({ result });
         if (result[0]) {
+          console.log('RESULT:', result[0]);
           const menu = result[0] as Taxonomy;
           setNavData(menu);
         }

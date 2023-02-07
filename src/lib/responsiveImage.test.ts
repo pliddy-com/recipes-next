@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 // import the functions to test
 import { createSrcSet, createMediaQuery } from './responsiveImage';
 
-describe('In responsiveImages.tsx', () => {
+describe('in responsiveImages.ts', () => {
   describe('createSrcSet()', () => {
     it('returns a correctly formatted srcSet string', () => {
       const url = 'https://URL.test';

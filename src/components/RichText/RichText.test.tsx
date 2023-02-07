@@ -9,7 +9,7 @@ import RichText from 'components/RichText/RichText';
 
 import { RecipeDescription } from 'types/generated/graphql';
 
-describe('in RichText', () => {
+describe('RichText', () => {
   const content = {
     json: {
       nodeType: 'document',
@@ -246,7 +246,7 @@ describe('in RichText', () => {
     expect(richText).toBeNull();
   });
 
-  it('handles rendering if there are no link entries', () => {
+  it('handles rendering if there are no entries in links', () => {
     const content = {
       json: {
         nodeType: 'document',
@@ -256,7 +256,12 @@ describe('in RichText', () => {
       links: {},
     };
 
-    render(<RichText content={content as unknown as RecipeDescription} />);
+    const { queryByTestId } = render(
+      <RichText content={content as unknown as RecipeDescription} />
+    );
+
+    const richText = queryByTestId('richtext');
+    expect(richText).toBeInTheDocument();
   });
 
   it('handles rendering if there are no links', () => {
@@ -268,6 +273,11 @@ describe('in RichText', () => {
       },
     };
 
-    render(<RichText content={content as unknown as RecipeDescription} />);
+    const { queryByTestId } = render(
+      <RichText content={content as unknown as RecipeDescription} />
+    );
+
+    const richText = queryByTestId('richtext');
+    expect(richText).toBeInTheDocument();
   });
 });
