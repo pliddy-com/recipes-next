@@ -9,8 +9,8 @@ import RecipeGrid from './RecipeGrid';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
-describe('in RecipeGrid', () => {
-  describe('if there is page content', () => {
+describe('RecipeGrid', () => {
+  describe('when there is page content', () => {
     it('it renders the RecipeGrid if there is content', () => {
       const recipes: (RecipeDefaultFragment | null)[] = [
         {
@@ -40,15 +40,20 @@ describe('in RecipeGrid', () => {
 
       const title = 'Title';
 
-      render(<RecipeGrid recipes={recipes} title={title} />);
+      const { container } = render(
+        <RecipeGrid recipes={recipes} title={title} />
+      );
 
       // test if card compoent is rendered
       const card = document.querySelector('.MuiCard-root');
       expect(card).toBeInTheDocument();
+
+      // assert that the component matches the existing snapshot
+      expect(container).toMatchSnapshot();
     });
   });
 
-  describe('if there is no pageContent', () => {
+  describe('when there is no pageContent', () => {
     it('it does not render the RecipeGrid', () => {
       const title = 'Title';
       const recipes = [] as RecipeDefaultFragment[];

@@ -20,12 +20,12 @@ jest.mock('lib/config', () => ({
   },
 }));
 
-describe('in Recipe', () => {
+describe('Recipe', () => {
   afterEach(() => {
     jest.resetModules();
   });
 
-  describe('if there is page content', () => {
+  describe('when there is page content', () => {
     it('it renders the RecipeGrid', () => {
       const content = {
         sys: {
@@ -135,15 +135,20 @@ describe('in Recipe', () => {
         },
       };
 
-      render(<Recipe content={content as RecipeDefaultFragment} />);
+      const { container } = render(
+        <Recipe content={content as RecipeDefaultFragment} />
+      );
 
       // test if content is rendered
       const recipe = document.querySelector('.page');
       expect(recipe).toBeInTheDocument();
+
+      // assert that the component matches the existing snapshot
+      expect(container).toMatchSnapshot();
     });
   });
 
-  describe('if there is no page content', () => {
+  describe('when there is no page content', () => {
     // before each test, delete images node from config
     beforeEach(() => {
       delete config.images.props;

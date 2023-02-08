@@ -9,7 +9,7 @@ import InstructionsSection from 'components/InstructionsSection/InstructionsSect
 
 import { InstructionsDefaultFragment } from 'types/generated/graphql';
 
-describe('in InstructionsSection', () => {
+describe('InstructionsSection', () => {
   const expectedTitle = 'Instructions';
 
   describe('when there is properly formatted content', () => {
@@ -49,7 +49,7 @@ describe('in InstructionsSection', () => {
   });
 
   describe('when there is there is no content', () => {
-    it('does not render', () => {
+    it('it does not render', () => {
       const sections = undefined;
 
       const { queryByText } = render(
@@ -63,7 +63,7 @@ describe('in InstructionsSection', () => {
   });
 
   describe('when there are missing content properties', () => {
-    it('does not render', () => {
+    it('it does not render', () => {
       const sections: InstructionsDefaultFragment[] = [
         {
           sys: {
@@ -90,7 +90,7 @@ describe('in InstructionsSection', () => {
   });
 
   describe('when there is null content', () => {
-    it('does not render', () => {
+    it('it does not render', () => {
       const sections = [null];
 
       const { container } = render(<InstructionsSection sections={sections} />);

@@ -14,7 +14,7 @@ import { TaxonomyChildrenItem } from 'types/generated/graphql';
 describe('CategoryMenu', () => {
   const callback = jest.fn();
 
-  describe('if there is a properly structured category property', () => {
+  describe('when there is a properly structured category property', () => {
     const category = {
       title: 'Category Title',
       slug: 'category-slug',

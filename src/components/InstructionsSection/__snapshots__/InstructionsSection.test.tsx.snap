@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`in InstructionsSection when there is properly formatted content it renders the instructions section if there is content 1`] = `
+exports[`InstructionsSection when there is properly formatted content it renders the instructions section if there is content 1`] = `
 <div>
   <div
     class="css-1okj3ks-MuiStack-root"

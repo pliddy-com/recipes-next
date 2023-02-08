@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CategoryMenu if there is a properly structured category property it renders a menu defined by the category tag list 1`] = `
+exports[`CategoryMenu when there is a properly structured category property it renders a menu defined by the category tag list 1`] = `
 <div>
   <div
     class="MuiBox-root css-0"

@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recipe when there is page content it renders the RecipeGrid 1`] = `
+<div>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg page css-1oqqzyl-MuiContainer-root"
+  >
+    <div
+      class="MuiBox-root css-0"
+    >
+      <h1
+        class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom css-a4d0r7-MuiTypography-root"
+      >
+        Recipe Title
+      </h1>
+      <div
+        class="MuiBox-root css-0"
+        data-testid="richtext"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-z2eky3-MuiTypography-root"
+        >
+          Description rich text
+        </p>
+      </div>
+    </div>
+    <div
+      class="MuiBox-root css-3ddw82"
+    >
+      <picture>
+        <img
+          alt="Image description."
+          height="300"
+          src="https://recipes.pliddy.com/url"
+          style="max-width: 100%; height: auto;"
+          width="400"
+        />
+      </picture>
+    </div>
+    <div
+      class="css-1lwbda4-MuiStack-root"
+    >
+      <div
+        class="css-1okj3ks-MuiStack-root"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-i1hrn3-MuiTypography-root"
+        >
+          Ingredients
+        </h2>
+        <div
+          class="css-nen11g-MuiStack-root"
+        >
+          <ul
+            class="MuiList-root MuiList-padding recipeList css-h4y409-MuiList-root"
+          >
+            <li
+              class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"
+            >
+              <div
+                class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorSecondary MuiSvgIcon-fontSizeMedium css-kw0y8f-MuiSvgIcon-root"
+                  data-testid="RestaurantMenuIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="m8.1 13.34 2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+                >
+                  ingredient 1
+                </span>
+              </div>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"
+            >
+              <div
+                class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorSecondary MuiSvgIcon-fontSizeMedium css-kw0y8f-MuiSvgIcon-root"
+                  data-testid="RestaurantMenuIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="m8.1 13.34 2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+                >
+                  ingredient 2
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="css-nen11g-MuiStack-root"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
+        >
+          EquipmentSection
+        </h2>
+        <ul
+          class="MuiList-root MuiList-padding recipeList css-h4y409-MuiList-root"
+        >
+          <li
+            class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"
+          >
+            <div
+              class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-ci5apu-MuiSvgIcon-root"
+                data-testid="KitchenTwoToneIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M8 5h2v3H8zm0 7h2v5H8zm-2 8h12v-9.02H6V20zm2-8h2v5H8v-5zM6 9h12V4H6v5zm2-4h2v3H8V5z"
+                  opacity=".3"
+                />
+                <path
+                  d="M18 2.01 6 2a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5h2v3H8zm0 7h2v5H8z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+              >
+                equipment 1
+              </span>
+            </div>
+          </li>
+          <li
+            class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"
+          >
+            <div
+              class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-ci5apu-MuiSvgIcon-root"
+                data-testid="KitchenTwoToneIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M8 5h2v3H8zm0 7h2v5H8zm-2 8h12v-9.02H6V20zm2-8h2v5H8v-5zM6 9h12V4H6v5zm2-4h2v3H8V5z"
+                  opacity=".3"
+                />
+                <path
+                  d="M18 2.01 6 2a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5h2v3H8zm0 7h2v5H8z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+              >
+                equipment 2
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="css-1okj3ks-MuiStack-root"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-i1hrn3-MuiTypography-root"
+        >
+          Instructions
+        </h2>
+        <div
+          class="css-nen11g-MuiStack-root"
+        >
+          <h3
+            class="MuiTypography-root MuiTypography-h3 css-gepadz-MuiTypography-root"
+          >
+            Label
+          </h3>
+          <ul
+            class="MuiList-root MuiList-padding recipeList css-h4y409-MuiList-root"
+          >
+            <li
+              class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"
+            >
+              <div
+                class="MuiListItemAvatar-root css-1e9lk82-MuiListItemAvatar-root"
+              >
+                <div
+                  class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-2s90m6-MuiAvatar-root"
+                  color="secondary"
+                >
+                  1
+                </div>
+              </div>
+              <div
+                class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+                >
+                  Instructions item 1
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="MuiBox-root css-0"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
+        >
+          Notes
+        </h2>
+        <ul>
+          <li>
+            note 1
+          </li>
+        </ul>
+      </div>
+      <div
+        class="MuiBox-root css-0"
+        data-testid="tags-section"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-i1hrn3-MuiTypography-root"
+        >
+          Tags
+        </h2>
+        <div
+          class="css-180l46g-MuiStack-root"
+          data-testid="tag-buttons"
+        >
+          <a
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-wmndcn-MuiButtonBase-root-MuiButton-root"
+            href="/tag/tag-1"
+            role="button"
+            tabindex="0"
+          >
+            Tag 1
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

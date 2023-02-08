@@ -78,16 +78,15 @@ describe('RecipeCard', () => {
       // assert that the component matches the existing snapshot
       expect(container).toMatchSnapshot();
     });
+  });
 
-    describe('when there is content', () => {
-      it('does not render the RecipeCard if there is no content', () => {
-        const recipe = undefined;
+  describe('when there is no content', () => {
+    const recipe = undefined;
+    it('does not render the component', () => {
+      render(<RecipeCard recipe={recipe} />);
 
-        render(<RecipeCard recipe={recipe} />);
-
-        const card = document.querySelector('.recipe');
-        expect(card).toBeNull();
-      });
+      const card = document.querySelector('.recipe');
+      expect(card).toBeNull();
     });
   });
 

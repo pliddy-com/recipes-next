@@ -4,8 +4,8 @@ import '@testing-library/jest-dom';
 // import the functions to test
 import { createSrcSet, createMediaQuery } from './responsiveImage';
 
-describe('in responsiveImages.ts', () => {
-  describe('createSrcSet()', () => {
+describe('responsiveImage', () => {
+  describe('when createSrcSet() is called', () => {
     it('it returns a correctly formatted srcSet string', () => {
       const url = 'https://URL.test';
       const imgWidth = 1000;
@@ -18,7 +18,7 @@ describe('in responsiveImages.ts', () => {
     });
   });
 
-  describe('createMediaQuery()', () => {
+  describe('when createMediaQuery() is called', () => {
     const viewMin = 1000;
 
     // use 3 sets of props for min, max, and at least one in between

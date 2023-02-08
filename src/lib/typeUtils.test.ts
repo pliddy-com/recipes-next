@@ -2,23 +2,23 @@ import '@testing-library/jest-dom';
 
 import { notNullOrUndefined } from './typeUtils';
 
-describe('in typeUtils.ts', () => {
-  describe('notNullOrUndefined()', () => {
+describe('typeUtils', () => {
+  describe('when notNullOrUndefined() is called', () => {
     const nullValue = null;
     const undefinedValue = undefined;
     const validValue = 1;
 
-    it('returns true if value is null', () => {
+    it('it returns true if value is null', () => {
       const result = notNullOrUndefined(nullValue);
       expect(result).toBe(false);
     });
 
-    it('returns true if value is undefined', () => {
+    it('it returns true if value is undefined', () => {
       const result = notNullOrUndefined(undefinedValue);
       expect(result).toBe(false);
     });
 
-    it('returns false if value exists', () => {
+    it('it returns false if value exists', () => {
       const result = notNullOrUndefined(validValue);
       expect(result).toBe(true);
     });

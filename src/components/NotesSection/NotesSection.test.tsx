@@ -5,15 +5,15 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import Notes from 'components/NotesSection/NotesSection';
+import NotesSection from 'components/NotesSection/NotesSection';
 
-describe('in Notes', () => {
+describe('NotesSection', () => {
   describe('when there is properly formatted content', () => {
     it('it renders the notes section if there is content', () => {
       const notes = ['Base for Chicken and Biscuits'];
       const expected = notes[0];
 
-      const { container, queryByText } = render(<Notes notes={notes} />);
+      const { container, queryByText } = render(<NotesSection notes={notes} />);
 
       const title = queryByText('Notes');
       const note = queryByText(expected);
@@ -30,7 +30,7 @@ describe('in Notes', () => {
     it('it does not render', () => {
       const notes = undefined;
 
-      const { queryByText } = render(<Notes notes={notes} />);
+      const { queryByText } = render(<NotesSection notes={notes} />);
 
       const title = queryByText('Notes');
 

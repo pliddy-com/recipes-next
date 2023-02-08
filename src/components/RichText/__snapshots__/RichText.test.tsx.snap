@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RichText when there is content renders the component 1`] = `
+exports[`RichText when there is content it renders the component 1`] = `
 <div>
   <div
     class="MuiBox-root css-0"

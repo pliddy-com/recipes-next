@@ -193,7 +193,7 @@ describe('RichText', () => {
       __typename: 'RecipeDescription',
     };
 
-    it('renders the component', () => {
+    it('it renders the component', () => {
       const expectedText = content.json.content[0].content[0].value;
 
       const expectedExternalText =
