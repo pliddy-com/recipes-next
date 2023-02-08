@@ -18,10 +18,6 @@ export const flex = {
   display: 'flex',
 };
 
-export const background = {
-  backgroundColor: colors.common.background,
-};
-
 export const tagButtons = {
   button: {
     borderRadius: '2rem',
@@ -32,4 +28,8 @@ export const tagButtons = {
     flexWrap: 'wrap',
     '& .MuiButtonBase-root': { ml: 0, mb: '.5rem', mr: '.5rem' },
   },
+};
+
+export const background = {
+  backgroundColor: colors.common.background,
 };

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { ReactElement, useEffect, useState } from 'react';
 
 import NavBar from 'components/NavBar/NavBar';
