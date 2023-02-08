@@ -19,7 +19,9 @@ import { notNullOrUndefined } from 'lib/typeUtils';
 import config from 'lib/config';
 
 const RecipeGrid = dynamic(
-  import(/* webpackChunkName: 'TagGrid' */ 'components/RecipeGrid/RecipeGrid'),
+  import(
+    /* webpackChunkName: 'TagGrid' */ 'pageContainers/RecipeGrid/RecipeGrid'
+  ),
   { suspense: true }
 );
 

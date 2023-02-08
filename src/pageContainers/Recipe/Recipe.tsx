@@ -4,12 +4,12 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 import DynamicImage from 'components/DynamicImage/DynamicImage';
-import Equipment from 'components/Recipe/Equipment/Equipment';
-import Ingredients from 'components/Recipe/Ingredients/Ingredients';
-import Instructions from 'components/Recipe/Instructions/Instructions';
-import Notes from 'components/Recipe/Notes/Notes';
+import EquipmentSection from 'components/EquipmentSection/EquipmentSection';
+import Ingredients from 'components/IngredientsSection/IngredientsSection';
+import Instructions from 'components/InstructionsSection/InstructionsSection';
+import Notes from 'components/NotesSection/NotesSection';
 import RichText from 'components/RichText/RichText';
-import Tags from 'components/Recipe/Tags/Tags';
+import Tags from 'components/TagsSection/TagsSection';
 
 import {
   RecipeDefaultFragment,
@@ -75,7 +75,7 @@ const Recipe = ({ content }: RecipeProps) => {
           ingredientsCollection.items &&
           ingredientsSections && <Ingredients sections={ingredientsSections} />}
 
-        {equipment && <Equipment equipment={equipment} />}
+        {equipment && <EquipmentSection equipment={equipment} />}
 
         {instructionsSections && (
           <Instructions sections={instructionsSections} />

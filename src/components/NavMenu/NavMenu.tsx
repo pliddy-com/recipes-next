@@ -7,7 +7,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
-import CategoryMenu from 'components/NavBar/NavMenu/CategoryMenu/CategoryMenu';
+import CategoryMenu from 'components/NavMenu/CategoryMenu/CategoryMenu';
 
 import { Taxonomy } from 'types/generated/graphql';
 

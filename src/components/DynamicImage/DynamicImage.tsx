@@ -1,4 +1,4 @@
-import PreloadTags from 'components/DynamicImage/PreloadTags/PreloadTags';
+import PreloadTags from 'components/PreloadTags/PreloadTags';
 
 import responsiveImage, { WidthProps } from 'lib/responsiveImage';
 

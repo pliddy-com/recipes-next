@@ -9,16 +9,16 @@ import KitchenTwoToneIcon from '@mui/icons-material/KitchenTwoTone';
 
 import { Maybe, Scalars } from 'types/generated/graphql';
 
-interface EquipmentProps {
+interface EquipmentSectionProps {
   equipment?: Maybe<Array<Maybe<Scalars['String']>>>;
 }
 
-const Equipment = ({ equipment }: EquipmentProps) => {
+const EquipmentSection = ({ equipment }: EquipmentSectionProps) => {
   if (!equipment) return null;
 
   return (
     <Stack direction="column">
-      <Typography variant="h2">Equipment</Typography>
+      <Typography variant="h2">EquipmentSection</Typography>
       <List className="recipeList">
         {equipment &&
           equipment.map((item) => (
@@ -34,4 +34,4 @@ const Equipment = ({ equipment }: EquipmentProps) => {
   );
 };
 
-export default Equipment;
+export default EquipmentSection;

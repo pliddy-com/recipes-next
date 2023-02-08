@@ -3,9 +3,9 @@ import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 
-import LogoButton from 'components/NavBar/LogoButton/LogoButton';
-import MenuButton from 'components/NavBar/MenuButton/MenuButton';
-import NavMenu from 'components/NavBar/NavMenu/NavMenu';
+import LogoButton from 'components/LogoButton/LogoButton';
+import MenuButton from 'components/MenuButton/MenuButton';
+import NavMenu from 'components/NavMenu/NavMenu';
 
 import { Taxonomy } from 'types/generated/graphql';
 

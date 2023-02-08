@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import Instructions from 'components/Recipe/Instructions/Instructions';
+import Instructions from 'components/InstructionsSection/InstructionsSection';
 
 import { InstructionsDefaultFragment } from 'types/generated/graphql';
 

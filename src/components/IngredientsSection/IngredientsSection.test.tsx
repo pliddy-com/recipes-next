@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import Ingredients from 'components/Recipe/Ingredients/Ingredients';
+import Ingredients from 'components/IngredientsSection/IngredientsSection';
 
 import { IngredientsDefaultFragment } from 'types/generated/graphql';
 

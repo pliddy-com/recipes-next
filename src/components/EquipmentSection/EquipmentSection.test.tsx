@@ -5,16 +5,16 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import Equipment from 'components/Recipe/Equipment/Equipment';
+import EquipmentSection from 'components/EquipmentSection/EquipmentSection';
 
-describe('in Equipment', () => {
+describe('in EquipmentSection', () => {
   it('renders the equipment section if there is content', () => {
     const equipment = ['Small saucepan', 'Whisk'];
     const expected = equipment[0];
 
-    render(<Equipment equipment={equipment} />);
+    render(<EquipmentSection equipment={equipment} />);
 
-    const title = screen.queryByText('Equipment');
+    const title = screen.queryByText('EquipmentSection');
     const item = screen.queryByText(expected);
 
     expect(title).toBeInTheDocument();
@@ -24,9 +24,9 @@ describe('in Equipment', () => {
   it('does not render the equipment section if there is no content', () => {
     const equipment = undefined;
 
-    render(<Equipment equipment={equipment} />);
+    render(<EquipmentSection equipment={equipment} />);
 
-    const title = screen.queryByText('Equipment');
+    const title = screen.queryByText('EquipmentSection');
 
     expect(title).toBeNull();
   });

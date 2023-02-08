@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import Tags from 'components/Recipe/Tags/Tags';
+import Tags from 'components/TagsSection/TagsSection';
 import { TagDefaultFragment } from 'types/generated/graphql';
 
 describe('in Tags', () => {

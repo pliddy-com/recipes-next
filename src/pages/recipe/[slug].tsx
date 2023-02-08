@@ -19,7 +19,7 @@ import { notNullOrUndefined } from 'lib/typeUtils';
 import config from 'lib/config';
 
 const Recipe = dynamic(
-  import(/* webpackChunkName: 'Recipe' */ 'components/Recipe/Recipe'),
+  import(/* webpackChunkName: 'Recipe' */ 'pageContainers/Recipe/Recipe'),
   { suspense: true }
 );
 

@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import Notes from 'components/Recipe/Notes/Notes';
+import Notes from 'components/NotesSection/NotesSection';
 
 describe('in Notes', () => {
   it('renders the notes section if there is content', () => {
