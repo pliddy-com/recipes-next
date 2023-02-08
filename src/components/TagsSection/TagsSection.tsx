@@ -11,7 +11,7 @@ interface TagsProps {
 
 const Tags = ({ tags }: TagsProps) =>
   tags && tags.length > 0 ? (
-    <Box>
+    <Box data-testid="tags-section">
       <Typography variant="h2" gutterBottom>
         Tags
       </Typography>

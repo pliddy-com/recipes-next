@@ -6,12 +6,7 @@ import { centeredChild } from 'lib/styles';
 
 const Loading = () => (
   <Container sx={centeredChild.wrapper}>
-    <Box
-      aria-label="spinner"
-      data-testid="spinner"
-      role="graphics-symbol"
-      sx={centeredChild.content}
-    >
+    <Box aria-label="spinner" role="graphics-symbol" sx={centeredChild.content}>
       <CircularProgress color="primary" />
     </Box>
   </Container>

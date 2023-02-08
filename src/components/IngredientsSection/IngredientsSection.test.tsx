@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -9,77 +9,90 @@ import Ingredients from 'components/IngredientsSection/IngredientsSection';
 
 import { IngredientsDefaultFragment } from 'types/generated/graphql';
 
-describe('in Ingredients', () => {
+describe('IngredientsSection', () => {
   const expectedTitle = 'Ingredients';
 
-  it('renders the ingredients section if there is content', () => {
-    const sections: IngredientsDefaultFragment[] = [
-      {
-        sys: {
-          id: 'sys-id-1',
-          __typename: 'Sys',
+  describe('when there is properly formatted content', () => {
+    it('renders the ingredients section if there is content', () => {
+      const sections: IngredientsDefaultFragment[] = [
+        {
+          sys: {
+            id: 'sys-id-1',
+            __typename: 'Sys',
+          },
+          title: 'Section 1 Title',
+          slug: 'section-1-slug',
+          label: 'Section 1 Label',
+          ingredientList: ['section 1 item 1', 'section 1 item 2'],
+          __typename: 'IngredientSection',
         },
-        title: 'Section 1 Title',
-        slug: 'section-1-slug',
-        label: 'Section 1 Label',
-        ingredientList: ['section 1 item 1', 'section 1 item 2'],
-        __typename: 'IngredientSection',
-      },
-    ];
+      ];
 
-    const expectedSubtitle = sections?.[0].label;
-    const expectedItem = sections?.[0].ingredientList?.[0];
+      const expectedSubtitle = sections?.[0].label;
+      const expectedItem = sections?.[0].ingredientList?.[0];
 
-    render(<Ingredients sections={sections} />);
+      const { container, queryByText } = render(
+        <Ingredients sections={sections} />
+      );
 
-    const title = screen.queryByText(expectedTitle);
-    const subtitle = expectedSubtitle && screen.queryByText(expectedSubtitle);
-    const item = expectedItem && screen.queryByText(expectedItem);
+      const title = queryByText(expectedTitle);
+      const subtitle = expectedSubtitle && queryByText(expectedSubtitle);
+      const item = expectedItem && queryByText(expectedItem);
 
-    expect(title).toBeInTheDocument();
-    expect(subtitle).toBeInTheDocument();
-    expect(item).toBeInTheDocument();
+      expect(title).toBeInTheDocument();
+      expect(subtitle).toBeInTheDocument();
+      expect(item).toBeInTheDocument();
+
+      // assert that the component matches the existing snapshot
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  it('does not render the ingredients section if there is no content', () => {
-    const sections = undefined;
+  describe('when there is no content', () => {
+    it('it does not render', () => {
+      const sections = undefined;
 
-    render(<Ingredients sections={sections} />);
+      const { queryByText } = render(<Ingredients sections={sections} />);
 
-    const title = screen.queryByText(expectedTitle);
+      const title = queryByText(expectedTitle);
 
-    expect(title).toBeNull();
+      expect(title).toBeNull();
+    });
   });
 
-  it('does not render the ingredients section if there are missing properties content', () => {
-    const sections: IngredientsDefaultFragment[] = [
-      {
-        sys: {
-          id: 'sys-id-1',
-          __typename: 'Sys',
+  describe('when there are missing properties', () => {
+    it('it does not render', () => {
+      const sections: IngredientsDefaultFragment[] = [
+        {
+          sys: {
+            id: 'sys-id-1',
+            __typename: 'Sys',
+          },
+          title: 'Section 1 Title',
+          slug: 'section-1-slug',
+          __typename: 'IngredientSection',
+          label: null,
+          ingredientList: null,
         },
-        title: 'Section 1 Title',
-        slug: 'section-1-slug',
-        __typename: 'IngredientSection',
-        label: null,
-        ingredientList: null,
-      },
-    ];
+      ];
 
-    const expectedSubtitle = sections?.[0].label;
+      const expectedSubtitle = sections?.[0].label;
 
-    render(<Ingredients sections={sections} />);
+      const { queryByText } = render(<Ingredients sections={sections} />);
 
-    const subtitle = expectedSubtitle && screen.queryByText(expectedSubtitle);
-    expect(subtitle).toBeNull();
+      const subtitle = expectedSubtitle && queryByText(expectedSubtitle);
+      expect(subtitle).toBeNull();
+    });
   });
 
-  it('does not render the ingredients section if there are missing properties content', () => {
-    const sections = [null];
+  describe('when there the sections property is empty', () => {
+    it('it does not render', () => {
+      const sections = [null];
 
-    const { container } = render(<Ingredients sections={sections} />);
+      const { container } = render(<Ingredients sections={sections} />);
 
-    const list = container.querySelector('.recipeList');
-    expect(list).toBeNull();
+      const list = container.querySelector('.recipeList');
+      expect(list).toBeNull();
+    });
   });
 });

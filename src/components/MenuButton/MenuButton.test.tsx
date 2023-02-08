@@ -1,5 +1,5 @@
 // import testing-library methods
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -8,17 +8,19 @@ import '@testing-library/jest-dom';
 import MenuButton from './MenuButton';
 
 describe('MenuButton', () => {
-  it('renders a menu button', async () => {
+  it('renders a menu button', () => {
     const callback = jest.fn();
 
-    render(<MenuButton onClick={callback} />);
+    const { queryByRole } = render(<MenuButton onClick={callback} />);
 
-    // confirm that button has been rendered
-    const button = screen.queryByRole('button', { name: 'open drawer' });
-    expect(button).toBeInTheDocument();
+    // assert that component has been rendered
+    const component = queryByRole('button', { name: 'open drawer' });
 
-    // confirm that callback is called on click
-    button && fireEvent.click(button);
+    // assert that callback is called on click
+    component && fireEvent.click(component);
     expect(callback).toBeCalled();
+
+    // assert that the component matches the existing snapshot
+    expect(component).toMatchSnapshot();
   });
 });

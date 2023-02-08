@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -14,14 +14,18 @@ describe('LogoButton', () => {
     const expectedLabel = config.microcopy.site.title;
     const expectedHref = '/';
 
-    render(<LogoButton />);
+    const { getByRole } = render(<LogoButton />);
 
-    const component = screen.getByText(expectedLabel).closest('a');
+    // assert that the component has been rendered
+    const component = getByRole('button', { name: 'home' });
 
-    // button has been rendered with correct label
-    expect(component).toBeInTheDocument();
+    // assert that the component has correct label
+    expect(component.textContent).toContain(expectedLabel);
 
-    // button has correct href
+    // assert that the component has correct href
     expect(component).toHaveAttribute('href', expectedHref);
+
+    // assert that the component matches the existing snapshot
+    expect(component).toMatchSnapshot();
   });
 });

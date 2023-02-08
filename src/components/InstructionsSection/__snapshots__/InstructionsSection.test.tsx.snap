@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`in InstructionsSection when there is properly formatted content it renders the instructions section if there is content 1`] = `
+<div>
+  <div
+    class="css-1okj3ks-MuiStack-root"
+  >
+    <h2
+      class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-i1hrn3-MuiTypography-root"
+    >
+      Instructions
+    </h2>
+    <div
+      class="css-nen11g-MuiStack-root"
+    >
+      <h3
+        class="MuiTypography-root MuiTypography-h3 css-gepadz-MuiTypography-root"
+      >
+        Setup
+      </h3>
+      <ul
+        class="MuiList-root MuiList-padding recipeList css-h4y409-MuiList-root"
+      >
+        <li
+          class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"
+        >
+          <div
+            class="MuiListItemAvatar-root css-1e9lk82-MuiListItemAvatar-root"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-2s90m6-MuiAvatar-root"
+              color="secondary"
+            >
+              1
+            </div>
+          </div>
+          <div
+            class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+          >
+            <span
+              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+            >
+              Heat saute pan over medium-high heat.
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

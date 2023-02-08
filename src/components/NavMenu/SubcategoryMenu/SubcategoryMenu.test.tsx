@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -12,7 +12,7 @@ import { TaxonomyChildrenItem } from 'types/generated/graphql';
 describe('SubcategoryMenu', () => {
   const callback = jest.fn();
 
-  describe('if there is a properly structured category property', () => {
+  describe('when there is a properly structured category property', () => {
     const category = {
       title: 'Category Title',
       slug: 'category-slug',
@@ -50,7 +50,7 @@ describe('SubcategoryMenu', () => {
       },
     };
 
-    it('renders a menu defined by the category tag list', async () => {
+    it('it renders a menu defined by the category tag list', () => {
       const expectedCategoryTitle = `${category.title} (${category.childrenCollection.total})`;
       const expectedCategoryHref = `/category/${category.slug}`;
 
@@ -58,9 +58,7 @@ describe('SubcategoryMenu', () => {
       const expectedSubcategoryTitle = `${subcategory.title} (${subcategory.linkedFrom.recipeCollection.total})`;
       const expectedSubcategoryHref = `/category/${subcategory.slug}`;
 
-      // renders category list item
-
-      const { container } = render(
+      const { container, queryByText } = render(
         <SubcategoryMenu
           category={category as TaxonomyChildrenItem}
           onClick={callback}
@@ -71,51 +69,54 @@ describe('SubcategoryMenu', () => {
       expect(container).toBeInTheDocument();
 
       // confirm that category link is displayed
-      const categoryLink = screen.getByText(expectedCategoryTitle).closest('a');
+      const categoryLink = queryByText(expectedCategoryTitle)?.closest('a');
       expect(categoryLink).toBeInTheDocument();
 
       // category link has correct href
       expect(categoryLink).toHaveAttribute('href', expectedCategoryHref);
 
       // confirm that category link is displayed
-      const subcategoryLink = screen
-        .getByText(expectedSubcategoryTitle)
-        .closest('a');
+      const subcategoryLink = queryByText(expectedSubcategoryTitle)?.closest(
+        'a'
+      );
       expect(subcategoryLink).toBeInTheDocument();
 
       // category link has correct href
       expect(subcategoryLink).toHaveAttribute('href', expectedSubcategoryHref);
+
+      // assert that the component matches the existing snapshot
+      expect(container).toMatchSnapshot();
     });
 
-    it('it handles clicks on the expand/collapse icon', async () => {
-      render(
+    it('it handles clicks on the expand/collapse icon', () => {
+      const { queryByRole, queryByTestId } = render(
         <SubcategoryMenu
           category={category as TaxonomyChildrenItem}
           onClick={callback}
         />
       );
 
-      const button = await screen.getByRole('button', { name: 'expand' });
-      const menu = await screen.getByTestId(`${category.title} menu`);
+      const button = queryByRole('button', { name: 'expand' });
+      const menu = queryByTestId(`${category.title} menu`);
 
       // confirm that menu is hidden
-      await expect(menu).not.toBeVisible();
+      expect(menu).not.toBeVisible();
 
       // simulate click on expand button
-      fireEvent.click(button);
+      button && fireEvent.click(button);
 
       // wait and confirm that menu is visible
       waitFor(() => expect(menu).toBeVisible());
 
       // simulate click on collapse button
-      fireEvent.click(button);
+      button && fireEvent.click(button);
 
       // wait and confirm that menu is hidden
       waitFor(() => expect(menu).not.toBeVisible());
     });
   });
 
-  describe('if there is an improperly structured category property', () => {
+  describe('when there is an improperly structured category property', () => {
     it('it does not render a menu if slug & title are missing the from category object', () => {
       const category = {
         sys: {
@@ -124,7 +125,7 @@ describe('SubcategoryMenu', () => {
         __typename: 'Taxonomy',
       };
 
-      render(
+      const { queryByRole } = render(
         <SubcategoryMenu
           category={category as TaxonomyChildrenItem}
           onClick={callback}
@@ -132,7 +133,7 @@ describe('SubcategoryMenu', () => {
       );
 
       // confirm that menu has not been rendered
-      const categoryLink = screen.queryByRole('link');
+      const categoryLink = queryByRole('link');
       expect(categoryLink).toBeNull();
     });
 
@@ -141,10 +142,12 @@ describe('SubcategoryMenu', () => {
 
       const callback = jest.fn();
 
-      render(<SubcategoryMenu category={category} onClick={callback} />);
+      const { queryByRole } = render(
+        <SubcategoryMenu category={category} onClick={callback} />
+      );
 
       // confirm that menu has not been rendered
-      const categoryLink = screen.queryByRole('link');
+      const categoryLink = queryByRole('link');
 
       expect(categoryLink).toBeNull();
     });

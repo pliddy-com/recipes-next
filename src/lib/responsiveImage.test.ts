@@ -6,7 +6,7 @@ import { createSrcSet, createMediaQuery } from './responsiveImage';
 
 describe('in responsiveImages.ts', () => {
   describe('createSrcSet()', () => {
-    it('returns a correctly formatted srcSet string', () => {
+    it('it returns a correctly formatted srcSet string', () => {
       const url = 'https://URL.test';
       const imgWidth = 1000;
       const expected =
@@ -21,7 +21,7 @@ describe('in responsiveImages.ts', () => {
   describe('createMediaQuery()', () => {
     const viewMin = 1000;
 
-    // comes from config
+    // use 3 sets of props for min, max, and at least one in between
     const propList = [
       {
         viewMin: 1000,
@@ -36,21 +36,21 @@ describe('in responsiveImages.ts', () => {
       },
     ];
 
-    it('returns a correctly formatted mediaQuery string for the first image in the propList', () => {
+    it('it returns a correctly formatted mediaQuery string for the first image in the propList', () => {
       const index = 0;
       const expected = '(min-width: 1000px)';
 
       expect(createMediaQuery({ viewMin, index, propList })).toEqual(expected);
     });
 
-    it('returns a correctly formatted mediaQuery string for the last image in the propList', () => {
+    it('it returns a correctly formatted mediaQuery string for the last image in the propList', () => {
       const index = propList.length - 1;
       const expected = '(max-width: 499px)';
 
       expect(createMediaQuery({ viewMin, index, propList })).toEqual(expected);
     });
 
-    it('returns a correctly formatted mediaQuery string for and image in the middle of the propList', () => {
+    it('it returns a correctly formatted mediaQuery string for and image in the middle of the propList', () => {
       const index = 1;
       const expected = '(min-width: 1000px) and (max-width: 999px)';
 

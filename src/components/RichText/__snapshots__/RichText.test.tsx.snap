@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RichText when there is content renders the component 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-0"
+    data-testid="richtext"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-z2eky3-MuiTypography-root"
+    >
+      This is a normal paragraph of text.
+    </p>
+    <p
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-z2eky3-MuiTypography-root"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
+        href="https://recipes.pliddy.com"
+        rel="noreferrer"
+        target="_blank"
+      >
+        This is an external link.
+      </a>
+    </p>
+    <h1
+      class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
+    >
+      This is a level 1 heading.
+    </h1>
+    <h2
+      class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
+    >
+      This is a level 2 heading.
+    </h2>
+    <h3
+      class="MuiTypography-root MuiTypography-h3 css-gepadz-MuiTypography-root"
+    >
+      This is a level 3 heading.
+    </h3>
+    <h4
+      class="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
+    >
+      This is a level 4 heading.
+    </h4>
+    <h5
+      class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+    >
+      This is a level 5 heading.
+    </h5>
+    <h6
+      class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
+    >
+      This is a level 6 heading.
+    </h6>
+    <p
+      class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-z2eky3-MuiTypography-root"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
+        href="red-beans-and-rice"
+      >
+        Red Beans & Rice
+      </a>
+    </p>
+  </div>
+</div>
+`;

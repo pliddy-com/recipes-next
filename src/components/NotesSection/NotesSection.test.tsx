@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -8,26 +8,33 @@ import '@testing-library/jest-dom';
 import Notes from 'components/NotesSection/NotesSection';
 
 describe('in Notes', () => {
-  it('renders the notes section if there is content', () => {
-    const notes = ['Base for Chicken and Biscuits'];
-    const expected = notes[0];
+  describe('when there is properly formatted content', () => {
+    it('it renders the notes section if there is content', () => {
+      const notes = ['Base for Chicken and Biscuits'];
+      const expected = notes[0];
 
-    render(<Notes notes={notes} />);
+      const { container, queryByText } = render(<Notes notes={notes} />);
 
-    const title = screen.queryByText('Notes');
-    const note = screen.queryByText(expected);
+      const title = queryByText('Notes');
+      const note = queryByText(expected);
 
-    expect(title).toBeInTheDocument();
-    expect(note).toBeInTheDocument();
+      expect(title).toBeInTheDocument();
+      expect(note).toBeInTheDocument();
+
+      // assert that the component matches the existing snapshot
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  it('does not render the notes section if there is no content', () => {
-    const notes = undefined;
+  describe('when there is not properly formatted content', () => {
+    it('it does not render', () => {
+      const notes = undefined;
 
-    render(<Notes notes={notes} />);
+      const { queryByText } = render(<Notes notes={notes} />);
 
-    const title = screen.queryByText('Notes');
+      const title = queryByText('Notes');
 
-    expect(title).toBeNull();
+      expect(title).toBeNull();
+    });
   });
 });

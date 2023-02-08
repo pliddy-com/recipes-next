@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -8,56 +8,68 @@ import '@testing-library/jest-dom';
 import Tags from 'components/TagsSection/TagsSection';
 import { TagDefaultFragment } from 'types/generated/graphql';
 
-describe('in Tags', () => {
-  it('renders the notes section if there is content', () => {
-    const tags: (TagDefaultFragment | null)[] = [
+describe('Tags', () => {
+  describe('when there is a properly formatted tags property', () => {
+    const tags = [
       {
         sys: {
-          id: '7scFqOlErkPvBxknBxX4Lw',
+          id: 'sysid-1',
           __typename: 'Sys',
         },
         __typename: 'Tag',
-        title: 'Sauces',
-        slug: 'sauces',
+        title: 'Tag 1',
+        slug: 'tag-1',
       },
       {
         sys: {
-          id: '33CNYIbkW49vrRw5iSKnih',
+          id: 'sysid-2',
           __typename: 'Sys',
         },
         __typename: 'Tag',
-        title: 'Mother Sauces',
-        slug: 'mother-sauces',
-      },
-      {
-        sys: {
-          id: '2RDCNcjSZzLSEQgjf1Nw4R',
-          __typename: 'Sys',
-        },
-        __typename: 'Tag',
-        title: 'French',
-        slug: 'french',
+        title: 'Tag 2',
+        slug: 'tag-2',
       },
     ];
 
-    const expected = tags[0]?.title;
+    it('it renders the notes section', () => {
+      const testId = 'tags-section';
+      const tagButtonsId = 'tag-buttons';
+      const expectedTitle = tags[0]?.title;
+      const expectedSlug = tags[0]?.slug;
 
-    render(<Tags tags={tags} />);
+      const { queryByText, queryByTestId } = render(
+        <Tags tags={tags as (TagDefaultFragment | null)[]} />
+      );
 
-    const title = screen.queryByText('Tags');
-    expect(title).toBeInTheDocument();
+      // assert that the component is rendered
+      const component = queryByTestId(testId);
 
-    const tag = expected && screen.getByText(expected).closest('a');
-    expect(tag).toBeInTheDocument();
+      // assert that the tag title is rendered
+      expect(queryByText('Tags')).toBeInTheDocument();
+
+      // assert that a TagButtons component is rendered
+      // const tagButtons = queryByTestId(tagButtonsId);
+      expect(queryByTestId(tagButtonsId)).toBeInTheDocument();
+
+      // assert that tag href links are correct
+      const tag = queryByText(expectedTitle)?.closest('a');
+      expect(tag).toHaveAttribute('href', `/tag/${expectedSlug}`);
+
+      // assert that the component matches the existing snapshot
+      expect(component).toMatchSnapshot();
+    });
   });
 
-  it('does not render the tags section if there is no content', () => {
-    const tags: (TagDefaultFragment | null)[] = [];
+  describe('when there is not a properly formatted tags property', () => {
+    it('it does not render the tags section if there is no content', () => {
+      const tags: (TagDefaultFragment | null)[] = [];
+      const expectedLabel = 'Tags';
 
-    render(<Tags tags={tags} />);
+      const { queryByText } = render(<Tags tags={tags} />);
 
-    const title = screen.queryByText('Tags');
+      const title = queryByText(expectedLabel);
 
-    expect(title).toBeNull();
+      expect(title).toBeNull();
+    });
   });
 });

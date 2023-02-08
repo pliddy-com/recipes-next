@@ -1,4 +1,3 @@
-/* istanbul ignore file */
 import { ReactElement, Suspense } from 'react';
 import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';

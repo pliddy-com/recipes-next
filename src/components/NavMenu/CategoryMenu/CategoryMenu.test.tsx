@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -52,7 +52,7 @@ describe('CategoryMenu', () => {
       },
     };
 
-    it('renders a menu defined by the category tag list', async () => {
+    it('it renders a menu defined by the category tag list', () => {
       const expectedCategoryTitle = `${category.title} (${category.childrenCollection.total})`;
       const expectedCategoryHref = `/category/${category.slug}`;
 
@@ -60,47 +60,47 @@ describe('CategoryMenu', () => {
       const expectedSubcategoryTitle = `${subcategory.title} (${subcategory.linkedFrom.recipeCollection.total})`;
       const expectedSubcategoryHref = `/category/${subcategory.slug}`;
 
-      // renders category list item
-
-      const { container } = render(
+      const { container, queryByText } = render(
         <CategoryMenu
           category={category as TaxonomyChildrenItem}
           onClick={callback}
         />
       );
 
-      // confirm that menu has been rendered
+      // assert that the menu has been rendered
       expect(container).toBeInTheDocument();
 
-      // confirm that category link is displayed
-      const categoryLink = screen.getByText(expectedCategoryTitle).closest('a');
+      // assert that the category link is displayed
+      const categoryLink = queryByText(expectedCategoryTitle)?.closest('a');
       expect(categoryLink).toBeInTheDocument();
 
-      // category link has correct href
+      // assert that the category link has correct href
       expect(categoryLink).toHaveAttribute('href', expectedCategoryHref);
 
-      // confirm that category link is displayed
-      const subcategoryLink = screen
-        .getByText(expectedSubcategoryTitle)
-        .closest('a');
+      // assert that the category link is displayed
+      const subcategoryLink = queryByText(expectedSubcategoryTitle)?.closest(
+        'a'
+      );
       expect(subcategoryLink).toBeInTheDocument();
 
-      // category link has correct href
+      // assert that the category link has correct href
       expect(subcategoryLink).toHaveAttribute('href', expectedSubcategoryHref);
+
+      // assert that the component matches the existing snapshot
+      expect(container).toMatchSnapshot();
     });
   });
 
-  describe('if there is an improperly structured category property', () => {
-    it('it does not render a menu if the category is null', () => {
+  describe('when there is an improperly structured category property', () => {
+    it('it does not render', () => {
       const category = null;
 
-      const callback = jest.fn();
+      const { queryByRole } = render(
+        <CategoryMenu category={category} onClick={callback} />
+      );
 
-      render(<CategoryMenu category={category} onClick={callback} />);
-
-      // confirm that menu has not been rendered
-      const categoryLink = screen.queryByRole('link');
-
+      // assert that menu has not been rendered
+      const categoryLink = queryByRole('link');
       expect(categoryLink).toBeNull();
     });
   });

@@ -9,7 +9,7 @@ interface PreloadTagsProps {
 const PreloadTags = ({ props, url }: PreloadTagsProps) => {
   const { createSrcSet, createMediaQuery } = responsiveImage;
 
-  return (
+  return props && props.length > 0 && url ? (
     <Head>
       {props.map(
         ({ viewMin, imgWidth }, index, propList) =>
@@ -30,7 +30,7 @@ const PreloadTags = ({ props, url }: PreloadTagsProps) => {
           )
       )}
     </Head>
-  );
+  ) : null;
 };
 
 export default PreloadTags;

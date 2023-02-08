@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -7,27 +7,38 @@ import '@testing-library/jest-dom';
 // import the component to test
 import EquipmentSection from 'components/EquipmentSection/EquipmentSection';
 
-describe('in EquipmentSection', () => {
-  it('renders the equipment section if there is content', () => {
-    const equipment = ['Small saucepan', 'Whisk'];
-    const expected = equipment[0];
+describe('EquipmentSection', () => {
+  describe('when there is properly formatted content', () => {
+    it('it renders the equipment section if there is content', () => {
+      const equipment = ['equipment item 1', 'equipment item 2'];
+      const expected = equipment[0];
 
-    render(<EquipmentSection equipment={equipment} />);
+      const { container, queryByText } = render(
+        <EquipmentSection equipment={equipment} />
+      );
 
-    const title = screen.queryByText('EquipmentSection');
-    const item = screen.queryByText(expected);
+      const title = queryByText('EquipmentSection');
+      const item = queryByText(expected);
 
-    expect(title).toBeInTheDocument();
-    expect(item).toBeInTheDocument();
+      expect(title).toBeDefined();
+      expect(item).toBeDefined();
+
+      // assert that the component matches the existing snapshot
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  it('does not render the equipment section if there is no content', () => {
-    const equipment = undefined;
+  describe('when there is not properly formatted content', () => {
+    it('it does not render the equipment section if there is no content', () => {
+      const equipment = undefined;
 
-    render(<EquipmentSection equipment={equipment} />);
+      const { queryByText } = render(
+        <EquipmentSection equipment={equipment} />
+      );
 
-    const title = screen.queryByText('EquipmentSection');
+      const title = queryByText('EquipmentSection');
 
-    expect(title).toBeNull();
+      expect(title).toBeNull();
+    });
   });
 });

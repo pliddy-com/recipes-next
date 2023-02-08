@@ -12,7 +12,7 @@ interface TagButtonsProps {
 
 const TagButtons = ({ tags }: TagButtonsProps) => {
   return tags ? (
-    <Stack direction="row" sx={tagButtons.tags}>
+    <Stack direction="row" sx={tagButtons.tags} data-testid="tag-buttons">
       {tags &&
         tags.map((tag) => {
           const { slug, title } = tag ?? {};

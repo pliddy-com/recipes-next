@@ -18,7 +18,7 @@ describe('DynamicImage', () => {
   const props = [
     {
       viewMin: 1000,
-      imgWidth: 300,
+      imgWidth: 400,
     },
     {
       viewMin: 500,
@@ -29,7 +29,7 @@ describe('DynamicImage', () => {
     },
   ];
 
-  describe('when there is a url & image data', () => {
+  describe('when there is a url & image object', () => {
     const url = 'https://URL.test';
 
     const image: ImageDefaultFragment = {
@@ -55,39 +55,36 @@ describe('DynamicImage', () => {
       const srcSetSpy = jest.spyOn(responsiveImage, 'createSrcSet');
       const mediaQuerySpy = jest.spyOn(responsiveImage, 'createMediaQuery');
 
-      const expectedAlt = image.description || 'Image Description';
+      // const expectedAlt = image.description || 'Image Description';
 
-      const { getByAltText } = render(
+      const { container } = render(
         <DynamicImage image={image} props={props} preload={preload} />
       );
 
+      // assert that one picture tag is rendered
       const pictureTags = document.getElementsByTagName('picture');
-      const sourceTags = document.getElementsByTagName('source');
-      const imgTags = document.getElementsByTagName('source');
-      const linkTags = document.getElementsByTagName('link');
-
-      // expect DynamicImageCompoent to be rendered
-      expect(getByAltText(expectedAlt)).toBeInTheDocument();
-
-      // expect there to be 1 picture tag
-      expect(pictureTags.length === 1);
+      expect(pictureTags.length === 1).toBe(true);
       expect(pictureTags[0]).toBeInTheDocument();
 
-      // expect there to be a source tag for each element in props
-      expect(sourceTags.length === props.length);
+      // assert that there is a source tag for each element in props
+      const sourceTags = document.getElementsByTagName('source');
+      expect(sourceTags.length === props.length).toBe(true);
       expect(sourceTags[0]).toBeInTheDocument();
 
-      // expect there to be 1 image tag
-      expect(imgTags.length === 1);
+      // assert that there are image tags
+      const imgTags = document.getElementsByTagName('img');
       expect(imgTags[0]).toBeInTheDocument();
 
-      // expect there to be a link tag for each element in props
-      expect(linkTags.length === 1);
+      // assert that there are link tags
+      const linkTags = document.getElementsByTagName('link');
       expect(linkTags[0]).toBeInTheDocument();
 
-      // expect srcSet and mediaQuery creators to be called
+      // assert that srcSet and mediaQuery creators to be called
       expect(mediaQuerySpy).toHaveBeenCalled();
       expect(srcSetSpy).toHaveBeenCalled();
+
+      // assert that the component matches the existing snapshot
+      expect(container).toMatchSnapshot();
     });
 
     it('it does not generate link tags with preload property if preload === false', () => {
@@ -97,7 +94,7 @@ describe('DynamicImage', () => {
       const linkTags = document.getElementsByTagName('link');
 
       // expect there to be 1 picture tag
-      expect(pictureTags.length === 1);
+      expect(pictureTags.length === 1).toBe(true);
       expect(pictureTags[0]).toBeInTheDocument();
 
       // expect there to be no link tags if no preload property

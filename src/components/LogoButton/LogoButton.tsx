@@ -7,6 +7,7 @@ import config from 'lib/config';
 
 const LogoButton = () => (
   <Button
+    aria-label="home"
     role="button"
     color="primary"
     component={Link}

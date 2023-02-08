@@ -5,7 +5,7 @@ export interface WidthProps {
 
 export interface createSrcSetProps {
   url: string;
-  imgWidth: number;
+  imgWidth?: number;
 }
 
 export interface createMediaQueryProps {
@@ -15,9 +15,12 @@ export interface createMediaQueryProps {
 }
 
 export const createSrcSet = ({ url, imgWidth }: createSrcSetProps) => {
-  return `${url}?w=${imgWidth}&fm=webp&q=75 1x, ${url}?w=${
-    imgWidth * 2
-  }&fm=webp&q=75 2x`;
+  return (
+    url &&
+    `${url}?${imgWidth && `w=${imgWidth}&`}fm=webp&q=75 1x, ${url}?${
+      imgWidth && `w=${imgWidth * 2}&`
+    }fm=webp&q=75 2x`
+  );
 };
 
 export const createMediaQuery = ({
@@ -25,9 +28,9 @@ export const createMediaQuery = ({
   index,
   propList,
 }: createMediaQueryProps): string => {
-  const minQuery = `(min-width: ${viewMin}px)`;
-  const prevMin = index > 0 ? propList[index - 1].viewMin : null;
-  const maxQuery = index > 0 && prevMin ? `(max-width: ${prevMin - 1}px)` : '';
+  const minQuery = viewMin && `(min-width: ${viewMin}px)`;
+  const prevMin = index > 0 && propList[index - 1].viewMin;
+  const maxQuery = index > 0 && prevMin && `(max-width: ${prevMin - 1}px)`;
 
   const mediaQuery = `${
     index < propList.length - 1 && viewMin ? minQuery : ''

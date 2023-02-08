@@ -10,7 +10,7 @@ import NavMenu from './NavMenu';
 import { Taxonomy } from 'types/generated/graphql';
 
 describe('NavMenu', () => {
-  describe('if there is a properly structured nav property', () => {
+  describe('when there is a properly structured nav property', () => {
     const nav = {
       sys: {
         id: 'sys-id-0',
@@ -104,19 +104,28 @@ describe('NavMenu', () => {
       },
     };
 
-    it('it renders a nav menu', () => {
-      const isOpen = false;
+    it('it renders a nav menu hidden by default', () => {
       const onClick = jest.fn();
+      const isOpen = false;
 
-      const { container } = render(
+      const component = render(
         <NavMenu nav={nav as Taxonomy} onClick={onClick} isOpen={isOpen} />
       );
+
+      const { container } = component;
+
       expect(container.getElementsByClassName('menu'));
+
+      // assert that the component matches the existing snapshot
+      // test snapshot against component since container is rendered hidden
+      // and doesn't show up in initial container
+      expect(component).toMatchSnapshot();
     });
   });
 
-  describe('if there is not a properly structured nav property', () => {
+  describe('when there is not a properly structured nav property', () => {
     const nav = undefined;
+
     it('it does not render', () => {
       const isOpen = false;
       const onClick = jest.fn();
@@ -124,11 +133,12 @@ describe('NavMenu', () => {
       const { container } = render(
         <NavMenu nav={nav} onClick={onClick} isOpen={isOpen} />
       );
+
       expect(container.getElementsByClassName('menu').length).toEqual(0);
     });
   });
 
-  describe('if there are not properly structured category tags', () => {
+  describe('when there are not properly structured category tags', () => {
     const nav = {
       sys: {
         id: 'sys-id-0',

@@ -27,7 +27,12 @@ const NavBar = ({ nav }: NavBarProps) => {
         {nav && <MenuButton onClick={handleDrawerToggle} />}
       </Toolbar>
       {nav && (
-        <NavMenu nav={nav} onClick={handleDrawerToggle} isOpen={isDrawerOpen} />
+        <NavMenu
+          nav={nav}
+          onClick={handleDrawerToggle}
+          isOpen={isDrawerOpen}
+          data-testid="nav-menu"
+        />
       )}
     </AppBar>
   );

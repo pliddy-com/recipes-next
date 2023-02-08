@@ -1,4 +1,3 @@
-/* istanbul ignore file */
 import type { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import { AppProps } from 'next/app';

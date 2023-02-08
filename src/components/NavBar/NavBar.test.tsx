@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -10,7 +10,7 @@ import NavBar from './NavBar';
 import { Taxonomy } from 'types/generated/graphql';
 
 describe('NavMenu', () => {
-  describe('if there is a properly structured nav property', () => {
+  describe('when there is a properly structured nav property', () => {
     const nav = {
       sys: {
         id: 'sys-id-0',
@@ -56,7 +56,7 @@ describe('NavMenu', () => {
               },
             },
             childrenCollection: {
-              total: 3,
+              total: 2,
               items: [
                 {
                   sys: {
@@ -91,35 +91,45 @@ describe('NavMenu', () => {
       },
     };
 
-    it('it renders a nav bar', async () => {
-      const { container } = render(<NavBar nav={nav as Taxonomy} />);
+    it('it renders a nav bar', () => {
+      const { container, queryByRole } = render(
+        <NavBar nav={nav as Taxonomy} />
+      );
+      const component = container.getElementsByClassName('MuiAppBar-root')[0];
 
-      expect(container.getElementsByClassName('MuiAppBar-root'));
+      // assert that component has been rendered
+      expect(component).toBeInTheDocument();
 
-      // confirm that button has been rendered
-      const button = screen.queryByRole('button', { name: 'open drawer' });
+      // assert that button has been rendered
+      const button = queryByRole('button', { name: 'open drawer' });
       expect(button).toBeInTheDocument();
 
       const drawer = container.getElementsByClassName('MuiDrawer-paper');
       waitFor(() => expect(drawer).not.toBeVisible());
 
-      // confirm that callback is called on click
+      // assert that callback is called on click
       button && fireEvent.click(button);
 
-      // test for change in DOM
+      // assert that there was a change in the DOM
       waitFor(() => expect(drawer).toBeVisible());
+
+      // assert that the component matches the existing snapshot
+      expect(container).toMatchSnapshot();
     });
   });
 
-  describe('if there is no nav property', () => {
+  describe('when there is no nav property', () => {
     it('it does not render a menu', () => {
       const nav = undefined;
-      const { container } = render(<NavBar nav={nav} />);
+      const testId = 'nav-menu';
+      const { queryByTestId, queryByRole } = render(<NavBar nav={nav} />);
 
-      const menu = container.getElementsByClassName('MuiDrawer-paper')[0];
-      expect(menu).toBeUndefined();
+      // assert that there is no NavMenu
+      const menu = queryByTestId(testId);
+      expect(menu).toBeNull();
 
-      const button = screen.queryByRole('button', { name: 'open drawer' });
+      // assert that there is no menu button
+      const button = queryByRole('button', { name: 'open drawer' });
       expect(button).toBeNull();
     });
   });

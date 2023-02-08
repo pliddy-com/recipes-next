@@ -13,8 +13,8 @@ interface IngredientsProps {
   sections?: (IngredientsDefaultFragment | null)[];
 }
 
-const Ingredients = ({ sections }: IngredientsProps) => {
-  return sections ? (
+const IngredientsSection = ({ sections }: IngredientsProps) =>
+  sections ? (
     <Stack direction="column" spacing={1}>
       <Typography variant="h2" gutterBottom>
         Ingredients
@@ -47,6 +47,5 @@ const Ingredients = ({ sections }: IngredientsProps) => {
         })}
     </Stack>
   ) : null;
-};
 
-export default Ingredients;
+export default IngredientsSection;

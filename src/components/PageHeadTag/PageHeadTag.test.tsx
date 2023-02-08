@@ -31,11 +31,13 @@ describe('PageHeadingTag', () => {
   });
 
   describe('when there is a config object', () => {
-    it('it renders a Next Head tag with a title and description', async () => {
+    it('it renders a Next Head tag with a title and description', () => {
       const title = 'Test Title';
       const description = 'Decription';
 
-      render(<PageHeadTag title={title} description={description} />);
+      const { container } = render(
+        <PageHeadTag title={title} description={description} />
+      );
 
       const titleTag = document.getElementsByTagName('title')[0];
 
@@ -45,10 +47,14 @@ describe('PageHeadingTag', () => {
       const descriptionTag = document.querySelector(
         `meta[content="${description}"]`
       );
+
       expect(descriptionTag).toBeInTheDocument();
+
+      // assert that the component matches the existing snapshot
+      expect(container).toMatchSnapshot();
     });
 
-    it('it renders a Next Head tag with a default title and description', async () => {
+    it('it renders a Next Head tag with a default title and description', () => {
       const defaultTitle = config.microcopy.site.title;
       const defaultDescription = config.microcopy.index.description;
 
@@ -62,10 +68,11 @@ describe('PageHeadingTag', () => {
       const descriptionTag = document.querySelector(
         `meta[content="${defaultDescription}"]`
       );
+
       expect(descriptionTag).toBeInTheDocument();
     });
 
-    it('it renders a Next Head tag if no values defaults are passed', async () => {
+    it('it renders a Next Head tag if no values defaults are passed', () => {
       const defaultDescription = config.microcopy.index.description;
 
       render(<PageHeadTag />);
@@ -86,7 +93,7 @@ describe('PageHeadingTag', () => {
       delete config.microcopy;
     });
 
-    it('it does not render', async () => {
+    it('it does not render', () => {
       // no tags props, so should return null
       render(<PageHeadTag />);
 

@@ -17,8 +17,8 @@ const CategoryListItemButton = ({
   slug,
   title,
   total,
-}: CategoryListItemButtonProps) => {
-  return (
+}: CategoryListItemButtonProps) =>
+  slug && title && onClick ? (
     <ListItemButton
       aria-label={`${slug} category`}
       component={Link}
@@ -27,7 +27,6 @@ const CategoryListItemButton = ({
     >
       <ListItemText primary={`${title} (${total})`} className="menuItem" />
     </ListItemButton>
-  );
-};
+  ) : null;
 
 export default CategoryListItemButton;

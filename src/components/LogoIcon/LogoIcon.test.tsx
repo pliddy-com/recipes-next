@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -7,14 +7,15 @@ import '@testing-library/jest-dom';
 // import the component to test
 import LogoIcon from './LogoIcon';
 
-describe('in LogoIcon', () => {
+describe('LogoIcon', () => {
   it('loads and displays greeting', () => {
     // Render a React element into the DOM
-    render(<LogoIcon />);
+    const { getByRole } = render(<LogoIcon />);
 
     // assert that an SVG with an aria role of 'graphics-symbol' exists
-    const logo = screen.getByRole('graphics-symbol', { name: 'logo' });
+    const component = getByRole('graphics-symbol', { name: 'logo' });
 
-    expect(logo).toBeInTheDocument();
+    // assert that the component matches the existing snapshot
+    expect(component).toMatchSnapshot();
   });
 });

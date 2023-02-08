@@ -12,7 +12,7 @@ interface InstructionsProps {
   sections?: (InstructionsDefaultFragment | null)[];
 }
 
-const Instructions = ({ sections }: InstructionsProps) => {
+const InstructionsSection = ({ sections }: InstructionsProps) => {
   // use num to set starting value for each instructionList section
   // so numbering is continuous across list sections
   let num = 1;
@@ -50,4 +50,4 @@ const Instructions = ({ sections }: InstructionsProps) => {
   ) : null;
 };
 
-export default Instructions;
+export default InstructionsSection;

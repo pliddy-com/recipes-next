@@ -5,11 +5,11 @@ import Typography from '@mui/material/Typography';
 
 import DynamicImage from 'components/DynamicImage/DynamicImage';
 import EquipmentSection from 'components/EquipmentSection/EquipmentSection';
-import Ingredients from 'components/IngredientsSection/IngredientsSection';
-import Instructions from 'components/InstructionsSection/InstructionsSection';
-import Notes from 'components/NotesSection/NotesSection';
+import IngredientsSection from 'components/IngredientsSection/IngredientsSection';
+import InstructionsSection from 'components/InstructionsSection/InstructionsSection';
+import NotesSection from 'components/NotesSection/NotesSection';
 import RichText from 'components/RichText/RichText';
-import Tags from 'components/TagsSection/TagsSection';
+import TagsSection from 'components/TagsSection/TagsSection';
 
 import {
   RecipeDefaultFragment,
@@ -73,17 +73,19 @@ const Recipe = ({ content }: RecipeProps) => {
       <Stack direction="column" spacing={3}>
         {ingredientsCollection &&
           ingredientsCollection.items &&
-          ingredientsSections && <Ingredients sections={ingredientsSections} />}
+          ingredientsSections && (
+            <IngredientsSection sections={ingredientsSections} />
+          )}
 
         {equipment && <EquipmentSection equipment={equipment} />}
 
         {instructionsSections && (
-          <Instructions sections={instructionsSections} />
+          <InstructionsSection sections={instructionsSections} />
         )}
 
-        {notes && <Notes notes={notes} />}
+        {notes && <NotesSection notes={notes} />}
 
-        {tags && <Tags tags={tags} />}
+        {tags && <TagsSection tags={tags} />}
 
         {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
       </Stack>

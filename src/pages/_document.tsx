@@ -1,4 +1,3 @@
-/* istanbul ignore file */
 import * as React from 'react';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import createEmotionCache from 'lib/createEmotionCache';
