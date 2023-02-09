@@ -13,7 +13,7 @@ const HomePage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { defaultTitle, description } = config?.microcopy?.index ?? {};
 
-  return pageContent ? (
+  return pageContent && pageContent.length > 0 ? (
     <>
       <PageHeadTag
         title={defaultTitle}

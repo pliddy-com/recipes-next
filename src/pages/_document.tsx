@@ -1,5 +1,12 @@
 import * as React from 'react';
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
 import createEmotionCache from 'lib/createEmotionCache';
 import createEmotionServer from '@emotion/server/create-instance';
 
@@ -15,6 +22,10 @@ import { background } from 'lib/styles';
 // TODO: test render of main against snapshot for head content
 
 export default class MainDocument extends Document {
+  static getInitialProps = (
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> => Document.getInitialProps(ctx);
+
   render() {
     return (
       <Html lang="en">

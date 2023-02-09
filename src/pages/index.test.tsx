@@ -5,15 +5,41 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import CategoryPage from './index';
+import HomePage, { getStaticProps } from './index';
 
 import { RecipeSummaryFragment } from 'types/generated/graphql';
 
-import config from 'lib/config';
+// import config object to mock
+const config = jest.requireMock('lib/config');
 
-describe('CategoryPage in category/[slug].tsx', () => {
+// set up default mock config object
+jest.mock('lib/config', () => ({
+  microcopy: {
+    index: {
+      defaultTitle: 'Default Index Title',
+      description: 'Index page description',
+    },
+    site: {
+      title: 'Site Title',
+    },
+  },
+}));
+
+// import api library to mock
+const api = jest.requireMock('lib/api');
+
+jest.mock('lib/api', () => ({
+  queryRecipeCollectionContent: jest.fn().mockResolvedValue({ data: 'test' }),
+}));
+
+describe('HomePage in index.tsx', () => {
+  // reset mocks after each test
+  afterEach(() => {
+    jest.resetModules();
+  });
+
   describe('when there is page content', () => {
-    it('it renders the CategoryPage if there is content', () => {
+    it('it renders the page', async () => {
       const pageContent = [
         {
           sys: {
@@ -67,12 +93,32 @@ describe('CategoryPage in category/[slug].tsx', () => {
 
       const { defaultTitle } = config?.microcopy?.index ?? {};
 
+      const apiSpy = jest.spyOn(api, 'queryRecipeCollectionContent');
+
       const { container } = render(
-        <CategoryPage
+        <HomePage
           pageContent={pageContent as RecipeSummaryFragment[]}
           preview={false}
         />
       );
+
+      // calls getStaticProps
+      const staticProps = await getStaticProps({ preview: true });
+      // calls getStaticProps with no preview value to test default
+      const defaultProps = await getStaticProps({ preview: undefined });
+
+      expect(apiSpy).toHaveBeenCalledTimes(2);
+
+      const expectedProps = {
+        props: { pageContent: { data: 'test' }, preview: true },
+      };
+
+      const expectedDefaultProps = {
+        props: { pageContent: { data: 'test' }, preview: false },
+      };
+
+      expect(staticProps).toEqual(expectedProps);
+      expect(defaultProps).toEqual(expectedDefaultProps);
 
       // assert that page head tags are rendered
       const titleTag = document.getElementsByTagName('title')[0];
@@ -83,22 +129,31 @@ describe('CategoryPage in category/[slug].tsx', () => {
       const page = document.querySelector('.page');
       expect(page).toBeInTheDocument();
 
-      // test if card compoent is rendered
-      const card = document.querySelector('.MuiCard-root');
-      expect(card).toBeInTheDocument();
-
       // assert that the component matches the existing snapshot
       expect(container).toMatchSnapshot();
     });
   });
 
   describe('when there is no page content', () => {
-    it('it does not render the category page', () => {
-      const pageContent = [] as RecipeSummaryFragment[];
+    it('it does not render the page', () => {
+      render(<HomePage pageContent={[]} preview={false} />);
 
-      render(<CategoryPage pageContent={pageContent} preview={false} />);
+      // assert that page container is not rendered
+      const page = document.querySelector('.page');
+      expect(page).toBeNull();
+    });
+  });
 
-      // test if card compoent is not rendered
+  describe('when there is no config object', () => {
+    // before each test, delete microcopy node from config
+    beforeEach(() => {
+      delete config.microcopy;
+    });
+
+    it('it does not render the page', () => {
+      render(<HomePage pageContent={[]} preview={false} />);
+
+      // assert that page container is not rendered
       const page = document.querySelector('.page');
       expect(page).toBeNull();
     });
