@@ -187,8 +187,6 @@ export const queryCategorySlugs = async (
     })
     .flat();
 
-  console.log('queryCategorySlugs', results);
-
   return results ? results?.filter(notNullOrUndefined) : [];
 };
 
