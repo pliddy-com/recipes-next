@@ -25,6 +25,8 @@ jest.mock('lib/config', () => ({
   },
 }));
 
+const recipeCollectionData = { data: 'recipe collection' };
+
 // import api library to mock
 const api = jest.requireMock('lib/api');
 
@@ -97,11 +99,11 @@ describe('HomePage in index.tsx', () => {
       const apiSpy = jest.spyOn(api, 'queryRecipeCollectionContent');
       const { defaultTitle } = config?.microcopy?.index ?? {};
       const expectedProps = {
-        props: { pageContent: { data: 'recipe collection' }, preview: true },
+        props: { pageContent: recipeCollectionData, preview: true },
       };
 
       const expectedDefaultProps = {
-        props: { pageContent: { data: 'recipe collection' }, preview: false },
+        props: { pageContent: recipeCollectionData, preview: false },
       };
 
       const { container } = render(

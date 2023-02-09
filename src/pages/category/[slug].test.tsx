@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import CategoryPage from './[slug]';
+import CategoryPage, { getStaticPaths, getStaticProps } from './[slug]';
 
 import { ListPageItemFragment } from 'types/generated/graphql';
 
@@ -25,82 +25,110 @@ jest.mock('lib/config', () => ({
   },
 }));
 
+const pageContentData = { content: 'list page content' };
+const pageSlugData = { slug: 'slug-1' };
+
 // import api library to mock
-// const api = jest.requireMock('lib/api');
+const api = jest.requireMock('lib/api');
 
 // set up default mock api object
-// jest.mock('lib/api', () => ({
-//   queryListPageContent: jest
-//     .fn()
-//     .mockResolvedValue({ data: 'list page content' }),
-//   queryCategorySlugs: jest.fn().mockResolvedValue({ data: 'category slugs' }),
-// }));
+jest.mock('lib/api', () => ({
+  // Cannot access 'pageSlugData' before initialization
+  queryCategorySlugs: jest.fn().mockResolvedValue(['slug-1']),
+  queryListPageContent: jest
+    .fn()
+    .mockResolvedValue([{ content: 'list page content' }]),
+}));
 
 describe('CategoryPage in category/[slug].tsx', () => {
+  // reset mocks after each test
+  afterEach(() => {
+    jest.resetModules();
+  });
+
   describe('when there is page content', () => {
-    it('it renders the CategoryPage if there is content', () => {
-      const pageContent = {
-        slug: 'category-title',
-        title: 'Category Title',
-        linkedFrom: {
-          recipeCollection: {
-            total: 1,
-            items: [
-              {
+    const pageContent = {
+      slug: 'category-title',
+      title: 'Category Title',
+      linkedFrom: {
+        recipeCollection: {
+          total: 1,
+          items: [
+            {
+              sys: {
+                id: 'sysid-0',
+                __typename: 'Sys',
+              },
+              __typename: 'Recipe',
+              title: 'Recipe 1 Title',
+              slug: 'recipe-1-title',
+              abstract: 'Recipe 1 abstract.',
+              image: {
                 sys: {
-                  id: 'sysid-0',
+                  id: 'sysid-1',
                   __typename: 'Sys',
                 },
-                __typename: 'Recipe',
-                title: 'Recipe 1 Title',
-                slug: 'recipe-1-title',
-                abstract: 'Recipe 1 abstract.',
-                image: {
-                  sys: {
-                    id: 'sysid-1',
-                    __typename: 'Sys',
-                  },
-                  __typename: 'Asset',
-                  title: 'Image 1 Title',
-                  description: 'Image 1 description',
-                  contentType: 'image/jpeg',
-                  fileName: 'image1.jpg',
-                  size: 99999,
-                  url: 'https://test.url/biscuits.jpg',
-                  height: 300,
-                  width: 400,
-                },
-                tagsCollection: {
-                  items: [
-                    {
-                      sys: {
-                        id: 'sysid-2',
-                        __typename: 'Sys',
-                      },
-                      __typename: 'Tag',
-                      title: 'Tag 1',
-                      slug: 'tag-1',
-                    },
-                    {
-                      sys: {
-                        id: 'sysid-3',
-                        __typename: 'Sys',
-                      },
-                      __typename: 'Tag',
-                      title: 'Tag 2',
-                      slug: 'tag-2',
-                    },
-                  ],
-                  __typename: 'RecipeTagsCollection',
-                },
+                __typename: 'Asset',
+                title: 'Image 1 Title',
+                description: 'Image 1 description',
+                contentType: 'image/jpeg',
+                fileName: 'image1.jpg',
+                size: 99999,
+                url: 'https://test.url/biscuits.jpg',
+                height: 300,
+                width: 400,
               },
-            ],
-            __typename: 'RecipeCollection',
-          },
-          __typename: 'TagLinkingCollections',
+              tagsCollection: {
+                items: [
+                  {
+                    sys: {
+                      id: 'sysid-2',
+                      __typename: 'Sys',
+                    },
+                    __typename: 'Tag',
+                    title: 'Tag 1',
+                    slug: 'tag-1',
+                  },
+                  {
+                    sys: {
+                      id: 'sysid-3',
+                      __typename: 'Sys',
+                    },
+                    __typename: 'Tag',
+                    title: 'Tag 2',
+                    slug: 'tag-2',
+                  },
+                ],
+                __typename: 'RecipeTagsCollection',
+              },
+            },
+          ],
+          __typename: 'RecipeCollection',
         },
-        __typename: 'Tag',
+        __typename: 'TagLinkingCollections',
+      },
+      __typename: 'Tag',
+    };
+
+    it('it renders the CategoryPage if there is content', async () => {
+      const propsContext = {
+        preview: false,
+        params: pageSlugData,
       };
+
+      const expectedProps = {
+        props: { pageContent: pageContentData, preview: false },
+      };
+
+      const expectedPaths = {
+        fallback: false,
+        paths: [{ params: pageSlugData }],
+      };
+
+      console.log({ expectedPaths });
+
+      const queryCategorySlugsSpy = jest.spyOn(api, 'queryCategorySlugs');
+      const queryListPageContentSpy = jest.spyOn(api, 'queryListPageContent');
 
       const { container } = render(
         <CategoryPage
@@ -108,6 +136,20 @@ describe('CategoryPage in category/[slug].tsx', () => {
           preview={false}
         />
       );
+
+      expect(await getStaticProps(propsContext)).toEqual(expectedProps);
+      const res = await getStaticPaths({});
+
+      console.log({ res });
+      expect(res).toEqual(expectedPaths);
+
+      // expect(await getStaticPaths({})).toEqual(expectedPaths);
+
+      expect(queryCategorySlugsSpy).toHaveBeenCalled();
+      expect(queryListPageContentSpy).toHaveBeenCalled();
+
+      // assert that the component matches the existing snapshot
+      expect(container).toMatchSnapshot();
 
       // assert that page head tags are rendered
       const titleTag = document.getElementsByTagName('title')[0];
@@ -117,9 +159,19 @@ describe('CategoryPage in category/[slug].tsx', () => {
       // assert that page container is rendered
       const page = document.querySelector('.page');
       expect(page).toBeInTheDocument();
+    });
 
-      // assert that the component matches the existing snapshot
-      expect(container).toMatchSnapshot();
+    it('it does not render the page if the slug is not a string', async () => {
+      const propsContext = {
+        preview: false,
+        params: { slug: undefined },
+      };
+
+      try {
+        await getStaticProps(propsContext);
+      } catch (e) {
+        expect(e).toEqual(new Error('Error in SSG!'));
+      }
     });
   });
 

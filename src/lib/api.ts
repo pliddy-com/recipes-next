@@ -150,9 +150,16 @@ export const queryPageSlugs = async (
     variables
   );
 
-  return recipeCollection
-    ? recipeCollection.items.filter(notNullOrUndefined)
-    : [];
+  const { items } = recipeCollection ?? {};
+
+  const results = items?.map((child) => {
+    const { slug } = child ?? {};
+    return slug;
+  });
+
+  console.log('queryPageSlugs', results);
+
+  return results ? results?.filter(notNullOrUndefined) : [];
 };
 
 // used by getStaticProps for category page
@@ -183,6 +190,8 @@ export const queryCategorySlugs = async (
       return slug;
     })
     .flat();
+
+  console.log('queryCategorySlugs', results);
 
   return results ? results?.filter(notNullOrUndefined) : [];
 };
