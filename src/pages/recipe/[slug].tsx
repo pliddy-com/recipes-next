@@ -22,7 +22,7 @@ const RecipePage = ({
 
   const description = abstract || `${defaultDescription} ${title}`;
 
-  return pageContent && title ? (
+  return pageContent && title && description && defaultTitle ? (
     <>
       <PageHeadTag
         title={title}

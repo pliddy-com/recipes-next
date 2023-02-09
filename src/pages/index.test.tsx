@@ -28,8 +28,11 @@ jest.mock('lib/config', () => ({
 // import api library to mock
 const api = jest.requireMock('lib/api');
 
+// set up default mock api object
 jest.mock('lib/api', () => ({
-  queryRecipeCollectionContent: jest.fn().mockResolvedValue({ data: 'test' }),
+  queryRecipeCollectionContent: jest
+    .fn()
+    .mockResolvedValue({ data: 'recipe collection' }),
 }));
 
 describe('HomePage in index.tsx', () => {
@@ -91,9 +94,15 @@ describe('HomePage in index.tsx', () => {
         },
       ];
 
-      const { defaultTitle } = config?.microcopy?.index ?? {};
-
       const apiSpy = jest.spyOn(api, 'queryRecipeCollectionContent');
+      const { defaultTitle } = config?.microcopy?.index ?? {};
+      const expectedProps = {
+        props: { pageContent: { data: 'recipe collection' }, preview: true },
+      };
+
+      const expectedDefaultProps = {
+        props: { pageContent: { data: 'recipe collection' }, preview: false },
+      };
 
       const { container } = render(
         <HomePage
@@ -102,23 +111,12 @@ describe('HomePage in index.tsx', () => {
         />
       );
 
-      // calls getStaticProps
-      const staticProps = await getStaticProps({ preview: true });
-      // calls getStaticProps with no preview value to test default
-      const defaultProps = await getStaticProps({ preview: undefined });
-
+      // assert getStaticProps returns a value and manages preview default
+      expect(await getStaticProps({ preview: true })).toEqual(expectedProps);
+      expect(await getStaticProps({ preview: undefined })).toEqual(
+        expectedDefaultProps
+      );
       expect(apiSpy).toHaveBeenCalledTimes(2);
-
-      const expectedProps = {
-        props: { pageContent: { data: 'test' }, preview: true },
-      };
-
-      const expectedDefaultProps = {
-        props: { pageContent: { data: 'test' }, preview: false },
-      };
-
-      expect(staticProps).toEqual(expectedProps);
-      expect(defaultProps).toEqual(expectedDefaultProps);
 
       // assert that page head tags are rendered
       const titleTag = document.getElementsByTagName('title')[0];

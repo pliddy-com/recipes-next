@@ -2,7 +2,6 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-import Loading from 'components/Loading/Loading';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
@@ -30,8 +29,6 @@ const RecipeGrid = ({ recipes, title }: RecipeGridProps) =>
           ))}
       </Grid>
     </Container>
-  ) : (
-    <Loading />
-  );
+  ) : null;
 
 export default RecipeGrid;

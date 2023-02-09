@@ -9,7 +9,28 @@ import TagPage from './[slug]';
 
 import { ListPageItemFragment } from 'types/generated/graphql';
 
+// import config object to mock
+const config = jest.requireMock('lib/config');
+
+// set up default mock config object
+jest.mock('lib/config', () => ({
+  microcopy: {
+    tag: {
+      defaultTitle: 'Default Tag Title',
+      defaultDescription: 'Index tag description',
+    },
+    site: {
+      title: 'Site Title',
+    },
+  },
+}));
+
 describe('TagPage in tag/[slug].tsx', () => {
+  // reset mocks after each test
+  afterEach(() => {
+    jest.resetModules();
+  });
+
   describe('when there is page content', () => {
     it('it renders the TagPage if there is content', () => {
       const pageContent = {
@@ -91,18 +112,19 @@ describe('TagPage in tag/[slug].tsx', () => {
       const page = document.querySelector('.page');
       expect(page).toBeInTheDocument();
 
-      // test if card compoent is rendered
-      const card = document.querySelector('.MuiCard-root');
-      expect(card).toBeInTheDocument();
-
       // assert that the component matches the existing snapshot
       expect(container).toMatchSnapshot();
     });
   });
 
   describe('when there is no page content', () => {
+    // before each test, delete microcopy node from config
+    beforeEach(() => {
+      delete config.microcopy;
+    });
+
     it('it does not render the category page', () => {
-      const pageContent = [] as ListPageItemFragment;
+      const pageContent = undefined as unknown as ListPageItemFragment;
 
       render(<TagPage pageContent={pageContent} preview={false} />);
 

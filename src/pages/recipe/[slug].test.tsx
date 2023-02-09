@@ -9,7 +9,47 @@ import RecipePage from './[slug]';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
+// import config object to mock
+const config = jest.requireMock('lib/config');
+
+// set up default mock config object
+jest.mock('lib/config', () => ({
+  microcopy: {
+    recipe: {
+      defaultTitle: 'Default Index Title',
+      defaultDescription: 'Index page description',
+    },
+    site: {
+      title: 'Site Title',
+    },
+  },
+  images: {
+    props: {
+      recipe: [
+        [
+          {
+            viewMin: 1000,
+            imgWidth: 400,
+          },
+          {
+            viewMin: 500,
+            imgWidth: 200,
+          },
+          {
+            imgWidth: 100,
+          },
+        ],
+      ],
+    },
+  },
+}));
+
 describe('RecipePage in recipe/[slug].tsx', () => {
+  // reset mocks after each test
+  afterEach(() => {
+    jest.resetModules();
+  });
+
   describe('when there is page content', () => {
     it('it renders the RecipePage if there is content', () => {
       const pageContent = {
@@ -127,6 +167,9 @@ describe('RecipePage in recipe/[slug].tsx', () => {
         />
       );
 
+      // assert that the component matches the existing snapshot
+      expect(container).toMatchSnapshot();
+
       // assert that page head tags are rendered
       const titleTag = document.getElementsByTagName('title')[0];
       expect(titleTag).toBeInTheDocument();
@@ -135,15 +178,16 @@ describe('RecipePage in recipe/[slug].tsx', () => {
       // test if content is rendered
       const recipe = document.querySelector('.page');
       expect(recipe).toBeInTheDocument();
-
-      // assert that the component matches the existing snapshot
-      expect(container).toMatchSnapshot();
     });
   });
 
   describe('when there is no page content', () => {
+    beforeEach(() => {
+      delete config.microcopy;
+    });
+
     it('it does not render the category page', () => {
-      const pageContent = {} as RecipeDefaultFragment;
+      const pageContent = undefined as unknown as RecipeDefaultFragment;
 
       render(<RecipePage pageContent={pageContent} preview={false} />);
 
