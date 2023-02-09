@@ -82,3 +82,17 @@ fragment TaxonomyWithChildren on Taxonomy {
     }
   }
 }
+
+# fragment for items on list page queries
+fragment ListPageItem on Tag {
+  slug
+  title
+  linkedFrom {
+    recipeCollection(limit: 24) {
+      total
+      items {
+        ...RecipeSummary
+      }
+    }
+  }
+}

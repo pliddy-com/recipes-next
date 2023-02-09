@@ -44,7 +44,11 @@ describe('RecipeGrid', () => {
         <RecipeGrid recipes={recipes} title={title} />
       );
 
-      // test if card compoent is rendered
+      // assert that page container is present
+      const page = document.querySelector('.page');
+      expect(page).toBeInTheDocument();
+
+      // assert that card component is rendered
       const card = document.querySelector('.MuiCard-root');
       expect(card).toBeInTheDocument();
 

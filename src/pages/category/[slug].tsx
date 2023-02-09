@@ -24,7 +24,7 @@ const CategoryPage = ({
 
   const description = `${defaultDescription} ${title}`;
 
-  return (
+  return pageContent && title ? (
     <>
       <PageHeadTag
         title={title}
@@ -34,7 +34,7 @@ const CategoryPage = ({
       <RecipeGrid recipes={content} title={title} />
       {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
-  );
+  ) : null;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {

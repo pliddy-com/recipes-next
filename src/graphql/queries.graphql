@@ -37,16 +37,17 @@ query listPageQuery($where: TagFilter) {
   tagCollection(where: $where, limit: 1) {
     total
     items {
-      slug
-      title
-      linkedFrom {
-        recipeCollection(limit: 24) {
-          total
-          items {
-            ...RecipeSummary
-          }
-        }
-      }
+      ...ListPageItem
+      # slug
+      # title
+      # linkedFrom {
+      #   recipeCollection(limit: 24) {
+      #     total
+      #     items {
+      #       ...RecipeSummary
+      #     }
+      #   }
+      # }
     }
   }
 }

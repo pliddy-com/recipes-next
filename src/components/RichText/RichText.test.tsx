@@ -177,8 +177,8 @@ describe('RichText', () => {
               __typename: 'Recipe',
               sys: {
                 id: '1Z5PsRKqUsxYrWy4tI9jqs',
-                environmentId: 'abab825b-f415-453b-afff-f68b7fa1d712',
-                spaceId: 'fo9qwg6zarbt',
+                environmentId: 'environmentId',
+                spaceId: 'spaceId',
                 __typename: 'Sys',
               },
               slug: 'red-beans-and-rice',
