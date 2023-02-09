@@ -12,7 +12,9 @@ import {
 
 import { background } from 'lib/styles';
 
-export default class mainDocument extends Document {
+// TODO: test render of main against snapshot for head content
+
+export default class MainDocument extends Document {
   render() {
     return (
       <Html lang="en">
@@ -104,7 +106,7 @@ export default class mainDocument extends Document {
 // 4. page.render
 
 /* istanbul ignore next */
-mainDocument.getInitialProps = async (ctx) => {
+MainDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
   const cache = createEmotionCache();
   const { extractCriticalToChunks } = createEmotionServer(cache);
