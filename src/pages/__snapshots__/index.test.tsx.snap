@@ -3,10 +3,10 @@
 exports[`CategoryPage in category/[slug].tsx when there is page content it renders the CategoryPage if there is content 1`] = `
 <div>
   <title>
-    Patrick's Recipes | Baking
+    Patrick's Recipes | All Recipes
   </title>
   <meta
-    content="A collection of recipies categorized as Baking"
+    content="Patrick's recipe collection"
     name="description"
   />
   <div
@@ -15,7 +15,7 @@ exports[`CategoryPage in category/[slug].tsx when there is page content it rende
     <h1
       class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
     >
-      Baking
+      All Recipes
     </h1>
     <h2
       class="MuiTypography-root MuiTypography-subtitle1 MuiTypography-gutterBottom css-1wniyei-MuiTypography-root"

@@ -13,7 +13,7 @@ const HomePage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { defaultTitle, description } = config?.microcopy?.index ?? {};
 
-  return (
+  return pageContent ? (
     <>
       <PageHeadTag
         title={defaultTitle}
@@ -23,7 +23,7 @@ const HomePage = ({
       <RecipeGrid recipes={pageContent} title={defaultTitle} />
       {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
-  );
+  ) : null;
 };
 
 export const getStaticProps = async ({ preview = false }) => {
