@@ -5,7 +5,10 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import RecipePage, { getStaticPaths, getStaticProps } from './[slug]';
+import RecipePage, {
+  getStaticPaths,
+  getStaticProps,
+} from '../../pages/recipe/[slug]';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
