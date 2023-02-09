@@ -9,12 +9,12 @@ import { RecipeDefaultFragment } from 'types/generated/graphql';
 
 import { flex } from 'lib/styles';
 
-interface RecipeGridrops {
+interface RecipeGridProps {
   recipes: (RecipeDefaultFragment | null)[];
   title?: string | null;
 }
 
-const RecipeGrid = ({ recipes, title }: RecipeGridrops) =>
+const RecipeGrid = ({ recipes, title }: RecipeGridProps) =>
   recipes && recipes.length > 0 ? (
     <Container className="page">
       <Typography variant="h1">{title}</Typography>
@@ -25,7 +25,7 @@ const RecipeGrid = ({ recipes, title }: RecipeGridrops) =>
         {recipes &&
           recipes.map((recipe, index) => (
             <Grid item md={6} sm={6} xs={12} key={recipe?.slug} sx={{ flex }}>
-              {recipe && <RecipeCard recipe={recipe} preloadImg={index < 6} />}
+              {recipe && <RecipeCard recipe={recipe} preloadImg={index < 2} />}
             </Grid>
           ))}
       </Grid>

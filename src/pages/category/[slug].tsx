@@ -1,4 +1,4 @@
-import { ReactElement, Suspense } from 'react';
+import { ReactElement } from 'react';
 
 import {
   GetStaticPaths,
@@ -6,24 +6,13 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 
-import dynamic from 'next/dynamic';
+import Layout from 'layout/layout';
+import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
+import RecipeGrid from 'pageContainers/RecipeGrid/RecipeGrid';
 
 import { queryCategorySlugs, queryListPageContent } from 'lib/api';
-
-import Layout from 'layout/layout';
-import Loading from 'components/Loading/Loading';
-import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
-
-import { notNullOrUndefined } from 'lib/typeUtils';
-
 import config from 'lib/config';
-
-const RecipeGrid = dynamic(
-  import(
-    /* webpackChunkName: 'CategoryGrid' */ 'pageContainers/RecipeGrid/RecipeGrid'
-  ),
-  { suspense: true }
-);
+import { notNullOrUndefined } from 'lib/typeUtils';
 
 const CategoryPage = ({
   pageContent,
@@ -42,10 +31,7 @@ const CategoryPage = ({
         defaultTitle={defaultTitle}
         description={description}
       />
-      <Suspense fallback={<Loading />}>
-        <RecipeGrid recipes={content} title={title} />
-      </Suspense>
-
+      <RecipeGrid recipes={content} title={title} />
       {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
   );

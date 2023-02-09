@@ -1,4 +1,4 @@
-import { ReactElement, Suspense } from 'react';
+import { ReactElement } from 'react';
 
 import {
   GetStaticPaths,
@@ -6,22 +6,13 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 
-import dynamic from 'next/dynamic';
+import Layout from 'layout/layout';
+import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
+import Recipe from 'pageContainers/Recipe/Recipe';
 
 import { queryPageSlugs, queryRecipeContent } from 'lib/api';
-
-import Layout from 'layout/layout';
-import Loading from 'components/Loading/Loading';
-import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
-
-import { notNullOrUndefined } from 'lib/typeUtils';
-
 import config from 'lib/config';
-
-const Recipe = dynamic(
-  import(/* webpackChunkName: 'Recipe' */ 'pageContainers/Recipe/Recipe'),
-  { suspense: true }
-);
+import { notNullOrUndefined } from 'lib/typeUtils';
 
 const RecipePage = ({
   pageContent,
@@ -38,11 +29,9 @@ const RecipePage = ({
         defaultTitle={defaultTitle}
         description={description}
       />
-      <Suspense fallback={<Loading />}>
-        <Recipe content={pageContent} />
-      </Suspense>
+      <Recipe content={pageContent} />
+      {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
-    // <pre>{JSON.stringify(pageContent, null, 2)}</pre>
   );
 };
 

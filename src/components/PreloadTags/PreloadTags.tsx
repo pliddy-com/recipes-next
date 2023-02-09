@@ -15,17 +15,17 @@ const PreloadTags = ({ props, url }: PreloadTagsProps) => {
         ({ viewMin, imgWidth }, index, propList) =>
           url && (
             <link
-              rel="preload"
               as="image"
               href={url}
+              imageSizes={`${imgWidth}px`}
               imageSrcSet={createSrcSet({ url, imgWidth })}
+              key={`${url}-${viewMin || imgWidth}-preload`}
               media={createMediaQuery({
                 viewMin,
                 index,
                 propList,
               })}
-              key={`${url}-${viewMin || imgWidth}-preload`}
-              imageSizes={`${imgWidth}px`}
+              rel="preload"
             />
           )
       )}
