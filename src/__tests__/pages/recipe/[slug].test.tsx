@@ -8,7 +8,7 @@ import '@testing-library/jest-dom';
 import RecipePage, {
   getStaticPaths,
   getStaticProps,
-} from '../../pages/recipe/[slug]';
+} from 'pages/recipe/[slug]';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 

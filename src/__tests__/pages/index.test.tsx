@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import HomePage, { getStaticProps } from '../pages/index';
+import HomePage, { getStaticProps } from 'pages/index';
 
 import { RecipeSummaryFragment } from 'types/generated/graphql';
 

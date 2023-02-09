@@ -5,10 +5,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import CategoryPage, {
-  getStaticPaths,
-  getStaticProps,
-} from '../../pages/category/[slug]';
+import TagPage, { getStaticPaths, getStaticProps } from 'pages/tag/[slug]';
 
 import { ListPageItemFragment } from 'types/generated/graphql';
 
@@ -18,9 +15,9 @@ const config = jest.requireMock('lib/config');
 // set up default mock config object
 jest.mock('lib/config', () => ({
   microcopy: {
-    index: {
-      defaultTitle: 'Default Index Title',
-      description: 'Index page description',
+    tag: {
+      defaultTitle: 'Default Tag Title',
+      defaultDescription: 'Index tag description',
     },
     site: {
       title: 'Site Title',
@@ -29,7 +26,7 @@ jest.mock('lib/config', () => ({
 }));
 
 const pageContentData = { content: 'list page content' };
-const pageSlugData = { slug: 'slug-1' };
+const tagSlugData = { slug: 'slug-1' };
 
 // import api library to mock
 const api = jest.requireMock('lib/api');
@@ -37,13 +34,13 @@ const api = jest.requireMock('lib/api');
 // set up default mock api object
 jest.mock('lib/api', () => ({
   // Cannot access 'pageSlugData' before initialization
-  queryCategorySlugs: jest.fn().mockResolvedValue(['slug-1']),
+  queryTagSlugs: jest.fn().mockResolvedValue(['slug-1']),
   queryListPageContent: jest
     .fn()
     .mockResolvedValue([{ content: 'list page content' }]),
 }));
 
-describe('CategoryPage in category/[slug].tsx', () => {
+describe('TagPage in tag/[slug].tsx', () => {
   // reset mocks after each test
   afterEach(() => {
     jest.resetModules();
@@ -51,11 +48,11 @@ describe('CategoryPage in category/[slug].tsx', () => {
 
   describe('when there is page content', () => {
     const pageContent = {
-      slug: 'category-title',
-      title: 'Category Title',
+      slug: 'baking',
+      title: 'Baking',
       linkedFrom: {
         recipeCollection: {
-          total: 1,
+          total: 3,
           items: [
             {
               sys: {
@@ -116,7 +113,7 @@ describe('CategoryPage in category/[slug].tsx', () => {
     it('it renders the page', async () => {
       const propsContext = {
         preview: false,
-        params: pageSlugData,
+        params: tagSlugData,
       };
 
       const expectedProps = {
@@ -125,14 +122,14 @@ describe('CategoryPage in category/[slug].tsx', () => {
 
       const expectedPaths = {
         fallback: false,
-        paths: [{ params: pageSlugData }],
+        paths: [{ params: tagSlugData }],
       };
 
-      const queryCategorySlugsSpy = jest.spyOn(api, 'queryCategorySlugs');
+      const queryTagSlugsSpy = jest.spyOn(api, 'queryTagSlugs');
       const queryListPageContentSpy = jest.spyOn(api, 'queryListPageContent');
 
       const { container } = render(
-        <CategoryPage
+        <TagPage
           pageContent={pageContent as ListPageItemFragment}
           preview={false}
         />
@@ -141,7 +138,7 @@ describe('CategoryPage in category/[slug].tsx', () => {
       expect(await getStaticProps(propsContext)).toEqual(expectedProps);
       expect(await getStaticPaths({})).toEqual(expectedPaths);
 
-      expect(queryCategorySlugsSpy).toHaveBeenCalled();
+      expect(queryTagSlugsSpy).toHaveBeenCalled();
       expect(queryListPageContentSpy).toHaveBeenCalled();
 
       // assert that the component matches the existing snapshot
@@ -173,38 +170,18 @@ describe('CategoryPage in category/[slug].tsx', () => {
     });
   });
 
-  describe('when there is no content', () => {
+  describe('when there is no page content', () => {
     // before each test, delete microcopy node from config
     beforeEach(() => {
       delete config.microcopy;
     });
 
-    it('it does not render the page', () => {
+    it('it does not render the category page', () => {
       const pageContent = undefined as unknown as ListPageItemFragment;
 
-      render(<CategoryPage pageContent={pageContent} preview={false} />);
+      render(<TagPage pageContent={pageContent} preview={false} />);
 
       // test if card compoent is not rendered
-      const page = document.querySelector('.page');
-      expect(page).toBeNull();
-    });
-  });
-
-  describe('when there is no config object', () => {
-    it('it does not render the page', () => {
-      render(
-        <CategoryPage
-          preview={false}
-          pageContent={{
-            __typename: undefined,
-            slug: undefined,
-            title: undefined,
-            linkedFrom: undefined,
-          }}
-        />
-      );
-
-      // assert that page container is not rendered
       const page = document.querySelector('.page');
       expect(page).toBeNull();
     });
