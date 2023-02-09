@@ -42,7 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   });
 
   const paths = slugQueryResults
-    .map((tag) => tag?.slug)
+    .map((slug) => slug)
     .filter(notNullOrUndefined)
     .map((slug) => ({
       params: { slug },

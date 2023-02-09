@@ -173,7 +173,7 @@ describe('RecipePage in recipe/[slug].tsx', () => {
       },
     };
 
-    it('it renders the RecipePage if there is content', async () => {
+    it('it renders the page', async () => {
       const propsContext = {
         preview: false,
         params: pageSlugData,
@@ -214,17 +214,19 @@ describe('RecipePage in recipe/[slug].tsx', () => {
       expect(recipe).toBeInTheDocument();
     });
 
-    it('it does not render the page if the slug is not a string', async () => {
-      const propsContext = {
-        preview: false,
-        params: { slug: undefined },
-      };
+    describe('when the slug is not a string', () => {
+      it('it does not render the page', async () => {
+        const propsContext = {
+          preview: false,
+          params: { slug: undefined },
+        };
 
-      try {
-        await getStaticProps(propsContext);
-      } catch (e) {
-        expect(e).toEqual(new Error('Error in SSG!'));
-      }
+        try {
+          await getStaticProps(propsContext);
+        } catch (e) {
+          expect(e).toEqual(new Error('Error in SSG!'));
+        }
+      });
     });
   });
 
@@ -233,7 +235,7 @@ describe('RecipePage in recipe/[slug].tsx', () => {
       delete config.microcopy;
     });
 
-    it('it does not render the category page', () => {
+    it('it does not render the page', () => {
       const pageContent = undefined as unknown as RecipeDefaultFragment;
 
       render(<RecipePage pageContent={pageContent} preview={false} />);

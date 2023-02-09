@@ -150,14 +150,10 @@ export const queryPageSlugs = async (
     variables
   );
 
-  const { items } = recipeCollection ?? {};
-
-  const results = items?.map((child) => {
+  const results = recipeCollection?.items?.map((child) => {
     const { slug } = child ?? {};
     return slug;
   });
-
-  console.log('queryPageSlugs', results);
 
   return results ? results?.filter(notNullOrUndefined) : [];
 };
@@ -205,13 +201,18 @@ export const queryTagSlugs = async (
     variables
   );
 
-  return tagCollection
-    ? tagCollection.items
-        .filter(notNullOrUndefined)
-        .filter(
-          (item) =>
-            item?.linkedFrom?.recipeCollection?.total &&
-            item?.linkedFrom?.recipeCollection?.total > 0
-        )
-    : [];
+  const filtered = tagCollection?.items
+    .filter(notNullOrUndefined)
+    .filter(
+      (item) =>
+        item?.linkedFrom?.recipeCollection?.total &&
+        item?.linkedFrom?.recipeCollection?.total > 0
+    );
+
+  const results = filtered?.map((child) => {
+    const { slug } = child ?? {};
+    return slug;
+  });
+
+  return results ? results?.filter(notNullOrUndefined) : [];
 };

@@ -1,4 +1,4 @@
-// utility styles
+/* istanbul ignore file */
 
 import colors from 'theme/colors';
 

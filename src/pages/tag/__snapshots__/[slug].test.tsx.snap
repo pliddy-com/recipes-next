@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TagPage in tag/[slug].tsx when there is page content it renders the TagPage if there is content 1`] = `
+exports[`TagPage in tag/[slug].tsx when there is page content it renders the page 1`] = `
 <div>
   <title>
     Site Title | Baking

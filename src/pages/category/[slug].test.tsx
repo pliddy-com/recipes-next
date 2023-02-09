@@ -110,7 +110,7 @@ describe('CategoryPage in category/[slug].tsx', () => {
       __typename: 'Tag',
     };
 
-    it('it renders the CategoryPage if there is content', async () => {
+    it('it renders the page', async () => {
       const propsContext = {
         preview: false,
         params: pageSlugData,
@@ -125,8 +125,6 @@ describe('CategoryPage in category/[slug].tsx', () => {
         paths: [{ params: pageSlugData }],
       };
 
-      console.log({ expectedPaths });
-
       const queryCategorySlugsSpy = jest.spyOn(api, 'queryCategorySlugs');
       const queryListPageContentSpy = jest.spyOn(api, 'queryListPageContent');
 
@@ -138,12 +136,7 @@ describe('CategoryPage in category/[slug].tsx', () => {
       );
 
       expect(await getStaticProps(propsContext)).toEqual(expectedProps);
-      const res = await getStaticPaths({});
-
-      console.log({ res });
-      expect(res).toEqual(expectedPaths);
-
-      // expect(await getStaticPaths({})).toEqual(expectedPaths);
+      expect(await getStaticPaths({})).toEqual(expectedPaths);
 
       expect(queryCategorySlugsSpy).toHaveBeenCalled();
       expect(queryListPageContentSpy).toHaveBeenCalled();
@@ -161,17 +154,19 @@ describe('CategoryPage in category/[slug].tsx', () => {
       expect(page).toBeInTheDocument();
     });
 
-    it('it does not render the page if the slug is not a string', async () => {
-      const propsContext = {
-        preview: false,
-        params: { slug: undefined },
-      };
+    describe('when the slug is not a string', () => {
+      it('it does not render the page', async () => {
+        const propsContext = {
+          preview: false,
+          params: { slug: undefined },
+        };
 
-      try {
-        await getStaticProps(propsContext);
-      } catch (e) {
-        expect(e).toEqual(new Error('Error in SSG!'));
-      }
+        try {
+          await getStaticProps(propsContext);
+        } catch (e) {
+          expect(e).toEqual(new Error('Error in SSG!'));
+        }
+      });
     });
   });
 
