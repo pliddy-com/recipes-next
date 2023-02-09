@@ -14,7 +14,7 @@ import {
   regularSansFontPath,
   boldSansFontPath,
   normalSerifFontPath,
-  italicSerifFontPath,
+  // italicSerifFontPath,
 } from 'theme/fontface';
 
 import { background } from 'lib/styles';
@@ -60,13 +60,13 @@ export default class MainDocument extends Document {
             type="font/ttf"
             crossOrigin="true"
           />
-          <link
+          {/* <link
             rel="preload"
             href={italicSerifFontPath}
             as="font"
             type="font/ttf"
             crossOrigin="true"
-          />
+          /> */}
           <link
             rel="preload"
             href={regularSansFontPath}

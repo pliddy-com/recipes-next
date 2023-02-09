@@ -36,6 +36,7 @@ const DynamicImage = ({ image, props, preload = false }: ImageProps) => {
         <img
           alt={alt}
           height={imgHeight}
+          loading={preload ? 'eager' : 'lazy'}
           src={url}
           style={{ maxWidth: '100%', height: 'auto' }}
           width={imgWidth}

@@ -31,6 +31,7 @@ exports[`Recipe when there is page content it renders the RecipeGrid 1`] = `
         <img
           alt="Image description."
           height="300"
+          loading="eager"
           src="https://recipes.pliddy.com/url"
           style="max-width: 100%; height: auto;"
           width="400"

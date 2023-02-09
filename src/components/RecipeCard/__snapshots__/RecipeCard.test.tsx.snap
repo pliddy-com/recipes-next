@@ -38,6 +38,7 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
             <img
               alt="Skillet with basmati rice and chopped parsley."
               height="3024"
+              loading="eager"
               src="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg"
               style="max-width: 100%; height: auto;"
               width="4032"

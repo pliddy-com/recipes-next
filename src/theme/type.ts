@@ -43,7 +43,7 @@ const typeTheme = {
     },
   },
   typography: {
-    serifFontFamily,
+    fontFamily: serifFontFamily,
     fontWeightBold,
     fontWeightRegular,
     fontSize: baseFontSize,

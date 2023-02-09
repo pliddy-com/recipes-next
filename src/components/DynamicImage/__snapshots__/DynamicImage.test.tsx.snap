@@ -45,6 +45,7 @@ exports[`DynamicImage when there is a url & image object it renders a picture co
     <img
       alt="Image Description"
       height="300"
+      loading="eager"
       src="https://URL.test"
       style="max-width: 100%; height: auto;"
       width="400"
