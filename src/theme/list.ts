@@ -1,6 +1,6 @@
 import { ThemeOptions } from '@mui/material/styles';
 import colors from 'theme/colors';
-import { sansFontFamily } from './type';
+import { serifFontFamily } from './type';
 
 // TODO: differentiate between nav list and recipe lists
 // recipe lists introduce .25rem margin left, not wanted in nav
@@ -14,10 +14,17 @@ const listTheme: ThemeOptions = {
             marginLeft: '.25rem',
           },
           '& .MuiListItem-root': {
+            '&.menuItem': {
+              paddingLeft: 0,
+              '& .MuiListItemText-primary': {
+                fontFamily: serifFontFamily,
+                color: colors.primary.main,
+              },
+            },
             '&.subMenuItem': {
               '& .MuiListItemText-root': {
                 '& .MuiListItemText-primary': {
-                  fontFamily: sansFontFamily,
+                  fontFamily: serifFontFamily,
                   color: colors.primary.main,
                 },
               },
@@ -40,21 +47,13 @@ const listTheme: ThemeOptions = {
               minWidth: 0,
               '& .MuiAvatar-root': {
                 backgroundColor: colors.primary.main,
-                fontFamily: sansFontFamily,
-                fontSize: '.8rem',
-                fontWeight: '600',
-                height: '1.5rem',
+                fontFamily: serifFontFamily,
+                fontSize: '14px',
+                fontWeight: 900,
+                height: '24px',
                 letterSpacing: '.5px',
-                paddingTop: `${1 / 16}rem`,
-                width: '1.5rem',
-              },
-            },
-
-            '&.menuItem': {
-              paddingLeft: 0,
-              '& .MuiListItemText-primary': {
-                fontFamily: sansFontFamily,
-                color: colors.primary.main,
+                paddingBottom: '2px',
+                width: '24px',
               },
             },
           },

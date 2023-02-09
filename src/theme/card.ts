@@ -1,6 +1,5 @@
 import { ThemeOptions } from '@mui/material/styles';
 import colors from 'theme/colors';
-import { sansFontFamily } from 'theme/type';
 
 const cardTheme: ThemeOptions = {
   components: {
@@ -28,9 +27,9 @@ const cardTheme: ThemeOptions = {
             },
             '&-subheader': {
               color: colors.common.white,
-              fontFamily: sansFontFamily,
-              fontWeight: 100,
+              fontWeight: 600,
               fontSize: '1rem',
+              letterSpacing: '.2px',
             },
             '&-title': {
               fontSize: '1.25rem',

@@ -11,8 +11,8 @@ import createEmotionCache from 'lib/createEmotionCache';
 import createEmotionServer from '@emotion/server/create-instance';
 
 import {
-  regularSansFontPath,
-  boldSansFontPath,
+  // regularSansFontPath,
+  // boldSansFontPath,
   normalSerifFontPath,
   // italicSerifFontPath,
 } from 'theme/fontface';
@@ -67,7 +67,7 @@ export default class MainDocument extends Document {
             type="font/ttf"
             crossOrigin="true"
           /> */}
-          <link
+          {/* <link
             rel="preload"
             href={regularSansFontPath}
             as="font"
@@ -80,7 +80,7 @@ export default class MainDocument extends Document {
             as="font"
             type="font/ttf"
             crossOrigin="true"
-          />
+          /> */}
         </Head>
 
         <body style={background}>

@@ -61,13 +61,13 @@ const typeTheme = {
       lineHeight: 24 / baseFontSize,
     },
     h1: {
-      fontFamily: sansFontFamily,
-      fontSize: `${36 / baseFontSize}rem`,
-      fontWeight: fontWeightBold,
+      fontFamily: serifFontFamily,
+      fontSize: `${38 / baseFontSize}rem`,
+      fontWeight: 700,
       lineHeight: 1.25,
     },
     h2: {
-      fontFamily: sansFontFamily,
+      fontFamily: serifFontFamily,
       fontSize: `${30 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
