@@ -9,7 +9,7 @@ import TagPage from './[slug]';
 
 import { ListPageItemFragment } from 'types/generated/graphql';
 
-describe('TagPage in category/[slug].tsx', () => {
+describe('TagPage in tag/[slug].tsx', () => {
   describe('when there is page content', () => {
     it('it renders the TagPage if there is content', () => {
       const pageContent = {

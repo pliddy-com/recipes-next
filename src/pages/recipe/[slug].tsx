@@ -22,7 +22,7 @@ const RecipePage = ({
 
   const description = abstract || `${defaultDescription} ${title}`;
 
-  return (
+  return pageContent && title ? (
     <>
       <PageHeadTag
         title={title}
@@ -32,7 +32,7 @@ const RecipePage = ({
       <Recipe content={pageContent} />
       {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
-  );
+  ) : null;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
