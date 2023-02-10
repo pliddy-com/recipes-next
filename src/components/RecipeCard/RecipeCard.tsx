@@ -25,7 +25,7 @@ const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
   const { title, abstract, image, tagsCollection, slug } = recipe ?? {};
   const { items: tags } = tagsCollection ?? {};
   const { title: category } = tags?.[0] ?? {};
-  const { card: imageProps } = config?.images?.props ?? {};
+  const { card: imageProps } = config?.images ?? {};
 
   return recipe && imageProps ? (
     <Card variant="outlined" className="recipe">

@@ -27,7 +27,46 @@ exports[`Recipe when there is page content it renders the RecipeGrid 1`] = `
     <div
       class="MuiBox-root css-3ddw82"
     >
+      <link
+        as="image"
+        href="https://recipes.pliddy.com/url"
+        imagesizes="832px"
+        imagesrcset="https://recipes.pliddy.com/url?w=832&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1664&fm=webp&q=75 2x"
+        media="(min-width: 704px)"
+        rel="preload"
+      />
+      <link
+        as="image"
+        href="https://recipes.pliddy.com/url"
+        imagesizes="624px"
+        imagesrcset="https://recipes.pliddy.com/url?w=624&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1248&fm=webp&q=75 2x"
+        media="(min-width: 448px) and (max-width: 703px)"
+        rel="preload"
+      />
+      <link
+        as="image"
+        href="https://recipes.pliddy.com/url"
+        imagesizes="416px"
+        imagesrcset="https://recipes.pliddy.com/url?w=416&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=832&fm=webp&q=75 2x"
+        media="(max-width: 447px)"
+        rel="preload"
+      />
       <picture>
+        <source
+          media="(min-width: 704px)"
+          sizes="832px"
+          srcset="https://recipes.pliddy.com/url?w=832&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1664&fm=webp&q=75 2x"
+        />
+        <source
+          media="(min-width: 448px) and (max-width: 703px)"
+          sizes="624px"
+          srcset="https://recipes.pliddy.com/url?w=624&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1248&fm=webp&q=75 2x"
+        />
+        <source
+          media="(max-width: 447px)"
+          sizes="416px"
+          srcset="https://recipes.pliddy.com/url?w=416&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=832&fm=webp&q=75 2x"
+        />
         <img
           alt="Image description."
           height="300"

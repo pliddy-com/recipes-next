@@ -12,54 +12,14 @@ import RecipePage, {
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
-// import config object to mock
-const config = jest.requireMock('lib/config');
+import config from 'lib/config';
+import * as api from 'lib/api';
 
-// set up default mock config object
-jest.mock('lib/config', () => ({
-  microcopy: {
-    recipe: {
-      defaultTitle: 'Default Index Title',
-      defaultDescription: 'Index page description',
-    },
-    site: {
-      title: 'Site Title',
-    },
-  },
-  images: {
-    props: {
-      recipe: [
-        [
-          {
-            viewMin: 1000,
-            imgWidth: 400,
-          },
-          {
-            viewMin: 500,
-            imgWidth: 200,
-          },
-          {
-            imgWidth: 100,
-          },
-        ],
-      ],
-    },
-  },
-}));
+jest.mock('lib/config');
+jest.mock('lib/api');
 
 const recipeContentData = { content: 'recipe content' };
 const pageSlugData = { slug: 'slug-1' };
-
-// import api library to mock
-const api = jest.requireMock('lib/api');
-
-jest.mock('lib/api', () => ({
-  // Cannot access 'pageSlugData' before initialization
-  queryPageSlugs: jest.fn().mockResolvedValue(['slug-1']),
-  queryRecipeContent: jest
-    .fn()
-    .mockResolvedValue([{ content: 'recipe content' }]),
-}));
 
 describe('RecipePage in recipe/[slug].tsx', () => {
   // reset mocks after each test

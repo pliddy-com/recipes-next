@@ -34,7 +34,7 @@ const Recipe = ({ content }: RecipeProps) => {
     tagsCollection,
   } = content ?? {};
 
-  const { recipe: imageProps } = config?.images?.props ?? {};
+  const { recipe: imageProps } = config?.images ?? {};
 
   // TODO: pass full description text into rich text component
   //       & destructure json & links inside component (needs types for json & links)
@@ -58,7 +58,7 @@ const Recipe = ({ content }: RecipeProps) => {
           // <RichText content={description} />
         )}
       </Box>
-      {image && (
+      {image && imageProps && (
         <Box
           mx={{
             xs: 0,

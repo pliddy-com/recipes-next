@@ -15,7 +15,7 @@ const DynamicImage = ({ image, props, preload = false }: ImageProps) => {
 
   const { url, description: alt, height: imgHeight, width: imgWidth } = image;
 
-  return url && imgWidth && imgHeight && alt ? (
+  return props && url && imgWidth && imgHeight && alt ? (
     <>
       {preload && <PreloadTags props={props} url={url} />}
       <picture>

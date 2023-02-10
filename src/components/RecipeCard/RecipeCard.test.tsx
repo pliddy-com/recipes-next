@@ -9,14 +9,11 @@ import RecipeCard from 'components/RecipeCard/RecipeCard';
 
 import { Maybe, RecipeDefaultFragment } from 'types/generated/graphql';
 
-// import config object to mock
-const config = jest.requireMock('lib/config');
+import config from 'lib/config';
 
 jest.mock('lib/config', () => ({
   images: {
-    props: {
-      card: [],
-    },
+    card: [],
   },
 }));
 
@@ -93,7 +90,7 @@ describe('RecipeCard', () => {
   describe('when there are no config properties', () => {
     // before each test, delete images node from config
     beforeEach(() => {
-      delete config.images.props;
+      delete config.images;
     });
 
     const recipe: RecipeDefaultFragment = {

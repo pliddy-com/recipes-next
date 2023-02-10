@@ -11,7 +11,7 @@ import config from 'lib/config';
 
 describe('LogoButton', () => {
   it('renders a logo button', () => {
-    const expectedLabel = config.microcopy.site.title;
+    const expectedLabel = config?.microcopy?.site?.title;
     const expectedHref = '/';
 
     const { getByRole } = render(<LogoButton />);
