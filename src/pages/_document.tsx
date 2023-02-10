@@ -116,7 +116,6 @@ export default class MainDocument extends Document {
 // 3. app.render
 // 4. page.render
 
-/* istanbul ignore next */
 MainDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
   const cache = createEmotionCache();
