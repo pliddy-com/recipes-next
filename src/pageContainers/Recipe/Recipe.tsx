@@ -16,7 +16,7 @@ import {
   RecipeDescription,
 } from 'types/generated/graphql';
 
-import config from 'lib/config';
+import config from './Recipe.config';
 
 interface RecipeProps {
   content?: RecipeDefaultFragment;
@@ -34,7 +34,7 @@ const Recipe = ({ content }: RecipeProps) => {
     tagsCollection,
   } = content ?? {};
 
-  const { recipe: imageProps } = config?.images ?? {};
+  const { breakpoints } = config;
 
   // TODO: pass full description text into rich text component
   //       & destructure json & links inside component (needs types for json & links)
@@ -58,7 +58,7 @@ const Recipe = ({ content }: RecipeProps) => {
           // <RichText content={description} />
         )}
       </Box>
-      {image && imageProps && (
+      {image && breakpoints && (
         <Box
           mx={{
             xs: 0,
@@ -67,7 +67,11 @@ const Recipe = ({ content }: RecipeProps) => {
           }}
           my={4}
         >
-          <DynamicImage image={image} props={imageProps} preload={true} />
+          <DynamicImage
+            image={image}
+            breakpoints={breakpoints}
+            preload={true}
+          />
         </Box>
       )}
       <Stack direction="column" spacing={3}>

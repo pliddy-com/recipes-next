@@ -159,7 +159,7 @@ exports[`Recipe when there is page content it renders the RecipeGrid 1`] = `
         <h2
           class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
         >
-          EquipmentSection
+          Equipment
         </h2>
         <ul
           class="MuiList-root MuiList-padding recipeList css-h4y409-MuiList-root"

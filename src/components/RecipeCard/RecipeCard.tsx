@@ -14,7 +14,7 @@ import DynamicImage from 'components/DynamicImage/DynamicImage';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
-import config from 'lib/config';
+import config from './RecipeCard.config';
 
 interface RecipeCardProps {
   recipe?: RecipeDefaultFragment;
@@ -22,12 +22,12 @@ interface RecipeCardProps {
 }
 
 const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
+  const { breakpoints } = config;
   const { title, abstract, image, tagsCollection, slug } = recipe ?? {};
   const { items: tags } = tagsCollection ?? {};
   const { title: category } = tags?.[0] ?? {};
-  const { card: imageProps } = config?.images ?? {};
 
-  return recipe && imageProps ? (
+  return recipe && breakpoints && breakpoints.length > 0 ? (
     <Card variant="outlined" className="recipe">
       <CardActionArea component={Link} href={`/recipe/${slug}`}>
         <CardHeader title={title} subheader={category} />
@@ -36,7 +36,7 @@ const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
             <Box className="imageWrapper">
               <DynamicImage
                 image={image}
-                props={imageProps}
+                breakpoints={breakpoints}
                 preload={preloadImg}
               />
             </Box>

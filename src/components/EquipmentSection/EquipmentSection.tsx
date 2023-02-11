@@ -16,7 +16,7 @@ interface EquipmentSectionProps {
 const EquipmentSection = ({ equipment }: EquipmentSectionProps) =>
   equipment ? (
     <Stack direction="column">
-      <Typography variant="h2">EquipmentSection</Typography>
+      <Typography variant="h2">Equipment</Typography>
       <List className="recipeList">
         {equipment &&
           equipment.map((item) => (

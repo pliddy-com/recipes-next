@@ -18,6 +18,7 @@ const customJestConfig = {
     '!**/node_modules/**',
     '!src/lib/createEmotionCache.ts',
     '!src/theme/**',
+    '!src/**.config.ts',
   ],
 };
 

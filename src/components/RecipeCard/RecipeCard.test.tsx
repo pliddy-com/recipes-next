@@ -5,17 +5,12 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import RecipeCard from 'components/RecipeCard/RecipeCard';
+import RecipeCard from './RecipeCard';
 
 import { Maybe, RecipeDefaultFragment } from 'types/generated/graphql';
 
-import config from 'lib/config';
-
-jest.mock('lib/config', () => ({
-  images: {
-    card: [],
-  },
-}));
+import config from './RecipeCard.config';
+jest.createMockFromModule('./RecipeCard.config');
 
 describe('RecipeCard', () => {
   afterEach(() => {
@@ -79,7 +74,7 @@ describe('RecipeCard', () => {
 
   describe('when there is no content', () => {
     const recipe = undefined;
-    it('does not render the component', () => {
+    it('does not render', () => {
       render(<RecipeCard recipe={recipe} />);
 
       const card = document.querySelector('.recipe');
@@ -90,7 +85,7 @@ describe('RecipeCard', () => {
   describe('when there are no config properties', () => {
     // before each test, delete images node from config
     beforeEach(() => {
-      delete config.images;
+      delete config.breakpoints;
     });
 
     const recipe: RecipeDefaultFragment = {

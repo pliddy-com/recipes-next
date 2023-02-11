@@ -9,9 +9,9 @@ import Recipe from './Recipe';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
-import config from 'lib/config';
+import config from './Recipe.config';
 
-jest.mock('lib/config');
+jest.createMockFromModule('./Recipe.config');
 
 describe('Recipe', () => {
   afterEach(() => {
@@ -144,7 +144,7 @@ describe('Recipe', () => {
   describe('when there is no page content', () => {
     // before each test, delete images node from config
     beforeEach(() => {
-      delete config.images;
+      delete config.breakpoints;
     });
 
     it('it does not render the Recipe', () => {
