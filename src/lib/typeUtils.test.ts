@@ -1,25 +1,25 @@
 import '@testing-library/jest-dom';
 
-import { notNullOrUndefined } from './typeUtils';
+import { hasValue } from './typeUtils';
 
 describe('typeUtils', () => {
-  describe('when notNullOrUndefined() is called', () => {
+  describe('when hasValue() is called', () => {
     const nullValue = null;
     const undefinedValue = undefined;
     const validValue = 1;
 
     it('it returns true if value is null', () => {
-      const result = notNullOrUndefined(nullValue);
+      const result = hasValue(nullValue);
       expect(result).toBe(false);
     });
 
     it('it returns true if value is undefined', () => {
-      const result = notNullOrUndefined(undefinedValue);
+      const result = hasValue(undefinedValue);
       expect(result).toBe(false);
     });
 
     it('it returns false if value exists', () => {
-      const result = notNullOrUndefined(validValue);
+      const result = hasValue(validValue);
       expect(result).toBe(true);
     });
   });

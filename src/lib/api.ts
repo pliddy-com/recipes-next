@@ -14,9 +14,13 @@ import {
   TaxonomyCollectionQueryVariables,
 } from 'types/generated/graphql';
 
-import { notNullOrUndefined } from 'lib/typeUtils';
+import { hasValue } from 'lib/typeUtils';
 
-// used to query content for nav menu taxonomy
+/*
+   Fetch requests
+*/
+
+// used to fetch content for nav menu taxonomy on client layout
 export const fetchNavContent = async (
   variables: TaxonomyCollectionQueryVariables
 ) => {
@@ -25,12 +29,12 @@ export const fetchNavContent = async (
     variables
   );
 
-  return taxonomyCollection
-    ? taxonomyCollection.items.filter(notNullOrUndefined)
-    : [];
+  return taxonomyCollection ? taxonomyCollection.items.filter(hasValue) : [];
 };
 
-// GRAPHQL requests
+/*
+   GraphQL requests
+*/
 
 // used to query content for  home index page
 export const queryRecipeCollectionContent = async (
@@ -41,9 +45,7 @@ export const queryRecipeCollectionContent = async (
     variables
   );
 
-  return recipeCollection
-    ? recipeCollection.items.filter(notNullOrUndefined)
-    : [];
+  return recipeCollection ? recipeCollection.items.filter(hasValue) : [];
 };
 
 // used to query content for tag & category pagepage
@@ -55,7 +57,7 @@ export const queryListPageContent = async (
     variables
   );
 
-  return tagCollection ? tagCollection.items.filter(notNullOrUndefined) : [];
+  return tagCollection ? tagCollection.items.filter(hasValue) : [];
 };
 
 // used to query content for standalone recipe page
@@ -67,9 +69,7 @@ export const queryRecipeContent = async (
     variables
   );
 
-  return recipeCollection
-    ? recipeCollection.items.filter(notNullOrUndefined)
-    : [];
+  return recipeCollection ? recipeCollection.items.filter(hasValue) : [];
 };
 
 // used by getStaticProps for recipe page
@@ -86,7 +86,7 @@ export const queryPageSlugs = async (
     return slug;
   });
 
-  return results ? results?.filter(notNullOrUndefined) : [];
+  return results ? results?.filter(hasValue) : [];
 };
 
 // used by getStaticProps for category page
@@ -118,7 +118,7 @@ export const queryCategorySlugs = async (
     })
     .flat();
 
-  return results ? results?.filter(notNullOrUndefined) : [];
+  return results ? results?.filter(hasValue) : [];
 };
 
 // used by getStaticProps for tag page
@@ -131,7 +131,7 @@ export const queryTagSlugs = async (
   );
 
   const filtered = tagCollection?.items
-    .filter(notNullOrUndefined)
+    .filter(hasValue)
     .filter(
       (item) =>
         item?.linkedFrom?.recipeCollection?.total &&
@@ -143,5 +143,5 @@ export const queryTagSlugs = async (
     return slug;
   });
 
-  return results ? results?.filter(notNullOrUndefined) : [];
+  return results ? results?.filter(hasValue) : [];
 };
