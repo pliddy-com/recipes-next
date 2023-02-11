@@ -12,36 +12,14 @@ import CategoryPage, {
 
 import { ListPageItemFragment } from 'types/generated/graphql';
 
-// import config object to mock
-const config = jest.requireMock('lib/config');
+import * as api from 'lib/api';
+import config from 'lib/config';
 
-// set up default mock config object
-jest.mock('lib/config', () => ({
-  microcopy: {
-    index: {
-      defaultTitle: 'Default Index Title',
-      description: 'Index page description',
-    },
-    site: {
-      title: 'Site Title',
-    },
-  },
-}));
+jest.mock('lib/api');
+jest.mock('lib/config');
 
 const pageContentData = { content: 'list page content' };
 const pageSlugData = { slug: 'slug-1' };
-
-// import api library to mock
-const api = jest.requireMock('lib/api');
-
-// set up default mock api object
-jest.mock('lib/api', () => ({
-  // Cannot access 'pageSlugData' before initialization
-  queryCategorySlugs: jest.fn().mockResolvedValue(['slug-1']),
-  queryListPageContent: jest
-    .fn()
-    .mockResolvedValue([{ content: 'list page content' }]),
-}));
 
 describe('CategoryPage in category/[slug].tsx', () => {
   // reset mocks after each test

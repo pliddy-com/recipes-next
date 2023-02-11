@@ -15,7 +15,7 @@ import { ImageDefaultFragment } from 'types/generated/graphql';
 jest.mock('next/head');
 
 describe('DynamicImage', () => {
-  const props = [
+  const breakpoints = [
     {
       viewMin: 1000,
       imgWidth: 400,
@@ -58,7 +58,11 @@ describe('DynamicImage', () => {
       // const expectedAlt = image.description || 'Image Description';
 
       const { container } = render(
-        <DynamicImage image={image} props={props} preload={preload} />
+        <DynamicImage
+          image={image}
+          breakpoints={breakpoints}
+          preload={preload}
+        />
       );
 
       // assert that one picture tag is rendered
@@ -68,7 +72,7 @@ describe('DynamicImage', () => {
 
       // assert that there is a source tag for each element in props
       const sourceTags = document.getElementsByTagName('source');
-      expect(sourceTags.length === props.length).toBe(true);
+      expect(sourceTags.length === breakpoints.length).toBe(true);
       expect(sourceTags[0]).toBeInTheDocument();
 
       // assert that there are image tags
@@ -88,7 +92,7 @@ describe('DynamicImage', () => {
     });
 
     it('it does not generate link tags with preload property if preload === false', () => {
-      render(<DynamicImage image={image} props={props} />);
+      render(<DynamicImage image={image} breakpoints={breakpoints} />);
 
       const pictureTags = document.getElementsByTagName('picture');
       const linkTags = document.getElementsByTagName('link');
@@ -120,7 +124,7 @@ describe('DynamicImage', () => {
     };
 
     it('it does not render', () => {
-      render(<DynamicImage props={props} image={image} />);
+      render(<DynamicImage breakpoints={breakpoints} image={image} />);
 
       const pictureTags = document.getElementsByTagName('picture');
       const linkTags = document.getElementsByTagName('link');

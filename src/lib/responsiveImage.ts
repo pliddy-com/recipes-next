@@ -1,4 +1,4 @@
-export interface WidthProps {
+export interface Breakpoints {
   viewMin?: number;
   imgWidth: number;
 }
@@ -11,7 +11,7 @@ export interface createSrcSetProps {
 export interface createMediaQueryProps {
   viewMin?: number;
   index: number;
-  propList: WidthProps[];
+  breakpoints: Breakpoints[];
 }
 
 export const createSrcSet = ({ url, imgWidth }: createSrcSetProps) => {
@@ -26,15 +26,15 @@ export const createSrcSet = ({ url, imgWidth }: createSrcSetProps) => {
 export const createMediaQuery = ({
   viewMin,
   index,
-  propList,
+  breakpoints,
 }: createMediaQueryProps): string => {
   const minQuery = viewMin && `(min-width: ${viewMin}px)`;
-  const prevMin = index > 0 && propList[index - 1].viewMin;
+  const prevMin = index > 0 && breakpoints[index - 1].viewMin;
   const maxQuery = index > 0 && prevMin && `(max-width: ${prevMin - 1}px)`;
 
   const mediaQuery = `${
-    index < propList.length - 1 && viewMin ? minQuery : ''
-  }${index > 0 && index < propList.length - 1 ? ' and ' : ''}${
+    index < breakpoints.length - 1 && viewMin ? minQuery : ''
+  }${index > 0 && index < breakpoints.length - 1 ? ' and ' : ''}${
     index > 0 ? maxQuery : ''
   }`;
 

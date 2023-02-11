@@ -1,18 +1,18 @@
 import Head from 'next/head';
-import responsiveImage, { WidthProps } from 'lib/responsiveImage';
+import responsiveImage, { Breakpoints } from 'lib/responsiveImage';
 
 interface PreloadTagsProps {
-  props: WidthProps[];
+  breakpoints: Breakpoints[];
   url: string;
 }
 
-const PreloadTags = ({ props, url }: PreloadTagsProps) => {
+const PreloadTags = ({ breakpoints, url }: PreloadTagsProps) => {
   const { createSrcSet, createMediaQuery } = responsiveImage;
 
-  return props && props.length > 0 && url ? (
+  return breakpoints && breakpoints.length > 0 && url ? (
     <Head>
-      {props.map(
-        ({ viewMin, imgWidth }, index, propList) =>
+      {breakpoints.map(
+        ({ viewMin, imgWidth }, index, breakpoints) =>
           url && (
             <link
               as="image"
@@ -23,7 +23,7 @@ const PreloadTags = ({ props, url }: PreloadTagsProps) => {
               media={createMediaQuery({
                 viewMin,
                 index,
-                propList,
+                breakpoints,
               })}
               rel="preload"
             />

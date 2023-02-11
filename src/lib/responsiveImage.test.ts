@@ -22,7 +22,7 @@ describe('responsiveImage', () => {
     const viewMin = 1000;
 
     // use 3 sets of props for min, max, and at least one in between
-    const propList = [
+    const breakpoints = [
       {
         viewMin: 1000,
         imgWidth: 300,
@@ -36,25 +36,31 @@ describe('responsiveImage', () => {
       },
     ];
 
-    it('it returns a correctly formatted mediaQuery string for the first image in the propList', () => {
+    it('it returns a correctly formatted mediaQuery string for the first image in the breakpoints', () => {
       const index = 0;
       const expected = '(min-width: 1000px)';
 
-      expect(createMediaQuery({ viewMin, index, propList })).toEqual(expected);
+      expect(createMediaQuery({ viewMin, index, breakpoints })).toEqual(
+        expected
+      );
     });
 
-    it('it returns a correctly formatted mediaQuery string for the last image in the propList', () => {
-      const index = propList.length - 1;
+    it('it returns a correctly formatted mediaQuery string for the last image in the breakpoints', () => {
+      const index = breakpoints.length - 1;
       const expected = '(max-width: 499px)';
 
-      expect(createMediaQuery({ viewMin, index, propList })).toEqual(expected);
+      expect(createMediaQuery({ viewMin, index, breakpoints })).toEqual(
+        expected
+      );
     });
 
-    it('it returns a correctly formatted mediaQuery string for and image in the middle of the propList', () => {
+    it('it returns a correctly formatted mediaQuery string for and image in the middle of the breakpoints', () => {
       const index = 1;
       const expected = '(min-width: 1000px) and (max-width: 999px)';
 
-      expect(createMediaQuery({ viewMin, index, propList })).toEqual(expected);
+      expect(createMediaQuery({ viewMin, index, breakpoints })).toEqual(
+        expected
+      );
     });
   });
 });

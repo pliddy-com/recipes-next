@@ -16,7 +16,7 @@ const LogoButton = () => (
     startIcon={<LogoIcon />}
     className="logo"
   >
-    {config.microcopy.site.title}
+    {config?.microcopy?.site?.title}
   </Button>
 );
 

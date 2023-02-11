@@ -6,23 +6,10 @@ import '@testing-library/jest-dom';
 // import the component to test
 import PageHeadTag from './PageHeadTag';
 
-// set up mock next head component from root level mocks__
+import config from 'lib/config';
+
+jest.mock('lib/config');
 jest.mock('next/head');
-
-// import config object to mock
-const config = jest.requireMock('lib/config');
-
-// set up default mock config object
-jest.mock('lib/config', () => ({
-  microcopy: {
-    index: {
-      description: 'Mock Config Index Description',
-    },
-    site: {
-      title: 'Mock Config Site Title',
-    },
-  },
-}));
 
 describe('PageHeadingTag', () => {
   // reset mocks after each test
@@ -55,15 +42,15 @@ describe('PageHeadingTag', () => {
     });
 
     it('it renders a Next Head tag with a default title and description', () => {
-      const defaultTitle = config.microcopy.site.title;
-      const defaultDescription = config.microcopy.index.description;
+      const defaultTitle = config?.microcopy?.site?.title;
+      const defaultDescription = config?.microcopy?.index?.description;
 
       render(<PageHeadTag defaultTitle={defaultTitle} />);
 
       const titleTag = document.getElementsByTagName('title')[0];
 
       expect(titleTag).toBeInTheDocument();
-      expect(titleTag.text.includes(defaultTitle));
+      defaultTitle && expect(titleTag.text.includes(defaultTitle));
 
       const descriptionTag = document.querySelector(
         `meta[content="${defaultDescription}"]`
@@ -73,7 +60,7 @@ describe('PageHeadingTag', () => {
     });
 
     it('it renders a Next Head tag if no values defaults are passed', () => {
-      const defaultDescription = config.microcopy.index.description;
+      const defaultDescription = config?.microcopy?.index?.description;
 
       render(<PageHeadTag />);
 

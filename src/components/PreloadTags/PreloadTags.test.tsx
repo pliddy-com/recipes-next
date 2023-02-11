@@ -15,7 +15,7 @@ jest.mock('next/head');
 describe('PreloadTags', () => {
   describe('when props and url are provided', () => {
     const url = 'https://URL.test';
-    const props = [
+    const breakpoints = [
       {
         viewMin: 1000,
         imgWidth: 300,
@@ -36,7 +36,9 @@ describe('PreloadTags', () => {
       const srcSetSpy = jest.spyOn(responsiveImage, 'createSrcSet');
       const mediaQuerySpy = jest.spyOn(responsiveImage, 'createMediaQuery');
 
-      const { container } = render(<PreloadTags props={props} url={url} />);
+      const { container } = render(
+        <PreloadTags breakpoints={breakpoints} url={url} />
+      );
 
       //   expect srcSet and mediaQuery creators to be called
       expect(mediaQuerySpy).toHaveBeenCalled();
@@ -44,7 +46,7 @@ describe('PreloadTags', () => {
 
       // returns 1 tag for each element in props
       const linkTags = document.getElementsByTagName('link');
-      expect(linkTags.length === props.length).toBe(true);
+      expect(linkTags.length === breakpoints.length).toBe(true);
 
       // expect url & imageSizes tags to be created
       const testTag = linkTags[0];
@@ -58,7 +60,7 @@ describe('PreloadTags', () => {
 
   describe('when props and url are provided', () => {
     it('it does not render', () => {
-      render(<PreloadTags props={[]} url={null as unknown as string} />);
+      render(<PreloadTags breakpoints={[]} url={null as unknown as string} />);
 
       const linkTags = document.getElementsByTagName('link');
 

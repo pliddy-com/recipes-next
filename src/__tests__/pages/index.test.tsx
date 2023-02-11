@@ -6,36 +6,15 @@ import '@testing-library/jest-dom';
 
 // import the component to test
 import HomePage, { getStaticProps } from 'pages/index';
-
 import { RecipeSummaryFragment } from 'types/generated/graphql';
 
-// import config object to mock
-const config = jest.requireMock('lib/config');
+import config from 'lib/config';
+import * as api from 'lib/api';
 
-// set up default mock config object
-jest.mock('lib/config', () => ({
-  microcopy: {
-    index: {
-      defaultTitle: 'Default Index Title',
-      description: 'Index page description',
-    },
-    site: {
-      title: 'Site Title',
-    },
-  },
-}));
+jest.mock('lib/config');
+jest.mock('lib/api');
 
-const recipeCollectionData = { data: 'recipe collection' };
-
-// import api library to mock
-const api = jest.requireMock('lib/api');
-
-// set up default mock api object
-jest.mock('lib/api', () => ({
-  queryRecipeCollectionContent: jest
-    .fn()
-    .mockResolvedValue({ data: 'recipe collection' }),
-}));
+const recipeCollectionData = { content: 'recipe collection' };
 
 describe('HomePage in index.tsx', () => {
   // reset mocks after each test
@@ -97,6 +76,7 @@ describe('HomePage in index.tsx', () => {
       ];
 
       const apiSpy = jest.spyOn(api, 'queryRecipeCollectionContent');
+
       const { defaultTitle } = config?.microcopy?.index ?? {};
       const expectedProps = {
         props: { pageContent: recipeCollectionData, preview: true },
@@ -123,7 +103,7 @@ describe('HomePage in index.tsx', () => {
       // assert that page head tags are rendered
       const titleTag = document.getElementsByTagName('title')[0];
       expect(titleTag).toBeInTheDocument();
-      expect(titleTag.text.includes(defaultTitle));
+      defaultTitle && expect(titleTag.text.includes(defaultTitle));
 
       // assert that page container is rendered
       const page = document.querySelector('.page');

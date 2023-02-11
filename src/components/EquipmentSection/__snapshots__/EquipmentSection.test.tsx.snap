@@ -8,7 +8,7 @@ exports[`EquipmentSection when there is properly formatted content it renders th
     <h2
       class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
     >
-      EquipmentSection
+      Equipment
     </h2>
     <ul
       class="MuiList-root MuiList-padding recipeList css-h4y409-MuiList-root"

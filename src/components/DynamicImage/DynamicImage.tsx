@@ -1,32 +1,32 @@
 import PreloadTags from 'components/PreloadTags/PreloadTags';
 
-import responsiveImage, { WidthProps } from 'lib/responsiveImage';
+import responsiveImage, { Breakpoints } from 'lib/responsiveImage';
 
 import { ImageDefaultFragment } from 'types/generated/graphql';
 
 export interface ImageProps {
   image: ImageDefaultFragment;
-  props: WidthProps[];
+  breakpoints: Breakpoints[];
   preload?: boolean;
 }
 
-const DynamicImage = ({ image, props, preload = false }: ImageProps) => {
+const DynamicImage = ({ image, breakpoints, preload = false }: ImageProps) => {
   const { createSrcSet, createMediaQuery } = responsiveImage;
 
   const { url, description: alt, height: imgHeight, width: imgWidth } = image;
 
-  return url && imgWidth && imgHeight && alt ? (
+  return breakpoints && url && imgWidth && imgHeight && alt ? (
     <>
-      {preload && <PreloadTags props={props} url={url} />}
+      {preload && <PreloadTags breakpoints={breakpoints} url={url} />}
       <picture>
-        {props.map(({ viewMin, imgWidth }, index, propList) => {
+        {breakpoints.map(({ viewMin, imgWidth }, index, breakpoints) => {
           return (
             <source
               key={`${url}-${viewMin || imgWidth}-source`}
               media={createMediaQuery({
                 viewMin,
                 index,
-                propList,
+                breakpoints,
               })}
               srcSet={createSrcSet({ url, imgWidth })}
               sizes={`${imgWidth}px`}

@@ -9,16 +9,9 @@ import Recipe from './Recipe';
 
 import { RecipeDefaultFragment } from 'types/generated/graphql';
 
-// import config object to mock
-const config = jest.requireMock('lib/config');
+import config from './Recipe.config';
 
-jest.mock('lib/config', () => ({
-  images: {
-    props: {
-      recipe: [],
-    },
-  },
-}));
+jest.createMockFromModule('./Recipe.config');
 
 describe('Recipe', () => {
   afterEach(() => {
@@ -151,7 +144,7 @@ describe('Recipe', () => {
   describe('when there is no page content', () => {
     // before each test, delete images node from config
     beforeEach(() => {
-      delete config.images.props;
+      delete config.breakpoints;
     });
 
     it('it does not render the Recipe', () => {
