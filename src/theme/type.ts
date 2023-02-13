@@ -62,9 +62,10 @@ const typeTheme = {
     },
     h1: {
       fontFamily: serifFontFamily,
-      fontSize: `${38 / baseFontSize}rem`,
+      fontSize: `2.25rem`,
       fontWeight: 700,
       lineHeight: 1.25,
+      minHeight: `${45 / baseRemSize}rem`,
     },
     h2: {
       fontFamily: serifFontFamily,

@@ -1,9 +1,8 @@
-/* istanbul ignore file */
 import { ReactElement, useEffect, useState } from 'react';
 
 import NavBar from 'components/NavBar/NavBar';
 
-import { fetchNavContent } from 'lib/api';
+import { queryNavContent } from 'lib/api';
 
 import { Taxonomy } from 'types/generated/graphql';
 
@@ -15,7 +14,7 @@ const Layout = ({ children }: LayoutProps) => {
   const [navData, setNavData] = useState<Taxonomy>();
 
   useEffect(() => {
-    fetchNavContent({ where: { slug: 'categories' } })
+    queryNavContent({ where: { slug: 'categories' } })
       .then((result) => {
         if (result[0]) {
           const menu = result[0] as Taxonomy;

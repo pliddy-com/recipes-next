@@ -1,4 +1,4 @@
-import { fetchContent, queryGraphQLContent } from './clients';
+import { queryGraphQLContent } from 'lib/gqlClient';
 import {
   RecipeCollectionDocument,
   RecipeCollectionQueryVariables,
@@ -21,10 +21,10 @@ import { hasValue } from 'lib/typeUtils';
 */
 
 // used to fetch content for nav menu taxonomy on client layout
-export const fetchNavContent = async (
+export const queryNavContent = async (
   variables: TaxonomyCollectionQueryVariables
 ) => {
-  const { taxonomyCollection } = await fetchContent(
+  const { taxonomyCollection } = await queryGraphQLContent(
     TaxonomyCollectionDocument,
     variables
   );
