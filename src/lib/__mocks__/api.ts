@@ -1,4 +1,5 @@
 export interface ApiTestProps {
+  fetchNavContent: () => string[];
   queryPageSlugs: () => string[];
   queryCategorySlugs: () => string[];
   queryTagSlugs: () => string[];
@@ -9,6 +10,8 @@ export interface ApiTestProps {
 
 // import api library to mock
 const api: ApiTestProps = jest.createMockFromModule('lib/api');
+
+api.fetchNavContent = jest.fn().mockResolvedValue(['slug-1']);
 
 api.queryPageSlugs = jest.fn().mockResolvedValue(['slug-1']);
 

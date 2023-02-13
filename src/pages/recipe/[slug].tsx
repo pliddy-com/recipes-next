@@ -12,7 +12,7 @@ import Recipe from 'pageContainers/Recipe/Recipe';
 
 import { queryPageSlugs, queryRecipeContent } from 'lib/api';
 import config from 'lib/config';
-import { notNullOrUndefined } from 'lib/typeUtils';
+import { hasValue } from 'lib/typeUtils';
 
 const RecipePage = ({
   pageContent,
@@ -42,7 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = slugQueryResults
     .map((slug) => slug)
-    .filter(notNullOrUndefined)
+    .filter(hasValue)
     .map((slug) => ({
       params: { slug },
     }));

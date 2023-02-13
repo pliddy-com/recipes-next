@@ -12,7 +12,7 @@ import RecipeGrid from 'pageContainers/RecipeGrid/RecipeGrid';
 
 import { queryTagSlugs, queryListPageContent } from 'lib/api';
 import config from 'lib/config';
-import { notNullOrUndefined } from 'lib/typeUtils';
+import { hasValue } from 'lib/typeUtils';
 
 const TagPage = ({
   pageContent,
@@ -43,7 +43,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = slugQueryResults
     .map((slug) => slug)
-    .filter(notNullOrUndefined)
+    .filter(hasValue)
     .map((slug) => ({
       params: { slug },
     }));

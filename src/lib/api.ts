@@ -1,6 +1,4 @@
-import { createClient, TypedDocumentNode } from 'urql';
-import { print } from 'graphql';
-
+import { queryGraphQLContent } from 'lib/gqlClient';
 import {
   RecipeCollectionDocument,
   RecipeCollectionQueryVariables,
@@ -16,136 +14,69 @@ import {
   TaxonomyCollectionQueryVariables,
 } from 'types/generated/graphql';
 
-import { notNullOrUndefined } from 'lib/typeUtils';
-import { ResultOf, VariablesOf } from '@graphql-typed-document-node/core';
+import { hasValue } from 'lib/typeUtils';
 
-const SPACE_ID = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
-const ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
+/*
+   Fetch requests
+*/
 
-// TODO: move whole string to .env
-const API_ENDPOINT = `https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}/`;
-
-const graphQLRequestClient = createClient({
-  url: API_ENDPOINT,
-  fetchOptions: () => ({
-    headers: { authorization: ACCESS_TOKEN ? `Bearer ${ACCESS_TOKEN}` : '' },
-  }),
-});
-
-export async function graphQLRequest<
-  TDocument extends TypedDocumentNode<
-    ResultOf<TDocument>,
-    VariablesOf<TDocument>
-  >,
-  TVars = TDocument extends unknown ? never : VariablesOf<TDocument>
->(document: TDocument, variables: TVars) {
-  if (typeof window !== 'undefined') {
-    throw new Error(
-      'This function in only used for Server Side Rendering. Use `fetch` for client side requests.'
-    );
-  }
-
-  const { data, error } = await graphQLRequestClient
-    // @ts-expect-error query variables are typed by graphQLRequest
-    .query(document, variables)
-    .toPromise();
-
-  if (!data) {
-    if (error) {
-      throw error;
-    }
-    throw new Error('No data returned');
-  }
-
-  return data;
-}
-
-// use fetch for nav query instead of the gql client to minimize browser bundle size
-export async function fetchContent<
-  TDocument extends TypedDocumentNode<
-    ResultOf<TDocument>,
-    VariablesOf<TDocument>
-  >,
-  TVars = TDocument extends unknown ? never : VariablesOf<TDocument>
->(document: TDocument, variables: TVars) {
-  try {
-    const response = await window.fetch(API_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: ACCESS_TOKEN ? `Bearer ${ACCESS_TOKEN}` : '',
-      },
-      // send the GraphQL query
-      body: JSON.stringify({ query: print(document), variables }),
-    });
-
-    const { data } = await response.json();
-
-    return data;
-  } catch (e) {
-    console.error(e);
-  }
-}
-
-// used to query content for nav menu taxonomy
-export const fetchNavContent = async (
+// used to fetch content for nav menu taxonomy on client layout
+export const queryNavContent = async (
   variables: TaxonomyCollectionQueryVariables
 ) => {
-  const { taxonomyCollection } = await fetchContent(
+  const { taxonomyCollection } = await queryGraphQLContent(
     TaxonomyCollectionDocument,
     variables
   );
 
-  return taxonomyCollection
-    ? taxonomyCollection.items.filter(notNullOrUndefined)
-    : [];
+  return taxonomyCollection ? taxonomyCollection.items.filter(hasValue) : [];
 };
+
+/*
+   GraphQL requests
+*/
 
 // used to query content for  home index page
 export const queryRecipeCollectionContent = async (
   variables?: RecipeCollectionQueryVariables
 ) => {
-  const { recipeCollection } = await graphQLRequest(
+  const { recipeCollection } = await queryGraphQLContent(
     RecipeCollectionDocument,
     variables
   );
 
-  return recipeCollection
-    ? recipeCollection.items.filter(notNullOrUndefined)
-    : [];
+  return recipeCollection ? recipeCollection.items.filter(hasValue) : [];
 };
 
 // used to query content for tag & category pagepage
 export const queryListPageContent = async (
   variables: ListPageQueryQueryVariables
 ) => {
-  const { tagCollection } = await graphQLRequest(
+  const { tagCollection } = await queryGraphQLContent(
     ListPageQueryDocument,
     variables
   );
 
-  return tagCollection ? tagCollection.items.filter(notNullOrUndefined) : [];
+  return tagCollection ? tagCollection.items.filter(hasValue) : [];
 };
 
 // used to query content for standalone recipe page
 export const queryRecipeContent = async (
   variables?: RecipePageQueryVariables
 ) => {
-  const { recipeCollection } = await graphQLRequest(
+  const { recipeCollection } = await queryGraphQLContent(
     RecipePageDocument,
     variables
   );
 
-  return recipeCollection
-    ? recipeCollection.items.filter(notNullOrUndefined)
-    : [];
+  return recipeCollection ? recipeCollection.items.filter(hasValue) : [];
 };
 
 // used by getStaticProps for recipe page
 export const queryPageSlugs = async (
   variables: RecipeSlugsCollectionQueryVariables
 ) => {
-  const { recipeCollection } = await graphQLRequest(
+  const { recipeCollection } = await queryGraphQLContent(
     RecipeSlugsCollectionDocument,
     variables
   );
@@ -155,14 +86,14 @@ export const queryPageSlugs = async (
     return slug;
   });
 
-  return results ? results?.filter(notNullOrUndefined) : [];
+  return results ? results?.filter(hasValue) : [];
 };
 
 // used by getStaticProps for category page
 export const queryCategorySlugs = async (
   variables: TaxonomyCollectionQueryVariables
 ) => {
-  const { taxonomyCollection } = await graphQLRequest(
+  const { taxonomyCollection } = await queryGraphQLContent(
     TaxonomyCollectionDocument,
     variables
   );
@@ -187,20 +118,20 @@ export const queryCategorySlugs = async (
     })
     .flat();
 
-  return results ? results?.filter(notNullOrUndefined) : [];
+  return results ? results?.filter(hasValue) : [];
 };
 
 // used by getStaticProps for tag page
 export const queryTagSlugs = async (
   variables: TagSlugsCollectionQueryVariables
 ) => {
-  const { tagCollection } = await graphQLRequest(
+  const { tagCollection } = await queryGraphQLContent(
     TagSlugsCollectionDocument,
     variables
   );
 
   const filtered = tagCollection?.items
-    .filter(notNullOrUndefined)
+    .filter(hasValue)
     .filter(
       (item) =>
         item?.linkedFrom?.recipeCollection?.total &&
@@ -212,5 +143,5 @@ export const queryTagSlugs = async (
     return slug;
   });
 
-  return results ? results?.filter(notNullOrUndefined) : [];
+  return results ? results?.filter(hasValue) : [];
 };
