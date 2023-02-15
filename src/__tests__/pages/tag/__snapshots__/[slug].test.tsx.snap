@@ -3,7 +3,7 @@
 exports[`TagPage in tag/[slug].tsx when there is page content it renders the page 1`] = `
 <div>
   <title>
-    Baking
+    Baking Tag Default Title
   </title>
   <meta
     content="Tag default description Baking"
@@ -15,7 +15,7 @@ exports[`TagPage in tag/[slug].tsx when there is page content it renders the pag
     <h1
       class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
     >
-      Baking
+      Baking Tag Default Title
     </h1>
     <h2
       class="MuiTypography-root MuiTypography-subtitle1 MuiTypography-gutterBottom css-1wniyei-MuiTypography-root"

@@ -23,14 +23,16 @@ const TagPage = ({
 
   const description = `${defaultDescription} ${title}`;
 
+  const pageTitle = `${title} ${defaultTitle}`;
+
   return pageContent && title ? (
     <>
       <PageHeadTag
-        title={title}
+        title={`${title} ${defaultTitle}`}
         defaultTitle={defaultTitle}
         description={description}
       />
-      <RecipeGrid recipes={content} title={title} />
+      <RecipeGrid recipes={content} title={pageTitle} />
       {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
   ) : null;
