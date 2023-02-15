@@ -30,9 +30,11 @@ const PageHeadTag = ({
   const type = image ? 'article' : 'website';
   const url = `${domain}${asPath}`;
 
-  const canonicalUrl =
-    asPath.includes('category') &&
-    `${domain}${asPath.replace('category', 'tag')}`;
+  const canonicalPath = asPath.includes('category')
+    ? `${asPath.replace('category', 'tag')}`
+    : `${asPath}`;
+
+  const canonicalUrl = `${domain}${canonicalPath}`;
 
   return siteTitle || defaultTitle || description || defaultDescription ? (
     <Head>

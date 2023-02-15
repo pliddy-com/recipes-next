@@ -33,7 +33,7 @@ const microcopy: MicrocopyProps = {
   },
   tag: {
     defaultDescription: 'A collection of recipies tagged as',
-    defaultTitle: 'Tag',
+    defaultTitle: 'Recipes',
   },
 };
 
