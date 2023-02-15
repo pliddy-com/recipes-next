@@ -17,7 +17,7 @@ const PageHeadTag = ({
   description,
   image,
 }: PageHeadTagProps) => {
-  const { asPath: pageUrl } = useRouter();
+  const { asPath } = useRouter();
   const { site, index } = config?.microcopy ?? {};
   const { title: siteTitle, domain } = site ?? {};
   const { description: defaultDescription } = index ?? {};
@@ -28,15 +28,11 @@ const PageHeadTag = ({
   const tagDescription = description || defaultDescription;
   const tagTitle = title || defaultTitle;
   const type = image ? 'article' : 'website';
+  const url = `${domain}${asPath}`;
 
-  /*
-    <PageHeadTag
-      title={title}
-      defaultTitle={defaultTitle}
-      description={description}
-      image={image}
-    />
-  */
+  const canonicalUrl =
+    asPath.includes('category') &&
+    `${domain}${asPath.replace('category', 'tag')}`;
 
   return siteTitle || defaultTitle || description || defaultDescription ? (
     <Head>
@@ -44,6 +40,7 @@ const PageHeadTag = ({
       {tagDescription && <meta name="description" content={tagDescription} />}
 
       <meta property="og:description" content={tagDescription} />
+
       {image && image.url && (
         <meta
           property="og:image"
@@ -56,11 +53,14 @@ const PageHeadTag = ({
       {image && <meta property="og:image:height" content={`${imgHeight}`} />}
       {image && <meta property="og:image:width" content={`${imgWidth}`} />}
       {image && <meta property="og:image:type" content="image/jpeg" />}
+
       <meta property="og:locale" content={locale} />
       <meta property="og:site_name" content={siteTitle} />
       <meta property="og:title" content={tagTitle} />
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={`${domain}${pageUrl}`} />
+      <meta property="og:url" content={url} />
+
+      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     </Head>
   ) : null;
 };

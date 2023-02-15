@@ -18,7 +18,7 @@ jest.mock('next/router', () => ({
       route: '/route',
       pathname: '/path',
       query: '',
-      asPath: '',
+      asPath: '/category/path',
     };
   },
 }));
