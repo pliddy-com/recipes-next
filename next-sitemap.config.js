@@ -14,9 +14,6 @@ const exclude = [];
 // extend the configuration
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  additionalPaths: async (config) => {
-    console.log({ config });
-  },
   exclude,
   generateRobotsTxt: true,
   robotsTxtOptions: {
