@@ -3,7 +3,7 @@
 exports[`HomePage in index.tsx when there is page content it renders the page 1`] = `
 <div>
   <title>
-    Site Title | Index Default Title
+    Index Default Title
   </title>
   <meta
     content="Index default description."

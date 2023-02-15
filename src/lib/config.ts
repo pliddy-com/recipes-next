@@ -2,6 +2,7 @@ interface PageProps {
   defaultDescription?: string;
   defaultTitle?: string;
   description?: string;
+  domain?: string;
   title?: string;
 }
 
@@ -32,6 +33,7 @@ const microcopy: MicrocopyProps = {
   },
   site: {
     title: "Patrick's Recipes",
+    domain: 'https://recipes.pliddy.com',
   },
   tag: {
     defaultDescription: 'A collection of recipies tagged as',

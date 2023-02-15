@@ -19,6 +19,7 @@
     "start": "next start",
     "test": "jest",
     "test:dev": "jest --watch",
+    "test:snapshot": "npm test -- -u",
     "test:ci": "jest --ci",
     "typecheck": "tsc",
     "typegen": "graphql-codegen --config codegen.yml --require dotenv/config",
