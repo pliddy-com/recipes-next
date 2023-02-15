@@ -17,6 +17,7 @@ import * as api from 'lib/api';
 
 jest.mock('lib/config');
 jest.mock('lib/api');
+jest.mock('components/PageHeadTag/PageHeadTag');
 
 const recipeContentData = { content: 'recipe content' };
 const pageSlugData = { slug: 'slug-1' };

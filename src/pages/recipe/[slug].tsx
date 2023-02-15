@@ -17,7 +17,7 @@ import { hasValue } from 'lib/typeUtils';
 const RecipePage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { abstract, title } = pageContent ?? {};
+  const { abstract, title, image } = pageContent ?? {};
   const { defaultDescription, defaultTitle } = config?.microcopy?.recipe ?? {};
 
   const description = abstract || `${defaultDescription} ${title}`;
@@ -28,6 +28,7 @@ const RecipePage = ({
         title={title}
         defaultTitle={defaultTitle}
         description={description}
+        image={image}
       />
       <Recipe content={pageContent} />
       {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}

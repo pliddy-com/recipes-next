@@ -13,6 +13,7 @@ import config from 'lib/config';
 
 jest.mock('lib/api');
 jest.mock('lib/config');
+jest.mock('components/PageHeadTag/PageHeadTag');
 
 const pageContentData = { content: 'list page content' };
 const tagSlugData = { slug: 'slug-1' };

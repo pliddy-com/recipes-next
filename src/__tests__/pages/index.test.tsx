@@ -13,6 +13,7 @@ import * as api from 'lib/api';
 
 jest.mock('lib/config');
 jest.mock('lib/api');
+jest.mock('components/PageHeadTag/PageHeadTag');
 
 const recipeCollectionData = { content: 'recipe collection' };
 

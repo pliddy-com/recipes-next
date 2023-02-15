@@ -3,7 +3,7 @@
 exports[`TagPage in tag/[slug].tsx when there is page content it renders the page 1`] = `
 <div>
   <title>
-    Site Title | Baking
+    Baking
   </title>
   <meta
     content="Tag default description Baking"

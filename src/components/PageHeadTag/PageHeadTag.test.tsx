@@ -7,9 +7,21 @@ import '@testing-library/jest-dom';
 import PageHeadTag from './PageHeadTag';
 
 import config from 'lib/config';
+import { ImageDefaultFragment } from 'types/generated/graphql';
 
 jest.mock('lib/config');
 jest.mock('next/head');
+
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      route: '/route',
+      pathname: '/path',
+      query: '',
+      asPath: '',
+    };
+  },
+}));
 
 describe('PageHeadingTag', () => {
   // reset mocks after each test
@@ -21,9 +33,24 @@ describe('PageHeadingTag', () => {
     it('it renders a Next Head tag with a title and description', () => {
       const title = 'Test Title';
       const description = 'Decription';
+      const image: ImageDefaultFragment = {
+        sys: {
+          id: 'sysId',
+          __typename: 'Sys',
+        },
+        __typename: 'Asset',
+        title: 'Image Title',
+        description: 'Image Description',
+        contentType: 'image/jpeg',
+        fileName: 'imageFileName.jpg',
+        size: 999999,
+        url: 'https://image.url',
+        height: 300,
+        width: 400,
+      };
 
       const { container } = render(
-        <PageHeadTag title={title} description={description} />
+        <PageHeadTag title={title} description={description} image={image} />
       );
 
       const titleTag = document.getElementsByTagName('title')[0];
