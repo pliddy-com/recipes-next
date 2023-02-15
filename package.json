@@ -5,6 +5,8 @@
   "scripts": {
     "prebuild": "npm run typegen && npm run test",
     "build": "next build",
+    "postbuild": "npm run sitemap",
+    "sitemap": "next-sitemap",
     "predeploy": "npm run export",
     "deploy": "dotenv -- cross-var aws s3 sync --acl public-read out/ %S3_BUCKET%",
     "postdeploy": "dotenv -- cross-var aws cloudfront create-invalidation --distribution-id %DISTRIBUTION_ID% --paths '/*' --no-cli-pager",
@@ -72,6 +74,7 @@
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "lint-staged": "^13.1.0",
+    "next-sitemap": "^3.1.52",
     "tslint-config-prettier": "^1.18.0",
     "urql": "^3.0.3"
   }
