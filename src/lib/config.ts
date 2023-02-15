@@ -19,10 +19,6 @@ export interface ConfigProps {
 }
 
 const microcopy: MicrocopyProps = {
-  category: {
-    defaultDescription: 'A collection of recipies categorized as',
-    defaultTitle: 'Category',
-  },
   index: {
     defaultTitle: 'All Recipes',
     description: "Patrick's recipe collection",

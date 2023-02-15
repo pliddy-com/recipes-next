@@ -1,10 +1,6 @@
 import { ConfigProps } from 'lib/config';
 
 const microcopy = {
-  category: {
-    defaultDescription: 'Category default description',
-    defaultTitle: 'Category Default Title',
-  },
   index: {
     defaultTitle: 'Index Default Title',
     description: 'Index default description.',
