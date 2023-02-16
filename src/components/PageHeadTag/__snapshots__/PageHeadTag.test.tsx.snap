@@ -3,7 +3,7 @@
 exports[`PageHeadingTag when there is a config object it renders a Next Head tag with a title and description 1`] = `
 <div>
   <title>
-    Site Title | Test Title
+    Patrick's Recipes | Test Title
   </title>
   <meta
     content="Decription"
@@ -38,7 +38,7 @@ exports[`PageHeadingTag when there is a config object it renders a Next Head tag
     property="og:locale"
   />
   <meta
-    content="Site Title"
+    content="Patrick's Recipes"
     property="og:site_name"
   />
   <meta
