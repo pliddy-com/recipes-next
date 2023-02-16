@@ -14,7 +14,7 @@ exports[`PageHeadingTag when there is a config object it renders a Next Head tag
     property="og:description"
   />
   <meta
-    content="https://image.url?w=800&h=320"
+    content="https://image.url?w=750&h=300"
     property="og:image"
   />
   <meta
@@ -22,11 +22,11 @@ exports[`PageHeadingTag when there is a config object it renders a Next Head tag
     property="og:image:alt"
   />
   <meta
-    content="320"
+    content="300"
     property="og:image:height"
   />
   <meta
-    content="800"
+    content="750"
     property="og:image:width"
   />
   <meta
