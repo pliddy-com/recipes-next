@@ -9,18 +9,14 @@ import PageHeadTag from './PageHeadTag';
 import config from 'lib/config';
 import { ImageDefaultFragment } from 'types/generated/graphql';
 
-jest.mock('lib/config');
-jest.mock('next/head');
+import { useRouter } from 'next/router';
 
 jest.mock('next/router', () => ({
-  useRouter() {
-    return {
-      route: '/route',
-      pathname: '/path',
-      query: '',
-      asPath: '/category/path',
-    };
-  },
+  useRouter: jest.fn().mockReturnValue({
+    route: '/route',
+    pathname: '/path',
+    asPath: '/category/path',
+  }),
 }));
 
 describe('PageHeadingTag', () => {
@@ -98,6 +94,30 @@ describe('PageHeadingTag', () => {
 
       expect(titleTag).toBeUndefined();
       expect(descriptionTag).toBeInTheDocument();
+    });
+
+    describe('when there is no rewrite', () => {
+      it('it renders the component if there is no rewrite', () => {
+        (useRouter as jest.Mock).mockReturnValueOnce({
+          route: '/route',
+          pathname: '/path',
+          asPath: '/tag/path',
+        });
+
+        const title = 'Test Title';
+        const description = 'Decription';
+
+        render(<PageHeadTag title={title} description={description} />);
+
+        const titleTag = document.getElementsByTagName('title')[0];
+
+        const descriptionTag = document.querySelector(
+          `meta[content="${description}"]`
+        );
+
+        expect(descriptionTag).toBeInTheDocument();
+        expect(titleTag).toBeInTheDocument();
+      });
     });
   });
 
