@@ -22,8 +22,8 @@ const PageHeadTag = ({
   const { title: siteTitle, domain } = site ?? {};
   const { description: defaultDescription } = index ?? {};
 
-  const imgWidth = 800;
-  const imgHeight = 320;
+  const imgWidth = 750;
+  const imgHeight = 300;
   const locale = 'en_US';
   const tagDescription = description || defaultDescription;
   const tagTitle = title || defaultTitle;

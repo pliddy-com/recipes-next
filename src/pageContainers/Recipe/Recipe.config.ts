@@ -10,15 +10,23 @@ interface Config {
 const config: Config = {
   breakpoints: [
     {
-      viewMin: 704,
-      imgWidth: 832,
+      viewMin: 831,
+      imgWidth: 900,
     },
     {
-      viewMin: 448,
-      imgWidth: 624,
+      viewMin: 665,
+      imgWidth: 750,
     },
     {
-      imgWidth: 416,
+      viewMin: 483,
+      imgWidth: 600,
+    },
+    {
+      viewMin: 333,
+      imgWidth: 450,
+    },
+    {
+      imgWidth: 300,
     },
   ],
 };

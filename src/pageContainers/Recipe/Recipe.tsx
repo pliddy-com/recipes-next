@@ -62,8 +62,8 @@ const Recipe = ({ content }: RecipeProps) => {
         <Box
           mx={{
             xs: 0,
-            sm: 2,
-            md: 4,
+            sm: 1,
+            md: 2,
           }}
           my={4}
         >
