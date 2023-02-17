@@ -28,10 +28,10 @@ jobs:
         run: npm ci
       - name: npm Install
         run: npm install
-      # - name: Change to root directory
+      - name: Change to root directory
+        uses: ./
       #   run: cd ./next-recipes
       - name: Build and Deploy
-        uses: ./
         env:
           DISTRIBUTION_ID: ${{secrets.DISTRIBUTION_ID}}
           S3_BUCKET: ${{secrets.S3_BUCKET}}
