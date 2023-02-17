@@ -1,10 +1,11 @@
-name: QC Scans
-run-name: QC Scans
+name: Code Validation
+run-name: Code Validation
 
 on:
   push:
-    # branches-ignore:
-    #   - main
+    # linting, typechecking, and unit test are part of build process, so no need for separate
+    branches-ignore:
+      - main
   workflow_dispatch:
 
 env:
