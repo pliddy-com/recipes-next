@@ -144,7 +144,11 @@ describe('RecipePage in recipe/[slug].tsx', () => {
       };
 
       const expectedProps = {
-        props: { pageContent: recipeContentData, preview: false },
+        props: {
+          pageContent: recipeContentData,
+          preview: false,
+        },
+        revalidate: 60,
       };
 
       const expectedPaths = {

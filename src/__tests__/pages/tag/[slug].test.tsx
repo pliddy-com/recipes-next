@@ -95,7 +95,11 @@ describe('TagPage in tag/[slug].tsx', () => {
       };
 
       const expectedProps = {
-        props: { pageContent: pageContentData, preview: false },
+        props: {
+          pageContent: pageContentData,
+          preview: false,
+        },
+        revalidate: 60,
       };
 
       const expectedPaths = {

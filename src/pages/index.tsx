@@ -29,7 +29,7 @@ const HomePage = ({
 export const getStaticProps = async ({ preview = false }) => {
   const pageContent = await queryRecipeCollectionContent();
 
-  return { props: { pageContent, preview } };
+  return { props: { pageContent, preview }, revalidate: 60 };
 };
 
 HomePage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;

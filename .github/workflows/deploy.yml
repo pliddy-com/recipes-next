@@ -1,0 +1,22 @@
+name: Build and Deploy
+run-name: ${{ github.actor }} is running build and deploy
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  workflow_dispatch:
+  pull_request:
+    types:
+      - closed
+
+env:
+  NODE_VERSION_FILE: '.nvmrc'
+
+jobs:
+  build-and-deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and Deploy
+        run: npm run deploy

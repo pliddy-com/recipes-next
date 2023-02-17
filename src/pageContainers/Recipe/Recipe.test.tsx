@@ -128,7 +128,7 @@ describe('Recipe', () => {
         },
       };
 
-      const { container } = render(
+      const { asFragment } = render(
         <Recipe content={content as RecipeDefaultFragment} />
       );
 
@@ -137,7 +137,7 @@ describe('Recipe', () => {
       expect(recipe).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
-      expect(container).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 
