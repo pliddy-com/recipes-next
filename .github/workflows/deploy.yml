@@ -1,5 +1,5 @@
 name: Build and Deploy
-run-name: ${{ github.actor }} is running build and deploy
+run-name: Build and Deploy
 
 on:
   # push:
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js version specified in .nvmrc
-        uses: actions/setup-node@v3
+        uses: ./
         with:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
           cache: 'npm'
@@ -28,8 +28,8 @@ jobs:
         run: npm ci
       - name: npm Install
         run: npm install
-      - name: Change to root directory
-        run: cd ./next-recipes
+      # - name: Change to root directory
+      #   run: cd ./next-recipes
       - name: Build and Deploy
         env:
           DISTRIBUTION_ID: ${{secrets.DISTRIBUTION_ID}}
