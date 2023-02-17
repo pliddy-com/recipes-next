@@ -28,7 +28,7 @@ jobs:
         run: npm ci
       - name: npm Install
         run: npm install
-      - NAME: Change to root directory
+      - name: Change to root directory
         run: cd ./next-recipes
       - name: Build and Deploy
         env:
