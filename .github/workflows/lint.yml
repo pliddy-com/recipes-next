@@ -1,0 +1,26 @@
+name: Lint
+run-name: Linting Scan
+
+on:
+  push:
+    branches-ignore:
+      - main
+  workflow_dispatch:
+
+env:
+  NODE_VERSION_FILE: '.nvmrc'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js version specified in .nvmrc
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ${{ env.NODE_VERSION_FILE }}
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Lint
+        run: npm run lint
