@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js version specified in .nvmrc
-        uses: ./
+        uses: actions/setup-node@v3
         with:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
           cache: 'npm'
@@ -28,7 +28,8 @@ jobs:
         run: npm ci
       - name: npm Install
         run: npm install
-      # - name: Change to root directory
+      - name: Change to root directory
+        uses: ./
       #   run: cd ./next-recipes
       - name: Build and Deploy
         env:
