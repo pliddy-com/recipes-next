@@ -11,7 +11,8 @@ env:
   NODE_VERSION_FILE: '.nvmrc'
 
 jobs:
-  scans:
+  lint:
+    run-hame: Linting Scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +25,8 @@ jobs:
         run: npm ci
       - name: Run Lint
         run: npm run lint
-  type-validation:
+  typecheck:
+    run-hame: Typecheck Scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -37,7 +39,8 @@ jobs:
         run: npm ci
       - name: Type Check
         run: npm run typecheck
-  unit-tests:
+  test:
+    run-hame: Unit Test Scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
