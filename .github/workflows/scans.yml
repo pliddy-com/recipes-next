@@ -30,33 +30,42 @@ jobs:
         run: npm ci
       - name: Run Lint
         run: npm run lint
-  type-validation:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js version specified in .nvmrc
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: ${{ env.NODE_VERSION_FILE }}
-          cache: 'npm'
-      - name: Install CI
-        run: npm ci
       - name: Type Check
         run: npm run typecheck
-  unit-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js version specified in .nvmrc
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: ${{ env.NODE_VERSION_FILE }}
-          cache: 'npm'
-      - name: Install CI
-        run: npm ci
       - name: Run Unit Tests
         env:
           NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
         run: npm run test
+
+  # type-validation:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Use Node.js version specified in .nvmrc
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version-file: ${{ env.NODE_VERSION_FILE }}
+  #         cache: 'npm'
+  #     - name: Install CI
+  #       run: npm ci
+  #     - name: Type Check
+  #       run: npm run typecheck
+  # unit-tests:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Use Node.js version specified in .nvmrc
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version-file: ${{ env.NODE_VERSION_FILE }}
+  #         cache: 'npm'
+  #     - name: Install CI
+  #       run: npm ci
+  #     - name: Run Unit Tests
+  #       env:
+  #         NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+  #         NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+  #         NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
+  #       run: npm run test
