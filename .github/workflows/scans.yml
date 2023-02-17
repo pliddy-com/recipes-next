@@ -1,5 +1,5 @@
 name: Lint and Typecheck Scans
-run-name: ${{ github.actor }} is running lint, typegen, and typecheck
+run-name: ${{ github.actor }} is running lint, typecheck, and unit tests
 
 on: [push]
 
