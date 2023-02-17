@@ -1,17 +1,18 @@
-name: Lint, Typecheck, and Unit Test Scans
-run-name: Lint, Typecheck, and Unit Test Scans
+name: QC Scans
+run-name: QC Scans
 
 on:
   push:
-    branches-ignore:
-      - main
+    # branches-ignore:
+    #   - main
   workflow_dispatch:
 
 env:
   NODE_VERSION_FILE: '.nvmrc'
 
 jobs:
-  scans:
+  lint:
+    name: Linting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +25,8 @@ jobs:
         run: npm ci
       - name: Run Lint
         run: npm run lint
-  type-validation:
+  typecheck:
+    name: Type Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -37,7 +39,8 @@ jobs:
         run: npm ci
       - name: Type Check
         run: npm run typecheck
-  unit-tests:
+  test:
+    name: Unit Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
