@@ -79,12 +79,21 @@ describe('HomePage in index.tsx', () => {
       const apiSpy = jest.spyOn(api, 'queryRecipeCollectionContent');
 
       const { defaultTitle } = config?.microcopy?.index ?? {};
+
       const expectedProps = {
-        props: { pageContent: recipeCollectionData, preview: true },
+        props: {
+          pageContent: recipeCollectionData,
+          preview: true,
+        },
+        revalidate: 60,
       };
 
       const expectedDefaultProps = {
-        props: { pageContent: recipeCollectionData, preview: false },
+        props: {
+          pageContent: recipeCollectionData,
+          preview: false,
+        },
+        revalidate: 60,
       };
 
       const { container } = render(

@@ -66,7 +66,11 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     where: { slug },
   });
 
-  return { props: { pageContent, preview: Boolean(preview) } };
+  // return { props: { pageContent, preview: Boolean(preview) } };
+  return {
+    props: { pageContent, preview },
+    revalidate: 60,
+  };
 };
 
 TagPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
