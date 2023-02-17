@@ -17,7 +17,7 @@ env:
   NODE_VERSION_FILE: '.nvmrc'
 
 jobs:
-  linting:
+  scans:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
