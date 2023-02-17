@@ -68,7 +68,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
   // return { props: { pageContent, preview: Boolean(preview) } };
   return {
-    props: { pageContent, preview },
+    props: { pageContent, preview: Boolean(preview) },
     revalidate: 60,
   };
 };
