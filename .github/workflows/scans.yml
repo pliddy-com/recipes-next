@@ -12,7 +12,7 @@ env:
 
 jobs:
   lint:
-    run-name: Linting Scan
+    name: Linting Scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -26,7 +26,7 @@ jobs:
       - name: Run Lint
         run: npm run lint
   typecheck:
-    run-name: Typecheck Scan
+    name: Typecheck Scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -40,7 +40,7 @@ jobs:
       - name: Type Check
         run: npm run typecheck
   test:
-    run-name: Unit Test Scan
+    name: Unit Test Scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
