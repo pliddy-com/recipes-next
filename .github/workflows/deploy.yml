@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js version specified in .nvmrc
-        uses: ./
+        uses: actions/setup-node@v3
         with:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
           cache: 'npm'
@@ -31,6 +31,7 @@ jobs:
       # - name: Change to root directory
       #   run: cd ./next-recipes
       - name: Build and Deploy
+        uses: ./
         env:
           DISTRIBUTION_ID: ${{secrets.DISTRIBUTION_ID}}
           S3_BUCKET: ${{secrets.S3_BUCKET}}
