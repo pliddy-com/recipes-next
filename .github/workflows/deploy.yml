@@ -2,9 +2,9 @@ name: Build and Deploy
 run-name: Build and Deploy
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
   workflow_dispatch:
   pull_request:
     branches:
@@ -35,9 +35,12 @@ jobs:
       #   run: cd ./next-recipes
       - name: Build and Deploy
         env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+          DISTRIBUTION_ID: ${{secrets.DISTRIBUTION_ID}}
           NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
-          DISTRIBUTION_ID: ${{secrets.DISTRIBUTION_ID}}
           S3_BUCKET: ${{secrets.S3_BUCKET}}
         run: npm run deploy
