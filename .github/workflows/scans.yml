@@ -8,12 +8,16 @@ on:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   NODE_VERSION_FILE: '.nvmrc'
 
 jobs:
   lint:
-    name: Linting
+    name: Lint, Type Check, and Unit Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,37 +28,45 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm ci
-      - name: Run Lint
+      - name: Lint
         run: npm run lint
-  typecheck:
-    name: Type Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js version specified in .nvmrc
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: ${{ env.NODE_VERSION_FILE }}
-          cache: 'npm'
-      - name: Install CI
-        run: npm ci
       - name: Type Check
         run: npm run typecheck
-  test:
-    name: Unit Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js version specified in .nvmrc
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: ${{ env.NODE_VERSION_FILE }}
-          cache: 'npm'
-      - name: Install CI
-        run: npm ci
-      - name: Run Unit Tests
+      - name: Unit Tests
         env:
           NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
         run: npm run test
+#  typecheck:
+#     name: Type Check
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Use Node.js version specified in .nvmrc
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version-file: ${{ env.NODE_VERSION_FILE }}
+#           cache: 'npm'
+#       - name: Install CI
+#         run: npm ci
+#       - name: Type Check
+#         run: npm run typecheck
+#   test:
+#     name: Unit Test
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Use Node.js version specified in .nvmrc
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version-file: ${{ env.NODE_VERSION_FILE }}
+#           cache: 'npm'
+#       - name: Install CI
+#         run: npm ci
+#       - name: Run Unit Tests
+#         env:
+#           NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+#           NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+#           NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
+#         run: npm run test

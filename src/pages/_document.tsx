@@ -10,14 +10,10 @@ import Document, {
 import createEmotionCache from 'lib/createEmotionCache';
 import createEmotionServer from '@emotion/server/create-instance';
 
-import {
-  // regularSansFontPath,
-  // boldSansFontPath,
-  normalSerifFontPath,
-  // italicSerifFontPath,
-} from 'theme/fontface';
+import { normalSerifFontPath } from 'theme/fontface';
 
 import { background } from 'lib/styles';
+import colors from 'theme/colors';
 
 // TODO: test render of main against snapshot for head content
 
@@ -30,29 +26,6 @@ export default class MainDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="/favicon.ico" />
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicon-16x16.png"
-          />
-          <link rel="manifest" href="/site.webmanifest" />
-          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#193d60" />
-          <meta name="theme-color" content="#000000" />
-          <meta name="msapplication-TileColor" content="#ff0000" />
-          <meta name="theme-color" content="#ffffff" />
           <link
             rel="preload"
             href={normalSerifFontPath}
@@ -60,27 +33,33 @@ export default class MainDocument extends Document {
             type="font/ttf"
             crossOrigin="true"
           />
-          {/* <link
-            rel="preload"
-            href={italicSerifFontPath}
-            as="font"
-            type="font/ttf"
-            crossOrigin="true"
-          /> */}
-          {/* <link
-            rel="preload"
-            href={regularSansFontPath}
-            as="font"
-            type="font/ttf"
-            crossOrigin="true"
+
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png?v=1"
           />
           <link
-            rel="preload"
-            href={boldSansFontPath}
-            as="font"
-            type="font/ttf"
-            crossOrigin="true"
-          /> */}
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png?v=1"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png?v=1"
+          />
+          <link rel="manifest" href="/site.webmanifest?v=1" />
+          <link
+            rel="mask-icon"
+            href="/safari-pinned-tab.svg?v=1"
+            color={colors.primary.main}
+          />
+          <link rel="shortcut icon" href="/favicon.ico?v=1" />
+          <meta name="msapplication-TileColor" content={colors.primary.main} />
+          <meta name="theme-color" content={colors.primary.main} />
         </Head>
 
         <body style={background}>
@@ -93,28 +72,6 @@ export default class MainDocument extends Document {
 }
 
 // use getInitialProps in _document, not _app`) for SSG
-
-// Resolution order
-//
-// On the server:
-// 1. app.getInitialProps
-// 2. page.getInitialProps
-// 3. document.getInitialProps
-// 4. app.render
-// 5. page.render
-// 6. document.render
-//
-// On the server with error:
-// 1. document.getInitialProps
-// 2. app.render
-// 3. page.render
-// 4. document.render
-//
-// On the client
-// 1. app.getInitialProps
-// 2. page.getInitialProps
-// 3. app.render
-// 4. page.render
 
 MainDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
@@ -131,7 +88,7 @@ MainDocument.getInitialProps = async (ctx) => {
 
   const initialProps = await Document.getInitialProps(ctx);
 
-  // Prevents emotion to render invalid HTML:
+  // Prevents emotion rendering invalid HTML:
   // https://github.com/mui-org/material-ui/issues/26561#issuecomment-855286153
 
   const emotionStyles = extractCriticalToChunks(initialProps.html);
