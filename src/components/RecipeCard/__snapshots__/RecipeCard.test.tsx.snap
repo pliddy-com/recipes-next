@@ -140,7 +140,7 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
           role="button"
           tabindex="0"
         >
-          Vegetables
+           Vegetables 
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
