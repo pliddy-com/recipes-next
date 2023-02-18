@@ -31,7 +31,7 @@ export default class MainDocument extends Document {
             href={normalSerifFontPath}
             as="font"
             type="font/ttf"
-            crossOrigin="true"
+            crossOrigin="anonymous"
           />
 
           <link
