@@ -8,7 +8,7 @@ export const baseFontSize = 18;
 export const baseRemSize = 16;
 export const buttonFontSize = 14;
 export const serifFontFamily = 'Piazzolla';
-export const sansFontFamily = 'Inter';
+export const sansFontFamily = '"Helvetica Neue", Helvetica, Arial, sans-serif;';
 
 const typeTheme = {
   components: {

@@ -5,6 +5,18 @@ export const normalSerifFontPath = '/fonts/Piazzolla.ttf';
 export const fontWeightRegular = 400;
 export const fontWeightBold = 600;
 
+const SansNormal = `
+  font-display: swap;
+  font-family: '"Helvetica Neue", Helvetica, Arial, sans-serif;';
+  font-weight: ${fontWeightRegular};
+`;
+
+const SansBold = `
+  font-display: swap;
+  font-family: '"Helvetica Neue", Helvetica, Arial, sans-serif;';
+  font-weight: ${fontWeightBold};
+`;
+
 // const SansNormal = `
 //   font-display: swap;
 //   font-family: 'Inter';
@@ -76,6 +88,8 @@ const SerifBold = `
 export const fontFaceOverrides = `
   @font-face {${SerifNormal}}
   @font-face {${SerifBold}}
+  @font-face {${SansNormal}}
+  @font-face {${SansBold}}
 `;
 
 // export const fontFaceOverrides = `
