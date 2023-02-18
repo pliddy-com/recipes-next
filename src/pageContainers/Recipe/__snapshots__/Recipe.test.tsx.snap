@@ -334,7 +334,7 @@ exports[`Recipe when there is page content it renders the RecipeGrid 1`] = `
             role="button"
             tabindex="0"
           >
-             Tag 1 
+            Tag 1
             <span
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
