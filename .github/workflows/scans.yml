@@ -24,11 +24,11 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm ci
-      - name: Run Lint
+      - name: Lint
         run: npm run lint
       - name: Type Check
         run: npm run typecheck
-      - name: Run Unit Tests
+      - name: Unit Tests
         env:
           NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
