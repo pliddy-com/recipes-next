@@ -1,6 +1,6 @@
 import { ThemeOptions } from '@mui/material/styles';
 import colors from 'theme/colors';
-import { serifFontFamily } from './type';
+import { serifFontFamily, sansFontFamily } from './type';
 
 // TODO: differentiate between nav list and recipe lists
 // recipe lists introduce .25rem margin left, not wanted in nav
@@ -47,12 +47,13 @@ const listTheme: ThemeOptions = {
               minWidth: 0,
               '& .MuiAvatar-root': {
                 backgroundColor: colors.primary.main,
-                fontFamily: serifFontFamily,
-                fontSize: '14px',
+                fontFamily: sansFontFamily,
+                fontSize: '13px',
                 fontWeight: 900,
                 height: '24px',
-                letterSpacing: '.5px',
-                paddingBottom: '2px',
+                letterSpacing: '-.5px',
+                // paddingBottom: '1px',
+                paddingRight: '1px',
                 width: '24px',
               },
             },
