@@ -11,7 +11,7 @@ exports[`TagButtons when there are properly structured tag props it renders a ro
     role="button"
     tabindex="0"
   >
-     TagTitle1 
+    TagTitle1
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
@@ -22,7 +22,7 @@ exports[`TagButtons when there are properly structured tag props it renders a ro
     role="button"
     tabindex="0"
   >
-     TagTitle2 
+    TagTitle2
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />

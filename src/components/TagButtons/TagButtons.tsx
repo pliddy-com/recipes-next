@@ -28,7 +28,7 @@ const TagButtons = ({ tags }: TagButtonsProps) => {
               href={`/tag/${slug}`}
               variant="outlined"
             >
-              {` ${title} `}
+              {title}
             </Button>
           ) : null;
         })}
