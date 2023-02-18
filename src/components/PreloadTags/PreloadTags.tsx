@@ -15,8 +15,9 @@ const PreloadTags = ({ breakpoints, url }: PreloadTagsProps) => {
         ({ viewMin, imgWidth }, index, breakpoints) =>
           url && (
             <link
-              as="image"
+              rel="preload"
               href={url}
+              as="image"
               imageSizes={`${imgWidth}px`}
               imageSrcSet={createSrcSet({ url, imgWidth })}
               key={`${url}-${viewMin || imgWidth}-preload`}
@@ -25,7 +26,6 @@ const PreloadTags = ({ breakpoints, url }: PreloadTagsProps) => {
                 index,
                 breakpoints,
               })}
-              rel="preload"
             />
           )
       )}

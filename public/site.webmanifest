@@ -15,6 +15,5 @@
   ],
   "theme_color": "#0f4a2b",
   "background_color": "#0f4a2b",
-  "start_url": "https://recipes.pliddy.com",
   "display": "standalone"
 }
