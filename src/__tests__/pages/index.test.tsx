@@ -15,8 +15,6 @@ jest.mock('lib/config');
 jest.mock('lib/api');
 jest.mock('components/PageHeadTag/PageHeadTag');
 
-const recipeCollectionData = { content: 'recipe collection' };
-
 describe('HomePage in index.tsx', () => {
   // reset mocks after each test
   afterEach(() => {
@@ -79,6 +77,15 @@ describe('HomePage in index.tsx', () => {
       const apiSpy = jest.spyOn(api, 'getRecipeIndex');
 
       const { defaultTitle } = config?.microcopy?.index ?? {};
+
+      const recipeCollectionData = [
+        {
+          slug: 'slug-1',
+        },
+        {
+          slug: 'slug-2',
+        },
+      ];
 
       const expectedProps = {
         props: {

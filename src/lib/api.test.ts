@@ -15,12 +15,12 @@ jest.mock('lib/gqlClient');
 describe('api', () => {
   describe('when getNavTaxonomy() is called', () => {
     it('it returns a taxonomyCollection', async () => {
-      const items = [{ slug: 'test' }];
+      const items = [{ slug: 'slug-1' }];
       const payload = { taxonomyCollection: { items } };
 
       const gqlSpy = jest
         .spyOn(gqlClient, 'queryGraphQLContent')
-        .mockResolvedValue(payload);
+        .mockResolvedValueOnce(payload);
 
       const variables = {};
       const res = await getNavTaxonomy(variables);
@@ -36,7 +36,7 @@ describe('api', () => {
 
         const gqlSpy = jest
           .spyOn(gqlClient, 'queryGraphQLContent')
-          .mockResolvedValue(payload);
+          .mockResolvedValueOnce(payload);
 
         const variables = {};
         const res = await getNavTaxonomy(variables);
@@ -49,13 +49,13 @@ describe('api', () => {
 
   describe('when getRecipeSlugs() is called', () => {
     it('it returns a list of recipe slugs', async () => {
-      const items = [{ slug: 'slug1' }, { slug: 'slug2' }];
+      const items = [{ slug: 'slug-1' }, { slug: 'slug-2' }];
       const payload = { recipeCollection: { items } };
-      const expected = ['slug1', 'slug2'];
+      const expected = ['slug-1', 'slug-2'];
 
       const gqlSpy = jest
         .spyOn(gqlClient, 'queryGraphQLContent')
-        .mockResolvedValue(payload);
+        .mockResolvedValueOnce(payload);
 
       const variables = {};
       const res = await getRecipeSlugs(variables);
@@ -71,7 +71,7 @@ describe('api', () => {
 
         const gqlSpy = jest
           .spyOn(gqlClient, 'queryGraphQLContent')
-          .mockResolvedValue(payload);
+          .mockResolvedValueOnce(payload);
 
         const variables = {};
         const res = await getRecipeSlugs(variables);
@@ -89,7 +89,7 @@ describe('api', () => {
 
         const gqlSpy = jest
           .spyOn(gqlClient, 'queryGraphQLContent')
-          .mockResolvedValue(payload);
+          .mockResolvedValueOnce(payload);
 
         const variables = {};
         const res = await getRecipeSlugs(variables);
@@ -114,24 +114,24 @@ describe('api', () => {
             {
               slug: 'slug-2',
               linkedFrom: {
-                recipeCollection: { total: 0 },
+                recipeCollection: { total: 2 },
               },
             },
             {
               slug: 'slug-3',
               linkedFrom: {
-                recipeCollection: { total: 2 },
+                recipeCollection: { total: 0 },
               },
             },
           ],
         },
       };
 
-      const expected = ['slug-1', 'slug-3'];
+      const expected = ['slug-1', 'slug-2'];
 
       const gqlSpy = jest
         .spyOn(gqlClient, 'queryGraphQLContent')
-        .mockResolvedValue(payload);
+        .mockResolvedValueOnce(payload);
 
       const variables = {};
       const res = await getTagSlugs(variables);
@@ -147,7 +147,7 @@ describe('api', () => {
 
         const gqlSpy = jest
           .spyOn(gqlClient, 'queryGraphQLContent')
-          .mockResolvedValue(payload);
+          .mockResolvedValueOnce(payload);
 
         const variables = {};
         const res = await getTagSlugs(variables);
@@ -170,7 +170,7 @@ describe('api', () => {
 
         const gqlSpy = jest
           .spyOn(gqlClient, 'queryGraphQLContent')
-          .mockResolvedValue(payload);
+          .mockResolvedValueOnce(payload);
 
         const variables = {};
         const res = await getTagSlugs(variables);
@@ -201,7 +201,7 @@ describe('api', () => {
 
       const gqlSpy = jest
         .spyOn(gqlClient, 'queryGraphQLContent')
-        .mockResolvedValue(payload);
+        .mockResolvedValueOnce(payload);
 
       const variables = {};
       const res = await getRecipeIndex(variables);
@@ -217,7 +217,7 @@ describe('api', () => {
 
         const gqlSpy = jest
           .spyOn(gqlClient, 'queryGraphQLContent')
-          .mockResolvedValue(payload);
+          .mockResolvedValueOnce(payload);
 
         const variables = {};
         const res = await getRecipeIndex(variables);
@@ -233,21 +233,9 @@ describe('api', () => {
       const items = [
         {
           slug: 'slug-1',
-          linkedFrom: {
-            recipeCollection: { total: 1 },
-          },
         },
         {
           slug: 'slug-2',
-          linkedFrom: {
-            recipeCollection: { total: 0 },
-          },
-        },
-        {
-          slug: 'slug-3',
-          linkedFrom: {
-            recipeCollection: { total: 2 },
-          },
         },
       ];
 
@@ -259,7 +247,7 @@ describe('api', () => {
 
       const gqlSpy = jest
         .spyOn(gqlClient, 'queryGraphQLContent')
-        .mockResolvedValue(payload);
+        .mockResolvedValueOnce(payload);
 
       const variables = {};
       const res = await getRecipeList(variables);
@@ -275,7 +263,7 @@ describe('api', () => {
 
         const gqlSpy = jest
           .spyOn(gqlClient, 'queryGraphQLContent')
-          .mockResolvedValue(payload);
+          .mockResolvedValueOnce(payload);
 
         const variables = {};
         const res = await getRecipeList(variables);
@@ -303,7 +291,7 @@ describe('api', () => {
 
       const gqlSpy = jest
         .spyOn(gqlClient, 'queryGraphQLContent')
-        .mockResolvedValue(payload);
+        .mockResolvedValueOnce(payload);
 
       const variables = {};
       const res = await getRecipePage(variables);
@@ -319,7 +307,7 @@ describe('api', () => {
 
         const gqlSpy = jest
           .spyOn(gqlClient, 'queryGraphQLContent')
-          .mockResolvedValue(payload);
+          .mockResolvedValueOnce(payload);
 
         const variables = {};
         const res = await getRecipePage(variables);

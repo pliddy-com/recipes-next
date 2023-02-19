@@ -17,8 +17,6 @@ import {
 
 import { hasValue } from 'lib/typeUtils';
 
-// TODO: add try/catch to handle errors
-
 // used to query content for nav menu taxonomy on client layout
 export const getNavTaxonomy = async (variables: NavTaxonomyQueryVariables) => {
   const { taxonomyCollection } = await queryGraphQLContent(
@@ -51,7 +49,7 @@ export const getTagSlugs = async (variables: TagSlugsQueryVariables) => {
   );
 
   const results = tagCollection?.items
-    // .filter(hasValue)
+    .filter(hasValue)
     .filter(
       (item) =>
         item?.linkedFrom?.recipeCollection?.total &&
