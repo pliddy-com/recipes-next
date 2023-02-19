@@ -29,7 +29,10 @@ jobs:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
           cache: 'npm'
       - name: Project Cache
+        id: cache-project
         uses: actions/cache@v3
+        env:
+          cache-name: project-cache
         with:
           path: |
             ~/.npm
@@ -38,7 +41,8 @@ jobs:
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+            ${{ github.repository }}-${{ env.cache-name }}-
+            ${{ github.repository }}-
 
       # - name: Cache node modules
       #   id: cache-npm
