@@ -14,7 +14,7 @@ import { getRecipeSlugs, getRecipePage } from 'lib/api';
 import config from 'lib/config';
 import { hasValue } from 'lib/typeUtils';
 
-const RecipeSlug = ({
+const RecipeSlugPage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { abstract, title, image } = pageContent ?? {};
@@ -56,8 +56,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   const slug = context.params?.slug;
 
   if (typeof slug !== 'string') {
-    // TODO: Handle SSG errors
-    throw new Error('Error in SSG!');
+    throw new Error('Error in SSG. The slug property is not a string.');
   }
 
   const [pageContent] = await getRecipePage({
@@ -70,6 +69,6 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   };
 };
 
-RecipeSlug.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+RecipeSlugPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
-export default RecipeSlug;
+export default RecipeSlugPage;

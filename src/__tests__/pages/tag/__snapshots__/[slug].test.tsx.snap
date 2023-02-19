@@ -3,189 +3,33 @@
 exports[`TagPage in tag/[slug].tsx when there is page content it renders the page 1`] = `
 <div>
   <title>
-    Baking Tag Default Title
+    Recipe List Title Tag Default Title
   </title>
   <meta
-    content="Tag default description Baking"
+    content="Tag default description Recipe List Title"
     name="description"
   />
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg page css-1oqqzyl-MuiContainer-root"
+    data-testid="RecipeGridPage"
   >
-    <h1
-      class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
-    >
-      Baking Tag Default Title
+    <h1>
+      Recipe List Title Tag Default Title
     </h1>
-    <h2
-      class="MuiTypography-root MuiTypography-subtitle1 MuiTypography-gutterBottom css-1wniyei-MuiTypography-root"
-    >
-      1 Total
-    </h2>
-    <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
-    >
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 css-wq3jbm-MuiGrid-root"
-      >
-        <div
-          class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root recipe css-1v5z4dq-MuiPaper-root-MuiCard-root"
-        >
-          <a
-            class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-            href="/recipe/recipe-1-title"
-            tabindex="0"
-          >
-            <div
-              class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
-            >
-              <div
-                class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
-              >
-                <span
-                  class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                >
-                  Recipe 1 Title
-                </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiCardHeader-subheader css-nrdprl-MuiTypography-root"
-                >
-                  Tag 1
-                </span>
-              </div>
-            </div>
-            <div
-              class="MuiCardMedia-root css-16cvb1l-MuiCardMedia-root"
-            >
-              <div
-                class="imageWrapper MuiBox-root css-0"
-              >
-                <link
-                  as="image"
-                  href="https://test.url/biscuits.jpg"
-                  imagesizes="450px"
-                  imagesrcset="https://test.url/biscuits.jpg?w=450&fm=webp&q=75 1x, https://test.url/biscuits.jpg?w=900&fm=webp&q=75 2x"
-                  media="(min-width: 669px)"
-                  rel="preload"
-                />
-                <link
-                  as="image"
-                  href="https://test.url/biscuits.jpg"
-                  imagesizes="300px"
-                  imagesrcset="https://test.url/biscuits.jpg?w=300&fm=webp&q=75 1x, https://test.url/biscuits.jpg?w=600&fm=webp&q=75 2x"
-                  media="(min-width: 600px) and (max-width: 668px)"
-                  rel="preload"
-                />
-                <link
-                  as="image"
-                  href="https://test.url/biscuits.jpg"
-                  imagesizes="600px"
-                  imagesrcset="https://test.url/biscuits.jpg?w=600&fm=webp&q=75 1x, https://test.url/biscuits.jpg?w=1200&fm=webp&q=75 2x"
-                  media="(min-width: 485px) and (max-width: 599px)"
-                  rel="preload"
-                />
-                <link
-                  as="image"
-                  href="https://test.url/biscuits.jpg"
-                  imagesizes="450px"
-                  imagesrcset="https://test.url/biscuits.jpg?w=450&fm=webp&q=75 1x, https://test.url/biscuits.jpg?w=900&fm=webp&q=75 2x"
-                  media="(min-width: 335px) and (max-width: 484px)"
-                  rel="preload"
-                />
-                <link
-                  as="image"
-                  href="https://test.url/biscuits.jpg"
-                  imagesizes="300px"
-                  imagesrcset="https://test.url/biscuits.jpg?w=300&fm=webp&q=75 1x, https://test.url/biscuits.jpg?w=600&fm=webp&q=75 2x"
-                  media="(max-width: 334px)"
-                  rel="preload"
-                />
-                <picture>
-                  <source
-                    media="(min-width: 669px)"
-                    sizes="450px"
-                    srcset="https://test.url/biscuits.jpg?w=450&fm=webp&q=75 1x, https://test.url/biscuits.jpg?w=900&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 600px) and (max-width: 668px)"
-                    sizes="300px"
-                    srcset="https://test.url/biscuits.jpg?w=300&fm=webp&q=75 1x, https://test.url/biscuits.jpg?w=600&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 485px) and (max-width: 599px)"
-                    sizes="600px"
-                    srcset="https://test.url/biscuits.jpg?w=600&fm=webp&q=75 1x, https://test.url/biscuits.jpg?w=1200&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 335px) and (max-width: 484px)"
-                    sizes="450px"
-                    srcset="https://test.url/biscuits.jpg?w=450&fm=webp&q=75 1x, https://test.url/biscuits.jpg?w=900&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(max-width: 334px)"
-                    sizes="300px"
-                    srcset="https://test.url/biscuits.jpg?w=300&fm=webp&q=75 1x, https://test.url/biscuits.jpg?w=600&fm=webp&q=75 2x"
-                  />
-                  <img
-                    alt="Image 1 description"
-                    height="300"
-                    loading="eager"
-                    src="https://test.url/biscuits.jpg"
-                    style="max-width: 100%; height: auto;"
-                    width="400"
-                  />
-                </picture>
-              </div>
-            </div>
-            <div
-              class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-            >
-              <p
-                class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
-              >
-                Recipe 1 abstract.
-              </p>
-            </div>
-            <span
-              class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-            />
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </a>
-          <div
-            class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
-          >
-            <div
-              class="css-180l46g-MuiStack-root"
-              data-testid="tag-buttons"
-            >
-              <a
-                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-wmndcn-MuiButtonBase-root-MuiButton-root"
-                href="/tag/tag-1"
-                role="button"
-                tabindex="0"
-              >
-                Tag 1
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-              <a
-                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-wmndcn-MuiButtonBase-root-MuiButton-root"
-                href="/tag/tag-2"
-                role="button"
-                tabindex="0"
-              >
-                Tag 2
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div>
+      <p>
+        slug-1
+      </p>
+      <p>
+        Title 1
+      </p>
+    </div>
+    <div>
+      <p>
+        slug-2
+      </p>
+      <p>
+        Title 2
+      </p>
     </div>
   </div>
 </div>

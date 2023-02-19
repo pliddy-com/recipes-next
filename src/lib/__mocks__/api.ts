@@ -29,12 +29,21 @@ api.getRecipeIndex = jest.fn().mockResolvedValue([
 
 api.getRecipeList = jest.fn().mockResolvedValue([
   {
-    slug: 'slug-1',
-    title: 'Title 1',
-  },
-  {
-    slug: 'slug-2',
-    title: 'Title 2',
+    title: 'Recipe List Title',
+    linkedFrom: {
+      recipeCollection: {
+        items: [
+          {
+            slug: 'slug-1',
+            title: 'Title 1',
+          },
+          {
+            slug: 'slug-2',
+            title: 'Title 2',
+          },
+        ],
+      },
+    },
   },
 ]);
 
@@ -42,6 +51,22 @@ api.getRecipePage = jest.fn().mockResolvedValue([
   {
     title: 'Recipe Title',
     slug: 'slug-1',
+    abstract: 'abstract',
+    image: {
+      sys: {
+        id: 'sysid-1',
+        __typename: 'Sys',
+      },
+      __typename: 'Asset',
+      title: 'Image Title',
+      description: 'Image description.',
+      contentType: 'image/jpeg',
+      fileName: 'filename.jpg',
+      size: 99999,
+      url: 'https://recipes.pliddy.com/url',
+      height: 300,
+      width: 400,
+    },
   },
 ]);
 

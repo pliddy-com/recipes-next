@@ -1,11 +1,7 @@
-// import testing-library methods
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
-// add custom jest matchers from jest-dom
-import '@testing-library/jest-dom';
-
-// import the component to test
-import RecipePage, {
+import RecipeSlugPage, {
   getStaticPaths,
   getStaticProps,
 } from 'pages/recipe/[slug]';
@@ -18,134 +14,28 @@ import * as api from 'lib/api';
 jest.mock('lib/config');
 jest.mock('lib/api');
 jest.mock('components/PageHead/PageHead');
+jest.mock('layout/RecipePage/RecipePage');
 
 describe('RecipePage in recipe/[slug].tsx', () => {
-  // reset mocks after each test
   afterEach(() => {
     jest.resetModules();
   });
 
   describe('when there is page content', () => {
-    const pageContent: RecipeDefaultFragment = {
-      sys: {
-        id: 'sysid-0',
-        __typename: 'Sys',
-      },
-      __typename: 'Recipe',
-      title: 'Recipe Title',
-      slug: 'recipe-title',
-      description: {
-        json: {
-          data: {},
-          content: [
-            {
-              data: {},
-              content: [
-                {
-                  data: {},
-                  marks: [],
-                  value: 'Description rich text',
-                  nodeType: 'text',
-                },
-              ],
-              nodeType: 'paragraph',
-            },
-          ],
-          nodeType: 'document',
-        },
-        links: {
-          assets: {
-            block: [],
-            hyperlink: [],
-            __typename: 'RecipeDescriptionAssets',
-          },
-          entries: {
-            inline: [],
-            hyperlink: [],
-            __typename: 'RecipeDescriptionEntries',
-          },
-          __typename: 'RecipeDescriptionLinks',
-        },
-        __typename: 'RecipeDescription',
-      },
-      abstract: 'Recipe abstract',
-      image: {
-        sys: {
-          id: 'sysid-1',
-          __typename: 'Sys',
-        },
-        __typename: 'Asset',
-        title: 'Image Title',
-        description: 'Image description.',
-        contentType: 'image/jpeg',
-        fileName: 'filename.jpg',
-        size: 99999,
-        url: 'https://recipes.pliddy.com/url',
-        height: 300,
-        width: 400,
-      },
-      ingredientsCollection: {
-        items: [
-          {
-            sys: {
-              id: 'sysid-2',
-              __typename: 'Sys',
-            },
-            title: 'Ingredients Title',
-            slug: 'ingredients-title',
-            label: 'Ingredients',
-            ingredientList: ['ingredient 1', 'ingredient 2'],
-            __typename: 'IngredientSection',
-          },
-        ],
-        __typename: 'RecipeIngredientsCollection',
-      },
-      equipment: ['equipment 1', 'equipment 2'],
-      instructionsCollection: {
-        items: [
-          {
-            sys: {
-              id: 'sysid-3',
-              __typename: 'Sys',
-            },
-            title: 'Instructions Title',
-            slug: 'instructions-title',
-            label: 'Label',
-            instructionList: ['Instructions item 1'],
-            __typename: 'InstructionSection',
-          },
-        ],
-        __typename: 'RecipeInstructionsCollection',
-      },
-      notes: ['note 1'],
-      tagsCollection: {
-        items: [
-          {
-            sys: {
-              id: 'sysid-4',
-              __typename: 'Sys',
-            },
-            __typename: 'Tag',
-            title: 'Tag 1',
-            slug: 'tag-1',
-          },
-        ],
-        __typename: 'RecipeTagsCollection',
-      },
-    };
-
     it('it renders the page', async () => {
+      const getRecipeSlugsSpy = jest.spyOn(api, 'getRecipeSlugs');
+      const getRecipeSpy = jest.spyOn(api, 'getRecipePage');
+
+      const [pageContent] = await api.getRecipePage();
+
       const propsContext = {
         preview: false,
-        params: { slug: 'slug-2' },
+        params: { slug: 'slug' },
       };
 
       const expectedProps = {
         props: {
-          pageContent: {
-            title: 'Recipe Title',
-            slug: 'slug-1',
-          },
+          pageContent,
           preview: false,
         },
         revalidate: 60,
@@ -156,30 +46,21 @@ describe('RecipePage in recipe/[slug].tsx', () => {
         paths: [{ params: { slug: 'slug-1' } }, { params: { slug: 'slug-2' } }],
       };
 
-      const getRecipeSlugsSpy = jest.spyOn(api, 'getRecipeSlugs');
-      const getRecipeSpy = jest.spyOn(api, 'getRecipePage');
-
       const { container } = render(
-        <RecipePage pageContent={pageContent} preview={false} />
+        <RecipeSlugPage
+          pageContent={pageContent as unknown as RecipeDefaultFragment}
+          preview={false}
+        />
       );
 
       expect(await getStaticProps(propsContext)).toEqual(expectedProps);
       expect(await getStaticPaths({})).toEqual(expectedPaths);
 
-      expect(getRecipeSlugsSpy).toHaveBeenCalled();
-      expect(getRecipeSpy).toHaveBeenCalled();
+      expect(getRecipeSlugsSpy).toHaveBeenCalledTimes(1);
+      expect(getRecipeSpy).toHaveBeenCalledTimes(2);
 
       // assert that the component matches the existing snapshot
       expect(container).toMatchSnapshot();
-
-      // assert that page head tags are rendered
-      const titleTag = document.getElementsByTagName('title')[0];
-      expect(titleTag).toBeInTheDocument();
-      expect(titleTag.text.includes(pageContent.title as string));
-
-      // test if content is rendered
-      const recipe = document.querySelector('.page');
-      expect(recipe).toBeInTheDocument();
     });
 
     describe('when the slug is not a string', () => {
@@ -192,7 +73,9 @@ describe('RecipePage in recipe/[slug].tsx', () => {
         try {
           await getStaticProps(propsContext);
         } catch (e) {
-          expect(e).toEqual(new Error('Error in SSG!'));
+          expect(e).toEqual(
+            new Error('Error in SSG. The slug property is not a string.')
+          );
         }
       });
     });
@@ -206,11 +89,12 @@ describe('RecipePage in recipe/[slug].tsx', () => {
     it('it does not render the page', () => {
       const pageContent = undefined as unknown as RecipeDefaultFragment;
 
-      render(<RecipePage pageContent={pageContent} preview={false} />);
+      const { queryByTestId } = render(
+        <RecipeSlugPage pageContent={pageContent} preview={false} />
+      );
 
-      // test if card compoent is not rendered
-      const page = document.querySelector('.page');
-      expect(page).toBeNull();
+      // assert that page container is not rendered
+      expect(queryByTestId('RecipeGridPage')).toBeNull();
     });
   });
 });

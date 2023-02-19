@@ -1,11 +1,7 @@
-// import testing-library methods
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
-// add custom jest matchers from jest-dom
-import '@testing-library/jest-dom';
-
-// import the component to test
-import TagPage, { getStaticPaths, getStaticProps } from 'pages/tag/[slug]';
+import TagSlugPage, { getStaticPaths, getStaticProps } from 'pages/tag/[slug]';
 import { ListPageItemFragment } from 'types/queries';
 
 import * as api from 'lib/api';
@@ -14,78 +10,20 @@ import config from 'lib/config';
 jest.mock('lib/api');
 jest.mock('lib/config');
 jest.mock('components/PageHead/PageHead');
+jest.mock('layout/RecipeGridPage/RecipeGridPage');
 
 describe('TagPage in tag/[slug].tsx', () => {
-  // reset mocks after each test
   afterEach(() => {
     jest.resetModules();
   });
 
   describe('when there is page content', () => {
-    const pageContent = {
-      slug: 'baking',
-      title: 'Baking',
-      linkedFrom: {
-        recipeCollection: {
-          total: 3,
-          items: [
-            {
-              sys: {
-                id: 'sysid-0',
-                __typename: 'Sys',
-              },
-              __typename: 'Recipe',
-              title: 'Recipe 1 Title',
-              slug: 'recipe-1-title',
-              abstract: 'Recipe 1 abstract.',
-              image: {
-                sys: {
-                  id: 'sysid-1',
-                  __typename: 'Sys',
-                },
-                __typename: 'Asset',
-                title: 'Image 1 Title',
-                description: 'Image 1 description',
-                contentType: 'image/jpeg',
-                fileName: 'image1.jpg',
-                size: 99999,
-                url: 'https://test.url/biscuits.jpg',
-                height: 300,
-                width: 400,
-              },
-              tagsCollection: {
-                items: [
-                  {
-                    sys: {
-                      id: 'sysid-2',
-                      __typename: 'Sys',
-                    },
-                    __typename: 'Tag',
-                    title: 'Tag 1',
-                    slug: 'tag-1',
-                  },
-                  {
-                    sys: {
-                      id: 'sysid-3',
-                      __typename: 'Sys',
-                    },
-                    __typename: 'Tag',
-                    title: 'Tag 2',
-                    slug: 'tag-2',
-                  },
-                ],
-                __typename: 'RecipeTagsCollection',
-              },
-            },
-          ],
-          __typename: 'RecipeCollection',
-        },
-        __typename: 'TagLinkingCollections',
-      },
-      __typename: 'Tag',
-    };
-
     it('it renders the page', async () => {
+      const getTagSlugsSpy = jest.spyOn(api, 'getTagSlugs');
+      const getRecipeListSpy = jest.spyOn(api, 'getRecipeList');
+
+      const [pageContent] = await api.getRecipeList({});
+
       const tagSlugData = { slug: 'slug-1' };
 
       const propsContext = {
@@ -95,7 +33,7 @@ describe('TagPage in tag/[slug].tsx', () => {
 
       const expectedProps = {
         props: {
-          pageContent: { slug: 'slug-1', title: 'Title 1' },
+          pageContent,
           preview: false,
         },
         revalidate: 60,
@@ -106,33 +44,18 @@ describe('TagPage in tag/[slug].tsx', () => {
         paths: [{ params: { slug: 'slug-1' } }, { params: { slug: 'slug-2' } }],
       };
 
-      const getTagSlugsSpy = jest.spyOn(api, 'getTagSlugs');
-      const getRecipeListSpy = jest.spyOn(api, 'getRecipeList');
-
       const { container } = render(
-        <TagPage
-          pageContent={pageContent as ListPageItemFragment}
-          preview={false}
-        />
+        <TagSlugPage pageContent={pageContent} preview={false} />
       );
 
       expect(await getStaticProps(propsContext)).toEqual(expectedProps);
       expect(await getStaticPaths({})).toEqual(expectedPaths);
 
-      expect(getTagSlugsSpy).toHaveBeenCalled();
-      expect(getRecipeListSpy).toHaveBeenCalled();
+      expect(getTagSlugsSpy).toHaveBeenCalledTimes(1);
+      expect(getRecipeListSpy).toHaveBeenCalledTimes(2);
 
       // assert that the component matches the existing snapshot
       expect(container).toMatchSnapshot();
-
-      // assert that page head tags are rendered
-      const titleTag = document.getElementsByTagName('title')[0];
-      expect(titleTag).toBeInTheDocument();
-      expect(titleTag.text.includes(pageContent.title));
-
-      // assert that page container is rendered
-      const page = document.querySelector('.page');
-      expect(page).toBeInTheDocument();
     });
 
     describe('when the slug is not a string', () => {
@@ -145,7 +68,9 @@ describe('TagPage in tag/[slug].tsx', () => {
         try {
           await getStaticProps(propsContext);
         } catch (e) {
-          expect(e).toEqual(new Error('Error in SSG!'));
+          expect(e).toEqual(
+            new Error('Error in SSG. The slug property is not a string.')
+          );
         }
       });
     });
@@ -160,11 +85,12 @@ describe('TagPage in tag/[slug].tsx', () => {
     it('it does not render the category page', () => {
       const pageContent = undefined as unknown as ListPageItemFragment;
 
-      render(<TagPage pageContent={pageContent} preview={false} />);
+      const { queryByTestId } = render(
+        <TagSlugPage pageContent={pageContent} preview={false} />
+      );
 
-      // test if card compoent is not rendered
-      const page = document.querySelector('.page');
-      expect(page).toBeNull();
+      // assert that page container is not rendered
+      expect(queryByTestId('RecipeGridPage')).toBeNull();
     });
   });
 });
