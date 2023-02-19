@@ -35,7 +35,6 @@ jobs:
           cache-name: project-cache
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
-          # cache nodemodules for next build
           path: |
             ~/.npm
             ${{ github.workspace }}/node_modules
