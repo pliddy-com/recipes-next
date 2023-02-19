@@ -43,9 +43,9 @@ jobs:
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
       - name: Nextjs Build Cache
-        id: next-cache
+        id: build-cache
         env:
-          cache-name: next-cache
+          cache-name: build-cache
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/.next/cache
