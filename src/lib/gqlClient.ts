@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { TypedDocumentNode, createClient } from 'urql';
 import { ResultOf, VariablesOf } from '@graphql-typed-document-node/core';
 

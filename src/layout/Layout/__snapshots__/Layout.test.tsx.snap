@@ -46,9 +46,7 @@ exports[`Layout when there is page content it renders the Layout 1`] = `
   </nav>
   <main>
     <div>
-      <span>
-        test
-      </span>
+      test
     </div>
   </main>
 </DocumentFragment>

@@ -35,9 +35,7 @@ jobs:
           cache-name: node-cache
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: |
-            ~/.npm
-            ${{ github.workspace }}/node_modules
+          path: ~/.npm
           key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
@@ -48,7 +46,9 @@ jobs:
           cache-name: build-cache
         uses: actions/cache@v3
         with:
-          path: ${{ github.workspace }}/.next/cache
+          path: |
+            ${{ github.workspace }}/node_modules
+            ${{ github.workspace }}/.next/cache
           # Generate a new cache whenever packages or source files change.
           key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
