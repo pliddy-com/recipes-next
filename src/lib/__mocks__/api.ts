@@ -19,18 +19,22 @@ api.getTagSlugs = jest.fn().mockResolvedValue(['slug-1', 'slug-2']);
 api.getRecipeIndex = jest.fn().mockResolvedValue([
   {
     slug: 'slug-1',
+    title: 'Title 1',
   },
   {
     slug: 'slug-2',
+    title: 'Title 2',
   },
 ]);
 
 api.getRecipeList = jest.fn().mockResolvedValue([
   {
     slug: 'slug-1',
+    title: 'Title 1',
   },
   {
     slug: 'slug-2',
+    title: 'Title 2',
   },
 ]);
 

@@ -2,7 +2,7 @@
 // at the root level as a sibling of node_modules
 
 // create mock version of npm package
-jest.genMockFromModule('next/head');
+jest.createMockFromModule('next/head');
 
 // export mocked version of component
 

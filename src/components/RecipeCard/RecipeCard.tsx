@@ -9,10 +9,10 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-import TagButtons from 'components/TagButtons/TagButtons';
-import DynamicImage from 'components/DynamicImage/DynamicImage';
+import TagButtons from 'components/Tags/TagButtons/TagButtons';
+import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 
-import { RecipeDefaultFragment } from 'types/generated/graphql';
+import { RecipeDefaultFragment } from 'types/queries';
 
 import config from './RecipeCard.config';
 

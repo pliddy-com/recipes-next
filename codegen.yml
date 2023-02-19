@@ -5,7 +5,7 @@ schema:
         Authorization: 'Bearer ${NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}'
 documents: 'src/**/*.graphql'
 generates:
-  src/types/generated/graphql.ts:
+  src/types/queries.ts:
     # preset: 'client'
     plugins:
       - typescript

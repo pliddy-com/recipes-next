@@ -9,7 +9,7 @@ out/
 # Generated
 package-lock.json
 *.d.ts
-/src/types/generated/
+/src/types/
 
 # test coverage
 coverage/

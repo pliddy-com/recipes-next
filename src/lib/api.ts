@@ -13,7 +13,7 @@ import {
   RecipeSlugsQueryVariables,
   TagSlugsDocument,
   TagSlugsQueryVariables,
-} from 'types/generated/graphql';
+} from 'types/queries';
 
 import { hasValue } from 'lib/typeUtils';
 

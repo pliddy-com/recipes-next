@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 // import the component to test
 import RichText from 'components/RichText/RichText';
 
-import { RecipeDescription } from 'types/generated/graphql';
+import { RecipeDescription } from 'types/queries';
 
 describe('RichText', () => {
   describe('when there is content', () => {

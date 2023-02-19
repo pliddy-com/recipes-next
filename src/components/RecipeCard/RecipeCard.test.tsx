@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 // import the component to test
 import RecipeCard from './RecipeCard';
 
-import { Maybe, RecipeDefaultFragment } from 'types/generated/graphql';
+import { Maybe, RecipeDefaultFragment } from 'types/queries';
 
 import config from './RecipeCard.config';
 jest.createMockFromModule('./RecipeCard.config');

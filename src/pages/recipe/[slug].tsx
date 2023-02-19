@@ -7,14 +7,14 @@ import {
 } from 'next';
 
 import Layout from 'layout/layout';
-import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
-import Recipe from 'pageContainers/Recipe/Recipe';
+import PageHead from 'components/PageHead/PageHead';
+import Recipe from 'pageContainers/RecipePage/RecipePage';
 
 import { getRecipeSlugs, getRecipePage } from 'lib/api';
 import config from 'lib/config';
 import { hasValue } from 'lib/typeUtils';
 
-const RecipePage = ({
+const RecipeSlug = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { abstract, title, image } = pageContent ?? {};
@@ -24,7 +24,7 @@ const RecipePage = ({
 
   return pageContent && title && description && defaultTitle ? (
     <>
-      <PageHeadTag
+      <PageHead
         title={title}
         defaultTitle={defaultTitle}
         description={description}
@@ -70,6 +70,6 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   };
 };
 
-RecipePage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+RecipeSlug.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
-export default RecipePage;
+export default RecipeSlug;

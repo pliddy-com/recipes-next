@@ -10,14 +10,14 @@ import RecipePage, {
   getStaticProps,
 } from 'pages/recipe/[slug]';
 
-import { RecipeDefaultFragment } from 'types/generated/graphql';
+import { RecipeDefaultFragment } from 'types/queries';
 
 import config from 'lib/config';
 import * as api from 'lib/api';
 
 jest.mock('lib/config');
 jest.mock('lib/api');
-jest.mock('components/PageHeadTag/PageHeadTag');
+jest.mock('components/PageHead/PageHead');
 
 describe('RecipePage in recipe/[slug].tsx', () => {
   // reset mocks after each test

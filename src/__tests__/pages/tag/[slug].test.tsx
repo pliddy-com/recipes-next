@@ -6,14 +6,14 @@ import '@testing-library/jest-dom';
 
 // import the component to test
 import TagPage, { getStaticPaths, getStaticProps } from 'pages/tag/[slug]';
-import { ListPageItemFragment } from 'types/generated/graphql';
+import { ListPageItemFragment } from 'types/queries';
 
 import * as api from 'lib/api';
 import config from 'lib/config';
 
 jest.mock('lib/api');
 jest.mock('lib/config');
-jest.mock('components/PageHeadTag/PageHeadTag');
+jest.mock('components/PageHead/PageHead');
 
 describe('TagPage in tag/[slug].tsx', () => {
   // reset mocks after each test
@@ -86,7 +86,7 @@ describe('TagPage in tag/[slug].tsx', () => {
     };
 
     it('it renders the page', async () => {
-      const tagSlugData = { slug: 'slug-2' };
+      const tagSlugData = { slug: 'slug-1' };
 
       const propsContext = {
         preview: false,
@@ -95,7 +95,7 @@ describe('TagPage in tag/[slug].tsx', () => {
 
       const expectedProps = {
         props: {
-          pageContent: { slug: 'slug-1' },
+          pageContent: { slug: 'slug-1', title: 'Title 1' },
           preview: false,
         },
         revalidate: 60,

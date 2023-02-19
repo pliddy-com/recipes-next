@@ -2,10 +2,10 @@ import { TypedDocumentNode, createClient } from 'urql';
 import { ResultOf, VariablesOf } from '@graphql-typed-document-node/core';
 
 const ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
-const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT || '';
+const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
 
 export const gqlClient = createClient({
-  url: API_ENDPOINT,
+  url: API_ENDPOINT || '',
   fetchOptions: () => ({
     headers: { authorization: ACCESS_TOKEN ? `Bearer ${ACCESS_TOKEN}` : '' },
   }),
