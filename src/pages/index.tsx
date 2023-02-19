@@ -8,7 +8,7 @@ import PageHead from 'components/PageHead/PageHead';
 import { getRecipeIndex } from 'lib/api';
 import config from 'lib/config';
 
-const HomePage = ({
+const Index = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { defaultTitle, description } = config?.microcopy?.index ?? {};
@@ -32,6 +32,6 @@ export const getStaticProps = async ({ preview = false }) => {
   return { props: { pageContent, preview }, revalidate: 60 };
 };
 
-HomePage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+Index.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
-export default HomePage;
+export default Index;

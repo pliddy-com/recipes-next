@@ -14,7 +14,7 @@ import { getRecipeSlugs, getRecipePage } from 'lib/api';
 import config from 'lib/config';
 import { hasValue } from 'lib/typeUtils';
 
-const RecipePage = ({
+const RecipeSlug = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { abstract, title, image } = pageContent ?? {};
@@ -70,6 +70,6 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   };
 };
 
-RecipePage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+RecipeSlug.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
-export default RecipePage;
+export default RecipeSlug;

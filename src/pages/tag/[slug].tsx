@@ -14,7 +14,7 @@ import { getTagSlugs, getRecipeList } from 'lib/api';
 import config from 'lib/config';
 import { hasValue } from 'lib/typeUtils';
 
-const TagPage = ({
+const TagSlug = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { title } = pageContent ?? {};
@@ -73,6 +73,6 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   };
 };
 
-TagPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+TagSlug.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
-export default TagPage;
+export default TagSlug;
