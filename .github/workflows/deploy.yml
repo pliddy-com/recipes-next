@@ -1,22 +1,6 @@
 name: Build and Deploy
 run-name: Build and Deploy
 
-# {
-#   "event_type": "publish-event",
-#   "client_payload": {
-#     "timestamp": "scheduled_publish_timestamp"
-#   }
-# }
-
-# jobs:
-#   test_client_payload:
-#     if: ${{ !github.event.client_payload.passed }}
-#     runs-on: ubuntu-latest
-#     steps:
-#       - env:
-#           MESSAGE: ${{ github.event.client_payload.message }}
-#         run: echo $MESSAGE
-
 on:
   push:
     branches:
@@ -40,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: 'echo "timestamp: ${{ github.event.client_payload.timestamp }}"'
-        if: github.event.event_type === 'publish-event'
+        if: github.event.event_type == 'publish-event'
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
