@@ -26,11 +26,11 @@ jobs:
         with:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
           cache: 'npm'
-      - name: Project Cache
-        id: project-cache
+      - name: Node Cache
+        id: node-cache
         uses: actions/cache@v3
         env:
-          cache-name: project-cache
+          cache-name: node-cache
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
           path: |
