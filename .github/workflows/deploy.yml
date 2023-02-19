@@ -34,15 +34,13 @@ env:
   NODE_VERSION_FILE: '.nvmrc'
 
 jobs:
-  test_client_payload:
-    # if workflow is triggered by webhook, there will be a client_payload
-    # with a timestamp value
-    if: ${{ !github.event.client_payload.timestamp }}
+  test:
+    name: Test Webhook
     runs-on: ubuntu-latest
     steps:
-      - env:
-          TIMESTAMP: ${{ github.event.client_payload.timestamp }}
-        run: echo $TIMESTAMP
+      - uses: actions/checkout@v1
+      - run: 'echo "timestamp: ${{ github.event.client_payload.timestamp }}"'
+        if: github.event.event_type === 'publish-event'
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
