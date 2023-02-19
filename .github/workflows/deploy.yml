@@ -40,7 +40,6 @@ jobs:
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
-            ${{ github.repository }}-
       - name: Set Nextjs Build Cache
         uses: actions/cache@v3
         with:

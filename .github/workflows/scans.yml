@@ -38,7 +38,6 @@ jobs:
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
-            ${{ github.repository }}-
 
       # - name: Cache dependencies
       #   id: cache
