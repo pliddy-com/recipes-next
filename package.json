@@ -73,7 +73,7 @@
     "husky": "^8.0.0",
     "jest": "^29.4.3",
     "jest-environment-jsdom": "^29.4.1",
-    "lint-staged": "^13.1.0",
+    "lint-staged": "^13.1.2",
     "next-sitemap": "^3.1.52",
     "tslint-config-prettier": "^1.18.0",
     "urql": "^3.0.3"
