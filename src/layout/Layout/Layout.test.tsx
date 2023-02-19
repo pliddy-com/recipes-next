@@ -2,22 +2,23 @@ import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react';
 import Layout from './Layout';
 import * as api from 'lib/api';
+import { Taxonomy } from 'types/queries';
 
 jest.mock('lib/api');
+jest.mock('components/Navigation/NavBar/NavBar');
 
 describe('Layout', () => {
-  beforeEach(() => {
-    const setState = jest.fn();
-    jest.mock('react', () => ({
-      useEffect: () => {
-        () => jest.fn();
-      },
-      useState: (initial: unknown) => [initial, setState],
-    }));
-  });
-
   describe('when there is page content', () => {
     it('it renders the Layout', async () => {
+      const setState = jest.fn();
+
+      jest.mock('react', () => ({
+        useEffect: () => {
+          () => jest.fn();
+        },
+        useState: (nav: Taxonomy) => [nav, setState],
+      }));
+
       const children = <div key="1">test</div>;
 
       const { asFragment } = await waitFor(() =>

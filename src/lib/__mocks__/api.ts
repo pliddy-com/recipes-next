@@ -10,7 +10,9 @@ export interface ApiTestProps {
 // import api library to mock
 const api: ApiTestProps = jest.createMockFromModule('lib/api');
 
-api.getNavTaxonomy = jest.fn().mockResolvedValue([{ slug: 'slug-1' }]);
+api.getNavTaxonomy = jest
+  .fn()
+  .mockResolvedValue([{ slug: 'slug-1', title: 'Title 1' }]);
 
 api.getRecipeSlugs = jest.fn().mockResolvedValue(['slug-1', 'slug-2']);
 
