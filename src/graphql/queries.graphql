@@ -1,17 +1,18 @@
 # Query for Homepage RecipeCollection (all recipes)
 
-query homePageQuery {
-  recipeCollection(order: title_ASC) {
-    total
-    items {
-      ...RecipeSummary
-    }
-  }
-}
+# query homePageQuery {
+#   recipeCollection(order: title_ASC) {
+#     total
+#     items {
+#       ...RecipeSummary
+#     }
+#   }
+# }
 
 # Query for Recipe collection based on filter
+# getRecipeIndex
 
-query recipeCollection($where: RecipeFilter) {
+query recipeIndex($where: RecipeFilter) {
   recipeCollection(where: $where, order: title_ASC) {
     total
     items {
@@ -32,8 +33,8 @@ query recipePage($where: RecipeFilter) {
 }
 
 # Query for List Page RecipeCollection (all recipes matching tag)
-
-query listPageQuery($where: TagFilter) {
+# getRecipeList
+query recipeList($where: TagFilter) {
   tagCollection(where: $where, limit: 1) {
     total
     items {
@@ -53,8 +54,9 @@ query listPageQuery($where: TagFilter) {
 }
 
 # Query for recipe slugs
+# getRecipeSlugs
 
-query recipeSlugsCollection($where: RecipeFilter) {
+query recipeSlugs($where: RecipeFilter) {
   recipeCollection(where: $where) {
     items {
       slug
@@ -73,8 +75,9 @@ query categorySlugsCollection($where: TagFilter) {
 }
 
 # query for category slugs
+# getTagSlugs
 
-query tagSlugsCollection($where: TagFilter) {
+query tagSlugs($where: TagFilter) {
   tagCollection(where: $where) {
     items {
       slug
@@ -88,8 +91,9 @@ query tagSlugsCollection($where: TagFilter) {
 }
 
 # query for Taxonomy with Category & Subcategory levels
+# getNavTaxonomy
 
-query taxonomyCollection($where: TaxonomyFilter) {
+query navTaxonomy($where: TaxonomyFilter) {
   taxonomyCollection(where: $where, limit: 1) {
     items {
       ...TaxonomyDefault

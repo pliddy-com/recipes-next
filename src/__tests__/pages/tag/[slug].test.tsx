@@ -107,8 +107,8 @@ describe('TagPage in tag/[slug].tsx', () => {
         paths: [{ params: tagSlugData }],
       };
 
-      const queryTagSlugsSpy = jest.spyOn(api, 'queryTagSlugs');
-      const queryListPageContentSpy = jest.spyOn(api, 'queryListPageContent');
+      const getTagSlugsSpy = jest.spyOn(api, 'getTagSlugs');
+      const getRecipeListSpy = jest.spyOn(api, 'getRecipeList');
 
       const { container } = render(
         <TagPage
@@ -120,8 +120,8 @@ describe('TagPage in tag/[slug].tsx', () => {
       expect(await getStaticProps(propsContext)).toEqual(expectedProps);
       expect(await getStaticPaths({})).toEqual(expectedPaths);
 
-      expect(queryTagSlugsSpy).toHaveBeenCalled();
-      expect(queryListPageContentSpy).toHaveBeenCalled();
+      expect(getTagSlugsSpy).toHaveBeenCalled();
+      expect(getRecipeListSpy).toHaveBeenCalled();
 
       // assert that the component matches the existing snapshot
       expect(container).toMatchSnapshot();

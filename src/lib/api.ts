@@ -1,27 +1,27 @@
 import { queryGraphQLContent } from 'lib/gqlClient';
 import {
-  RecipeCollectionDocument,
-  RecipeCollectionQueryVariables,
+  RecipeIndexDocument,
+  RecipeIndexQueryVariables,
   RecipePageDocument,
   RecipePageQueryVariables,
-  RecipeSlugsCollectionDocument,
-  RecipeSlugsCollectionQueryVariables,
-  ListPageQueryDocument,
-  ListPageQueryQueryVariables,
-  TagSlugsCollectionDocument,
-  TagSlugsCollectionQueryVariables,
-  TaxonomyCollectionDocument,
-  TaxonomyCollectionQueryVariables,
+  RecipeSlugsDocument,
+  RecipeSlugsQueryVariables,
+  NavTaxonomyDocument,
+  NavTaxonomyQueryVariables,
+  RecipeListDocument,
+  RecipeListQueryVariables,
+  TagSlugsDocument,
+  TagSlugsQueryVariables,
 } from 'types/generated/graphql';
 
 import { hasValue } from 'lib/typeUtils';
 
+// TODO: add try/catch to handle errors
+
 // used to query content for nav menu taxonomy on client layout
-export const queryNavContent = async (
-  variables: TaxonomyCollectionQueryVariables
-) => {
+export const getNavTaxonomy = async (variables: NavTaxonomyQueryVariables) => {
   const { taxonomyCollection } = await queryGraphQLContent(
-    TaxonomyCollectionDocument,
+    NavTaxonomyDocument,
     variables
   );
 
@@ -29,11 +29,9 @@ export const queryNavContent = async (
 };
 
 // used by getStaticProps for recipe page
-export const queryPageSlugs = async (
-  variables: RecipeSlugsCollectionQueryVariables
-) => {
+export const getRecipeSlugs = async (variables: RecipeSlugsQueryVariables) => {
   const { recipeCollection } = await queryGraphQLContent(
-    RecipeSlugsCollectionDocument,
+    RecipeSlugsDocument,
     variables
   );
 
@@ -46,11 +44,9 @@ export const queryPageSlugs = async (
 };
 
 // used by getStaticProps for tag page
-export const queryTagSlugs = async (
-  variables: TagSlugsCollectionQueryVariables
-) => {
+export const getTagSlugs = async (variables: TagSlugsQueryVariables) => {
   const { tagCollection } = await queryGraphQLContent(
-    TagSlugsCollectionDocument,
+    TagSlugsDocument,
     variables
   );
 
@@ -71,11 +67,9 @@ export const queryTagSlugs = async (
 };
 
 // used to query content for  home index page
-export const queryRecipeCollectionContent = async (
-  variables?: RecipeCollectionQueryVariables
-) => {
+export const getRecipeIndex = async (variables?: RecipeIndexQueryVariables) => {
   const { recipeCollection } = await queryGraphQLContent(
-    RecipeCollectionDocument,
+    RecipeIndexDocument,
     variables
   );
 
@@ -83,11 +77,9 @@ export const queryRecipeCollectionContent = async (
 };
 
 // used to query content for tag & category pagepage
-export const queryListPageContent = async (
-  variables: ListPageQueryQueryVariables
-) => {
+export const getRecipeList = async (variables: RecipeListQueryVariables) => {
   const { tagCollection } = await queryGraphQLContent(
-    ListPageQueryDocument,
+    RecipeListDocument,
     variables
   );
 
@@ -95,9 +87,7 @@ export const queryListPageContent = async (
 };
 
 // used to query content for standalone recipe page
-export const queryRecipeContent = async (
-  variables?: RecipePageQueryVariables
-) => {
+export const getRecipePage = async (variables?: RecipePageQueryVariables) => {
   const { recipeCollection } = await queryGraphQLContent(
     RecipePageDocument,
     variables

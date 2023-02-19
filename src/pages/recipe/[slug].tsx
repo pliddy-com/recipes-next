@@ -10,7 +10,7 @@ import Layout from 'layout/layout';
 import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
 import Recipe from 'pageContainers/Recipe/Recipe';
 
-import { queryPageSlugs, queryRecipeContent } from 'lib/api';
+import { getRecipeSlugs, getRecipePage } from 'lib/api';
 import config from 'lib/config';
 import { hasValue } from 'lib/typeUtils';
 
@@ -37,7 +37,7 @@ const RecipePage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugQueryResults = await queryPageSlugs({
+  const slugQueryResults = await getRecipeSlugs({
     where: { slug_not: 'error' },
   });
 
@@ -60,7 +60,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     throw new Error('Error in SSG!');
   }
 
-  const [pageContent] = await queryRecipeContent({
+  const [pageContent] = await getRecipePage({
     where: { slug },
   });
 

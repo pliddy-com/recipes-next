@@ -156,8 +156,8 @@ describe('RecipePage in recipe/[slug].tsx', () => {
         paths: [{ params: pageSlugData }],
       };
 
-      const queryPageSlugsSpy = jest.spyOn(api, 'queryPageSlugs');
-      const queryRecipeContentSpy = jest.spyOn(api, 'queryRecipeContent');
+      const getRecipeSlugsSpy = jest.spyOn(api, 'getRecipeSlugs');
+      const getRecipeSpy = jest.spyOn(api, 'getRecipePage');
 
       const { container } = render(
         <RecipePage pageContent={pageContent} preview={false} />
@@ -166,8 +166,8 @@ describe('RecipePage in recipe/[slug].tsx', () => {
       expect(await getStaticProps(propsContext)).toEqual(expectedProps);
       expect(await getStaticPaths({})).toEqual(expectedPaths);
 
-      expect(queryPageSlugsSpy).toHaveBeenCalled();
-      expect(queryRecipeContentSpy).toHaveBeenCalled();
+      expect(getRecipeSlugsSpy).toHaveBeenCalled();
+      expect(getRecipeSpy).toHaveBeenCalled();
 
       // assert that the component matches the existing snapshot
       expect(container).toMatchSnapshot();

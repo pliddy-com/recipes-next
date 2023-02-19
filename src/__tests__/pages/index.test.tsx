@@ -76,7 +76,7 @@ describe('HomePage in index.tsx', () => {
         },
       ];
 
-      const apiSpy = jest.spyOn(api, 'queryRecipeCollectionContent');
+      const apiSpy = jest.spyOn(api, 'getRecipeIndex');
 
       const { defaultTitle } = config?.microcopy?.index ?? {};
 

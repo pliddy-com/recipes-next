@@ -1,13 +1,17 @@
 import '@testing-library/jest-dom';
+// import { queryGraphQLContent } from 'lib/gqlClient';
+import * as gqlClient from 'lib/gqlClient';
 
 import {
-  queryNavContent,
-  queryPageSlugs,
-  queryTagSlugs,
-  queryListPageContent,
-  queryRecipeCollectionContent,
-  queryRecipeContent,
+  getNavTaxonomy,
+  getRecipeSlugs,
+  getTagSlugs,
+  getRecipeList,
+  getRecipeIndex,
+  getRecipePage,
 } from './api';
+
+jest.mock('lib/gqlClient');
 
 // TODO: create mock for queryGraphQLContent from 'lib/gqlClient'
 
@@ -16,42 +20,66 @@ import {
 //       (queryNavTaxonomy, queryRecipeIndex, queryRecipeByTag, queryRecipe)
 
 describe('api', () => {
-  describe('when queryNavContent() is called', () => {
-    it('it returns a correctly formatted taxonomy', () => {
-      console.log('queryNavContent', queryNavContent);
+  describe('when getNavTaxonomy() is called', () => {
+    it('it returns a correctly formatted taxonomyCollection', async () => {
+      const items = [{ slug: 'test' }];
+      const payload = { taxonomyCollection: { items } };
+
+      const gqlSpy = jest
+        .spyOn(gqlClient, 'queryGraphQLContent')
+        .mockResolvedValue(payload);
+
+      const variables = {};
+      const res = await getNavTaxonomy(variables);
+
+      expect(gqlSpy).toHaveBeenCalled();
+      expect(res).toEqual(items);
     });
   });
 
-  describe('when queryPageSlugs() is called', () => {
+  describe('when getRecipeSlugs() is called', () => {
     it('it returns a correctly formatted taxonomy', () => {
-      console.log('queryPageSlugs', queryPageSlugs);
+      console.log('getRecipeSlugs', getRecipeSlugs);
+    });
+
+    it('it returns a correctly formatted taxonomyCollection', async () => {
+      const items = [{ slug: 'slug1' }, { slug: 'slug2' }];
+      const payload = { recipeCollection: { items } };
+      const expected = ['slug1', 'slug2'];
+
+      const gqlSpy = jest
+        .spyOn(gqlClient, 'queryGraphQLContent')
+        .mockResolvedValue(payload);
+
+      const variables = {};
+      const res = await getRecipeSlugs(variables);
+
+      expect(gqlSpy).toHaveBeenCalled();
+      expect(res).toEqual(expected);
     });
   });
 
-  describe('when queryTagSlugs() is called', () => {
+  describe('when getTagSlugs() is called', () => {
     it('it returns a correctly formatted taxonomy', () => {
-      console.log('queryTagSlugs', queryTagSlugs);
+      console.log('getTagSlugs', getTagSlugs);
     });
   });
 
-  describe('when queryListPageContent() is called', () => {
+  describe('when getRecipeList() is called', () => {
     it('it returns a correctly formatted taxonomy', () => {
-      console.log('queryListPageContent', queryListPageContent);
+      console.log('getRecipeList', getRecipeList);
     });
   });
 
-  describe('when queryRecipeCollectionContent() is called', () => {
+  describe('when getRecipeIndex() is called', () => {
     it('it returns a correctly formatted taxonomy', () => {
-      console.log(
-        ' queryRecipeCollectionContent',
-        queryRecipeCollectionContent
-      );
+      console.log(' getRecipeIndex', getRecipeIndex);
     });
   });
 
-  describe('when queryRecipeContent() is called', () => {
+  describe('when getRecipePage() is called', () => {
     it('it returns a correctly formatted taxonomy', () => {
-      console.log('queryRecipeContent', queryRecipeContent);
+      console.log('getRecipePage', getRecipePage);
     });
   });
 });
