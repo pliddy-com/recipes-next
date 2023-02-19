@@ -3,7 +3,7 @@ import Link from 'next/link';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
-import { Maybe } from 'types/generated/graphql';
+import { Maybe } from 'types/queries';
 
 interface CategoryListItemButtonProps {
   onClick: VoidFunction;

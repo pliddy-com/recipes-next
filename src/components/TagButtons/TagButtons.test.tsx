@@ -8,7 +8,7 @@ import '@testing-library/jest-dom';
 import TagButtons from './TagButtons';
 
 // import type definitions for sample payloads
-import { TagDefaultFragment } from 'types/generated/graphql';
+import { TagDefaultFragment } from 'types/queries';
 
 describe('TagButtons', () => {
   describe('when there are properly structured tag props', () => {

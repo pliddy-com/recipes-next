@@ -11,7 +11,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 
 import CategoryListItemButton from 'components/NavMenu/CategoryListItemButton/CategoryListItemButton';
 
-import { Maybe, Tag, TaxonomyChildrenItem } from 'types/generated/graphql';
+import { Maybe, Tag, TaxonomyChildrenItem } from 'types/queries';
 
 interface SubcategoryMenuProps {
   category?: Maybe<TaxonomyChildrenItem>;

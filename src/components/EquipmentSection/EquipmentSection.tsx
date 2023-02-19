@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 
 import KitchenTwoToneIcon from '@mui/icons-material/KitchenTwoTone';
 
-import { Maybe, Scalars } from 'types/generated/graphql';
+import { Maybe, Scalars } from 'types/queries';
 
 interface EquipmentSectionProps {
   equipment?: Maybe<Array<Maybe<Scalars['String']>>>;

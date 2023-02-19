@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 // import the component to test
 import CategoryMenu from './CategoryMenu';
 
-import { TaxonomyChildrenItem } from 'types/generated/graphql';
+import { TaxonomyChildrenItem } from 'types/queries';
 
 // TODO: test conditional (render item for category or menu for subcategory)
 

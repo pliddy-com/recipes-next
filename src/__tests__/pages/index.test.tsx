@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 
 // import the component to test
 import HomePage, { getStaticProps } from 'pages/index';
-import { RecipeSummaryFragment } from 'types/generated/graphql';
+import { RecipeSummaryFragment } from 'types/queries';
 
 import config from 'lib/config';
 import * as api from 'lib/api';

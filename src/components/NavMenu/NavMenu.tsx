@@ -9,7 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 import CategoryMenu from 'components/NavMenu/CategoryMenu/CategoryMenu';
 
-import { Taxonomy } from 'types/generated/graphql';
+import { Taxonomy } from 'types/queries';
 
 interface NavMenuType {
   isOpen: boolean;

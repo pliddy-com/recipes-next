@@ -1,7 +1,7 @@
 // Mock modules for npm packages are in the __mocks__ directory
 // at the root level as a sibling of node_modules
 import Head from 'next/head';
-import { ImageDefaultFragment } from 'types/generated/graphql';
+import { ImageDefaultFragment } from 'types/queries';
 
 // create mock version of npm package
 jest.genMockFromModule('../PageHeadTag');

@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 // import the component to test
 import InstructionsSection from 'components/InstructionsSection/InstructionsSection';
 
-import { InstructionsDefaultFragment } from 'types/generated/graphql';
+import { InstructionsDefaultFragment } from 'types/queries';
 
 describe('InstructionsSection', () => {
   const expectedTitle = 'Instructions';

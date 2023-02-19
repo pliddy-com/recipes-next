@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 
-import { IngredientsDefaultFragment } from 'types/generated/graphql';
+import { IngredientsDefaultFragment } from 'types/queries';
 
 interface IngredientsProps {
   sections?: (IngredientsDefaultFragment | null)[];

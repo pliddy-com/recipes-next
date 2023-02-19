@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 
-import { RecipeDefaultFragment } from 'types/generated/graphql';
+import { RecipeDefaultFragment } from 'types/queries';
 
 import { flex } from 'lib/styles';
 

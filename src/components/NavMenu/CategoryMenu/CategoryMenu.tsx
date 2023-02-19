@@ -4,7 +4,7 @@ import ListItem from '@mui/material/ListItem';
 import CategoryListItemButton from 'components/NavMenu/CategoryListItemButton/CategoryListItemButton';
 import SubcategoryMenu from 'components/NavMenu/SubcategoryMenu/SubcategoryMenu';
 
-import { Maybe, TaxonomyChildrenItem } from 'types/generated/graphql';
+import { Maybe, TaxonomyChildrenItem } from 'types/queries';
 
 interface CategoryMenuProps {
   category?: Maybe<TaxonomyChildrenItem>;

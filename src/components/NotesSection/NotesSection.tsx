@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import { Maybe, Scalars } from 'types/generated/graphql';
+import { Maybe, Scalars } from 'types/queries';
 
 interface NotesProps {
   notes?: Maybe<Array<Maybe<Scalars['String']>>>;

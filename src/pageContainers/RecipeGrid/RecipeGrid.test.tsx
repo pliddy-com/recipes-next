@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 // import the component to test
 import RecipeGrid from './RecipeGrid';
 
-import { RecipeDefaultFragment } from 'types/generated/graphql';
+import { RecipeDefaultFragment } from 'types/queries';
 
 describe('RecipeGrid', () => {
   describe('when there is page content', () => {

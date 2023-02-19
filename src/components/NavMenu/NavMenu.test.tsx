@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 // import the component to test
 import NavMenu from './NavMenu';
 
-import { Taxonomy } from 'types/generated/graphql';
+import { Taxonomy } from 'types/queries';
 
 describe('NavMenu', () => {
   describe('when there is a properly structured nav property', () => {

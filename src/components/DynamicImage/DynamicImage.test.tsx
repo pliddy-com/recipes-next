@@ -9,7 +9,7 @@ import DynamicImage from './DynamicImage';
 // import functions to spy on
 import responsiveImage from 'lib/responsiveImage';
 
-import { ImageDefaultFragment } from 'types/generated/graphql';
+import { ImageDefaultFragment } from 'types/queries';
 
 // set up mock next head component from root level mocks__
 jest.mock('next/head');

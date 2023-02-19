@@ -2,7 +2,7 @@ import PreloadTags from 'components/PreloadTags/PreloadTags';
 
 import responsiveImage, { Breakpoints } from 'lib/responsiveImage';
 
-import { ImageDefaultFragment } from 'types/generated/graphql';
+import { ImageDefaultFragment } from 'types/queries';
 
 export interface ImageProps {
   image: ImageDefaultFragment;

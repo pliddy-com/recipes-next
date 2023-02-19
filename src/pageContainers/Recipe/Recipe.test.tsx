@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 // import the component to test
 import Recipe from './Recipe';
 
-import { RecipeDefaultFragment } from 'types/generated/graphql';
+import { RecipeDefaultFragment } from 'types/queries';
 
 import config from './Recipe.config';
 

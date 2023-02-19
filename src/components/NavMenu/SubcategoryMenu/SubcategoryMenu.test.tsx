@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 // import the component to test
 import SubcategoryMenu from './SubcategoryMenu';
 
-import { TaxonomyChildrenItem } from 'types/generated/graphql';
+import { TaxonomyChildrenItem } from 'types/queries';
 
 describe('SubcategoryMenu', () => {
   const callback = jest.fn();

@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 // import the component to test
 import Ingredients from 'components/IngredientsSection/IngredientsSection';
 
-import { IngredientsDefaultFragment } from 'types/generated/graphql';
+import { IngredientsDefaultFragment } from 'types/queries';
 
 describe('IngredientsSection', () => {
   const expectedTitle = 'Ingredients';

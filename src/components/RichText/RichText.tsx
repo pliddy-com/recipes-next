@@ -11,10 +11,7 @@ import {
 
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 
-import {
-  RecipeDescription,
-  RecipeDescriptionLinks,
-} from 'types/generated/graphql';
+import { RecipeDescription, RecipeDescriptionLinks } from 'types/queries';
 
 type BlockProps = {
   children: ReactNode | ReactNode[];

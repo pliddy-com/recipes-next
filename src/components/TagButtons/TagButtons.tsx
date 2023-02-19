@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Link from 'next/link';
 
-import { TagDefaultFragment } from 'types/generated/graphql';
+import { TagDefaultFragment } from 'types/queries';
 
 import { tagButtons } from 'lib/styles';
 

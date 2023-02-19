@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 import PageHeadTag from './PageHeadTag';
 
 import config from 'lib/config';
-import { ImageDefaultFragment } from 'types/generated/graphql';
+import { ImageDefaultFragment } from 'types/queries';
 
 import { useRouter } from 'next/router';
 

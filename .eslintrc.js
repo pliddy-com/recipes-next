@@ -16,7 +16,7 @@ module.exports = {
     '.next/**',
     'out/**',
     '.swc/**',
-    '/src/types/generated/**',
+    '/src/types/**',
     'coverage/**/*.*',
   ],
   plugins: ['@typescript-eslint'],

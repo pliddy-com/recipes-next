@@ -4,7 +4,7 @@ import NavBar from 'components/NavBar/NavBar';
 
 import { getNavTaxonomy } from 'lib/api';
 
-import { Taxonomy } from 'types/generated/graphql';
+import { Taxonomy } from 'types/queries';
 
 interface LayoutProps {
   children?: ReactElement[] | ReactElement;

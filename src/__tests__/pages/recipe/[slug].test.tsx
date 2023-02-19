@@ -10,7 +10,7 @@ import RecipePage, {
   getStaticProps,
 } from 'pages/recipe/[slug]';
 
-import { RecipeDefaultFragment } from 'types/generated/graphql';
+import { RecipeDefaultFragment } from 'types/queries';
 
 import config from 'lib/config';
 import * as api from 'lib/api';

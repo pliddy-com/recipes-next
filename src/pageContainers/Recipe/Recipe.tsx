@@ -11,10 +11,7 @@ import NotesSection from 'components/NotesSection/NotesSection';
 import RichText from 'components/RichText/RichText';
 import TagsSection from 'components/TagsSection/TagsSection';
 
-import {
-  RecipeDefaultFragment,
-  RecipeDescription,
-} from 'types/generated/graphql';
+import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 
 import config from './Recipe.config';
 

@@ -7,7 +7,7 @@ import LogoButton from 'components/LogoButton/LogoButton';
 import MenuButton from 'components/MenuButton/MenuButton';
 import NavMenu from 'components/NavMenu/NavMenu';
 
-import { Taxonomy } from 'types/generated/graphql';
+import { Taxonomy } from 'types/queries';
 
 interface NavBarProps {
   nav?: Taxonomy;

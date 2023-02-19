@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import config from 'lib/config';
 import { useRouter } from 'next/router';
-import { ImageDefaultFragment } from 'types/generated/graphql';
+import { ImageDefaultFragment } from 'types/queries';
 
 interface PageHeadTagProps {
   title?: string | null;

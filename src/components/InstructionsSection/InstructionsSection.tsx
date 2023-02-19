@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import { InstructionsDefaultFragment } from 'types/generated/graphql';
+import { InstructionsDefaultFragment } from 'types/queries';
 
 interface InstructionsProps {
   sections?: (InstructionsDefaultFragment | null)[];

@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 
 // import the component to test
 import TagPage, { getStaticPaths, getStaticProps } from 'pages/tag/[slug]';
-import { ListPageItemFragment } from 'types/generated/graphql';
+import { ListPageItemFragment } from 'types/queries';
 
 import * as api from 'lib/api';
 import config from 'lib/config';

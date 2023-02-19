@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 
 import TagButtons from 'components/TagButtons/TagButtons';
 
-import { TagDefaultFragment } from 'types/generated/graphql';
+import { TagDefaultFragment } from 'types/queries';
 
 interface TagsProps {
   tags: (TagDefaultFragment | null)[];
