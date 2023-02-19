@@ -1,27 +1,20 @@
 import '@testing-library/jest-dom';
-// import { queryGraphQLContent } from 'lib/gqlClient';
 import * as gqlClient from 'lib/gqlClient';
 
 import {
   getNavTaxonomy,
   getRecipeSlugs,
   getTagSlugs,
-  getRecipeList,
   getRecipeIndex,
+  getRecipeList,
   getRecipePage,
 } from './api';
 
 jest.mock('lib/gqlClient');
 
-// TODO: create mock for queryGraphQLContent from 'lib/gqlClient'
-
-// TODO: rename queries in API and GQL queries to be consistent
-//       and clearly understandable
-//       (queryNavTaxonomy, queryRecipeIndex, queryRecipeByTag, queryRecipe)
-
 describe('api', () => {
   describe('when getNavTaxonomy() is called', () => {
-    it('it returns a correctly formatted taxonomyCollection', async () => {
+    it('it returns a taxonomyCollection', async () => {
       const items = [{ slug: 'test' }];
       const payload = { taxonomyCollection: { items } };
 
@@ -38,11 +31,7 @@ describe('api', () => {
   });
 
   describe('when getRecipeSlugs() is called', () => {
-    it('it returns a correctly formatted taxonomy', () => {
-      console.log('getRecipeSlugs', getRecipeSlugs);
-    });
-
-    it('it returns a correctly formatted taxonomyCollection', async () => {
+    it('it returns a list of recipe slugs', async () => {
       const items = [{ slug: 'slug1' }, { slug: 'slug2' }];
       const payload = { recipeCollection: { items } };
       const expected = ['slug1', 'slug2'];
@@ -60,26 +49,141 @@ describe('api', () => {
   });
 
   describe('when getTagSlugs() is called', () => {
-    it('it returns a correctly formatted taxonomy', () => {
-      console.log('getTagSlugs', getTagSlugs);
-    });
-  });
+    it('it returns a list of tag slugs', async () => {
+      const payload = {
+        tagCollection: {
+          items: [
+            {
+              slug: 'slug-1',
+              linkedFrom: {
+                recipeCollection: { total: 1 },
+              },
+            },
+            {
+              slug: 'slug-2',
+              linkedFrom: {
+                recipeCollection: { total: 0 },
+              },
+            },
+            {
+              slug: 'slug-3',
+              linkedFrom: {
+                recipeCollection: { total: 2 },
+              },
+            },
+          ],
+        },
+      };
 
-  describe('when getRecipeList() is called', () => {
-    it('it returns a correctly formatted taxonomy', () => {
-      console.log('getRecipeList', getRecipeList);
+      const expected = ['slug-1', 'slug-3'];
+
+      const gqlSpy = jest
+        .spyOn(gqlClient, 'queryGraphQLContent')
+        .mockResolvedValue(payload);
+
+      const variables = {};
+      const res = await getTagSlugs(variables);
+
+      expect(gqlSpy).toHaveBeenCalled();
+      expect(res).toEqual(expected);
     });
   });
 
   describe('when getRecipeIndex() is called', () => {
-    it('it returns a correctly formatted taxonomy', () => {
-      console.log(' getRecipeIndex', getRecipeIndex);
+    it('it returns a collection of all recipes for the home page', async () => {
+      const recipeItems = [
+        {
+          slug: 'slug-1',
+        },
+        {
+          slug: 'slug-2',
+        },
+      ];
+
+      const payload = {
+        recipeCollection: {
+          total: 2,
+          items: recipeItems,
+        },
+      };
+
+      const gqlSpy = jest
+        .spyOn(gqlClient, 'queryGraphQLContent')
+        .mockResolvedValue(payload);
+
+      const variables = {};
+      const res = await getRecipeIndex(variables);
+
+      expect(gqlSpy).toHaveBeenCalled();
+      expect(res).toEqual(recipeItems);
+    });
+  });
+
+  describe('when getRecipeList() is called', () => {
+    it('it returns a collection of recipes matching the tag', async () => {
+      const items = [
+        {
+          slug: 'slug-1',
+          linkedFrom: {
+            recipeCollection: { total: 1 },
+          },
+        },
+        {
+          slug: 'slug-2',
+          linkedFrom: {
+            recipeCollection: { total: 0 },
+          },
+        },
+        {
+          slug: 'slug-3',
+          linkedFrom: {
+            recipeCollection: { total: 2 },
+          },
+        },
+      ];
+
+      const payload = {
+        tagCollection: {
+          items,
+        },
+      };
+
+      const gqlSpy = jest
+        .spyOn(gqlClient, 'queryGraphQLContent')
+        .mockResolvedValue(payload);
+
+      const variables = {};
+      const res = await getRecipeList(variables);
+
+      expect(gqlSpy).toHaveBeenCalled();
+      expect(res).toEqual(items);
     });
   });
 
   describe('when getRecipePage() is called', () => {
-    it('it returns a correctly formatted taxonomy', () => {
-      console.log('getRecipePage', getRecipePage);
+    it('it returns the content for a recipe', async () => {
+      const items = [
+        {
+          title: 'Recipe Title',
+          slug: 'slug-1',
+        },
+      ];
+
+      const payload = {
+        recipeCollection: {
+          items,
+        },
+      };
+
+      const gqlSpy = jest
+        .spyOn(gqlClient, 'queryGraphQLContent')
+        .mockResolvedValue(payload);
+
+      const variables = {};
+      const res = await getRecipePage(variables);
+
+      expect(gqlSpy).toHaveBeenCalled();
+      expect(res).toEqual(items);
     });
   });
 });

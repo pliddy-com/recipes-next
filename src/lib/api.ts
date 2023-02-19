@@ -1,15 +1,16 @@
 import { queryGraphQLContent } from 'lib/gqlClient';
+
 import {
+  NavTaxonomyDocument,
+  NavTaxonomyQueryVariables,
   RecipeIndexDocument,
   RecipeIndexQueryVariables,
+  RecipeListDocument,
+  RecipeListQueryVariables,
   RecipePageDocument,
   RecipePageQueryVariables,
   RecipeSlugsDocument,
   RecipeSlugsQueryVariables,
-  NavTaxonomyDocument,
-  NavTaxonomyQueryVariables,
-  RecipeListDocument,
-  RecipeListQueryVariables,
   TagSlugsDocument,
   TagSlugsQueryVariables,
 } from 'types/generated/graphql';
