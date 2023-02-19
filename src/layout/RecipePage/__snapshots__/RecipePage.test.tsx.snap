@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Recipe when there is page content it renders the RE 1`] = `
+exports[`Recipe when there is page content it renders the Recipe 1`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthLg page css-1oqqzyl-MuiContainer-root"

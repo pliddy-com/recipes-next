@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 import { InferGetStaticPropsType } from 'next';
 
-import Layout from 'layout/layout';
-import RecipeGridPage from 'pageContainers/RecipeGridPage/RecipeGridPage';
+import Layout from 'layout/Layout/Layout';
+import RecipeGridPage from 'layout/RecipeGridPage/RecipeGridPage';
 import PageHead from 'components/PageHead/PageHead';
 
 import { getRecipeIndex } from 'lib/api';
