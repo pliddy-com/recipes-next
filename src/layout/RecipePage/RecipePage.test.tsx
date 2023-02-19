@@ -19,7 +19,7 @@ describe('Recipe', () => {
   });
 
   describe('when there is page content', () => {
-    it('it renders the RE', () => {
+    it('it renders the Recipe', () => {
       const content = {
         sys: {
           id: 'sysid-0',

@@ -6,9 +6,9 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 
-import Layout from 'layout/layout';
+import Layout from 'layout/Layout/Layout';
 import PageHead from 'components/PageHead/PageHead';
-import RecipeGridPage from 'pageContainers/RecipeGridPage/RecipeGridPage';
+import RecipeGridPage from 'layout/RecipeGridPage/RecipeGridPage';
 
 import { getTagSlugs, getRecipeList } from 'lib/api';
 import config from 'lib/config';
