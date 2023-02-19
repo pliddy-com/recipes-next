@@ -34,11 +34,12 @@ jobs:
         env:
           cache-name: project-cache
         with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          # cache nodemodules for next build
           path: |
             ~/.npm
-          # Generate a new cache whenever packages or source files change.
+            ${{ github.workspace }}/node_modules
           key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-

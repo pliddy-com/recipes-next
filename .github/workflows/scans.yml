@@ -33,7 +33,10 @@ jobs:
           cache-name: project-cache
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
+          # cache nodemodules and don't call npm ci
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/node_modules
           key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
@@ -47,8 +50,8 @@ jobs:
       #       ~/.npm
       #       ${{ github.workspace }}/node_modules
       #     key: modules-${{ hashFiles('package-lock.json') }}
-      - name: Install Dependencies
-        run: npm ci
+      # - name: Install Dependencies
+      #   run: npm ci
       - name: Lint
         run: npm run lint
       - name: Type Check
