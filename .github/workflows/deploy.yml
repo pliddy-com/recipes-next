@@ -29,7 +29,7 @@ jobs:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
           cache: 'npm'
       - name: Project Cache
-        id: cache-project
+        id: project-cache
         uses: actions/cache@v3
         env:
           cache-name: project-cache
@@ -56,7 +56,7 @@ jobs:
       #       ${{ github.repository }}-${{ env.cache-name }}-
       #       ${{ github.repository }}-
       - name: Nextjs Build Cache
-        id: cache-next
+        id: next-cache
         env:
           cache-name: next-cache
         uses: actions/cache@v3

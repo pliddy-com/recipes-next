@@ -27,7 +27,7 @@ jobs:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
           cache: 'npm'
       - name: Project Cache
-        id: cache-project
+        id: project-cache
         uses: actions/cache@v3
         env:
           cache-name: project-cache
