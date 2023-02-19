@@ -80,6 +80,24 @@ describe('api', () => {
         expect(res).toEqual(expected);
       });
     });
+
+    describe('if invalid child data is returned', () => {
+      it('it returns an empty array', async () => {
+        const items = [null, null];
+        const payload = { recipeCollection: { items } };
+        const expected: unknown[] = [];
+
+        const gqlSpy = jest
+          .spyOn(gqlClient, 'queryGraphQLContent')
+          .mockResolvedValue(payload);
+
+        const variables = {};
+        const res = await getRecipeSlugs(variables);
+
+        expect(gqlSpy).toHaveBeenCalled();
+        expect(res).toEqual(expected);
+      });
+    });
   });
 
   describe('when getTagSlugs() is called', () => {
@@ -125,6 +143,29 @@ describe('api', () => {
     describe('if no valid data is returned', () => {
       it('it returns an empty array', async () => {
         const payload = { tagCollection: null };
+        const expected: unknown[] = [];
+
+        const gqlSpy = jest
+          .spyOn(gqlClient, 'queryGraphQLContent')
+          .mockResolvedValue(payload);
+
+        const variables = {};
+        const res = await getTagSlugs(variables);
+
+        expect(gqlSpy).toHaveBeenCalled();
+        expect(res).toEqual(expected);
+      });
+    });
+
+    describe('if invalid child data is returned', () => {
+      it('it returns an empty array', async () => {
+        const items = [
+          {
+            linkedFrom: { recipeCollection: { total: 1 } },
+          },
+        ];
+
+        const payload = { tagCollection: { items } };
         const expected: unknown[] = [];
 
         const gqlSpy = jest

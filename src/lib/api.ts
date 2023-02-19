@@ -36,10 +36,9 @@ export const getRecipeSlugs = async (variables: RecipeSlugsQueryVariables) => {
     variables
   );
 
-  const results = recipeCollection?.items?.map((child) => {
-    const { slug } = child ?? {};
-    return slug;
-  });
+  const results = recipeCollection?.items?.map((child) =>
+    child && child.slug ? child.slug : null
+  );
 
   return results ? results?.filter(hasValue) : [];
 };
@@ -51,18 +50,14 @@ export const getTagSlugs = async (variables: TagSlugsQueryVariables) => {
     variables
   );
 
-  const filtered = tagCollection?.items
-    .filter(hasValue)
+  const results = tagCollection?.items
+    // .filter(hasValue)
     .filter(
       (item) =>
         item?.linkedFrom?.recipeCollection?.total &&
         item?.linkedFrom?.recipeCollection?.total > 0
-    );
-
-  const results = filtered?.map((child) => {
-    const { slug } = child ?? {};
-    return slug;
-  });
+    )
+    .map((child) => (child && child.slug ? child.slug : null));
 
   return results ? results?.filter(hasValue) : [];
 };
