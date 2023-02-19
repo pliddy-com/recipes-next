@@ -1,33 +1,44 @@
 export interface ApiTestProps {
-  fetchNavContent: () => string[];
-  queryPageSlugs: () => string[];
-  queryCategorySlugs: () => string[];
-  queryTagSlugs: () => string[];
-  queryListPageContent: () => { content: string };
-  queryRecipeCollectionContent: () => { content: string };
-  queryRecipeContent: () => { content: string };
+  getNavTaxonomy: () => [{ slug: string }];
+  getRecipeSlugs: () => string[];
+  getTagSlugs: () => string[];
+  getRecipeIndex: () => [{ slug: string }];
+  getRecipeList: () => [{ slug: string }];
+  getRecipePage: () => { slug: string; title: string };
 }
 
 // import api library to mock
 const api: ApiTestProps = jest.createMockFromModule('lib/api');
 
-api.fetchNavContent = jest.fn().mockResolvedValue(['slug-1']);
+api.getNavTaxonomy = jest.fn().mockResolvedValue([{ slug: 'slug-1' }]);
 
-api.queryPageSlugs = jest.fn().mockResolvedValue(['slug-1']);
+api.getRecipeSlugs = jest.fn().mockResolvedValue(['slug-1', 'slug-2']);
 
-api.queryCategorySlugs = jest.fn().mockResolvedValue(['slug-1']);
+api.getTagSlugs = jest.fn().mockResolvedValue(['slug-1', 'slug-2']);
 
-api.queryTagSlugs = jest.fn().mockResolvedValue(['slug-1']);
+api.getRecipeIndex = jest.fn().mockResolvedValue([
+  {
+    slug: 'slug-1',
+  },
+  {
+    slug: 'slug-2',
+  },
+]);
 
-api.queryListPageContent = jest
-  .fn()
-  .mockResolvedValue([{ content: 'list page content' }]);
+api.getRecipeList = jest.fn().mockResolvedValue([
+  {
+    slug: 'slug-1',
+  },
+  {
+    slug: 'slug-2',
+  },
+]);
 
-api.queryRecipeCollectionContent = jest
-  .fn()
-  .mockResolvedValue({ content: 'recipe collection' });
-api.queryRecipeContent = jest
-  .fn()
-  .mockResolvedValue([{ content: 'recipe content' }]);
+api.getRecipePage = jest.fn().mockResolvedValue([
+  {
+    title: 'Recipe Title',
+    slug: 'slug-1',
+  },
+]);
 
 module.exports = api;

@@ -15,9 +15,6 @@ jest.mock('lib/api');
 jest.mock('lib/config');
 jest.mock('components/PageHeadTag/PageHeadTag');
 
-const pageContentData = { content: 'list page content' };
-const tagSlugData = { slug: 'slug-1' };
-
 describe('TagPage in tag/[slug].tsx', () => {
   // reset mocks after each test
   afterEach(() => {
@@ -89,6 +86,8 @@ describe('TagPage in tag/[slug].tsx', () => {
     };
 
     it('it renders the page', async () => {
+      const tagSlugData = { slug: 'slug-2' };
+
       const propsContext = {
         preview: false,
         params: tagSlugData,
@@ -96,7 +95,7 @@ describe('TagPage in tag/[slug].tsx', () => {
 
       const expectedProps = {
         props: {
-          pageContent: pageContentData,
+          pageContent: { slug: 'slug-1' },
           preview: false,
         },
         revalidate: 60,
@@ -104,11 +103,11 @@ describe('TagPage in tag/[slug].tsx', () => {
 
       const expectedPaths = {
         fallback: false,
-        paths: [{ params: tagSlugData }],
+        paths: [{ params: { slug: 'slug-1' } }, { params: { slug: 'slug-2' } }],
       };
 
-      const queryTagSlugsSpy = jest.spyOn(api, 'queryTagSlugs');
-      const queryListPageContentSpy = jest.spyOn(api, 'queryListPageContent');
+      const getTagSlugsSpy = jest.spyOn(api, 'getTagSlugs');
+      const getRecipeListSpy = jest.spyOn(api, 'getRecipeList');
 
       const { container } = render(
         <TagPage
@@ -120,8 +119,8 @@ describe('TagPage in tag/[slug].tsx', () => {
       expect(await getStaticProps(propsContext)).toEqual(expectedProps);
       expect(await getStaticPaths({})).toEqual(expectedPaths);
 
-      expect(queryTagSlugsSpy).toHaveBeenCalled();
-      expect(queryListPageContentSpy).toHaveBeenCalled();
+      expect(getTagSlugsSpy).toHaveBeenCalled();
+      expect(getRecipeListSpy).toHaveBeenCalled();
 
       // assert that the component matches the existing snapshot
       expect(container).toMatchSnapshot();

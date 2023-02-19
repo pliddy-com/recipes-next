@@ -5,7 +5,7 @@ import Layout from 'layout/layout';
 import RecipeGrid from 'pageContainers/RecipeGrid/RecipeGrid';
 import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
 
-import { queryRecipeCollectionContent } from 'lib/api';
+import { getRecipeIndex } from 'lib/api';
 import config from 'lib/config';
 
 const HomePage = ({
@@ -27,7 +27,7 @@ const HomePage = ({
 };
 
 export const getStaticProps = async ({ preview = false }) => {
-  const pageContent = await queryRecipeCollectionContent();
+  const pageContent = await getRecipeIndex();
 
   return { props: { pageContent, preview }, revalidate: 60 };
 };

@@ -1,47 +1,69 @@
 import { queryGraphQLContent } from 'lib/gqlClient';
+
 import {
-  RecipeCollectionDocument,
-  RecipeCollectionQueryVariables,
+  NavTaxonomyDocument,
+  NavTaxonomyQueryVariables,
+  RecipeIndexDocument,
+  RecipeIndexQueryVariables,
+  RecipeListDocument,
+  RecipeListQueryVariables,
   RecipePageDocument,
   RecipePageQueryVariables,
-  RecipeSlugsCollectionDocument,
-  RecipeSlugsCollectionQueryVariables,
-  ListPageQueryDocument,
-  ListPageQueryQueryVariables,
-  TagSlugsCollectionDocument,
-  TagSlugsCollectionQueryVariables,
-  TaxonomyCollectionDocument,
-  TaxonomyCollectionQueryVariables,
+  RecipeSlugsDocument,
+  RecipeSlugsQueryVariables,
+  TagSlugsDocument,
+  TagSlugsQueryVariables,
 } from 'types/generated/graphql';
 
 import { hasValue } from 'lib/typeUtils';
 
-/*
-   Fetch requests
-*/
-
-// used to fetch content for nav menu taxonomy on client layout
-export const queryNavContent = async (
-  variables: TaxonomyCollectionQueryVariables
-) => {
+// used to query content for nav menu taxonomy on client layout
+export const getNavTaxonomy = async (variables: NavTaxonomyQueryVariables) => {
   const { taxonomyCollection } = await queryGraphQLContent(
-    TaxonomyCollectionDocument,
+    NavTaxonomyDocument,
     variables
   );
 
   return taxonomyCollection ? taxonomyCollection.items.filter(hasValue) : [];
 };
 
-/*
-   GraphQL requests
-*/
+// used by getStaticProps for recipe page
+export const getRecipeSlugs = async (variables: RecipeSlugsQueryVariables) => {
+  const { recipeCollection } = await queryGraphQLContent(
+    RecipeSlugsDocument,
+    variables
+  );
+
+  const results = recipeCollection?.items?.map((child) =>
+    child && child.slug ? child.slug : null
+  );
+
+  return results ? results?.filter(hasValue) : [];
+};
+
+// used by getStaticProps for tag page
+export const getTagSlugs = async (variables: TagSlugsQueryVariables) => {
+  const { tagCollection } = await queryGraphQLContent(
+    TagSlugsDocument,
+    variables
+  );
+
+  const results = tagCollection?.items
+    .filter(hasValue)
+    .filter(
+      (item) =>
+        item?.linkedFrom?.recipeCollection?.total &&
+        item?.linkedFrom?.recipeCollection?.total > 0
+    )
+    .map((child) => (child && child.slug ? child.slug : null));
+
+  return results ? results?.filter(hasValue) : [];
+};
 
 // used to query content for  home index page
-export const queryRecipeCollectionContent = async (
-  variables?: RecipeCollectionQueryVariables
-) => {
+export const getRecipeIndex = async (variables?: RecipeIndexQueryVariables) => {
   const { recipeCollection } = await queryGraphQLContent(
-    RecipeCollectionDocument,
+    RecipeIndexDocument,
     variables
   );
 
@@ -49,11 +71,9 @@ export const queryRecipeCollectionContent = async (
 };
 
 // used to query content for tag & category pagepage
-export const queryListPageContent = async (
-  variables: ListPageQueryQueryVariables
-) => {
+export const getRecipeList = async (variables: RecipeListQueryVariables) => {
   const { tagCollection } = await queryGraphQLContent(
-    ListPageQueryDocument,
+    RecipeListDocument,
     variables
   );
 
@@ -61,87 +81,11 @@ export const queryListPageContent = async (
 };
 
 // used to query content for standalone recipe page
-export const queryRecipeContent = async (
-  variables?: RecipePageQueryVariables
-) => {
+export const getRecipePage = async (variables?: RecipePageQueryVariables) => {
   const { recipeCollection } = await queryGraphQLContent(
     RecipePageDocument,
     variables
   );
 
   return recipeCollection ? recipeCollection.items.filter(hasValue) : [];
-};
-
-// used by getStaticProps for recipe page
-export const queryPageSlugs = async (
-  variables: RecipeSlugsCollectionQueryVariables
-) => {
-  const { recipeCollection } = await queryGraphQLContent(
-    RecipeSlugsCollectionDocument,
-    variables
-  );
-
-  const results = recipeCollection?.items?.map((child) => {
-    const { slug } = child ?? {};
-    return slug;
-  });
-
-  return results ? results?.filter(hasValue) : [];
-};
-
-// used by getStaticProps for category page
-export const queryCategorySlugs = async (
-  variables: TaxonomyCollectionQueryVariables
-) => {
-  const { taxonomyCollection } = await queryGraphQLContent(
-    TaxonomyCollectionDocument,
-    variables
-  );
-
-  const { items } = taxonomyCollection?.items[0]?.childrenCollection ?? {};
-
-  const results = items
-    ?.map((child) => {
-      const { slug } = child ?? {};
-
-      if (child?.__typename === 'Taxonomy') {
-        const children = child?.childrenCollection?.items?.map(
-          (childItem) => childItem?.slug
-        );
-
-        children?.push(slug);
-
-        return children;
-      }
-
-      return slug;
-    })
-    .flat();
-
-  return results ? results?.filter(hasValue) : [];
-};
-
-// used by getStaticProps for tag page
-export const queryTagSlugs = async (
-  variables: TagSlugsCollectionQueryVariables
-) => {
-  const { tagCollection } = await queryGraphQLContent(
-    TagSlugsCollectionDocument,
-    variables
-  );
-
-  const filtered = tagCollection?.items
-    .filter(hasValue)
-    .filter(
-      (item) =>
-        item?.linkedFrom?.recipeCollection?.total &&
-        item?.linkedFrom?.recipeCollection?.total > 0
-    );
-
-  const results = filtered?.map((child) => {
-    const { slug } = child ?? {};
-    return slug;
-  });
-
-  return results ? results?.filter(hasValue) : [];
 };

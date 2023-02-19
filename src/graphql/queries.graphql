@@ -1,95 +1,7 @@
-# Query for Homepage RecipeCollection (all recipes)
-
-query homePageQuery {
-  recipeCollection(order: title_ASC) {
-    total
-    items {
-      ...RecipeSummary
-    }
-  }
-}
-
-# Query for Recipe collection based on filter
-
-query recipeCollection($where: RecipeFilter) {
-  recipeCollection(where: $where, order: title_ASC) {
-    total
-    items {
-      ...RecipeSummary
-    }
-  }
-}
-
-# Query for Recipe page
-
-query recipePage($where: RecipeFilter) {
-  recipeCollection(where: $where, order: title_ASC, limit: 1) {
-    total
-    items {
-      ...RecipeDefault
-    }
-  }
-}
-
-# Query for List Page RecipeCollection (all recipes matching tag)
-
-query listPageQuery($where: TagFilter) {
-  tagCollection(where: $where, limit: 1) {
-    total
-    items {
-      ...ListPageItem
-      # slug
-      # title
-      # linkedFrom {
-      #   recipeCollection(limit: 24) {
-      #     total
-      #     items {
-      #       ...RecipeSummary
-      #     }
-      #   }
-      # }
-    }
-  }
-}
-
-# Query for recipe slugs
-
-query recipeSlugsCollection($where: RecipeFilter) {
-  recipeCollection(where: $where) {
-    items {
-      slug
-    }
-  }
-}
-
-# query for category slugs
-
-query categorySlugsCollection($where: TagFilter) {
-  tagCollection(where: $where) {
-    items {
-      slug
-    }
-  }
-}
-
-# query for category slugs
-
-query tagSlugsCollection($where: TagFilter) {
-  tagCollection(where: $where) {
-    items {
-      slug
-      linkedFrom {
-        recipeCollection {
-          total
-        }
-      }
-    }
-  }
-}
-
 # query for Taxonomy with Category & Subcategory levels
+# getNavTaxonomy
 
-query taxonomyCollection($where: TaxonomyFilter) {
+query navTaxonomy($where: TaxonomyFilter) {
   taxonomyCollection(where: $where, limit: 1) {
     items {
       ...TaxonomyDefault
@@ -113,6 +25,69 @@ query taxonomyCollection($where: TaxonomyFilter) {
           ...TaxonomyWithChildren
         }
       }
+    }
+  }
+}
+
+# Query for recipe slugs
+# getRecipeSlugs
+
+query recipeSlugs($where: RecipeFilter) {
+  recipeCollection(where: $where) {
+    items {
+      slug
+    }
+  }
+}
+
+# query for category slugs
+# getTagSlugs
+
+query tagSlugs($where: TagFilter) {
+  tagCollection(where: $where) {
+    items {
+      slug
+      linkedFrom {
+        recipeCollection {
+          total
+        }
+      }
+    }
+  }
+}
+
+# Query for List Page RecipeCollection (all recipes matching tag)
+# getRecipeList
+
+query recipeList($where: TagFilter) {
+  tagCollection(where: $where, limit: 1) {
+    total
+    items {
+      ...ListPageItem
+    }
+  }
+}
+
+# Query for Recipe Collection for home (index) page
+# getRecipeIndex
+
+query recipeIndex($where: RecipeFilter) {
+  recipeCollection(where: $where, order: title_ASC) {
+    total
+    items {
+      ...RecipeSummary
+    }
+  }
+}
+
+# Query for Recipe page
+# getRecipePage
+
+query recipePage($where: RecipeFilter) {
+  recipeCollection(where: $where, order: title_ASC, limit: 1) {
+    total
+    items {
+      ...RecipeDefault
     }
   }
 }
