@@ -18,11 +18,7 @@ describe('Layout', () => {
 
   describe('when there is page content', () => {
     it('it renders the Layout', async () => {
-      const children = (
-        <div key="1">
-          <span>test</span>
-        </div>
-      );
+      const children = <div key="1">test</div>;
 
       const { asFragment } = await waitFor(() =>
         render(<Layout>{children}</Layout>)

@@ -1,8 +1,5 @@
-// import testing-library methods
-import { render } from '@testing-library/react';
-
-// add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
 
 // import the component to test
 import HomePage, { getStaticProps } from 'pages/index';
@@ -105,7 +102,7 @@ describe('HomePage in index.tsx', () => {
         revalidate: 60,
       };
 
-      const { container } = render(
+      const { asFragment } = render(
         <HomePage
           pageContent={pageContent as RecipeSummaryFragment[]}
           preview={false}
@@ -120,21 +117,12 @@ describe('HomePage in index.tsx', () => {
 
       expect(apiSpy).toHaveBeenCalledTimes(2);
 
-      // assert that page head tags are rendered
-      // const titleTag = document.getElementsByTagName('title')[0];
-
-      // console.log({ document });
-
-      // expect(titleTag).toBeInTheDocument();
-
-      // defaultTitle && expect(titleTag.text.includes(defaultTitle));
-
       // assert that page container is rendered
       const page = document.querySelector('.page');
       expect(page).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
-      expect(container).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 
