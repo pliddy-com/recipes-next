@@ -28,6 +28,23 @@ describe('api', () => {
       expect(gqlSpy).toHaveBeenCalled();
       expect(res).toEqual(items);
     });
+
+    describe('if no valid data is returned', () => {
+      it('it returns an empty array', async () => {
+        const payload = { taxonomyCollection: null };
+        const expected: unknown[] = [];
+
+        const gqlSpy = jest
+          .spyOn(gqlClient, 'queryGraphQLContent')
+          .mockResolvedValue(payload);
+
+        const variables = {};
+        const res = await getNavTaxonomy(variables);
+
+        expect(gqlSpy).toHaveBeenCalled();
+        expect(res).toEqual(expected);
+      });
+    });
   });
 
   describe('when getRecipeSlugs() is called', () => {
@@ -45,6 +62,23 @@ describe('api', () => {
 
       expect(gqlSpy).toHaveBeenCalled();
       expect(res).toEqual(expected);
+    });
+
+    describe('if no valid data is returned', () => {
+      it('it returns an empty array', async () => {
+        const payload = { recipeCollection: null };
+        const expected: unknown[] = [];
+
+        const gqlSpy = jest
+          .spyOn(gqlClient, 'queryGraphQLContent')
+          .mockResolvedValue(payload);
+
+        const variables = {};
+        const res = await getRecipeSlugs(variables);
+
+        expect(gqlSpy).toHaveBeenCalled();
+        expect(res).toEqual(expected);
+      });
     });
   });
 
@@ -87,6 +121,23 @@ describe('api', () => {
       expect(gqlSpy).toHaveBeenCalled();
       expect(res).toEqual(expected);
     });
+
+    describe('if no valid data is returned', () => {
+      it('it returns an empty array', async () => {
+        const payload = { tagCollection: null };
+        const expected: unknown[] = [];
+
+        const gqlSpy = jest
+          .spyOn(gqlClient, 'queryGraphQLContent')
+          .mockResolvedValue(payload);
+
+        const variables = {};
+        const res = await getTagSlugs(variables);
+
+        expect(gqlSpy).toHaveBeenCalled();
+        expect(res).toEqual(expected);
+      });
+    });
   });
 
   describe('when getRecipeIndex() is called', () => {
@@ -116,6 +167,23 @@ describe('api', () => {
 
       expect(gqlSpy).toHaveBeenCalled();
       expect(res).toEqual(recipeItems);
+    });
+
+    describe('if no valid data is returned', () => {
+      it('it returns an empty array', async () => {
+        const payload = { recipeCollection: null };
+        const expected: unknown[] = [];
+
+        const gqlSpy = jest
+          .spyOn(gqlClient, 'queryGraphQLContent')
+          .mockResolvedValue(payload);
+
+        const variables = {};
+        const res = await getRecipeIndex(variables);
+
+        expect(gqlSpy).toHaveBeenCalled();
+        expect(res).toEqual(expected);
+      });
     });
   });
 
@@ -158,6 +226,23 @@ describe('api', () => {
       expect(gqlSpy).toHaveBeenCalled();
       expect(res).toEqual(items);
     });
+
+    describe('if no valid data is returned', () => {
+      it('it returns an empty array', async () => {
+        const payload = { tagCollection: null };
+        const expected: unknown[] = [];
+
+        const gqlSpy = jest
+          .spyOn(gqlClient, 'queryGraphQLContent')
+          .mockResolvedValue(payload);
+
+        const variables = {};
+        const res = await getRecipeList(variables);
+
+        expect(gqlSpy).toHaveBeenCalled();
+        expect(res).toEqual(expected);
+      });
+    });
   });
 
   describe('when getRecipePage() is called', () => {
@@ -184,6 +269,23 @@ describe('api', () => {
 
       expect(gqlSpy).toHaveBeenCalled();
       expect(res).toEqual(items);
+    });
+
+    describe('if no valid data is returned', () => {
+      it('it returns an empty array', async () => {
+        const payload = { recipeCollection: null };
+        const expected: unknown[] = [];
+
+        const gqlSpy = jest
+          .spyOn(gqlClient, 'queryGraphQLContent')
+          .mockResolvedValue(payload);
+
+        const variables = {};
+        const res = await getRecipePage(variables);
+
+        expect(gqlSpy).toHaveBeenCalled();
+        expect(res).toEqual(expected);
+      });
     });
   });
 });
