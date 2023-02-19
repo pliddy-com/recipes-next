@@ -16,11 +16,7 @@ import {
 
 import { hasValue } from 'lib/typeUtils';
 
-/*
-   Fetch requests
-*/
-
-// used to fetch content for nav menu taxonomy on client layout
+// used to query content for nav menu taxonomy on client layout
 export const queryNavContent = async (
   variables: TaxonomyCollectionQueryVariables
 ) => {
@@ -32,9 +28,47 @@ export const queryNavContent = async (
   return taxonomyCollection ? taxonomyCollection.items.filter(hasValue) : [];
 };
 
-/*
-   GraphQL requests
-*/
+// used by getStaticProps for recipe page
+export const queryPageSlugs = async (
+  variables: RecipeSlugsCollectionQueryVariables
+) => {
+  const { recipeCollection } = await queryGraphQLContent(
+    RecipeSlugsCollectionDocument,
+    variables
+  );
+
+  const results = recipeCollection?.items?.map((child) => {
+    const { slug } = child ?? {};
+    return slug;
+  });
+
+  return results ? results?.filter(hasValue) : [];
+};
+
+// used by getStaticProps for tag page
+export const queryTagSlugs = async (
+  variables: TagSlugsCollectionQueryVariables
+) => {
+  const { tagCollection } = await queryGraphQLContent(
+    TagSlugsCollectionDocument,
+    variables
+  );
+
+  const filtered = tagCollection?.items
+    .filter(hasValue)
+    .filter(
+      (item) =>
+        item?.linkedFrom?.recipeCollection?.total &&
+        item?.linkedFrom?.recipeCollection?.total > 0
+    );
+
+  const results = filtered?.map((child) => {
+    const { slug } = child ?? {};
+    return slug;
+  });
+
+  return results ? results?.filter(hasValue) : [];
+};
 
 // used to query content for  home index page
 export const queryRecipeCollectionContent = async (
@@ -70,78 +104,4 @@ export const queryRecipeContent = async (
   );
 
   return recipeCollection ? recipeCollection.items.filter(hasValue) : [];
-};
-
-// used by getStaticProps for recipe page
-export const queryPageSlugs = async (
-  variables: RecipeSlugsCollectionQueryVariables
-) => {
-  const { recipeCollection } = await queryGraphQLContent(
-    RecipeSlugsCollectionDocument,
-    variables
-  );
-
-  const results = recipeCollection?.items?.map((child) => {
-    const { slug } = child ?? {};
-    return slug;
-  });
-
-  return results ? results?.filter(hasValue) : [];
-};
-
-// used by getStaticProps for category page
-export const queryCategorySlugs = async (
-  variables: TaxonomyCollectionQueryVariables
-) => {
-  const { taxonomyCollection } = await queryGraphQLContent(
-    TaxonomyCollectionDocument,
-    variables
-  );
-
-  const { items } = taxonomyCollection?.items[0]?.childrenCollection ?? {};
-
-  const results = items
-    ?.map((child) => {
-      const { slug } = child ?? {};
-
-      if (child?.__typename === 'Taxonomy') {
-        const children = child?.childrenCollection?.items?.map(
-          (childItem) => childItem?.slug
-        );
-
-        children?.push(slug);
-
-        return children;
-      }
-
-      return slug;
-    })
-    .flat();
-
-  return results ? results?.filter(hasValue) : [];
-};
-
-// used by getStaticProps for tag page
-export const queryTagSlugs = async (
-  variables: TagSlugsCollectionQueryVariables
-) => {
-  const { tagCollection } = await queryGraphQLContent(
-    TagSlugsCollectionDocument,
-    variables
-  );
-
-  const filtered = tagCollection?.items
-    .filter(hasValue)
-    .filter(
-      (item) =>
-        item?.linkedFrom?.recipeCollection?.total &&
-        item?.linkedFrom?.recipeCollection?.total > 0
-    );
-
-  const results = filtered?.map((child) => {
-    const { slug } = child ?? {};
-    return slug;
-  });
-
-  return results ? results?.filter(hasValue) : [];
 };
