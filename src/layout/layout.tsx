@@ -1,6 +1,6 @@
 import { ReactElement, useEffect, useState } from 'react';
 
-import NavBar from 'components/NavBar/NavBar';
+import NavBar from 'components/Navigation/NavBar/NavBar';
 
 import { getNavTaxonomy } from 'lib/api';
 

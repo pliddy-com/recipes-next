@@ -7,8 +7,8 @@ import {
 } from 'next';
 
 import Layout from 'layout/layout';
-import PageHeadTag from 'components/PageHeadTag/PageHeadTag';
-import RecipeGrid from 'pageContainers/RecipeGrid/RecipeGrid';
+import PageHead from 'components/PageHead/PageHead';
+import RecipeGridPage from 'pageContainers/RecipeGridPage/RecipeGridPage';
 
 import { getTagSlugs, getRecipeList } from 'lib/api';
 import config from 'lib/config';
@@ -27,12 +27,12 @@ const TagPage = ({
 
   return pageContent && title ? (
     <>
-      <PageHeadTag
+      <PageHead
         title={`${title} ${defaultTitle}`}
         defaultTitle={defaultTitle}
         description={description}
       />
-      <RecipeGrid recipes={content} title={pageTitle} />
+      <RecipeGridPage recipes={content} title={pageTitle} />
       {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
   ) : null;

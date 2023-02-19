@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeGridPage when there is page content it renders the RecipeGridPage if there is content 1`] = `
+<div>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg page css-1oqqzyl-MuiContainer-root"
+  >
+    <h1
+      class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
+    >
+      Title
+    </h1>
+    <h2
+      class="MuiTypography-root MuiTypography-subtitle1 MuiTypography-gutterBottom css-1wniyei-MuiTypography-root"
+    >
+      1 Total
+    </h2>
+    <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 css-wq3jbm-MuiGrid-root"
+      >
+        <div
+          class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root recipe css-1v5z4dq-MuiPaper-root-MuiCard-root"
+        >
+          <a
+            class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+            href="/recipe/slug-1"
+            tabindex="0"
+          >
+            <div
+              class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+            >
+              <div
+                class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                >
+                  Title 1
+                </span>
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiCardHeader-subheader css-nrdprl-MuiTypography-root"
+                >
+                  Title 2
+                </span>
+              </div>
+            </div>
+            <div
+              class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+            />
+            <span
+              class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+            />
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </a>
+          <div
+            class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
+          >
+            <div
+              class="css-180l46g-MuiStack-root"
+              data-testid="tag-buttons"
+            >
+              <a
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-wmndcn-MuiButtonBase-root-MuiButton-root"
+                href="/tag/slug-2"
+                role="button"
+                tabindex="0"
+              >
+                Title 2
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
