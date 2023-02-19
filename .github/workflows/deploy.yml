@@ -1,6 +1,22 @@
 name: Build and Deploy
 run-name: Build and Deploy
 
+# {
+#   "event_type": "publish-event",
+#   "client_payload": {
+#     "timestamp": "scheduled_publish_timestamp"
+#   }
+# }
+
+# jobs:
+#   test_client_payload:
+#     if: ${{ !github.event.client_payload.passed }}
+#     runs-on: ubuntu-latest
+#     steps:
+#       - env:
+#           MESSAGE: ${{ github.event.client_payload.message }}
+#         run: echo $MESSAGE
+
 on:
   push:
     branches:
@@ -18,6 +34,15 @@ env:
   NODE_VERSION_FILE: '.nvmrc'
 
 jobs:
+  test_client_payload:
+    # if workflow is triggered by webhook, there will be a client_payload
+    # with a timestamp value
+    if: ${{ !github.event.client_payload.timestamp }}
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          TIMESTAMP: ${{ github.event.client_payload.timestamp }}
+        run: echo $TIMESTAMP
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
