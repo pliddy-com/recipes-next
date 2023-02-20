@@ -18,7 +18,7 @@ const InstructionsSection = ({ sections }: InstructionsProps) => {
   let num = 1;
 
   return sections ? (
-    <Stack direction="column" spacing={1}>
+    <Stack direction="column" spacing={1} className="instructions">
       <Typography variant="h2" gutterBottom>
         Instructions
       </Typography>
@@ -29,14 +29,16 @@ const InstructionsSection = ({ sections }: InstructionsProps) => {
           return (
             instructions && (
               <Stack key={label} direction="column" spacing={0}>
-                <Typography variant="h3">{label}</Typography>
+                {sections.length > 1 && (
+                  <Typography variant="h3">{label}</Typography>
+                )}
 
-                <List className="recipeList">
+                <List className="recipeList orderedList" component="ol">
                   {instructions &&
                     instructions.map((instruction) => (
                       <ListItem key={`instruction-${num}`} disableGutters>
                         <ListItemAvatar>
-                          <Avatar color="secondary">{num++}</Avatar>
+                          <Avatar>{num++}.</Avatar>
                         </ListItemAvatar>
                         <ListItemText primary={instruction} />
                       </ListItem>

@@ -9,7 +9,7 @@ interface NotesProps {
 
 const Notes = ({ notes }: NotesProps) =>
   notes ? (
-    <Box>
+    <Box className="notes">
       <Typography variant="h2">Notes</Typography>
       {notes && (
         <ul>

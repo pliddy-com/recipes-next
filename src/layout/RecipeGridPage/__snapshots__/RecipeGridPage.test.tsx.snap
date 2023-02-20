@@ -3,7 +3,7 @@
 exports[`RecipeGridPage when there is page content it renders the RecipeGridPage if there is content 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg page css-1oqqzyl-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg page recipegrid css-1oqqzyl-MuiContainer-root"
   >
     <h1
       class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
@@ -61,11 +61,11 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
             class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
           >
             <div
-              class="css-180l46g-MuiStack-root"
+              class="css-1d0f7f9-MuiStack-root"
               data-testid="tag-buttons"
             >
               <a
-                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-wmndcn-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
                 href="/tag/slug-2"
                 role="button"
                 tabindex="0"

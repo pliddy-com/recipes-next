@@ -3,7 +3,7 @@
 exports[`IngredientsSection when there is properly formatted content renders the ingredients section if there is content 1`] = `
 <div>
   <div
-    class="css-1okj3ks-MuiStack-root"
+    class="ingredients css-1okj3ks-MuiStack-root"
   >
     <h2
       class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-i1hrn3-MuiTypography-root"

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { TagDefaultFragment } from 'types/queries';
 
-import { tagButtons } from 'lib/styles';
+import { flexWrap } from 'lib/styles';
 
 interface TagButtonsProps {
   tags?: (TagDefaultFragment | null)[];
@@ -12,19 +12,19 @@ interface TagButtonsProps {
 
 const TagButtons = ({ tags }: TagButtonsProps) => {
   return tags ? (
-    <Stack direction="row" sx={tagButtons.tags} data-testid="tag-buttons">
+    <Stack direction="row" sx={flexWrap} data-testid="tag-buttons">
       {tags &&
         tags.map((tag) => {
           const { slug, title } = tag ?? {};
 
           return tag && slug && title ? (
             <Button
+              className="tag"
               color="primary"
               component={Link}
               key={slug}
               role="button"
               size="small"
-              sx={tagButtons.button}
               href={`/tag/${slug}`}
               variant="outlined"
             >

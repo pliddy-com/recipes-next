@@ -2,14 +2,14 @@ const colors = {
   common: {
     black: '#000',
     white: '#fff',
-    background: 'hsl(50, 67%, 93%)',
+    background: 'hsl(50, 60%, 90%)',
   },
   primary: {
-    // main: '#193d60',
-    main: 'hsl(149, 68%, 18%)',
+    main: 'hsl(205, 60%, 25%)',
   },
   secondary: {
-    main: '#dc9302',
+    main: 'hsl(40, 98%, 44%)',
+    highlight: 'hsl(60, 100%, 60%)',
   },
   error: {
     main: '#cb2314',

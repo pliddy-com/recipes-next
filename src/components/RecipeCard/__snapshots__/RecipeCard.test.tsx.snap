@@ -131,11 +131,11 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
       class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
     >
       <div
-        class="css-180l46g-MuiStack-root"
+        class="css-1d0f7f9-MuiStack-root"
         data-testid="tag-buttons"
       >
         <a
-          class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-wmndcn-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
           href="/tag/vegetables"
           role="button"
           tabindex="0"

@@ -1,5 +1,6 @@
 import { ThemeOptions } from '@mui/material/styles';
 import colors from 'theme/colors';
+import { sansFontFamily } from './fontface';
 
 const cardTheme: ThemeOptions = {
   components: {
@@ -26,10 +27,12 @@ const cardTheme: ThemeOptions = {
               flexDirection: 'column-reverse',
             },
             '&-subheader': {
-              color: colors.common.white,
-              fontWeight: 600,
+              color: colors.common.background,
+              fontFamily: sansFontFamily,
               fontSize: '1rem',
+              fontWeight: 500,
               letterSpacing: '.2px',
+              marginTop: '0.25rem',
             },
             '&-title': {
               fontSize: '1.25rem',
@@ -48,7 +51,7 @@ const cardTheme: ThemeOptions = {
           },
           '&.recipe': {
             '& .abstract': {
-              marginBottom: '2rem',
+              marginBottom: '1rem',
             },
             '& .imageWrapper': {
               height: '100%',
