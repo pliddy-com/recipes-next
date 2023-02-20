@@ -34,29 +34,27 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to use the application.
 
-## Repository
-
 ## Automation
 
-### Quality Control Scans
+### Local Automation using Husky
 
-#### On pre-commit (Husky)
+Using Husky and a pre-commit hook, quality control shell scripts are run before any git commit can be executed, including updated type generation, type checks, linting, and running of the full suite of unit tests.
 
-- `npm run typegen`
-- `npm run typecheck`
-- `npx lint-staged`
-- `npm test`
+### CI/CD automation using GitHub Actions
 
-#### On push (GitHub Actions)
+#### Quality Control Scan
 
-- Linting
-- Type check
-- Unit tests
+The `scan` workflow performs linting, checks Typescript types, and runs unit tests.
 
-#### Build & Deploy
+`scan` is triggered by pushing a feature branch to GitHub
 
-- On PR merge
-- As a webhook, called whenever the scheduled publishing of content is executed
+#### Build and Deploy
+
+The `build` workflow generates the most recent types based on current CMS content models and runs the suite of unit tests, then executes a Next.js build. The artifacts from the build are deployed to the web by syncing with an AWS S3 bucket and invalidating the cloudfront distribution.
+
+`build` is triggered by merging the main branch through an approved pull request. `build` is also triggered when a scheduled publish event occurs in Contentful and it posts a request to a GitHub webhook that triggers the build and deploy workflow.
+
+## Repository
 
 ## Package Scripts
 
