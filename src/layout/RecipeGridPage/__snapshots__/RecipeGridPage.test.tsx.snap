@@ -11,7 +11,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
       Title
     </h1>
     <h2
-      class="MuiTypography-root MuiTypography-subtitle1 MuiTypography-gutterBottom css-1wniyei-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-subtitle1 css-10wpov9-MuiTypography-root"
     >
       1 Total
     </h2>

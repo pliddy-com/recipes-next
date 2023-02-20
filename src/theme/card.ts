@@ -27,7 +27,7 @@ const cardTheme: ThemeOptions = {
               flexDirection: 'column-reverse',
             },
             '&-subheader': {
-              color: colors.common.background,
+              color: colors.secondary.highlight,
               fontFamily: sansFontFamily,
               fontSize: '1rem',
               fontWeight: 500,
