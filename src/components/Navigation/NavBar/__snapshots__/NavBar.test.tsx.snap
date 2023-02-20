@@ -6,6 +6,7 @@ exports[`NavMenu when there is a properly structured nav property it renders a n
 >
   <nav
     class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-11b3ww9-MuiPaper-root-MuiAppBar-root"
+    data-testid="NavBar"
     style="padding-right: 1024px;"
   >
     <div

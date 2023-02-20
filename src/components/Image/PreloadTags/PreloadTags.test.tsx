@@ -1,15 +1,9 @@
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
-// add custom jest matchers from jest-dom
-import '@testing-library/jest-dom';
-
-// import the component to test
 import PreloadTags from './PreloadTags';
-
-// import functions to spy on
 import responsiveImage from 'lib/responsiveImage';
 
-// set up mock next head component from root level mocks__
 jest.mock('next/head');
 
 describe('PreloadTags', () => {

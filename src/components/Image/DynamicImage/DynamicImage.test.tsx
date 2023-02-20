@@ -1,17 +1,11 @@
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
-// add custom jest matchers from jest-dom
-import '@testing-library/jest-dom';
-
-// import the component to test
 import DynamicImage from './DynamicImage';
-
-// import functions to spy on
 import responsiveImage from 'lib/responsiveImage';
 
 import { ImageDefaultFragment } from 'types/queries';
 
-// set up mock next head component from root level mocks__
 jest.mock('next/head');
 
 describe('DynamicImage', () => {
@@ -35,14 +29,10 @@ describe('DynamicImage', () => {
     const image: ImageDefaultFragment = {
       sys: {
         id: 'sysId',
-        __typename: 'Sys',
       },
       __typename: 'Asset',
       title: 'Image Title',
       description: 'Image Description',
-      contentType: 'image/jpeg',
-      fileName: 'imageFileName.jpg',
-      size: 999999,
       url,
       height: 300,
       width: 400,
@@ -110,14 +100,10 @@ describe('DynamicImage', () => {
     const image: ImageDefaultFragment = {
       sys: {
         id: 'sysId',
-        __typename: 'Sys',
       },
       __typename: 'Asset',
       title: 'Image Title',
       description: 'Image Description',
-      contentType: 'image/jpeg',
-      fileName: 'imageFileName.jpg',
-      size: 999999,
       url: null,
       height: null,
       width: null,
