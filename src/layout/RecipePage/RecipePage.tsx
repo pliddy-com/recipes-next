@@ -9,7 +9,7 @@ import IngredientsSection from 'components/RecipeSections/IngredientsSection/Ing
 import InstructionsSection from 'components/RecipeSections/InstructionsSection/InstructionsSection';
 import NotesSection from 'components/RecipeSections/NotesSection/NotesSection';
 import RichText from 'components/RichText/RichText';
-import TagsSection from 'components/Tags/TagsSection/TagsSection';
+import TagsSection from 'components/RecipeSections/TagsSection/TagsSection';
 
 import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 
@@ -44,7 +44,7 @@ const RecipePage = ({ content }: RecipePageProps) => {
   const { items: tags } = tagsCollection ?? {};
 
   return content ? (
-    <Container className="page">
+    <Container className="page recipe">
       <Box>
         <Typography variant="h1" gutterBottom>
           {title}
@@ -54,7 +54,9 @@ const RecipePage = ({ content }: RecipePageProps) => {
           <RichText content={description as RecipeDescription} />
           // <RichText content={description} />
         )}
+        {tags && <TagsSection tags={tags} />}
       </Box>
+
       {image && breakpoints && (
         <Box
           mx={{
@@ -85,8 +87,6 @@ const RecipePage = ({ content }: RecipePageProps) => {
         )}
 
         {notes && <NotesSection notes={notes} />}
-
-        {tags && <TagsSection tags={tags} />}
 
         {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
       </Stack>

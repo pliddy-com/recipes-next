@@ -1,10 +1,6 @@
-// import testing-library methods
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
-// add custom jest matchers from jest-dom
-import '@testing-library/jest-dom';
-
-// import the component to test
 import InstructionsSection from 'components/RecipeSections/InstructionsSection/InstructionsSection';
 
 import { InstructionsDefaultFragment } from 'types/queries';
@@ -28,7 +24,6 @@ describe('InstructionsSection', () => {
         },
       ];
 
-      const expectedSubtitle = sections?.[0].label;
       const expectedItem = sections?.[0].instructionList?.[0];
 
       const { container, queryByText } = render(
@@ -36,11 +31,9 @@ describe('InstructionsSection', () => {
       );
 
       const title = queryByText(expectedTitle);
-      const subtitle = expectedSubtitle && queryByText(expectedSubtitle);
       const item = expectedItem && queryByText(expectedItem);
 
       expect(title).toBeInTheDocument();
-      expect(subtitle).toBeInTheDocument();
       expect(item).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot

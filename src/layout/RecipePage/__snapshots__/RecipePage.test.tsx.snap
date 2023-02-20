@@ -3,7 +3,7 @@
 exports[`Recipe when there is page content it renders the Recipe 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg page css-1oqqzyl-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg page recipe css-1oqqzyl-MuiContainer-root"
   >
     <div
       class="MuiBox-root css-0"
@@ -22,6 +22,26 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         >
           Description rich text
         </p>
+      </div>
+      <div
+        class="tags MuiBox-root css-h5fkc8"
+      >
+        <div
+          class="css-1d0f7f9-MuiStack-root"
+          data-testid="tag-buttons"
+        >
+          <a
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+            href="/tag/tag-1"
+            role="button"
+            tabindex="0"
+          >
+            Tag 1
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </a>
+        </div>
       </div>
     </div>
     <div
@@ -107,7 +127,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
       class="css-1lwbda4-MuiStack-root"
     >
       <div
-        class="css-1okj3ks-MuiStack-root"
+        class="ingredients css-1okj3ks-MuiStack-root"
       >
         <h2
           class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-i1hrn3-MuiTypography-root"
@@ -180,7 +200,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         </div>
       </div>
       <div
-        class="css-nen11g-MuiStack-root"
+        class="equipment css-nen11g-MuiStack-root"
       >
         <h2
           class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
@@ -188,7 +208,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
           Equipment
         </h2>
         <ul
-          class="MuiList-root MuiList-padding recipeList css-h4y409-MuiList-root"
+          class="MuiList-root MuiList-padding recipeList equipmentList css-h4y409-MuiList-root"
         >
           <li
             class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"
@@ -257,7 +277,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         </ul>
       </div>
       <div
-        class="css-1okj3ks-MuiStack-root"
+        class="instructions css-1okj3ks-MuiStack-root"
       >
         <h2
           class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-i1hrn3-MuiTypography-root"
@@ -267,13 +287,8 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         <div
           class="css-nen11g-MuiStack-root"
         >
-          <h3
-            class="MuiTypography-root MuiTypography-h3 css-gepadz-MuiTypography-root"
-          >
-            Label
-          </h3>
-          <ul
-            class="MuiList-root MuiList-padding recipeList css-h4y409-MuiList-root"
+          <ol
+            class="MuiList-root MuiList-padding recipeList orderedList css-h4y409-MuiList-root"
           >
             <li
               class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"
@@ -283,9 +298,8 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
               >
                 <div
                   class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-2s90m6-MuiAvatar-root"
-                  color="secondary"
                 >
-                  1
+                  1.
                 </div>
               </div>
               <div
@@ -298,11 +312,11 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                 </span>
               </div>
             </li>
-          </ul>
+          </ol>
         </div>
       </div>
       <div
-        class="MuiBox-root css-0"
+        class="notes MuiBox-root css-0"
       >
         <h2
           class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
@@ -314,32 +328,6 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             note 1
           </li>
         </ul>
-      </div>
-      <div
-        class="MuiBox-root css-0"
-        data-testid="tags-section"
-      >
-        <h2
-          class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-i1hrn3-MuiTypography-root"
-        >
-          Tags
-        </h2>
-        <div
-          class="css-180l46g-MuiStack-root"
-          data-testid="tag-buttons"
-        >
-          <a
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-wmndcn-MuiButtonBase-root-MuiButton-root"
-            href="/tag/tag-1"
-            role="button"
-            tabindex="0"
-          >
-            Tag 1
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </a>
-        </div>
       </div>
     </div>
   </div>

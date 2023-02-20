@@ -1,14 +1,14 @@
+import colors from './colors';
 import {
+  baseFontSize,
+  baseRemSize,
+  buttonFontSize,
   fontFaceOverrides,
   fontWeightBold,
   fontWeightRegular,
+  sansFontFamily,
+  serifFontFamily,
 } from 'theme/fontface';
-
-export const baseFontSize = 18;
-export const baseRemSize = 16;
-export const buttonFontSize = 14;
-export const serifFontFamily = 'Piazzolla';
-export const sansFontFamily = '"Helvetica Neue", Helvetica, Arial, sans-serif;';
 
 const typeTheme = {
   components: {
@@ -61,23 +61,26 @@ const typeTheme = {
       lineHeight: 24 / baseFontSize,
     },
     h1: {
-      fontFamily: serifFontFamily,
+      fontFamily: sansFontFamily,
       fontSize: `2.25rem`,
       fontWeight: 700,
       lineHeight: 1.25,
       minHeight: `${45 / baseRemSize}rem`,
     },
     h2: {
-      fontFamily: serifFontFamily,
+      borderBottom: `1px solid ${colors.secondary.main}`,
+      fontFamily: sansFontFamily,
       fontSize: `${30 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
+      paddingBottom: '0.1875rem',
     },
     h3: {
       fontFamily: serifFontFamily,
       fontSize: `${24 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.125,
+      marginTop: '1rem',
     },
     h4: {
       fontFamily: serifFontFamily,

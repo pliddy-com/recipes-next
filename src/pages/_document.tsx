@@ -11,7 +11,7 @@ import Document, {
 import createEmotionCache from 'lib/createEmotionCache';
 import createEmotionServer from '@emotion/server/create-instance';
 
-import { normalSerifFontPath } from 'theme/fontface';
+import { regularSansFontPath, regularSerifFontPath } from 'theme/fontface';
 
 import { background } from 'lib/styles';
 import colors from 'theme/colors';
@@ -29,12 +29,18 @@ export default class MainDocument extends Document {
         <Head>
           <link
             rel="preload"
-            href={normalSerifFontPath}
+            href={regularSansFontPath}
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
-
+          <link
+            rel="preload"
+            href={regularSerifFontPath}
+            as="font"
+            type="font/ttf"
+            crossOrigin="anonymous"
+          />
           <link
             rel="apple-touch-icon"
             sizes="180x180"

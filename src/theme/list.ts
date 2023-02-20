@@ -1,6 +1,6 @@
 import { ThemeOptions } from '@mui/material/styles';
 import colors from 'theme/colors';
-import { serifFontFamily, sansFontFamily } from './type';
+import { serifFontFamily, sansFontFamily } from './fontface';
 
 // TODO: differentiate between nav list and recipe lists
 // recipe lists introduce .25rem margin left, not wanted in nav
@@ -12,6 +12,17 @@ const listTheme: ThemeOptions = {
         root: {
           '&.recipeList': {
             marginLeft: '.25rem',
+            '&.orderedList': {
+              paddingTop: '1rem',
+              '& .MuiListItem-root': {
+                alignItems: 'flex-start',
+              },
+            },
+            '& .MuiListItemText-root': {
+              marginTop: '4px',
+              marginBottom: '0px',
+              paddingTop: '4px',
+            },
           },
           '& .MuiListItem-root': {
             '&.menuItem': {
@@ -19,6 +30,7 @@ const listTheme: ThemeOptions = {
               '& .MuiListItemText-primary': {
                 fontFamily: serifFontFamily,
                 color: colors.primary.main,
+                fontSize: '1.25rem',
               },
             },
             '&.subMenuItem': {
@@ -26,18 +38,8 @@ const listTheme: ThemeOptions = {
                 '& .MuiListItemText-primary': {
                   fontFamily: serifFontFamily,
                   color: colors.primary.main,
+                  fontSize: '1.25rem',
                 },
-              },
-            },
-            '& .MuiListItemIcon-root': {
-              alignItems: 'center',
-              marginRight: '.5rem',
-              height: '1.5rem',
-              width: '1.5rem',
-              minWidth: 0,
-              '& .MuiSvgIcon-root': {
-                height: '1.5rem',
-                width: '1.5rem',
               },
             },
             '& .MuiListItemAvatar-root': {
@@ -46,15 +48,12 @@ const listTheme: ThemeOptions = {
               marginRight: '.5rem',
               minWidth: 0,
               '& .MuiAvatar-root': {
-                backgroundColor: colors.primary.main,
+                color: colors.primary.main,
+                backgroundColor: colors.common.white,
                 fontFamily: sansFontFamily,
-                fontSize: '13px',
-                fontWeight: 900,
-                height: '24px',
+                fontSize: '24px',
+                fontWeight: 600,
                 letterSpacing: '-.5px',
-                // paddingBottom: '1px',
-                paddingRight: '1px',
-                width: '24px',
               },
             },
           },

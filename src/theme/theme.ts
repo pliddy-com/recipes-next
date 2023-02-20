@@ -1,6 +1,6 @@
 import { ThemeOptions } from '@mui/material/styles';
 import colors from 'theme/colors';
-import { sansFontFamily, serifFontFamily } from 'theme/type';
+import { sansFontFamily, serifFontFamily } from 'theme/fontface';
 
 const baseTheme: ThemeOptions = {
   breakpoints: {

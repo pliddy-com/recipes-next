@@ -15,7 +15,7 @@ interface IngredientsProps {
 
 const IngredientsSection = ({ sections }: IngredientsProps) =>
   sections ? (
-    <Stack direction="column" spacing={1}>
+    <Stack direction="column" spacing={1} className="ingredients">
       <Typography variant="h2" gutterBottom>
         Ingredients
       </Typography>

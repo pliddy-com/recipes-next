@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import Tags from 'components/Tags/TagsSection/TagsSection';
+import Tags from 'components/RecipeSections/TagsSection/TagsSection';
 import { TagDefaultFragment } from 'types/queries';
 
 describe('Tags', () => {
@@ -32,20 +32,13 @@ describe('Tags', () => {
     ];
 
     it('it renders the notes section', () => {
-      const testId = 'tags-section';
       const tagButtonsId = 'tag-buttons';
       const expectedTitle = tags[0]?.title;
       const expectedSlug = tags[0]?.slug;
 
-      const { queryByText, queryByTestId } = render(
+      const { queryByText, queryByTestId, asFragment } = render(
         <Tags tags={tags as (TagDefaultFragment | null)[]} />
       );
-
-      // assert that the component is rendered
-      const component = queryByTestId(testId);
-
-      // assert that the tag title is rendered
-      expect(queryByText('Tags')).toBeInTheDocument();
 
       // assert that a TagButtons component is rendered
       // const tagButtons = queryByTestId(tagButtonsId);
@@ -56,7 +49,7 @@ describe('Tags', () => {
       expect(tag).toHaveAttribute('href', `/tag/${expectedSlug}`);
 
       // assert that the component matches the existing snapshot
-      expect(component).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 

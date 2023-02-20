@@ -15,7 +15,7 @@ interface RecipeGridPageProps {
 
 const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) =>
   recipes && recipes.length > 0 ? (
-    <Container className="page">
+    <Container className="page recipegrid">
       <Typography variant="h1">{title}</Typography>
       <Typography variant="subtitle1" component="h2" gutterBottom>
         {recipes && `${recipes.length} Total`}

@@ -18,16 +18,8 @@ export const flex = {
   display: 'flex',
 };
 
-export const tagButtons = {
-  button: {
-    borderRadius: '2rem',
-    textTransform: 'capitalize',
-    fontWeight: 300,
-  },
-  tags: {
-    flexWrap: 'wrap',
-    '& .MuiButtonBase-root': { ml: 0, mb: '.5rem', mr: '.5rem' },
-  },
+export const flexWrap = {
+  flexWrap: 'wrap',
 };
 
 export const background = {

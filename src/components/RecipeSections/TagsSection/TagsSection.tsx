@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 
 import TagButtons from 'components/Tags/TagButtons/TagButtons';
 
@@ -11,10 +10,7 @@ interface TagsProps {
 
 const Tags = ({ tags }: TagsProps) =>
   tags && tags.length > 0 ? (
-    <Box data-testid="tags-section">
-      <Typography variant="h2" gutterBottom>
-        Tags
-      </Typography>
+    <Box mt={4} className="tags">
       <TagButtons tags={tags} />
     </Box>
   ) : null;
