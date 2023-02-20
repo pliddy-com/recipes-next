@@ -6,7 +6,9 @@ Using Next.js Static Site Generation to pre-render the site and globally distrib
 
 The application is optimized for SEO and accessibility. Google Lightouse scores for [recipes.pliddy.com](https://recipes.pliddy.com) for Best Practices, SEO, and Accessibility are 100. Lighthouse Performance scores are regularly in the high 90's, occassionally achieving a perfect 100 if assets are cached on the CDN.
 
-![Lighthouse scores!](/src/assets/lighthouse.jpg 'Lighthouse scores')
+<p align="center">
+  <img src="src/assets/lighthouse.jpg" width="378" />
+</p>
 
 ## Features
 
