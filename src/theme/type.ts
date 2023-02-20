@@ -48,6 +48,10 @@ const typeTheme = {
     fontWeightRegular,
     fontSize: baseFontSize,
     htmlFontSize: baseFontSize,
+    subtitle1: {
+      marginBottom: '1.5rem',
+      lineHeight: '1.125',
+    },
     body2: {
       fontSize: `${baseFontSize / baseRemSize}rem`,
       fontWeight: fontWeightRegular,
@@ -65,7 +69,6 @@ const typeTheme = {
       fontSize: `2.25rem`,
       fontWeight: 700,
       lineHeight: 1.25,
-      minHeight: `${45 / baseRemSize}rem`,
     },
     h2: {
       borderBottom: `1px solid ${colors.secondary.main}`,
@@ -74,13 +77,14 @@ const typeTheme = {
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
       paddingBottom: '0.1875rem',
+      marginBottom: '0.25rem',
     },
     h3: {
       fontFamily: serifFontFamily,
       fontSize: `${24 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.125,
-      marginTop: '1rem',
+      // marginTop: '1rem',
     },
     h4: {
       fontFamily: serifFontFamily,

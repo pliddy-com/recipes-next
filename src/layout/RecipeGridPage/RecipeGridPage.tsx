@@ -17,7 +17,7 @@ const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) =>
   recipes && recipes.length > 0 ? (
     <Container className="page recipegrid">
       <Typography variant="h1">{title}</Typography>
-      <Typography variant="subtitle1" component="h2" gutterBottom>
+      <Typography variant="subtitle1" component="h2">
         {recipes && `${recipes.length} Total`}
       </Typography>
       <Grid container spacing={2}>

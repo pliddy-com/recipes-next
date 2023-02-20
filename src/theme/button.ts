@@ -8,7 +8,7 @@ const buttonTheme: ThemeOptions = {
       styleOverrides: {
         root: {
           '&.logo': {
-            color: colors.common.background,
+            color: colors.common.white,
             display: 'flex',
             fontFamily: sansFontFamily,
             fontSize: '1.125rem',
@@ -26,7 +26,7 @@ const buttonTheme: ThemeOptions = {
         root: {
           '&.menu': {
             menuIcon: { ml: 'auto' },
-            color: colors.common.background,
+            color: colors.common.white,
           },
         },
       },

@@ -9,7 +9,7 @@ const colors = {
   },
   secondary: {
     main: 'hsl(40, 98%, 44%)',
-    highlight: 'hsl(60, 100%, 60%)',
+    highlight: 'hsl(60, 90%, 50%)',
   },
   error: {
     main: '#cb2314',
