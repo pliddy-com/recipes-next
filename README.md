@@ -1,38 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Patrick's Recipes
 
-## Getting Started
+This is a tool for collecting and organizing my personal recipes. The UI is optimized for using on a mobile device propped on the kitchen counter where the screen is viewed at a greater distance than when the device is held in the hand.
+
+Using Next.js Static Site Generation to pre-render the site and globally distributing files with AWS S3 and CloudFront as a global CDN.
+
+The application is optimized for SEO and accessibility. Google Lightouse scores for [recipes.pliddy.com](https://recipes.pliddy.com) for Best Practices, SEO, and Accessibility are 100. Lighthouse Performance scores are regularly in the high 90's, occassionally achieving a perfect 100 if assets are cached on the CDN.
+
+## Features
+
+- NextJS Static Site Generation
+- Typescript
+- Material UI with custom theme with no external CSS resources
+- GraphQL with codegen type generation
+- Contentful as Headless CMS
+- Serverless Deployment using AWS
+  - S3
+  - Cloudfront
+  - lambda@edge for middleware functions
+- CI/CD using GitHub Actions
+  - Quality control scans
+  - Build and deploy
+  - Webhook trigger on scheduled publish
+
+## Project Description
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to use the application.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Repository
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Automation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Quality Control Scans
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### On pre-commit (Husky)
 
-## Learn More
+- `npm run typegen`
+- `npm run typecheck`
+- `npx lint-staged`
+- `npm test`
 
-To learn more about Next.js, take a look at the following resources:
+#### On push (GitHub Actions)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Linting
+- Type check
+- Unit tests
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### Build & Deploy
 
-## Deploy on Vercel
+- On PR merge
+- As a webhook, called whenever the scheduled publishing of content is executed
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Package Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Performance
+
+- Images
+- Fonts
+- Standardized templates (prefetch json)
+- Material theme, no additional network requests for CSS resources
+
+## Headless CMS
+
+Content Definitions
+
+- Recipe
+- Tags
+- Taxonomy
+
+## GraphQL & Typescript
+
+Queries & Fragments to define types for payloads passed as props to React components
