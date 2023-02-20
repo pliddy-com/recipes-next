@@ -1,10 +1,6 @@
-// import testing-library methods
+import '@testing-library/jest-dom';
 import { fireEvent, render } from '@testing-library/react';
 
-// add custom jest matchers from jest-dom
-import '@testing-library/jest-dom';
-
-// import the component to test
 import MenuButton from './MenuButton';
 
 describe('MenuButton', () => {

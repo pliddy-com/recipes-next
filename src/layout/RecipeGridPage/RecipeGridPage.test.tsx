@@ -1,17 +1,18 @@
-// import testing-library methods
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
-// add custom jest matchers from jest-dom
-import '@testing-library/jest-dom';
-
-// import the component to test
 import RecipeGridPage from './RecipeGridPage';
-
 import { RecipeDefaultFragment } from 'types/queries';
+
+// import * as api from 'lib/api';
+
+jest.mock('lib/api');
 
 describe('RecipeGridPage', () => {
   describe('when there is page content', () => {
-    it('it renders the RecipeGridPage if there is content', () => {
+    it('it renders the RecipeGridPage if there is content', async () => {
+      // const recipes = await api.getRecipeList({});
+
       const recipes: (RecipeDefaultFragment | null)[] = [
         {
           sys: {
@@ -40,7 +41,7 @@ describe('RecipeGridPage', () => {
 
       const title = 'Title';
 
-      const { container } = render(
+      const { asFragment } = render(
         <RecipeGridPage recipes={recipes} title={title} />
       );
 
@@ -53,7 +54,7 @@ describe('RecipeGridPage', () => {
       expect(card).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
-      expect(container).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 

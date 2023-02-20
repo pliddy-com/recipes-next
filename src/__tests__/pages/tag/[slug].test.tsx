@@ -44,7 +44,7 @@ describe('TagPage in tag/[slug].tsx', () => {
         paths: [{ params: { slug: 'slug-1' } }, { params: { slug: 'slug-2' } }],
       };
 
-      const { container } = render(
+      const { asFragment } = render(
         <TagSlugPage pageContent={pageContent} preview={false} />
       );
 
@@ -55,7 +55,7 @@ describe('TagPage in tag/[slug].tsx', () => {
       expect(getRecipeListSpy).toHaveBeenCalledTimes(2);
 
       // assert that the component matches the existing snapshot
-      expect(container).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
     });
 
     describe('when the slug is not a string', () => {

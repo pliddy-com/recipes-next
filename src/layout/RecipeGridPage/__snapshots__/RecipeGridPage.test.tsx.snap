@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RecipeGridPage when there is page content it renders the RecipeGridPage if there is content 1`] = `
-<div>
+<DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthLg page css-1oqqzyl-MuiContainer-root"
   >
@@ -81,5 +81,5 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

@@ -1,10 +1,6 @@
-// import testing-library methods
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
-// add custom jest matchers from jest-dom
-import '@testing-library/jest-dom';
-
-// import the component to test
 import Loading from 'components/Loading/Loading';
 
 describe('LogoIcon', () => {
