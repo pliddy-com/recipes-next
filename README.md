@@ -163,7 +163,7 @@ Fonts are another resource that can have significant impact on page performance 
 
 To address the font performance issues in this application, several choices were made:
 
-- **Variable weight TrueType** fonts were selected from Google Fonts. Instead of the traditional format with one font file for each weight, variable weight fonts have one file that can render multiple font weights, from thin to extra bold. This capability reduces both the number of requests and payload size for font loading.
+- **Variable weight TrueType** fonts were selected from Google Fonts. Instead of the traditional format with one font file for each weight, variable weight fonts have one file that can render multiple font weights, from thin to extra bold. This capability reduces both the number of requests and payload size for font loading. For this application, serif and sans-serif variable fonts were chosen, providing several weights for both font families with just 542 kB of font resources.
 
 - **Italic font variants** were eliminated from the design system. Since there was no overwhelming use case for the use of italics, there is no need to request an additional font file with its additional performance impact.
 
