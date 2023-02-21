@@ -27,9 +27,7 @@ The project is built using these technologies:
 
 - Serverless deployment on a global content delivery network (CDN) using <a href="https://aws.amazon.com/s3/" target="_blank">AWS S3</a> and <a href="https://aws.amazon.com/cloudfront/" target="_blank">Cloudfront</a> with <a href="https://aws.amazon.com/lambda/edge/" target="_blank">lambda@edge</a> for middleware functions
 
-- <a href="https://docs.github.com/en/actions" target="_blank">GitHub Actions</a> as a CI/CD pipeline for
-  - **code quality scans** when branches are pushed
-  - **build and deploy automation** triggered through merged pull requests or webhooks called when content is published.
+- <a href="https://docs.github.com/en/actions" target="_blank">GitHub Actions</a> as a CI/CD pipeline for code quality scans and build and deploy automation
 
 ## Project Setup
 
@@ -106,15 +104,28 @@ Queries & Fragments to define types for payloads passed as props to React compon
 
 ## Maximizing Performance
 
+[Maximizing Performance intro goes here]
+
 ### Static Site Generation
 
-- Standardized templates (prefetch json)
-- efficient follow-on page loads once template files are cached by the browser
-- prefetching of json files by Next.js
-- partial ISG for data, build required for new content
-- fast builds (<2 min)
+This application builds using the **Static Site Generation (SSG)** feature of Next.js. For each url in the application, the build process creates an html document (≈12.5 kB), a `json` file containing the content payload (≈10 kB), and an assortment of JavaScript bundles (≈500 kB).
+
+This build generates a page for each recipe in the site, as well as a pre-rendered page for each recipe collection identified by a given tag. The result is a static site with efficient initial page loads, minimum JavaScript execution, and rapid site navigation once resources are loaded on the initial page view.
+
+Additionally, Next.js uses **lazy pre-fetching** of the `json` data files for pages linked from the current page. Navigating to a page with a page template that has previously been viewed is almost instantaneous since all resources except for images are cached by the browser.
+
+Pages also utilize the Next `revalidate` feature, which means when a current page renders, it checks to see if its content has been updated in the CMS through the content API. If the content has changed, the page will fetch a new `json` payload with the latest content without requiring a full site rebuild.
+
+If a new page is published, the site will require a full rebuild. Building and deploying individual statically-generated pages requries some type of server to run the build. This could potentially be handled through GitHub Actions or a standalone AWS Lambda function in the future, if the need arises.
+
+Since the build and deploy process only takes **90-120 seconds** from start to availability across the AWS CloudFront CDN, the project can be statically generated over **hundreds of times a month** within the free tier llimits of GitHub Actions.
 
 ### Images
+
+While static site generation can optimize markup, content, and script bundles, images can traditionally be the largest contributor to page loading.
+
+To eliminate issues with performance and accessibility, I created a [dynamic image component](src/components/Image/DynamicImage/)
+dynamic image component to efficiently handle image loading.
 
 Custom image component
 
@@ -287,11 +298,11 @@ The only outstanding warning from WAVE is the existence of a `<noscript>` tag on
 
 ## Next Steps
 
-This README file documents the thinking behind the project and its architecture and describes the current state of the project.
+This `README` file documents the thinking behind the project and its architecture and describes the current state of the project.
 
 There is currently a backlog of approximately 25 stories identifying new features, enhancements to existing features, or technical efficiencies. The prioritized backlog items for next steps include:
 
-- Adding a 404 page and correct routing functionality for unknown urls
+- Adding correct routing functionality for unknown urls to a 404 page
 - Enhancing the existing content for improved SEO performance identified by the Checkbot scans
 - Adding recipe schemas from schema.org to page headers in order to enable display of Google search results as rich snippets
 - Implementing lazy loading of Next.js components to improve initial page load performance on mobile devices
