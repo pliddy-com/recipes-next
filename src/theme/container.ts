@@ -13,16 +13,10 @@ const containerTheme: ThemeOptions = {
           '&.page': {
             backgroundColor: colors.common.white,
             minHeight: '100vh',
-            // minHeight: '100%',
             paddingBottom: '3rem',
             paddingTop: '5rem',
             [breakpoints.up('md')]: {
               paddingTop: '6rem',
-            },
-            '&.recipegrid': {
-              [breakpoints.down('md')]: {
-                backgroundColor: colors.common.background,
-              },
             },
           },
         },
