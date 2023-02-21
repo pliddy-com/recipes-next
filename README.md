@@ -1,30 +1,35 @@
 # Patrick's Recipes
 
-This is a tool for collecting and organizing my personal recipes. The UI is optimized for using on a mobile device propped on the kitchen counter where the screen is viewed at a greater distance than when the device is held in the hand.
+This application is a tool I created for collecting and organizing my personal collection of recipes. At the start, these recipes were stored in a variety of digital and off-line formats, including browser bookmarks, assorted digital documents, and old-school paper notebooks.
 
-Using Next.js Static Site Generation to pre-render the site and globally distributing files with AWS S3 and CloudFront as a global CDN.
+In a first pass at solving the problems, I copied all the content for about 60 recipes into Google Docs using a template for each recipe. Since all the content was being captured in a consistent, structured format, it seemed like an ideal opportunity to use Contentful as a headless content managment system (CMS) to store and manage the recipe content.
+
+I then built a React front end for viewing the recipes. The UI is optimized for using on a mobile device placed on a kitchen counter since the screen is viewed at a greater distance than when the device is traditionally held in the hand.
+
+Since the application was originally intended simply for my own use, I did not worry about any of the technical issues inherent in React apps, such as performance or being bot-friendly.
+
+After building the inital React application and manually deploying it to an S3 bucket on Amazon Web Services (AWS), I decided to take the opportunity to leverage a more modern technology stack including:
+
+- <a href="https://nextjs.org/" target="_blank">Next.js</a> 🔗 with Static Site Generation
+
+- <a href="https://www.contentful.com/" target="_blank">Contentful</a> 🔗 as a Headless CMS
+
+- <a href="https://www.typescriptlang.org/" target="_blank">Typescript</a> 🔗
+
+- <a href="https://graphql.org/" target="_blank">GraphQL</a> 🔗 with dynamic type generation using <a href="https://the-guild.dev/graphql/codegen" 
+  target="_blank">GraphQL Code Generator</a> 🔗
+
+- <a href="https://mui.com/" target="_blank">Material UI</a> 🔗 Material UI with custom theme
+
+- Serverless deployment on a global content delivery network (CDN) using <a href="https://aws.amazon.com/s3/" target="_blank">AWS S3</a> 🔗 and <a href="https://aws.amazon.com/cloudfront/" target="_blank">Cloudfront</a> 🔗 with <a href="https://aws.amazon.com/lambda/edge/" target="_blank">lambda@edge</a> 🔗 for middleware functions
+
+- CI/CD using <a href="https://docs.github.com/en/actions" target="_blank">GitHub Actions</a> 🔗 for quality control scans and build and deploy automation triggered through merged pull requests or webhooks called when content is published.
 
 The deployed site can be viewed at <a href="https://recipes.pliddy.com" target="_blank">recipes.pliddy.com</a> 🔗.
 
-## Features
-
-- Next.js with Static Site Generation
-- Typescript
-- Material UI with custom theme
-- GraphQL with dynamic type generation
-- Contentful as Headless CMS
-- Serverless Deployment using AWS
-  - S3
-  - Cloudfront
-  - lambda@edge for middleware functions
-- CI/CD using GitHub Actions
-  - Quality control scans
-  - Build and deploy
-  - Webhook trigger on scheduled publish
-
 ## Project Description
 
-This is a <a href="https://nextjs.org/" target="_blank">Next.js</a> 🔗 project bootstrapped with <a href="https://github.com/vercel/next.js/tree/canary/packages/create-next-app" target="_blank">`create-next-app`</a> 🔗.
+This is a Next.js project bootstrapped with <a href="https://github.com/vercel/next.js/tree/canary/packages/create-next-app" target="_blank">`create-next-app`</a> 🔗.
 
 First, run the development server:
 
@@ -106,7 +111,7 @@ These issues will be addressed by evaluating the dynamic loading of components t
 
 ### Checkbot Site Scanner for SEO, Security, and Performance
 
-In order to get more detailed technical scans for SEO, Security, and Performance, the application is scanned with the <a href="https://chrome.google.com/webstore/detail/checkbot-seo-web-speed-se/dagohlmlhagincbfilmkadjgmdnkjinl" target="_blank">Checkbot Site Scanner</a> 🔗.
+In order to get more detailed technical scans for SEO, Security, and Performance, the application is scanned with the <a href="https://chrome.google.com/webstore/detail/checkbot-seo-web-speed-se/dagohlmlhagincbfilmkadjgmdnkjinl" target="_blank">Checkbot Site Scanner</a> 🔗 Chrome Browser extension.
 
 Checkbot identified a variety of potential security issues with the configuration of the static site delivery through AWS CloudFront and S3. Any potential security issues were addressed by proper configuration of response header tags in CloudFront.
 
@@ -124,7 +129,7 @@ These issues will be addressed by updating all current recipe descriptions and a
 
 ### WAVE Evaluation Tool for Accessibility
 
-In order to get more detailed scans for site accessibility, the application is scanned with the <a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh" target="_blank">WAVE Evaluation Tool</a> 🔗.
+In order to get more detailed scans for site accessibility, the application is scanned with the <a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh" target="_blank">WAVE Evaluation Tool</a> 🔗 Chrome Browser extension.
 
 While Lighthouse identifies major accessibility issues with a page, WAVE conducts a more detailed scans and identifies specific implementation details which can affect a page's accessibility, including color contrast and aria labels.
 
@@ -154,11 +159,11 @@ Queries & Fragments to define types for payloads passed as props to React compon
 
 ## Unit Testing
 
+Approach
+
 Coverage
 
 Mocks
-
-Approach
 
 <p align="center">
   <img src="src/assets/unit-test.png" alt="unit test coverage report" />
