@@ -1,37 +1,39 @@
 # Patrick's Recipes
 
-This application is a tool I created for collecting and organizing my personal collection of recipes. At the start, these recipes were stored in a variety of digital and off-line formats, including browser bookmarks, assorted digital documents, and old-school paper notebooks.
+This application is a tool for collecting and organizing my personal **collection of recipes.** Originally, these recipes were stored in a variety of digital and off-line formats, including browser bookmarks, digital notes in multiple applications, and old-school paper notebooks.
 
-In a first pass at solving the problems, I copied all the content for about 60 recipes into Google Docs using a template for each recipe. Since all the content was being captured in a consistent, structured format, it seemed like an ideal opportunity to use a headless content managment system (CMS) to store and manage the recipe content.
+Just to get them organized, I copied all the content for about 60 recipes into Google Docs using a template for each recipe. Since all the content was being captured in a **consistent, structured format**, it seemed like an ideal opportunity to use a **headless content managment system (CMS)** to store and manage the recipe content.
 
-I then built a data-driven React front end for viewing the recipes. The UI is optimized for using on a mobile device placed on a kitchen counter since the screen is viewed at a greater distance than when the device is traditionally held in the hand.
+I built a data-driven React front end for viewing the recipes. The UI is optimized for using on a mobile device placed on a kitchen counter since the screen is viewed at a **greater distance than when the device is traditionally held in the hand**.
 
-Since the application was originally intended simply for my own use, I did not worry about any of the technical issues inherent in React apps, such as performance or being bot-friendly.
+The inital React application was manually deployed to an S3 bucket on Amazon Web Services (AWS) for my own personal use. I decided to take the opportunity to leverage a more modern technology stack and software development best practices to build a **high-performing, crawler-friendly** site with an **automated CI/CD pipeline.**
 
-After building the inital React application and manually deploying it to an S3 bucket on Amazon Web Services (AWS), I decided to take the opportunity to leverage a more modern technology stack including:
+Another goal for the project was to address structural and performance issues in the core platform before scaling in order to **minimize potential future technical debt**.
 
-- <a href="https://nextjs.org/" target="_blank">Next.js</a> 🔗 with Static Site Generation
+The project is built using these technologies:
 
-- <a href="https://www.contentful.com/" target="_blank">Contentful</a> 🔗 as a Headless CMS
+- <a href="https://nextjs.org/" target="_blank">Next.js</a> with Static Site Generation
 
-- <a href="https://www.typescriptlang.org/" target="_blank">Typescript</a> 🔗
+- <a href="https://www.contentful.com/" target="_blank">Contentful</a> as a Headless CMS
 
-- <a href="https://jestjs.io/" target="_blank">Jest</a> 🔗 with <a href="https://testing-library.com/docs/react-testing-library/intro/" target="_blank">React Testing Library</a> 🔗 for unit tests
+- <a href="https://www.typescriptlang.org/" target="_blank">Typescript</a>
 
-- <a href="https://graphql.org/" target="_blank">GraphQL</a> 🔗 with dynamic type generation using <a href="https://the-guild.dev/graphql/codegen" 
-  target="_blank">GraphQL Code Generator</a> 🔗
+- <a href="https://jestjs.io/" target="_blank">Jest</a> with <a href="https://testing-library.com/docs/react-testing-library/intro/" target="_blank">React Testing Library</a> for unit tests
 
-- <a href="https://mui.com/" target="_blank">Material UI</a> 🔗 Material UI with custom theme
+- <a href="https://graphql.org/" target="_blank">GraphQL</a> with dynamic type generation using <a href="https://the-guild.dev/graphql/codegen" 
+  target="_blank">GraphQL Code Generator</a>
 
-- Serverless deployment on a global content delivery network (CDN) using <a href="https://aws.amazon.com/s3/" target="_blank">AWS S3</a> 🔗 and <a href="https://aws.amazon.com/cloudfront/" target="_blank">Cloudfront</a> 🔗 with <a href="https://aws.amazon.com/lambda/edge/" target="_blank">lambda@edge</a> 🔗 for middleware functions
+- <a href="https://mui.com/" target="_blank">Material UI</a> Material UI with custom theme
 
-- <a href="https://docs.github.com/en/actions" target="_blank">GitHub Actions</a> 🔗 as a CI/CD pipeline for
-  - **quality control scans** when branches are pushed
+- Serverless deployment on a global content delivery network (CDN) using <a href="https://aws.amazon.com/s3/" target="_blank">AWS S3</a> and <a href="https://aws.amazon.com/cloudfront/" target="_blank">Cloudfront</a> with <a href="https://aws.amazon.com/lambda/edge/" target="_blank">lambda@edge</a> for middleware functions
+
+- <a href="https://docs.github.com/en/actions" target="_blank">GitHub Actions</a> as a CI/CD pipeline for
+  - **code quality scans** when branches are pushed
   - **build and deploy automation** triggered through merged pull requests or webhooks called when content is published.
 
 ## Project Setup
 
-This is a Next.js project bootstrapped with <a href="https://github.com/vercel/next.js/tree/canary/packages/create-next-app" target="_blank">`create-next-app`</a> 🔗.
+This is a **Next.js** project bootstrapped with <a href="https://github.com/vercel/next.js/tree/canary/packages/create-next-app" target="_blank">`create-next-app`</a> .
 
 To run the application locally, clone the repository to your local environment and install the required dependencies:
 
@@ -63,9 +65,25 @@ Once the local development environment is configured, launch the development ser
 npm run dev
 ```
 
-Then, open [http://localhost:3000](localhost:3000) 🔗 in your browser to test the application.
+Then, open [localhost:3000](http://localhost:3000) in your browser to test the application.
 
-The deployed site can be viewed at <a href="https://recipes.pliddy.com" target="_blank">recipes.pliddy.com</a> 🔗.
+The deployed site can be viewed at <a href="https://recipes.pliddy.com" target="_blank">recipes.pliddy.com</a> .
+
+## System Architecture
+
+[ System Architecture goes here ]
+
+## Headless CMS
+
+Content Definitions
+
+- Recipe
+- Tags
+- Taxonomy
+
+## GraphQL & Typescript
+
+Queries & Fragments to define types for payloads passed as props to React components
 
 ## Performance
 
@@ -103,7 +121,7 @@ Custom image component
 
 ### Package Scripts
 
-[Description of package scripts goes here]
+There is a collection of `npm` scripts in the `package.json` file that are used for code quality checks, build, and deployment. These are run from the console in local development or as part of the workflow in GitHub actions.
 
 #### Linting Scripts
 
@@ -170,11 +188,11 @@ Custom image component
 
 ### Local Automation using Husky
 
-Using Husky and a pre-commit hook, quality control shell scripts are run before any git commit can be executed, including updated **type generation, type checks, linting,** and running the full suite of **unit tests.**
+Using Husky and a pre-commit hook, code quality scans are run before any git commit can be executed, including updated **type generation, type checks, linting,** and running the full suite of **unit tests.**
 
 ### CI/CD automation using GitHub Actions
 
-#### Quality Control Scan
+#### Code Quality
 
 The `scan` workflow performs **linting, checks Typescript types,** and **runs unit tests.**
 
@@ -190,7 +208,7 @@ The `build` workflow generates the most recent types based on current CMS conten
 
 ## Manual Scans
 
-In addition to the automated quality control scans executed as part of the CI/CD pipeline, additional **manual scans** are executed on major deployments to identify any potential issues and resolve them early. This early intervention eliminates potential impacts to performance, security, SEO, and accessibility before they are implemented at scale and become long-running technical debt.
+In addition to the automated code quality checks executed as part of the CI/CD pipeline, additional **manual scans** are executed on major deployments to identify any potential issues and resolve them early. This early intervention eliminates potential impacts to performance, security, SEO, and accessibility before they are implemented at scale and become long-running technical debt.
 
 ### Google Lighthouse
 
@@ -200,11 +218,11 @@ Lightouse scores for **Best Practices, SEO,** and **Accessibility** are 100.
 
 **Performance** scores are regularly in the high 90's, occassionally achieving a perfect 100 if assets are cached on the CDN.
 
-#### Current outstanding issues identified with Lighthouse:
+#### Current issues identified by Lighthouse
 
 While performance numbers for desktop is consistently 99-100, the simulation of mobile behavior in Lighthouse can return a performance score in the low 80s. This is mainly attributable to a warning to `Avoid long main-thread tasks` that are part of the static, chunked JavaScript files generated by Next.js.
 
-These issues will be addressed by evaluating the dynamic loading of components to minimize the size of bundles required for initial page load.
+These issues will be addressed by evaluating the use of Next.js to dynamically load of components to minimize code bundles required for initial page load.
 
 <p align="center">
   <img src="src/assets/lighthouse.png" alt="perfect lightouse scores"/>
@@ -212,11 +230,11 @@ These issues will be addressed by evaluating the dynamic loading of components t
 
 ### Checkbot Site Scanner for SEO, Security, and Performance
 
-In order to get more detailed technical scans for **SEO, Security,** and **Performance,** the application is scanned with the <a href="https://chrome.google.com/webstore/detail/checkbot-seo-web-speed-se/dagohlmlhagincbfilmkadjgmdnkjinl" target="_blank">Checkbot Site Scanner</a> 🔗 Chrome Browser extension.
+In order to get more detailed technical scans for **SEO, security,** and **performance,** the application is scanned with the <a href="https://chrome.google.com/webstore/detail/checkbot-seo-web-speed-se/dagohlmlhagincbfilmkadjgmdnkjinl" target="_blank">Checkbot Site Scanner</a> Chrome Browser extension.
 
 Checkbot identified a variety of potential security issues with the configuration of the static site delivery through AWS CloudFront and S3. Any potential security issues were addressed by proper configuration of response header tags in CloudFront.
 
-#### Current outstanding issues identified with Checkbot:
+#### Current issues identified by Checkbot
 
 The single SEO-related technical issue identified by Checkbot is the lack of a properly re-directing 404 page. This feature is part of the next round of user stories in the backlog.
 
@@ -230,9 +248,11 @@ These issues will be addressed by updating all current recipe descriptions and a
 
 ### WAVE Evaluation Tool for Accessibility
 
-In order to get more detailed scans for **site accessibility,** the application is scanned with the <a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh" target="_blank">WAVE Evaluation Tool</a> 🔗 Chrome Browser extension.
+In order to get more detailed scans for **site accessibility,** the application is scanned with the <a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh" target="_blank">WAVE Evaluation Tool</a> Chrome Browser extension.
 
 While Lighthouse identifies major accessibility issues with a page, WAVE conducts a more detailed scans and identifies specific implementation details which can affect a page's accessibility, including color contrast and aria labels.
+
+#### Current issues identified by WAVE
 
 The only outstanding warning from WAVE is the existence of a `<noscript>` tag on the page, which is inserted by Next.js as part of the build process.
 
@@ -240,16 +260,6 @@ The only outstanding warning from WAVE is the existence of a `<noscript>` tag on
   <img src="src/assets/wave-scan.png" alt="WAVE accessiblity scan results" />
 </p>
 
----
+## Future State
 
-## Headless CMS
-
-Content Definitions
-
-- Recipe
-- Tags
-- Taxonomy
-
-## GraphQL & Typescript
-
-Queries & Fragments to define types for payloads passed as props to React components
+[ Key Features from Backlog ]
