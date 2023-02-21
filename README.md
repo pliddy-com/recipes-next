@@ -4,11 +4,11 @@ This is a tool for collecting and organizing my personal recipes. The UI is opti
 
 Using Next.js Static Site Generation to pre-render the site and globally distributing files with AWS S3 and CloudFront as a global CDN.
 
-The application is optimized for SEO and accessibility. Google Lightouse scores for [recipes.pliddy.com](https://recipes.pliddy.com) for Best Practices, SEO, and Accessibility are 100. Lighthouse Performance scores are regularly in the high 90's, occassionally achieving a perfect 100 if assets are cached on the CDN.
-
 <p align="center">
-  <img src="src/assets/lighthouse.jpg" width="378" />
+  <img src="src/assets/lighthouse.jpg" alt="perfect lightouse scores" width="378" />
 </p>
+
+The application is optimized for SEO and accessibility. Google Lightouse scores for [recipes.pliddy.com](https://recipes.pliddy.com) for Best Practices, SEO, and Accessibility are 100. Lighthouse Performance scores are regularly in the high 90's, occassionally achieving a perfect 100 if assets are cached on the CDN.
 
 ## Features
 
@@ -64,11 +64,31 @@ The `build` workflow generates the most recent types based on current CMS conten
 
 ## Performance
 
-- Images
-- Fonts
-- Theming vs. CSS
-- Standardized templates (prefetch json)
-- Material theme, no additional network requests for CSS resources
+### Images
+
+Custom image component
+
+- HTML-based markup, no load-time scripting
+- No 3rd-party imports
+- Responsive sourcesets for multiple image sizes
+- Preload tags
+- Lazy Loading
+
+### Fonts
+
+- Use variable weight TrueType fonts to reduce number of font files to load for the range of desired weights
+- Minimize use of typeface variants, specifically, omitting the use of italic typefaces
+- Self-hosting fonts with the application instead of using a 3rd party repository
+- Adding preload tags
+
+### Material Theme
+
+- Application styles are defined through a custom Material UI theme, so all styling is handled in-code. Style properties are encoded in the pre-rendered html pages and require no network calls to load external CSS files.
+
+### Standardized templates (prefetch json)
+
+- efficient follow-on page loads once template files are cached by the browser
+- prefetching of json files by Next.js
 
 ## Headless CMS
 
@@ -81,3 +101,9 @@ Content Definitions
 ## GraphQL & Typescript
 
 Queries & Fragments to define types for payloads passed as props to React components
+
+## Unit Testing
+
+Coverage
+Mocks
+Approach
