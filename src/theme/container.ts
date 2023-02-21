@@ -11,14 +11,18 @@ const containerTheme: ThemeOptions = {
       styleOverrides: {
         root: {
           '&.page': {
-            [breakpoints.down('md')]: {
-              backgroundColor: colors.common.background,
-            },
             backgroundColor: colors.common.white,
-            paddingTop: '5rem',
+            minHeight: '100vh',
+            // minHeight: '100%',
             paddingBottom: '3rem',
+            paddingTop: '5rem',
             [breakpoints.up('md')]: {
               paddingTop: '6rem',
+            },
+            '&.recipegrid': {
+              [breakpoints.down('md')]: {
+                backgroundColor: colors.common.background,
+              },
             },
           },
         },
