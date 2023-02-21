@@ -25,8 +25,7 @@
     "**/*.config.ts",
     "src",
     "src/lib/__mocks__/next",
-    "src/lib/__mocks__/lib",
-    "__mocks__/_urql.ts" // "__mocks__"
+    "src/lib/__mocks__/lib"
   ],
   "extends": "./node_modules/@tsconfig/recommended/tsconfig.json",
   "exclude": ["node_modules", "out", ".next", ".swc"]

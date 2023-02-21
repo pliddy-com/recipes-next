@@ -19,7 +19,7 @@ exports[`IngredientsSection when there is properly formatted content renders the
         Section 1 Label
       </h3>
       <ul
-        class="MuiList-root MuiList-padding recipeList css-h4y409-MuiList-root"
+        class="MuiList-root MuiList-padding recipeList unorderedList css-h4y409-MuiList-root"
       >
         <li
           class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"

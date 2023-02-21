@@ -31,7 +31,7 @@ const IngredientsSection = ({ sections }: IngredientsProps) =>
                 {label !== 'Ingredients' && (
                   <Typography variant="h3">{label}</Typography>
                 )}
-                <List className="recipeList">
+                <List className="recipeList unorderedList">
                   {ingredientList.map((ingredient) => (
                     <ListItem key={ingredient} disableGutters>
                       <ListItemIcon>

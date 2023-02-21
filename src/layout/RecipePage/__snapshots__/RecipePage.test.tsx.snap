@@ -138,7 +138,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
           class="css-nen11g-MuiStack-root"
         >
           <ul
-            class="MuiList-root MuiList-padding recipeList css-h4y409-MuiList-root"
+            class="MuiList-root MuiList-padding recipeList unorderedList css-h4y409-MuiList-root"
           >
             <li
               class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"
@@ -208,7 +208,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
           Equipment
         </h2>
         <ul
-          class="MuiList-root MuiList-padding recipeList equipmentList css-h4y409-MuiList-root"
+          class="MuiList-root MuiList-padding recipeList unorderedList css-h4y409-MuiList-root"
         >
           <li
             class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"
@@ -216,21 +216,24 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             <div
               class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-ci5apu-MuiSvgIcon-root"
-                data-testid="KitchenTwoToneIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
+              <div
+                aria-label="skillet"
+                class="MuiBox-root css-0"
+                data-testid="skillet"
+                role="graphics-symbol"
               >
-                <path
-                  d="M8 5h2v3H8zm0 7h2v5H8zm-2 8h12v-9.02H6V20zm2-8h2v5H8v-5zM6 9h12V4H6v5zm2-4h2v3H8V5z"
-                  opacity=".3"
-                />
-                <path
-                  d="M18 2.01 6 2a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5h2v3H8zm0 7h2v5H8z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M10.347 8.561c-1.187-1.07-3.385-3.086-4.354-4.19L2.859.59S1.886-.57.945.362L.696.608l-.25.247c-.94.93.207 1.916.207 1.916L4.4 5.946c1.094.982 3.084 3.202 4.141 4.401a8.54 8.54 0 1 0 1.807-1.786ZM2.185 2.75l-.974-.985a.446.446 0 1 1 .634-.626l.974.984a.446.446 0 1 1-.635.627z"
+                    style="color: rgb(25, 25, 25);"
+                  />
+                </svg>
+              </div>
             </div>
             <div
               class="MuiListItemText-root css-tlelie-MuiListItemText-root"
@@ -248,21 +251,24 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             <div
               class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-ci5apu-MuiSvgIcon-root"
-                data-testid="KitchenTwoToneIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
+              <div
+                aria-label="skillet"
+                class="MuiBox-root css-0"
+                data-testid="skillet"
+                role="graphics-symbol"
               >
-                <path
-                  d="M8 5h2v3H8zm0 7h2v5H8zm-2 8h12v-9.02H6V20zm2-8h2v5H8v-5zM6 9h12V4H6v5zm2-4h2v3H8V5z"
-                  opacity=".3"
-                />
-                <path
-                  d="M18 2.01 6 2a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5h2v3H8zm0 7h2v5H8z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M10.347 8.561c-1.187-1.07-3.385-3.086-4.354-4.19L2.859.59S1.886-.57.945.362L.696.608l-.25.247c-.94.93.207 1.916.207 1.916L4.4 5.946c1.094.982 3.084 3.202 4.141 4.401a8.54 8.54 0 1 0 1.807-1.786ZM2.185 2.75l-.974-.985a.446.446 0 1 1 .634-.626l.974.984a.446.446 0 1 1-.635.627z"
+                    style="color: rgb(25, 25, 25);"
+                  />
+                </svg>
+              </div>
             </div>
             <div
               class="MuiListItemText-root css-tlelie-MuiListItemText-root"

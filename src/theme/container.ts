@@ -11,6 +11,9 @@ const containerTheme: ThemeOptions = {
       styleOverrides: {
         root: {
           '&.page': {
+            [breakpoints.down('md')]: {
+              backgroundColor: colors.common.background,
+            },
             backgroundColor: colors.common.white,
             paddingTop: '5rem',
             paddingBottom: '3rem',
