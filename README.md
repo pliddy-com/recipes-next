@@ -122,18 +122,40 @@ Since the build and deploy process only takes **90-120 seconds** from start to a
 
 ### Images
 
-While static site generation can optimize markup, content, and script bundles, images can traditionally be the largest contributor to page loading.
+While static site generation can optimize markup, content, and script bundles, images can traditionally be the largest contributor to page loading. To eliminate issues with performance and accessibility, I created a [`DynamicImage`](src/components/Image/DynamicImage/) component to efficiently handle image loading.
 
-To eliminate issues with performance and accessibility, I created a [dynamic image component](src/components/Image/DynamicImage/)
-dynamic image component to efficiently handle image loading.
+Instead of relying on a 3rd-party higher order component to manage image loading behind the scenes, the `DynamicImage` component renders standard `html` tags for the body and head elements of the page. The use of `html` tags instead of runtime JavaScript means that the optimum image can be identified and loaded by the browser before any in-page scripts are executed.
 
-Custom image component
+`DynamicImage` creates a `<picture />` element with multiple `<source />` tags and `srcSet` properties to handle all desired responsive behaviors. It also utilizes Next.js's `<Head />` component to optionally inject `preload` tags into the header of any page that uses the Dynamic Image component. Any images that are not preloaded can be delegated to be lazy loaded by the browser when the user scrolls down the page.
 
-- HTML-based markup, no load-time scripting
-- No 3rd-party imports
-- Responsive sourcesets for multiple image sizes
-- Preload tags
-- Lazy Loading
+The `DynamicImage` component can be used in place of an html `img` tag or as a component in any Material UI component that accepts an image url property. Since images can have a variety of sizes and responsive behaviors throughout an application, the `DynamicImage` is a generic solution. The specifications for proper image width at any given size are provided by a `[componentname].config.tsx` file stored in the same directory as the component that uses `DynamicImage`.
+
+The configuration file provides a series of minimum widths and corresponding image widths. The widths used have been standardized at 150px increments to minimize the number of cached, pre-rendered versions of the image stored on Contentful's image API CDN.
+
+```javascript
+breakpoints: [
+  {
+    viewMin: 669,
+    imgWidth: 450,
+  },
+
+  {
+    viewMin: 600,
+    imgWidth: 300,
+  },
+  {
+    viewMin: 485,
+    imgWidth: 600,
+  },
+  {
+    viewMin: 335,
+    imgWidth: 450,
+  },
+  {
+    imgWidth: 300,
+  },
+];
+```
 
 ### Fonts
 
@@ -310,3 +332,7 @@ There is currently a backlog of approximately 25 stories identifying new feature
 - Implementing Algolia for site search
 - Adding additional content types to Contentful for articles and featured landing pages that aggregate content of multiple types
 - Enabling creation and editing of recipe content through the UI by leveraging GraphQL transforms and the Contentful content API
+
+```
+
+```
