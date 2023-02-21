@@ -104,7 +104,7 @@ Queries & Fragments to define types for payloads passed as props to React compon
 
 ## Maximizing Performance
 
-[Maximizing Performance intro goes here]
+A high level of overall site performance was a primary objective for this project. This has been achieved through experimentation and optimization of various features but the largest impact has been a result of the use of static site generation and minimizing the number and size of requests for external image, font, and `css` resources.
 
 ### Static Site Generation
 
@@ -130,7 +130,7 @@ Instead of relying on a 3rd-party higher order component to manage image loading
 
 The `DynamicImage` component can be used in place of an html `img` tag or as a component in any Material UI component that accepts an image url property. Since images can have a variety of sizes and responsive behaviors throughout an application, the `DynamicImage` is a generic solution. The specifications for proper image width at any given size are provided by a `[componentname].config.tsx` file stored in the same directory as the component that uses `DynamicImage`.
 
-The configuration file provides a series of minimum widths and corresponding image widths. The widths used have been standardized at 150px increments to minimize the number of cached, pre-rendered versions of the image stored on Contentful's image API CDN.
+This example configuration file for the [`RecipeCard`](src/components/RecipeCard/RecipeCard) component provides a series of minimum widths and corresponding image widths. The widths used have been standardized at 150px increments to minimize the number of cached, pre-rendered versions of the image stored on Contentful's image API CDN.
 
 ```javascript
 breakpoints: [
@@ -159,14 +159,25 @@ breakpoints: [
 
 ### Fonts
 
-- Use variable weight TrueType fonts to reduce number of font files to load for the range of desired weights
-- Minimize use of typeface variants, specifically, omitting the use of italic typefaces
-- Self-hosting fonts with the application instead of using a 3rd party repository
-- Adding preload tags
+Fonts are another resource that can have significant impact on page performance and metrics like Web Vitals. Having both serif and sans-serif font families with bold and italic options can provide an endless number of design options. The price for this flexibility is loading 4 separate typefaces for each font family. Since font files can be up to 500 kB each, just loading the mentioned can mean 8 requests with 2MB of payload.
 
-### Material Theme
+To address the font performance issues in this application, several choices were made:
 
-- Application styles are defined through a custom Material UI theme, so all styling is handled in-code. Style properties are encoded in the pre-rendered html pages and require no network calls to load external CSS files.
+- **Variable weight TrueType** fonts were selected from Google Fonts. Instead of the traditional format with one font file for each weight, variable weight fonts have one file that can render multiple font weights, from thin to extra bold. This capability reduces both the number of requests and payload size for font loading.
+
+- **Italic font variants** were eliminated from the design system. Since there was no overwhelming use case for the use of italics, there is no need to request an additional font file with its additional performance impact.
+
+- Fonts are **self-hosted** as part of the application deployment on the AWS CDN. This enables font files to be delivered with the same performance level as the rest of the static site files instead of relying on the availability of a 3rd-party font hosting service.
+
+- **Preload** tags for font files are injected into the `html` document's `head` section so typefaces are available when styles are applied during page rendering without having to wait for a blocked resource to load on-demand.
+
+### Material UI Theme
+
+Using **Material UI** as a styled component library provides a wide assortment of pre-configured UI components that reduces the need to develop basic display and interactive components from scratch. In order to create a unique look and feel, these components need to have some level of custom styling.
+
+This application uses Material UI's custom theme functionality to define styling. This approach requires defining all style definitions in TypeScript source files as part of the functional code base, as opposed to creating a set of separate `css` resources.
+
+The benefit of using a Material UI theme is that the required styling for a statically generated page is embedded in the html markup, instead of requiring one or more network requests to external CSS resources.
 
 ## Automation
 
