@@ -4,11 +4,7 @@ This is a tool for collecting and organizing my personal recipes. The UI is opti
 
 Using Next.js Static Site Generation to pre-render the site and globally distributing files with AWS S3 and CloudFront as a global CDN.
 
-<p align="center">
-  <img src="src/assets/lighthouse.jpg" alt="perfect lightouse scores" width="378" />
-</p>
-
-The application is optimized for SEO and accessibility. Google Lightouse scores for [recipes.pliddy.com](https://recipes.pliddy.com) for Best Practices, SEO, and Accessibility are 100. Lighthouse Performance scores are regularly in the high 90's, occassionally achieving a perfect 100 if assets are cached on the CDN.
+The deployed site can be viewed at <a href="https://recipes.pliddy.com" target="_blank">recipes.pliddy.com</a> 🔗.
 
 ## Features
 
@@ -28,7 +24,7 @@ The application is optimized for SEO and accessibility. Google Lightouse scores 
 
 ## Project Description
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a <a href="https://nextjs.org/" target="_blank">Next.js</a> 🔗 project bootstrapped with <a href="https://github.com/vercel/next.js/tree/canary/packages/create-next-app" target="_blank">`create-next-app`</a> 🔗.
 
 First, run the development server:
 
@@ -36,31 +32,7 @@ First, run the development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to use the application.
-
-## Automation
-
-### Local Automation using Husky
-
-Using Husky and a pre-commit hook, quality control shell scripts are run before any git commit can be executed, including updated type generation, type checks, linting, and running of the full suite of unit tests.
-
-### CI/CD automation using GitHub Actions
-
-#### Quality Control Scan
-
-The `scan` workflow performs linting, checks Typescript types, and runs unit tests.
-
-`scan` is triggered by pushing a feature branch to GitHub
-
-#### Build and Deploy
-
-The `build` workflow generates the most recent types based on current CMS content models and runs the suite of unit tests, then executes a Next.js build. The artifacts from the build are deployed to the web by syncing with an AWS S3 bucket and invalidating the cloudfront distribution.
-
-`build` is triggered by merging the main branch through an approved pull request. `build` is also triggered when a scheduled publish event occurs in Contentful and it posts a request to a GitHub webhook that triggers the build and deploy workflow.
-
-## Repository
-
-## Package Scripts
+Open [http://localhost:3000](localhost:3000) 🔗 with your browser to use the application.
 
 ## Performance
 
@@ -89,6 +61,84 @@ Custom image component
 
 - efficient follow-on page loads once template files are cached by the browser
 - prefetching of json files by Next.js
+
+## Automation
+
+### Local Automation using Husky
+
+Using Husky and a pre-commit hook, quality control shell scripts are run before any git commit can be executed, including updated type generation, type checks, linting, and running of the full suite of unit tests.
+
+### CI/CD automation using GitHub Actions
+
+#### Quality Control Scan
+
+The `scan` workflow performs linting, checks Typescript types, and runs unit tests.
+
+`scan` is triggered by pushing a feature branch to GitHub
+
+#### Build and Deploy
+
+The `build` workflow generates the most recent types based on current CMS content models and runs the suite of unit tests, then executes a Next.js build. The artifacts from the build are deployed to the web by syncing with an AWS S3 bucket and invalidating the cloudfront distribution.
+
+`build` is triggered by merging the main branch through an approved pull request. `build` is also triggered when a scheduled publish event occurs in Contentful and it posts a request to a GitHub webhook that triggers the build and deploy workflow.
+
+## Additional Scans
+
+In addition to the automated quality control scans executed as part of the CI/CD pipeline, manual scans are executed on major deployments to identify any potential issues and resolve them early. This early intervention eliminates potential impacts to performance, security, SEO, and accessibility before they are implemented at scale and become long-running technical debt.
+
+### Google Lighthouse
+
+The application is manually checked for performance, accessibility, best practices, and SEO using the Lighthouse in the Google Chrome developer tools.
+
+Lightouse scores for ** Best Practices, SEO, ** and ** Accessibility ** are 100.
+
+Performance scores are regularly in the high 90's, occassionally achieving a perfect 100 if assets are cached on the CDN.
+
+#### Current outstanding issues identified with Lighthouse:
+
+While performance numbers for desktop is consistently 99-100, the simulation of mobile behavior in Lighthouse can return a performance score in the low 80s. This is mainly attributable to a warning to `Avoid long main-thread tasks` that are part of the static, chunked JavaScript files generated by Next.js.
+
+These issues will be addressed by evaluating the dynamic loading of components to minimize the size of bundles required for initial page load.
+
+<p align="center">
+  <img src="src/assets/lighthouse.png" alt="perfect lightouse scores"/>
+</p>
+
+### Checkbot Site Scanner for SEO, Security, and Performance
+
+In order to get more detailed technical scans for SEO, Security, and Performance, the application is scanned with the <a href="https://chrome.google.com/webstore/detail/checkbot-seo-web-speed-se/dagohlmlhagincbfilmkadjgmdnkjinl" target="_blank">Checkbot Site Scanner</a> 🔗.
+
+Checkbot identified a variety of potential security issues with the configuration of the static site delivery through AWS CloudFront and S3. Any potential security issues were addressed by proper configuration of response header tags in CloudFront.
+
+#### Current outstanding issues identified with Checkbot:
+
+The single SEO-related technical issue identified by Checkbot is the lack of a properly re-directing 404 page. This feature is part of the next round of user stories in the backlog.
+
+The remaining issues that impact the application's potential SEO score are related to the relatively thin content currently in the system. There are a limited number of recipes with placeholder content for descriptions and abstracts on core content pages.
+
+These issues will be addressed by updating all current recipe descriptions and abstracts with more robust copy and the creation of additional recipes to make pages that aggregate recipes by tag unique. With the limited number of recipes in the system, there can be multiple tag pages that display the same single recipe. To bots crawling the site, these pages look like duplicate pages.
+
+<p align="center">
+  <img src="src/assets/checkbot-scan.png" alt="Checkbot SEO, Performance, and security scan results" />
+</p>
+
+### WAVE Evaluation Tool for Accessibility
+
+In order to get more detailed scans for site accessibility, the application is scanned with the <a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh" target="_blank">WAVE Evaluation Tool</a> 🔗.
+
+While Lighthouse identifies major accessibility issues with a page, WAVE conducts a more detailed scans and identifies specific implementation details which can affect a page's accessibility, including color contrast and aria labels.
+
+The only outstanding warning from WAVE is the existence of a `<noscript>` tag on the page, which is inserted by Next.js as part of the build process.
+
+<p align="center">
+  <img src="src/assets/wave-scan.png" alt="WAVE accessiblity scan results" />
+</p>
+
+---
+
+## Repository
+
+## Package Scripts
 
 ## Headless CMS
 
