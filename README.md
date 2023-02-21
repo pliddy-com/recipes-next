@@ -155,5 +155,11 @@ Queries & Fragments to define types for payloads passed as props to React compon
 ## Unit Testing
 
 Coverage
+
 Mocks
+
 Approach
+
+<p align="center">
+  <img src="src/assets/unit-test.png" alt="unit test coverage report" />
+</p>
