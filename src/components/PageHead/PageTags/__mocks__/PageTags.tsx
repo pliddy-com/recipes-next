@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { ImageDefaultFragment } from 'types/queries';
 
 // create mock version of npm package
-jest.genMockFromModule('../PageHead');
+jest.genMockFromModule('../PageTags');
 
 jest.mock('next/head');
 
@@ -15,7 +15,7 @@ interface PageHeadProps {
   image?: ImageDefaultFragment | null;
 }
 
-export const PageHead = jest.fn(
+export const PageTags = jest.fn(
   ({ title, defaultTitle, description, image }: PageHeadProps) => {
     return (
       <Head>
@@ -30,4 +30,4 @@ export const PageHead = jest.fn(
   }
 );
 
-export default PageHead;
+export default PageTags;
