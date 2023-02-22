@@ -7,7 +7,7 @@ import {
 } from 'next';
 
 import Layout from 'layout/Layout/Layout';
-import PageHead from 'components/PageHead/PageHead';
+import PageHead from 'components/PageHead/PageTags/PageTags';
 import RecipeGridPage from 'layout/RecipeGridPage/RecipeGridPage';
 
 import { getTagSlugs, getRecipeList } from 'lib/api';

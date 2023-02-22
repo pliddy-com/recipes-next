@@ -9,7 +9,7 @@ import config from 'lib/config';
 
 jest.mock('lib/api');
 jest.mock('lib/config');
-jest.mock('components/PageHead/PageHead');
+jest.mock('components/PageHead/PageTags/PageTags');
 jest.mock('layout/RecipeGridPage/RecipeGridPage');
 
 describe('TagPage in tag/[slug].tsx', () => {

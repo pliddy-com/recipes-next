@@ -7,7 +7,7 @@ import {
 } from 'next';
 
 import Layout from 'layout/Layout/Layout';
-import PageHead from 'components/PageHead/PageHead';
+import PageHead from 'components/PageHead/PageTags/PageTags';
 import Recipe from 'layout/RecipePage/RecipePage';
 
 import { getRecipeSlugs, getRecipePage } from 'lib/api';
