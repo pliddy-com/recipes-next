@@ -10,6 +10,8 @@ TODO:
 
 - [ Edit existing intro to make it more interesting ]
 
+- [ TL/DR ]
+
 - [ Edit & revise, section by section on mobile ]
 
 This application is a tool for collecting and organizing my personal **collection of recipes.** Originally, these recipes were stored in a variety of digital and off-line formats, including browser bookmarks, digital notes in multiple applications, and old-school paper notebooks.
@@ -98,21 +100,43 @@ The deployed site can be viewed at <a href="https://recipes.pliddy.com" target="
   - content API (GraphQL)
   - image API (cached on CDN)
 
-## Headless CMS
+## Contentful as Headless CMS
 
-Content Definitions
+This application uses Contentful as its headless content management system. Contentful provides two APIs used in the prjoect:
 
-- Recipe
-- Tags
-- Taxonomy
+- The **content API** provides a GraphQL endpoint for queries. This api is also used to retrieve content models from the CMS for code generation of TypeScript types used in the client-side codebase..
 
-### GraphQL & Typescript
+- The **images API** provides a REST endpoint for retrieving image assets. This api is also able to apply transformations to the image assets through url parameters. Requests for images are cached for individual image sizes and formats.
 
-Queries & Fragments to define types for payloads passed as props to React components
+### Content Definitions
+
+There are two key content types in the system:
+
+- `Recipe`: This is the primary content type as it defines the basic page-level content for the application. A Recipe entry contains all data and metadata that is required to render a full page of Recipe content on the client. Additional client side queries return condensed versions of a Recipe entry for display in the card format.
+
+  <img src="src/assets/recipe.png" alt="recipe content defintion"/>
+
+- `Tag`: Tags are simply labels applied to content that can be used to organize and query for collections of content. All queries and grouping of content on the client are organized around tags.
+
+  <img src="src/assets/tag.png" alt="tag content definition"/>
+
+Additionally, there is one other content type in the system:
+
+- `Taxonomy`. A Taxonomy is a collection of tags. The Taxonomy is used to generate custom grouped collections of Recipe content. A Taxonomy can also be used as the child of a taxonomy to define sub-groups within the parent taxonomy.
+
+  <img src="src/assets/taxonomy.png" alt="taxonomy content definition"/>
+
+In this application, for example, the primary navigation menu is built from a Taxonomy called `Categories`. Categories are a list of editorially selected tags that are shown in the navigation menu and also generate Category pages containing all Recipes that are assigned the category tag. Child taxonomies are used to create subcategories
+
+Since the only difference between a category and a tag page is the fact that certain tags have been editorially selected to appear in the navigation, the application renders the page as a "tag" page. Next.js routing is configured to rewrite requests to a `/category/*` url to the identical `/tag/*` page with appropriate canonical page tags.
 
 ### CodeGen for GraphQL Types
 
 [CodeGen for GraphQL Types description goes here]
+
+### GraphQL & Typescript
+
+Queries & Fragments to define types for payloads passed as props to React components
 
 ## Maximizing Performance
 

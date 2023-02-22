@@ -22,7 +22,7 @@ const EquipmentSection = ({ equipment }: EquipmentSectionProps) =>
           equipment.map((item) => (
             <ListItem key={item} disableGutters>
               <ListItemIcon>
-                <SkilletIcon color="primary" />
+                <SkilletIcon />
               </ListItemIcon>
               <ListItemText primary={item} />
             </ListItem>
