@@ -2,7 +2,7 @@
 
 ## Contents
 
-- [TL;DR](#tl%3Bdr)
+- [TL;DR](#tldr)
 - [System Architecture](#system-architecture)
 - [Project Setup](#project-setup)
 - [Contentful as Headless CMS](#contentful-as-headless-cms)
@@ -17,7 +17,7 @@
   - [Package Scripts](#package-scripts)
   - [Unit Testing](#unit-testing)
   - [Local Automation Using Husky](#local-automation-using-husky)
-  - [CI/CD Automation Using GitHub Actions](#ci%2Fcd-automation-using-github-actions)
+  - [CI/CD Automation Using GitHub Actions](#cicd-automation-using-github-actions)
 - [Manual Scans](#manual-scans)
   - [Google Lighthouse](#google-lighthouse)
   - [Checkbot Site Scanner](#checkbot-site-scanner)
