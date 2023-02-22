@@ -37,11 +37,14 @@ const listTheme: ThemeOptions = {
                 fontSize: '1rem',
               },
             },
+            '& .MuiListItemIcon-root': {
+              minWidth: '2.75rem',
+            },
             '& .MuiListItemAvatar-root': {
               alignItems: 'center',
               display: 'flex',
               marginRight: '.5rem',
-              minWidth: 0,
+              minWidth: '2.5rem',
               '& .MuiAvatar-root': {
                 color: colors.primary.main,
                 backgroundColor: colors.common.white,

@@ -51,7 +51,7 @@ const cardTheme: ThemeOptions = {
           },
           '&.recipe': {
             '& .abstract': {
-              marginBottom: '1rem',
+              marginBottom: '0.5rem',
             },
             '& .imageWrapper': {
               height: '100%',

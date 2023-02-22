@@ -12,8 +12,9 @@ const containerTheme: ThemeOptions = {
         root: {
           '&.page': {
             backgroundColor: colors.common.white,
-            paddingTop: '5rem',
+            minHeight: '100vh',
             paddingBottom: '3rem',
+            paddingTop: '5rem',
             [breakpoints.up('md')]: {
               paddingTop: '6rem',
             },

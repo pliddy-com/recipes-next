@@ -1,5 +1,5 @@
 import { deepmerge } from '@mui/utils';
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 
 import baseTheme from 'theme/theme';
 import buttonTheme from 'theme/button';
@@ -18,6 +18,6 @@ build = createTheme(deepmerge(build, drawerTheme));
 build = createTheme(deepmerge(build, listTheme));
 build = createTheme(deepmerge(build, tagTheme));
 
-const theme = responsiveFontSizes(build);
+// const theme = responsiveFontSizes(build);
 
-export default theme;
+export default build;

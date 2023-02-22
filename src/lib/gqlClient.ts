@@ -13,12 +13,9 @@ export const gqlClient = createClient({
 });
 
 export async function queryGraphQLContent<
-  TDocument extends TypedDocumentNode<
-    ResultOf<TDocument>,
-    VariablesOf<TDocument>
-  >,
-  TVars = TDocument extends unknown ? never : VariablesOf<TDocument>
->(document: TDocument, variables: TVars) {
+  TDoc extends TypedDocumentNode<ResultOf<TDoc>, VariablesOf<TDoc>>,
+  TVars = TDoc extends unknown ? never : VariablesOf<TDoc>
+>(document: TDoc, variables: TVars) {
   const { data, error } = await gqlClient
     // @ts-expect-error query variables are typed by graphQLRequest
     .query(document, variables)

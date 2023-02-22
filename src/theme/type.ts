@@ -84,7 +84,7 @@ const typeTheme = {
       fontSize: `${24 / baseFontSize}rem`,
       fontWeight: fontWeightBold,
       lineHeight: 1.125,
-      // marginTop: '1rem',
+      marginBottom: '0.5rem',
     },
     h4: {
       fontFamily: serifFontFamily,

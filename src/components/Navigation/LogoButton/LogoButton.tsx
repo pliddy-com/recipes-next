@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import Button from '@mui/material/Button';
 
-import LogoIcon from '../LogoIcon/LogoIcon';
+import LogoIcon from '../../Icons/LogoIcon/LogoIcon';
 import config from 'lib/config';
 
 const LogoButton = () => (
