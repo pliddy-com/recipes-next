@@ -1,24 +1,44 @@
 # Patrick's Recipes
 
-TODO:
+## Contents
 
-- [ Add discussion of process (lean, iterative, etc. ]
+- [TL;DR](#tl%3Bdr)
+- [System Architecture](#system-architecture)
+- [Project Setup](#project-setup)
+- [Contentful as Headless CMS](#contentful-as-headless-cms)
+  - [Content Definitions](#content-definitions)
+  - [Code Generation for GraphQL Types](#code-generation-for-graphql-types)
+- [Maximizing Performance](#maximizing-performance)
+  - [Static Site Generation](#static-site-generation)
+  - [Images](#images)
+  - [Fonts](#fonts)
+  - [Styling](#styling)
+- [Automation](#automation)
+  - [Package Scripts](#package-scripts)
+  - [Unit Testing](#unit-testing)
+  - [Local Automation Using Husky](#local-automation-using-husky)
+  - [CI/CD Automation Using GitHub Actions](#ci%2Fcd-automation-using-github-actions)
+- [Manual Scans](#manual-scans)
+  - [Google Lighthouse](#google-lighthouse)
+  - [Checkbot Site Scanner](#checkbot-site-scanner)
+  - [WAVE Evaluation Tool](#wave-evaluation-tool)
+- [Next Steps](#next-steps)
 
-- [ Edit existing intro to make it more interesting ]
+## TL;DR
 
-- [ TL/DR ]
+This application serves two purposes.
 
-- [ Edit & revise, section by section on mobile ]
+First, it was built so that I had a way to **organize my personal recipes** and get rid of the assortment of the various paper notebooks where I collected the recipes I used. Moving my recipes to a **mobile-friendly, on-line solution** would enable me to find and use them easily, if I was cooking at home or with friends or family.
 
-This application is a tool for collecting and organizing my personal **collection of recipes.** Originally, these recipes were stored in a variety of digital and off-line formats, including browser bookmarks, digital notes in multiple applications, and old-school paper notebooks.
+Second, it was an ideal project to _validate best practices_ for building software applications with a **modern technology stack** and a **lean, iterative process**.
 
-Just to get them organized, I copied all the content for about 60 recipes into Google Docs using a template for each recipe. Since all the content was being captured in a **consistent, structured format**, it seemed like an ideal opportunity to use a **headless content managment system (CMS)** to store and manage the recipe content.
+The overall priorities for this project were:
 
-I built a data-driven React front end for viewing the recipes. The UI is optimized for using on a mobile device placed on a kitchen counter since the screen is viewed at a **greater distance than when the device is traditionally held in the hand**.
+- To create a **mobile-first** application that is designed to be used with the device on the kitchen counter while cooking, which means it is being viewed at a distance that is greater than when the device is held in the hand.
 
-The inital React application was manually deployed to an S3 bucket on Amazon Web Services (AWS) for my own personal use. I decided to take the opportunity to leverage a more modern technology stack and software development best practices to build a **high-performing, crawler-friendly** site with an **automated CI/CD pipeline.**
+- To deliver a **high-performing, crawler-friendly** site that is optimized for **SEO** and **accessibility**, eliminating the need to refactor these areas in the future
 
-Another goal for the project was to address structural and performance issues in the core platform before scaling in order to **minimize potential future technical debt**.
+- To demonstrate delivery with an **automated CI/CD pipeline** using API-based, headless service in a serverless environment
 
 The project is built using these technologies:
 
@@ -37,6 +57,14 @@ The project is built using these technologies:
 - Serverless deployment on a global content delivery network (CDN) using <a href="https://aws.amazon.com/s3/" target="_blank">AWS S3</a> and <a href="https://aws.amazon.com/cloudfront/" target="_blank">Cloudfront</a> with <a href="https://aws.amazon.com/lambda/edge/" target="_blank">lambda@edge</a> for middleware functions
 
 - <a href="https://docs.github.com/en/actions" target="_blank">GitHub Actions</a> as a CI/CD pipeline for code quality scans and build and deploy automation
+
+<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
+
+## System Architecture
+
+  <img src="src/assets/architecture.png" alt="system architecture"/>
+
+<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
 
 ## Project Setup
 
@@ -76,9 +104,7 @@ Then, open [localhost:3000](http://localhost:3000) in your browser to test the a
 
 The deployed site can be viewed at <a href="https://recipes.pliddy.com" target="_blank">recipes.pliddy.com</a>.
 
-## System Architecture
-
-  <img src="src/assets/architecture.png" alt="system architecture"/>
+<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
 
 ## Contentful as Headless CMS
 
@@ -102,7 +128,7 @@ There are two key content types in the system:
 
 Additionally, there is one other content type in the system:
 
-- `Taxonomy`. A Taxonomy is a collection of tags. The Taxonomy is used to generate custom grouped collections of Recipe content. A Taxonomy can also be used as the child of a taxonomy to define sub-groups within the parent taxonomy.
+- `Taxonomy`: A Taxonomy is a collection of tags. The Taxonomy is used to generate custom grouped collections of Recipe content. A Taxonomy can also be used as the child of a taxonomy to define sub-groups within the parent taxonomy.
 
   <img src="src/assets/taxonomy.png" alt="taxonomy content definition"/>
 
@@ -110,11 +136,13 @@ In this application, for example, the primary navigation menu is built from a Ta
 
 Since the only difference between a category and a tag page is the fact that certain tags have been editorially selected to appear in the navigation, the application renders the page as a "tag" page. Next.js routing is configured to rewrite requests to a `/category/*` url to the identical `/tag/*` page with appropriate canonical page tags.
 
-### CodeGen for GraphQL Types
+### Code Generation for GraphQL Types
 
 In order to define the TypeScript types of content payloads returned by GraphQL queries to Contentful, the application uses <a href="https://the-guild.dev/graphql/codegen" target="_blank">GraphQL Code Generator</a>.
 
 Top-level type defintions for entire payloads are defined by named GraphQL queries, while the individual secitons of the payload that are passed as properties to individual React components are defined by GraphQL fragments referenced by the queries.
+
+<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
 
 ## Maximizing Performance
 
@@ -192,6 +220,8 @@ Using **Material UI** as a styled component library provides a wide assortment o
 This application uses Material UI's **custom theme** functionality to define styling. This approach requires defining all style definitions in TypeScript source files as part of the functional code base, as opposed to creating a set of separate `css` resources.
 
 The benefit of using a Material UI theme is that the required styling for a statically generated page is embedded in the html markup, instead of requiring one or more network requests to external CSS resources.
+
+<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
 
 ## Automation
 
@@ -292,6 +322,8 @@ The GitHub Actions `build` workflow generates the most recent types based on cur
 
 `build` is also triggered when a scheduled publish event occurs in Contentful and it posts a request to a GitHub webhook that triggers the build and deploy workflow.
 
+<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
+
 ## Manual Scans
 
 In addition to the automated code quality checks executed as part of the CI/CD pipeline, additional **manual scans** are executed on major deployments to identify any potential issues and resolve them early. This early intervention eliminates potential impacts to performance, security, SEO, and accessibility before they are implemented at scale and become long-running technical debt.
@@ -346,6 +378,8 @@ The only outstanding warning from WAVE is the existence of a `<noscript>` tag on
   <img src="src/assets/wave-scan.png" alt="WAVE accessiblity scan results" />
 </p>
 
+<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
+
 ## Next Steps
 
 There is currently a backlog of approximately 25 stories identifying new features, enhancements to existing features, or technical improvements. The prioritized backlog items for next steps include:
@@ -365,3 +399,5 @@ There is currently a backlog of approximately 25 stories identifying new feature
 - Adding additional content types to Contentful for articles and featured landing pages that aggregate content of multiple types
 
 - Enabling creation and editing of recipe content through the UI by leveraging GraphQL transforms and the Contentful content API
+
+<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
