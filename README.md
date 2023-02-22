@@ -2,8 +2,6 @@
 
 TODO:
 
-- [ System Architecture section ]
-
 - [ Add discussion of process (lean, iterative, etc. ]
 
 - [ Edit existing intro to make it more interesting ]
@@ -80,22 +78,7 @@ The deployed site can be viewed at <a href="https://recipes.pliddy.com" target="
 
 ## System Architecture
 
-[ System Architecture goes here ]
-
-- browser client
-  - page template
-  - json file
-  - js bundles
-- AWS environment
-  - S3
-  - CloudFront
-  - Route 53
-- GitHub
-  - code repository
-  - GitHub Actions
-- Contentful
-  - content API (GraphQL)
-  - image API (cached on CDN)
+  <img src="src/assets/architecture.png" alt="system architecture"/>
 
 ## Contentful as Headless CMS
 
