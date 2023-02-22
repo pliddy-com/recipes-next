@@ -11,6 +11,9 @@ import Document, {
 import createEmotionCache from 'lib/createEmotionCache';
 import createEmotionServer from '@emotion/server/create-instance';
 
+import FaviconTags from 'components/PageHead/FaviconTags/FaviconTags';
+import FontPreloadTags from 'components/PageHead/FontPreloadTags/FontPreloadTags';
+
 import { background } from 'lib/styles';
 
 // TODO: test render of main against snapshot for head content
@@ -23,7 +26,10 @@ export default class MainDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <FontPreloadTags />
+          <FaviconTags />
+        </Head>
         <body style={background}>
           <Main />
           <NextScript />
