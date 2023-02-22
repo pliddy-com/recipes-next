@@ -58,13 +58,13 @@ The project is built using these technologies:
 
 - <a href="https://docs.github.com/en/actions" target="_blank">GitHub Actions</a> as a CI/CD pipeline for code quality scans and build and deploy automation
 
-<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
+<p align="right">[ <a href="#top">back to top</a> ]</p>
 
 ## System Architecture
 
   <img src="src/assets/architecture.png" alt="system architecture"/>
 
-<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
+<p align="right">[ <a href="#top">back to top</a> ]</p>
 
 ## Project Setup
 
@@ -104,7 +104,7 @@ Then, open [localhost:3000](http://localhost:3000) in your browser to test the a
 
 The deployed site can be viewed at <a href="https://recipes.pliddy.com" target="_blank">recipes.pliddy.com</a>.
 
-<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
+<p align="right">[ <a href="#top">back to top</a> ]</p>
 
 ## Contentful as Headless CMS
 
@@ -142,7 +142,7 @@ In order to define the TypeScript types of content payloads returned by GraphQL 
 
 Top-level type defintions for entire payloads are defined by named GraphQL queries, while the individual secitons of the payload that are passed as properties to individual React components are defined by GraphQL fragments referenced by the queries.
 
-<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
+<p align="right">[ <a href="#top">back to top</a> ]</p>
 
 ## Maximizing Performance
 
@@ -221,7 +221,7 @@ This application uses Material UI's **custom theme** functionality to define sty
 
 The benefit of using a Material UI theme is that the required styling for a statically generated page is embedded in the html markup, instead of requiring one or more network requests to external CSS resources.
 
-<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
+<p align="right">[ <a href="#top">back to top</a> ]</p>
 
 ## Automation
 
@@ -322,7 +322,7 @@ The GitHub Actions `build` workflow generates the most recent types based on cur
 
 `build` is also triggered when a scheduled publish event occurs in Contentful and it posts a request to a GitHub webhook that triggers the build and deploy workflow.
 
-<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
+<p align="right">[ <a href="#top">back to top</a> ]</p>
 
 ## Manual Scans
 
@@ -378,7 +378,7 @@ The only outstanding warning from WAVE is the existence of a `<noscript>` tag on
   <img src="src/assets/wave-scan.png" alt="WAVE accessiblity scan results" />
 </p>
 
-<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
+<p align="right">[ <a href="#top">back to top</a> ]</p>
 
 ## Next Steps
 
@@ -400,4 +400,4 @@ There is currently a backlog of approximately 25 stories identifying new feature
 
 - Enabling creation and editing of recipe content through the UI by leveraging GraphQL transforms and the Contentful content API
 
-<p style="text-align:right">[ <a href="#top">back to top</a> ]</p>
+<p align="right">[ <a href="#top">back to top</a> ]</p>
