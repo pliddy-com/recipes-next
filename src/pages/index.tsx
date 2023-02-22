@@ -3,7 +3,7 @@ import { InferGetStaticPropsType } from 'next';
 
 import Layout from 'layout/Layout/Layout';
 import RecipeGridPage from 'layout/RecipeGridPage/RecipeGridPage';
-import PageHead from 'components/PageHead/PageHead';
+import PageHead from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeIndex } from 'lib/api';
 import config from 'lib/config';

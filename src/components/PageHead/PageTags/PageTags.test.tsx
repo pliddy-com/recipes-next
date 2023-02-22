@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import PageHeadTag from './PageHead';
+import PageHeadTag from './PageTags';
 
 import config from 'lib/config';
 import { ImageDefaultFragment } from 'types/queries';

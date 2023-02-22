@@ -1,5 +1,7 @@
 import { ReactElement, useEffect, useState } from 'react';
 
+import FaviconTags from 'components/PageHead/FaviconTags/FaviconTags';
+import FontPreloadTags from 'components/PageHead/FontPreloadTags/FontPreloadTags';
 import NavBar from 'components/Navigation/NavBar/NavBar';
 
 import { getNavTaxonomy } from 'lib/api';
@@ -27,6 +29,8 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
+      <FontPreloadTags />
+      <FaviconTags />
       <NavBar nav={navData} />
       <main>{children}</main>
     </>
