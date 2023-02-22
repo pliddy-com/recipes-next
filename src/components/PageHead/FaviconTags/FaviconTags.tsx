@@ -1,9 +1,7 @@
-import Head from 'next/head';
-
 import colors from 'theme/colors';
 
 const FaviconTags = () => (
-  <Head>
+  <>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -30,7 +28,7 @@ const FaviconTags = () => (
     <link rel="shortcut icon" href="/favicon.ico?v=1" />
     <meta name="msapplication-TileColor" content={colors.primary.main} />
     <meta name="theme-color" content={colors.primary.main} />
-  </Head>
+  </>
 );
 
 export default FaviconTags;
