@@ -2,8 +2,6 @@
 
 TODO:
 
-- [ Headless CMS section ]
-
 - [ System Architecture section ]
 
 - [ Add discussion of process (lean, iterative, etc. ]
@@ -34,8 +32,7 @@ The project is built using these technologies:
 
 - <a href="https://jestjs.io/" target="_blank">Jest</a> with <a href="https://testing-library.com/docs/react-testing-library/intro/" target="_blank">React Testing Library</a> for unit tests
 
-- <a href="https://graphql.org/" target="_blank">GraphQL</a> with dynamic type generation using <a href="https://the-guild.dev/graphql/codegen" 
-  target="_blank">GraphQL Code Generator</a>
+- <a href="https://graphql.org/" target="_blank">GraphQL</a> with dynamic type generation using <a href="https://the-guild.dev/graphql/codegen" target="_blank">GraphQL Code Generator</a>
 
 - <a href="https://mui.com/" target="_blank">Material UI</a> Material UI with custom theme
 
@@ -132,11 +129,9 @@ Since the only difference between a category and a tag page is the fact that cer
 
 ### CodeGen for GraphQL Types
 
-[CodeGen for GraphQL Types description goes here]
+In order to define the TypeScript types of content payloads returned by GraphQL queries to Contentful, the application uses <a href="https://the-guild.dev/graphql/codegen" target="_blank">GraphQL Code Generator</a>.
 
-### GraphQL & Typescript
-
-Queries & Fragments to define types for payloads passed as props to React components
+Top-level type defintions for entire payloads are defined by named GraphQL queries, while the individual secitons of the payload that are passed as properties to individual React components are defined by GraphQL fragments referenced by the queries.
 
 ## Maximizing Performance
 
