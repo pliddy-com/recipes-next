@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FaviconTags when there is a config object it renders a Next Head tag with a title and description 1`] = `
+<DocumentFragment>
+  <link
+    as="font"
+    crossorigin="anonymous"
+    href="/fonts/Heebo-VariableFont_wght.ttf"
+    rel="preload"
+    type="font/ttf"
+  />
+  <link
+    as="font"
+    crossorigin="anonymous"
+    href="/fonts/SourceSerif4-VariableFont_opsz,wght.ttf"
+    rel="preload"
+    type="font/ttf"
+  />
+</DocumentFragment>
+`;
