@@ -1,9 +1,6 @@
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
-// add custom jest matchers from jest-dom
-import '@testing-library/jest-dom';
-
-// import the component to test
 import PageHeadTag from './PageTags';
 
 import config from 'lib/config';
@@ -45,7 +42,7 @@ describe('PageHeadingTag', () => {
         width: 400,
       };
 
-      const { container } = render(
+      const { asFragment } = render(
         <PageHeadTag title={title} description={description} image={image} />
       );
 
@@ -61,7 +58,7 @@ describe('PageHeadingTag', () => {
       expect(descriptionTag).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
-      expect(container).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('it renders a Next Head tag with a default title and description', () => {

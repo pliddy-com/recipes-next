@@ -1,9 +1,7 @@
-import Head from 'next/head';
-
 import { regularSansFontPath, regularSerifFontPath } from 'theme/fontface';
 
 const FontPreloadTags = () => (
-  <Head>
+  <>
     <link
       rel="preload"
       href={regularSansFontPath}
@@ -18,7 +16,7 @@ const FontPreloadTags = () => (
       type="font/ttf"
       crossOrigin="anonymous"
     />
-  </Head>
+  </>
 );
 
 export default FontPreloadTags;
