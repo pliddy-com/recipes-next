@@ -18,9 +18,11 @@ There is currently a project backlog of approximately 25 stories identifying new
 
 - Enabling creation and editing of recipe content through the UI by leveraging GraphQL transforms and the Contentful content API
 
-<p style="text-align:left;">
-    < <a href="manual-scans.md">Manual Scans</a>
-    <span style="float:right;">
-        <a href="../README.md">TL;DR</a> >
-    </span>
-</p>
+<div style="display: flex; justify-content: space-between;">
+    <div style="display: flex; width: 50%;">
+        <&nbsp;<a href="manual-scans.md">Manual Scans</a>
+    </div>
+    <div style="display: flex; justify-content: flex-end; width: 50%;">
+        <a href="../README.md">TL;DR</a>&nbsp;>
+    </div>
+</div>

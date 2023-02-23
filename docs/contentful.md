@@ -36,9 +36,11 @@ Since the only difference between a category and a tag page is that certain tags
 
 Next.js routing is configured to rewrite requests to a `/category/*` url to the identical `/tag/*` page with appropriate canonical page tags.
 
-<p style="text-align:left;">
-    < <a href="../README.md">TL;DR</a>
-    <span style="float:right;">
-        <a href="performance.md">Performance</a> >
-    </span>
-</p>
+<div style="display: flex; justify-content: space-between;">
+    <div style="display: flex; width: 50%;">
+        <&nbsp;<a href="../README.md">TL;DR</a>
+    </div>
+    <div style="display: flex; justify-content: flex-end; width: 50%;">
+        <a href="performance.md">Performance</a>&nbsp;>
+    </div>
+</div>

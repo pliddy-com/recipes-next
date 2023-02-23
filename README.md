@@ -99,8 +99,8 @@ Then, open [localhost:3000](http://localhost:3000) in your browser to test the a
 
 The deployed site can be viewed at <a href="https://recipes.pliddy.com" target="_blank">recipes.pliddy.com</a>.
 
-<p style="text-align:left;">
-    <span style="float:right;">
-        <a href="docs/contentful.md">Contentful as Headless CMS</a> >
-    </span>
-</p>
+<div style="display: flex; justify-content: flex-end;">
+    <div >
+        <a href="docs/contentful.md">Contentful as Headless CMS</a>&nbsp;>
+    </div>
+</div>
