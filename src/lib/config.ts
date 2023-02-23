@@ -7,11 +7,11 @@ interface PageProps {
 }
 
 interface MicrocopyProps {
-  category?: PageProps;
-  index?: PageProps;
-  recipe?: PageProps;
-  site?: PageProps;
-  tag?: PageProps;
+  notFound: PageProps;
+  index: PageProps;
+  recipe: PageProps;
+  site: PageProps;
+  tag: PageProps;
 }
 
 export interface ConfigProps {
@@ -20,8 +20,12 @@ export interface ConfigProps {
 
 const microcopy: MicrocopyProps = {
   index: {
-    defaultTitle: 'All Recipes',
+    defaultTitle: 'All My Recipes',
     description: "Patrick's recipe collection",
+  },
+  notFound: {
+    defaultTitle: "Sorry, that page isn't here.",
+    description: 'The requested url was not found',
   },
   recipe: {
     defaultDescription: 'A recipe for',
