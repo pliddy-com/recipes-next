@@ -22,8 +22,6 @@ Checkbot identified a variety of potential security issues with the configuratio
 
 #### Current issues identified by Checkbot
 
-The single SEO-related technical issue identified by Checkbot is the lack of a properly re-directing 404 page. This feature is part of the next round of user stories in the backlog.
-
 The remaining issues that impact the application's potential SEO score are related to the relatively thin content currently in the system. There are a limited number of recipes with placeholder content for descriptions and abstracts on core content pages.
 
 These issues will be addressed by updating all current recipe descriptions and abstracts with more robust copy and the creation of additional recipes to ensure that pages that display collections of recipes by tag are unique. With the limited number of recipes currently in the system, there can be multiple tag pages that display the same single recipe. To bots crawling the site, these pages have duplicate content.

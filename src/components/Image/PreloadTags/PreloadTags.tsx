@@ -28,6 +28,7 @@ const PreloadTags = ({ breakpoints, url, defaultWidth }: PreloadTagsProps) => {
                 breakpoints,
               })}
               type="image/webp"
+              fetchpriority="high"
             />
           )
       )}

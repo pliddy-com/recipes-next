@@ -49,6 +49,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
     >
       <link
         as="image"
+        fetchpriority="high"
         href="https://recipes.pliddy.com/url?w=1800&fm=webp"
         imagesrcset="https://recipes.pliddy.com/url?w=900&fm=webp 1x, https://recipes.pliddy.com/url?w=1800&fm=webp 2x"
         media="(min-width: 831px)"
@@ -58,6 +59,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
       />
       <link
         as="image"
+        fetchpriority="high"
         href="https://recipes.pliddy.com/url?w=1800&fm=webp"
         imagesrcset="https://recipes.pliddy.com/url?w=750&fm=webp 1x, https://recipes.pliddy.com/url?w=1500&fm=webp 2x"
         media="(min-width: 665px) and (max-width: 830px)"
@@ -67,6 +69,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
       />
       <link
         as="image"
+        fetchpriority="high"
         href="https://recipes.pliddy.com/url?w=1800&fm=webp"
         imagesrcset="https://recipes.pliddy.com/url?w=600&fm=webp 1x, https://recipes.pliddy.com/url?w=1200&fm=webp 2x"
         media="(min-width: 483px) and (max-width: 664px)"
@@ -76,6 +79,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
       />
       <link
         as="image"
+        fetchpriority="high"
         href="https://recipes.pliddy.com/url?w=1800&fm=webp"
         imagesrcset="https://recipes.pliddy.com/url?w=450&fm=webp 1x, https://recipes.pliddy.com/url?w=900&fm=webp 2x"
         media="(min-width: 333px) and (max-width: 482px)"
@@ -85,6 +89,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
       />
       <link
         as="image"
+        fetchpriority="high"
         href="https://recipes.pliddy.com/url?w=1800&fm=webp"
         imagesrcset="https://recipes.pliddy.com/url?w=300&fm=webp 1x, https://recipes.pliddy.com/url?w=600&fm=webp 2x"
         media="(max-width: 332px)"
@@ -120,9 +125,10 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         />
         <img
           alt="Image description."
+          fetchpriority="high"
           height="675"
           loading="eager"
-          src="https://recipes.pliddy.com/url?w={1800&fm=webp}"
+          src="https://recipes.pliddy.com/url?w=1800&fm=webp"
           style="max-width: 100%; height: auto;"
           width="900"
         />
