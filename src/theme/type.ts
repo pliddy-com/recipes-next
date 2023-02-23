@@ -65,6 +65,9 @@ const typeTheme = {
       lineHeight: 24 / baseFontSize,
     },
     h1: {
+      borderBottom: `1px solid ${colors.secondary.main}`,
+      marginBottom: '0.25rem',
+      paddingBottom: '0.1875rem',
       fontFamily: sansFontFamily,
       fontSize: `2.25rem`,
       fontWeight: 700,
@@ -77,7 +80,7 @@ const typeTheme = {
       fontWeight: fontWeightBold,
       lineHeight: 1.25,
       paddingBottom: '0.1875rem',
-      marginBottom: '0.25rem',
+      marginBottom: '0.5rem',
     },
     h3: {
       fontFamily: serifFontFamily,
