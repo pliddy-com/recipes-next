@@ -77,15 +77,6 @@ This application uses a Material UI **custom theme** to define styling. This app
 
 The benefit of using a Material UI theme is that the required styling for a statically generated page is embedded in the html markup, instead of requiring one or more network requests to external CSS resources.
 
-<!-- <div style="display: flex; justify-content: space-between;">
-    <div style="display: flex; width: 50%;">
-        <&nbsp;<a href="contentful.md">Contentful as Headless CMS</a>
-    </div>
-    <div style="display: flex; justify-content: flex-end; width: 50%;">
-        <a href="automation.md">Automation</a>&nbsp;>
-    </div>
-</div> -->
-
 ---
 
 <p align="center">
