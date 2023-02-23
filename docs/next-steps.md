@@ -18,11 +18,19 @@ There is currently a project backlog of approximately 25 stories identifying new
 
 - Enabling creation and editing of recipe content through the UI by leveraging GraphQL transforms and the Contentful content API
 
-<div style="display: flex; justify-content: space-between;">
+<!-- <div style="display: flex; justify-content: space-between;">
     <div style="display: flex; width: 50%;">
         <&nbsp;<a href="manual-scans.md">Manual Scans</a>
     </div>
     <div style="display: flex; justify-content: flex-end; width: 50%;">
         <a href="../README.md">TL;DR</a>&nbsp;>
     </div>
-</div>
+</div> -->
+
+---
+
+<p align="center">
+  <a href="../README.md">TL;DR</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="docs/contentful.md">Contentful as Headless CMS</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="performance.md">Performance</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="automation.md">Automation</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="manual-scans.md">Manual Scans</a>&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Next Steps</strong>
+</p>
+
+---

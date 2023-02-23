@@ -97,11 +97,19 @@ The GitHub Actions `build` workflow generates the most recent types based on cur
 
 `build` is also triggered when a scheduled publish event occurs in Contentful and it posts a request to a GitHub webhook that triggers the build and deploy workflow.
 
-<div style="display: flex; justify-content: space-between;">
+<!-- <div style="display: flex; justify-content: space-between;">
     <div style="display: flex; width: 50%;">
        <&nbsp;<a href="performance.md">Maximizing Performance</a>
     </div>
     <div style="display: flex; justify-content: flex-end; width: 50%;">
         <a href="manual-scans.md">Manual Scans</a>&nbsp;>
     </div>
-</div>
+</div> -->
+
+---
+
+<p align="center">
+  <a href="../README.md">TL;DR</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="docs/contentful.md">Contentful as Headless CMS</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="performance.md">Performance</a>&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Automation</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="manual-scans.md">Manual Scans</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="next-steps.md">Next Steps</a>
+</p>
+
+---
