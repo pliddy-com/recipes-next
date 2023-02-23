@@ -19,13 +19,14 @@
     "types": ["react/next", "react-dom/next"]
   },
   "include": [
-    "next-env.d.ts",
+    "**/*.config.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.config.ts",
+    "custom.d.ts",
+    "next-env.d.ts",
     "src",
-    "src/lib/__mocks__/next",
-    "src/lib/__mocks__/lib"
+    "src/lib/__mocks__/lib",
+    "src/lib/__mocks__/next"
   ],
   "extends": "./node_modules/@tsconfig/recommended/tsconfig.json",
   "exclude": ["node_modules", "out", ".next", ".swc"]
