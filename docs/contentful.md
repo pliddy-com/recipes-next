@@ -48,7 +48,5 @@ Next.js routing is configured to rewrite requests to a `/category/*` url to the 
 ---
 
 <p align="center">
-  <a href="../README.md">TL;DR</a>&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Contentful as Headless CMS</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="performance.md">Performance</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="automation.md">Automation</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="manual-scans.md">Manual Scans</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="next-steps.md">Next Steps</a>
+  <a href="../README.md">TL;DR</a>&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Contentful as Headless CMS</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="performance.md">Maximizing Performance</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="automation.md">Automation</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="manual-scans.md">Manual Scans</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="next-steps.md">Next Steps</a>
 </p>
-
----
