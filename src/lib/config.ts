@@ -24,7 +24,7 @@ const microcopy: MicrocopyProps = {
     description: "Patrick's recipe collection",
   },
   notFound: {
-    defaultTitle: 'Page Not Found',
+    defaultTitle: "Sorry, that page isn't here.",
     description: 'The requested url was not found',
   },
   recipe: {
