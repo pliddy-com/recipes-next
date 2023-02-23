@@ -3,41 +3,49 @@
 exports[`FaviconTags when there is a config object it renders a Next Head tag with a title and description 1`] = `
 <DocumentFragment>
   <link
-    href="/apple-touch-icon.png?v=1"
+    href="/apple-touch-icon.png?v=2"
     rel="apple-touch-icon"
     sizes="180x180"
   />
   <link
-    href="/favicon-32x32.png?v=1"
+    href="/favicon-32x32.png?v=2"
     rel="icon"
     sizes="32x32"
     type="image/png"
   />
   <link
-    href="/favicon-16x16.png?v=1"
+    href="/favicon-16x16.png?v=2"
     rel="icon"
     sizes="16x16"
     type="image/png"
   />
   <link
-    href="/site.webmanifest?v=1"
+    href="/site.webmanifest?v=2"
     rel="manifest"
   />
   <link
     color="hsl(205, 60%, 25%)"
-    href="/safari-pinned-tab.svg?v=1"
+    href="/safari-pinned-tab.svg?v=2"
     rel="mask-icon"
   />
   <link
-    href="/favicon.ico?v=1"
+    href="/favicon.ico?v=2"
     rel="shortcut icon"
+  />
+  <meta
+    content="Recipes"
+    name="apple-mobile-web-app-title"
+  />
+  <meta
+    content="Recipes"
+    name="application-name"
   />
   <meta
     content="hsl(205, 60%, 25%)"
     name="msapplication-TileColor"
   />
   <meta
-    content="hsl(205, 60%, 25%)"
+    content="#fff"
     name="theme-color"
   />
 </DocumentFragment>
