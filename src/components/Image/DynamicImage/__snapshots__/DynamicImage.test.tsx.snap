@@ -4,49 +4,52 @@ exports[`DynamicImage when there is a url & image object it renders a picture co
 <div>
   <link
     as="image"
-    href="https://URL.test"
-    imagesizes="400px"
-    imagesrcset="https://URL.test?w=400&fm=webp&q=75 1x, https://URL.test?w=800&fm=webp&q=75 2x"
+    href="https://URL.test?w=800&fm=webp"
+    imagesrcset="https://URL.test?w=400&fm=webp 1x, https://URL.test?w=800&fm=webp 2x"
     media="(min-width: 1000px)"
     rel="preload"
+    sizes="400px"
+    type="image/webp"
   />
   <link
     as="image"
-    href="https://URL.test"
-    imagesizes="200px"
-    imagesrcset="https://URL.test?w=200&fm=webp&q=75 1x, https://URL.test?w=400&fm=webp&q=75 2x"
+    href="https://URL.test?w=800&fm=webp"
+    imagesrcset="https://URL.test?w=200&fm=webp 1x, https://URL.test?w=400&fm=webp 2x"
     media="(min-width: 500px) and (max-width: 999px)"
     rel="preload"
+    sizes="200px"
+    type="image/webp"
   />
   <link
     as="image"
-    href="https://URL.test"
-    imagesizes="100px"
-    imagesrcset="https://URL.test?w=100&fm=webp&q=75 1x, https://URL.test?w=200&fm=webp&q=75 2x"
+    href="https://URL.test?w=800&fm=webp"
+    imagesrcset="https://URL.test?w=100&fm=webp 1x, https://URL.test?w=200&fm=webp 2x"
     media="(max-width: 499px)"
     rel="preload"
+    sizes="100px"
+    type="image/webp"
   />
   <picture>
     <source
       media="(min-width: 1000px)"
       sizes="400px"
-      srcset="https://URL.test?w=400&fm=webp&q=75 1x, https://URL.test?w=800&fm=webp&q=75 2x"
+      srcset="https://URL.test?w=400&fm=webp 1x, https://URL.test?w=800&fm=webp 2x"
     />
     <source
       media="(min-width: 500px) and (max-width: 999px)"
       sizes="200px"
-      srcset="https://URL.test?w=200&fm=webp&q=75 1x, https://URL.test?w=400&fm=webp&q=75 2x"
+      srcset="https://URL.test?w=200&fm=webp 1x, https://URL.test?w=400&fm=webp 2x"
     />
     <source
       media="(max-width: 499px)"
       sizes="100px"
-      srcset="https://URL.test?w=100&fm=webp&q=75 1x, https://URL.test?w=200&fm=webp&q=75 2x"
+      srcset="https://URL.test?w=100&fm=webp 1x, https://URL.test?w=200&fm=webp 2x"
     />
     <img
       alt="Image Description"
       height="300"
       loading="eager"
-      src="https://URL.test"
+      src="https://URL.test?w={800&fm=webp}"
       style="max-width: 100%; height: auto;"
       width="400"
     />

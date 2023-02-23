@@ -15,9 +15,17 @@ const DynamicImage = ({ image, breakpoints, preload = false }: ImageProps) => {
 
   const { url, description: alt, height: imgHeight, width: imgWidth } = image;
 
+  const defaultWidth = breakpoints[0].imgWidth;
+
   return breakpoints && url && imgWidth && imgHeight && alt ? (
     <>
-      {preload && <PreloadTags breakpoints={breakpoints} url={url} />}
+      {preload && (
+        <PreloadTags
+          breakpoints={breakpoints}
+          url={url}
+          defaultWidth={defaultWidth}
+        />
+      )}
       <picture>
         {breakpoints.map(({ viewMin, imgWidth }, index, breakpoints) => {
           return (
@@ -35,11 +43,11 @@ const DynamicImage = ({ image, breakpoints, preload = false }: ImageProps) => {
         })}
         <img
           alt={alt}
-          height={imgHeight}
+          height={defaultWidth * 0.75}
           loading={preload ? 'eager' : 'lazy'}
-          src={url}
+          src={`${url}?w={${defaultWidth * 2}&fm=webp}`}
           style={{ maxWidth: '100%', height: 'auto' }}
-          width={imgWidth}
+          width={defaultWidth}
         />
       </picture>
     </>

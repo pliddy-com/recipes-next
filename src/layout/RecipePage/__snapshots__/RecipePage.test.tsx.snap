@@ -49,77 +49,82 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
     >
       <link
         as="image"
-        href="https://recipes.pliddy.com/url"
-        imagesizes="900px"
-        imagesrcset="https://recipes.pliddy.com/url?w=900&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1800&fm=webp&q=75 2x"
+        href="https://recipes.pliddy.com/url?w=1800&fm=webp"
+        imagesrcset="https://recipes.pliddy.com/url?w=900&fm=webp 1x, https://recipes.pliddy.com/url?w=1800&fm=webp 2x"
         media="(min-width: 831px)"
         rel="preload"
+        sizes="900px"
+        type="image/webp"
       />
       <link
         as="image"
-        href="https://recipes.pliddy.com/url"
-        imagesizes="750px"
-        imagesrcset="https://recipes.pliddy.com/url?w=750&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1500&fm=webp&q=75 2x"
+        href="https://recipes.pliddy.com/url?w=1800&fm=webp"
+        imagesrcset="https://recipes.pliddy.com/url?w=750&fm=webp 1x, https://recipes.pliddy.com/url?w=1500&fm=webp 2x"
         media="(min-width: 665px) and (max-width: 830px)"
         rel="preload"
+        sizes="750px"
+        type="image/webp"
       />
       <link
         as="image"
-        href="https://recipes.pliddy.com/url"
-        imagesizes="600px"
-        imagesrcset="https://recipes.pliddy.com/url?w=600&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1200&fm=webp&q=75 2x"
+        href="https://recipes.pliddy.com/url?w=1800&fm=webp"
+        imagesrcset="https://recipes.pliddy.com/url?w=600&fm=webp 1x, https://recipes.pliddy.com/url?w=1200&fm=webp 2x"
         media="(min-width: 483px) and (max-width: 664px)"
         rel="preload"
+        sizes="600px"
+        type="image/webp"
       />
       <link
         as="image"
-        href="https://recipes.pliddy.com/url"
-        imagesizes="450px"
-        imagesrcset="https://recipes.pliddy.com/url?w=450&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=900&fm=webp&q=75 2x"
+        href="https://recipes.pliddy.com/url?w=1800&fm=webp"
+        imagesrcset="https://recipes.pliddy.com/url?w=450&fm=webp 1x, https://recipes.pliddy.com/url?w=900&fm=webp 2x"
         media="(min-width: 333px) and (max-width: 482px)"
         rel="preload"
+        sizes="450px"
+        type="image/webp"
       />
       <link
         as="image"
-        href="https://recipes.pliddy.com/url"
-        imagesizes="300px"
-        imagesrcset="https://recipes.pliddy.com/url?w=300&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=600&fm=webp&q=75 2x"
+        href="https://recipes.pliddy.com/url?w=1800&fm=webp"
+        imagesrcset="https://recipes.pliddy.com/url?w=300&fm=webp 1x, https://recipes.pliddy.com/url?w=600&fm=webp 2x"
         media="(max-width: 332px)"
         rel="preload"
+        sizes="300px"
+        type="image/webp"
       />
       <picture>
         <source
           media="(min-width: 831px)"
           sizes="900px"
-          srcset="https://recipes.pliddy.com/url?w=900&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1800&fm=webp&q=75 2x"
+          srcset="https://recipes.pliddy.com/url?w=900&fm=webp 1x, https://recipes.pliddy.com/url?w=1800&fm=webp 2x"
         />
         <source
           media="(min-width: 665px) and (max-width: 830px)"
           sizes="750px"
-          srcset="https://recipes.pliddy.com/url?w=750&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1500&fm=webp&q=75 2x"
+          srcset="https://recipes.pliddy.com/url?w=750&fm=webp 1x, https://recipes.pliddy.com/url?w=1500&fm=webp 2x"
         />
         <source
           media="(min-width: 483px) and (max-width: 664px)"
           sizes="600px"
-          srcset="https://recipes.pliddy.com/url?w=600&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1200&fm=webp&q=75 2x"
+          srcset="https://recipes.pliddy.com/url?w=600&fm=webp 1x, https://recipes.pliddy.com/url?w=1200&fm=webp 2x"
         />
         <source
           media="(min-width: 333px) and (max-width: 482px)"
           sizes="450px"
-          srcset="https://recipes.pliddy.com/url?w=450&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=900&fm=webp&q=75 2x"
+          srcset="https://recipes.pliddy.com/url?w=450&fm=webp 1x, https://recipes.pliddy.com/url?w=900&fm=webp 2x"
         />
         <source
           media="(max-width: 332px)"
           sizes="300px"
-          srcset="https://recipes.pliddy.com/url?w=300&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=600&fm=webp&q=75 2x"
+          srcset="https://recipes.pliddy.com/url?w=300&fm=webp 1x, https://recipes.pliddy.com/url?w=600&fm=webp 2x"
         />
         <img
           alt="Image description."
-          height="300"
+          height="675"
           loading="eager"
-          src="https://recipes.pliddy.com/url"
+          src="https://recipes.pliddy.com/url?w={1800&fm=webp}"
           style="max-width: 100%; height: auto;"
-          width="400"
+          width="900"
         />
       </picture>
     </div>
