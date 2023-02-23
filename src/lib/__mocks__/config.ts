@@ -5,6 +5,10 @@ const microcopy = {
     defaultTitle: 'Index Default Title',
     description: 'Index default description.',
   },
+  notFound: {
+    defaultTitle: 'Page Not Found',
+    description: 'The requested url was not found',
+  },
   recipe: {
     defaultDescription: 'Recipe default description',
     defaultTitle: 'Recipe Default Title',
