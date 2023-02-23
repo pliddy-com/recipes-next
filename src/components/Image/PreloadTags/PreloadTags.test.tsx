@@ -23,6 +23,8 @@ describe('PreloadTags', () => {
       },
     ];
 
+    const defaultWidth = breakpoints[0].imgWidth;
+
     it('it renders a set of preload link tags in a Head component', () => {
       const expectedImageSizes = '300px';
 
@@ -31,7 +33,11 @@ describe('PreloadTags', () => {
       const mediaQuerySpy = jest.spyOn(responsiveImage, 'createMediaQuery');
 
       const { container } = render(
-        <PreloadTags breakpoints={breakpoints} url={url} />
+        <PreloadTags
+          breakpoints={breakpoints}
+          url={url}
+          defaultWidth={defaultWidth}
+        />
       );
 
       //   expect srcSet and mediaQuery creators to be called
@@ -54,7 +60,13 @@ describe('PreloadTags', () => {
 
   describe('when props and url are provided', () => {
     it('it does not render', () => {
-      render(<PreloadTags breakpoints={[]} url={null as unknown as string} />);
+      render(
+        <PreloadTags
+          breakpoints={[]}
+          url={null as unknown as string}
+          defaultWidth={0}
+        />
+      );
 
       const linkTags = document.getElementsByTagName('link');
 

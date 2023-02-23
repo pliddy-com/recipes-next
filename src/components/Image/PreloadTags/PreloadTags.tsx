@@ -4,9 +4,10 @@ import responsiveImage, { Breakpoints } from 'lib/responsiveImage';
 interface PreloadTagsProps {
   breakpoints: Breakpoints[];
   url: string;
+  defaultWidth: number;
 }
 
-const PreloadTags = ({ breakpoints, url }: PreloadTagsProps) => {
+const PreloadTags = ({ breakpoints, url, defaultWidth }: PreloadTagsProps) => {
   const { createSrcSet, createMediaQuery } = responsiveImage;
 
   return breakpoints && breakpoints.length > 0 && url ? (
@@ -16,9 +17,9 @@ const PreloadTags = ({ breakpoints, url }: PreloadTagsProps) => {
           url && (
             <link
               rel="preload"
-              href={url}
+              href={`${url}?w=${defaultWidth * 2}&fm=webp`}
               as="image"
-              imageSizes={`${imgWidth}px`}
+              sizes={`${imgWidth}px`}
               imageSrcSet={createSrcSet({ url, imgWidth })}
               key={`${url}-${viewMin || imgWidth}-preload`}
               media={createMediaQuery({
@@ -26,6 +27,7 @@ const PreloadTags = ({ breakpoints, url }: PreloadTagsProps) => {
                 index,
                 breakpoints,
               })}
+              type="image/webp"
             />
           )
       )}
