@@ -62,7 +62,7 @@ const NavMenu = ({ isOpen, nav, onClick }: NavMenuType) => {
 
               return numRecipes ? (
                 <CategoryMenu
-                  key={category?.sys?.id}
+                  key={category?.slug}
                   category={category}
                   onClick={onClick}
                 />
