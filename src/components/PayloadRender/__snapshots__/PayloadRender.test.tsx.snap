@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PayloadRender when there is a payload object it renders the formatted payload 1`] = `
+<DocumentFragment>
+  <pre
+    style="white-space: pre-wrap; overflow-wrap: anywhere;"
+  >
+    {
+  "property": "value"
+}
+  </pre>
+</DocumentFragment>
+`;
