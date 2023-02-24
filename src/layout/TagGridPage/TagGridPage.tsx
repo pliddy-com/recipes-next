@@ -2,7 +2,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-import RecipeCard from 'components/RecipeCard/RecipeCard';
+import PreviewCard from 'components/PreviewCard/PreviewCard';
 
 import { ListPageItemFragment } from 'types/queries';
 
@@ -17,7 +17,6 @@ const TagGridPage = ({ tags }: TagGridPageProps) =>
   tags ? (
     <Container className="page recipegrid" data-testd="TagGrid">
       <Typography variant="h1">Tag Collections</Typography>
-
       <Typography variant="subtitle1" component="h2">
         {tags && `${tags.length} Tags`}
       </Typography>
@@ -30,23 +29,32 @@ const TagGridPage = ({ tags }: TagGridPageProps) =>
 
         return slug && title ? (
           <>
-            <Typography variant="h2" key={slug}>
+            <Typography variant="h2" mb={2}>
               {title}
             </Typography>
 
-            <Grid container spacing={2}>
+            {/* <Typography
+              variant="subtitle1"
+              component="h3"
+              display="inline"
+              ml={1}
+            >
+              {items && `${items.length} Recipes`}
+            </Typography> */}
+
+            <Grid container spacing={2} mb={3}>
               {items &&
                 items.map((recipe, index) => (
                   <Grid
                     item
-                    md={6}
+                    md={4}
                     sm={6}
                     xs={12}
                     key={recipe?.slug}
                     sx={{ flex }}
                   >
                     {recipe && (
-                      <RecipeCard recipe={recipe} preloadImg={index < 2} />
+                      <PreviewCard recipe={recipe} preloadImg={index < 2} />
                       // <PayloadRender payload={recipe as unknown as JSON} />
                     )}
                   </Grid>

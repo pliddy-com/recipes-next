@@ -130,7 +130,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
           height="675"
           loading="eager"
           src="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
-          style="max-width: 100%; height: auto;"
+          style="width: 100%; height: auto;"
           width="900"
         />
       </picture>

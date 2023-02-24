@@ -10,33 +10,15 @@ const cardTheme: ThemeOptions = {
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
+          '& .imageWrapper': {
+            height: '100%',
+            position: 'relative',
+            width: '100%',
+          },
           '& .MuiCardActionArea-root': {
             display: 'flex',
             flexDirection: 'column',
             flexGrow: 1,
-          },
-          '& .MuiCardHeader': {
-            '&-root': {
-              backgroundColor: colors.primary.main,
-              color: '#fff',
-              display: 'flex',
-              width: '100%',
-            },
-            '&-content': {
-              display: 'flex',
-              flexDirection: 'column-reverse',
-            },
-            '&-subheader': {
-              color: colors.secondary.highlight,
-              fontFamily: sansFontFamily,
-              fontSize: '1rem',
-              fontWeight: 500,
-              letterSpacing: '.2px',
-              marginTop: '0.25rem',
-            },
-            '&-title': {
-              fontSize: '1.25rem',
-            },
           },
           '& .MuiCardContent-root': {
             display: 'flex',
@@ -53,10 +35,44 @@ const cardTheme: ThemeOptions = {
             '& .abstract': {
               marginBottom: '0.5rem',
             },
-            '& .imageWrapper': {
-              height: '100%',
-              position: 'relative',
-              width: '100%',
+            '& .MuiCardHeader': {
+              '&-root': {
+                backgroundColor: colors.primary.main,
+                color: '#fff',
+                display: 'flex',
+                width: '100%',
+              },
+              '&-content': {
+                display: 'flex',
+                flexDirection: 'column-reverse',
+              },
+              '&-subheader': {
+                color: colors.secondary.highlight,
+                fontFamily: sansFontFamily,
+                fontSize: '1rem',
+                fontWeight: 500,
+                letterSpacing: '.2px',
+                marginTop: '0.25rem',
+              },
+              '&-title': {
+                fontSize: '1.25rem',
+              },
+            },
+          },
+          '&.preview': {
+            '& .MuiCardHeader': {
+              '&-root': {
+                width: '100%',
+                paddingBottom: 0,
+              },
+              '&-title': {
+                color: colors.primary.main,
+                borderBottom: `1px solid ${colors.secondary.main}`,
+                paddingBottom: '.25rem',
+              },
+            },
+            '& .MuiCardContent-root': {
+              paddingTop: '1rem',
             },
           },
         },
