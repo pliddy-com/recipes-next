@@ -3,18 +3,12 @@
 #   * Taxonomy
 
 fragment TagDefault on Tag {
-  sys {
-    id
-  }
   __typename
   title
   slug
 }
 
 fragment TaxonomyDefault on Taxonomy {
-  sys {
-    id
-  }
   __typename
   title
   slug
@@ -23,10 +17,6 @@ fragment TaxonomyDefault on Taxonomy {
 # Fragment with fields for Tag with linkedFrom Recipes
 
 fragment TagWithLinks on Tag {
-  # ...TagDefault
-  sys {
-    id
-  }
   __typename
   title
   slug
@@ -41,16 +31,11 @@ fragment TagWithLinks on Tag {
 # Fragment with Fields for Taxonomy with no children
 
 fragment TaxonomyRoot on Taxonomy {
-  # ...TaxonomyDefault
-  sys {
-    id
-  }
   __typename
   title
   slug
 
   tag {
-    # ...TagDefault
     sys {
       id
     }
@@ -63,10 +48,6 @@ fragment TaxonomyRoot on Taxonomy {
 # Fragment with Fields for Taxonomy with children
 
 fragment TaxonomyWithChildren on Taxonomy {
-  # ...TaxonomyDefault
-  sys {
-    id
-  }
   __typename
   title
   slug
@@ -85,10 +66,11 @@ fragment TaxonomyWithChildren on Taxonomy {
 
 # fragment for items on list page queries
 fragment ListPageItem on Tag {
+  __typename
   slug
   title
   linkedFrom {
-    recipeCollection(limit: 24) {
+    recipeCollection(limit: 10) {
       total
       items {
         ...RecipeSummary

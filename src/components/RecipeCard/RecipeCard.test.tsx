@@ -19,18 +19,11 @@ describe('RecipeCard', () => {
 
   describe('when there is content', () => {
     const recipe: Maybe<RecipeDefaultFragment> = {
-      sys: {
-        id: 'sysid_0',
-      },
       __typename: 'Recipe',
       title: 'Basmati Rice',
       slug: 'basmati-rice',
       abstract: 'Traditional basmati rice cooked in a covered skillet.',
       image: {
-        sys: {
-          id: 'sysid_1',
-          __typename: 'Sys',
-        },
         __typename: 'Asset',
         title: 'basmati-rice',
         description: 'Skillet with basmati rice and chopped parsley.',
@@ -44,10 +37,6 @@ describe('RecipeCard', () => {
       tagsCollection: {
         items: [
           {
-            sys: {
-              id: 'sysid_2',
-              __typename: 'Sys',
-            },
             __typename: 'Tag',
             title: 'Vegetables',
             slug: 'vegetables',
@@ -93,18 +82,11 @@ describe('RecipeCard', () => {
       slug: 'basmati-rice',
       abstract: 'Traditional basmati rice cooked in a covered skillet.',
       image: {
-        sys: {
-          id: 'sysid_1',
-        },
         __typename: 'Asset',
       },
       tagsCollection: {
         items: [
           {
-            sys: {
-              id: 'sysid_2',
-              __typename: 'Sys',
-            },
             __typename: 'Tag',
             title: 'Vegetables',
             slug: 'vegetables',
@@ -112,10 +94,6 @@ describe('RecipeCard', () => {
         ],
       },
       __typename: 'Recipe',
-      sys: {
-        __typename: undefined,
-        id: '',
-      },
     };
 
     it('it does not render', () => {

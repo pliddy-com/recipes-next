@@ -11,6 +11,8 @@ import {
   RecipePageQueryVariables,
   RecipeSlugsDocument,
   RecipeSlugsQueryVariables,
+  TagIndexDocument,
+  TagIndexQueryVariables,
   TagSlugsDocument,
   TagSlugsQueryVariables,
 } from 'types/queries';
@@ -60,7 +62,7 @@ export const getTagSlugs = async (variables: TagSlugsQueryVariables) => {
   return results ? results?.filter(hasValue) : [];
 };
 
-// used to query content for  home index page
+// used to query content for home index page
 export const getRecipeIndex = async (variables?: RecipeIndexQueryVariables) => {
   const { recipeCollection } = await queryGraphQLContent(
     RecipeIndexDocument,
@@ -88,4 +90,23 @@ export const getRecipePage = async (variables?: RecipePageQueryVariables) => {
   );
 
   return recipeCollection ? recipeCollection.items.filter(hasValue) : [];
+};
+
+// used to query content for tag index page
+export const getTagIndex = async (variables?: TagIndexQueryVariables) => {
+  const { tagCollection } = await queryGraphQLContent(
+    TagIndexDocument,
+    variables
+  );
+
+  const results = tagCollection?.items
+    // .filter(hasValue)
+    .filter(
+      (item) =>
+        item?.linkedFrom?.recipeCollection?.total &&
+        item?.linkedFrom?.recipeCollection?.total > 0
+    );
+  // .map((child) => (child && child.slug ? child.slug : null));
+
+  return results ? results?.filter(hasValue) : [];
 };

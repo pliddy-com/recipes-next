@@ -15,20 +15,12 @@ describe('RecipeGridPage', () => {
 
       const recipes: (RecipeDefaultFragment | null)[] = [
         {
-          sys: {
-            id: 'sysid-0',
-            __typename: 'Sys',
-          },
           __typename: 'Recipe',
           title: 'Title 1',
           slug: 'slug-1',
           tagsCollection: {
             items: [
               {
-                sys: {
-                  id: 'sysid-1',
-                  __typename: 'Sys',
-                },
                 __typename: 'Tag',
                 title: 'Title 2',
                 slug: 'slug-2',

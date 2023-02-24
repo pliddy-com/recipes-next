@@ -3,6 +3,7 @@
 
 query navTaxonomy($where: TaxonomyFilter) {
   taxonomyCollection(where: $where, limit: 1) {
+    __typename
     items {
       ...TaxonomyDefault
 
@@ -34,6 +35,7 @@ query navTaxonomy($where: TaxonomyFilter) {
 
 query recipeSlugs($where: RecipeFilter) {
   recipeCollection(where: $where) {
+    __typename
     items {
       slug
     }
@@ -45,6 +47,7 @@ query recipeSlugs($where: RecipeFilter) {
 
 query tagSlugs($where: TagFilter) {
   tagCollection(where: $where) {
+    __typename
     items {
       slug
       linkedFrom {
@@ -60,6 +63,7 @@ query tagSlugs($where: TagFilter) {
 # getRecipeList
 
 query recipeList($where: TagFilter) {
+  __typename
   tagCollection(where: $where, limit: 1) {
     total
     items {
@@ -72,6 +76,7 @@ query recipeList($where: TagFilter) {
 # getRecipeIndex
 
 query recipeIndex($where: RecipeFilter) {
+  __typename
   recipeCollection(where: $where, order: title_ASC) {
     total
     items {
@@ -85,9 +90,23 @@ query recipeIndex($where: RecipeFilter) {
 
 query recipePage($where: RecipeFilter) {
   recipeCollection(where: $where, order: title_ASC, limit: 1) {
+    __typename
     total
     items {
       ...RecipeDefault
+    }
+  }
+}
+
+#Query for Tag Index page
+# getTagIndex
+
+query tagIndex($where: TagFilter) {
+  tagCollection {
+    __typename
+    total
+    items {
+      ...ListPageItem
     }
   }
 }
