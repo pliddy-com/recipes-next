@@ -17,9 +17,9 @@ export interface createMediaQueryProps {
 export const createSrcSet = ({ url, imgWidth }: createSrcSetProps) => {
   return (
     url &&
-    `${url}?${imgWidth && `w=${imgWidth}&`}fm=webp 1x, ${url}?${
+    `${url}?${imgWidth && `w=${imgWidth}&`}fm=webp&q=75 1x, ${url}?${
       imgWidth && `w=${imgWidth * 2}&`
-    }fm=webp 2x`
+    }fm=webp&q=75 2x`
   );
 };
 

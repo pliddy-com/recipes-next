@@ -17,7 +17,7 @@ const PreloadTags = ({ breakpoints, url, defaultWidth }: PreloadTagsProps) => {
           url && (
             <link
               rel="preload"
-              href={`${url}?w=${defaultWidth * 2}&fm=webp`}
+              href={`${url}?w=${defaultWidth * 2}&fm=webp&q=75`}
               as="image"
               sizes={`${imgWidth}px`}
               imageSrcSet={createSrcSet({ url, imgWidth })}
