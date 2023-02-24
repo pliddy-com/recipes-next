@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
+import preloadAll from 'jest-next-dynamic';
 
 import IndexPage, { getStaticProps } from 'pages/index';
 import { RecipeSummaryFragment } from 'types/queries';
@@ -15,6 +16,10 @@ jest.mock('layout/RecipeGridPage/RecipeGridPage');
 describe('Index in index.tsx', () => {
   afterEach(() => {
     jest.resetModules();
+  });
+
+  beforeAll(async () => {
+    await preloadAll();
   });
 
   describe('when there is content', () => {
@@ -35,12 +40,15 @@ describe('Index in index.tsx', () => {
         props: { ...expectedProps.props, preview: false },
       };
 
-      const { asFragment } = render(
+      const { asFragment, queryByTestId } = render(
         <IndexPage
           pageContent={recipeCollectionData as RecipeSummaryFragment[]}
           preview={false}
         />
       );
+
+      // wait for dynamic component to load
+      await act(async () => waitFor(() => queryByTestId('RecipeGrid')));
 
       // assert getStaticProps returns a value and manages preview default
       expect(await getStaticProps({ preview: true })).toEqual(expectedProps);
@@ -56,13 +64,16 @@ describe('Index in index.tsx', () => {
   });
 
   describe('when there is no page content', () => {
-    it('it does not render the page', () => {
+    it('it does not render the page', async () => {
       const { queryByTestId } = render(
         <IndexPage pageContent={[]} preview={false} />
       );
 
+      // wait for dynamic component to load
+      await act(async () => waitFor(() => queryByTestId('RecipeGrid')));
+
       // assert that page container is not rendered
-      expect(queryByTestId('RecipeGridPage')).toBeNull();
+      expect(queryByTestId('RecipeGrid')).toBeNull();
     });
   });
 
@@ -72,13 +83,16 @@ describe('Index in index.tsx', () => {
       delete config.microcopy;
     });
 
-    it('it does not render the page', () => {
+    it('it does not render the page', async () => {
       const { queryByTestId } = render(
         <IndexPage pageContent={[]} preview={false} />
       );
 
+      // wait for dynamic component to load
+      await act(async () => waitFor(() => queryByTestId('RecipeGrid')));
+
       // assert that page container is not rendered
-      expect(queryByTestId('RecipeGridPage')).toBeNull();
+      expect(queryByTestId('RecipeGrid')).toBeNull();
     });
   });
 });

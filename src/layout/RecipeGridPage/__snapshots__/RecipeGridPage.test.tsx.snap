@@ -4,6 +4,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthLg page recipegrid css-1oqqzyl-MuiContainer-root"
+    data-testd="RecipeGrid"
   >
     <h1
       class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"

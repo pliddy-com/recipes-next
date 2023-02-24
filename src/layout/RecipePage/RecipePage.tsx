@@ -44,7 +44,7 @@ const RecipePage = ({ content }: RecipePageProps) => {
   const { items: tags } = tagsCollection ?? {};
 
   return content ? (
-    <Container className="page recipe">
+    <Container className="page recipe" data-testid="RecipePage">
       <Box>
         <Typography variant="h1" gutterBottom>
           {title}

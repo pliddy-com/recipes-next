@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RecipePage in recipe/[slug].tsx when there is page content it renders the page 1`] = `
-<div>
+<DocumentFragment>
   <title>
     Recipe Title
   </title>
@@ -29,5 +29,5 @@ exports[`RecipePage in recipe/[slug].tsx when there is page content it renders t
       filename.jpg
     </p>
   </div>
-</div>
+</DocumentFragment>
 `;
