@@ -1,13 +1,22 @@
-import { ReactElement } from 'react';
+import { ReactElement, Suspense } from 'react';
 import { InferGetStaticPropsType } from 'next';
+import dynamic from 'next/dynamic';
 
 import Layout from 'layout/Layout/Layout';
-import RecipeGridPage from 'layout/RecipeGridPage/RecipeGridPage';
+import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeIndex } from 'lib/api';
 
 import config from 'lib/config';
+
+const RecipeGridPage = dynamic(
+  () =>
+    import(
+      /* webpackChunkName: 'RecipeGrid' */ 'layout/RecipeGridPage/RecipeGridPage'
+    ),
+  { suspense: true }
+);
 
 const NotFoundPage = ({
   pageContent,
@@ -21,8 +30,10 @@ const NotFoundPage = ({
         defaultTitle={defaultTitle}
         description={description}
       />
-      {pageContent && pageContent.length > 0 && (
-        <RecipeGridPage recipes={pageContent} title={defaultTitle} />
+      {pageContent && pageContent.length > 0 && RecipeGridPage && (
+        <Suspense fallback={<Loading />}>
+          <RecipeGridPage recipes={pageContent} title={defaultTitle} />
+        </Suspense>
       )}
       {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>

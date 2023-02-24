@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
+import preloadAll from 'jest-next-dynamic';
 
 import RecipeSlugPage, {
   getStaticPaths,
@@ -17,6 +18,10 @@ jest.mock('components/PageHead/PageTags/PageTags');
 jest.mock('layout/RecipePage/RecipePage');
 
 describe('RecipePage in recipe/[slug].tsx', () => {
+  beforeAll(async () => {
+    await preloadAll();
+  });
+
   afterEach(() => {
     jest.resetModules();
   });
@@ -46,12 +51,15 @@ describe('RecipePage in recipe/[slug].tsx', () => {
         paths: [{ params: { slug: 'slug-1' } }, { params: { slug: 'slug-2' } }],
       };
 
-      const { container } = render(
+      const { asFragment, queryByTestId } = render(
         <RecipeSlugPage
           pageContent={pageContent as unknown as RecipeDefaultFragment}
           preview={false}
         />
       );
+
+      // wait for dynamic component to load
+      await act(async () => waitFor(() => queryByTestId('RecipePage')));
 
       expect(await getStaticProps(propsContext)).toEqual(expectedProps);
       expect(await getStaticPaths({})).toEqual(expectedPaths);
@@ -60,11 +68,11 @@ describe('RecipePage in recipe/[slug].tsx', () => {
       expect(getRecipeSpy).toHaveBeenCalledTimes(2);
 
       // assert that the component matches the existing snapshot
-      expect(container).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
     });
 
     describe('when the slug is not a string', () => {
-      it('it does not render the page', async () => {
+      it('it throws an error', async () => {
         const propsContext = {
           preview: false,
           params: { slug: undefined },
@@ -86,12 +94,15 @@ describe('RecipePage in recipe/[slug].tsx', () => {
       delete config.microcopy;
     });
 
-    it('it does not render the page', () => {
+    it('it does not render the page', async () => {
       const pageContent = undefined as unknown as RecipeDefaultFragment;
 
       const { queryByTestId } = render(
         <RecipeSlugPage pageContent={pageContent} preview={false} />
       );
+
+      // wait for dynamic component to load
+      await act(async () => waitFor(() => queryByTestId('RecipeGrid')));
 
       // assert that page container is not rendered
       expect(queryByTestId('RecipeGridPage')).toBeNull();

@@ -7,6 +7,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import createEmotionCache from 'lib/createEmotionCache';
 import theme from 'theme';
+import Head from 'next/head';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -29,12 +30,17 @@ const MyApp = (props: AppLayoutProps) => {
   const getLayout = Component.getLayout || ((page: ReactNode) => page);
 
   return (
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {getLayout(<Component {...pageProps} />)}
-      </ThemeProvider>
-    </CacheProvider>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          {getLayout(<Component {...pageProps} />)}
+        </ThemeProvider>
+      </CacheProvider>
+    </>
   );
 };
 

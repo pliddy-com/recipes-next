@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
+import preloadAll from 'jest-next-dynamic';
 
 import TagSlugPage, { getStaticPaths, getStaticProps } from 'pages/tag/[slug]';
 import { ListPageItemFragment } from 'types/queries';
@@ -13,6 +14,10 @@ jest.mock('components/PageHead/PageTags/PageTags');
 jest.mock('layout/RecipeGridPage/RecipeGridPage');
 
 describe('TagPage in tag/[slug].tsx', () => {
+  beforeAll(async () => {
+    await preloadAll();
+  });
+
   afterEach(() => {
     jest.resetModules();
   });
@@ -44,9 +49,12 @@ describe('TagPage in tag/[slug].tsx', () => {
         paths: [{ params: { slug: 'slug-1' } }, { params: { slug: 'slug-2' } }],
       };
 
-      const { asFragment } = render(
+      const { asFragment, queryByTestId } = render(
         <TagSlugPage pageContent={pageContent} preview={false} />
       );
+
+      // wait for dynamic component to load
+      await act(async () => waitFor(() => queryByTestId('RecipeGrid')));
 
       expect(await getStaticProps(propsContext)).toEqual(expectedProps);
       expect(await getStaticPaths({})).toEqual(expectedPaths);
@@ -59,7 +67,7 @@ describe('TagPage in tag/[slug].tsx', () => {
     });
 
     describe('when the slug is not a string', () => {
-      it('it does not render the page', async () => {
+      it('it throws an error', async () => {
         const propsContext = {
           preview: false,
           params: { slug: undefined },
@@ -82,12 +90,15 @@ describe('TagPage in tag/[slug].tsx', () => {
       delete config.microcopy;
     });
 
-    it('it does not render the category page', () => {
+    it('it does not render the category page', async () => {
       const pageContent = undefined as unknown as ListPageItemFragment;
 
       const { queryByTestId } = render(
         <TagSlugPage pageContent={pageContent} preview={false} />
       );
+
+      // wait for dynamic component to load
+      await act(async () => waitFor(() => queryByTestId('RecipeGrid')));
 
       // assert that page container is not rendered
       expect(queryByTestId('RecipeGridPage')).toBeNull();

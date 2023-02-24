@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, Suspense } from 'react';
 
 import {
   GetStaticPaths,
@@ -6,13 +6,21 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 
+import dynamic from 'next/dynamic';
+
 import Layout from 'layout/Layout/Layout';
+import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
-import Recipe from 'layout/RecipePage/RecipePage';
 
 import { getRecipeSlugs, getRecipePage } from 'lib/api';
 import config from 'lib/config';
 import { hasValue } from 'lib/typeUtils';
+
+const RecipePage = dynamic(
+  () =>
+    import(/* webpackChunkName: 'RecipePage' */ 'layout/RecipePage/RecipePage'),
+  { suspense: true }
+);
 
 const RecipeSlugPage = ({
   pageContent,
@@ -30,7 +38,10 @@ const RecipeSlugPage = ({
         description={description}
         image={image}
       />
-      <Recipe content={pageContent} />
+      <Suspense fallback={<Loading />}>
+        <RecipePage content={pageContent} />
+      </Suspense>
+
       {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
   ) : null;
