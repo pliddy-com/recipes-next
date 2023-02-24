@@ -22,9 +22,9 @@ Checkbot identified a variety of potential security issues with the configuratio
 
 #### Current issues identified by Checkbot
 
-The remaining issues that impact the application's potential SEO score are related to the relatively thin content currently in the system. There are a limited number of recipes with placeholder content for descriptions and abstracts on core content pages.
+The remaining issues that impact the application's potential SEO score are related to the relatively thin content currently in the system. There are a limited number of recipes with placeholder content for descriptions on core content pages.
 
-These issues will be addressed by updating all current recipe descriptions and abstracts with more robust copy and the creation of additional recipes to ensure that pages that display collections of recipes by tag are unique. With the limited number of recipes currently in the system, there can be multiple tag pages that display the same single recipe. To bots crawling the site, these pages have duplicate content.
+These issues will be addressed by updating all current recipe descriptions with more robust copy and the creation of additional recipes allow for more robust tagging. With the limited number of recipes currently in the system, tags are only applied to recipes if they would result in a unique collection page.
 
 <p align="center">
   <img src="assets/checkbot-scan.png" alt="Checkbot SEO, Performance, and security scan results" />
