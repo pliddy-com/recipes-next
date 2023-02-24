@@ -102,7 +102,7 @@ query recipePage($where: RecipeFilter) {
 # getTagIndex
 
 query tagIndex($where: TagFilter) {
-  tagCollection {
+  tagCollection(where: $where, order: title_ASC) {
     __typename
     total
     items {
