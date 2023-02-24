@@ -84,7 +84,9 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
             sizes="300px"
             type="image/webp"
           />
-          <picture>
+          <picture
+            style="height: 100%;"
+          >
             <source
               media="(min-width: 669px)"
               sizes="450px"
@@ -116,7 +118,7 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
               height="337.5"
               loading="eager"
               src="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=900&fm=webp&q=75"
-              style="width: 100%; height: auto;"
+              style="width: 100%; height: auto; flex-shrink: 0; min-width: 100%; min-height: 100%; object-fit: cover;"
               width="450"
             />
           </picture>

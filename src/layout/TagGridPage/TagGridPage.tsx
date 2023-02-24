@@ -37,15 +37,6 @@ const TagGridPage = ({ tags }: TagGridPageProps) =>
               {title}
             </Typography>
 
-            {/* <Typography
-              variant="subtitle1"
-              component="h3"
-              display="inline"
-              ml={1}
-            >
-              {items && `${items.length} Recipes`}
-            </Typography> */}
-
             <Grid container spacing={2} mb={4}>
               {items &&
                 items.map((recipe, index) => (

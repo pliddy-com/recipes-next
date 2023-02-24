@@ -32,7 +32,9 @@ exports[`DynamicImage when there is a url & image object it renders a picture co
     sizes="100px"
     type="image/webp"
   />
-  <picture>
+  <picture
+    style="height: 100%;"
+  >
     <source
       media="(min-width: 1000px)"
       sizes="400px"
@@ -54,7 +56,7 @@ exports[`DynamicImage when there is a url & image object it renders a picture co
       height="300"
       loading="eager"
       src="https://URL.test?w=800&fm=webp&q=75"
-      style="width: 100%; height: auto;"
+      style="width: 100%; height: auto; flex-shrink: 0; min-width: 100%; min-height: 100%; object-fit: cover;"
       width="400"
     />
   </picture>
