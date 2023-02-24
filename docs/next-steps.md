@@ -2,9 +2,7 @@
 
 There is currently a project backlog of approximately 25 stories identifying new features, enhancements to existing features, or technical improvements. The prioritized backlog items for next steps include:
 
-- Adding routing functionality for unknown urls to a 404 page
-
-- Enhancing the existing content for improved SEO performance identified by the Checkbot scans
+- Enhancing the existing recipe descriptions for improved SEO performance
 
 - Adding recipe schemas from <a href="https://schema.org/Recipe" target="_blank">schema.org</a> to the page head in order to enable display of Google search results as rich snippets
 
