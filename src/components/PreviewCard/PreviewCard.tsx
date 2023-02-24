@@ -28,7 +28,7 @@ const PreviewCard = ({ recipe, preloadImg = false }: PreviewCardProps) => {
     <Card variant="outlined" className="preview">
       <CardActionArea component={Link} href={`/recipe/${slug}`}>
         <Stack
-          sx={{ flexDirection: { xs: 'row', sm: 'column' } }}
+          sx={{ flexDirection: { xs: 'column', sm: 'row', md: 'column' } }}
           alignItems="stretch"
         >
           {image && (

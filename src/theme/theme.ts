@@ -6,8 +6,8 @@ const baseTheme: ThemeOptions = {
   breakpoints: {
     values: {
       xs: 0,
-      sm: 600,
-      md: 800,
+      sm: 450,
+      md: 600,
       lg: 960,
       xl: 1920,
     },

@@ -11,7 +11,7 @@ exports[`PreviewCard when there is content it renders the PreviewCard 1`] = `
       tabindex="0"
     >
       <div
-        class="css-19sl0de-MuiStack-root"
+        class="css-9zwtjq-MuiStack-root"
       >
         <div
           class="MuiCardMedia-root css-zdofph-MuiCardMedia-root"

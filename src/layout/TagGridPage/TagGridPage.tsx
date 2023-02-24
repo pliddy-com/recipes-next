@@ -43,8 +43,9 @@ const TagGridPage = ({ tags }: TagGridPageProps) =>
                 items.map((recipe, index) => (
                   <Grid
                     item
-                    md={4}
-                    sm={6}
+                    lg={4}
+                    md={6}
+                    sm={12}
                     xs={12}
                     key={recipe?.slug}
                     sx={{ flex }}
