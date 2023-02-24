@@ -74,10 +74,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     where: { slug },
   });
 
-  return {
-    props: { pageContent, preview: Boolean(preview) },
-    revalidate: 60,
-  };
+  return { props: { pageContent, preview: Boolean(preview) } };
 };
 
 RecipeSlugPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;

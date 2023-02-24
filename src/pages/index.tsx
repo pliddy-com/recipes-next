@@ -43,7 +43,7 @@ const IndexPage = ({
 export const getStaticProps = async ({ preview = false }) => {
   const pageContent = await getRecipeIndex();
 
-  return { props: { pageContent, preview }, revalidate: 60 };
+  return { props: { pageContent, preview } };
 };
 
 IndexPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
