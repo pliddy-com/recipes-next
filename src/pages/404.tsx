@@ -43,7 +43,7 @@ const NotFoundPage = ({
 export const getStaticProps = async ({ preview = false }) => {
   const pageContent = await getRecipeIndex();
 
-  return { props: { pageContent, preview }, revalidate: 60 };
+  return { props: { pageContent, preview } };
 };
 
 NotFoundPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
