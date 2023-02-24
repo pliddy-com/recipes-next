@@ -45,8 +45,6 @@ const TagSlugPage = ({
       <Suspense fallback={<Loading />}>
         <RecipeGridPage recipes={content} title={pageTitle} />
       </Suspense>
-
-      {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
   ) : null;
 };

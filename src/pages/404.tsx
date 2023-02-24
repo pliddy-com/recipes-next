@@ -35,7 +35,6 @@ const NotFoundPage = ({
           <RecipeGridPage recipes={pageContent} title={defaultTitle} />
         </Suspense>
       )}
-      {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
   ) : null;
 };

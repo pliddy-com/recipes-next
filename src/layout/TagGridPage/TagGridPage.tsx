@@ -3,7 +3,6 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import RecipeCard from 'components/RecipeCard/RecipeCard';
-// import PayloadRender from 'components/PayloadRender/PayloadRender';
 
 import { ListPageItemFragment } from 'types/queries';
 
@@ -33,8 +32,6 @@ const TagGridPage = ({ tags }: TagGridPageProps) =>
             <Typography variant="h2" key={slug}>
               {title}
             </Typography>
-
-            {/* <PayloadRender payload={items as unknown as JSON} /> */}
 
             <Grid container spacing={2}>
               {items &&
