@@ -69,10 +69,9 @@ describe('NotFoundPage in 404.tsx', () => {
       );
 
       // wait for dynamic component to load
-      await act(async () => waitFor(() => queryByTestId('RecipeGrid')));
-
-      // assert that page container is not rendered
-      expect(queryByTestId('RecipeGridPage')).toBeNull();
+      await act(async () =>
+        waitFor(() => expect(queryByTestId('RecipeGridPage')).toBeNull())
+      );
     });
   });
 
@@ -88,10 +87,9 @@ describe('NotFoundPage in 404.tsx', () => {
       );
 
       // wait for dynamic component to load
-      await act(async () => waitFor(() => queryByTestId('RecipeGrid')));
-
-      // assert that page container is not rendered
-      expect(queryByTestId('RecipeGridPage')).toBeNull();
+      await act(async () =>
+        waitFor(() => expect(queryByTestId('RecipeGridPage')).toBeNull())
+      );
     });
   });
 });

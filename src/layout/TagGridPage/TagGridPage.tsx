@@ -15,7 +15,7 @@ interface TagGridPageProps {
 
 const TagGridPage = ({ tags }: TagGridPageProps) =>
   tags ? (
-    <Container className="page recipegrid" data-testd="RecipeGrid">
+    <Container className="page recipegrid" data-testd="TagGrid">
       <Typography variant="h1">Tag Collections</Typography>
 
       <Typography variant="subtitle1" component="h2">
