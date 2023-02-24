@@ -8,6 +8,7 @@ import {
   getRecipeIndex,
   getRecipeList,
   getRecipePage,
+  getTagIndex,
 } from './api';
 
 jest.mock('lib/gqlClient');
@@ -315,6 +316,84 @@ describe('api', () => {
         expect(gqlSpy).toHaveBeenCalled();
         expect(res).toEqual(expected);
       });
+    });
+  });
+});
+
+describe('when getTagIndex() is called', () => {
+  it('it returns a collection of tags with recipes', async () => {
+    const items = [
+      {
+        title: 'Tag 1 Title',
+        slug: 'tag-1',
+        linkedFrom: {
+          recipeCollection: {
+            total: 2,
+            items: [
+              {
+                slug: 'slug-1',
+                title: 'Title 1',
+              },
+              {
+                slug: 'slug-2',
+                title: 'Title 2',
+              },
+            ],
+          },
+        },
+      },
+      {
+        title: 'Tag 2 Title',
+        slug: 'tag-2',
+        linkedFrom: {
+          recipeCollection: {
+            total: 2,
+            items: [
+              {
+                slug: 'slug-3',
+                title: 'Title 3',
+              },
+              {
+                slug: 'slug-4',
+                title: 'Title 5',
+              },
+            ],
+          },
+        },
+      },
+    ];
+
+    const payload = {
+      tagCollection: {
+        items,
+      },
+    };
+
+    const gqlSpy = jest
+      .spyOn(gqlClient, 'queryGraphQLContent')
+      .mockResolvedValueOnce(payload);
+
+    const variables = {};
+    const res = await getTagIndex(variables);
+
+    expect(gqlSpy).toHaveBeenCalled();
+    expect(res).toEqual(items);
+  });
+
+  describe('if no valid data is returned', () => {
+    it('it returns an empty array', async () => {
+      const payload = { tagCollection: null };
+      const expected: unknown[] = [];
+
+      const gqlSpy = jest
+        .spyOn(gqlClient, 'queryGraphQLContent')
+        .mockResolvedValueOnce(payload);
+
+      const variables = {};
+      const res = await getTagIndex(variables);
+
+      expect(gqlSpy).toHaveBeenCalled();
+      expect(res).toEqual(expected);
     });
   });
 });

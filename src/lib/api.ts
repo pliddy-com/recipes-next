@@ -99,14 +99,11 @@ export const getTagIndex = async (variables?: TagIndexQueryVariables) => {
     variables
   );
 
-  const results = tagCollection?.items
-    // .filter(hasValue)
-    .filter(
-      (item) =>
-        item?.linkedFrom?.recipeCollection?.total &&
-        item?.linkedFrom?.recipeCollection?.total > 0
-    );
-  // .map((child) => (child && child.slug ? child.slug : null));
+  const results = tagCollection?.items.filter(
+    (item) =>
+      item?.linkedFrom?.recipeCollection?.total &&
+      item?.linkedFrom?.recipeCollection?.total > 0
+  );
 
   return results ? results?.filter(hasValue) : [];
 };
