@@ -45,7 +45,7 @@ const DynamicImage = ({ image, breakpoints, preload = false }: ImageProps) => {
           alt={alt}
           height={defaultWidth * 0.75}
           loading={preload ? 'eager' : 'lazy'}
-          src={`${url}?w=${defaultWidth * 2}&fm=webp`}
+          src={`${url}?w=${defaultWidth * 2}&fm=webp&q=75`}
           style={{ maxWidth: '100%', height: 'auto' }}
           width={defaultWidth}
           fetchpriority={preload ? 'high' : 'auto'}
