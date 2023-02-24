@@ -20,7 +20,7 @@ const TagGridPage = dynamic(
 const TagIndexPage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { defaultTitle, description } = config?.microcopy?.index ?? {};
+  const { defaultTitle, description } = config?.microcopy?.tagIndex ?? {};
 
   return pageContent && pageContent.length > 0 ? (
     <>

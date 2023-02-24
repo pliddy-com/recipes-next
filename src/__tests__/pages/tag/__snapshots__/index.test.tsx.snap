@@ -3,10 +3,10 @@
 exports[`TagIndexPage in tag/index.tsx when there is content it renders the index page 1`] = `
 <DocumentFragment>
   <title>
-    Index Default Title
+    Tag Index Default Title
   </title>
   <meta
-    content="Index default description."
+    content="Tag index default description."
     name="description"
   />
 </DocumentFragment>

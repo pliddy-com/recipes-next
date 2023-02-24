@@ -29,7 +29,11 @@ const TagGridPage = ({ tags }: TagGridPageProps) =>
 
         return slug && title ? (
           <>
-            <Typography variant="h2" mb={2}>
+            <Typography
+              variant="h2"
+              mb={2}
+              sx={{ border: 'none', marginBottom: '.5rem' }}
+            >
               {title}
             </Typography>
 
@@ -42,7 +46,7 @@ const TagGridPage = ({ tags }: TagGridPageProps) =>
               {items && `${items.length} Recipes`}
             </Typography> */}
 
-            <Grid container spacing={2} mb={3}>
+            <Grid container spacing={2} mb={4}>
               {items &&
                 items.map((recipe, index) => (
                   <Grid

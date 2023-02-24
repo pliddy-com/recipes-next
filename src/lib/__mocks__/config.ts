@@ -21,6 +21,10 @@ const microcopy = {
     defaultDescription: 'Tag default description',
     defaultTitle: 'Tag Default Title',
   },
+  tagIndex: {
+    defaultTitle: 'Tag Index Default Title',
+    description: 'Tag index default description.',
+  },
 };
 
 const config: ConfigProps = {
