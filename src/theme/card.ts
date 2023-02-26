@@ -11,9 +11,9 @@ const cardTheme: ThemeOptions = {
           display: 'flex',
           flexDirection: 'column',
           '& .imageWrapper': {
-            // height: '100%',
-            // position: 'relative',
-            // width: '100%',
+            height: '100%',
+            position: 'relative',
+            width: '100%',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -23,6 +23,7 @@ const cardTheme: ThemeOptions = {
             display: 'flex',
             flexDirection: 'column',
             flexGrow: 1,
+            justifyContent: 'flex-start',
           },
           '& .MuiCardContent-root': {
             display: 'flex',
