@@ -8,6 +8,7 @@
   - [Content Definitions](docs/contentful.md#content-definitions)
 - [Maximizing Performance](docs/performance.md)
   - [Static Site Generation](docs/performance.md#static-site-generation)
+  - [Dynamic Imports](docs/performance.md#dynamic-imports)
   - [Images](docs/performance.md#images)
   - [Fonts](docs/performance.md#fonts)
   - [Styling](docs/performance.md#styling)
