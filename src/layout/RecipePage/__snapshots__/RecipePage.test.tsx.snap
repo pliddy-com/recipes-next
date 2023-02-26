@@ -3,139 +3,152 @@
 exports[`Recipe when there is page content it renders the Recipe 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg page recipe css-1oqqzyl-MuiContainer-root"
+    class="recipe MuiBox-root css-0"
     data-testid="RecipePage"
   >
-    <div
-      class="MuiBox-root css-0"
+    <h1
+      class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom css-a4d0r7-MuiTypography-root"
     >
-      <h1
-        class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom css-a4d0r7-MuiTypography-root"
-      >
-        Recipe Title
-      </h1>
+      Recipe Title
+    </h1>
+    <div
+      class="MuiGrid-root MuiGrid-container content css-11lq3yg-MuiGrid-root"
+    >
       <div
-        class="MuiBox-root css-0"
-        data-testid="richtext"
-      >
-        <p
-          class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-z2eky3-MuiTypography-root"
-        >
-          Description rich text
-        </p>
-      </div>
-      <div
-        class="tags MuiBox-root css-h5fkc8"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-6 css-1i6hukq-MuiGrid-root"
       >
         <div
-          class="tagButtons css-m69qwo-MuiStack-root"
-          data-testid="tag-buttons"
+          class="css-nen11g-MuiStack-root"
         >
-          <a
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-            href="/tag/tag-1"
-            role="button"
-            tabindex="0"
+          <div
+            class="MuiBox-root css-0"
+            data-testid="richtext"
           >
-            Tag 1
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </a>
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-z2eky3-MuiTypography-root"
+            >
+              Description rich text
+            </p>
+          </div>
+          <div
+            class="tags MuiBox-root css-h5fkc8"
+          >
+            <div
+              class="tagButtons css-m69qwo-MuiStack-root"
+              data-testid="tag-buttons"
+            >
+              <a
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+                href="/tag/tag-1"
+                role="button"
+                tabindex="0"
+              >
+                Tag 1
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="MuiBox-root css-mc0pi9"
-    >
-      <link
-        as="image"
-        fetchpriority="high"
-        href="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
-        imagesrcset="https://recipes.pliddy.com/url?w=900&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1800&fm=webp&q=75 2x"
-        media="(min-width: 831px)"
-        rel="preload"
-        sizes="900px"
-        type="image/webp"
-      />
-      <link
-        as="image"
-        fetchpriority="high"
-        href="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
-        imagesrcset="https://recipes.pliddy.com/url?w=750&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1500&fm=webp&q=75 2x"
-        media="(min-width: 665px) and (max-width: 830px)"
-        rel="preload"
-        sizes="750px"
-        type="image/webp"
-      />
-      <link
-        as="image"
-        fetchpriority="high"
-        href="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
-        imagesrcset="https://recipes.pliddy.com/url?w=600&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1200&fm=webp&q=75 2x"
-        media="(min-width: 483px) and (max-width: 664px)"
-        rel="preload"
-        sizes="600px"
-        type="image/webp"
-      />
-      <link
-        as="image"
-        fetchpriority="high"
-        href="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
-        imagesrcset="https://recipes.pliddy.com/url?w=450&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=900&fm=webp&q=75 2x"
-        media="(min-width: 333px) and (max-width: 482px)"
-        rel="preload"
-        sizes="450px"
-        type="image/webp"
-      />
-      <link
-        as="image"
-        fetchpriority="high"
-        href="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
-        imagesrcset="https://recipes.pliddy.com/url?w=300&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=600&fm=webp&q=75 2x"
-        media="(max-width: 332px)"
-        rel="preload"
-        sizes="300px"
-        type="image/webp"
-      />
-      <picture
-        style="height: 100%;"
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-6 css-1i6hukq-MuiGrid-root"
       >
-        <source
-          media="(min-width: 831px)"
-          sizes="900px"
-          srcset="https://recipes.pliddy.com/url?w=900&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1800&fm=webp&q=75 2x"
-        />
-        <source
-          media="(min-width: 665px) and (max-width: 830px)"
-          sizes="750px"
-          srcset="https://recipes.pliddy.com/url?w=750&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1500&fm=webp&q=75 2x"
-        />
-        <source
-          media="(min-width: 483px) and (max-width: 664px)"
-          sizes="600px"
-          srcset="https://recipes.pliddy.com/url?w=600&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1200&fm=webp&q=75 2x"
-        />
-        <source
-          media="(min-width: 333px) and (max-width: 482px)"
-          sizes="450px"
-          srcset="https://recipes.pliddy.com/url?w=450&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=900&fm=webp&q=75 2x"
-        />
-        <source
-          media="(max-width: 332px)"
-          sizes="300px"
-          srcset="https://recipes.pliddy.com/url?w=300&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=600&fm=webp&q=75 2x"
-        />
-        <img
-          alt="Image description."
-          fetchpriority="high"
-          height="675"
-          loading="eager"
-          src="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
-          style="width: 100%; height: auto; flex-shrink: 0; min-width: 100%; min-height: 100%; object-fit: cover;"
-          width="900"
-        />
-      </picture>
+         
+        <div
+          class="image MuiBox-root css-0"
+        >
+          <link
+            as="image"
+            fetchpriority="high"
+            href="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
+            imagesrcset="https://recipes.pliddy.com/url?w=900&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1800&fm=webp&q=75 2x"
+            media="(min-width: 831px)"
+            rel="preload"
+            sizes="900px"
+            type="image/webp"
+          />
+          <link
+            as="image"
+            fetchpriority="high"
+            href="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
+            imagesrcset="https://recipes.pliddy.com/url?w=750&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1500&fm=webp&q=75 2x"
+            media="(min-width: 665px) and (max-width: 830px)"
+            rel="preload"
+            sizes="750px"
+            type="image/webp"
+          />
+          <link
+            as="image"
+            fetchpriority="high"
+            href="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
+            imagesrcset="https://recipes.pliddy.com/url?w=600&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1200&fm=webp&q=75 2x"
+            media="(min-width: 483px) and (max-width: 664px)"
+            rel="preload"
+            sizes="600px"
+            type="image/webp"
+          />
+          <link
+            as="image"
+            fetchpriority="high"
+            href="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
+            imagesrcset="https://recipes.pliddy.com/url?w=450&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=900&fm=webp&q=75 2x"
+            media="(min-width: 333px) and (max-width: 482px)"
+            rel="preload"
+            sizes="450px"
+            type="image/webp"
+          />
+          <link
+            as="image"
+            fetchpriority="high"
+            href="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
+            imagesrcset="https://recipes.pliddy.com/url?w=300&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=600&fm=webp&q=75 2x"
+            media="(max-width: 332px)"
+            rel="preload"
+            sizes="300px"
+            type="image/webp"
+          />
+          <picture
+            style="height: 100%;"
+          >
+            <source
+              media="(min-width: 831px)"
+              sizes="900px"
+              srcset="https://recipes.pliddy.com/url?w=900&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1800&fm=webp&q=75 2x"
+            />
+            <source
+              media="(min-width: 665px) and (max-width: 830px)"
+              sizes="750px"
+              srcset="https://recipes.pliddy.com/url?w=750&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1500&fm=webp&q=75 2x"
+            />
+            <source
+              media="(min-width: 483px) and (max-width: 664px)"
+              sizes="600px"
+              srcset="https://recipes.pliddy.com/url?w=600&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=1200&fm=webp&q=75 2x"
+            />
+            <source
+              media="(min-width: 333px) and (max-width: 482px)"
+              sizes="450px"
+              srcset="https://recipes.pliddy.com/url?w=450&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=900&fm=webp&q=75 2x"
+            />
+            <source
+              media="(max-width: 332px)"
+              sizes="300px"
+              srcset="https://recipes.pliddy.com/url?w=300&fm=webp&q=75 1x, https://recipes.pliddy.com/url?w=600&fm=webp&q=75 2x"
+            />
+            <img
+              alt="Image description."
+              fetchpriority="high"
+              height="675"
+              loading="eager"
+              src="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
+              style="width: 100%; height: auto; flex-shrink: 0; min-width: 100%; min-height: 100%; object-fit: cover;"
+              width="900"
+            />
+          </picture>
+        </div>
+      </div>
     </div>
     <div
       class="css-1lwbda4-MuiStack-root"

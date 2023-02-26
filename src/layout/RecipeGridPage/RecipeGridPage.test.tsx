@@ -31,13 +31,12 @@ describe('RecipeGridPage', () => {
 
       const title = 'Title';
 
-      const { asFragment } = render(
+      const { asFragment, queryByTestId } = render(
         <RecipeGridPage recipes={recipes} title={title} />
       );
 
-      // assert that page container is present
-      const page = document.querySelector('.page');
-      expect(page).toBeInTheDocument();
+      // assert that content is rendered
+      expect(queryByTestId('recipeGrid')).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

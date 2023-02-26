@@ -1,3 +1,5 @@
+import { ThemeOptions } from '@mui/material/styles';
+
 import colors from './colors';
 import {
   baseFontSize,
@@ -10,7 +12,7 @@ import {
   serifFontFamily,
 } from 'theme/fontface';
 
-const typeTheme = {
+const typeThemeOptions: ThemeOptions = {
   components: {
     MuiCssBaseline: {
       styleOverrides: fontFaceOverrides,
@@ -29,6 +31,7 @@ const typeTheme = {
       styleOverrides: {
         root: {
           textDecoration: 'underline dotted',
+          textUnderlineOffset: '0.375em',
           fontWeight: fontWeightBold,
         },
       },
@@ -70,7 +73,7 @@ const typeTheme = {
       paddingBottom: '0.1875rem',
       fontFamily: sansFontFamily,
       fontSize: `2.25rem`,
-      fontWeight: 700,
+      fontWeight: fontWeightBold,
       lineHeight: 1.125,
     },
     h2: {
@@ -116,4 +119,4 @@ const typeTheme = {
   },
 };
 
-export default typeTheme;
+export default typeThemeOptions;

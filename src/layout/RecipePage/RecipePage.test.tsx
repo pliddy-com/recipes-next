@@ -128,13 +128,12 @@ describe('Recipe', () => {
         },
       };
 
-      const { asFragment } = render(
+      const { asFragment, queryByTestId } = render(
         <RecipePage content={content as RecipeDefaultFragment} />
       );
 
-      // test if content is rendered
-      const recipe = document.querySelector('.page');
-      expect(recipe).toBeInTheDocument();
+      // assert that content is rendered
+      expect(queryByTestId('RecipePage')).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

@@ -1,7 +1,7 @@
 import { ThemeOptions } from '@mui/system';
 import { sansFontFamily } from './fontface';
 
-const tagTheme: ThemeOptions = {
+const tagThemeOptions: ThemeOptions = {
   components: {
     MuiStack: {
       styleOverrides: {
@@ -34,4 +34,4 @@ const tagTheme: ThemeOptions = {
   },
 };
 
-export default tagTheme;
+export default tagThemeOptions;

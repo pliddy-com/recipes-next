@@ -5,7 +5,7 @@ import { sansFontFamily } from './fontface';
 // TODO: differentiate between nav list and recipe lists
 // recipe lists introduce .25rem margin left, not wanted in nav
 
-const listTheme: ThemeOptions = {
+const listThemeOptions: ThemeOptions = {
   components: {
     MuiList: {
       styleOverrides: {
@@ -61,4 +61,4 @@ const listTheme: ThemeOptions = {
   },
 };
 
-export default listTheme;
+export default listThemeOptions;

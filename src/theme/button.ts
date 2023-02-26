@@ -2,7 +2,7 @@ import { ThemeOptions } from '@mui/material/styles';
 import colors from 'theme/colors';
 import { fontWeightBold, sansFontFamily } from './fontface';
 
-const buttonTheme: ThemeOptions = {
+const buttonThemeOptions: ThemeOptions = {
   components: {
     MuiButton: {
       styleOverrides: {
@@ -34,4 +34,4 @@ const buttonTheme: ThemeOptions = {
   },
 };
 
-export default buttonTheme;
+export default buttonThemeOptions;

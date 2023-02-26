@@ -1,15 +1,16 @@
-import { ThemeOptions } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
+
 import colors from 'theme/colors';
 import { sansFontFamily, serifFontFamily } from 'theme/fontface';
 
-const baseTheme: ThemeOptions = {
+const baseTheme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: 450,
-      md: 600,
+      sm: 480,
+      md: 768,
       lg: 960,
-      xl: 1920,
+      xl: 1200,
     },
   },
   palette: {
@@ -61,6 +62,6 @@ const baseTheme: ThemeOptions = {
       lineHeight: 1.25,
     },
   },
-};
+});
 
 export default baseTheme;

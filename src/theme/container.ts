@@ -1,11 +1,12 @@
 import { ThemeOptions } from '@mui/material/styles';
-import { createBreakpoints } from '@mui/system';
 
 import colors from './colors';
 
-const breakpoints = createBreakpoints({});
+import baseTheme from 'theme/base';
 
-const containerTheme: ThemeOptions = {
+const { breakpoints } = baseTheme ?? {};
+
+const containerThemeOptions: ThemeOptions = {
   components: {
     MuiContainer: {
       styleOverrides: {
@@ -21,10 +22,27 @@ const containerTheme: ThemeOptions = {
             '& .MuiGrid-root': {
               display: 'flex',
             },
-            '&.tagGrid': {
+            '& .tagGrid': {
               '& .MuiTypography-h2': {
                 border: 'none',
                 marginBottom: '.5rem',
+              },
+            },
+            '& .recipe': {
+              '& .content': {
+                marginBottom: '2rem',
+              },
+              '& .image': {
+                marginLeft: 0,
+                marginRight: 0,
+                marginTop: '2rem',
+                ...(breakpoints &&
+                  breakpoints.up && {
+                    [breakpoints.up('lg')]: {
+                      marginLeft: '2rem',
+                      marginTop: 0,
+                    },
+                  }),
               },
             },
           },
@@ -40,4 +58,4 @@ const containerTheme: ThemeOptions = {
   },
 };
 
-export default containerTheme;
+export default containerThemeOptions;
