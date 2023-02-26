@@ -28,7 +28,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         class="tags MuiBox-root css-h5fkc8"
       >
         <div
-          class="css-1d0f7f9-MuiStack-root"
+          class="tagButtons css-m69qwo-MuiStack-root"
           data-testid="tag-buttons"
         >
           <a

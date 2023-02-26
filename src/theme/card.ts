@@ -1,6 +1,10 @@
 import { ThemeOptions } from '@mui/material/styles';
+import { createBreakpoints } from '@mui/system';
+
 import colors from 'theme/colors';
 import { sansFontFamily } from './fontface';
+
+const breakpoints = createBreakpoints({});
 
 const cardTheme: ThemeOptions = {
   components: {
@@ -65,6 +69,20 @@ const cardTheme: ThemeOptions = {
             },
           },
           '&.preview': {
+            '& .MuiCardActionArea-root': {
+              '& .stack': {
+                [breakpoints.only('xs')]: {
+                  flexDirection: 'column',
+                },
+                [breakpoints.only('sm')]: {
+                  flexDirection: 'row',
+                },
+                [breakpoints.only('md')]: {
+                  flexDirection: 'column',
+                },
+                alignItems: 'stretch',
+              },
+            },
             '& .MuiCardHeader': {
               '&-root': {
                 width: '100%',
@@ -75,6 +93,13 @@ const cardTheme: ThemeOptions = {
                 borderBottom: `1px solid ${colors.secondary.main}`,
                 paddingBottom: '.25rem',
               },
+            },
+            '& .MuiCardMedia-root': {
+              display: 'flex',
+              flex: 1,
+            },
+            '& .contentWrapper': {
+              flex: 1,
             },
             '& .MuiCardContent-root': {
               paddingTop: '1rem',

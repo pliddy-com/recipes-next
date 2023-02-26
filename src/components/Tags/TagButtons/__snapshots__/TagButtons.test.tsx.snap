@@ -2,7 +2,7 @@
 
 exports[`TagButtons when there are properly structured tag props it renders a row of tag buttons 1`] = `
 <div
-  class="css-1d0f7f9-MuiStack-root"
+  class="tagButtons css-m69qwo-MuiStack-root"
   data-testid="tag-buttons"
 >
   <a

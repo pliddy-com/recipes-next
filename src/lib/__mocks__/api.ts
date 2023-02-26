@@ -76,16 +76,20 @@ api.getRecipePage = jest.fn().mockResolvedValue([
 
 api.getTagIndex = jest.fn().mockResolvedValue([
   {
+    __typename: 'Tag',
     title: 'Tag 1 Title',
     slug: 'tag-1',
     linkedFrom: {
       recipeCollection: {
+        total: 2,
         items: [
           {
+            __typename: 'Recipe',
             slug: 'slug-1',
             title: 'Title 1',
           },
           {
+            __typename: 'Recipe',
             slug: 'slug-2',
             title: 'Title 2',
           },
@@ -94,16 +98,20 @@ api.getTagIndex = jest.fn().mockResolvedValue([
     },
   },
   {
+    __typename: 'Tag',
     title: 'Tag 2 Title',
     slug: 'tag-2',
     linkedFrom: {
       recipeCollection: {
+        total: 2,
         items: [
           {
+            __typename: 'Recipe',
             slug: 'slug-3',
             title: 'Title 3',
           },
           {
+            __typename: 'Recipe',
             slug: 'slug-4',
             title: 'Title 5',
           },

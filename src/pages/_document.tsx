@@ -14,8 +14,6 @@ import createEmotionServer from '@emotion/server/create-instance';
 import FaviconTags from 'components/PageHead/FaviconTags/FaviconTags';
 import FontPreloadTags from 'components/PageHead/FontPreloadTags/FontPreloadTags';
 
-import { background } from 'lib/styles';
-
 // TODO: test render of main against snapshot for head content
 
 export default class MainDocument extends Document {
@@ -30,7 +28,7 @@ export default class MainDocument extends Document {
           <FontPreloadTags />
           <FaviconTags />
         </Head>
-        <body style={background}>
+        <body>
           <Main />
           <NextScript />
         </body>

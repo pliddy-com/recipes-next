@@ -11,10 +11,10 @@ exports[`PreviewCard when there is content it renders the PreviewCard 1`] = `
       tabindex="0"
     >
       <div
-        class="css-9zwtjq-MuiStack-root"
+        class="stack css-nen11g-MuiStack-root"
       >
         <div
-          class="MuiCardMedia-root css-zdofph-MuiCardMedia-root"
+          class="MuiCardMedia-root css-16cvb1l-MuiCardMedia-root"
         >
           <div
             class="imageWrapper MuiBox-root css-0"
@@ -110,7 +110,7 @@ exports[`PreviewCard when there is content it renders the PreviewCard 1`] = `
           </div>
         </div>
         <div
-          class="MuiBox-root css-1rr4qq7"
+          class="contentWrapper MuiBox-root css-0"
         >
           <div
             class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"

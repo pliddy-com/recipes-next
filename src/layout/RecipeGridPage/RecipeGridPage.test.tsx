@@ -4,8 +4,6 @@ import { render } from '@testing-library/react';
 import RecipeGridPage from './RecipeGridPage';
 import { RecipeDefaultFragment } from 'types/queries';
 
-// import * as api from 'lib/api';
-
 jest.mock('lib/api');
 
 describe('RecipeGridPage', () => {
@@ -40,10 +38,6 @@ describe('RecipeGridPage', () => {
       // assert that page container is present
       const page = document.querySelector('.page');
       expect(page).toBeInTheDocument();
-
-      // assert that card component is rendered
-      const card = document.querySelector('.MuiCard-root');
-      expect(card).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

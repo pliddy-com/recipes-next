@@ -144,7 +144,7 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
       class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
     >
       <div
-        class="css-1d0f7f9-MuiStack-root"
+        class="tagButtons css-m69qwo-MuiStack-root"
         data-testid="tag-buttons"
       >
         <a

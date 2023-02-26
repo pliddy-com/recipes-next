@@ -1,8 +1,18 @@
-import { ThemeOptions } from '@mui/material/styles';
+import { ThemeOptions } from '@mui/system';
 import { sansFontFamily } from './fontface';
 
 const tagTheme: ThemeOptions = {
   components: {
+    MuiStack: {
+      styleOverrides: {
+        root: {
+          '&.tagButtons': {
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

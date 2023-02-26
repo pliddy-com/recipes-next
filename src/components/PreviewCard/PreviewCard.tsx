@@ -27,12 +27,9 @@ const PreviewCard = ({ recipe, preloadImg = false }: PreviewCardProps) => {
   return recipe && breakpoints && breakpoints.length > 0 ? (
     <Card variant="outlined" className="preview">
       <CardActionArea component={Link} href={`/recipe/${slug}`}>
-        <Stack
-          sx={{ flexDirection: { xs: 'column', sm: 'row', md: 'column' } }}
-          alignItems="stretch"
-        >
+        <Stack className="stack">
           {image && (
-            <CardMedia sx={{ display: 'flex', flex: 1 }}>
+            <CardMedia>
               <Box className="imageWrapper">
                 <DynamicImage
                   image={image}
@@ -43,7 +40,7 @@ const PreviewCard = ({ recipe, preloadImg = false }: PreviewCardProps) => {
             </CardMedia>
           )}
 
-          <Box sx={{ flex: 1 }}>
+          <Box className="contentWrapper">
             <CardHeader title={title} />
             <CardContent>
               {abstract && (

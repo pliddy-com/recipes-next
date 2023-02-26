@@ -7,16 +7,13 @@ import PreviewCard from 'components/PreviewCard/PreviewCard';
 
 import { ListPageItemFragment } from 'types/queries';
 
-import { flex } from 'lib/styles';
-// import PayloadRender from 'components/PayloadRender/PayloadRender';
-
 interface TagGridPageProps {
   tags: (ListPageItemFragment | null)[];
 }
 
 const TagGridPage = ({ tags }: TagGridPageProps) =>
-  tags ? (
-    <Container className="page recipegrid" data-testd="TagGrid">
+  tags && tags.length > 0 ? (
+    <Container className="page tagGrid" data-testd="TagGrid">
       <Typography variant="h1">Tag Collections</Typography>
       <Typography variant="subtitle1" component="h2">
         {tags && `${tags.length} Tags`}
@@ -28,31 +25,18 @@ const TagGridPage = ({ tags }: TagGridPageProps) =>
         const { recipeCollection } = linkedFrom ?? {};
         const { items } = recipeCollection ?? {};
 
-        return slug && title ? (
+        return slug && title && recipeCollection ? (
           <Box key={slug}>
-            <Typography
-              variant="h2"
-              mb={2}
-              sx={{ border: 'none', marginBottom: '.5rem' }}
-            >
+            <Typography variant="h2" mb={2}>
               {title}
             </Typography>
 
             <Grid container spacing={2} mb={4}>
               {items &&
                 items.map((recipe, index) => (
-                  <Grid
-                    item
-                    lg={4}
-                    md={6}
-                    sm={12}
-                    xs={12}
-                    key={recipe?.slug}
-                    sx={{ flex }}
-                  >
+                  <Grid item lg={4} md={6} sm={12} xs={12} key={recipe?.slug}>
                     {recipe && (
                       <PreviewCard recipe={recipe} preloadImg={index < 2} />
-                      // <PayloadRender payload={recipe as unknown as JSON} />
                     )}
                   </Grid>
                 ))}

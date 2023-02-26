@@ -6,8 +6,6 @@ import RecipeCard from 'components/RecipeCard/RecipeCard';
 
 import { RecipeDefaultFragment } from 'types/queries';
 
-import { flex } from 'lib/styles';
-
 interface RecipeGridPageProps {
   recipes: (RecipeDefaultFragment | null)[];
   title?: string | null;
@@ -23,7 +21,7 @@ const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) =>
       <Grid container spacing={2}>
         {recipes &&
           recipes.map((recipe, index) => (
-            <Grid item md={6} sm={6} xs={12} key={recipe?.slug} sx={{ flex }}>
+            <Grid item md={6} sm={6} xs={12} key={recipe?.slug}>
               {recipe && <RecipeCard recipe={recipe} preloadImg={index < 2} />}
             </Grid>
           ))}
