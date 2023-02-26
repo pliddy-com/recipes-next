@@ -1,12 +1,13 @@
 import { ThemeOptions } from '@mui/material/styles';
-import { createBreakpoints } from '@mui/system';
 
 import colors from 'theme/colors';
 import { sansFontFamily } from './fontface';
 
-const breakpoints = createBreakpoints({});
+import baseTheme from 'theme/base';
 
-const cardTheme: ThemeOptions = {
+const { breakpoints } = baseTheme ?? {};
+
+const cardThemeOptions: ThemeOptions = {
   components: {
     MuiCard: {
       styleOverrides: {
@@ -71,15 +72,32 @@ const cardTheme: ThemeOptions = {
           '&.preview': {
             '& .MuiCardActionArea-root': {
               '& .stack': {
-                [breakpoints.only('xs')]: {
-                  flexDirection: 'column',
-                },
-                [breakpoints.only('sm')]: {
-                  flexDirection: 'row',
-                },
-                [breakpoints.only('md')]: {
-                  flexDirection: 'column',
-                },
+                // ...(breakpoints && { flexDirection: 'column' }),
+                ...(breakpoints &&
+                  breakpoints.only && {
+                    [breakpoints.only('xs')]: {
+                      flexDirection: 'column',
+                    },
+                  }),
+                ...(breakpoints &&
+                  breakpoints.only && {
+                    [breakpoints.only('sm')]: {
+                      flexDirection: 'row',
+                    },
+                  }),
+                ...(breakpoints &&
+                  breakpoints.only && {
+                    [breakpoints.only('md')]: {
+                      flexDirection: 'column',
+                    },
+                  }),
+                ...(breakpoints &&
+                  breakpoints.up && {
+                    [breakpoints.up('lg')]: {
+                      flexDirection: 'column',
+                    },
+                  }),
+                flexDirection: 'column',
                 alignItems: 'stretch',
               },
             },
@@ -111,4 +129,4 @@ const cardTheme: ThemeOptions = {
   },
 };
 
-export default cardTheme;
+export default cardThemeOptions;

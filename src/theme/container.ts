@@ -5,7 +5,7 @@ import colors from './colors';
 
 const breakpoints = createBreakpoints({});
 
-const containerTheme: ThemeOptions = {
+const containerThemeOptions: ThemeOptions = {
   components: {
     MuiContainer: {
       styleOverrides: {
@@ -21,7 +21,7 @@ const containerTheme: ThemeOptions = {
             '& .MuiGrid-root': {
               display: 'flex',
             },
-            '&.tagGrid': {
+            '& .tagGrid': {
               '& .MuiTypography-h2': {
                 border: 'none',
                 marginBottom: '.5rem',
@@ -40,4 +40,4 @@ const containerTheme: ThemeOptions = {
   },
 };
 
-export default containerTheme;
+export default containerThemeOptions;

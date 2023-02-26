@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
@@ -44,7 +43,7 @@ const RecipePage = ({ content }: RecipePageProps) => {
   const { items: tags } = tagsCollection ?? {};
 
   return content ? (
-    <Container className="page recipe" data-testid="RecipePage">
+    <Box className="recipe" data-testid="RecipePage">
       <Box>
         <Typography variant="h1" gutterBottom>
           {title}
@@ -90,7 +89,7 @@ const RecipePage = ({ content }: RecipePageProps) => {
 
         {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
       </Stack>
-    </Container>
+    </Box>
   ) : null;
 };
 

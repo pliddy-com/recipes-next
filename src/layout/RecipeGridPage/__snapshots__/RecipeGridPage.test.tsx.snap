@@ -3,8 +3,8 @@
 exports[`RecipeGridPage when there is page content it renders the RecipeGridPage if there is content 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg page recipegrid css-1oqqzyl-MuiContainer-root"
-    data-testd="RecipeGrid"
+    class="recipegrid MuiBox-root css-0"
+    data-testid="recipeGrid"
   >
     <h1
       class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
@@ -20,7 +20,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 css-1b3l6lk-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-4 css-11l5t4l-MuiGrid-root"
       >
         <div
           class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root recipe css-1v5z4dq-MuiPaper-root-MuiCard-root"

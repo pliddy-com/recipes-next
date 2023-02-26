@@ -3,7 +3,7 @@
 exports[`Recipe when there is page content it renders the Recipe 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg page recipe css-1oqqzyl-MuiContainer-root"
+    class="recipe MuiBox-root css-0"
     data-testid="RecipePage"
   >
     <div

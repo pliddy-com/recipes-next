@@ -12,11 +12,10 @@ describe('TagGridPage', () => {
   describe('when there is page content', () => {
     it('it renders the page', async () => {
       const tags = await api.getTagIndex({});
-      const { asFragment } = render(<TagGridPage tags={tags} />);
+      const { asFragment, queryByTestId } = render(<TagGridPage tags={tags} />);
 
-      // assert that page container is present
-      const page = document.querySelector('.page');
-      expect(page).toBeInTheDocument();
+      // assert that content is rendered
+      expect(queryByTestId('tagGrid')).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

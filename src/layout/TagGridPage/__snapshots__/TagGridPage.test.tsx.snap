@@ -3,8 +3,8 @@
 exports[`TagGridPage when there is page content it renders the page 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg page tagGrid css-1oqqzyl-MuiContainer-root"
-    data-testd="TagGrid"
+    class="tagGrid MuiBox-root css-0"
+    data-testid="tagGrid"
   >
     <h1
       class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
@@ -28,7 +28,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-1e6jbaj-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
         >
           <div
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
@@ -72,7 +72,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-1e6jbaj-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
         >
           <div
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
@@ -129,7 +129,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-1e6jbaj-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
         >
           <div
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
@@ -173,7 +173,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-1e6jbaj-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
         >
           <div
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"

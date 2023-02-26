@@ -1,6 +1,6 @@
 import { ThemeOptions } from '@mui/material/styles';
 
-const drawerTheme: ThemeOptions = {
+const drawerThemeOptions: ThemeOptions = {
   components: {
     MuiDrawer: {
       styleOverrides: {
@@ -18,4 +18,4 @@ const drawerTheme: ThemeOptions = {
   },
 };
 
-export default drawerTheme;
+export default drawerThemeOptions;

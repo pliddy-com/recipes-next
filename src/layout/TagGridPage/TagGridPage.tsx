@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
@@ -13,7 +12,7 @@ interface TagGridPageProps {
 
 const TagGridPage = ({ tags }: TagGridPageProps) =>
   tags && tags.length > 0 ? (
-    <Container className="page tagGrid" data-testd="TagGrid">
+    <Box className="tagGrid" data-testid="tagGrid">
       <Typography variant="h1">Tag Collections</Typography>
       <Typography variant="subtitle1" component="h2">
         {tags && `${tags.length} Tags`}
@@ -34,7 +33,7 @@ const TagGridPage = ({ tags }: TagGridPageProps) =>
             <Grid container spacing={2} mb={4}>
               {items &&
                 items.map((recipe, index) => (
-                  <Grid item lg={4} md={6} sm={12} xs={12} key={recipe?.slug}>
+                  <Grid item lg={3} md={6} sm={12} xs={12} key={recipe?.slug}>
                     {recipe && (
                       <PreviewCard recipe={recipe} preloadImg={index < 2} />
                     )}
@@ -44,7 +43,7 @@ const TagGridPage = ({ tags }: TagGridPageProps) =>
           </Box>
         ) : null;
       })}
-    </Container>
+    </Box>
   ) : null;
 
 export default TagGridPage;

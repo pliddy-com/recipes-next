@@ -1,3 +1,5 @@
+import { ThemeOptions } from '@mui/material/styles';
+
 import colors from './colors';
 import {
   baseFontSize,
@@ -10,7 +12,7 @@ import {
   serifFontFamily,
 } from 'theme/fontface';
 
-const typeTheme = {
+const typeThemeOptions: ThemeOptions = {
   components: {
     MuiCssBaseline: {
       styleOverrides: fontFaceOverrides,
@@ -116,4 +118,4 @@ const typeTheme = {
   },
 };
 
-export default typeTheme;
+export default typeThemeOptions;
