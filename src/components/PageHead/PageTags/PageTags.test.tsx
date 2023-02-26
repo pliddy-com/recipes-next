@@ -27,10 +27,6 @@ describe('PageHeadingTag', () => {
       const title = 'Test Title';
       const description = 'Decription';
       const image: ImageDefaultFragment = {
-        sys: {
-          id: 'sysId',
-          __typename: 'Sys',
-        },
         __typename: 'Asset',
         title: 'Image Title',
         description: 'Image Description',

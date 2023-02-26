@@ -6,9 +6,7 @@
 #   * RecipeSummary (card)
 
 fragment IngredientsDefault on IngredientSection {
-  sys {
-    id
-  }
+  __typename
   title
   slug
   label
@@ -16,9 +14,7 @@ fragment IngredientsDefault on IngredientSection {
 }
 
 fragment InstructionsDefault on InstructionSection {
-  sys {
-    id
-  }
+  __typename
   title
   slug
   label
@@ -26,9 +22,6 @@ fragment InstructionsDefault on InstructionSection {
 }
 
 fragment ImageDefault on Asset {
-  sys {
-    id
-  }
   __typename
   title
   description
@@ -85,9 +78,6 @@ fragment DescriptionDefault on Recipe {
 }
 
 fragment RecipeDefault on Recipe {
-  sys {
-    id
-  }
   __typename
   title
   slug
@@ -116,9 +106,6 @@ fragment RecipeDefault on Recipe {
 }
 
 fragment RecipeSummary on Recipe {
-  sys {
-    id
-  }
   __typename
   title
   slug
@@ -126,7 +113,7 @@ fragment RecipeSummary on Recipe {
   image {
     ...ImageDefault
   }
-  tagsCollection(limit: 10) {
+  tagsCollection(limit: 8) {
     items {
       ...TagDefault
     }

@@ -41,8 +41,6 @@ const RecipeSlugPage = ({
       <Suspense fallback={<Loading />}>
         <RecipePage content={pageContent} />
       </Suspense>
-
-      {/* <pre>{JSON.stringify(pageContent, null, 2)}</pre> */}
     </>
   ) : null;
 };

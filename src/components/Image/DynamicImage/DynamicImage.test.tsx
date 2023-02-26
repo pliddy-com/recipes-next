@@ -27,9 +27,6 @@ describe('DynamicImage', () => {
     const url = 'https://URL.test';
 
     const image: ImageDefaultFragment = {
-      sys: {
-        id: 'sysId',
-      },
       __typename: 'Asset',
       title: 'Image Title',
       description: 'Image Description',
@@ -98,9 +95,6 @@ describe('DynamicImage', () => {
 
   describe('when there is no url or image data', () => {
     const image: ImageDefaultFragment = {
-      sys: {
-        id: 'sysId',
-      },
       __typename: 'Asset',
       title: 'Image Title',
       description: 'Image Description',

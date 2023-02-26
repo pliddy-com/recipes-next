@@ -5,6 +5,7 @@ export interface ApiTestProps {
   getRecipeIndex: () => [{ slug: string }];
   getRecipeList: () => [{ slug: string }];
   getRecipePage: () => { slug: string; title: string };
+  getTagIndex: () => [{ slug: string; title: string }];
 }
 
 // import api library to mock
@@ -32,6 +33,7 @@ api.getRecipeIndex = jest.fn().mockResolvedValue([
 api.getRecipeList = jest.fn().mockResolvedValue([
   {
     title: 'Recipe List Title',
+    slug: 'recipe-list-title',
     linkedFrom: {
       recipeCollection: {
         items: [
@@ -68,6 +70,53 @@ api.getRecipePage = jest.fn().mockResolvedValue([
       url: 'https://recipes.pliddy.com/url',
       height: 300,
       width: 400,
+    },
+  },
+]);
+
+api.getTagIndex = jest.fn().mockResolvedValue([
+  {
+    __typename: 'Tag',
+    title: 'Tag 1 Title',
+    slug: 'tag-1',
+    linkedFrom: {
+      recipeCollection: {
+        total: 2,
+        items: [
+          {
+            __typename: 'Recipe',
+            slug: 'slug-1',
+            title: 'Title 1',
+          },
+          {
+            __typename: 'Recipe',
+            slug: 'slug-2',
+            title: 'Title 2',
+          },
+        ],
+      },
+    },
+  },
+  {
+    __typename: 'Tag',
+    title: 'Tag 2 Title',
+    slug: 'tag-2',
+    linkedFrom: {
+      recipeCollection: {
+        total: 2,
+        items: [
+          {
+            __typename: 'Recipe',
+            slug: 'slug-3',
+            title: 'Title 3',
+          },
+          {
+            __typename: 'Recipe',
+            slug: 'slug-4',
+            title: 'Title 5',
+          },
+        ],
+      },
     },
   },
 ]);

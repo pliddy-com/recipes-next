@@ -28,7 +28,7 @@ exports[`NavMenu when there is a properly structured nav property it renders a n
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
         >
           <li
-            class="MuiListItem-root MuiListItem-gutters menuItem css-1nxmd3h-MuiListItem-root"
+            class="MuiListItem-root MuiListItem-gutters MuiListItem-padding menuItem css-1p823my-MuiListItem-root"
           >
             <a
               class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
@@ -42,6 +42,31 @@ exports[`NavMenu when there is a properly structured nav property it renders a n
                   class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
                 >
                   All Recipes
+                </span>
+              </div>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </li>
+          <hr
+            class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+          />
+          <li
+            class="MuiListItem-root MuiListItem-gutters MuiListItem-padding menuItem css-1p823my-MuiListItem-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+              href="/tag"
+              tabindex="0"
+            >
+              <div
+                class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+                >
+                  Tag Collections
                 </span>
               </div>
               <span

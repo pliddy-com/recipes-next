@@ -97,10 +97,9 @@ describe('TagPage in tag/[slug].tsx', () => {
       );
 
       // wait for dynamic component to load
-      await act(async () => waitFor(() => queryByTestId('RecipeGrid')));
-
-      // assert that page container is not rendered
-      expect(queryByTestId('RecipeGridPage')).toBeNull();
+      await act(async () =>
+        waitFor(() => expect(queryByTestId('RecipeGridPage')).toBeNull())
+      );
     });
   });
 });

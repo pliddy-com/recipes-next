@@ -12,6 +12,7 @@ interface MicrocopyProps {
   recipe: PageProps;
   site: PageProps;
   tag: PageProps;
+  tagIndex: PageProps;
 }
 
 export interface ConfigProps {
@@ -38,6 +39,10 @@ const microcopy: MicrocopyProps = {
   tag: {
     defaultDescription: 'A collection of recipies tagged as',
     defaultTitle: 'Recipes',
+  },
+  tagIndex: {
+    defaultTitle: 'Tag Collections',
+    description: 'All tag collections that contain recipes.',
   },
 };
 

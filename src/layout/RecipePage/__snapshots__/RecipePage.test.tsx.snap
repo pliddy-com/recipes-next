@@ -28,7 +28,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         class="tags MuiBox-root css-h5fkc8"
       >
         <div
-          class="css-1d0f7f9-MuiStack-root"
+          class="tagButtons css-m69qwo-MuiStack-root"
           data-testid="tag-buttons"
         >
           <a
@@ -98,7 +98,9 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         sizes="300px"
         type="image/webp"
       />
-      <picture>
+      <picture
+        style="height: 100%;"
+      >
         <source
           media="(min-width: 831px)"
           sizes="900px"
@@ -130,7 +132,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
           height="675"
           loading="eager"
           src="https://recipes.pliddy.com/url?w=1800&fm=webp&q=75"
-          style="max-width: 100%; height: auto;"
+          style="width: 100%; height: auto; flex-shrink: 0; min-width: 100%; min-height: 100%; object-fit: cover;"
           width="900"
         />
       </picture>

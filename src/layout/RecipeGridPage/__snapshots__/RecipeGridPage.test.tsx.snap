@@ -20,7 +20,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 css-wq3jbm-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 css-1b3l6lk-MuiGrid-root"
       >
         <div
           class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root recipe css-1v5z4dq-MuiPaper-root-MuiCard-root"
@@ -62,7 +62,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
             class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
           >
             <div
-              class="css-1d0f7f9-MuiStack-root"
+              class="tagButtons css-m69qwo-MuiStack-root"
               data-testid="tag-buttons"
             >
               <a

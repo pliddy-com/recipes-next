@@ -4,15 +4,13 @@ import Link from 'next/link';
 
 import { TagDefaultFragment } from 'types/queries';
 
-import { flexWrap } from 'lib/styles';
-
 interface TagButtonsProps {
   tags?: (TagDefaultFragment | null)[];
 }
 
 const TagButtons = ({ tags }: TagButtonsProps) => {
   return tags ? (
-    <Stack direction="row" sx={flexWrap} data-testid="tag-buttons">
+    <Stack direction="row" className="tagButtons" data-testid="tag-buttons">
       {tags &&
         tags.map((tag) => {
           const { slug, title } = tag ?? {};

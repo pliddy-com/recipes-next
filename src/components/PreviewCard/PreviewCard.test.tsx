@@ -5,14 +5,14 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import RecipeCard from './RecipeCard';
+import PreviewCard from './PreviewCard';
 
 import { Maybe, RecipeDefaultFragment } from 'types/queries';
 
-import config from './RecipeCard.config';
-jest.createMockFromModule('./RecipeCard.config');
+import config from './PreviewCard.config';
+jest.createMockFromModule('./PreviewCard.config');
 
-describe('RecipeCard', () => {
+describe('PreviewCard', () => {
   afterEach(() => {
     jest.resetModules();
   });
@@ -46,14 +46,14 @@ describe('RecipeCard', () => {
       },
     };
 
-    it('it renders the RecipeCard', () => {
+    it('it renders the PreviewCard', () => {
       const preload = true;
 
       const { container } = render(
-        <RecipeCard recipe={recipe} preloadImg={preload} />
+        <PreviewCard recipe={recipe} preloadImg={preload} />
       );
 
-      const card = document.querySelector('.recipe');
+      const card = document.querySelector('.preview');
       expect(card).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
@@ -64,9 +64,9 @@ describe('RecipeCard', () => {
   describe('when there is no content', () => {
     const recipe = undefined;
     it('does not render', () => {
-      render(<RecipeCard recipe={recipe} />);
+      render(<PreviewCard recipe={recipe} />);
 
-      const card = document.querySelector('.recipe');
+      const card = document.querySelector('.preview');
       expect(card).toBeNull();
     });
   });
@@ -97,9 +97,9 @@ describe('RecipeCard', () => {
     };
 
     it('it does not render', () => {
-      render(<RecipeCard recipe={recipe} />);
+      render(<PreviewCard recipe={recipe} />);
 
-      const card = document.querySelector('.recipe');
+      const card = document.querySelector('.preview');
       expect(card).toBeNull();
     });
   });

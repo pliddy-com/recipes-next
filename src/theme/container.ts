@@ -18,6 +18,21 @@ const containerTheme: ThemeOptions = {
             [breakpoints.up('md')]: {
               paddingTop: '6rem',
             },
+            '& .MuiGrid-root': {
+              display: 'flex',
+            },
+            '&.tagGrid': {
+              '& .MuiTypography-h2': {
+                border: 'none',
+                marginBottom: '.5rem',
+              },
+            },
+          },
+          '&.loading': {
+            alignItems: 'center',
+            display: 'flex',
+            height: '100vh',
+            justifyContent: 'center',
           },
         },
       },

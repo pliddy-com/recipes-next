@@ -12,10 +12,6 @@ describe('InstructionsSection', () => {
     it('it renders the instructions section if there is content', () => {
       const sections: InstructionsDefaultFragment[] = [
         {
-          sys: {
-            id: '2xmjf2j2BopShF9fUli4BV',
-            __typename: 'Sys',
-          },
           title: 'Sole Meunière, Setup',
           slug: 'sole-meuniere-setup',
           label: 'Setup',
@@ -59,10 +55,6 @@ describe('InstructionsSection', () => {
     it('it does not render', () => {
       const sections: InstructionsDefaultFragment[] = [
         {
-          sys: {
-            id: '2xmjf2j2BopShF9fUli4BV',
-            __typename: 'Sys',
-          },
           title: 'Sole Meunière, Setup',
           slug: 'sole-meuniere-setup',
           label: null,

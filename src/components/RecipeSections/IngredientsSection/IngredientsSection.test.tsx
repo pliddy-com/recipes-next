@@ -16,10 +16,6 @@ describe('IngredientsSection', () => {
     it('renders the ingredients section if there is content', () => {
       const sections: IngredientsDefaultFragment[] = [
         {
-          sys: {
-            id: 'sys-id-1',
-            __typename: 'Sys',
-          },
           title: 'Section 1 Title',
           slug: 'section-1-slug',
           label: 'Section 1 Label',
@@ -64,10 +60,6 @@ describe('IngredientsSection', () => {
     it('it does not render', () => {
       const sections: IngredientsDefaultFragment[] = [
         {
-          sys: {
-            id: 'sys-id-1',
-            __typename: 'Sys',
-          },
           title: 'Section 1 Title',
           slug: 'section-1-slug',
           __typename: 'IngredientSection',
