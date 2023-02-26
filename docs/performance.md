@@ -2,7 +2,7 @@
 
 A high level of overall site performance was a primary objective for this project. This has been achieved through iteration of various features during the development process.
 
-The largest impact to performance has been a result of the use of static site generation and minimizing the number and size of requests for external image, font, and `css` resources.
+The largest impact to performance has been a result of the use of static site generation and minimizing the number and size of requests for external resources.
 
 ### Static Site Generation
 
@@ -17,6 +17,10 @@ Pages also utilize the Next `revalidate` feature, which means when a current pag
 If a new page is published, the site will require a full rebuild in order to know about the new page url. Building and deploying individual statically-generated pages would requrie some type of server to handle the request. If this feature is identified as a priority, it could potentially be handled through GitHub Actions or a standalone AWS Lambda function.
 
 Since the build and deploy process only takes **90-120 seconds** from start to availability across the AWS CloudFront CDN, the project can be statically generated **hundreds of times a month** within the free-tier limits of GitHub Actions and AWS.
+
+### Dynamic Imports
+
+This application utilizes the `dyamic` import feature of Next.js to lazy load page-level components. Dynamic importing results in code bundles that split shared framework code from page-specific code. Loading of page-specific components is deferred and helps increase initial performance by reducing the amount of code required to initially render the page in the browser.
 
 ### Images
 
