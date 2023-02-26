@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagGridPage when there is page content it renders the page 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg page tagGrid css-1oqqzyl-MuiContainer-root"
+    data-testd="TagGrid"
+  >
+    <h1
+      class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
+    >
+      Tag Collections
+    </h1>
+    <h2
+      class="MuiTypography-root MuiTypography-subtitle1 css-10wpov9-MuiTypography-root"
+    >
+      2 Tags
+    </h2>
+    <div
+      class="MuiBox-root css-0"
+    >
+      <h2
+        class="MuiTypography-root MuiTypography-h2 css-vqgaav-MuiTypography-root"
+      >
+        Tag 1 Title
+      </h2>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-1e6jbaj-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipe/slug-1"
+              tabindex="0"
+            >
+              <div
+                class="stack css-nen11g-MuiStack-root"
+              >
+                <div
+                  class="contentWrapper MuiBox-root css-0"
+                >
+                  <div
+                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                  >
+                    <div
+                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                    >
+                      <span
+                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                      >
+                        Title 1
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                  />
+                </div>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-1e6jbaj-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipe/slug-2"
+              tabindex="0"
+            >
+              <div
+                class="stack css-nen11g-MuiStack-root"
+              >
+                <div
+                  class="contentWrapper MuiBox-root css-0"
+                >
+                  <div
+                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                  >
+                    <div
+                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                    >
+                      <span
+                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                      >
+                        Title 2
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                  />
+                </div>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiBox-root css-0"
+    >
+      <h2
+        class="MuiTypography-root MuiTypography-h2 css-vqgaav-MuiTypography-root"
+      >
+        Tag 2 Title
+      </h2>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-1e6jbaj-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipe/slug-3"
+              tabindex="0"
+            >
+              <div
+                class="stack css-nen11g-MuiStack-root"
+              >
+                <div
+                  class="contentWrapper MuiBox-root css-0"
+                >
+                  <div
+                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                  >
+                    <div
+                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                    >
+                      <span
+                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                      >
+                        Title 3
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                  />
+                </div>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-1e6jbaj-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipe/slug-4"
+              tabindex="0"
+            >
+              <div
+                class="stack css-nen11g-MuiStack-root"
+              >
+                <div
+                  class="contentWrapper MuiBox-root css-0"
+                >
+                  <div
+                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                  >
+                    <div
+                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                    >
+                      <span
+                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                      >
+                        Title 5
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                  />
+                </div>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
