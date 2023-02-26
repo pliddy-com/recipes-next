@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
@@ -44,34 +45,34 @@ const RecipePage = ({ content }: RecipePageProps) => {
 
   return content ? (
     <Box className="recipe" data-testid="RecipePage">
-      <Box>
-        <Typography variant="h1" gutterBottom>
-          {title}
-        </Typography>
+      <Typography variant="h1" gutterBottom>
+        {title}
+      </Typography>
 
-        {description && (
-          <RichText content={description as RecipeDescription} />
-          // <RichText content={description} />
-        )}
-        {tags && <TagsSection tags={tags} />}
-      </Box>
+      <Grid container className="content">
+        <Grid item lg={6}>
+          <Stack>
+            {description && (
+              <RichText content={description as RecipeDescription} />
+              // <RichText content={description} />
+            )}
+            {tags && <TagsSection tags={tags} />}
+          </Stack>
+        </Grid>
+        <Grid item lg={6}>
+          {' '}
+          {image && breakpoints && (
+            <Box className="image">
+              <DynamicImage
+                image={image}
+                breakpoints={breakpoints}
+                preload={true}
+              />
+            </Box>
+          )}
+        </Grid>
+      </Grid>
 
-      {image && breakpoints && (
-        <Box
-          mx={{
-            xs: 0,
-            sm: 1,
-            md: 2,
-          }}
-          my={4}
-        >
-          <DynamicImage
-            image={image}
-            breakpoints={breakpoints}
-            preload={true}
-          />
-        </Box>
-      )}
       <Stack direction="column" spacing={3}>
         {ingredientsCollection &&
           ingredientsCollection.items &&

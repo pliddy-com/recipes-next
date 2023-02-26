@@ -1,11 +1,11 @@
 import { ThemeOptions } from '@mui/material/styles';
 
 import colors from 'theme/colors';
-import { sansFontFamily } from './fontface';
+import { fontWeightRegular, sansFontFamily } from './fontface';
 
 import baseTheme from 'theme/base';
 
-const { breakpoints } = baseTheme ?? {};
+const { breakpoints, palette } = baseTheme ?? {};
 
 const cardThemeOptions: ThemeOptions = {
   components: {
@@ -15,6 +15,9 @@ const cardThemeOptions: ThemeOptions = {
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
+          '& .abstract': {
+            marginBottom: '0.5rem',
+          },
           '& .imageWrapper': {
             height: '100%',
             position: 'relative',
@@ -23,6 +26,26 @@ const cardThemeOptions: ThemeOptions = {
             justifyContent: 'center',
             alignItems: 'center',
             overflow: 'hidden',
+          },
+          '& .MuiCardHeader': {
+            '&-root': {
+              width: '100%',
+              paddingBottom: 0,
+            },
+            '&-title': {
+              color: colors.primary.main,
+              borderBottom: `1px solid ${palette.secondary.main}`,
+              paddingBottom: '.25rem',
+            },
+            '&-subheader': {
+              color: palette.primary.main,
+              fontFamily: sansFontFamily,
+              fontSize: '0.875rem',
+              fontWeight: fontWeightRegular,
+              letterSpacing: '.2px',
+              marginTop: '0.25rem',
+              marginBottom: '0.5rem',
+            },
           },
           '& .MuiCardActionArea-root': {
             display: 'flex',
@@ -42,37 +65,25 @@ const cardThemeOptions: ThemeOptions = {
             marginTop: 'auto',
           },
           '&.recipe': {
-            '& .abstract': {
-              marginBottom: '0.5rem',
+            '& .imageWrapper': {
+              paddingLeft: '1rem',
+              paddingRight: '1rem',
             },
-            '& .MuiCardHeader': {
-              '&-root': {
-                backgroundColor: colors.primary.main,
-                color: '#fff',
-                display: 'flex',
-                width: '100%',
-              },
-              '&-content': {
-                display: 'flex',
-                flexDirection: 'column-reverse',
-              },
-              '&-subheader': {
-                color: colors.secondary.highlight,
-                fontFamily: sansFontFamily,
-                fontSize: '1rem',
-                fontWeight: 500,
-                letterSpacing: '.2px',
-                marginTop: '0.25rem',
-              },
-              '&-title': {
-                fontSize: '1.25rem',
-              },
-            },
+
+            // '& .MuiCardHeader': {
+            //   '&-subheader': {
+            //     fontFamily: sansFontFamily,
+            //     fontSize: '0.875rem',
+            //     fontWeight: 500,
+            //     letterSpacing: '.2px',
+            //     marginTop: '0.25rem',
+            //     marginBottom: '0.5rem',
+            //   },
+            // },
           },
           '&.preview': {
             '& .MuiCardActionArea-root': {
               '& .stack': {
-                // ...(breakpoints && { flexDirection: 'column' }),
                 ...(breakpoints &&
                   breakpoints.only && {
                     [breakpoints.only('xs')]: {
@@ -99,17 +110,6 @@ const cardThemeOptions: ThemeOptions = {
                   }),
                 flexDirection: 'column',
                 alignItems: 'stretch',
-              },
-            },
-            '& .MuiCardHeader': {
-              '&-root': {
-                width: '100%',
-                paddingBottom: 0,
-              },
-              '&-title': {
-                color: colors.primary.main,
-                borderBottom: `1px solid ${colors.secondary.main}`,
-                paddingBottom: '.25rem',
               },
             },
             '& .MuiCardMedia-root': {

@@ -1,9 +1,10 @@
 import { ThemeOptions } from '@mui/material/styles';
-import { createBreakpoints } from '@mui/system';
 
 import colors from './colors';
 
-const breakpoints = createBreakpoints({});
+import baseTheme from 'theme/base';
+
+const { breakpoints } = baseTheme ?? {};
 
 const containerThemeOptions: ThemeOptions = {
   components: {
@@ -25,6 +26,23 @@ const containerThemeOptions: ThemeOptions = {
               '& .MuiTypography-h2': {
                 border: 'none',
                 marginBottom: '.5rem',
+              },
+            },
+            '& .recipe': {
+              '& .content': {
+                marginBottom: '2rem',
+              },
+              '& .image': {
+                marginLeft: 0,
+                marginRight: 0,
+                marginTop: '2rem',
+                ...(breakpoints &&
+                  breakpoints.up && {
+                    [breakpoints.up('lg')]: {
+                      marginLeft: '2rem',
+                      marginTop: 0,
+                    },
+                  }),
               },
             },
           },
