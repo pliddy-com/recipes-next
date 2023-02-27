@@ -1,7 +1,7 @@
 import { ThemeOptions } from '@mui/material/styles';
 
 import colors from 'theme/colors';
-import { fontWeightBold, sansFontFamily } from './fontface';
+import { fontWeightMedium, sansFontFamily } from './fontface';
 
 import baseTheme from 'theme/base';
 
@@ -38,10 +38,9 @@ const cardThemeOptions: ThemeOptions = {
               paddingBottom: '.25rem',
             },
             '&-subheader': {
-              color: palette.primary.main,
               fontFamily: sansFontFamily,
               fontSize: '0.875rem',
-              fontWeight: fontWeightBold,
+              fontWeight: fontWeightMedium,
               letterSpacing: '.2px',
               marginTop: '0.25rem',
               marginBottom: '0.5rem',

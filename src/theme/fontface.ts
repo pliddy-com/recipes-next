@@ -6,6 +6,7 @@ export const baseFontSize = 18;
 export const baseRemSize = 16;
 export const buttonFontSize = 14;
 export const fontWeightBold = 600;
+export const fontWeightMedium = 500;
 export const fontWeightRegular = 400;
 export const sansFontFamily =
   'Heebo, "Helvetica Neue", Helvetica, Arial, sans-serif;';
