@@ -30,9 +30,9 @@ const containerThemeOptions: ThemeOptions = {
             },
             '&.recipe': {
               '& .content': {
-                marginBottom: '2rem',
+                marginBottom: '3rem',
                 '& .description': {
-                  marginBottom: '1rem',
+                  marginBottom: '0.5rem',
                 },
                 '& .tags': {
                   marginTop: 'auto',

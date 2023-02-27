@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import Box from '@mui/material/Box';
+// import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
@@ -29,27 +29,24 @@ const PreviewCard = ({ recipe, preloadImg = false }: PreviewCardProps) => {
       <CardActionArea component={Link} href={`/recipe/${slug}`}>
         <Stack className="stack">
           {image && (
-            <CardMedia>
-              <Box className="imageWrapper">
-                <DynamicImage
-                  image={image}
-                  breakpoints={breakpoints}
-                  preload={preloadImg}
-                />
-              </Box>
+            <CardMedia className="imageWrapper">
+              <DynamicImage
+                image={image}
+                breakpoints={breakpoints}
+                preload={preloadImg}
+              />
             </CardMedia>
           )}
 
-          <Box className="contentWrapper">
+          <CardContent>
             <CardHeader title={title} />
-            <CardContent>
-              {abstract && (
-                <Typography variant="body2" className="abstract">
-                  {abstract}
-                </Typography>
-              )}
-            </CardContent>
-          </Box>
+
+            {abstract && (
+              <Typography variant="body2" className="abstract">
+                {abstract}
+              </Typography>
+            )}
+          </CardContent>
         </Stack>
       </CardActionArea>
     </Card>

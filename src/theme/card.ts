@@ -12,9 +12,10 @@ const cardThemeOptions: ThemeOptions = {
     MuiCard: {
       styleOverrides: {
         root: {
-          width: '100%',
+          borderRadius: 0,
           display: 'flex',
           flexDirection: 'column',
+          width: '100%',
           '& .abstract': {
             marginBottom: '0.5rem',
           },
@@ -112,15 +113,16 @@ const cardThemeOptions: ThemeOptions = {
                 alignItems: 'stretch',
               },
             },
+            '& .MuiCardHeader-root': {
+              padding: '0.5rem 0',
+            },
             '& .MuiCardMedia-root': {
               display: 'flex',
-              flex: 1,
-            },
-            '& .contentWrapper': {
-              flex: 1,
+              flex: '1 1 auto',
             },
             '& .MuiCardContent-root': {
               paddingTop: '1rem',
+              justifyContent: 'flex-start',
             },
           },
         },

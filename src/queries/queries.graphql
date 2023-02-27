@@ -2,7 +2,7 @@
 # getNavTaxonomy
 
 query navTaxonomy($where: TaxonomyFilter) {
-  taxonomyCollection(where: $where, limit: 1) {
+  taxonomyCollection(where: $where, order: title_ASC, limit: 1) {
     __typename
     items {
       ...TaxonomyDefault
@@ -34,7 +34,7 @@ query navTaxonomy($where: TaxonomyFilter) {
 # getRecipeSlugs
 
 query recipeSlugs($where: RecipeFilter) {
-  recipeCollection(where: $where) {
+  recipeCollection(where: $where, order: title_ASC) {
     __typename
     items {
       slug
@@ -46,7 +46,7 @@ query recipeSlugs($where: RecipeFilter) {
 # getTagSlugs
 
 query tagSlugs($where: TagFilter) {
-  tagCollection(where: $where) {
+  tagCollection(where: $where, order: title_ASC) {
     __typename
     items {
       slug
@@ -64,7 +64,7 @@ query tagSlugs($where: TagFilter) {
 
 query recipeList($where: TagFilter) {
   __typename
-  tagCollection(where: $where, limit: 1) {
+  tagCollection(where: $where, order: title_ASC, limit: 1) {
     total
     items {
       ...ListPageItem

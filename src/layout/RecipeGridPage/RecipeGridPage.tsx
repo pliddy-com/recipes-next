@@ -11,8 +11,13 @@ interface RecipeGridPageProps {
   title?: string | null;
 }
 
-const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) =>
-  recipes && recipes.length > 0 ? (
+const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
+  recipes &&
+    recipes.sort((a, b) =>
+      a && b && a.slug && b.slug && a.slug > b.slug ? 1 : -1
+    );
+
+  return recipes && recipes.length > 0 ? (
     <Container className="page recipegrid" data-testid="page" maxWidth="xl">
       <Typography variant="h1">{title}</Typography>
       <Typography variant="subtitle1" component="h2">
@@ -28,5 +33,6 @@ const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) =>
       </Grid>
     </Container>
   ) : null;
+};
 
 export default RecipeGridPage;
