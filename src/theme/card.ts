@@ -64,6 +64,8 @@ const cardThemeOptions: ThemeOptions = {
             marginTop: 'auto',
           },
           '&.recipe': {
+            // border: 'none',
+            borderRadius: 0,
             '& .MuiCardHeader': {
               '&-content': {
                 display: 'flex',
@@ -82,6 +84,8 @@ const cardThemeOptions: ThemeOptions = {
             },
           },
           '&.preview': {
+            border: 'none',
+            borderRadius: 0,
             '& .MuiCardActionArea-root': {
               '& .stack': {
                 ...(breakpoints &&

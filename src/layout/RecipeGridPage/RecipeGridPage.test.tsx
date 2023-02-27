@@ -21,7 +21,7 @@ describe('RecipeGridPage', () => {
               {
                 __typename: 'Tag',
                 title: 'Title 2',
-                slug: 'slug-2',
+                slug: null,
               },
             ],
             __typename: 'RecipeTagsCollection',
@@ -53,6 +53,65 @@ describe('RecipeGridPage', () => {
       // test if card compoent is not rendered
       const card = document.querySelector('.MuiCard-root');
       expect(card).toBeNull();
+    });
+  });
+
+  describe('when there is missing slug information', () => {
+    it('it does not sort the content', () => {
+      const title = 'Title';
+
+      const recipes: RecipeDefaultFragment[] = [
+        {
+          __typename: 'Recipe',
+          title: 'Title 3',
+          slug: 'title-3',
+          tagsCollection: {
+            items: [
+              {
+                __typename: 'Tag',
+                title: 'Tag 3',
+                slug: null,
+              },
+            ],
+            __typename: 'RecipeTagsCollection',
+          },
+        },
+        {
+          __typename: 'Recipe',
+          title: 'Title 1',
+          slug: 'title-1',
+          tagsCollection: {
+            items: [
+              {
+                __typename: 'Tag',
+                title: 'Tag 1',
+                slug: null,
+              },
+            ],
+            __typename: 'RecipeTagsCollection',
+          },
+        },
+        {
+          __typename: 'Recipe',
+          title: 'Title 2',
+          slug: 'title-2',
+          tagsCollection: {
+            items: [
+              {
+                __typename: 'Tag',
+                title: 'Tag 2',
+                slug: 'tag-2',
+              },
+            ],
+            __typename: 'RecipeTagsCollection',
+          },
+        },
+      ];
+
+      const { asFragment } = render(
+        <RecipeGridPage title={title} recipes={recipes} />
+      );
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 });

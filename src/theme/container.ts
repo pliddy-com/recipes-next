@@ -32,7 +32,7 @@ const containerThemeOptions: ThemeOptions = {
               '& .content': {
                 marginBottom: '2rem',
                 '& .description': {
-                  marginBottom: '1rem',
+                  marginBottom: '0.5rem',
                 },
                 '& .tags': {
                   marginTop: 'auto',
