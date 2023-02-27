@@ -1,7 +1,5 @@
 import { ReactElement, useEffect, useState } from 'react';
 
-import Container from '@mui/material/Container';
-
 import NavBar from 'components/Navigation/NavBar/NavBar';
 
 import { getNavTaxonomy } from 'lib/api';
@@ -30,11 +28,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <NavBar nav={navData} />
-      <main>
-        <Container className="page" data-testd="page" maxWidth="xl">
-          {children}
-        </Container>
-      </main>
+      <main>{children}</main>
     </>
   );
 };

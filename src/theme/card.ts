@@ -1,7 +1,7 @@
 import { ThemeOptions } from '@mui/material/styles';
 
 import colors from 'theme/colors';
-import { fontWeightRegular, sansFontFamily } from './fontface';
+import { fontWeightMedium, sansFontFamily } from './fontface';
 
 import baseTheme from 'theme/base';
 
@@ -38,10 +38,9 @@ const cardThemeOptions: ThemeOptions = {
               paddingBottom: '.25rem',
             },
             '&-subheader': {
-              color: palette.primary.main,
               fontFamily: sansFontFamily,
               fontSize: '0.875rem',
-              fontWeight: fontWeightRegular,
+              fontWeight: fontWeightMedium,
               letterSpacing: '.2px',
               marginTop: '0.25rem',
               marginBottom: '0.5rem',
@@ -65,21 +64,22 @@ const cardThemeOptions: ThemeOptions = {
             marginTop: 'auto',
           },
           '&.recipe': {
-            '& .imageWrapper': {
-              paddingLeft: '1rem',
-              paddingRight: '1rem',
+            '& .MuiCardHeader': {
+              '&-content': {
+                display: 'flex',
+                flexDirection: 'column-reverse',
+                '& .MuiCardHeader-title': {
+                  display: 'block',
+                  borderTop: `1px solid ${colors.secondary.main}`,
+                  borderBottom: 'none',
+                  paddingTop: '.25rem',
+                },
+                '& .MuiCardHeader-subheader': {
+                  display: 'block',
+                  marginBottom: '.25rem',
+                },
+              },
             },
-
-            // '& .MuiCardHeader': {
-            //   '&-subheader': {
-            //     fontFamily: sansFontFamily,
-            //     fontSize: '0.875rem',
-            //     fontWeight: 500,
-            //     letterSpacing: '.2px',
-            //     marginTop: '0.25rem',
-            //     marginBottom: '0.5rem',
-            //   },
-            // },
           },
           '&.preview': {
             '& .MuiCardActionArea-root': {

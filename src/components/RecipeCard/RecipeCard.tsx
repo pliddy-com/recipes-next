@@ -23,14 +23,13 @@ interface RecipeCardProps {
 
 const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
   const { breakpoints } = config;
-  const { title, abstract, image, tagsCollection, slug } = recipe ?? {};
+  const { title, abstract, image, slug, tagsCollection } = recipe ?? {};
   const { items: tags } = tagsCollection ?? {};
   const { title: category } = tags?.[0] ?? {};
 
   return recipe && breakpoints && breakpoints.length > 0 ? (
     <Card variant="outlined" className="recipe">
       <CardActionArea component={Link} href={`/recipe/${slug}`}>
-        <CardHeader title={title} subheader={category} />
         {image && (
           <CardMedia>
             <Box className="imageWrapper">
@@ -43,6 +42,7 @@ const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
           </CardMedia>
         )}
 
+        <CardHeader title={title} subheader={category} />
         <CardContent>
           {abstract && (
             <Typography variant="body2" className="abstract">

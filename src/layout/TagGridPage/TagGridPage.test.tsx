@@ -15,7 +15,7 @@ describe('TagGridPage', () => {
       const { asFragment, queryByTestId } = render(<TagGridPage tags={tags} />);
 
       // assert that content is rendered
-      expect(queryByTestId('tagGrid')).toBeInTheDocument();
+      expect(queryByTestId('page')).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -26,16 +26,16 @@ describe('TagGridPage', () => {
     it('it does not render the page', () => {
       const tags = undefined;
 
-      render(<TagGridPage tags={tags as unknown as ListPageItemFragment[]} />);
+      const { queryByTestId } = render(
+        <TagGridPage tags={tags as unknown as ListPageItemFragment[]} />
+      );
 
-      // test if card compoent is not rendered
-      const card = document.querySelector('.MuiCard-root');
-      expect(card).toBeNull();
+      expect(queryByTestId('page')).toBeNull();
     });
   });
 
   describe('when there is missing tag information', () => {
-    it('it does not render the page', () => {
+    it('it does not render the content', () => {
       const tags = [null];
       render(<TagGridPage tags={tags} />);
       // test if card compoent is not rendered

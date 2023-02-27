@@ -1,4 +1,4 @@
-import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
@@ -13,7 +13,7 @@ interface RecipeGridPageProps {
 
 const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) =>
   recipes && recipes.length > 0 ? (
-    <Box className="recipegrid" data-testid="recipeGrid">
+    <Container className="page recipegrid" data-testid="page" maxWidth="xl">
       <Typography variant="h1">{title}</Typography>
       <Typography variant="subtitle1" component="h2">
         {recipes && `${recipes.length} Recipes`}
@@ -22,11 +22,11 @@ const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) =>
         {recipes &&
           recipes.map((recipe, index) => (
             <Grid item lg={4} md={4} sm={6} xs={12} key={recipe?.slug}>
-              {recipe && <RecipeCard recipe={recipe} preloadImg={index < 2} />}
+              {recipe && <RecipeCard recipe={recipe} preloadImg={index < 3} />}
             </Grid>
           ))}
       </Grid>
-    </Box>
+    </Container>
   ) : null;
 
 export default RecipeGridPage;

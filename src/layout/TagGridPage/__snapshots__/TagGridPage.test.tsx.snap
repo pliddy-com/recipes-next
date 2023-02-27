@@ -3,8 +3,8 @@
 exports[`TagGridPage when there is page content it renders the page 1`] = `
 <DocumentFragment>
   <div
-    class="tagGrid MuiBox-root css-0"
-    data-testid="tagGrid"
+    class="MuiContainer-root MuiContainer-maxWidthXl page tagGrid css-19r6kue-MuiContainer-root"
+    data-testid="page"
   >
     <h1
       class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"

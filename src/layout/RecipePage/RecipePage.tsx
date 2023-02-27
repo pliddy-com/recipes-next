@@ -14,6 +14,7 @@ import TagsSection from 'components/RecipeSections/TagsSection/TagsSection';
 import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 
 import config from './RecipePage.config';
+import Container from '@mui/material/Container';
 
 interface RecipePageProps {
   content?: RecipeDefaultFragment;
@@ -44,53 +45,53 @@ const RecipePage = ({ content }: RecipePageProps) => {
   const { items: tags } = tagsCollection ?? {};
 
   return content ? (
-    <Box className="recipe" data-testid="RecipePage">
-      <Typography variant="h1" gutterBottom>
-        {title}
-      </Typography>
+    <Container className="page recipe" data-testid="page" maxWidth="xl">
+      <Box className="recipe" data-testid="RecipePage">
+        <Typography variant="h1" gutterBottom>
+          {title}
+        </Typography>
 
-      <Grid container className="content">
-        <Grid item lg={6}>
-          <Stack>
-            {description && (
-              <RichText content={description as RecipeDescription} />
-              // <RichText content={description} />
+        <Grid container className="content">
+          <Grid item lg={6}>
+            <Stack className="description">
+              {description && (
+                <RichText content={description as RecipeDescription} />
+                // <RichText content={description} />
+              )}
+              {tags && <TagsSection tags={tags} />}
+            </Stack>
+          </Grid>
+          <Grid item lg={6}>
+            {' '}
+            {image && breakpoints && (
+              <Box className="image">
+                <DynamicImage
+                  image={image}
+                  breakpoints={breakpoints}
+                  preload={true}
+                />
+              </Box>
             )}
-            {tags && <TagsSection tags={tags} />}
-          </Stack>
+          </Grid>
         </Grid>
-        <Grid item lg={6}>
-          {' '}
-          {image && breakpoints && (
-            <Box className="image">
-              <DynamicImage
-                image={image}
-                breakpoints={breakpoints}
-                preload={true}
-              />
-            </Box>
-          )}
-        </Grid>
-      </Grid>
 
-      <Stack direction="column" spacing={3}>
-        {ingredientsCollection &&
-          ingredientsCollection.items &&
-          ingredientsSections && (
-            <IngredientsSection sections={ingredientsSections} />
+        <Stack direction="column" spacing={3}>
+          {ingredientsCollection &&
+            ingredientsCollection.items &&
+            ingredientsSections && (
+              <IngredientsSection sections={ingredientsSections} />
+            )}
+
+          {equipment && <EquipmentSection equipment={equipment} />}
+
+          {instructionsSections && (
+            <InstructionsSection sections={instructionsSections} />
           )}
 
-        {equipment && <EquipmentSection equipment={equipment} />}
-
-        {instructionsSections && (
-          <InstructionsSection sections={instructionsSections} />
-        )}
-
-        {notes && <NotesSection notes={notes} />}
-
-        {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
-      </Stack>
-    </Box>
+          {notes && <NotesSection notes={notes} />}
+        </Stack>
+      </Box>
+    </Container>
   ) : null;
 };
 

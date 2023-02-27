@@ -22,15 +22,25 @@ const containerThemeOptions: ThemeOptions = {
             '& .MuiGrid-root': {
               display: 'flex',
             },
-            '& .tagGrid': {
+            '&.tagGrid': {
               '& .MuiTypography-h2': {
                 border: 'none',
                 marginBottom: '.5rem',
               },
             },
-            '& .recipe': {
+            '&.recipe': {
               '& .content': {
                 marginBottom: '2rem',
+                '& .description': {
+                  marginBottom: '1rem',
+                },
+                '& .tags': {
+                  marginTop: 'auto',
+                  '& .tagButtons': {
+                    marginTop: '2rem',
+                    marginBottom: '-1rem',
+                  },
+                },
               },
               '& .image': {
                 marginLeft: 0,
