@@ -8,13 +8,8 @@ exports[`Layout when there is page content it renders the Layout 1`] = `
     NavBar
   </div>
   <main>
-    <div
-      class="MuiContainer-root MuiContainer-maxWidthXl page css-19r6kue-MuiContainer-root"
-      data-testd="page"
-    >
-      <div>
-        test
-      </div>
+    <div>
+      test
     </div>
   </main>
 </DocumentFragment>

@@ -36,7 +36,7 @@ describe('RecipeGridPage', () => {
       );
 
       // assert that content is rendered
-      expect(queryByTestId('recipeGrid')).toBeInTheDocument();
+      expect(queryByTestId('page')).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
