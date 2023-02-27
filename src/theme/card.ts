@@ -12,9 +12,10 @@ const cardThemeOptions: ThemeOptions = {
     MuiCard: {
       styleOverrides: {
         root: {
-          width: '100%',
+          borderRadius: 0,
           display: 'flex',
           flexDirection: 'column',
+          width: '100%',
           '& .abstract': {
             marginBottom: '0.5rem',
           },
@@ -64,8 +65,6 @@ const cardThemeOptions: ThemeOptions = {
             marginTop: 'auto',
           },
           '&.recipe': {
-            // border: 'none',
-            borderRadius: 0,
             '& .MuiCardHeader': {
               '&-content': {
                 display: 'flex',
@@ -84,8 +83,6 @@ const cardThemeOptions: ThemeOptions = {
             },
           },
           '&.preview': {
-            border: 'none',
-            borderRadius: 0,
             '& .MuiCardActionArea-root': {
               '& .stack': {
                 ...(breakpoints &&
@@ -116,15 +113,16 @@ const cardThemeOptions: ThemeOptions = {
                 alignItems: 'stretch',
               },
             },
+            '& .MuiCardHeader-root': {
+              padding: '0.5rem 0',
+            },
             '& .MuiCardMedia-root': {
               display: 'flex',
-              flex: 1,
-            },
-            '& .contentWrapper': {
-              flex: 1,
+              flex: '1 1 auto',
             },
             '& .MuiCardContent-root': {
               paddingTop: '1rem',
+              justifyContent: 'flex-start',
             },
           },
         },

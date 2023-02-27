@@ -42,7 +42,7 @@ exports[`TagGridPage when there is missing slug information it does not sort the
                 class="stack css-nen11g-MuiStack-root"
               >
                 <div
-                  class="contentWrapper MuiBox-root css-0"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
                   <div
                     class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
@@ -57,9 +57,6 @@ exports[`TagGridPage when there is missing slug information it does not sort the
                       </span>
                     </div>
                   </div>
-                  <div
-                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-                  />
                 </div>
               </div>
               <span
@@ -86,7 +83,7 @@ exports[`TagGridPage when there is missing slug information it does not sort the
                 class="stack css-nen11g-MuiStack-root"
               >
                 <div
-                  class="contentWrapper MuiBox-root css-0"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
                   <div
                     class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
@@ -101,9 +98,6 @@ exports[`TagGridPage when there is missing slug information it does not sort the
                       </span>
                     </div>
                   </div>
-                  <div
-                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-                  />
                 </div>
               </div>
               <span
@@ -163,7 +157,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                 class="stack css-nen11g-MuiStack-root"
               >
                 <div
-                  class="contentWrapper MuiBox-root css-0"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
                   <div
                     class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
@@ -178,9 +172,6 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                       </span>
                     </div>
                   </div>
-                  <div
-                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-                  />
                 </div>
               </div>
               <span
@@ -207,7 +198,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                 class="stack css-nen11g-MuiStack-root"
               >
                 <div
-                  class="contentWrapper MuiBox-root css-0"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
                   <div
                     class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
@@ -222,9 +213,6 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                       </span>
                     </div>
                   </div>
-                  <div
-                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-                  />
                 </div>
               </div>
               <span
@@ -264,7 +252,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                 class="stack css-nen11g-MuiStack-root"
               >
                 <div
-                  class="contentWrapper MuiBox-root css-0"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
                   <div
                     class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
@@ -279,9 +267,6 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                       </span>
                     </div>
                   </div>
-                  <div
-                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-                  />
                 </div>
               </div>
               <span
@@ -308,7 +293,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                 class="stack css-nen11g-MuiStack-root"
               >
                 <div
-                  class="contentWrapper MuiBox-root css-0"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
                   <div
                     class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
@@ -323,9 +308,6 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                       </span>
                     </div>
                   </div>
-                  <div
-                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-                  />
                 </div>
               </div>
               <span
