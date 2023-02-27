@@ -43,4 +43,36 @@ describe('TagGridPage', () => {
       expect(card).toBeNull();
     });
   });
+
+  describe('when there is missing slug information', () => {
+    it('it does not sort the content', () => {
+      const tags: ListPageItemFragment[] = [
+        {
+          __typename: 'Tag',
+          title: 'Tag 1 Title',
+          slug: 'tag-1',
+          linkedFrom: {
+            recipeCollection: {
+              total: 2,
+              items: [
+                {
+                  __typename: 'Recipe',
+                  slug: null,
+                  title: 'Title 2',
+                },
+                {
+                  __typename: 'Recipe',
+                  slug: 'title-1',
+                  title: 'Title 1',
+                },
+              ],
+            },
+          },
+        },
+      ];
+
+      const { asFragment } = render(<TagGridPage tags={tags} />);
+      expect(asFragment()).toMatchSnapshot();
+    });
+  });
 });

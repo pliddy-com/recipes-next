@@ -86,12 +86,12 @@ api.getTagIndex = jest.fn().mockResolvedValue([
           {
             __typename: 'Recipe',
             slug: 'slug-1',
-            title: 'Title 1',
+            title: 'Title 2',
           },
           {
             __typename: 'Recipe',
             slug: 'slug-2',
-            title: 'Title 2',
+            title: 'Title 1',
           },
         ],
       },
