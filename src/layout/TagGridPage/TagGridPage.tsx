@@ -25,7 +25,12 @@ const TagGridPage = ({ tags }: TagGridPageProps) =>
         const { recipeCollection } = linkedFrom ?? {};
         const { items } = recipeCollection ?? {};
 
-        return slug && title && recipeCollection ? (
+        items &&
+          items.sort((a, b) =>
+            a && b && a.slug && b.slug && a.slug > b.slug ? 1 : -1
+          );
+
+        return slug && title && items ? (
           <Box key={slug}>
             <Typography variant="h2" mb={2}>
               {title}
