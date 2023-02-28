@@ -29,29 +29,51 @@ interface SchemaProps {
 }
 
 const RecipeSchema = ({ recipe }: SchemaProps) => {
+  if (!recipe) return null;
+
   const {
     abstract,
     image,
     ingredientsCollection,
     instructionsCollection,
-    sys: { firstPublishedAt },
+    sys,
     title,
-  } = recipe ?? {};
+  } = recipe;
 
+  const { firstPublishedAt } = sys ?? {};
   const { url: imageUrl } = image ?? {};
 
-  const { items: ingredientSections } = ingredientsCollection ?? {};
-  const { items: instructionsSections } = instructionsCollection ?? {};
+  // Google recommends providing multiple high-resolution images (50K pixels min.)
+  //  with the following aspect ratios: 16x9, 4x3, and 1x1. 252 height works for all aspect ratios
+  const imgHeight = 252;
 
-  const ingredients = ingredientSections?.map((section) =>
-    section?.ingredientList?.map((item) => `"${item}"`)
-  );
+  const images =
+    imageUrl &&
+    `"${imageUrl}?w=${imgHeight}&h=${imgHeight}&fit=fill&fm=webp&q=75",
+      "${imageUrl}?w=${
+      (imgHeight / 3) * 4
+    }&h=${imgHeight}&fit=fill&fm=webp&q=75",
+      "${imageUrl}?w=${
+      (imgHeight / 9) * 16
+    }&h=${imgHeight}&fit=fill&fm=webp&q=75"`;
+
+  const { items: ingredientSections } = ingredientsCollection ?? {};
+
+  const ingredients =
+    ingredientSections &&
+    ingredientSections?.map((section) =>
+      section?.ingredientList?.map((item) => `"${item}"`)
+    );
+
+  const { items: instructionsSections } = instructionsCollection ?? {};
 
   let instructionStep = 1;
 
-  const instructions = instructionsSections?.map(
-    (section) =>
-      `{
+  const instructions =
+    instructionsSections &&
+    instructionsSections?.map(
+      (section) =>
+        `{
         "@type": "HowToSection",
         "name": "${section?.label}",
         "itemListElement": [
@@ -64,42 +86,31 @@ const RecipeSchema = ({ recipe }: SchemaProps) => {
           )}
         ]
       }`
-  );
-
-  // Google recommends providing multiple high-resolution images (50K pixels min.)
-  //  with the following aspect ratios: 16x9, 4x3, and 1x1. 252 height works for all aspect ratios
-  const imgHeight = 252;
+    );
 
   const schema = `{
     "@context": "https://schema.org/",
     "@type": "Recipe",
-    "name": "${title}",
-    "image": [
-      "${imageUrl}?w=${imgHeight}&h=${imgHeight}&fit=fill&fm=webp&q=75",
-      "${imageUrl}?w=${
-    (imgHeight / 3) * 4
-  }&h=${imgHeight}&fit=fill&fm=webp&q=75",
-      "${imageUrl}?w=${
-    (imgHeight / 9) * 16
-  }&h=${imgHeight}&fit=fill&fm=webp&q=75"
-    ],
+    ${title && `"name": "${title}",`}
+    ${images && `"image": [${images}],`}
     "author": {
       "@type": "Person",
       "name": "Patrick Liddy"
     },
-    "datePublished": "${firstPublishedAt.split('T')[0]}",
-    "description": "${abstract}",
-    "recipeIngredient": [
-      ${ingredients}
-    ],
-    "recipeInstructions": [
-      ${instructions}
-    ]
+    ${
+      firstPublishedAt &&
+      `"datePublished": "${firstPublishedAt.split('T')[0]}",`
+    }
+    ${abstract && `"description": "${abstract}",`}
+    ${ingredients && `"recipeIngredient": [${ingredients}],`}
+    ${instructions && `"recipeInstructions": [${instructions}]`}
   }`;
 
   return (
     <Head>
-      <script type="application/ld+json">{schema}</script>
+      <script data-testid="recipe-schema" type="application/ld+json">
+        {schema}
+      </script>
     </Head>
   );
 };

@@ -3,28 +3,24 @@
 exports[`RecipeSchema when there is content it renders the component 1`] = `
 <DocumentFragment>
   <script
+    data-testid="recipe-schema"
     type="application/ld+json"
   >
     {
     "@context": "https://schema.org/",
     "@type": "Recipe",
     "name": "Recipe Title",
-    "image": [
-      "https://recipes.pliddy.com/url?w=252&h=252&fit=fill&fm=webp&q=75",
+    "image": ["https://recipes.pliddy.com/url?w=252&h=252&fit=fill&fm=webp&q=75",
       "https://recipes.pliddy.com/url?w=336&h=252&fit=fill&fm=webp&q=75",
-      "https://recipes.pliddy.com/url?w=448&h=252&fit=fill&fm=webp&q=75"
-    ],
+      "https://recipes.pliddy.com/url?w=448&h=252&fit=fill&fm=webp&q=75"],
     "author": {
       "@type": "Person",
       "name": "Patrick Liddy"
     },
     "datePublished": "2022-06-26",
     "description": "abstract",
-    "recipeIngredient": [
-      "ingredient 1","ingredient 2"
-    ],
-    "recipeInstructions": [
-      {
+    "recipeIngredient": ["ingredient 1","ingredient 2"],
+    "recipeInstructions": [{
         "@type": "HowToSection",
         "name": "Label 1",
         "itemListElement": [
@@ -48,8 +44,7 @@ exports[`RecipeSchema when there is content it renders the component 1`] = `
             "text": "Instructions item 3"
           }
         ]
-      }
-    ]
+      }]
   }
   </script>
 </DocumentFragment>
