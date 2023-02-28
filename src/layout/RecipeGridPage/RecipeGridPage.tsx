@@ -7,6 +7,7 @@ import RecipeCard from 'components/RecipeCard/RecipeCard';
 import { RecipeDefaultFragment } from 'types/queries';
 
 interface RecipeGridPageProps {
+  description?: string | null;
   recipes: (RecipeDefaultFragment | null)[];
   title?: string | null;
 }

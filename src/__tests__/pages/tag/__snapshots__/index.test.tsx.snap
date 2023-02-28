@@ -9,5 +9,12 @@ exports[`TagIndexPage in tag/index.tsx when there is content it renders the inde
     content="Tag index default description."
     name="description"
   />
+  <script
+    data-testid="tag-list-schema"
+    id="tag-list-schema"
+    type="application/ld+json"
+  >
+    {"@context":"https://schema.org","@type":"ItemList","name":"Tag Index Default Title","description":"Tag index default description.","url":"https://recipes.pliddy.com","numberOfItems":2,"itemListElement":[{"@type":"ListItem","position":1,"name":"Tag 1 Title","url":"https://recipes.pliddy.com/tag/tag-1"},{"@type":"ListItem","position":2,"name":"Tag 2 Title","url":"https://recipes.pliddy.com/tag/tag-2"}]}
+  </script>
 </DocumentFragment>
 `;

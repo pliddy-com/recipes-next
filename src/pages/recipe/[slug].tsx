@@ -15,6 +15,7 @@ import PageHead from 'components/PageHead/PageTags/PageTags';
 import { getRecipeSlugs, getRecipePage } from 'lib/api';
 import config from 'lib/config';
 import { hasValue } from 'lib/typeUtils';
+import RecipeSchema from 'components/PageHead/Schema/RecipeSchema/RecipeSchema';
 
 const RecipePage = dynamic(
   () =>
@@ -38,6 +39,7 @@ const RecipeSlugPage = ({
         description={description}
         image={image}
       />
+      <RecipeSchema recipe={pageContent} />
       <Suspense fallback={<Loading />}>
         <RecipePage content={pageContent} />
       </Suspense>

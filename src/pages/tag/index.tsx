@@ -8,6 +8,7 @@ import PageHead from 'components/PageHead/PageTags/PageTags';
 
 import { getTagIndex } from 'lib/api';
 import config from 'lib/config';
+import TagListSchema from 'components/PageHead/Schema/TagListSchema/TagListSchema';
 
 const TagGridPage = dynamic(
   () =>
@@ -27,6 +28,11 @@ const TagIndexPage = ({
       <PageHead
         title={defaultTitle}
         defaultTitle={defaultTitle}
+        description={description}
+      />
+      <TagListSchema
+        tags={pageContent}
+        title={defaultTitle}
         description={description}
       />
       {TagGridPage && (

@@ -24,6 +24,7 @@ describe('Recipe', () => {
         sys: {
           id: 'sysid-0',
           __typename: 'Sys',
+          firstPublishedAt: '2022-06-26T07:24:30.384Z',
         },
         __typename: 'Recipe',
         title: 'Recipe Title',

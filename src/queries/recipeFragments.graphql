@@ -79,6 +79,9 @@ fragment DescriptionDefault on Recipe {
 
 fragment RecipeDefault on Recipe {
   __typename
+  sys {
+    firstPublishedAt
+  }
   title
   slug
   ...DescriptionDefault
@@ -107,6 +110,9 @@ fragment RecipeDefault on Recipe {
 
 fragment RecipeSummary on Recipe {
   __typename
+  sys {
+    firstPublishedAt
+  }
   title
   slug
   abstract

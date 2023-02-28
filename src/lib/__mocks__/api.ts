@@ -32,8 +32,8 @@ api.getRecipeIndex = jest.fn().mockResolvedValue([
 
 api.getRecipeList = jest.fn().mockResolvedValue([
   {
-    title: 'Recipe List Title',
-    slug: 'recipe-list-title',
+    title: 'Tag',
+    slug: 'tag',
     linkedFrom: {
       recipeCollection: {
         items: [
@@ -55,6 +55,8 @@ api.getRecipePage = jest.fn().mockResolvedValue([
   {
     title: 'Recipe Title',
     slug: 'slug-1',
+    __typename: 'Recipe',
+    sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
     abstract: 'abstract',
     image: {
       sys: {
@@ -70,6 +72,65 @@ api.getRecipePage = jest.fn().mockResolvedValue([
       url: 'https://recipes.pliddy.com/url',
       height: 300,
       width: 400,
+    },
+    ingredientsCollection: {
+      items: [
+        {
+          sys: {
+            id: 'sysid-2',
+            __typename: 'Sys',
+          },
+          title: 'Ingredients Title',
+          slug: 'ingredients-title',
+          label: 'Ingredients',
+          ingredientList: ['ingredient 1', 'ingredient 2'],
+          __typename: 'IngredientSection',
+        },
+      ],
+      __typename: 'RecipeIngredientsCollection',
+    },
+    equipment: ['equipment 1', 'equipment 2'],
+    instructionsCollection: {
+      items: [
+        {
+          sys: {
+            id: 'sysid-3',
+            __typename: 'Sys',
+          },
+          title: 'Instructions Title',
+          slug: 'instructions-title',
+          label: 'Label 1',
+          instructionList: ['Instructions item 1'],
+          __typename: 'InstructionSection',
+        },
+        {
+          sys: {
+            id: 'sysid-7',
+            __typename: 'Sys',
+          },
+          title: 'Instructions Title 2',
+          slug: 'instructions-title',
+          label: 'Label 2',
+          instructionList: ['Instructions item 2', 'Instructions item 3'],
+          __typename: 'InstructionSection',
+        },
+      ],
+      __typename: 'RecipeInstructionsCollection',
+    },
+    notes: ['note 1'],
+    tagsCollection: {
+      items: [
+        {
+          sys: {
+            id: 'sysid-4',
+            __typename: 'Sys',
+          },
+          __typename: 'Tag',
+          title: 'Tag 1',
+          slug: 'tag-1',
+        },
+      ],
+      __typename: 'RecipeTagsCollection',
     },
   },
 ]);

@@ -8,6 +8,7 @@ import EquipmentSection from 'components/RecipeSections/EquipmentSection/Equipme
 import IngredientsSection from 'components/RecipeSections/IngredientsSection/IngredientsSection';
 import InstructionsSection from 'components/RecipeSections/InstructionsSection/InstructionsSection';
 import NotesSection from 'components/RecipeSections/NotesSection/NotesSection';
+// import RecipeSchema from 'components/PageHead/Schema/RecipeSchema';
 import RichText from 'components/RichText/RichText';
 import TagsSection from 'components/RecipeSections/TagsSection/TagsSection';
 

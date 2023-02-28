@@ -22,6 +22,7 @@ describe('RecipeCard', () => {
       __typename: 'Recipe',
       title: 'Basmati Rice',
       slug: 'basmati-rice',
+      sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
       abstract: 'Traditional basmati rice cooked in a covered skillet.',
       image: {
         __typename: 'Asset',
@@ -80,6 +81,7 @@ describe('RecipeCard', () => {
     const recipe: RecipeDefaultFragment = {
       title: 'Basmati Rice',
       slug: 'basmati-rice',
+      sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
       abstract: 'Traditional basmati rice cooked in a covered skillet.',
       image: {
         __typename: 'Asset',

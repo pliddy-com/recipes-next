@@ -15,6 +15,7 @@ import PageHead from 'components/PageHead/PageTags/PageTags';
 import { getTagSlugs, getRecipeList } from 'lib/api';
 import config from 'lib/config';
 import { hasValue } from 'lib/typeUtils';
+import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/RecipeListSchema';
 
 const RecipeGridPage = dynamic(
   () =>
@@ -40,6 +41,11 @@ const TagSlugPage = ({
       <PageHead
         title={`${title} ${defaultTitle}`}
         defaultTitle={defaultTitle}
+        description={description}
+      />
+      <RecipeListSchema
+        recipes={content}
+        title={title}
         description={description}
       />
       <Suspense fallback={<Loading />}>
