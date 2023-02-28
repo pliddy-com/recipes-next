@@ -47,22 +47,21 @@ const RecipeSchema = ({ recipe }: SchemaProps) => {
   //  with the following aspect ratios: 16x9, 4x3, and 1x1. 252 height works for all aspect ratios
   const imgHeight = 252;
 
-  const images =
+  const images = [
     imageUrl &&
-    `"${imageUrl}?w=${imgHeight}&h=${imgHeight}&fit=fill&fm=webp&q=75",
-      "${imageUrl}?w=${
-      (imgHeight / 3) * 4
-    }&h=${imgHeight}&fit=fill&fm=webp&q=75",
-      "${imageUrl}?w=${
-      (imgHeight / 9) * 16
-    }&h=${imgHeight}&fit=fill&fm=webp&q=75"`;
+      `${imageUrl}?w=${imgHeight}&h=${imgHeight}&fit=fill&fm=webp&q=75,
+     ${imageUrl}?w=${(imgHeight / 3) * 4}&h=${imgHeight}&fit=fill&fm=webp&q=75,
+     ${imageUrl}?w=${
+        (imgHeight / 9) * 16
+      }&h=${imgHeight}&fit=fill&fm=webp&q=75`,
+  ];
 
   const { items: ingredientSections } = ingredientsCollection ?? {};
 
   const ingredients =
     ingredientSections &&
     ingredientSections?.map((section) =>
-      section?.ingredientList?.map((item) => `"${item}"`)
+      section?.ingredientList?.map((item) => item)
     );
 
   const { items: instructionsSections } = instructionsCollection ?? {};
@@ -71,45 +70,37 @@ const RecipeSchema = ({ recipe }: SchemaProps) => {
 
   const instructions =
     instructionsSections &&
-    instructionsSections?.map(
-      (section) =>
-        `{
-        "@type": "HowToSection",
-        "name": "${section?.label}",
-        "itemListElement": [
-          ${section?.instructionList?.map(
-            (item) => `{
-            "@type": "HowToStep",
-            "name": "${section?.label} Step ${instructionStep++}",
-            "text": "${item}"
-          }`
-          )}
-        ]
-      }`
-    );
+    instructionsSections?.map((section) => ({
+      '@type': 'HowToSection',
+      name: section?.label,
+      itemListElement: [
+        section?.instructionList?.map((item) => ({
+          '@type': 'HowToStep',
+          name: `${section?.label} Step ${instructionStep++}`,
+          text: item,
+        })),
+      ],
+    }));
 
-  const schema = `{
-    "@context": "https://schema.org/",
-    "@type": "Recipe",
-    ${title && `"name": "${title}",`}
-    ${images && `"image": [${images}],`}
-    "author": {
-      "@type": "Person",
-      "name": "Patrick Liddy"
+  const schema = {
+    '@context': 'https://schema.org/',
+    '@type': 'Recipe',
+    ...(title && { name: title }),
+    ...(images && { image: images }),
+    author: {
+      '@type': 'Person',
+      name: 'Patrick Liddy',
     },
-    ${
-      firstPublishedAt &&
-      `"datePublished": "${firstPublishedAt.split('T')[0]}",`
-    }
-    ${abstract && `"description": "${abstract}",`}
-    ${ingredients && `"recipeIngredient": [${ingredients}],`}
-    ${instructions && `"recipeInstructions": [${instructions}]`}
-  }`;
+    ...(firstPublishedAt && { datePublished: firstPublishedAt.split('T')[0] }),
+    ...(abstract && { description: abstract }),
+    ...(ingredients && { recipeIngredient: ingredients }),
+    ...(instructions && { recipeInstructions: instructions }),
+  };
 
   return (
     <Head>
       <script data-testid="recipe-schema" type="application/ld+json">
-        {schema}
+        {JSON.stringify(schema)}
       </script>
     </Head>
   );
