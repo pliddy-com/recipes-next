@@ -99,9 +99,12 @@ const RecipeSchema = ({ recipe }: SchemaProps) => {
 
   return (
     <Head>
-      <script data-testid="recipe-schema" type="application/ld+json">
-        {JSON.stringify(schema)}
-      </script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        id="recipe-schema"
+        data-testid="recipe-schema"
+      />
     </Head>
   );
 };
