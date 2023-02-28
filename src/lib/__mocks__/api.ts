@@ -32,8 +32,8 @@ api.getRecipeIndex = jest.fn().mockResolvedValue([
 
 api.getRecipeList = jest.fn().mockResolvedValue([
   {
-    title: 'Recipe List Title',
-    slug: 'recipe-list-title',
+    title: 'Tag',
+    slug: 'tag',
     linkedFrom: {
       recipeCollection: {
         items: [

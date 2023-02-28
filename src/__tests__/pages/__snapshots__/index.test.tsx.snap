@@ -9,6 +9,13 @@ exports[`Index in index.tsx when there is content it renders the index page 1`] 
     content="Index default description."
     name="description"
   />
+  <script
+    data-testid="recipe-list-schema"
+    id="recipe-list-schema"
+    type="application/ld+json"
+  >
+    {"@context":"https://schema.org","@type":"ItemList","name":"Index Default Title","description":"Index default description.","url":"https://recipes.pliddy.com","numberOfItems":2,"itemListElement":[{"@type":"ListItem","position":1,"name":"Title 1","url":"https://recipes.pliddy.com/recipe/slug-1"},{"@type":"ListItem","position":2,"name":"Title 2","url":"https://recipes.pliddy.com/recipe/slug-2"}]}
+  </script>
   <div
     data-testid="RecipeGridPage"
   >

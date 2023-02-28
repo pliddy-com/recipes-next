@@ -29,7 +29,7 @@ describe('RecipeSchema', () => {
   });
 
   describe('when there is no page content', () => {
-    it('it does not render the Recipe', () => {
+    it('it does not render the component', () => {
       const recipe = undefined;
 
       const { queryByTestId } = render(
@@ -41,7 +41,7 @@ describe('RecipeSchema', () => {
   });
 
   describe('when there is missing properties in recipe', () => {
-    it('it does not render the Recipe', async () => {
+    it('it does not render the component', async () => {
       const recipe = {};
 
       const { queryByTestId } = render(

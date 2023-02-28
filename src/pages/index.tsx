@@ -8,6 +8,7 @@ import PageHead from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeIndex } from 'lib/api';
 import config from 'lib/config';
+import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/RecipeListSchema';
 
 const RecipeGridPage = dynamic(
   () =>
@@ -29,9 +30,18 @@ const IndexPage = ({
         defaultTitle={defaultTitle}
         description={description}
       />
+      <RecipeListSchema
+        recipes={pageContent}
+        title={defaultTitle}
+        description={description}
+      />
       {RecipeGridPage && (
         <Suspense fallback={<Loading />}>
-          <RecipeGridPage recipes={pageContent} title={defaultTitle} />
+          <RecipeGridPage
+            recipes={pageContent}
+            title={defaultTitle}
+            description={description}
+          />
         </Suspense>
       )}
     </>
