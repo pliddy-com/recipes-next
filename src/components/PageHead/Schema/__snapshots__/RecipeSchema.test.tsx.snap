@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeSchema when there is content it renders the component 1`] = `
+<DocumentFragment>
+  <script
+    type="application/ld+json"
+  >
+    {
+    "@context": "https://schema.org/",
+    "@type": "Recipe",
+    "name": "Recipe Title",
+    "image": [
+      "https://recipes.pliddy.com/url?w=252&h=252&fit=fill&fm=webp&q=75",
+      "https://recipes.pliddy.com/url?w=336&h=252&fit=fill&fm=webp&q=75",
+      "https://recipes.pliddy.com/url?w=448&h=252&fit=fill&fm=webp&q=75"
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Patrick Liddy"
+    },
+    "datePublished": "2022-06-26",
+    "description": "abstract",
+    "recipeIngredient": [
+      "ingredient 1","ingredient 2"
+    ],
+    "recipeInstructions": [
+      {
+        "@type": "HowToSection",
+        "name": "Label 1",
+        "itemListElement": [
+          {
+            "@type": "HowToStep",
+            "name": "Label 1 Step 1",
+            "text": "Instructions item 1"
+          }
+        ]
+      },{
+        "@type": "HowToSection",
+        "name": "Label 2",
+        "itemListElement": [
+          {
+            "@type": "HowToStep",
+            "name": "Label 2 Step 2",
+            "text": "Instructions item 2"
+          },{
+            "@type": "HowToStep",
+            "name": "Label 2 Step 3",
+            "text": "Instructions item 3"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</DocumentFragment>
+`;

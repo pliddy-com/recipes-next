@@ -57,11 +57,13 @@ describe('TagGridPage', () => {
               items: [
                 {
                   __typename: 'Recipe',
+                  sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
                   slug: null,
                   title: 'Title 2',
                 },
                 {
                   __typename: 'Recipe',
+                  sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
                   slug: 'title-1',
                   title: 'Title 1',
                 },

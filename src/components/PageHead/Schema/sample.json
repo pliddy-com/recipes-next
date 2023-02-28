@@ -1,0 +1,76 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Recipe Title",
+  "image": [
+    "https://example.com/photos/1x1/photo.jpg",
+    "https://example.com/photos/4x3/photo.jpg",
+    "https://example.com/photos/16x9/photo.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Patrick Liddy"
+  },
+  "datePublished": "2018-03-10",
+  "description": "This is a description of the recipe",
+  "prepTime": "PT20M",
+  "cookTime": "PT30M",
+  "totalTime": "PT50M",
+  "keywords": "cake for a party, coffee",
+  "recipeYield": "10",
+  "recipeCategory": "Dessert",
+  "recipeCuisine": "American",
+  "recipeIngredient": [
+    "2 cups of flour",
+    "3/4 cup white sugar",
+    "2 teaspoons baking powder",
+    "1/2 teaspoon salt",
+    "3/4 cup milk"
+  ],
+
+  "recipeInstructions": [
+    {
+      "@type": "HowToSection",
+      "name": "Prep",
+      "itemListElement": [
+        {
+          "@type": "HowToStep",
+          "name": "Prep Step 1",
+          "text": "Blend 2 cups of pineapple juice and 5/8 cup cream of coconut until smooth."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Prep Step 2",
+          "text": "Fill a glass with ice."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Prep Step 3",
+          "text": "Pour the pineapple juice and coconut mixture over ice."
+        }
+      ]
+    },
+    {
+      "@type": "HowToSection",
+      "name": "Cook",
+      "itemListElement": [
+        {
+          "@type": "HowToStep",
+          "name": "Cook Step 1",
+          "text": "Mix a bunch of stuff in a bowl."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Cook Step 2",
+          "text": "Put it in the oven."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Cook Step 3",
+          "text": "Cook for 45 minutes, then eat."
+        }
+      ]
+    }
+  ],
+  "expires": "2019-02-05T08:00:00+08:00"
+}

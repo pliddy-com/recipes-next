@@ -14,6 +14,7 @@ describe('RecipeGridPage', () => {
       const recipes: (RecipeDefaultFragment | null)[] = [
         {
           __typename: 'Recipe',
+          sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
           title: 'Title 1',
           slug: 'slug-1',
           tagsCollection: {
@@ -63,6 +64,8 @@ describe('RecipeGridPage', () => {
       const recipes: RecipeDefaultFragment[] = [
         {
           __typename: 'Recipe',
+          sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
+
           title: 'Title 3',
           slug: 'title-3',
           tagsCollection: {
@@ -80,6 +83,7 @@ describe('RecipeGridPage', () => {
           __typename: 'Recipe',
           title: 'Title 1',
           slug: 'title-1',
+          sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
           tagsCollection: {
             items: [
               {
@@ -95,6 +99,7 @@ describe('RecipeGridPage', () => {
           __typename: 'Recipe',
           title: 'Title 2',
           slug: 'title-2',
+          sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
           tagsCollection: {
             items: [
               {
