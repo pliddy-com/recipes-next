@@ -11,7 +11,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
       id="recipe-schema"
       type="application/ld+json"
     >
-      {"@context":"https://schema.org/","@type":"Recipe","name":"Recipe Title","image":["https://recipes.pliddy.com/url?w=252&h=252&fit=fill&fm=webp&q=75,\\n     https://recipes.pliddy.com/url?w=336&h=252&fit=fill&fm=webp&q=75,\\n     https://recipes.pliddy.com/url?w=448&h=252&fit=fill&fm=webp&q=75"],"author":{"@type":"Person","name":"Patrick Liddy"},"datePublished":"2022-06-26","description":"Recipe abstract","recipeIngredient":[["ingredient 1","ingredient 2"]],"recipeInstructions":[{"@type":"HowToSection","name":"Label","itemListElement":[[{"@type":"HowToStep","name":"Label Step 1","text":"Instructions item 1"}]]}]}
+      {"@context":"https://schema.org/","@type":"Recipe","name":"Recipe Title","image":["https://recipes.pliddy.com/url?w=252&h=252&fit=fill&fm=webp&q=75","https://recipes.pliddy.com/url?w=336&h=252&fit=fill&fm=webp&q=75","https://recipes.pliddy.com/url?w=448&h=252&fit=fill&fm=webp&q=75"],"author":{"@type":"Person","name":"Patrick Liddy"},"datePublished":"2022-06-26","description":"Recipe abstract","recipeIngredient":[["ingredient 1","ingredient 2"]],"recipeInstructions":[{"@type":"HowToSection","name":"Label","itemListElement":[[{"@type":"HowToStep","name":"Label Step 1","text":"Instructions item 1"}]]}]}
     </script>
     <div
       class="recipe MuiBox-root css-0"

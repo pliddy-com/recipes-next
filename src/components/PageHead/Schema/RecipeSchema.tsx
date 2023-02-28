@@ -48,12 +48,11 @@ const RecipeSchema = ({ recipe }: SchemaProps) => {
   const imgHeight = 252;
 
   const images = [
-    imageUrl &&
-      `${imageUrl}?w=${imgHeight}&h=${imgHeight}&fit=fill&fm=webp&q=75,
-     ${imageUrl}?w=${(imgHeight / 3) * 4}&h=${imgHeight}&fit=fill&fm=webp&q=75,
-     ${imageUrl}?w=${
-        (imgHeight / 9) * 16
-      }&h=${imgHeight}&fit=fill&fm=webp&q=75`,
+    `${imageUrl}?w=${imgHeight}&h=${imgHeight}&fit=fill&fm=webp&q=75`,
+    `${imageUrl}?w=${(imgHeight / 3) * 4}&h=${imgHeight}&fit=fill&fm=webp&q=75`,
+    `${imageUrl}?w=${
+      (imgHeight / 9) * 16
+    }&h=${imgHeight}&fit=fill&fm=webp&q=75`,
   ];
 
   const { items: ingredientSections } = ingredientsCollection ?? {};
