@@ -44,6 +44,16 @@ The only outstanding warning from WAVE is the existence of a `<noscript>` tag on
   <img src="assets/wave-scan.png" alt="WAVE accessiblity scan results" />
 </p>
 
+### Google Rich Results Test
+
+In order to validate the structure of page schema for recipes and collection pages, pages of each type are manually checked using Google's <a href="https://https://search.google.com/test/rich-results" target="_blank">Rich Results Tool</a>. This scan checks the `ld+json` schema specified in the page head and confirms that the content data is correctly structured to populate Google's Rich Search Results for recipe content.
+
+Both recipe and collection page types have all the required data for Rich Search Results, as well as most optional data. The only optional data fields that are not present are calorie totals, videos, and ratings. None of these items of content are currently part of the application.
+
+<p align="center">
+  <img src="assets/google-rich-results.png" alt="Google Rich Results Scan output" />
+</p>
+
 ---
 
 <p align="center">
