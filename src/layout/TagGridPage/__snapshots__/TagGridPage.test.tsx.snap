@@ -19,11 +19,23 @@ exports[`TagGridPage when there is missing slug information it does not sort the
     <div
       class="MuiBox-root css-0"
     >
-      <h2
-        class="MuiTypography-root MuiTypography-h2 css-vqgaav-MuiTypography-root"
+      <a
+        class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
+        href="/tag/tag-1"
       >
-        Tag 1 Title
-      </h2>
+        Tag 1 Title 
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="ArrowRightIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="m10 17 5-5-5-5v10z"
+          />
+        </svg>
+      </a>
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
       >
@@ -134,11 +146,23 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
     <div
       class="MuiBox-root css-0"
     >
-      <h2
-        class="MuiTypography-root MuiTypography-h2 css-vqgaav-MuiTypography-root"
+      <a
+        class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
+        href="/tag/tag-1"
       >
-        Tag 1 Title
-      </h2>
+        Tag 1 Title 
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="ArrowRightIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="m10 17 5-5-5-5v10z"
+          />
+        </svg>
+      </a>
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
       >
@@ -229,11 +253,23 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
     <div
       class="MuiBox-root css-0"
     >
-      <h2
-        class="MuiTypography-root MuiTypography-h2 css-vqgaav-MuiTypography-root"
+      <a
+        class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
+        href="/tag/tag-2"
       >
-        Tag 2 Title
-      </h2>
+        Tag 2 Title 
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="ArrowRightIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="m10 17 5-5-5-5v10z"
+          />
+        </svg>
+      </a>
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
       >

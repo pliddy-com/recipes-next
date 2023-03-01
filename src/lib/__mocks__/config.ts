@@ -10,7 +10,7 @@ const microcopy = {
     description: 'The requested url was not found',
   },
   recipe: {
-    defaultDescription: 'Recipe default description',
+    defaultDescription: 'Recipe default description for',
     defaultTitle: 'Recipe Default Title',
   },
   site: {
@@ -18,7 +18,7 @@ const microcopy = {
     domain: 'https://recipes.pliddy.com',
   },
   tag: {
-    defaultDescription: 'Tag default description',
+    defaultDescription: 'Tag default description for',
     defaultTitle: 'Tag Default Title',
   },
   tagIndex: {

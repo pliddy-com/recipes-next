@@ -739,22 +739,33 @@ export type Recipe = Entry & {
   __typename?: 'Recipe';
   abstract?: Maybe<Scalars['String']>;
   contentfulMetadata: ContentfulMetadata;
+  cookTime?: Maybe<Scalars['String']>;
   description?: Maybe<RecipeDescription>;
   equipment?: Maybe<Array<Maybe<Scalars['String']>>>;
   image?: Maybe<Asset>;
   ingredientsCollection?: Maybe<RecipeIngredientsCollection>;
   instructionsCollection?: Maybe<RecipeInstructionsCollection>;
+  keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
   linkedFrom?: Maybe<RecipeLinkingCollections>;
   notes?: Maybe<Array<Maybe<Scalars['String']>>>;
+  prepTime?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   sys: Sys;
   tagsCollection?: Maybe<RecipeTagsCollection>;
   title?: Maybe<Scalars['String']>;
+  totalTime?: Maybe<Scalars['String']>;
+  yield?: Maybe<Scalars['String']>;
 };
 
 
 /** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeAbstractArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+export type RecipeCookTimeArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
@@ -797,6 +808,12 @@ export type RecipeInstructionsCollectionArgs = {
 
 
 /** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+export type RecipeKeywordsArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
@@ -804,6 +821,12 @@ export type RecipeLinkedFromArgs = {
 
 /** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeNotesArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+export type RecipePrepTimeArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
@@ -825,6 +848,18 @@ export type RecipeTagsCollectionArgs = {
 
 /** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeTitleArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+export type RecipeTotalTimeArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+export type RecipeYieldArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
@@ -872,6 +907,13 @@ export type RecipeFilter = {
   abstract_not_contains?: InputMaybe<Scalars['String']>;
   abstract_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  cookTime?: InputMaybe<Scalars['String']>;
+  cookTime_contains?: InputMaybe<Scalars['String']>;
+  cookTime_exists?: InputMaybe<Scalars['Boolean']>;
+  cookTime_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  cookTime_not?: InputMaybe<Scalars['String']>;
+  cookTime_not_contains?: InputMaybe<Scalars['String']>;
+  cookTime_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   description_contains?: InputMaybe<Scalars['String']>;
   description_exists?: InputMaybe<Scalars['Boolean']>;
   description_not_contains?: InputMaybe<Scalars['String']>;
@@ -882,10 +924,21 @@ export type RecipeFilter = {
   image_exists?: InputMaybe<Scalars['Boolean']>;
   ingredientsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   instructionsCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  keywords_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  keywords_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  keywords_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  keywords_exists?: InputMaybe<Scalars['Boolean']>;
   notes_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   notes_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   notes_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   notes_exists?: InputMaybe<Scalars['Boolean']>;
+  prepTime?: InputMaybe<Scalars['String']>;
+  prepTime_contains?: InputMaybe<Scalars['String']>;
+  prepTime_exists?: InputMaybe<Scalars['Boolean']>;
+  prepTime_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  prepTime_not?: InputMaybe<Scalars['String']>;
+  prepTime_not_contains?: InputMaybe<Scalars['String']>;
+  prepTime_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   slug?: InputMaybe<Scalars['String']>;
   slug_contains?: InputMaybe<Scalars['String']>;
   slug_exists?: InputMaybe<Scalars['Boolean']>;
@@ -902,6 +955,20 @@ export type RecipeFilter = {
   title_not?: InputMaybe<Scalars['String']>;
   title_not_contains?: InputMaybe<Scalars['String']>;
   title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  totalTime?: InputMaybe<Scalars['String']>;
+  totalTime_contains?: InputMaybe<Scalars['String']>;
+  totalTime_exists?: InputMaybe<Scalars['Boolean']>;
+  totalTime_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  totalTime_not?: InputMaybe<Scalars['String']>;
+  totalTime_not_contains?: InputMaybe<Scalars['String']>;
+  totalTime_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  yield?: InputMaybe<Scalars['String']>;
+  yield_contains?: InputMaybe<Scalars['String']>;
+  yield_exists?: InputMaybe<Scalars['Boolean']>;
+  yield_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  yield_not?: InputMaybe<Scalars['String']>;
+  yield_not_contains?: InputMaybe<Scalars['String']>;
+  yield_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type RecipeIngredientsCollection = {
@@ -936,6 +1003,10 @@ export type RecipeLinkingCollectionsEntryCollectionArgs = {
 export enum RecipeOrder {
   AbstractAsc = 'abstract_ASC',
   AbstractDesc = 'abstract_DESC',
+  CookTimeAsc = 'cookTime_ASC',
+  CookTimeDesc = 'cookTime_DESC',
+  PrepTimeAsc = 'prepTime_ASC',
+  PrepTimeDesc = 'prepTime_DESC',
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
@@ -947,7 +1018,11 @@ export enum RecipeOrder {
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
   TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
+  TitleDesc = 'title_DESC',
+  TotalTimeAsc = 'totalTime_ASC',
+  TotalTimeDesc = 'totalTime_DESC',
+  YieldAsc = 'yield_ASC',
+  YieldDesc = 'yield_DESC'
 }
 
 export type RecipeTagsCollection = {
