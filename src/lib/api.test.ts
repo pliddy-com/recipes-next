@@ -13,6 +13,19 @@ import {
 
 jest.mock('lib/gqlClient');
 
+import * as urql from 'urql';
+import { Client } from 'urql';
+import { never } from 'wonka';
+
+jest.mock('urql');
+const mockedUrql = urql as jest.Mocked<typeof urql>;
+
+const client = {
+  query: jest.fn(() => never),
+};
+
+mockedUrql.createClient.mockReturnValue(client as unknown as Client);
+
 describe('api', () => {
   describe('when getNavTaxonomy() is called', () => {
     it('it returns a taxonomyCollection', async () => {
