@@ -21,6 +21,7 @@
   - [Google Lighthouse](docs/manual-scans.md#google-lighthouse)
   - [Checkbot Site Scanner](docs/manual-scans.md#checkbot-site-scanner)
   - [WAVE Evaluation Tool](docs/manual-scans.md#wave-evaluation-tool)
+  - [Google Rich Results Test](docs/manual-scans.md#google-rich-results-test)
 - [Next Steps](docs/next-steps.md)
 
 ## TL;DR
@@ -32,6 +33,8 @@ First, it was built so that I could **organize my personal recipes** and get rid
 Second, it was an ideal project to **validate best practices** for building software applications with a **modern technology stack** and a **lean, iterative process**, testing system design hypotheses as I built out features from the project backlog.
 
 The overall priorities for this project were:
+
+- To design and build a content delivery platform using structured content and best practices for modern software architecture with built-in quality and performance.
 
 - To create a **mobile-first** application that is designed to be used with a phone or tablet on the kitchen counter while cooking. This means that it is being viewed at a distance that is greater than when the device is held in the hand and the UI needs to account for the greater distance for optimum user experience.
 
