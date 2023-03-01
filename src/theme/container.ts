@@ -24,8 +24,16 @@ const containerThemeOptions: ThemeOptions = {
             },
             '&.tagGrid': {
               '& .MuiTypography-h2': {
-                border: 'none',
-                marginBottom: '.5rem',
+                '&.MuiLink-root': {
+                  border: 'none',
+                  display: 'flex',
+                  lineHeight: 1.125,
+                  paddingBottom: '0px',
+                  textDecoration: 'none',
+                  '& .MuiSvgIcon-root': {
+                    marginTop: '2px',
+                  },
+                },
               },
             },
             '&.recipe': {

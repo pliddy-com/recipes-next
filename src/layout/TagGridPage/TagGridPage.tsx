@@ -1,7 +1,10 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 import PreviewCard from 'components/PreviewCard/PreviewCard';
 
@@ -32,10 +35,9 @@ const TagGridPage = ({ tags }: TagGridPageProps) =>
 
         return slug && title && items ? (
           <Box key={slug}>
-            <Typography variant="h2" mb={2}>
-              {title}
-            </Typography>
-
+            <Link href={`/tag/${slug}`} underline="none" variant="h2">
+              {title} <ArrowRightIcon />
+            </Link>
             <Grid container spacing={2} mb={4}>
               {items &&
                 items.map((recipe, index) => (
