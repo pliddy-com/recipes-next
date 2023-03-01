@@ -290,16 +290,146 @@ describe('api', () => {
 
   describe('when getRecipePage() is called', () => {
     it('it returns the content for a recipe', async () => {
-      const items = [
+      const categories = [
         {
-          title: 'Recipe Title',
-          slug: 'slug-1',
+          __typename: 'Tag',
+          title: 'Tag 1 Title',
+          slug: 'tag-1',
+          linkedFrom: {
+            recipeCollection: {
+              total: 2,
+              items: [
+                {
+                  __typename: 'Recipe',
+                  slug: 'slug-1',
+                  title: 'Title 2',
+                },
+                {
+                  __typename: 'Recipe',
+                  slug: 'slug-2',
+                  title: 'Title 1',
+                },
+              ],
+            },
+          },
+        },
+        {
+          __typename: 'Tag',
+          title: 'Tag 2 Title',
+          slug: 'tag-2',
+          linkedFrom: {
+            recipeCollection: {
+              total: 2,
+              items: [
+                {
+                  __typename: 'Recipe',
+                  slug: 'slug-3',
+                  title: 'Title 3',
+                },
+                {
+                  __typename: 'Recipe',
+                  slug: 'slug-4',
+                  title: 'Title 5',
+                },
+              ],
+            },
+          },
         },
       ];
 
+      const cuisine = [
+        {
+          __typename: 'Tag',
+          title: 'Tag 1 Title',
+          slug: 'tag-1',
+          linkedFrom: {
+            recipeCollection: {
+              total: 2,
+              items: [
+                {
+                  __typename: 'Recipe',
+                  slug: 'slug-1',
+                  title: 'Title 1',
+                },
+                {
+                  __typename: 'Recipe',
+                  slug: 'slug-2',
+                  title: 'Title 2',
+                },
+              ],
+            },
+          },
+        },
+        {
+          __typename: 'Tag',
+          title: 'Tag 2 Title',
+          slug: 'tag-2',
+          linkedFrom: {
+            recipeCollection: {
+              total: 2,
+              items: [
+                {
+                  __typename: 'Recipe',
+                  slug: 'slug-3',
+                  title: 'Title 3',
+                },
+                {
+                  __typename: 'Recipe',
+                  slug: 'slug-4',
+                  title: 'Title 4',
+                },
+              ],
+            },
+          },
+        },
+      ];
+
+      const recipe = {
+        title: 'Recipe Title',
+        slug: 'slug-1',
+        tagCollection: {
+          items: [
+            {
+              __typename: 'Recipe',
+              slug: 'slug-1',
+              title: 'Title 1',
+            },
+            {
+              __typename: 'Recipe',
+              slug: 'slug-4',
+              title: 'Title 4',
+            },
+          ],
+        },
+      };
+
+      const expected = {
+        recipe,
+        categories,
+        cuisine,
+      };
+
       const payload = {
         recipeCollection: {
-          items,
+          items: [recipe],
+        },
+        categoriesTaxonomy: {
+          items: [
+            {
+              childrenCollection: {
+                items: categories,
+              },
+            },
+          ],
+        },
+        cuisineTaxonomy: {
+          items: [
+            {
+              childrenCollection: {
+                items: cuisine,
+              },
+            },
+          ],
         },
       };
 
@@ -307,17 +437,16 @@ describe('api', () => {
         .spyOn(gqlClient, 'queryGraphQLContent')
         .mockResolvedValueOnce(payload);
 
-      const variables = {};
-      const res = await getRecipePage(variables);
+      const res = await getRecipePage({});
 
       expect(gqlSpy).toHaveBeenCalled();
-      expect(res).toEqual(items);
+      expect(res).toEqual(expected);
     });
 
     describe('if no valid data is returned', () => {
       it('it returns an empty array', async () => {
         const payload = { recipeCollection: null };
-        const expected: unknown[] = [];
+        const expected = {};
 
         const gqlSpy = jest
           .spyOn(gqlClient, 'queryGraphQLContent')

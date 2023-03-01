@@ -1,5 +1,9 @@
 import Head from 'next/head';
-import { RecipeDefaultFragment } from 'types/queries';
+import {
+  RecipeDefaultFragment,
+  TagDefaultFragment,
+  TaxonomyDefaultFragment,
+} from 'types/queries';
 
 /*
   
@@ -16,19 +20,15 @@ import { RecipeDefaultFragment } from 'types/queries';
   TODO: add recipeYield to content definition
     "recipeYield": "10",
 
-  TODO: add recipeCategory to content definition
-    "recipeCategory": "Dessert",
-
-  TODO: add cuisine to content definition or use a cuisine taxonomy to App context
-    "recipeCuisine": "American",
-
 */
 
-interface SchemaProps {
+export interface RecipeSchemaProps {
   recipe: RecipeDefaultFragment;
+  categories?: (TaxonomyDefaultFragment | TagDefaultFragment | null)[];
+  cuisine?: (TaxonomyDefaultFragment | TagDefaultFragment | null)[];
 }
 
-const RecipeSchema = ({ recipe }: SchemaProps) => {
+const RecipeSchema = ({ recipe, categories, cuisine }: RecipeSchemaProps) => {
   if (!recipe) return null;
 
   const {
@@ -37,6 +37,7 @@ const RecipeSchema = ({ recipe }: SchemaProps) => {
     ingredientsCollection,
     instructionsCollection,
     sys,
+    tagsCollection,
     title,
   } = recipe;
 
@@ -81,6 +82,16 @@ const RecipeSchema = ({ recipe }: SchemaProps) => {
       ],
     }));
 
+  const { items: tags } = tagsCollection ?? {};
+
+  const recipeCategory = tags?.find((tag) =>
+    categories?.find((category) => category?.slug === tag?.slug)
+  );
+
+  const recipeCuisine = tags?.find((tag) =>
+    cuisine?.find((item) => item?.slug === tag?.slug)
+  );
+
   const schema = {
     '@context': 'https://schema.org/',
     '@type': 'Recipe',
@@ -94,6 +105,8 @@ const RecipeSchema = ({ recipe }: SchemaProps) => {
     ...(abstract && { description: abstract }),
     ...(ingredients && { recipeIngredient: ingredients }),
     ...(instructions && { recipeInstructions: instructions }),
+    ...(recipeCategory && { recipeCategory: recipeCategory.title }),
+    ...(recipeCuisine && { recipeCuisine: recipeCuisine.title }),
   };
 
   return (

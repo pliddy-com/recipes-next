@@ -7,7 +7,11 @@ import RecipeSlugPage, {
   getStaticProps,
 } from 'pages/recipe/[slug]';
 
-import { RecipeDefaultFragment } from 'types/queries';
+import {
+  RecipeDefaultFragment,
+  TagDefaultFragment,
+  TaxonomyDefaultFragment,
+} from 'types/queries';
 
 import config from 'lib/config';
 import * as api from 'lib/api';
@@ -16,6 +20,14 @@ jest.mock('lib/config');
 jest.mock('lib/api');
 jest.mock('components/PageHead/PageTags/PageTags');
 jest.mock('layout/RecipePage/RecipePage');
+
+interface PageContentProps {
+  recipe: RecipeDefaultFragment | undefined;
+  categories:
+    | (TaxonomyDefaultFragment | TagDefaultFragment | null)[]
+    | undefined;
+  cuisine: (TaxonomyDefaultFragment | TagDefaultFragment | null)[] | undefined;
+}
 
 describe('RecipePage in recipe/[slug].tsx', () => {
   beforeAll(async () => {
@@ -31,7 +43,7 @@ describe('RecipePage in recipe/[slug].tsx', () => {
       const getRecipeSlugsSpy = jest.spyOn(api, 'getRecipeSlugs');
       const getRecipeSpy = jest.spyOn(api, 'getRecipePage');
 
-      const [pageContent] = await api.getRecipePage();
+      const pageContent = await api.getRecipePage();
 
       const propsContext = {
         preview: false,
@@ -52,7 +64,7 @@ describe('RecipePage in recipe/[slug].tsx', () => {
 
       const { asFragment, queryByTestId } = render(
         <RecipeSlugPage
-          pageContent={pageContent as unknown as RecipeDefaultFragment}
+          pageContent={pageContent as PageContentProps}
           preview={false}
         />
       );
@@ -97,7 +109,10 @@ describe('RecipePage in recipe/[slug].tsx', () => {
       const pageContent = undefined as unknown as RecipeDefaultFragment;
 
       const { queryByTestId } = render(
-        <RecipeSlugPage pageContent={pageContent} preview={false} />
+        <RecipeSlugPage
+          pageContent={pageContent as unknown as PageContentProps}
+          preview={false}
+        />
       );
 
       // wait for dynamic component to load

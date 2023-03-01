@@ -91,9 +91,55 @@ query recipeIndex($where: RecipeFilter) {
 query recipePage($where: RecipeFilter) {
   recipeCollection(where: $where, order: title_ASC, limit: 1) {
     __typename
-    total
     items {
       ...RecipeDefault
+    }
+  }
+
+  categoriesTaxonomy: taxonomyCollection(
+    where: { slug: "categories" }
+    order: title_ASC
+    limit: 1
+  ) {
+    __typename
+    items {
+      childrenCollection(limit: 24) {
+        total
+        items {
+          ... on Tag {
+            __typename
+            title
+            slug
+          }
+          ... on Taxonomy {
+            ...TaxonomyDefault
+          }
+        }
+      }
+    }
+  }
+
+  cuisineTaxonomy: taxonomyCollection(
+    where: { slug: "cuisine" }
+    order: title_ASC
+    limit: 1
+  ) {
+    items {
+      childrenCollection(limit: 24) {
+        total
+        items {
+          ... on Tag {
+            __typename
+            title
+            slug
+          }
+          ... on Taxonomy {
+            __typename
+            title
+            slug
+          }
+        }
+      }
     }
   }
 }
