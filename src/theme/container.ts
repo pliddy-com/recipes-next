@@ -46,15 +46,15 @@ const containerThemeOptions: ThemeOptions = {
                     borderTop: `1px solid ${baseTheme.palette.grey[300]}`,
                     marginTop: '.5rem',
                     paddingTop: '1.5rem',
+                    '& .yield': {
+                      justifyContent: 'flex-end',
+                    },
                   },
                   '& .MuiTypography-subtitle2': {
                     fontFamily: sansFontFamily,
                     lineHeight: 1.375,
                     '& strong': {
                       color: baseTheme.palette.primary.main,
-                    },
-                    '&.yield': {
-                      justifyContent: 'flex-end',
                     },
                   },
                 },
