@@ -4,23 +4,7 @@ import {
   TagDefaultFragment,
   TaxonomyDefaultFragment,
 } from 'types/queries';
-
-/*
-  
-  The remaining schema properties do not have equivalent fields in the Recipe content model
-
-  TODO: define structure of prepTime, cookTime, and totalTime and add to content definition
-    "prepTime": "PT20M",
-    "cookTime": "PT30M",
-    "totalTime": "PT50M",
-
-  TODO: add unique keywords that aren't part of tags
-    "keywords": "cake for a party, coffee",
-
-  TODO: add recipeYield to content definition
-    "recipeYield": "10",
-
-*/
+import { minToIso } from 'lib/utils';
 
 export interface RecipeSchemaProps {
   recipe: RecipeDefaultFragment;
@@ -33,12 +17,16 @@ const RecipeSchema = ({ recipe, categories, cuisine }: RecipeSchemaProps) => {
 
   const {
     abstract,
+    cookTime,
     image,
     ingredientsCollection,
     instructionsCollection,
+    keywords,
+    prepTime,
     sys,
     tagsCollection,
     title,
+    recipeYield,
   } = recipe;
 
   const { firstPublishedAt } = sys ?? {};
@@ -103,10 +91,17 @@ const RecipeSchema = ({ recipe, categories, cuisine }: RecipeSchemaProps) => {
     },
     ...(firstPublishedAt && { datePublished: firstPublishedAt.split('T')[0] }),
     ...(abstract && { description: abstract }),
+    ...(recipeYield && { recipeYield }),
+    ...(prepTime && { prepTime: minToIso(Number(prepTime)) }),
+    ...(cookTime && { prepTime: minToIso(Number(cookTime)) }),
+    ...((prepTime || cookTime) && {
+      totalTime: minToIso(Number(prepTime) + Number(cookTime)),
+    }),
     ...(ingredients && { recipeIngredient: ingredients }),
     ...(instructions && { recipeInstructions: instructions }),
     ...(recipeCategory && { recipeCategory: recipeCategory.title }),
     ...(recipeCuisine && { recipeCuisine: recipeCuisine.title }),
+    ...(keywords && { keywords }),
   };
 
   return (

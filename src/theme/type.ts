@@ -56,16 +56,16 @@ const typeThemeOptions: ThemeOptions = {
       lineHeight: '1.125',
     },
     body2: {
-      fontSize: `${baseFontSize / baseRemSize}rem`,
+      fontSize: `${(baseFontSize - 2) / baseRemSize}rem`,
       fontWeight: fontWeightRegular,
       letterSpacing: '.1px',
-      lineHeight: 24 / baseFontSize,
+      lineHeight: 1.25,
     },
     body1: {
       fontSize: `${baseFontSize / baseRemSize}rem`,
       fontWeight: fontWeightRegular,
       letterSpacing: '.1px',
-      lineHeight: 24 / baseFontSize,
+      lineHeight: 1.25,
     },
     h1: {
       borderBottom: `1px solid ${colors.secondary.main}`,

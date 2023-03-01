@@ -17,7 +17,7 @@ import {
   TagSlugsQueryVariables,
 } from 'types/queries';
 
-import { hasValue } from 'lib/typeUtils';
+import { hasValue } from 'lib/utils';
 
 // used to query content for nav menu taxonomy on client layout
 export const getNavTaxonomy = async (variables: NavTaxonomyQueryVariables) => {

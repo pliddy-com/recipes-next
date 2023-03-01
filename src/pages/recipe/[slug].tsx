@@ -14,7 +14,7 @@ import PageHead from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeSlugs, getRecipePage } from 'lib/api';
 import config from 'lib/config';
-import { hasValue } from 'lib/typeUtils';
+import { hasValue } from 'lib/utils';
 import RecipeSchema from 'components/PageHead/Schema/RecipeSchema/RecipeSchema';
 
 const RecipePage = dynamic(
