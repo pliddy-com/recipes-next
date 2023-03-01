@@ -89,6 +89,9 @@ fragment RecipeDefault on Recipe {
   image {
     ...ImageDefault
   }
+  recipeYield
+  prepTime
+  cookTime
   ingredientsCollection(limit: 10) {
     items {
       ...IngredientsDefault
@@ -106,6 +109,7 @@ fragment RecipeDefault on Recipe {
       ...TagDefault
     }
   }
+  keywords
 }
 
 fragment RecipeSummary on Recipe {

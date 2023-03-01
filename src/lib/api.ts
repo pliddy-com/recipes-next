@@ -17,7 +17,7 @@ import {
   TagSlugsQueryVariables,
 } from 'types/queries';
 
-import { hasValue } from 'lib/typeUtils';
+import { hasValue } from 'lib/utils';
 
 // used to query content for nav menu taxonomy on client layout
 export const getNavTaxonomy = async (variables: NavTaxonomyQueryVariables) => {
@@ -84,12 +84,22 @@ export const getRecipeList = async (variables: RecipeListQueryVariables) => {
 
 // used to query content for standalone recipe page
 export const getRecipePage = async (variables?: RecipePageQueryVariables) => {
-  const { recipeCollection } = await queryGraphQLContent(
-    RecipePageDocument,
-    variables
-  );
+  const { recipeCollection, categoriesTaxonomy, cuisineTaxonomy } =
+    await queryGraphQLContent(RecipePageDocument, variables);
 
-  return recipeCollection ? recipeCollection.items.filter(hasValue) : [];
+  const categories =
+    categoriesTaxonomy?.items.filter(hasValue)[0].childrenCollection?.items;
+
+  const cuisine =
+    cuisineTaxonomy?.items.filter(hasValue)[0].childrenCollection?.items;
+
+  const recipe = recipeCollection?.items.filter(hasValue)[0];
+
+  return {
+    ...(recipe && { recipe }),
+    ...(categories && { categories }),
+    ...(cuisine && { cuisine }),
+  };
 };
 
 // used to query content for tag index page

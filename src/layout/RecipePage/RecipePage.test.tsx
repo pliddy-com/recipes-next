@@ -10,6 +10,9 @@ import RecipePage from './RecipePage';
 import { RecipeDefaultFragment } from 'types/queries';
 
 import config from './RecipePage.config';
+import * as api from 'lib/api';
+
+jest.mock('lib/api');
 
 jest.createMockFromModule('./RecipePage.config');
 
@@ -19,115 +22,9 @@ describe('Recipe', () => {
   });
 
   describe('when there is page content', () => {
-    it('it renders the Recipe', () => {
-      const content = {
-        sys: {
-          id: 'sysid-0',
-          __typename: 'Sys',
-          firstPublishedAt: '2022-06-26T07:24:30.384Z',
-        },
-        __typename: 'Recipe',
-        title: 'Recipe Title',
-        slug: 'recipe-title',
-        description: {
-          json: {
-            data: {},
-            content: [
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [],
-                    value: 'Description rich text',
-                    nodeType: 'text',
-                  },
-                ],
-                nodeType: 'paragraph',
-              },
-            ],
-            nodeType: 'document',
-          },
-          links: {
-            assets: {
-              block: [],
-              hyperlink: [],
-              __typename: 'RecipeDescriptionAssets',
-            },
-            entries: {
-              inline: [],
-              hyperlink: [],
-              __typename: 'RecipeDescriptionEntries',
-            },
-            __typename: 'RecipeDescriptionLinks',
-          },
-          __typename: 'RecipeDescription',
-        },
-        abstract: 'Recipe abstract',
-        image: {
-          sys: {
-            id: 'sysid-1',
-            __typename: 'Sys',
-          },
-          __typename: 'Asset',
-          title: 'Image Title',
-          description: 'Image description.',
-          contentType: 'image/jpeg',
-          fileName: 'filename.jpg',
-          size: 99999,
-          url: 'https://recipes.pliddy.com/url',
-          height: 300,
-          width: 400,
-        },
-        ingredientsCollection: {
-          items: [
-            {
-              sys: {
-                id: 'sysid-2',
-                __typename: 'Sys',
-              },
-              title: 'Ingredients Title',
-              slug: 'ingredients-title',
-              label: 'Ingredients',
-              ingredientList: ['ingredient 1', 'ingredient 2'],
-              __typename: 'IngredientSection',
-            },
-          ],
-          __typename: 'RecipeIngredientsCollection',
-        },
-        equipment: ['equipment 1', 'equipment 2'],
-        instructionsCollection: {
-          items: [
-            {
-              sys: {
-                id: 'sysid-3',
-                __typename: 'Sys',
-              },
-              title: 'Instructions Title',
-              slug: 'instructions-title',
-              label: 'Label',
-              instructionList: ['Instructions item 1'],
-              __typename: 'InstructionSection',
-            },
-          ],
-          __typename: 'RecipeInstructionsCollection',
-        },
-        notes: ['note 1'],
-        tagsCollection: {
-          items: [
-            {
-              sys: {
-                id: 'sysid-4',
-                __typename: 'Sys',
-              },
-              __typename: 'Tag',
-              title: 'Tag 1',
-              slug: 'tag-1',
-            },
-          ],
-          __typename: 'RecipeTagsCollection',
-        },
-      };
+    it('it renders the Recipe', async () => {
+      jest.spyOn(api, 'getRecipePage');
+      const content = await api.getRecipePage();
 
       const { asFragment, queryByTestId } = render(
         <RecipePage content={content as RecipeDefaultFragment} />

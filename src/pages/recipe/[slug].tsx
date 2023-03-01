@@ -14,7 +14,7 @@ import PageHead from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeSlugs, getRecipePage } from 'lib/api';
 import config from 'lib/config';
-import { hasValue } from 'lib/typeUtils';
+import { hasValue } from 'lib/utils';
 import RecipeSchema from 'components/PageHead/Schema/RecipeSchema/RecipeSchema';
 
 const RecipePage = dynamic(
@@ -26,12 +26,13 @@ const RecipePage = dynamic(
 const RecipeSlugPage = ({
   pageContent,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { abstract, title, image } = pageContent ?? {};
+  const { recipe, categories, cuisine } = pageContent ?? {};
+  const { abstract, title, image } = recipe ?? {};
   const { defaultDescription, defaultTitle } = config?.microcopy?.recipe ?? {};
 
   const description = abstract || `${defaultDescription} ${title}`;
 
-  return pageContent && title && description && defaultTitle ? (
+  return recipe && title && description && defaultTitle ? (
     <>
       <PageHead
         title={title}
@@ -39,9 +40,9 @@ const RecipeSlugPage = ({
         description={description}
         image={image}
       />
-      <RecipeSchema recipe={pageContent} />
+      <RecipeSchema recipe={recipe} categories={categories} cuisine={cuisine} />
       <Suspense fallback={<Loading />}>
-        <RecipePage content={pageContent} />
+        <RecipePage content={recipe} />
       </Suspense>
     </>
   ) : null;
@@ -70,9 +71,11 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     throw new Error('Error in SSG. The slug property is not a string.');
   }
 
-  const [pageContent] = await getRecipePage({
+  const { recipe, categories, cuisine } = await getRecipePage({
     where: { slug },
   });
+
+  const pageContent = { recipe, categories, cuisine };
 
   return { props: { pageContent, preview: Boolean(preview) } };
 };

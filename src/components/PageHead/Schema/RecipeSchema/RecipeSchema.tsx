@@ -1,43 +1,32 @@
 import Head from 'next/head';
-import { RecipeDefaultFragment } from 'types/queries';
+import {
+  RecipeDefaultFragment,
+  TagDefaultFragment,
+  TaxonomyDefaultFragment,
+} from 'types/queries';
+import { minToIso } from 'lib/utils';
 
-/*
-  
-  The remaining schema properties do not have equivalent fields in the Recipe content model
-
-  TODO: define structure of prepTime, cookTime, and totalTime and add to content definition
-    "prepTime": "PT20M",
-    "cookTime": "PT30M",
-    "totalTime": "PT50M",
-
-  TODO: add unique keywords that aren't part of tags
-    "keywords": "cake for a party, coffee",
-
-  TODO: add recipeYield to content definition
-    "recipeYield": "10",
-
-  TODO: add recipeCategory to content definition
-    "recipeCategory": "Dessert",
-
-  TODO: add cuisine to content definition or use a cuisine taxonomy to App context
-    "recipeCuisine": "American",
-
-*/
-
-interface SchemaProps {
+export interface RecipeSchemaProps {
   recipe: RecipeDefaultFragment;
+  categories?: (TaxonomyDefaultFragment | TagDefaultFragment | null)[];
+  cuisine?: (TaxonomyDefaultFragment | TagDefaultFragment | null)[];
 }
 
-const RecipeSchema = ({ recipe }: SchemaProps) => {
+const RecipeSchema = ({ recipe, categories, cuisine }: RecipeSchemaProps) => {
   if (!recipe) return null;
 
   const {
     abstract,
+    cookTime,
     image,
     ingredientsCollection,
     instructionsCollection,
+    keywords,
+    prepTime,
     sys,
+    tagsCollection,
     title,
+    recipeYield,
   } = recipe;
 
   const { firstPublishedAt } = sys ?? {};
@@ -81,6 +70,16 @@ const RecipeSchema = ({ recipe }: SchemaProps) => {
       ],
     }));
 
+  const { items: tags } = tagsCollection ?? {};
+
+  const recipeCategory = tags?.find((tag) =>
+    categories?.find((category) => category?.slug === tag?.slug)
+  );
+
+  const recipeCuisine = tags?.find((tag) =>
+    cuisine?.find((item) => item?.slug === tag?.slug)
+  );
+
   const schema = {
     '@context': 'https://schema.org/',
     '@type': 'Recipe',
@@ -92,8 +91,17 @@ const RecipeSchema = ({ recipe }: SchemaProps) => {
     },
     ...(firstPublishedAt && { datePublished: firstPublishedAt.split('T')[0] }),
     ...(abstract && { description: abstract }),
+    ...(recipeYield && { recipeYield }),
+    ...(prepTime && { prepTime: minToIso(Number(prepTime)) }),
+    ...(cookTime && { prepTime: minToIso(Number(cookTime)) }),
+    ...((prepTime || cookTime) && {
+      totalTime: minToIso(Number(prepTime) + Number(cookTime)),
+    }),
     ...(ingredients && { recipeIngredient: ingredients }),
     ...(instructions && { recipeInstructions: instructions }),
+    ...(recipeCategory && { recipeCategory: recipeCategory.title }),
+    ...(recipeCuisine && { recipeCuisine: recipeCuisine.title }),
+    ...(keywords && { keywords }),
   };
 
   return (

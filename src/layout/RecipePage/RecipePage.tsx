@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -8,14 +9,14 @@ import EquipmentSection from 'components/RecipeSections/EquipmentSection/Equipme
 import IngredientsSection from 'components/RecipeSections/IngredientsSection/IngredientsSection';
 import InstructionsSection from 'components/RecipeSections/InstructionsSection/InstructionsSection';
 import NotesSection from 'components/RecipeSections/NotesSection/NotesSection';
-// import RecipeSchema from 'components/PageHead/Schema/RecipeSchema';
 import RichText from 'components/RichText/RichText';
 import TagsSection from 'components/RecipeSections/TagsSection/TagsSection';
+
+import { minToTime } from 'lib/utils';
 
 import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 
 import config from './RecipePage.config';
-import Container from '@mui/material/Container';
 
 interface RecipePageProps {
   content?: RecipeDefaultFragment;
@@ -23,14 +24,17 @@ interface RecipePageProps {
 
 const RecipePage = ({ content }: RecipePageProps) => {
   const {
-    title,
+    cookTime,
     description,
     equipment,
     image,
     ingredientsCollection,
     instructionsCollection,
     notes,
+    prepTime,
+    recipeYield,
     tagsCollection,
+    title,
   } = content ?? {};
 
   const { breakpoints } = config;
@@ -57,14 +61,43 @@ const RecipePage = ({ content }: RecipePageProps) => {
             <Stack className="description">
               {description && (
                 <RichText content={description as RecipeDescription} />
-                // <RichText content={description} />
               )}
+              <Grid container className="details">
+                <Grid item xs={6}>
+                  <Stack direction="column">
+                    {prepTime && (
+                      <Typography variant="subtitle2">
+                        <strong>Prep Time:</strong>{' '}
+                        {minToTime(Number(prepTime))}
+                      </Typography>
+                    )}
+                    {cookTime && (
+                      <Typography variant="subtitle2">
+                        <strong>Cook Time:</strong>{' '}
+                        {minToTime(Number(cookTime))}
+                      </Typography>
+                    )}
+                    {(prepTime || cookTime) && (
+                      <Typography variant="subtitle2">
+                        <strong>Total Time:</strong>{' '}
+                        {minToTime(Number(prepTime) + Number(cookTime))}
+                      </Typography>
+                    )}
+                  </Stack>
+                </Grid>
+                <Grid item xs={6} className="yield">
+                  {recipeYield && (
+                    <Typography variant="subtitle2">
+                      <strong>Yield:</strong> {recipeYield} servings
+                    </Typography>
+                  )}
+                </Grid>
+              </Grid>
               {tags && <TagsSection tags={tags} />}
             </Stack>
           </Grid>
           <Grid item lg={6}>
-            {' '}
-            {image && breakpoints && (
+            {breakpoints && image && (
               <Box className="image">
                 <DynamicImage
                   image={image}
@@ -77,11 +110,9 @@ const RecipePage = ({ content }: RecipePageProps) => {
         </Grid>
 
         <Stack direction="column" spacing={3}>
-          {ingredientsCollection &&
-            ingredientsCollection.items &&
-            ingredientsSections && (
-              <IngredientsSection sections={ingredientsSections} />
-            )}
+          {ingredientsSections && (
+            <IngredientsSection sections={ingredientsSections} />
+          )}
 
           {equipment && <EquipmentSection equipment={equipment} />}
 

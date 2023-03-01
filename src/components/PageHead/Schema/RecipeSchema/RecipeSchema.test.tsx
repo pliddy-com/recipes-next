@@ -17,7 +17,7 @@ describe('RecipeSchema', () => {
     it('it renders the component', async () => {
       const recipe = await api.getRecipePage({});
       const { asFragment, queryByTestId } = render(
-        <RecipeSchema recipe={recipe[0]} />
+        <RecipeSchema recipe={recipe as RecipeDefaultFragment} />
       );
 
       // assert that the component is rendered

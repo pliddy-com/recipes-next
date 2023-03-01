@@ -64,13 +64,17 @@ api.getRecipeList = jest.fn().mockResolvedValue([
   },
 ]);
 
-api.getRecipePage = jest.fn().mockResolvedValue([
-  {
+api.getRecipePage = jest.fn().mockResolvedValue({
+  recipe: {
     title: 'Recipe Title',
     slug: 'slug-1',
     __typename: 'Recipe',
     sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
     abstract: 'abstract',
+    recipeYield: 4,
+    prepTime: 15,
+    cookTime: 60,
+    keywords: ['keyword1', 'keyword2'],
     image: {
       sys: {
         id: 'sysid-1',
@@ -146,7 +150,99 @@ api.getRecipePage = jest.fn().mockResolvedValue([
       __typename: 'RecipeTagsCollection',
     },
   },
-]);
+  cuisine: [
+    {
+      __typename: 'Tag',
+      title: 'Tag 1 Title',
+      slug: 'tag-1',
+      linkedFrom: {
+        recipeCollection: {
+          total: 2,
+          items: [
+            {
+              __typename: 'Recipe',
+              slug: 'slug-1',
+              title: 'Title 2',
+            },
+            {
+              __typename: 'Recipe',
+              slug: 'slug-2',
+              title: 'Title 1',
+            },
+          ],
+        },
+      },
+    },
+    {
+      __typename: 'Tag',
+      title: 'Tag 2 Title',
+      slug: 'tag-2',
+      linkedFrom: {
+        recipeCollection: {
+          total: 2,
+          items: [
+            {
+              __typename: 'Recipe',
+              slug: 'slug-3',
+              title: 'Title 3',
+            },
+            {
+              __typename: 'Recipe',
+              slug: 'slug-4',
+              title: 'Title 5',
+            },
+          ],
+        },
+      },
+    },
+  ],
+  categories: [
+    {
+      __typename: 'Tag',
+      title: 'Tag 1 Title',
+      slug: 'tag-1',
+      linkedFrom: {
+        recipeCollection: {
+          total: 2,
+          items: [
+            {
+              __typename: 'Recipe',
+              slug: 'slug-1',
+              title: 'Title 2',
+            },
+            {
+              __typename: 'Recipe',
+              slug: 'slug-2',
+              title: 'Title 1',
+            },
+          ],
+        },
+      },
+    },
+    {
+      __typename: 'Tag',
+      title: 'Tag 2 Title',
+      slug: 'tag-2',
+      linkedFrom: {
+        recipeCollection: {
+          total: 2,
+          items: [
+            {
+              __typename: 'Recipe',
+              slug: 'slug-3',
+              title: 'Title 3',
+            },
+            {
+              __typename: 'Recipe',
+              slug: 'slug-4',
+              title: 'Title 5',
+            },
+          ],
+        },
+      },
+    },
+  ],
+});
 
 api.getTagIndex = jest.fn().mockResolvedValue([
   {
