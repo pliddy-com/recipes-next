@@ -62,6 +62,8 @@ const RecipePage = ({ content }: RecipePageProps) => {
               {description && (
                 <RichText content={description as RecipeDescription} />
               )}
+              {tags && <TagsSection tags={tags} />}
+
               <Grid container className="details">
                 <Grid item xs={6}>
                   <Stack direction="column">
@@ -93,7 +95,6 @@ const RecipePage = ({ content }: RecipePageProps) => {
                   )}
                 </Grid>
               </Grid>
-              {tags && <TagsSection tags={tags} />}
             </Stack>
           </Grid>
           <Grid item lg={6}>
