@@ -47,7 +47,7 @@ const TagIndexPage = ({
 export const getStaticProps = async ({ preview = false }) => {
   const pageContent = await getTagIndex();
 
-  return { props: { pageContent, preview } };
+  return { props: { pageContent, preview }, revalidate: 60 };
 };
 
 TagIndexPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;

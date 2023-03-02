@@ -41,11 +41,10 @@ const containerThemeOptions: ThemeOptions = {
               '& .content': {
                 marginBottom: '3rem',
                 '& .description': {
-                  marginBottom: '0.5rem',
                   '& .details': {
                     borderTop: `1px solid ${baseTheme.palette.grey[300]}`,
                     marginTop: '.5rem',
-                    paddingTop: '1.5rem',
+                    paddingTop: '1rem',
                     '& .yield': {
                       justifyContent: 'flex-end',
                     },
@@ -60,6 +59,7 @@ const containerThemeOptions: ThemeOptions = {
                 },
                 '& .tags': {
                   marginTop: 'auto',
+                  marginBottom: '1rem',
                   '& .tagButtons': {
                     marginTop: '2rem',
                     marginBottom: '-1rem',
