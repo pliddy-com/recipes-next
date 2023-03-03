@@ -79,11 +79,11 @@ fragment DescriptionDefault on Recipe {
 
 fragment RecipeDefault on Recipe {
   __typename
+  title
+  slug
   sys {
     firstPublishedAt
   }
-  title
-  slug
   ...DescriptionDefault
   abstract
   image {

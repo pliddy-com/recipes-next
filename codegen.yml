@@ -11,5 +11,10 @@ generates:
       - typescript
       - typescript-operations
       - typed-document-node
+      # - fragment-matcher
+
     config:
-      - dedupeFragments: true
+      # - dedupeFragments: true
+      # - preResolveTypes: true
+      # - skipGraphQLImport: true
+      # - inlineFragmentTypes: true

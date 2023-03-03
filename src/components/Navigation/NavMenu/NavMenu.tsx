@@ -77,7 +77,6 @@ const NavMenu = ({
               />
             ) : null;
           })}
-        ;
       </List>
     </Drawer>
   );

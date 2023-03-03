@@ -7,30 +7,7 @@ query navMenuData {
     order: title_ASC
     limit: 1
   ) {
-    __typename
-    items {
-      ...TaxonomyDefault
-
-      tag {
-        ...TagDefault
-      }
-
-      childrenCollection(limit: 24) {
-        total
-        items {
-          ... on Tag {
-            ...TagDefault
-
-            linkedFrom {
-              recipeCollection(limit: 1) {
-                total
-              }
-            }
-          }
-          ...TaxonomyWithChildren
-        }
-      }
-    }
+    ...NavTaxonomy
   }
 
   cuisine: taxonomyCollection(
@@ -38,71 +15,17 @@ query navMenuData {
     order: title_ASC
     limit: 1
   ) {
-    __typename
-    items {
-      ...TaxonomyDefault
-
-      tag {
-        ...TagDefault
-      }
-
-      childrenCollection(limit: 12) {
-        total
-        items {
-          ... on Tag {
-            ...TagDefault
-
-            linkedFrom {
-              recipeCollection(limit: 1) {
-                total
-              }
-            }
-          }
-          ...TaxonomyWithChildren
-        }
-      }
-    }
+    ...NavTaxonomy
   }
 
   tags: tagCollection(order: title_ASC) {
     __typename
     total
     items {
-      __typename
-      slug
-      title
+      ...TagDefault
       linkedFrom {
         recipeCollection(limit: 1) {
           total
-        }
-      }
-    }
-  }
-}
-
-query navTaxonomy($where: TaxonomyFilter) {
-  taxonomyCollection(where: $where, order: title_ASC, limit: 1) {
-    __typename
-    items {
-      ...TaxonomyDefault
-
-      tag {
-        ...TagDefault
-      }
-
-      childrenCollection(limit: 16) {
-        total
-        items {
-          ... on Tag {
-            ...TagDefault
-
-            linkedFrom {
-              recipeCollection(limit: 1) {
-                total
-              }
-            }
-          }
-          ...TaxonomyWithChildren
         }
       }
     }
@@ -143,7 +66,8 @@ query tagSlugs($where: TagFilter) {
 
 query recipeList($where: TagFilter) {
   __typename
-  tagCollection(where: $where, order: title_ASC, limit: 1) {
+  tagCollection(where: $where, order: title_ASC) {
+    __typename
     total
     items {
       ...ListPageItem
@@ -180,22 +104,7 @@ query recipePage($where: RecipeFilter) {
     order: title_ASC
     limit: 1
   ) {
-    __typename
-    items {
-      childrenCollection(limit: 24) {
-        total
-        items {
-          ... on Tag {
-            __typename
-            title
-            slug
-          }
-          ... on Taxonomy {
-            ...TaxonomyDefault
-          }
-        }
-      }
-    }
+    ...SchemaTaxonomy
   }
 
   cuisineTaxonomy: taxonomyCollection(
@@ -203,35 +112,6 @@ query recipePage($where: RecipeFilter) {
     order: title_ASC
     limit: 1
   ) {
-    items {
-      childrenCollection(limit: 24) {
-        total
-        items {
-          ... on Tag {
-            __typename
-            title
-            slug
-          }
-          ... on Taxonomy {
-            __typename
-            title
-            slug
-          }
-        }
-      }
-    }
-  }
-}
-
-#Query for Tag Index page
-# getTagIndex
-
-query tagIndex($where: TagFilter) {
-  tagCollection(where: $where, order: title_ASC) {
-    __typename
-    total
-    items {
-      ...ListPageItem
-    }
+    ...SchemaTaxonomy
   }
 }
