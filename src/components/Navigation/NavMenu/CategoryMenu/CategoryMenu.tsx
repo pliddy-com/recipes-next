@@ -9,9 +9,10 @@ import { Maybe, TaxonomyChildrenItem } from 'types/queries';
 interface CategoryMenuProps {
   category?: Maybe<TaxonomyChildrenItem>;
   onClick: VoidFunction;
+  root: string;
 }
 
-const CategoryMenu = ({ category, onClick }: CategoryMenuProps) => {
+const CategoryMenu = ({ category, onClick, root }: CategoryMenuProps) => {
   const { slug, title } = category ?? {};
 
   const categoryTag = category && 'tag' in category ? category.tag : category;
@@ -40,10 +41,11 @@ const CategoryMenu = ({ category, onClick }: CategoryMenuProps) => {
   return category ? (
     <Box>
       {categoryChildrenCollection ? (
-        <SubcategoryMenu category={category} onClick={onClick} />
+        <SubcategoryMenu category={category} onClick={onClick} root={root} />
       ) : (
         <ListItem className="menuItem">
           <CategoryListItemButton
+            root={root}
             slug={slug}
             title={title}
             onClick={onClick}

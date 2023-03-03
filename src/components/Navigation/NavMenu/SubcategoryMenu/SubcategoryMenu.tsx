@@ -16,9 +16,10 @@ import { Maybe, Tag, TaxonomyChildrenItem } from 'types/queries';
 interface SubcategoryMenuProps {
   category?: Maybe<TaxonomyChildrenItem>;
   onClick: VoidFunction;
+  root: string;
 }
 
-const SubcategoryMenu = ({ category, onClick }: SubcategoryMenuProps) => {
+const SubcategoryMenu = ({ category, onClick, root }: SubcategoryMenuProps) => {
   const [open, setOpen] = useState(false);
   const { slug, title } = category ?? {};
 
@@ -59,6 +60,7 @@ const SubcategoryMenu = ({ category, onClick }: SubcategoryMenuProps) => {
           title={title}
           onClick={onClick}
           total={total}
+          root={root}
         />
       </ListItem>
       <Collapse in={open} timeout="auto" data-testid={`${title} menu`}>
@@ -82,6 +84,7 @@ const SubcategoryMenu = ({ category, onClick }: SubcategoryMenuProps) => {
                     title={title}
                     onClick={onClick}
                     total={total}
+                    root={root}
                   />
                 </ListItem>
               ) : null;

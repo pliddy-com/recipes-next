@@ -11,6 +11,7 @@ import { TaxonomyChildrenItem } from 'types/queries';
 
 describe('SubcategoryMenu', () => {
   const callback = jest.fn();
+  const root = 'category';
 
   describe('when there is a properly structured category property', () => {
     const category = {
@@ -50,18 +51,19 @@ describe('SubcategoryMenu', () => {
       },
     };
 
+    const expectedCategoryTitle = `${category.title} (${category.childrenCollection.total})`;
+    const expectedCategoryHref = `/${root}/${category.slug}`;
+
+    const subcategory = category.childrenCollection.items[0];
+    const expectedSubcategoryTitle = `${subcategory.title} (${subcategory.linkedFrom.recipeCollection.total})`;
+    const expectedSubcategoryHref = `/${root}/${subcategory.slug}`;
+
     it('it renders a menu defined by the category tag list', () => {
-      const expectedCategoryTitle = `${category.title} (${category.childrenCollection.total})`;
-      const expectedCategoryHref = `/category/${category.slug}`;
-
-      const subcategory = category.childrenCollection.items[0];
-      const expectedSubcategoryTitle = `${subcategory.title} (${subcategory.linkedFrom.recipeCollection.total})`;
-      const expectedSubcategoryHref = `/category/${subcategory.slug}`;
-
       const { container, queryByText } = render(
         <SubcategoryMenu
           category={category as TaxonomyChildrenItem}
           onClick={callback}
+          root={root}
         />
       );
 
@@ -93,6 +95,7 @@ describe('SubcategoryMenu', () => {
         <SubcategoryMenu
           category={category as TaxonomyChildrenItem}
           onClick={callback}
+          root={root}
         />
       );
 
@@ -129,6 +132,7 @@ describe('SubcategoryMenu', () => {
         <SubcategoryMenu
           category={category as TaxonomyChildrenItem}
           onClick={callback}
+          root={root}
         />
       );
 
@@ -143,7 +147,7 @@ describe('SubcategoryMenu', () => {
       const callback = jest.fn();
 
       const { queryByRole } = render(
-        <SubcategoryMenu category={category} onClick={callback} />
+        <SubcategoryMenu root={root} category={category} onClick={callback} />
       );
 
       // confirm that menu has not been rendered
@@ -176,6 +180,7 @@ describe('SubcategoryMenu', () => {
         <SubcategoryMenu
           category={category as unknown as TaxonomyChildrenItem}
           onClick={callback}
+          root={root}
         />
       );
 

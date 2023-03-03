@@ -15,8 +15,9 @@ describe('CategoryListItemButton', () => {
       const slug = 'slug';
       const title = 'Test Title';
       const numRecipes = 10;
+      const root = 'category';
 
-      const expectedHref = `/category/${slug}`;
+      const expectedHref = `/${root}/${slug}`;
 
       const { container, queryByRole } = render(
         <CategoryListItemButton
@@ -24,6 +25,7 @@ describe('CategoryListItemButton', () => {
           title={title}
           onClick={callback}
           total={numRecipes}
+          root={root}
         />
       );
 
@@ -46,9 +48,15 @@ describe('CategoryListItemButton', () => {
   describe('when there is not a correct payload', () => {
     it('it does not render', () => {
       const slug = null;
+      const root = null;
 
       const { queryByRole } = render(
-        <CategoryListItemButton slug={slug} title={null} onClick={callback} />
+        <CategoryListItemButton
+          root={root}
+          slug={slug}
+          title={null}
+          onClick={callback}
+        />
       );
 
       // assert that the component is not rendered

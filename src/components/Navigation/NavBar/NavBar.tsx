@@ -70,33 +70,36 @@ const NavBar = ({ nav }: NavBarProps) => {
       </Toolbar>
       {categories && (
         <NavMenu
-          nav={categories}
-          onClose={() => handleDrawerToggle({ id: 'categories' })}
-          isOpen={drawerState.categories}
           data-testid="categories-menu"
-          id="categories"
           featuredLabel="All Recipes"
           featuredUrl="/"
+          id="categories"
+          isOpen={drawerState.categories}
+          nav={categories}
+          onClose={() => handleDrawerToggle({ id: 'categories' })}
+          root="category"
         />
       )}
       {cuisine && (
         <NavMenu
-          nav={cuisine}
-          onClose={() => handleDrawerToggle({ id: 'cuisine' })}
-          isOpen={drawerState.cuisine}
           data-testid="cuisine-menu"
           id="cuisine"
+          isOpen={drawerState.cuisine}
+          nav={cuisine}
+          onClose={() => handleDrawerToggle({ id: 'cuisine' })}
+          root="cuisine"
         />
       )}
       {tags && (
         <NavMenu
-          nav={tags}
-          onClose={() => handleDrawerToggle({ id: 'tags' })}
-          isOpen={drawerState.tags}
           data-testid="tags-menu"
-          id="tags"
           featuredLabel="All Tags"
           featuredUrl="/tag"
+          id="tags"
+          isOpen={drawerState.tags}
+          nav={tags}
+          onClose={() => handleDrawerToggle({ id: 'tags' })}
+          root="tag"
         />
       )}
     </AppBar>

@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 
 import LogoIcon from '../../../Icons/LogoIcon/LogoIcon';
+
 import config from 'lib/config';
 
 interface LogoButtonProps {
@@ -25,13 +26,13 @@ const LogoButton = ({ hideLabel = false }: LogoButtonProps) =>
   ) : (
     <Button
       aria-label="home"
-      role="button"
+      className="logo"
       color="primary"
       component={Link}
       href="/"
+      role="button"
       size="large"
       startIcon={<LogoIcon />}
-      className="logo"
     >
       {config?.microcopy?.site?.title}
     </Button>
