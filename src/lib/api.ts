@@ -16,8 +16,6 @@ import {
   RecipePageQueryVariables,
   RecipeSlugsDocument,
   RecipeSlugsQueryVariables,
-  TagIndexDocument,
-  TagIndexQueryVariables,
   TagSlugsDocument,
   TagSlugsQueryVariables,
   TagCollection,
@@ -111,9 +109,9 @@ export const getRecipePage = async (variables?: RecipePageQueryVariables) => {
 };
 
 // used to query content for tag index page
-export const getTagIndex = async (variables?: TagIndexQueryVariables) => {
+export const getTagIndex = async (variables?: RecipeListQueryVariables) => {
   const { tagCollection } = await queryGraphQLContent(
-    TagIndexDocument,
+    RecipeListDocument,
     variables
   );
 

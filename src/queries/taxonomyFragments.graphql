@@ -1,0 +1,96 @@
+# Fragments with default fields for:
+#   * Taxonomy
+
+fragment TaxonomyDefault on Taxonomy {
+  __typename
+  title
+  slug
+}
+
+# Fragment with Fields for Taxonomy with no children
+
+fragment TaxonomyRoot on Taxonomy {
+  # ...TaxonomyDefault
+  __typename
+  title
+  slug
+
+  tag {
+    sys {
+      id
+    }
+    __typename
+    title
+    slug
+  }
+}
+
+# Fragment with Fields for Taxonomy with children
+
+fragment TaxonomyWithChildren on Taxonomy {
+  # ...TaxonomyDefault
+  __typename
+  title
+  slug
+
+  tag {
+    ...TagWithLinks
+  }
+  childrenCollection {
+    total
+    items {
+      ...TagWithLinks
+      ...TaxonomyRoot
+    }
+  }
+}
+
+fragment NavTaxonomy on TaxonomyCollection {
+  __typename
+  items {
+    ...TaxonomyDefault
+
+    tag {
+      __typename
+      title
+      slug
+    }
+
+    childrenCollection(limit: 24) {
+      total
+      items {
+        ... on Tag {
+          __typename
+          title
+          slug
+
+          linkedFrom {
+            recipeCollection(limit: 1) {
+              total
+            }
+          }
+        }
+        ...TaxonomyWithChildren
+      }
+    }
+  }
+}
+
+fragment SchemaTaxonomy on TaxonomyCollection {
+  __typename
+  items {
+    childrenCollection(limit: 24) {
+      total
+      items {
+        ... on Tag {
+          __typename
+          title
+          slug
+        }
+        ... on Taxonomy {
+          ...TaxonomyDefault
+        }
+      }
+    }
+  }
+}

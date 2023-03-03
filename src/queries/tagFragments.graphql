@@ -1,14 +1,7 @@
-# Fragments with default fields for:
+## Fragments with default fields for:
 #   * Tag
-#   * Taxonomy
 
 fragment TagDefault on Tag {
-  __typename
-  title
-  slug
-}
-
-fragment TaxonomyDefault on Taxonomy {
   __typename
   title
   slug
@@ -28,44 +21,9 @@ fragment TagWithLinks on Tag {
   }
 }
 
-# Fragment with Fields for Taxonomy with no children
-
-fragment TaxonomyRoot on Taxonomy {
-  __typename
-  title
-  slug
-
-  tag {
-    sys {
-      id
-    }
-    __typename
-    title
-    slug
-  }
-}
-
-# Fragment with Fields for Taxonomy with children
-
-fragment TaxonomyWithChildren on Taxonomy {
-  __typename
-  title
-  slug
-
-  tag {
-    ...TagWithLinks
-  }
-  childrenCollection {
-    total
-    items {
-      ...TagWithLinks
-      ...TaxonomyRoot
-    }
-  }
-}
-
 # fragment for items on list page queries
 fragment ListPageItem on Tag {
+  #   ...TagDefault
   __typename
   slug
   title
