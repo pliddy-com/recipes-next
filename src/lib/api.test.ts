@@ -26,34 +26,146 @@ const client = {
 
 mockedUrql.createClient.mockReturnValue(client as unknown as Client);
 
+const expectedTags = [
+  {
+    __typename: 'Tag',
+    slug: 'tag-b',
+    title: 'Tag B',
+    linkedFrom: {
+      recipeCollection: {
+        total: 3,
+        __typename: 'RecipeCollection',
+      },
+      __typename: 'TagLinkingCollections',
+    },
+  },
+  {
+    __typename: 'Tag',
+    slug: 'tag-c',
+    title: 'Tag C',
+    linkedFrom: {
+      recipeCollection: {
+        total: 2,
+        __typename: 'RecipeCollection',
+      },
+      __typename: 'TagLinkingCollections',
+    },
+  },
+];
+
+const tagCollectionPayload = {
+  __typename: 'TagCollection',
+  total: 65,
+  items: [
+    {
+      __typename: 'Tag',
+      slug: 'tag-a',
+      title: 'Tag A',
+      linkedFrom: {
+        recipeCollection: {
+          total: 0,
+          __typename: 'RecipeCollection',
+        },
+        __typename: 'TagLinkingCollections',
+      },
+    },
+    ...expectedTags,
+  ],
+};
+
+const expectedTagCollectionChildren = [
+  {
+    __typename: 'Tag',
+    title: 'Tag A',
+    slug: 'tag-a',
+    linkedFrom: {
+      recipeCollection: {
+        total: 3,
+        __typename: 'RecipeCollection',
+      },
+      __typename: 'TagLinkingCollections',
+    },
+  },
+  {
+    __typename: 'Tag',
+    title: 'Tag B',
+    slug: 'tag-b',
+    linkedFrom: {
+      recipeCollection: {
+        total: 2,
+        __typename: 'RecipeCollection',
+      },
+      __typename: 'TagLinkingCollections',
+    },
+  },
+];
+
+const taxonomyCollectionPayload = {
+  __typename: 'TaxonomyCollection',
+  items: [
+    {
+      __typename: 'Taxonomy',
+      title: 'Categories',
+      slug: 'categories',
+      tag: null,
+      childrenCollection: {
+        total: 3,
+        items: [
+          {
+            __typename: 'Tag',
+            title: 'Tag C',
+            slug: 'tag-c',
+            linkedFrom: {
+              recipeCollection: {
+                total: 0,
+                __typename: 'RecipeCollection',
+              },
+              __typename: 'TagLinkingCollections',
+            },
+          },
+          ...expectedTagCollectionChildren,
+        ],
+        __typename: 'TaxonomyChildrenCollection',
+      },
+    },
+  ],
+};
+
 describe('api', () => {
   describe('when getNavTaxonomy() is called', () => {
     it('it returns a taxonomyCollection', async () => {
-      const items = [{ slug: 'slug-1' }];
-      const payload = { taxonomyCollection: { items } };
+      const payload = {
+        categories: taxonomyCollectionPayload,
+        cuisine: taxonomyCollectionPayload,
+        tags: tagCollectionPayload,
+      };
+
+      const expected = {
+        categories: expectedTagCollectionChildren,
+        cuisine: expectedTagCollectionChildren,
+        tags: expectedTags,
+      };
 
       const gqlSpy = jest
         .spyOn(gqlClient, 'queryGraphQLContent')
         .mockResolvedValueOnce(payload);
 
-      const variables = {};
-      const res = await getNavTaxonomy(variables);
+      const res = await getNavTaxonomy();
 
       expect(gqlSpy).toHaveBeenCalled();
-      expect(res).toEqual(items);
+      expect(res).toEqual(expected);
     });
 
     describe('if no valid data is returned', () => {
       it('it returns an empty array', async () => {
-        const payload = { taxonomyCollection: null };
-        const expected: unknown[] = [];
+        const payload = {};
+        const expected = {};
 
         const gqlSpy = jest
           .spyOn(gqlClient, 'queryGraphQLContent')
           .mockResolvedValueOnce(payload);
 
-        const variables = {};
-        const res = await getNavTaxonomy(variables);
+        const res = await getNavTaxonomy();
 
         expect(gqlSpy).toHaveBeenCalled();
         expect(res).toEqual(expected);
@@ -64,7 +176,10 @@ describe('api', () => {
   describe('when getRecipeSlugs() is called', () => {
     it('it returns a list of recipe slugs', async () => {
       const items = [{ slug: 'slug-1' }, { slug: 'slug-2' }];
-      const payload = { recipeCollection: { items } };
+      const payload = {
+        __typename: 'RecipeCollection',
+        recipeCollection: { items },
+      };
       const expected = ['slug-1', 'slug-2'];
 
       const gqlSpy = jest

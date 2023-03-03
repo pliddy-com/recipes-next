@@ -18,7 +18,7 @@ describe('TagListSchema', () => {
       const tags = await api.getTagIndex({});
 
       const { asFragment, queryByTestId } = render(
-        <TagListSchema tags={tags} />
+        <TagListSchema tags={tags as (TagDefaultFragment | null)[]} />
       );
 
       // assert that the component is rendered

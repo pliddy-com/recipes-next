@@ -12,7 +12,9 @@ describe('TagGridPage', () => {
   describe('when there is page content', () => {
     it('it renders the page', async () => {
       const tags = await api.getTagIndex({});
-      const { asFragment, queryByTestId } = render(<TagGridPage tags={tags} />);
+      const { asFragment, queryByTestId } = render(
+        <TagGridPage tags={tags as (ListPageItemFragment | null)[]} />
+      );
 
       // assert that content is rendered
       expect(queryByTestId('page')).toBeInTheDocument();

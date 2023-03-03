@@ -4,6 +4,13 @@ import colors from 'theme/colors';
 import { sansFontFamily, serifFontFamily } from 'theme/fontface';
 
 const baseTheme = createTheme({
+  components: {
+    MuiUseMediaQuery: {
+      defaultProps: {
+        noSsr: true,
+      },
+    },
+  },
   breakpoints: {
     values: {
       xs: 0,

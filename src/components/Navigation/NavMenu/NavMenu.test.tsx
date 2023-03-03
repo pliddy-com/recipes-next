@@ -7,119 +7,40 @@ import '@testing-library/jest-dom';
 // import the component to test
 import NavMenu from './NavMenu';
 
-import { Taxonomy } from 'types/queries';
+import { TaxonomyChildrenItem } from 'types/queries';
+
+import * as api from 'lib/api';
+
+jest.mock('lib/api');
 
 describe('NavMenu', () => {
   describe('when there is a properly structured nav property', () => {
-    const nav = {
-      sys: {
-        id: 'sys-id-0',
-      },
-      __typename: 'Taxonomy',
-      title: 'Categories',
-      slug: 'categories',
-      tag: null,
-      childrenCollection: {
-        total: 3,
-        items: [
-          {
-            sys: {
-              id: 'sys-id-1',
-            },
-            __typename: 'Tag',
-            title: 'Category 1',
-            slug: 'category-1',
-            linkedFrom: {
-              recipeCollection: {
-                total: 3,
-              },
-            },
-          },
-          {
-            sys: {
-              id: 'sys-id-2',
-            },
-            __typename: 'Taxonomy',
-            title: 'Category 2',
-            slug: 'category-2',
-            tag: {
-              sys: {
-                id: 'sys-id-3',
-              },
-              __typename: 'Tag',
-              title: 'Category 2 Tag',
-              slug: 'category-2',
-              linkedFrom: {
-                recipeCollection: {
-                  total: 2,
-                },
-              },
-            },
-            childrenCollection: {
-              total: 3,
-              items: [
-                {
-                  sys: {
-                    id: 'sys-id-4',
-                  },
-                  __typename: 'Tag',
-                  title: 'Subcategory 2a',
-                  slug: 'subcategory-2a',
-                  linkedFrom: {
-                    recipeCollection: {
-                      total: 1,
-                    },
-                  },
-                },
-                {
-                  sys: {
-                    id: 'sys-id-5',
-                  },
-                  __typename: 'Tag',
-                  title: 'Subcategory 2b',
-                  slug: 'subcategoy-2b',
-                  linkedFrom: {
-                    recipeCollection: {
-                      total: 0,
-                    },
-                  },
-                },
-              ],
-            },
-          },
-          {
-            sys: {
-              id: 'sys-id-6',
-            },
-            __typename: 'Tag',
-            title: 'Category 6',
-            slug: 'category-6',
-            linkedFrom: {
-              recipeCollection: {
-                total: 0,
-              },
-            },
-          },
-        ],
-      },
-    };
+    it('it renders a nav menu hidden by default', async () => {
+      const nav = await api.getNavTaxonomy();
 
-    it('it renders a nav menu hidden by default', () => {
       const onClick = jest.fn();
       const isOpen = false;
 
-      const component = render(
-        <NavMenu nav={nav as Taxonomy} onClick={onClick} isOpen={isOpen} />
-      );
+      const featuredLabel = 'Label';
+      const featuredUrl = 'http://test.url';
 
-      const { container } = component;
+      const { asFragment, container } = render(
+        <NavMenu
+          nav={nav.categories as TaxonomyChildrenItem[]}
+          onClose={onClick}
+          isOpen={isOpen}
+          id={'categories'}
+          featuredLabel={featuredLabel}
+          featuredUrl={featuredUrl}
+        />
+      );
 
       expect(container.getElementsByClassName('menu'));
 
       // assert that the component matches the existing snapshot
       // test snapshot against component since container is rendered hidden
       // and doesn't show up in initial container
-      expect(component).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 
@@ -131,7 +52,12 @@ describe('NavMenu', () => {
       const onClick = jest.fn();
 
       const { container } = render(
-        <NavMenu nav={nav} onClick={onClick} isOpen={isOpen} />
+        <NavMenu
+          nav={nav as unknown as TaxonomyChildrenItem[]}
+          onClose={onClick}
+          isOpen={isOpen}
+          id={'categories'}
+        />
       );
 
       expect(container.getElementsByClassName('menu').length).toEqual(0);
@@ -139,80 +65,47 @@ describe('NavMenu', () => {
   });
 
   describe('when there are not properly structured category tags', () => {
-    const nav = {
-      sys: {
-        id: 'sys-id-0',
+    const nav = [
+      {
+        __typename: 'Tag',
+        title: 'Tag A',
+        slug: 'tag-a',
+        linkedFrom: null,
       },
-      __typename: 'Taxonomy',
-      title: 'Categories',
-      slug: 'categories',
-      tag: null,
-      childrenCollection: {
-        total: 3,
-        items: [
-          null,
-          {
-            sys: {
-              id: 'sys-id-1',
-            },
-            __typename: 'Taxonomy',
-            title: 'Category 1',
-            slug: 'category-1',
-            tag: {
-              sys: {
-                id: 'sys-id-2',
-              },
-              __typename: 'Tag',
-              title: 'Category 2 Tag',
-              slug: 'category-2',
-            },
-            childrenCollection: {
-              total: 3,
-              items: [
-                {
-                  sys: {
-                    id: 'sys-id-3',
-                  },
-                  __typename: 'Tag',
-                  title: 'Subcategory 2a',
-                  slug: 'subcategory-2a',
-                  linkedFrom: null,
-                },
-                {
-                  sys: {
-                    id: 'sys-id-4',
-                  },
-                  __typename: 'Tag',
-                  title: 'Subcategory 2a',
-                  slug: 'subcategory-2a',
-                  linkedFrom: {
-                    recipeCollection: null,
-                  },
-                },
-              ],
-            },
-          },
-          {
-            sys: {
-              id: 'sys-id-5',
-            },
-            __typename: 'Tag',
-            title: 'Category 6',
-            slug: 'category-6',
-            linkedFrom: {
-              recipeCollection: null,
-            },
-          },
-        ],
+      {
+        __typename: 'Tag',
+        title: 'Tag B',
+        slug: 'tag-b',
+        linkedFrom: {
+          recipeCollection: null,
+        },
       },
-    };
+      {
+        __typename: 'Tag',
+        title: 'Tag C',
+        slug: 'tag-c',
+      },
+      {
+        __typename: 'Taxonomy',
+        title: 'Tag D',
+        slug: 'tag-d',
+        linkedFrom: {
+          recipeCollection: null,
+        },
+      },
+    ];
 
     it('it does not render', () => {
       const isOpen = false;
       const onClick = jest.fn();
 
       const { container } = render(
-        <NavMenu nav={nav as Taxonomy} onClick={onClick} isOpen={isOpen} />
+        <NavMenu
+          nav={nav as unknown as TaxonomyChildrenItem[]}
+          onClose={onClick}
+          isOpen={isOpen}
+          id={'categories'}
+        />
       );
 
       expect(container.getElementsByClassName('menu').length).toEqual(0);

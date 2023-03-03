@@ -40,7 +40,11 @@ const containerThemeOptions: ThemeOptions = {
             '&.recipe': {
               '& .content': {
                 marginBottom: '3rem',
+                '& .contentGrid': {
+                  width: '100%',
+                },
                 '& .description': {
+                  width: '100%',
                   '& .details': {
                     borderTop: `1px solid ${baseTheme.palette.grey[300]}`,
                     marginTop: '.5rem',

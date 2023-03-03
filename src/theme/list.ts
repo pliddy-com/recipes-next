@@ -1,6 +1,6 @@
 import { ThemeOptions } from '@mui/material/styles';
 import colors from 'theme/colors';
-import { sansFontFamily } from './fontface';
+import { fontWeightBold, sansFontFamily } from './fontface';
 
 // TODO: differentiate between nav list and recipe lists
 // recipe lists introduce .25rem margin left, not wanted in nav
@@ -26,9 +26,24 @@ const listThemeOptions: ThemeOptions = {
               },
             },
           },
+          '& .MuiListSubheader-root': {
+            backgroundColor: colors.primary.main,
+            color: colors.common.white,
+            fontFamily: sansFontFamily,
+            fontSize: '1rem',
+            fontWeight: fontWeightBold,
+            minHeight: '4rem',
+            paddingTop: '.5rem',
+            textTransform: 'capitalize',
+          },
           '& .MuiListItem-root': {
             '&.menuItem': {
               paddingLeft: 0,
+              '&.featured': {
+                '& .MuiListItemText-primary': {
+                  fontWeight: fontWeightBold,
+                },
+              },
             },
             '&.menuItem, &.subMenuItem': {
               '& .MuiListItemText-primary': {

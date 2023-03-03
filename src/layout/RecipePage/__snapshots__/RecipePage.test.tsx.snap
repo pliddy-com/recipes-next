@@ -17,7 +17,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         class="MuiGrid-root MuiGrid-container content css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-6 css-1i6hukq-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-6 contentGrid css-1i6hukq-MuiGrid-root"
         >
           <div
             class="description css-nen11g-MuiStack-root"

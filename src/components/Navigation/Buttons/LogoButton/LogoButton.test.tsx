@@ -5,9 +5,10 @@ import LogoButton from './LogoButton';
 import config from 'lib/config';
 
 describe('LogoButton', () => {
-  it('renders a logo button', () => {
+  const expectedHref = '/';
+
+  it('renders a logo button with a label', () => {
     const expectedLabel = config?.microcopy?.site?.title;
-    const expectedHref = '/';
 
     const { getByRole } = render(<LogoButton />);
 
@@ -22,5 +23,20 @@ describe('LogoButton', () => {
 
     // assert that the component matches the existing snapshot
     expect(component).toMatchSnapshot();
+  });
+
+  describe('when the hideLabel flag is true', () => {
+    it('renders an icon button', () => {
+      const { getByRole } = render(<LogoButton hideLabel={true} />);
+
+      // assert that component has been rendered
+      const component = getByRole('button', { name: 'home' });
+
+      // assert that the component has correct href
+      expect(component).toHaveAttribute('href', expectedHref);
+
+      // assert that the component matches the existing snapshot
+      expect(component).toMatchSnapshot();
+    });
   });
 });

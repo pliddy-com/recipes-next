@@ -5,113 +5,115 @@ import { render, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import NavBar from './NavBar';
+import NavBar, { NavDataProps } from './NavBar';
 
-import { Taxonomy } from 'types/queries';
+// import { TaxonomyChildrenItem } from 'types/queries';
 
-describe('NavMenu', () => {
+import * as api from 'lib/api';
+
+jest.mock('lib/api');
+
+describe('NavBar', () => {
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        // onchange: null,
+        addListener: jest.fn(), // Deprecated
+        removeListener: jest.fn(), // Deprecated
+        // addEventListener: jest.fn(),
+        // removeEventListener: jest.fn(),
+        // dispatchEvent: jest.fn(),
+      })),
+    });
+  });
+
   describe('when there is a properly structured nav property', () => {
-    const nav = {
-      sys: {
-        id: 'sys-id-0',
-      },
-      __typename: 'Taxonomy',
-      title: 'Categories',
-      slug: 'categories',
-      tag: null,
-      childrenCollection: {
-        total: 2,
-        items: [
-          {
-            sys: {
-              id: 'sys-id-1',
-            },
-            __typename: 'Tag',
-            title: 'Category 1',
-            slug: 'category-1',
-            linkedFrom: {
-              recipeCollection: {
-                total: 3,
-              },
-            },
-          },
-          {
-            sys: {
-              id: 'sys-id-2',
-            },
-            __typename: 'Taxonomy',
-            title: 'Category 2',
-            slug: 'category-2',
-            tag: {
-              sys: {
-                id: 'sys-id-3',
-              },
-              __typename: 'Tag',
-              title: 'Category 2 Tag',
-              slug: 'category-2',
-              linkedFrom: {
-                recipeCollection: {
-                  total: 2,
-                },
-              },
-            },
-            childrenCollection: {
-              total: 2,
-              items: [
-                {
-                  sys: {
-                    id: 'sys-id-4',
-                  },
-                  __typename: 'Tag',
-                  title: 'Subcategory 2a',
-                  slug: 'subcategory-2a',
-                  linkedFrom: {
-                    recipeCollection: {
-                      total: 1,
-                    },
-                  },
-                },
-                {
-                  sys: {
-                    id: 'sys-id-5',
-                  },
-                  __typename: 'Tag',
-                  title: 'Subcategory 2b',
-                  slug: 'subcategoy-2b',
-                  linkedFrom: {
-                    recipeCollection: {
-                      total: 0,
-                    },
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    };
+    it('it renders a nav bar', async () => {
+      const nav = await api.getNavTaxonomy();
 
-    it('it renders a nav bar', () => {
       const { container, queryByRole } = render(
-        <NavBar nav={nav as Taxonomy} />
+        <NavBar nav={nav as NavDataProps} />
       );
       const component = container.getElementsByClassName('MuiAppBar-root')[0];
 
       // assert that component has been rendered
       expect(component).toBeInTheDocument();
 
-      // assert that button has been rendered
-      const button = queryByRole('button', { name: 'open drawer' });
-      expect(button).toBeInTheDocument();
+      // assert that buttons have been rendered
+      const logoButton = queryByRole('button', {
+        name: 'home',
+      });
 
-      const drawer = container.getElementsByClassName('MuiDrawer-paper');
-      waitFor(() => expect(drawer).not.toBeVisible());
+      expect(logoButton).toBeDefined();
 
-      // assert that callback is called on click
-      button && fireEvent.click(button);
+      const categoriesButton = queryByRole('button', {
+        name: 'open categories menu',
+      });
 
-      // assert that there was a change in the DOM
-      waitFor(() => expect(drawer).toBeVisible());
+      const cuisineButton = queryByRole('button', {
+        name: 'open cuisine menu',
+      });
+
+      const tagsButton = queryByRole('button', {
+        name: 'open tags menu',
+      });
+
+      // assert that callback is called on click & there was a change in the DOM
+      categoriesButton && fireEvent.click(categoriesButton);
+
+      const categoriesDrawer = queryByRole('menu', {
+        name: 'categories menu',
+      });
+
+      waitFor(() => expect(categoriesDrawer).toBeVisible());
+
+      categoriesDrawer &&
+        fireEvent.keyDown(categoriesDrawer, {
+          key: 'Escape',
+          code: 'Escape',
+          charCode: 27,
+        });
+
+      waitFor(() => expect(categoriesDrawer).not.toBeVisible());
+
+      // assert that callback is called on click & there was a change in the DOM
+      cuisineButton && fireEvent.click(cuisineButton);
+
+      const cuisineDrawer = queryByRole('menu', {
+        name: 'cuisine menu',
+      });
+
+      waitFor(() => expect(cuisineDrawer).toBeVisible());
+
+      cuisineDrawer &&
+        fireEvent.keyDown(cuisineDrawer, {
+          key: 'Escape',
+          code: 'Escape',
+          charCode: 27,
+        });
+
+      waitFor(() => expect(cuisineDrawer).not.toBeVisible());
+
+      // assert that callback is called on click & there was a change in the DOM
+      tagsButton && fireEvent.click(tagsButton);
+
+      const tagsDrawer = queryByRole('menu', {
+        name: 'tags menu',
+      });
+
+      waitFor(() => expect(tagsDrawer).toBeVisible());
+
+      tagsDrawer &&
+        fireEvent.keyDown(tagsDrawer, {
+          key: 'Escape',
+          code: 'Escape',
+          charCode: 27,
+        });
+
+      waitFor(() => expect(tagsDrawer).not.toBeVisible());
 
       // assert that the component matches the existing snapshot
       expect(container).toMatchSnapshot();
@@ -119,7 +121,7 @@ describe('NavMenu', () => {
   });
 
   describe('when there is no nav property', () => {
-    it('it does not render a menu', () => {
+    it('it does not render a navbar', () => {
       const nav = undefined;
       const testId = 'nav-menu';
       const { queryByTestId, queryByRole } = render(<NavBar nav={nav} />);
