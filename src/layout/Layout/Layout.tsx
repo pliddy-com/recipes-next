@@ -4,22 +4,25 @@ import NavBar from 'components/Navigation/NavBar/NavBar';
 
 import { getNavTaxonomy } from 'lib/api';
 
-import { Taxonomy } from 'types/queries';
+import { TaxonomyChildrenItem } from 'types/queries';
 
 interface LayoutProps {
   children?: ReactElement[] | ReactElement;
 }
 
+interface NavDataProps {
+  categories: TaxonomyChildrenItem[];
+  cuisine: TaxonomyChildrenItem[];
+  tags: TaxonomyChildrenItem[];
+}
+
 const Layout = ({ children }: LayoutProps) => {
-  const [navData, setNavData] = useState<Taxonomy>();
+  const [navData, setNavData] = useState<NavDataProps>();
 
   useEffect(() => {
-    getNavTaxonomy({ where: { slug: 'categories' } })
-      .then((result) => {
-        if (result[0]) {
-          const menu = result[0] as Taxonomy;
-          setNavData(menu);
-        }
+    getNavTaxonomy()
+      .then((nav) => {
+        nav && setNavData(nav as NavDataProps);
       })
       // eslint-disable-next-line no-console
       .catch((e) => console.error(e));

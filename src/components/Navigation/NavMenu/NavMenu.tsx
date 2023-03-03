@@ -9,66 +9,75 @@ import ListItemText from '@mui/material/ListItemText';
 
 import CategoryMenu from 'components/Navigation/NavMenu/CategoryMenu/CategoryMenu';
 
-import { Taxonomy } from 'types/queries';
+import { TaxonomyChildrenItem } from 'types/queries';
+import ListSubheader from '@mui/material/ListSubheader';
 
 interface NavMenuType {
   isOpen: boolean;
-  nav?: Taxonomy;
-  onClick: VoidFunction;
+  nav: TaxonomyChildrenItem[];
+  onClose: VoidFunction;
+  id: 'categories' | 'cuisine' | 'tags';
+  featuredLabel?: string;
+  featuredUrl?: string;
 }
 
-const NavMenu = ({ isOpen, nav, onClick }: NavMenuType) => {
-  const { childrenCollection } = nav ?? {};
-  const { items: categories } = childrenCollection ?? {};
-
+const NavMenu = ({
+  isOpen,
+  nav,
+  onClose,
+  id,
+  featuredLabel,
+  featuredUrl,
+}: NavMenuType) => {
   return (
     <Drawer
       anchor="right"
       ModalProps={{
         keepMounted: true, // Better open performance on mobile.
       }}
-      onClose={onClick}
+      onClose={onClose}
       open={isOpen}
       className="menu"
       variant="temporary"
     >
-      <List component="nav">
-        <ListItem className="menuItem">
-          <ListItemButton component={Link} href="/" onClick={onClick}>
-            <ListItemText primary="All Recipes" />
-          </ListItemButton>
-        </ListItem>
+      <List
+        aria-label={`${id} menu`}
+        role="menu"
+        component="nav"
+        subheader={<ListSubheader>{id}</ListSubheader>}
+      >
+        {featuredLabel && featuredUrl && (
+          <>
+            <ListItem className="menuItem featured">
+              <ListItemButton
+                component={Link}
+                href={featuredUrl}
+                onClick={onClose}
+              >
+                <ListItemText primary={featuredLabel} />
+              </ListItemButton>
+            </ListItem>
 
-        <Divider />
-
-        <ListItem className="menuItem">
-          <ListItemButton component={Link} href="/tag" onClick={onClick}>
-            <ListItemText primary="Tag Collections" />
-          </ListItemButton>
-        </ListItem>
-
-        <Divider />
-
-        {categories &&
-          categories.map((category) => {
+            <Divider />
+          </>
+        )}
+        {nav &&
+          nav.map((item) => {
+            // if includes 'tag', it's a Taxonomy, else it's a Tag
             const categoryTag =
-              category && 'tag' in category ? category.tag : category;
+              item && item.__typename === 'Taxonomy' ? item.tag : item;
 
             const { linkedFrom } = categoryTag ?? {};
 
-            if (linkedFrom && 'recipeCollection' in linkedFrom) {
-              const { recipeCollection } = linkedFrom;
-              const { total: numRecipes } = recipeCollection ?? {};
-
-              return numRecipes ? (
-                <CategoryMenu
-                  key={category?.slug}
-                  category={category}
-                  onClick={onClick}
-                />
-              ) : null;
-            }
+            return linkedFrom && 'recipeCollection' in linkedFrom ? (
+              <CategoryMenu
+                key={item?.slug}
+                category={item}
+                onClick={onClose}
+              />
+            ) : null;
           })}
+        ;
       </List>
     </Drawer>
   );

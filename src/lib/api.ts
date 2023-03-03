@@ -1,8 +1,13 @@
 import { queryGraphQLContent } from 'lib/gqlClient';
 
 import {
-  NavTaxonomyDocument,
-  NavTaxonomyQueryVariables,
+  filterSlugs,
+  filterTagsWithRecipes,
+  filterTaxonomyItemsWithRecipes,
+} from './apiFilters';
+
+import {
+  NavMenuDataDocument,
   RecipeIndexDocument,
   RecipeIndexQueryVariables,
   RecipeListDocument,
@@ -15,18 +20,28 @@ import {
   TagIndexQueryVariables,
   TagSlugsDocument,
   TagSlugsQueryVariables,
+  TagCollection,
+  RecipeDefaultFragment,
+  TagDefaultFragment,
 } from 'types/queries';
 
 import { hasValue } from 'lib/utils';
 
 // used to query content for nav menu taxonomy on client layout
-export const getNavTaxonomy = async (variables: NavTaxonomyQueryVariables) => {
-  const { taxonomyCollection } = await queryGraphQLContent(
-    NavTaxonomyDocument,
-    variables
+export const getNavTaxonomy = async () => {
+  const { categories, cuisine, tags } = await queryGraphQLContent(
+    NavMenuDataDocument
   );
 
-  return taxonomyCollection ? taxonomyCollection.items.filter(hasValue) : [];
+  return {
+    ...(categories && {
+      categories: filterTaxonomyItemsWithRecipes(categories),
+    }),
+    ...(cuisine && { cuisine: filterTaxonomyItemsWithRecipes(cuisine) }),
+    ...(tags && {
+      tags: filterTagsWithRecipes({ tagCollection: tags as TagCollection }),
+    }),
+  };
 };
 
 // used by getStaticProps for recipe page
@@ -36,30 +51,23 @@ export const getRecipeSlugs = async (variables: RecipeSlugsQueryVariables) => {
     variables
   );
 
-  const results = recipeCollection?.items?.map((child) =>
-    child && child.slug ? child.slug : null
-  );
-
-  return results ? results?.filter(hasValue) : [];
+  return recipeCollection
+    ? filterSlugs(recipeCollection?.items as RecipeDefaultFragment[])
+    : [];
 };
 
 // used by getStaticProps for tag page
-export const getTagSlugs = async (variables: TagSlugsQueryVariables) => {
+export const getTagSlugs = async (variables?: TagSlugsQueryVariables) => {
   const { tagCollection } = await queryGraphQLContent(
     TagSlugsDocument,
     variables
   );
 
-  const results = tagCollection?.items
-    .filter(hasValue)
-    .filter(
-      (item) =>
-        item?.linkedFrom?.recipeCollection?.total &&
-        item?.linkedFrom?.recipeCollection?.total > 0
-    )
-    .map((child) => (child && child.slug ? child.slug : null));
+  const tags = filterTagsWithRecipes({
+    tagCollection: tagCollection as TagCollection,
+  });
 
-  return results ? results?.filter(hasValue) : [];
+  return tags ? filterSlugs(tags as TagDefaultFragment[]) : [];
 };
 
 // used to query content for home index page
@@ -109,11 +117,9 @@ export const getTagIndex = async (variables?: TagIndexQueryVariables) => {
     variables
   );
 
-  const results = tagCollection?.items.filter(
-    (item) =>
-      item?.linkedFrom?.recipeCollection?.total &&
-      item?.linkedFrom?.recipeCollection?.total > 0
-  );
-
-  return results ? results?.filter(hasValue) : [];
+  return tagCollection
+    ? filterTagsWithRecipes({
+        tagCollection: tagCollection as TagCollection,
+      })
+    : [];
 };

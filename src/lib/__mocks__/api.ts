@@ -24,9 +24,20 @@ mockedUrql.createClient.mockReturnValue(client as unknown as Client);
 // import api library to mock
 const api: ApiTestProps = jest.createMockFromModule('lib/api');
 
-api.getNavTaxonomy = jest
-  .fn()
-  .mockResolvedValue([{ slug: 'slug-1', title: 'Title 1' }]);
+api.getNavTaxonomy = jest.fn().mockResolvedValue({
+  categories: [
+    { slug: 'slug-1', title: 'Title 1' },
+    { slug: 'slug-2', title: 'Title 2' },
+  ],
+  cuisine: [
+    { slug: 'slug-1', title: 'Title 1' },
+    { slug: 'slug-2', title: 'Title 2' },
+  ],
+  tags: [
+    { slug: 'slug-1', title: 'Title 1' },
+    { slug: 'slug-2', title: 'Title 2' },
+  ],
+});
 
 api.getRecipeSlugs = jest.fn().mockResolvedValue(['slug-1', 'slug-2']);
 

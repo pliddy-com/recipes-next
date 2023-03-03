@@ -9,6 +9,7 @@ import PageHead from 'components/PageHead/PageTags/PageTags';
 import { getTagIndex } from 'lib/api';
 import config from 'lib/config';
 import TagListSchema from 'components/PageHead/Schema/TagListSchema/TagListSchema';
+import { ListPageItemFragment } from 'types/queries';
 
 const TagGridPage = dynamic(
   () =>
@@ -31,13 +32,13 @@ const TagIndexPage = ({
         description={description}
       />
       <TagListSchema
-        tags={pageContent}
+        tags={pageContent as (ListPageItemFragment | null)[]}
         title={defaultTitle}
         description={description}
       />
       {TagGridPage && (
         <Suspense fallback={<Loading />}>
-          <TagGridPage tags={pageContent} />
+          <TagGridPage tags={pageContent as (ListPageItemFragment | null)[]} />
         </Suspense>
       )}
     </>

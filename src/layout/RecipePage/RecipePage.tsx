@@ -57,7 +57,7 @@ const RecipePage = ({ content }: RecipePageProps) => {
         </Typography>
 
         <Grid container className="content">
-          <Grid item lg={6}>
+          <Grid item lg={6} className="contentGrid">
             <Stack className="description">
               {description && (
                 <RichText content={description as RecipeDescription} />
