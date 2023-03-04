@@ -1,37 +1,27 @@
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-
 import MenuIcon from '@mui/icons-material/Menu';
 
-interface MenuButtonProps {
+import NavIconButton from '../NavIconButton/NavIconButton';
+
+interface CategoriesButtonProps {
   onClick: VoidFunction;
   hideLabel?: boolean;
 }
 
-const MenuButton = ({ onClick, hideLabel = false }: MenuButtonProps) =>
-  hideLabel ? (
-    <IconButton
-      aria-label="open categories menu"
-      className="menu"
-      color="inherit"
-      edge="start"
-      onClick={onClick}
-      role="button"
-    >
-      <MenuIcon />
-    </IconButton>
-  ) : (
-    <Button
-      aria-label="open categories menu"
-      className="menu"
-      color="primary"
-      onClick={onClick}
-      role="button"
-      size="large"
-      startIcon={<MenuIcon />}
-    >
-      Categories
-    </Button>
-  );
+const CategoriesButton = ({ onClick, hideLabel }: CategoriesButtonProps) => {
+  const ariaLabel = 'open categories menu';
+  const className = 'menu';
+  const label = 'Categories';
 
-export default MenuButton;
+  return (
+    <NavIconButton
+      ariaLabel={ariaLabel}
+      className={className}
+      hideLabel={hideLabel}
+      icon={<MenuIcon />}
+      label={label}
+      onClick={onClick}
+    />
+  );
+};
+
+export default CategoriesButton;

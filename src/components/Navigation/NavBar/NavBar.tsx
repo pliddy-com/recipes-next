@@ -6,7 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 import CuisineButton from 'components/Navigation/Buttons/CuisineButton/CuisineButton';
 import LogoButton from 'components/Navigation/Buttons/LogoButton/LogoButton';
-import MenuButton from 'components/Navigation/Buttons/CategoriesButton/CategoriesButton';
+import CategoriesButton from 'components/Navigation/Buttons/CategoriesButton/CategoriesButton';
 import NavMenu from 'components/Navigation/NavMenu/NavMenu';
 import TagButton from 'components/Navigation/Buttons/TagButton/TagButton';
 
@@ -50,7 +50,7 @@ const NavBar = ({ nav }: NavBarProps) => {
       <Toolbar>
         <LogoButton hideLabel={hideSmall} />
         {categories && (
-          <MenuButton
+          <CategoriesButton
             hideLabel={hideLabel}
             onClick={() => handleDrawerToggle({ id: 'categories' })}
           />
