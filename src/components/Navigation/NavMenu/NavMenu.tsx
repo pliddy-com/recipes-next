@@ -13,21 +13,23 @@ import { TaxonomyChildrenItem } from 'types/queries';
 import ListSubheader from '@mui/material/ListSubheader';
 
 interface NavMenuType {
+  featuredLabel?: string;
+  featuredUrl?: string;
+  id: 'categories' | 'cuisine' | 'tags';
   isOpen: boolean;
   nav: TaxonomyChildrenItem[];
   onClose: VoidFunction;
-  id: 'categories' | 'cuisine' | 'tags';
-  featuredLabel?: string;
-  featuredUrl?: string;
+  root: 'category' | 'cuisine' | 'tag';
 }
 
 const NavMenu = ({
+  featuredLabel,
+  featuredUrl,
+  id,
   isOpen,
   nav,
   onClose,
-  id,
-  featuredLabel,
-  featuredUrl,
+  root,
 }: NavMenuType) => {
   return (
     <Drawer
@@ -74,6 +76,7 @@ const NavMenu = ({
                 key={item?.slug}
                 category={item}
                 onClick={onClose}
+                root={root}
               />
             ) : null;
           })}

@@ -7,6 +7,7 @@ import { Maybe } from 'types/queries';
 
 interface CategoryListItemButtonProps {
   onClick: VoidFunction;
+  root: Maybe<string> | undefined;
   slug: Maybe<string> | undefined;
   title: Maybe<string> | undefined;
   total?: number;
@@ -14,6 +15,7 @@ interface CategoryListItemButtonProps {
 
 const CategoryListItemButton = ({
   onClick,
+  root,
   slug,
   title,
   total,
@@ -22,7 +24,7 @@ const CategoryListItemButton = ({
     <ListItemButton
       aria-label={`${slug} category`}
       component={Link}
-      href={`/category/${slug}`}
+      href={`/${root}/${slug}`}
       onClick={onClick}
     >
       <ListItemText primary={`${title} (${total})`} className="menuItem" />

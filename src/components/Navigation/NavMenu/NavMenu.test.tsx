@@ -14,6 +14,8 @@ import * as api from 'lib/api';
 jest.mock('lib/api');
 
 describe('NavMenu', () => {
+  const root = 'category';
+
   describe('when there is a properly structured nav property', () => {
     it('it renders a nav menu hidden by default', async () => {
       const nav = await api.getNavTaxonomy();
@@ -26,12 +28,13 @@ describe('NavMenu', () => {
 
       const { asFragment, container } = render(
         <NavMenu
-          nav={nav.categories as TaxonomyChildrenItem[]}
-          onClose={onClick}
-          isOpen={isOpen}
-          id={'categories'}
           featuredLabel={featuredLabel}
           featuredUrl={featuredUrl}
+          id={'categories'}
+          isOpen={isOpen}
+          nav={nav.categories as TaxonomyChildrenItem[]}
+          onClose={onClick}
+          root={root}
         />
       );
 
@@ -53,10 +56,11 @@ describe('NavMenu', () => {
 
       const { container } = render(
         <NavMenu
+          id={'categories'}
+          isOpen={isOpen}
           nav={nav as unknown as TaxonomyChildrenItem[]}
           onClose={onClick}
-          isOpen={isOpen}
-          id={'categories'}
+          root={root}
         />
       );
 
@@ -101,10 +105,11 @@ describe('NavMenu', () => {
 
       const { container } = render(
         <NavMenu
+          id={'categories'}
+          isOpen={isOpen}
           nav={nav as unknown as TaxonomyChildrenItem[]}
           onClose={onClick}
-          isOpen={isOpen}
-          id={'categories'}
+          root={root}
         />
       );
 

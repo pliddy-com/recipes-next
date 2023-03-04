@@ -64,6 +64,7 @@ describe('CategoryMenu', () => {
         <CategoryMenu
           category={category as TaxonomyChildrenItem}
           onClick={callback}
+          root="category"
         />
       );
 
@@ -96,7 +97,7 @@ describe('CategoryMenu', () => {
       const category = null;
 
       const { queryByRole } = render(
-        <CategoryMenu category={category} onClick={callback} />
+        <CategoryMenu category={category} onClick={callback} root="category" />
       );
 
       // assert that menu has not been rendered
