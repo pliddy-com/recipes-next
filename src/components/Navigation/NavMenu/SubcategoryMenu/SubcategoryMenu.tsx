@@ -44,6 +44,7 @@ const SubcategoryMenu = ({ category, onClick, root }: SubcategoryMenuProps) => {
       <ListItem
         data-testid="category item"
         className="menuItem"
+        role="menuitem"
         secondaryAction={
           <IconButton
             role="button"
@@ -75,9 +76,9 @@ const SubcategoryMenu = ({ category, onClick, root }: SubcategoryMenuProps) => {
 
               return child && slug && title && total ? (
                 <ListItem
-                  key={slug}
                   className="subMenuItem"
                   data-testid="subcategory item"
+                  key={slug}
                 >
                   <CategoryListItemButton
                     slug={slug}

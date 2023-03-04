@@ -43,7 +43,7 @@ const CategoryMenu = ({ category, onClick, root }: CategoryMenuProps) => {
       {categoryChildrenCollection ? (
         <SubcategoryMenu category={category} onClick={onClick} root={root} />
       ) : (
-        <ListItem className="menuItem">
+        <ListItem className="menuItem" role="menuitem">
           <CategoryListItemButton
             root={root}
             slug={slug}
