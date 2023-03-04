@@ -24,19 +24,7 @@ const NavIconButton = ({
   href,
   icon,
 }: NavIconButtonProps) =>
-  hideLabel ? (
-    <IconButton
-      aria-label={ariaLabel}
-      className={className}
-      color="inherit"
-      edge="start"
-      onClick={onClick}
-      role="button"
-      {...(href ? { href } : {})}
-    >
-      {icon}
-    </IconButton>
-  ) : (
+  !hideLabel ? (
     <Button
       aria-label={ariaLabel}
       className={className}
@@ -50,6 +38,18 @@ const NavIconButton = ({
     >
       {label}
     </Button>
+  ) : (
+    <IconButton
+      aria-label={ariaLabel}
+      className={className}
+      color="inherit"
+      edge="start"
+      onClick={onClick}
+      role="button"
+      {...(href ? { href } : {})}
+    >
+      {icon}
+    </IconButton>
   );
 
 export default NavIconButton;
