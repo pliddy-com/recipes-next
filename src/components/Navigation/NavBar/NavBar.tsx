@@ -26,7 +26,6 @@ export interface NavBarProps {
 
 const NavBar = ({ nav }: NavBarProps) => {
   const hideLabel = useMediaQuery(theme.breakpoints.down('md'));
-  const hideSmall = useMediaQuery(theme.breakpoints.down('sm'));
 
   const { categories, cuisine, tags } = nav ?? {};
 
@@ -48,7 +47,9 @@ const NavBar = ({ nav }: NavBarProps) => {
   return (
     <AppBar component="nav" data-testid="navbar">
       <Toolbar>
-        <LogoButton hideLabel={hideSmall} />
+        {/* <LogoButton hideLabel={hideSmall} /> */}
+        <LogoButton />
+
         {categories && (
           <CategoriesButton
             hideLabel={hideLabel}
