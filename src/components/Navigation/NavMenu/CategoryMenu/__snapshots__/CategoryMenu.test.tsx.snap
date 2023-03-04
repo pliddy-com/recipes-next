@@ -11,6 +11,7 @@ exports[`CategoryMenu when there is a properly structured category property it r
       <li
         class="MuiListItem-root MuiListItem-gutters MuiListItem-padding menuItem css-1rki8sg-MuiListItem-root"
         data-testid="category item"
+        role="menuitem"
       >
         <a
           aria-label="category-slug category"

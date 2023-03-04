@@ -47,7 +47,6 @@ const NavBar = ({ nav }: NavBarProps) => {
   return (
     <AppBar component="nav" data-testid="navbar">
       <Toolbar>
-        {/* <LogoButton hideLabel={hideSmall} /> */}
         <LogoButton />
 
         {categories && (
