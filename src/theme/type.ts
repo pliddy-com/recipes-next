@@ -59,13 +59,13 @@ const typeThemeOptions: ThemeOptions = {
       fontSize: `${(baseFontSize - 2) / baseRemSize}rem`,
       fontWeight: fontWeightRegular,
       letterSpacing: '.1px',
-      lineHeight: 1.25,
+      lineHeight: 26 / baseFontSize,
     },
     body1: {
       fontSize: `${baseFontSize / baseRemSize}rem`,
       fontWeight: fontWeightRegular,
       letterSpacing: '.1px',
-      lineHeight: 1.25,
+      lineHeight: 26 / baseFontSize,
     },
     h1: {
       borderBottom: `1px solid ${colors.secondary.main}`,
