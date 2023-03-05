@@ -27,6 +27,13 @@ const cardThemeOptions: ThemeOptions = {
             justifyContent: 'center',
             alignItems: 'center',
             overflow: 'hidden',
+            '& .dynamicImage': {
+              width: '100%',
+              height: 'auto',
+              minWidth: '100%',
+              minHeight: '100%',
+              objectFit: 'cover',
+            },
           },
           '& .MuiCardHeader': {
             '&-root': {

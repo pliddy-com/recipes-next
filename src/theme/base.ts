@@ -5,20 +5,6 @@ import { sansFontFamily, serifFontFamily } from 'theme/fontface';
 
 const baseTheme = createTheme({
   components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        img: {
-          '&.dynamicImage': {
-            width: '100%',
-            height: 'auto',
-            flexShrink: 0,
-            minWidth: '100%',
-            minHeight: '100%',
-            objectFit: 'cover',
-          },
-        },
-      },
-    },
     MuiUseMediaQuery: {
       defaultProps: {
         noSsr: true,

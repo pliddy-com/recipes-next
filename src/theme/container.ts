@@ -64,7 +64,9 @@ const containerThemeOptions: ThemeOptions = {
                 '& .image': {
                   '& .dynamicImage': {
                     aspectRatio: '4 /3',
-                    minHeight: 'fit-content',
+                    height: 'auto',
+                    objectFit: 'cover',
+                    width: '100%',
                   },
                 },
                 '& .tags': {
