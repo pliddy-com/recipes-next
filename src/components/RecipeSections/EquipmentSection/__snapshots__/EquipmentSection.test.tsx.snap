@@ -21,7 +21,7 @@ exports[`EquipmentSection when there is properly formatted content it renders th
         >
           <div
             aria-label="skillet"
-            class="MuiBox-root css-0"
+            class="icon MuiBox-root css-0"
             data-testid="skillet"
             role="graphics-symbol"
           >
@@ -56,7 +56,7 @@ exports[`EquipmentSection when there is properly formatted content it renders th
         >
           <div
             aria-label="skillet"
-            class="MuiBox-root css-0"
+            class="icon MuiBox-root css-0"
             data-testid="skillet"
             role="graphics-symbol"
           >

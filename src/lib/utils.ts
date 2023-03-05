@@ -17,5 +17,5 @@ export const minToTime = (num: number) => {
   const min = Math.floor(num % 60);
   return `${hours > 0 ? `${hours} hour${hours > 1 ? 's' : ''}` : ''}${
     hours && min ? ' ' : ''
-  }${min > 0 ? `${min} minutes` : ''}`;
+  }${min > 0 ? `${min} min` : ''}`;
 };

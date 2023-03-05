@@ -4,7 +4,7 @@ exports[`LogoIcon loads and displays greeting 1`] = `
 <DocumentFragment>
   <div
     aria-label="skillet"
-    class="MuiBox-root css-0"
+    class="icon MuiBox-root css-0"
     data-testid="skillet"
     role="graphics-symbol"
   >

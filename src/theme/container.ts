@@ -40,6 +40,14 @@ const containerThemeOptions: ThemeOptions = {
             '&.recipe': {
               '& .content': {
                 marginBottom: '3rem',
+                [breakpoints.down('sm')]: {
+                  flexDirection: 'column-reverse',
+                  marginBottom: '2rem',
+                },
+                [breakpoints.up('sm')]: {
+                  flexDirection: 'row',
+                  marginBottom: '1rem',
+                },
                 '& .contentGrid': {
                   width: '100%',
                 },
@@ -62,6 +70,24 @@ const containerThemeOptions: ThemeOptions = {
                   },
                 },
                 '& .image': {
+                  marginLeft: 0,
+                  marginRight: 0,
+                  [breakpoints.up('lg')]: {
+                    marginLeft: '2rem',
+                    marginTop: 0,
+                    marginBottom: 0,
+                  },
+                  [breakpoints.down('lg')]: {
+                    marginBottom: 0,
+                    marginTop: '2rem',
+                  },
+                  [breakpoints.down('md')]: {
+                    marginTop: '1.5rem',
+                    marginBottom: '1rem',
+                  },
+                  [breakpoints.down('sm')]: {
+                    marginTop: 0,
+                  },
                   '& .dynamicImage': {
                     aspectRatio: '4 /3',
                     height: 'auto',
@@ -78,17 +104,11 @@ const containerThemeOptions: ThemeOptions = {
                   },
                 },
               },
-              '& .image': {
-                marginLeft: 0,
-                marginRight: 0,
-                marginTop: '2rem',
-                ...(breakpoints &&
-                  breakpoints.up && {
-                    [breakpoints.up('lg')]: {
-                      marginLeft: '2rem',
-                      marginTop: 0,
-                    },
-                  }),
+              '& .equipment': {
+                '& .icon': {
+                  width: '24px',
+                  height: '24px',
+                },
               },
             },
           },

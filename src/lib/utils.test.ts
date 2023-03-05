@@ -45,14 +45,14 @@ describe('utils', () => {
       const num = 30;
       const res = minToTime(num);
 
-      expect(res).toEqual('30 minutes');
+      expect(res).toEqual('30 min');
     });
 
     it('it returns a human-readable duration over an hour', () => {
       const num = 90;
       const res = minToTime(num);
 
-      expect(res).toEqual('1 hour 30 minutes');
+      expect(res).toEqual('1 hour 30 min');
     });
 
     it('it returns a human-readable duration over an hour', () => {
