@@ -52,11 +52,11 @@ exports[`DynamicImage when there is a url & image object it renders a picture co
     />
     <img
       alt="Image Description"
+      class="dynamicImage"
       fetchpriority="high"
       height="300"
       loading="eager"
       src="https://URL.test?w=800&fm=webp&q=75"
-      style="width: 100%; height: auto; flex-shrink: 0; min-width: 100%; min-height: 100%; object-fit: cover;"
       width="400"
     />
   </picture>

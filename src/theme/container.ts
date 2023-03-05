@@ -61,6 +61,12 @@ const containerThemeOptions: ThemeOptions = {
                     },
                   },
                 },
+                '& .image': {
+                  '& .dynamicImage': {
+                    aspectRatio: '4 /3',
+                    minHeight: 'fit-content',
+                  },
+                },
                 '& .tags': {
                   marginTop: 'auto',
                   marginBottom: '1rem',
