@@ -24,3 +24,8 @@ jobs:
       - run: echo "::notice github.head_ref = ${{github.head_ref}}"
       - run: echo "::notice github.ref_name = ${{github.ref_name}}"
       - run: echo "::notice github.ref_type = ${{github.ref_type}}"
+      - run: echo "::notice github.pull_request = ${{github.pull_request}}"
+      - run: echo "::notice github.pull_request.base = ${{github.pull_request.base}}"
+      - run: echo "::notice github.pull_request.base.ref = ${{github.pull_request.base.ref}}"
+      - run: echo "::notice github.event = ${{github.event}}"
+      - run: echo "::notice github.event.ref = ${{github.event.ref}}"
