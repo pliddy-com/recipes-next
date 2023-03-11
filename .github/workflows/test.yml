@@ -18,6 +18,6 @@ jobs:
     name: Output Branch Ref
     runs-on: ubuntu-latest
     steps:
-      - run: echo "::notice Deleted Branch Name = $BRANCH_NAME"
+      - run: echo "Deleted Branch Name = $BRANCH_NAME"
         env:
           BRANCH_NAME: ${{github.event.ref}}
