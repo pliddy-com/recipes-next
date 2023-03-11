@@ -18,3 +18,5 @@ jobs:
     steps:
       - run: echo "::notice github.workflow = ${{github.workflow}}"
       - run: echo "::notice github.ref = ${{github.ref}}"
+      - run: echo "::notice github.head_ref = ${{github.head_ref}}"
+      - run: echo "::notice github.ref_name = ${{github.ref_name}}"
