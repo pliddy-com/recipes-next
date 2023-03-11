@@ -2,8 +2,8 @@ name: Branch Test
 run-name: Branch Test
 
 on:
-  push:
-    branches:
+  delete:
+    branches-ignore:
       - main
   workflow_dispatch:
 
