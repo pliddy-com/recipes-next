@@ -147,10 +147,6 @@ exports[`RecipesBranchStack generates a branch stack for a feature branch 1`] = 
               },
               "Id": "TestBranchStackSiteDistributionOrigin1B02A7E75",
               "OriginPath": "/branches/branch",
-              "OriginShield": {
-                "Enabled": true,
-                "OriginShieldRegion": "us-east-1",
-              },
               "S3OriginConfig": {
                 "OriginAccessIdentity": {
                   "Fn::Join": [
@@ -356,10 +352,6 @@ exports[`RecipesBranchStack generates a branch stack for the main branch 1`] = `
               },
               "Id": "TestBranchStackSiteDistributionOrigin1B02A7E75",
               "OriginPath": "/branches/main",
-              "OriginShield": {
-                "Enabled": true,
-                "OriginShieldRegion": "us-east-1",
-              },
               "S3OriginConfig": {
                 "OriginAccessIdentity": {
                   "Fn::Join": [
