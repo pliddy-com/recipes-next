@@ -63,36 +63,31 @@ jobs:
         uses: ASzc/change-string-case-action@v5
         with:
           string: ${{ github.event.ref }}
-      # - name: Set Branch Label
-      #   id: branch-label
-      #   run: |
-      #     echo "steps.branch-label-setup.outputs.capitalized: ${{ steps.branch-label-setup.outputs.capitalized }}"
-      #     echo "{branchLabel}={$steps.branch-label-setup.outputs.capitalized}" >> $GITHUB_OUTPUT
       - name: Set Distribution Id
         id: distribution-id
+        env:
+          BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
+          OUTPUT_ID: 'RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
+          CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
+          DISTRIBUTION_ID: '${{ cdkOutputs }}.${{ outputId }}'
         run: |
           echo "branch: ${{ github.event.ref }}"
 
           echo "steps.branch-label.outputs.capitalized: ${{ steps.branch-label.outputs.capitalized }}"
 
-        # branchLabel="${steps.branch-label.outputs.capitalized}"
-        # echo "branchLabel: ${{ branchLabel }}"
+          echo "BRANCH_LABEL: ${ BRANCH_LABEL }"
 
-        # outputId="RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}"
+          echo "OUTPUT_ID: ${{ OUTPUT_ID }}"
 
-        # echo "outputId: ${{ outputId }}"
+          echo "{outputId}={$OUTPUT_ID}" >> $GITHUB_OUTPUT
 
-        # echo "{outputId}={$outputId}" >> $GITHUB_OUTPUT
+          echo "CDK_OUTPUTS: ${{ CDK_OUTPUTS }}"
 
-        # cdkOutputs=${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
-
-        # echo "cdkOutputs: ${{ cdkOutputs }}"
+          echo "{distributionId}={$DISTRIBUTION_ID}" >> $GITHUB_OUTPUT
 
         # distributionId="${{ cdkOutputs }}.${{ outputId }}"
 
         # echo "distributionId: ${{ distributionId }}"
-
-        # echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
 
       # - name: Deploy Site Content
       #   id: deploy-site-content
