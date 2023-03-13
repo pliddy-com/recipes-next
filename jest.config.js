@@ -9,12 +9,12 @@ const createJestConfig = nextJest({
 /** @type {import('@jest/types').Config.InitialOptions} */
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  moduleDirectories: ['node_modules', '<rootDir>/src', '<rootDir>/cdk/lib'],
+  moduleDirectories: ['node_modules', '<rootDir>/src'],
   testEnvironment: 'jest-environment-jsdom',
   modulePathIgnorePatterns: ['<rootDir>/.github'],
   collectCoverage: true,
   collectCoverageFrom: [
-    'cdk/lib/*.ts',
+    '!cdk/**/*.*',
     '!.github/**',
     'src/**/*.{ts,tsx,js,jsx}',
     '!src/**/types/**',
