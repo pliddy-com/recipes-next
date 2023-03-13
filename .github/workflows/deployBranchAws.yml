@@ -90,6 +90,7 @@ jobs:
           echo "stackLabel: $STACK_LABEL"
           echo "distributionLabel: $DISTRIBUTION_LABEL"
           echo "cdk outputs: ${{ steps.cdk-outputs.outputs}}"
+          echo "cdk outputs.cdkOutputs: ${{ (steps.cdk-outputs.outputs.cdkOutputs}}"
 
           echo "cdk outputs as JSON: ${{ toJSON(steps.cdk-outputs.outputs) }}"
           echo "DISTRIBUTION_ID: $DISTRIBUTION_ID"
