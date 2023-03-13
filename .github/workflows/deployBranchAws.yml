@@ -62,7 +62,7 @@ jobs:
 
           echo "content: ${content}"
 
-          json=fromJson(${{ content }})
+          json=fromJSON(content)
 
           echo "json: ${json}}"
 
