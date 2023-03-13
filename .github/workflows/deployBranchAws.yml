@@ -63,10 +63,11 @@ jobs:
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
 
-          echo "fromJson(content): ${{ fromJson(content) }}"
-          echo "property label: ${{ RecipesBranchStack${{ steps.branch-label.outputs.capitalized }} }}"
+          echo "fromJson(content): ${{ fromJson(content)['087-deploy-shared'] }}"
 
           echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
+
+        # echo "property label: ${{ RecipesBranchStack${{ steps.branch-label.outputs.capitalized }} }}"
 
         # echo "distributionId: ${{ distributionId }}"
         # echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
