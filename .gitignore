@@ -40,3 +40,7 @@ next-env.d.ts
 # sitemap
 public/robots.txt
 public/sitemap*
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
