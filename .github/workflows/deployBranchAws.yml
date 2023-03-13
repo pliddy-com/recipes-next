@@ -78,15 +78,15 @@ jobs:
 
           echo "CDK_OUTPUTS: ${ CDK_OUTPUTS }"
 
-          stackLabel = 'RecipesBranchStack$BRANCH_LABEL-deploy-branch'
-          resourceLabel = 'ExportRecipesDistribution$BRANCH_LABEL'
+          stackLabel = "RecipesBranchStack$BRANCH_LABEL-deploy-branch"
+          resourceLabel = "ExportRecipesDistribution$BRANCH_LABEL"
 
-          echo "stackLabel: ${{ stackLabel }}"
-          echo "resourceLabel: ${{ resourceLabel }}"
+          echo "stackLabel: ${ stackLabel }"
+          echo "resourceLabel: ${ resourceLabel }"
 
           distributionId=$CDK_OUTPUTS[stackLabel][resourceLabel]
 
-          echo "distributionId: ${{ distributionId }}"
+          echo "distributionId: ${ distributionId }"
 
         # echo "cdk outputs: ${fromJson(steps.cdk-outputs.outputs.cdkOutputs).ExportRecipesBranchStack087-deploy-shared}"
 
