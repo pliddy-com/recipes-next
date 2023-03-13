@@ -54,19 +54,25 @@ jobs:
         uses: ASzc/change-string-case-action@v5
         with:
           string: ${{ github.event.ref }}
-      - name: Get CDK Outputs
+      - name: Get values from the package.json
         id: cdk-outputs
-        # handle multi-line json
-        run: |
-          content=`cd .github/cdk && cat ./cdk-outputs.json`
-          echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
+        uses: RadovanPelka/github-action-json@main
+        with:
+          path: '.github/cdk/cdk-outputs.json'
+
+      # - name: Get CDK Outputs
+      #   id: cdk-outputs
+      #   # handle multi-line json
+      #   run: |
+      #     content=`cd .github/cdk && cat ./cdk-outputs.json`
+      #     echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
       - name: Set Distribution Id
         id: distribution-id
         env:
           BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
           STACK_LABEL: 'RecipesBranchStack${{ env.BRANCH_LABEL }}-deploy-branch'
           DISTRIBUTION_LABEL: 'ExportRecipesDistribution${{ ENV.BRANCH_LABEL }}'
-          CDK_OUTPUTS: ${{ fromJSON( steps.cdk-outputs.outputs.cdkOutputs)}}
+          CDK_OUTPUTS: ${{ fromJSON( steps.cdk-outputs.outputs)}}
         run: |
           echo "branchLabel: $BRANCH_LABEL"
           echo "stackLabel: $STACK_LABEL"
