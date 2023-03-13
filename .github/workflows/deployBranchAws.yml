@@ -62,9 +62,9 @@ jobs:
 
           echo "content: ${content}"
 
-          json=${{fromJson(content)}}
+          json=${{ fromJson(${{ content }}) }}
 
-          echo "json: ${{ fromJson(content) }}"
+          echo "json: ${{ json) }}"
 
         # stackLabel = "RecipesBranchStack$BRANCH_LABEL-deploy-branch"
         # resourceLabel = "ExportRecipesDistribution$BRANCH_LABEL"
