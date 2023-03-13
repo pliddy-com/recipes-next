@@ -62,8 +62,10 @@ jobs:
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
-          distributionId="${fromJson(content).RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}}"
-          echo "${{ distributionId }}"
+
+          distributionId=fromJson(content)[RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}]
+
+          echo "distributionId: ${{ distributionId }}"
           echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
           echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
 
