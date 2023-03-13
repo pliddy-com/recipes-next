@@ -70,21 +70,20 @@ jobs:
         # echo "distributionId: ${{ distributionId }}"
         # echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
 
-      # - name: Set Distribution Id
-      #   id: distribution-id
-      #   env:
-      #     BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
-      #     OUTPUT_ID: 'RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
-      #     CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
-      #     # DISTRIBUTION_ID: '${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}.RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
-      #   run: |
-      #     echo "branch: ${{ github.event.ref }}"
+      - name: Set Distribution Id
+        id: distribution-id
+        env:
+          BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
+          OUTPUT_ID: 'RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
+          # CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
+          # DISTRIBUTION_ID: '${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}.RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
+        run: |
+          echo "BRANCH_LABEL: ${ BRANCH_LABEL }"
+          echo "OUTPUT_ID: ${ OUTPUT_ID }"
+
+      #     echo "CDK_OUTPUTS: ${ CDK_OUTPUTS }"
 
       #     echo "steps.branch-label.outputs.capitalized: ${{ steps.branch-label.outputs.capitalized }}"
-
-      #     echo "BRANCH_LABEL: ${ BRANCH_LABEL }"
-      #     echo "OUTPUT_ID: ${ OUTPUT_ID }"
-      #     echo "CDK_OUTPUTS: ${ CDK_OUTPUTS }"
 
       # echo "{distributionId}={$DISTRIBUTION_ID}" >> $GITHUB_OUTPUT
 
