@@ -52,7 +52,7 @@ jobs:
       - name: Get CDK Outputs
         id: cdk-outputs
         run: |
-          outputs=$(cat .github/cdk/cdk-outputs.json)
+          outputs=`cat ./.github/cdk/cdk-outputs.json`
           echo "::set-output name=cdkOutputs::$outputs"
           echo ${{outputs}}
           echo ${{cdkOutputs}}
