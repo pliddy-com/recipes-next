@@ -61,15 +61,20 @@ jobs:
           # end of optional handling for multi line json
 
           echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
-      - name: Set Branch Label
-        id: branch-label
+          echo "cdkOutputs: ${{ content }}"
+          echo "github.event.ref: ${{ github.event.ref }}"
+      - name: Branch Label Setup
+        id: branch-label-setup
         uses: ASzc/change-string-case-action@v5
         with:
-          string: ${{ github.event.ref.capitalized }}
+          string: ${{ github.event.ref }}
+      - name: Set Branch Label
+        id: branch-label
+        run: echo "{branchLabel}={$steps.branch-label-setup.outputs.capitalized}" >> $GITHUB_OUTPUT
       - name: Set Distribution Id
         id: distribution-id
         run: |
-          echo "branchLabel: ${{ steps.branch-label.output }}"
+          echo "branchLabel: ${{ steps.branch-label.output.branchLabel }}"
         # outputId="RecipesBranchStack${{ steps.branchLabel.output }}"
 
         # echo "{outputId}={$outputId}" >> $GITHUB_OUTPUT
