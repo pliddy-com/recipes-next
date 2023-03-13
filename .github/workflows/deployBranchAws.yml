@@ -50,17 +50,17 @@ jobs:
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: cd .github/cdk && npm run deploy
       - name: Get CDK Outputs
-        id: set_var
+        id: cdk-outputs
         run: |
-          content=`cat .github/cdk/cdk-outputs.jsonn`
+          content=`cd .github/cdk && cat ./cdk-outputs.jsonn`
           # the following lines are only required for multi line json
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
           # end of optional handling for multi line json
-          echo "::set-output name=cdkOutputsg::$content"
+          echo "::set-output name=cdkOutputs::$content"
       - run: |
-          echo "${{fromJson(steps.set_var.outputs.packageJson).version}}"
+          echo "${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}"
 
       # - name: Get CDK Outputs
       #   id: cdk-outputs
