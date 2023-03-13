@@ -59,35 +59,36 @@ jobs:
         # handle multi-line json
         run: |
           content=`cd .github/cdk && cat ./cdk-outputs.json`
+          content="${content//'%'/'%25'}"
 
           echo "content: ${content}"
 
-          json=fromJson(content)
+          json=${{fromJson(content)}}
 
           echo "json: ${json}"
 
-          stackLabel = "RecipesBranchStack$BRANCH_LABEL-deploy-branch"
-          resourceLabel = "ExportRecipesDistribution$BRANCH_LABEL"
+        # stackLabel = "RecipesBranchStack$BRANCH_LABEL-deploy-branch"
+        # resourceLabel = "ExportRecipesDistribution$BRANCH_LABEL"
 
-          echo "stackLabel: ${stackLabel}"
-          echo "resourceLabel: ${resourceLabel}"
+        # echo "stackLabel: ${stackLabel}"
+        # echo "resourceLabel: ${resourceLabel}"
 
-          distributionId = ${json[stackLabel][resourceLabel]}
+        # distributionId = ${json[stackLabel][resourceLabel]}
 
-          echo "distributionId: ${distributionId}"
+        # echo "distributionId: ${distributionId}"
 
-          echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
-      - name: Set Distribution Id
-        id: distribution-id
-        env:
-          # BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
-          # OUTPUT_ID: 'RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
-          # CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
-          DISTRIBUTION_ID: '${{ steps.cdk-outputs.outputs.distributionId }}'
-        run: |
-          echo "DISTRIBUTION_ID: $DISTRIBUTION_ID"
+        # echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
+      # - name: Set Distribution Id
+      #   id: distribution-id
+      #   env:
+      #     # BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
+      #     # OUTPUT_ID: 'RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
+      #     # CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
+      #     DISTRIBUTION_ID: '${{ steps.cdk-outputs.outputs.distributionId }}'
+      #   run: |
+      #     echo "DISTRIBUTION_ID: $DISTRIBUTION_ID"
 
-        # echo "cdk outputs: ${fromJson(steps.cdk-outputs.outputs.cdkOutputs).ExportRecipesBranchStack087-deploy-shared}"
+      # echo "cdk outputs: ${fromJson(steps.cdk-outputs.outputs.cdkOutputs).ExportRecipesBranchStack087-deploy-shared}"
 
       #     echo "steps.branch-label.outputs.capitalized: ${{ steps.branch-label.outputs.capitalized }}"
 
