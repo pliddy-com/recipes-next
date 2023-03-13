@@ -53,16 +53,12 @@ jobs:
         id: cdk-outputs
         run: |
           content=`cd .github/cdk && cat ./cdk-outputs.json`
-
-          # the following lines are only required for multi line json
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
-          # end of optional handling for multi line json
 
-          echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
           echo "cdkOutputs: ${{ content }}"
-          echo "github.event.ref: ${{ github.event.ref }}"
+          echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
       - name: Branch Label Setup
         id: branch-label-setup
         uses: ASzc/change-string-case-action@v5
@@ -75,6 +71,8 @@ jobs:
         id: distribution-id
         run: |
           echo "branchLabel: ${{ steps.branch-label.output.branchLabel }}"
+          echo "github.event.ref: ${{ github.event.ref }}"
+
         # outputId="RecipesBranchStack${{ steps.branchLabel.output }}"
 
         # echo "{outputId}={$outputId}" >> $GITHUB_OUTPUT
