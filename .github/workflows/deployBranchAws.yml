@@ -72,7 +72,7 @@ jobs:
           BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
           STACK_LABEL: 'RecipesBranchStack${{ env.BRANCH_LABEL }}-deploy-branch'
           DISTRIBUTION_LABEL: 'ExportRecipesDistribution${{ ENV.BRANCH_LABEL }}'
-          CDK_OUTPUTS: ${{ fromJSON( steps.cdk-outputs.outputs)}}
+          CDK_OUTPUTS: ${{ steps.cdk-outputs.outputs }}
         run: |
           echo "branchLabel: $BRANCH_LABEL"
           echo "stackLabel: $STACK_LABEL"
