@@ -67,18 +67,18 @@ jobs:
         with:
           first: 'RecipesBranchStack'
           second: ${{ steps.branch-label.outputs.capitalized }}
-          output-var-name: 'stackLabel'
+          output-var-name: 'STACK_LABEL'
       - name: Get Distribution Label
         id: distribution-label
         uses: michpohl/action-concatenate-strings@v1.0.1
         with:
           first: 'ExportRecipesDistribution'
           second: ${{ steps.stack-label.outputs.stackLabel }}
-          output-var-name: 'distributionLabel'
+          output-var-name: 'DISTRIBUTION_LABEL'
       - name: Test Outputs
         run: |
-          echo "stackLabel: ${{steps.stack-label.outputs.stackLabel}}"
-          echo "distributionLabel: ${{steps.distribution-label.outputs.distributionLabel}}"
+          echo "stackLabel: $STACK_LABEL"
+          echo "distributionLabel: $DISTRIBUTION_LABEL"
 
       # - name: Get CDK Outputs
       #   id: cdk-outputs
