@@ -77,7 +77,7 @@ jobs:
         run: |
           echo "STACK_LABEL: $STACK_LABEL"
 
-          echo "stack outputs: ${{ steps.cdk-outputs.outputs[$STACK_LABEL] }}"
+          echo "stack outputs: ${{ steps.cdk-outputs.outputs[STACK_LABEL] }}"
 
         # NEXT STEP: get branch label without dashes for property
         # echo "distributionLabel: $DISTRIBUTION_LABEL"
