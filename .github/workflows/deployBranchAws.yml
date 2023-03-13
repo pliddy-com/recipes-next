@@ -59,8 +59,11 @@ jobs:
         # handle multi-line json
         run: |
           content=`cd .github/cdk && cat ./cdk-outputs.json`
+          content="${content//'%'/'%25'}"
+
           echo "content: ${content}"
-          echo "{cdkOutputs}={$content//'%'/'%25'}" >> $GITHUB_OUTPUT
+
+          echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
 
         # echo "distributionId: ${{ distributionId }}"
         # echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
@@ -84,9 +87,9 @@ jobs:
           echo "stackLabel: ${ stackLabel }"
           echo "resourceLabel: ${ resourceLabel }"
 
-          distributionId=$CDK_OUTPUTS[stackLabel][resourceLabel]
+          # distributionId=$CDK_OUTPUTS[stackLabel][resourceLabel]
 
-          echo "distributionId: ${ distributionId }"
+          # echo "distributionId: ${ distributionId }"
 
         # echo "cdk outputs: ${fromJson(steps.cdk-outputs.outputs.cdkOutputs).ExportRecipesBranchStack087-deploy-shared}"
 
