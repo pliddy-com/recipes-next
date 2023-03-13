@@ -58,35 +58,24 @@ jobs:
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
           # end of optional handling for multi line json
-          echo "::set-output name=cdkOutputs::$content"
-      - run: |
-          echo "${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}"
+          echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
+      - name: Set Branch Label
+        id: branchLabel
+        uses: ASzc/change-string-case-action@v5
+        with:
+          string: ${{ github.event.ref.capitalized }}
+      - name: Set Distribution Id
+        id: distribution-id
+        run: |
+          echo branchLabel: ${{steps.branchLabel.output}}
 
-      # - name: Get CDK Outputs
-      #   id: cdk-outputs
-      #   run: |
-      #     echo get cdk-outputs.json
-      #     outputs=`cat .github/cdk/cdk-outputs.json`
-      #     echo "::set-output name=cdkOutputs::$outputs"
-      #     echo ${{outputs}}
-      #     echo ${{cdkOutputs}}
-      #     echo ${{steps.cdk-outputs.cdkOutputs}}
-      # - name: Set Branch Label
-      #   id: branchLabel
-      #   uses: ASzc/change-string-case-action@v5
-      #   with:
-      #     string: ${{ github.event.ref.capitalized }}
-      # - name: Set Distribution Id
-      #   id: distribution-id
-      #   run: |
-      #     echo branchLabel: ${{steps.branchLabel.output}}
-      #     outputId=RecipesBranchStack${{steps.branchLabel.output}}
-      #     distributionId=${{fromJson(steps.cdk-outputs.cdkOutputs)}}.${{steps.distribution-id.outputId}}
-      #     echo "::set-output name=distributionId::$distributionId"
-      #     echo "::set-output name=outputId::$outputId"
+          outputId=RecipesBranchStack${{steps.branchLabel.output}}
+          echo "{outputId}={$outputId}" >> $GITHUB_OUTPUT
 
-      #     echo outputId: ${{steps.distribution-id.outputId}}
-      #     echo distributionId: ${{steps.distribution-id.distributionId}}
+          echo ${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}.${{outputId}}
+
+          distributionId=${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}.${{outputId}}
+          echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
       # - name: Deploy Site Content
       #   id: deploy-site-content
       #   env:
