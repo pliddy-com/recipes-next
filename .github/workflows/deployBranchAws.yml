@@ -59,7 +59,6 @@ jobs:
         uses: RadovanPelka/github-action-json@main
         with:
           path: '.github/cdk/cdk-outputs.json'
-
       # - name: Get CDK Outputs
       #   id: cdk-outputs
       #   # handle multi-line json
@@ -78,6 +77,9 @@ jobs:
         run: |
           echo "STACK_LABEL: $STACK_LABEL"
 
+          echo "stack outputs: ${{ steps.cdk-outputs.outputs[$STACK_LABEL] }}"
+
+        # NEXT STEP: get branch label without dashes for property
         # echo "distributionLabel: $DISTRIBUTION_LABEL"
         # echo "distribution id: $DISTRIBUTION_ID"
 
