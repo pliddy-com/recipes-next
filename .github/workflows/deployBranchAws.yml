@@ -56,37 +56,22 @@ jobs:
           string: ${{ github.event.ref }}
       - name: Get CDK Outputs
         id: cdk-outputs
+        # handle multi-line json
+        run: |
+          content=`cd .github/cdk && cat ./cdk-outputs.json`
+          echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
+      - name: Set Distribution Id
+        id: distribution-id
         env:
           BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
           STACK_LABEL: 'RecipesBranchStack${{ env.BRANCH_LABEL }}-deploy-branch'
           DISTRIBUTION_LABEL: 'ExportRecipesDistribution${{ ENV.BRANCH_LABEL }}'
-        # handle multi-line json
+          CDK_OUTPUTS: ${{ fromJSON( steps.cdk-outputs.outputs.cdkOutputs)}}
         run: |
-          content=`cd .github/cdk && cat ./cdk-outputs.json`
-
           echo "branchLabel: $BRANCH_LABEL"
           echo "stackLabel: $STACK_LABEL"
           echo "distributionLabel: $DISTRIBUTION_LABEL"
-
-          json=${{ fromJSON(content) }}
-
-          echo "json: ${{ json }}"
-
-        # echo "distribution: ${{ fromJSON(${{ JSON }})[$STACK_LABEL][$DISTRIBUTION_LABEL] }}"
-
-        # echo "{cdkOutputs}={$JSON}" >> $GITHUB_OUTPUT
-
-      # - name: Set Distribution Id
-      #   id: distribution-id
-      #   env:
-      #     BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
-      #     OUTPUT_ID: 'RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
-      #     CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
-      #     # DISTRIBUTION_ID: '${{ steps.cdk-outputs.outputs.distributionId }}'
-      #   run: |
-      #     echo "BRANCH_LABEL: $BRANCH_LABEL"
-      #     echo "OUTPUT_ID: $OUTPUT_ID"
-      #     echo "CDK_OUTPUTS: $CDK_OUTPUTS }}"
+          echo "cdk outputs: $CDK_OUTPUTS"
 
       # json=${{ fromJSON(${{ content }}) }}
 
