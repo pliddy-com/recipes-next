@@ -9,6 +9,10 @@ on:
   # Allows external webhook trigger with "event_type" = "publish-event"
   repository_dispatch:
     types: [publish-event]
+  workflow_run:
+    workflows: ['Deploy Branch AWS Resources']
+    types:
+      - completed
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

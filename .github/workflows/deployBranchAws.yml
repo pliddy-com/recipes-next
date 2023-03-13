@@ -41,14 +41,32 @@ jobs:
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
-
       - name: Install Dependencies
         run: npm ci --ignore-scripts
-
       - name: Deploy Branch-specific Stack for ${{github.event.ref}}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-
-        run: cd .github/cdk && npm run deploy
+        run: cd .github/cdk && npm run deploy --outputs-file ./cdk-outputs.json
+      - name: Get CDK Outputs
+        id: cdk-outputs
+        run: outputs=`cat ./cdk-outputs.json`
+      - name: Set Branch Label
+        id: branchLabel
+        uses: ASzc/change-string-case-action@v5
+        with:
+          string: ${{ github.event.ref.capitalized }}
+      - name: Set Distribution Id
+        id: distribution-id
+        run: |
+          outputs=`cat ./cdk-outputs.json`
+          distributionId=${{fromJson(steps.siteDeploy.outputs).RecipesBranchStack${{steps.branchLabel.output}}}}"
+      - name: Deploy Site Content
+        id: deploy-site-content
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+          DISTRIBUTION_ID: ${{steps.distribution-id.distributionId}}
+        run: npm run deploy
