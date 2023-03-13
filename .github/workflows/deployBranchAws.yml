@@ -75,23 +75,21 @@ jobs:
 
           echo "steps.branch-label.outputs.capitalized: ${{ steps.branch-label.outputs.capitalized }}"
 
-        # outputId="RecipesBranchStack${{ steps.branch-label.outputs.branchLabel }}"
+          outputId="RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}"
 
-        # echo "outputId: ${{ outputId }}"
+          echo "outputId: ${{ outputId }}"
 
-        # echo "{outputId}={$outputId}" >> $GITHUB_OUTPUT
+          echo "{outputId}={$outputId}" >> $GITHUB_OUTPUT
 
-        # cdkOutputs=${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
+          cdkOutputs=${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
 
-        # echo "cdkOutputs: ${{ cdkOutputs }}"
+          echo "cdkOutputs: ${{ cdkOutputs }}"
 
-        # distributionId="${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}.${{outputId}}"
+          distributionId="${{ cdkOutputs }}.${{ outputId }}"
 
-        # echo "distributionId: ${{ distributionId }}"
+          echo "distributionId: ${{ distributionId }}"
 
-        # echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
-
-        # echo ${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}.${{outputId}}
+          echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
 
       # - name: Deploy Site Content
       #   id: deploy-site-content
