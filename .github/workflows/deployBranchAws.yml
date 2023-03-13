@@ -59,12 +59,8 @@ jobs:
         # handle multi-line json
         run: |
           content=`cd .github/cdk && cat ./cdk-outputs.json`
-          content="${content//'%'/'%25'}"
-          content="${content//$'\n'/'%0A'}"
-          content="${content//$'\r'/'%0D'}"
-
           echo "content: ${content}"
-          echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
+          echo "{cdkOutputs}={$content//'%'/'%25'}" >> $GITHUB_OUTPUT
 
         # echo "property label: ${{ RecipesBranchStack${{ steps.branch-label.outputs.capitalized }} }}"
 
