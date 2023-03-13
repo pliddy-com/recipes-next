@@ -48,8 +48,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-        run: cd .github/cdk && npm run deploy --outputs-file ./cdk-outputs.json
-      - name: Get CDK Outputs
+        run: cd .github/cdk && npm run deploy
+      - name: Get CDK Outputsg
         id: cdk-outputs
         run: outputs=`cat ./cdk-outputs.json`
       - name: Set Branch Label
