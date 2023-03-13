@@ -59,6 +59,9 @@ jobs:
           content="${content//$'\r'/'%0D'}"
           # end of optional handling for multi line json
           echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
+          echo "cdkOutputs: ${{ cdkOutputs }}"
+          echo "steps.cdk-outputs.outputs.cdkOutputs: ${{ steps.cdk-outputs.outputs.cdkOutputs }}"
+          echo "github.event.ref: ${{ github.event.ref }}"
       - name: Set Branch Label
         id: branch-label
         uses: ASzc/change-string-case-action@v5
