@@ -64,7 +64,7 @@ jobs:
 
           echo "branchLabel: $BRANCH_LABEL"
 
-          stackLabel = ${{ "RecipesBranchStack" && $BRANCH_LABEL && "-deploy-branch" }}
+          stackLabel = "RecipesBranchStack" && $BRANCH_LABEL && "-deploy-branch"
 
           echo "stackLabel: ${{ stackLabel }}"
 
