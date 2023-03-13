@@ -59,7 +59,7 @@ jobs:
         env:
           BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
           STACK_LABEL: 'RecipesBranchStack${{ env.BRANCH_LABEL }}-deploy-branch'
-          DISTRIBUTION_LABEL: 'ExportRecipesDistribution${{ ENV.BRANCH_LABEL} }'
+          DISTRIBUTION_LABEL: 'ExportRecipesDistribution${{ ENV.BRANCH_LABEL} }}'
         # handle multi-line json
         run: |
           JSON=`cd .github/cdk && cat ./cdk-outputs.json`
@@ -68,17 +68,9 @@ jobs:
           echo "stackLabel: $STACK_LABEL"
           echo "distributionLabel: $DISTRIBUTION_LABEL"
 
-        # stackLabel = "RecipesBranchStack${{ BRANCH_LABEL }}-deploy-branch"
-
-        # echo "stackLabel: ${{ stackLabel }}"
+          echo "distribution: ${{ fromJSON($JSON)[$STACK_LABEL][$DISTRIBUTION_LABEL] }}"
 
         # echo "{cdkOutputs}={$JSON}" >> $GITHUB_OUTPUT
-
-        # resourceLabel = "ExportRecipesDistribution$BRANCH_LABEL"
-
-        # echo "resourceLabel: ${resourceLabel}"
-
-        # echo "test: ${{ fromJSON($JSON)[$stackLabel][$resourceLabel]}}"
 
       # - name: Set Distribution Id
       #   id: distribution-id
