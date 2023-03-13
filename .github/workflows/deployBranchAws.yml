@@ -63,14 +63,14 @@ jobs:
           path: '.github/cdk/cdk-outputs.json'
       - name: Get Stack Label
         id: stack-label
-        uses: michpohl/action-concatenate-strings@v1
+        uses: michpohl/action-concatenate-strings@v1.0.1
         with:
           first: 'RecipesBranchStack'
           second: ${{ steps.branch-label.outputs.capitalized }}
           output-var-name: 'stackLabel'
       - name: Get Distribution Label
         id: distribution-label
-        uses: michpohl/action-concatenate-strings@v1
+        uses: michpohl/action-concatenate-strings@v1.0.1
         with:
           first: 'ExportRecipesDistribution'
           second: ${{ steps.stack-label.outputs.stackLabel }}
