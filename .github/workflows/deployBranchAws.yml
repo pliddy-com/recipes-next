@@ -60,22 +60,25 @@ jobs:
           # end of optional handling for multi line json
           echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
       - name: Set Branch Label
-        id: branchLabel
+        id: branch-label
         uses: ASzc/change-string-case-action@v5
         with:
           string: ${{ github.event.ref.capitalized }}
       - name: Set Distribution Id
         id: distribution-id
         run: |
-          echo branchLabel: ${{steps.branchLabel.output}}
+          echo "branchLabel: ${{ steps.branchLabel.output }}"
 
-          outputId="RecipesBranchStack${{steps.branchLabel.output}}"
+          outputId="RecipesBranchStack${{ steps.branchLabel.output }}"
+
           echo "{outputId}={$outputId}" >> $GITHUB_OUTPUT
 
           echo ${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}.${{outputId}}
 
           distributionId="${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}.${{outputId}}"
+
           echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
+
       # - name: Deploy Site Content
       #   id: deploy-site-content
       #   env:
