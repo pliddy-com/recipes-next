@@ -62,9 +62,9 @@ jobs:
         run: |
           JSON=`cd .github/cdk && cat ./cdk-outputs.json`
 
-          echo "branchLabel: $BRANCH_LABEL"
+          echo "branchLabel: ${{ env.BRANCH_LABEL }}"
 
-          stackLabel = "RecipesBranchStack" && $BRANCH_LABEL && "-deploy-branch"
+          stackLabel = "RecipesBranchStack${{ env.BRANCH_LABEL }}-deploy-branch"
 
           echo "stackLabel: ${{ stackLabel }}"
 
