@@ -63,8 +63,6 @@ jobs:
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
 
-          echo "content: ${{ content }}"
-
           echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
 
         # echo "property label: ${{ RecipesBranchStack${{ steps.branch-label.outputs.capitalized }} }}"
