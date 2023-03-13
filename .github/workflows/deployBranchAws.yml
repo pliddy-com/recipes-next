@@ -71,7 +71,7 @@ jobs:
         env:
           BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
           # STACK_LABEL: 'RecipesBranchStack && ${{env.BRANCH_LABEL }}'
-          STACK_LABEL: ${{ 'RecipesBranchStack' && $BRANCH_LABEL }}
+          # STACK_LABEL: ${{ 'RecipesBranchStack' && $BRANCH_LABEL }}
           ENV_STACK_LABEL: ${{ 'RecipesBranchStack' && env.BRANCH_LABEL }}
           ALT_STACK_LABEL: ${{ 'RecipesBranchStack' && BRANCH_LABEL }}
           # DISTRIBUTION_LABEL: 'ExportRecipesDistribution && ${{ env.STACK_LABEL }}'
@@ -80,7 +80,7 @@ jobs:
         run: |
           echo "BRANCH_LABEL: $BRANCH_LABEL"
 
-          echo "STACK_LABEL: $STACK_LABEL"
+          # echo "STACK_LABEL: $STACK_LABEL"
           echo "ENV_STACK_LABEL: $ENV_STACK_LABEL"
           echo "ALT_STACK_LABEL: $ALT_STACK_LABEL"
 
