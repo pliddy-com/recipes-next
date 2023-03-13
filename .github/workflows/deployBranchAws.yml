@@ -69,18 +69,25 @@ jobs:
       - name: Set Distribution Id
         id: distribution-id
         run: |
-          echo "branchLabel: ${{ steps.branch-label.output.branchLabel }}"
-          echo "github.event.ref: ${{ github.event.ref }}"
+          echo "branch: ${{ github.event.ref }}"
+          echo "branchLabel: ${{ steps.branch-label.outputs.branchLabel }}"
 
-        # outputId="RecipesBranchStack${{ steps.branchLabel.output }}"
+          outputId="RecipesBranchStack${{ steps.branchLabel.output }}"
+          echo "outputId: ${{ outputId }}"
 
-        # echo "{outputId}={$outputId}" >> $GITHUB_OUTPUT
+          echo "{outputId}={$outputId}" >> $GITHUB_OUTPUT
+
+          cdkOutputs=${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
+
+          echo "cdkOutputs: ${{ cdkOutputs }}"
+
+          distributionId="${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}.${{outputId}}"
+
+          echo "distributionId: ${{ distributionId }}"
+
+          echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
 
         # echo ${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}.${{outputId}}
-
-        # distributionId="${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}.${{outputId}}"
-
-        # echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
 
       # - name: Deploy Site Content
       #   id: deploy-site-content
