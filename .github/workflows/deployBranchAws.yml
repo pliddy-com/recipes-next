@@ -56,13 +56,16 @@ jobs:
           string: ${{ github.event.ref }}
       - name: Get CDK Outputs
         id: cdk-outputs
-        env:
-          BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
+        # env:
+        #   BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
         # handle multi-line json
         run: |
           JSON=`cd .github/cdk && cat ./cdk-outputs.json`
 
-          stackLabel = "RecipesBranchStack${{ $BRANCH_LABEL }}-deploy-branch"
+          branchLabel = ${{ steps.branch-label.outputs.capitalized }}
+          echo "branchLabel: ${{ branchLabel }}"
+
+          stackLabel = "RecipesBranchStack${{ branchLabel }}-deploy-branch"
 
           echo "stackLabel: ${{ stackLabel }}"
 
