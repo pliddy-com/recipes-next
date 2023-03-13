@@ -1,8 +1,13 @@
-name: Deploy Shared AWS Resources
-run-name: Deploy Shared AWS Resources
+name: Deploy Branch AWS Resources
+run-name: Deploy Branch AWS Resources
 
 on:
+  push:
+    branches:
+      - '!main'
   workflow_dispatch:
+    branches:
+      - 'main'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -39,10 +44,10 @@ jobs:
       - name: Install Dependencies
         run: npm ci --ignore-scripts
 
-      - name: Deploy Shared AWS Stack for ${{github.event.ref}}
+      - name: Deploy Branch-specific Stack for ${{github.event.ref}}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
 
-        run: cd .github/cdk && npm run deploy:shared
+        run: cd .github/cdk && npm run deploy
