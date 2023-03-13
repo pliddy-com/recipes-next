@@ -69,9 +69,9 @@ jobs:
           CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
           # DISTRIBUTION_ID: '${{ steps.cdk-outputs.outputs.distributionId }}'
         run: |
-          echo "BRANCH_LABEL: ${{ BRANCH_LABEL }}"
-          echo "OUTPUT_ID: ${{ OUTPUT_ID }}"
-          echo "CDK_OUTPUTS: ${{ CDK_OUTPUTS }}"
+          echo "BRANCH_LABEL: $BRANCH_LABEL"
+          echo "OUTPUT_ID: $OUTPUT_ID"
+          echo "CDK_OUTPUTS: $CDK_OUTPUTS"
 
         # json=${{ fromJSON(${{ content }}) }}
 
