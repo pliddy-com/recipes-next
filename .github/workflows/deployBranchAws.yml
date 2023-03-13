@@ -68,15 +68,15 @@ jobs:
       #     echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
       - name: Set Distribution Id
         id: distribution-id
-        # env:
-        # BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
+        env:
+          BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
+          STACK_LABEL: 'ExportRecipesDistribution${{steps.branch-label.outputs.capitalized}}'
         # STACK_LABEL: ${{format('ExportRecipesDistribution{0}', $BRANCH_LABEL)}}
         # DISTRIBUTION_LABEL: 'ExportRecipesDistribution && ${{ env.STACK_LABEL }}'
         # DISTRIBUTION_LABEL: 'ExportRecipesDistribution${{ env.STACK_LABEL }}'
         # DISTRIBUTION_ID: ${{ steps.cdk-outputs.outputs[env.DISTRIBUTION_LABEL][env.STACK_LABEL] }}
         run: |
-          stackLabel="ExportRecipesDistribution${{ steps.branch-label.outputs.capitalized }}"
-          echo stackLabel: ${{ stackLabel }}
+          echo "STACK_LABEL: $STACK_LABEL"
 
         # echo "distributionLabel: $DISTRIBUTION_LABEL"
         # echo "distribution id: $DISTRIBUTION_ID"
