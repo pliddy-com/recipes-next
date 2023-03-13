@@ -63,7 +63,7 @@ jobs:
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
 
-          echo "${{fromJson(content)['087-deploy-shared']}}"
+          echo "distributionId: ${{ fromJson(content).RecipesBranchStack087-deploy-shared }}"
 
           echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
 
