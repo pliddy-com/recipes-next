@@ -73,7 +73,7 @@ jobs:
         uses: michpohl/action-concatenate-strings@v1.0.1
         with:
           first: 'ExportRecipesDistribution'
-          second: ${{ steps.stack-label.outputs.stackLabel }}
+          second: ${{ env.STACK_LABEL }}
           output-var-name: 'DISTRIBUTION_LABEL'
       - name: Test Outputs
         run: |
