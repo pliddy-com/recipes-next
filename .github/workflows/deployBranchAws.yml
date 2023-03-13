@@ -51,7 +51,9 @@ jobs:
         run: cd .github/cdk && npm run deploy
       - name: Get CDK Outputs
         id: cdk-outputs
-        run: outputs=`cat .github/cdk/cdk-outputs.json`
+        run: |
+          cdkOutputs=`cat .github/cdk/cdk-outputs.json`
+          echo steps.cdk-outputs.cdkOutputs
       - name: Set Branch Label
         id: branchLabel
         uses: ASzc/change-string-case-action@v5
@@ -60,8 +62,11 @@ jobs:
       - name: Set Distribution Id
         id: distribution-id
         run: |
+          echo branchLabel: ${{steps.branchLabel.output}}
           outputId=RecipesBranchStack${{steps.branchLabel.output}}
-          distributionId=${{fromJson(steps.siteDeploy.outputs)}}.${{steps.distribution-id.outputId}}"
+          distributionId=${{fromJson(steps.cdk-outputs.cdkOutputs)}}.${{steps.distribution-id.outputId}}
+          echo outputId: ${{steps.distribution-id.outputId}}
+          echo distributionId: ${{steps.distribution-id.distributionId}}
       - name: Deploy Site Content
         id: deploy-site-content
         env:
