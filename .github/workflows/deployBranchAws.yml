@@ -75,8 +75,7 @@ jobs:
         # DISTRIBUTION_LABEL: 'ExportRecipesDistribution${{ env.STACK_LABEL }}'
         # DISTRIBUTION_ID: ${{ steps.cdk-outputs.outputs[env.DISTRIBUTION_LABEL][env.STACK_LABEL] }}
         run: |
-          stackLabel=${{ format('ExportRecipesDistribution{0}', steps.branch-label.outputs.capitalized) }}
-
+          stackLabel=${{ join(['ExportRecipesDistribution', ${{ steps.branch-label.outputs.capitalized }}]) }}
           echo "stackLabel: ${{ stackLabel }}"
 
         # echo "distributionLabel: $DISTRIBUTION_LABEL"
