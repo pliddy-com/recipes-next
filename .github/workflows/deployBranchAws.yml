@@ -49,6 +49,11 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: cd .github/cdk && npm run deploy
+      - name: Branch Label
+        id: branch-label
+        uses: ASzc/change-string-case-action@v5
+        with:
+          string: ${{ github.event.ref }}
       - name: Get CDK Outputs
         id: cdk-outputs
         # handle multi-line json
@@ -57,35 +62,34 @@ jobs:
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
+          distributionId="${fromJson(content).RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}}"
+          echo "${{ distributionId }}"
           echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
-      - name: Branch Label
-        id: branch-label
-        uses: ASzc/change-string-case-action@v5
-        with:
-          string: ${{ github.event.ref }}
-      - name: Set Distribution Id
-        id: distribution-id
-        env:
-          BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
-          OUTPUT_ID: 'RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
-          CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
-          # DISTRIBUTION_ID: '${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}.RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
-        run: |
-          echo "branch: ${{ github.event.ref }}"
+          echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
 
-          echo "steps.branch-label.outputs.capitalized: ${{ steps.branch-label.outputs.capitalized }}"
+      # - name: Set Distribution Id
+      #   id: distribution-id
+      #   env:
+      #     BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
+      #     OUTPUT_ID: 'RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
+      #     CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
+      #     # DISTRIBUTION_ID: '${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}.RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
+      #   run: |
+      #     echo "branch: ${{ github.event.ref }}"
 
-          echo "BRANCH_LABEL: ${ BRANCH_LABEL }"
-          echo "OUTPUT_ID: ${ OUTPUT_ID }"
-          echo "CDK_OUTPUTS: ${ CDK_OUTPUTS }"
+      #     echo "steps.branch-label.outputs.capitalized: ${{ steps.branch-label.outputs.capitalized }}"
 
-        # echo "{distributionId}={$DISTRIBUTION_ID}" >> $GITHUB_OUTPUT
+      #     echo "BRANCH_LABEL: ${ BRANCH_LABEL }"
+      #     echo "OUTPUT_ID: ${ OUTPUT_ID }"
+      #     echo "CDK_OUTPUTS: ${ CDK_OUTPUTS }"
 
-        # echo "CDK_OUTPUTS: ${{ CDK_OUTPUTS }}"
+      # echo "{distributionId}={$DISTRIBUTION_ID}" >> $GITHUB_OUTPUT
 
-        # distributionId="${{ cdkOutputs }}.${{ outputId }}"
+      # echo "CDK_OUTPUTS: ${{ CDK_OUTPUTS }}"
 
-        # echo "distributionId: ${{ distributionId }}"
+      # distributionId="${{ cdkOutputs }}.${{ outputId }}"
+
+      # echo "distributionId: ${{ distributionId }}"
 
       # - name: Deploy Site Content
       #   id: deploy-site-content
