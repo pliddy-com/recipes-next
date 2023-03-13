@@ -72,7 +72,8 @@ jobs:
           echo "branch: ${{ github.event.ref }}"
           echo "branchLabel: ${{ steps.branch-label.outputs.branchLabel }}"
 
-          outputId="RecipesBranchStack${{ steps.branchLabel.output }}"
+          outputId=RecipesBranchStack${{ steps.branchLabel.output }}
+
           echo "outputId: ${{ outputId }}"
 
         # echo "{outputId}={$outputId}" >> $GITHUB_OUTPUT
