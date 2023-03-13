@@ -68,7 +68,7 @@ jobs:
           echo "stackLabel: $STACK_LABEL"
           echo "distributionLabel: $DISTRIBUTION_LABEL"
 
-          json=${{ fromJSON(${content}) }}
+          json=${{ fromJSON(content) }}
 
           echo "json: ${{ json }}"
 
