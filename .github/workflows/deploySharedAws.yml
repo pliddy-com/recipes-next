@@ -50,5 +50,5 @@ jobs:
         # run: yarn --cwd packages/bootstrap cdk synth
         run: echo $(pwd)
 
-      - name: Deploy stack
-        # run: yarn --cwd packages/bootstrap cdk deploy --require-approval never
+      # - name: Deploy stack
+      # run: yarn --cwd packages/bootstrap cdk deploy --require-approval never
