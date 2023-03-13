@@ -58,11 +58,13 @@ jobs:
         id: cdk-outputs
         env:
           BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
+          STACK_LABEL: 'RecipesBranchStack${{ env.BRANCH_LABEL }}-deploy-branch'
         # handle multi-line json
         run: |
           JSON=`cd .github/cdk && cat ./cdk-outputs.json`
 
           echo "branchLabel: $BRANCH_LABEL"
+          echo "stackLabel: $STACK_LABEL"
 
         # stackLabel = "RecipesBranchStack${{ BRANCH_LABEL }}-deploy-branch"
 
