@@ -75,7 +75,7 @@ jobs:
 
           echo "steps.branch-label.outputs.capitalized: ${{ steps.branch-label.outputs.capitalized }}"
 
-          branchLabel="${{ steps.branch-label.outputs.capitalized }}"
+          branchLabel="${ steps.branch-label.outputs.capitalized }"
           echo "branchLabel: ${{ branchLabel }}"
 
         # outputId="RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}"
