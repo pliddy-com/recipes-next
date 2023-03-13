@@ -89,7 +89,7 @@ jobs:
           echo "distributionLabel: $DISTRIBUTION_LABEL"
           echo "cdk outputs: ${{ steps.cdk-outputs.outputs}}"
 
-          distributionId=${{steps.cdk-outputs.outputs[format('{0}', env.STACK_LABEL)][format('{0}', env.DISTRIBUTION_LABEL)]}}
+          distributionId=steps.cdk-outputs.outputs[format('{0}', env.STACK_LABEL)][format('{0}', env.DISTRIBUTION_LABEL)]
           echo "distributionId: ${{ distributionId }}"
 
         # echo "distributionId: ${{ steps.cdk-outputs.outputs.  .cdkOutputs[$STACK_LABEL][$DISTRIBUTION_LABEL] }}"
