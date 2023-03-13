@@ -50,37 +50,50 @@ jobs:
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: cd .github/cdk && npm run deploy
       - name: Get CDK Outputs
-        id: cdk-outputs
+        id: set_var
         run: |
-          echo get cdk-outputs.json
-          outputs=`cat .github/cdk/cdk-outputs.json`
-          echo "::set-output name=cdkOutputs::$outputs"
-          echo ${{outputs}}
-          echo ${{cdkOutputs}}
-          echo ${{steps.cdk-outputs.cdkOutputs}}
-      - name: Set Branch Label
-        id: branchLabel
-        uses: ASzc/change-string-case-action@v5
-        with:
-          string: ${{ github.event.ref.capitalized }}
-      - name: Set Distribution Id
-        id: distribution-id
-        run: |
-          echo branchLabel: ${{steps.branchLabel.output}}
-          outputId=RecipesBranchStack${{steps.branchLabel.output}}
-          distributionId=${{fromJson(steps.cdk-outputs.cdkOutputs)}}.${{steps.distribution-id.outputId}}
-          echo "::set-output name=distributionId::$distributionId"
-          echo "::set-output name=outputId::$outputId"
+          content=`cat .github/cdk/cdk-outputs.jsonn`
+          # the following lines are only required for multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "::set-output name=cdkOutputsg::$content"
+      - run: |
+          echo "${{fromJson(steps.set_var.outputs.packageJson).version}}"
 
-          echo outputId: ${{steps.distribution-id.outputId}}
-          echo distributionId: ${{steps.distribution-id.distributionId}}
-      - name: Deploy Site Content
-        id: deploy-site-content
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          DISTRIBUTION_ID: ${{steps.distribution-id.distributionId}}
-          S3_BUCKET: recipes.pliddy.com-dev # update based on branch name
-        run: |
-          npm run deploy
+      # - name: Get CDK Outputs
+      #   id: cdk-outputs
+      #   run: |
+      #     echo get cdk-outputs.json
+      #     outputs=`cat .github/cdk/cdk-outputs.json`
+      #     echo "::set-output name=cdkOutputs::$outputs"
+      #     echo ${{outputs}}
+      #     echo ${{cdkOutputs}}
+      #     echo ${{steps.cdk-outputs.cdkOutputs}}
+      # - name: Set Branch Label
+      #   id: branchLabel
+      #   uses: ASzc/change-string-case-action@v5
+      #   with:
+      #     string: ${{ github.event.ref.capitalized }}
+      # - name: Set Distribution Id
+      #   id: distribution-id
+      #   run: |
+      #     echo branchLabel: ${{steps.branchLabel.output}}
+      #     outputId=RecipesBranchStack${{steps.branchLabel.output}}
+      #     distributionId=${{fromJson(steps.cdk-outputs.cdkOutputs)}}.${{steps.distribution-id.outputId}}
+      #     echo "::set-output name=distributionId::$distributionId"
+      #     echo "::set-output name=outputId::$outputId"
+
+      #     echo outputId: ${{steps.distribution-id.outputId}}
+      #     echo distributionId: ${{steps.distribution-id.distributionId}}
+      # - name: Deploy Site Content
+      #   id: deploy-site-content
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      #     DISTRIBUTION_ID: ${{steps.distribution-id.distributionId}}
+      #     S3_BUCKET: recipes.pliddy.com-dev # update based on branch name
+      #   run: |
+      #     npm run deploy
