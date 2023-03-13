@@ -69,12 +69,12 @@ jobs:
         run: |
           echo branchLabel: ${{steps.branchLabel.output}}
 
-          outputId=RecipesBranchStack${{steps.branchLabel.output}}
+          outputId="RecipesBranchStack${{steps.branchLabel.output}}"
           echo "{outputId}={$outputId}" >> $GITHUB_OUTPUT
 
           echo ${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}.${{outputId}}
 
-          distributionId=${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}.${{outputId}}
+          distributionId="${{fromJson(steps.cdk-outputs.outputs.cdkOutputs)}}.${{outputId}}"
           echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
       # - name: Deploy Site Content
       #   id: deploy-site-content
