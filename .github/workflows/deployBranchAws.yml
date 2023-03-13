@@ -58,23 +58,22 @@ jobs:
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
           echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
-      - name: Branch Label Setup
-        id: branch-label-setup
+      - name: Branch Label
+        id: branch-label
         uses: ASzc/change-string-case-action@v5
         with:
           string: ${{ github.event.ref }}
-      - name: Set Branch Label
-        id: branch-label
-        run: |
-          echo "steps.branch-label-setup.outputs.capitalized: ${{ steps.branch-label-setup.outputs.capitalized }}"
-          echo "{branchLabel}={$steps.branch-label-setup.outputs.capitalized}" >> $GITHUB_OUTPUT
+      # - name: Set Branch Label
+      #   id: branch-label
+      #   run: |
+      #     echo "steps.branch-label-setup.outputs.capitalized: ${{ steps.branch-label-setup.outputs.capitalized }}"
+      #     echo "{branchLabel}={$steps.branch-label-setup.outputs.capitalized}" >> $GITHUB_OUTPUT
       - name: Set Distribution Id
         id: distribution-id
         run: |
           echo "branch: ${{ github.event.ref }}"
-          echo "branchLabel outputs: ${{ steps.branch-label.outputs.branchLabel }}"
 
-          echo "branchLabel: ${{ steps.branch-label.outputs.branchLabel }}"
+          echo "steps.branch-label.outputs.capitalized: ${{ steps.branch-label.outputs.capitalized }}"
 
         # outputId="RecipesBranchStack${{ steps.branch-label.outputs.branchLabel }}"
 
