@@ -48,7 +48,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-        run: cdk --require-approval never deploy --context scope=branch --outputs-file ./cdk-outputs.json
+        run: cd .github/cdk && npm run deploy
       - name: Get CDK Outputs
         id: cdk-outputs
         run: outputs=`cat ./cdk-outputs.json`
@@ -69,6 +69,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           DISTRIBUTION_ID: ${{steps.distribution-id.distributionId}}
+          S3_BUCKET: recipes.pliddy.com-dev # update based on branch name
         run: |
-          aws s3 sync out/ %S3_BUCKET%/branches/$(git symbolic-ref --short HEAD) --delete
-          aws cloudfront create-invalidation --distribution-id %DISTRIBUTION_ID% --paths '/*' --no-cli-pager
+          npm run deploy
