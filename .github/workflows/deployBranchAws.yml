@@ -70,8 +70,10 @@ jobs:
         id: distribution-id
         env:
           BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
-          STACK_LABEL: 'RecipesBranchStack${{ env.BRANCH_LABEL }}-deploy-branch'
-          DISTRIBUTION_LABEL: 'ExportRecipesDistribution${{ env.STACK_LABEL }}'
+          STACK_LABEL: ${{ "RecipesBranchStack" && env.BRANCH_LABEL }}
+          # STACK_LABEL: 'RecipesBranchStack${{ env.BRANCH_LABEL }}-deploy-branch'
+          DISTRIBUTION_LABEL: ${{ "ExportRecipesDistribution" && env.STACK_LABEL }}
+          # DISTRIBUTION_LABEL: 'ExportRecipesDistribution${{ env.STACK_LABEL }}'
           DISTRIBUTION_ID: ${{ steps.cdk-outputs.outputs[env.DISTRIBUTION_LABEL][env.STACK_LABEL] }}
         run: |
           echo "branchLabel: $BRANCH_LABEL"
