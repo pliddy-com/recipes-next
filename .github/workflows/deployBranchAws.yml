@@ -60,8 +60,8 @@ jobs:
       - name: Set Distribution Id
         id: distribution-id
         run: |
-          outputs=`cat ./cdk-outputs.json`
-          distributionId=${{fromJson(steps.siteDeploy.outputs).RecipesBranchStack${{steps.branchLabel.output}}}}"
+          outputId=RecipesBranchStack${{steps.branchLabel.output}}
+          distributionId=${{fromJson(steps.siteDeploy.outputs)}}.${{steps.distribution-id.outputId}}"
       - name: Deploy Site Content
         id: deploy-site-content
         env:
