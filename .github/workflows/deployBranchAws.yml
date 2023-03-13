@@ -68,8 +68,8 @@ jobs:
         env:
           BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
           OUTPUT_ID: 'RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
-          CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
-          DISTRIBUTION_ID: '${{ cdkOutputs }}.${{ outputId }}'
+          # CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
+          DISTRIBUTION_ID: '${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}.${{ outputId }}'
         run: |
           echo "branch: ${{ github.event.ref }}"
 
@@ -81,9 +81,9 @@ jobs:
 
           echo "{outputId}={$OUTPUT_ID}" >> $GITHUB_OUTPUT
 
-          echo "CDK_OUTPUTS: ${{ CDK_OUTPUTS }}"
-
           echo "{distributionId}={$DISTRIBUTION_ID}" >> $GITHUB_OUTPUT
+
+        # echo "CDK_OUTPUTS: ${{ CDK_OUTPUTS }}"
 
         # distributionId="${{ cdkOutputs }}.${{ outputId }}"
 
