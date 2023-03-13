@@ -54,7 +54,7 @@ jobs:
         uses: ASzc/change-string-case-action@v5
         with:
           string: ${{ github.event.ref }}
-      - name: Get values from the package.json
+      - name: Get CDK Output Values
         id: cdk-outputs
         uses: RadovanPelka/github-action-json@main
         with:
@@ -71,13 +71,13 @@ jobs:
         env:
           BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
           STACK_LABEL: 'RecipesBranchStack${{ env.BRANCH_LABEL }}-deploy-branch'
-          DISTRIBUTION_LABEL: 'ExportRecipesDistribution${{ ENV.BRANCH_LABEL }}'
-          CDK_OUTPUTS: ${{ steps.cdk-outputs.outputs }}
+          DISTRIBUTION_LABEL: 'ExportRecipesDistribution${{ env.STACK_LABEL }}'
+          DISTRIBUTION_ID: ${{ steps.cdk-outputs.outputs[env.DISTRIBUTION_LABEL][env.STACK_LABEL] }}
         run: |
           echo "branchLabel: $BRANCH_LABEL"
           echo "stackLabel: $STACK_LABEL"
           echo "distributionLabel: $DISTRIBUTION_LABEL"
-          echo "cdk outputs: $CDK_OUTPUTS"
+          echo "distribution id: $DISTRIBUTION_ID"
 
       # json=${{ fromJSON(${{ content }}) }}
 
