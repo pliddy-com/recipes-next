@@ -53,7 +53,8 @@ jobs:
         id: cdk-outputs
         run: |
           cdkOutputs=`cat .github/cdk/cdk-outputs.json`
-          echo steps.cdk-outputs.cdkOutputs
+          echo cdkOutputs: ${{cdkOutputs}}
+          echo steps.cdk-outputs.cdkOutputs: ${{steps.cdk-outputs.cdkOutputs}}
       - name: Set Branch Label
         id: branchLabel
         uses: ASzc/change-string-case-action@v5
