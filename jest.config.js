@@ -14,6 +14,7 @@ const customJestConfig = {
   modulePathIgnorePatterns: ['<rootDir>/.github'],
   collectCoverage: true,
   collectCoverageFrom: [
+    '!cdk/**/*.*',
     '!.github/**',
     'src/**/*.{ts,tsx,js,jsx}',
     '!src/**/types/**',

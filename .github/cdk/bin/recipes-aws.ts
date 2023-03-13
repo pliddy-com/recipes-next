@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib';
-import * as branchName from 'current-git-branch';
+import branchName from 'current-git-branch';
 
 import { RecipesSharedStack } from '../lib/recipes-shared-stack';
 import { RecipesBranchStack } from '../lib/recipes-branch-stack';
