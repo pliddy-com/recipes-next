@@ -68,7 +68,7 @@ jobs:
           echo "stackLabel: $STACK_LABEL"
           echo "distributionLabel: $DISTRIBUTION_LABEL"
 
-          echo "distribution: ${{ fromJSON($JSON)[$STACK_LABEL][$DISTRIBUTION_LABEL] }}"
+          echo "distribution: ${{ fromJSON(${{ JSON }})[$STACK_LABEL][$DISTRIBUTION_LABEL] }}"
 
         # echo "{cdkOutputs}={$JSON}" >> $GITHUB_OUTPUT
 
