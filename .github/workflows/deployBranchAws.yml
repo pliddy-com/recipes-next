@@ -87,7 +87,7 @@ jobs:
         run: |
           echo "stackLabel: $STACK_LABEL"
           echo "distributionLabel: $DISTRIBUTION_LABEL"
-          echo "distributionId: ${{ steps.cdk-outputs.outputs[env.STACK_LABEL][env.DISTRIBUTION_LABEL] }}"
+          echo "distributionId: ${{ steps.cdk-outputs.outputs.$STACK_LABEL.$DISTRIBUTION_LABEL }}"
 
       # - name: Get CDK Outputs
       #   id: cdk-outputs
