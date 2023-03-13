@@ -56,38 +56,48 @@ jobs:
           string: ${{ github.event.ref }}
       - name: Get CDK Outputs
         id: cdk-outputs
-        # handle multi-line json
-        run: |
-          content=`cd .github/cdk && cat ./cdk-outputs.json`
-          echo "content: ${content}"
-          echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
-      - name: Set Distribution Id
-        id: distribution-id
         env:
           BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
-          OUTPUT_ID: 'RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
-          CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
-          # DISTRIBUTION_ID: '${{ steps.cdk-outputs.outputs.distributionId }}'
+        # handle multi-line json
         run: |
-          echo "BRANCH_LABEL: $BRANCH_LABEL"
-          echo "OUTPUT_ID: $OUTPUT_ID"
-          echo "CDK_OUTPUTS: $CDK_OUTPUTS"
+          JSON=`cd .github/cdk && cat ./cdk-outputs.json`
 
-        # json=${{ fromJSON(${{ content }}) }}
+          stackLabel = "RecipesBranchStack$BRANCH_LABEL-deploy-branch"
+          resourceLabel = "ExportRecipesDistribution$BRANCH_LABEL"
 
-        # echo "json: ${json}}"
+          echo "stackLabel: ${stackLabel}"
+          echo "resourceLabel: ${resourceLabel}"
 
-        # stackLabel = "RecipesBranchStack$BRANCH_LABEL-deploy-branch"
-        # resourceLabel = "ExportRecipesDistribution$BRANCH_LABEL"
+          echo "test: ${{ fromJSON($JSON)[$stackLabel][$resourceLabel]}}"
 
-        # echo "stackLabel: ${stackLabel}"
-        # echo "resourceLabel: ${resourceLabel}"
+          echo "{cdkOutputs}={$JSON}" >> $GITHUB_OUTPUT
+      # - name: Set Distribution Id
+      #   id: distribution-id
+      #   env:
+      #     BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
+      #     OUTPUT_ID: 'RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
+      #     CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
+      #     # DISTRIBUTION_ID: '${{ steps.cdk-outputs.outputs.distributionId }}'
+      #   run: |
+      #     echo "BRANCH_LABEL: $BRANCH_LABEL"
+      #     echo "OUTPUT_ID: $OUTPUT_ID"
+      #     echo "CDK_OUTPUTS: $CDK_OUTPUTS }}"
 
-        # distributionId = ${json[stackLabel][resourceLabel]}
+      # json=${{ fromJSON(${{ content }}) }}
 
-        # echo "distributionId: ${distributionId}"
+      # echo "json: ${json}}"
 
-        # echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
+      # stackLabel = "RecipesBranchStack$BRANCH_LABEL-deploy-branch"
+      # resourceLabel = "ExportRecipesDistribution$BRANCH_LABEL"
+
+      # echo "stackLabel: ${stackLabel}"
+      # echo "resourceLabel: ${resourceLabel}"
+
+      # distributionId = ${json[stackLabel][resourceLabel]}
+
+      # echo "distributionId: ${distributionId}"
+
+      # echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
 
       # echo "cdk outputs: ${fromJson(steps.cdk-outputs.outputs.cdkOutputs).ExportRecipesBranchStack087-deploy-shared}"
 
