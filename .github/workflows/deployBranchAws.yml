@@ -72,11 +72,13 @@ jobs:
         id: distribution-id
         run: |
           echo "branch: ${{ github.event.ref }}"
+          echo "branchLabel outputs: ${{ steps.branch-label.outputs.branchLabel }}"
+
           echo "branchLabel: ${{ steps.branch-label.outputs.branchLabel }}"
 
-          outputId="RecipesBranchStack${{ steps.branch-label.outputs.branchLabel }}"
+        # outputId="RecipesBranchStack${{ steps.branch-label.outputs.branchLabel }}"
 
-          echo "outputId: ${{ outputId }}"
+        # echo "outputId: ${{ outputId }}"
 
         # echo "{outputId}={$outputId}" >> $GITHUB_OUTPUT
 
