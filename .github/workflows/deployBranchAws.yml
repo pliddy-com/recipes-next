@@ -51,7 +51,7 @@ jobs:
         run: cd .github/cdk && npm run deploy
       - name: Get CDK Outputs
         id: cdk-outputs
-        run: outputs=`cat ./cdk-outputs.json`
+        run: outputs=`cat .github/cdk/cdk-outputs.json`
       - name: Set Branch Label
         id: branchLabel
         uses: ASzc/change-string-case-action@v5
