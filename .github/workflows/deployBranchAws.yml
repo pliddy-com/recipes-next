@@ -52,7 +52,7 @@ jobs:
       - name: Get CDK Outputs
         id: cdk-outputs
         run: |
-          content=`cd .github/cdk && cat ./cdk-outputs.jsonn`
+          content=`cd .github/cdk && cat ./cdk-outputs.json`
           # the following lines are only required for multi line json
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
