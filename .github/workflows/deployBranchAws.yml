@@ -56,6 +56,13 @@ jobs:
         uses: ASzc/change-string-case-action@v5
         with:
           string: ${{ github.event.ref }}
+      - name: Stack Label Branch
+        id: stack-label-branch
+        uses: mad9000/actions-find-and-replace-string@3
+        with:
+          source: ${{ steps.branch-label.outputs.capitalized }}
+          find: '-'
+          replaceAll: ''
       - name: Get CDK Output Values
         id: cdk-outputs
         uses: RadovanPelka/github-action-json@main
@@ -73,7 +80,7 @@ jobs:
         uses: michpohl/action-concatenate-strings@v1.0.1
         with:
           first: 'ExportRecipesDistribution'
-          second: ${{ env.STACK_LABEL }}
+          second: ${{ steps.stack-label-branch.outputs.value }}
           output-var-name: 'DISTRIBUTION_LABEL'
       - name: Test Outputs
         run: |
