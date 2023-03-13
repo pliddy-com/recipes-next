@@ -78,8 +78,8 @@ jobs:
           # CDK_OUTPUTS: ${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}
           # DISTRIBUTION_ID: '${{ fromJson(steps.cdk-outputs.outputs.cdkOutputs) }}.RecipesBranchStack${{ steps.branch-label.outputs.capitalized }}'
         run: |
-          echo "BRANCH_LABEL: ${ BRANCH_LABEL }"
-          echo "OUTPUT_ID: ${ OUTPUT_ID }"
+          echo "BRANCH_LABEL: ${{ BRANCH_LABEL }}"
+          echo "OUTPUT_ID: ${{ OUTPUT_ID }}"
 
       #     echo "CDK_OUTPUTS: ${ CDK_OUTPUTS }"
 
