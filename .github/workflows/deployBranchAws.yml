@@ -84,13 +84,14 @@ jobs:
           second: ${{ steps.stack-label-branch.outputs.value }}
           output-var-name: 'DISTRIBUTION_LABEL'
       - name: Test Outputs
+        env:
+          DISTRIBUTION_ID: ${{ steps.cdk-outputs.outputs[format('{0}', env.STACK_LABEL)][format('{0}', env.DISTRIBUTION_LABEL)] }}
         run: |
           echo "stackLabel: $STACK_LABEL"
           echo "distributionLabel: $DISTRIBUTION_LABEL"
           echo "cdk outputs: ${{ steps.cdk-outputs.outputs}}"
 
-          distributionId=steps.cdk-outputs.outputs[format('{0}', env.STACK_LABEL)][format('{0}', env.DISTRIBUTION_LABEL)]
-          echo "distributionId: ${{ distributionId }}"
+          echo "DISTRIBUTION_ID: $DISTRIBUTION_ID"
 
         # echo "distributionId: ${{ steps.cdk-outputs.outputs.  .cdkOutputs[$STACK_LABEL][$DISTRIBUTION_LABEL] }}"
 
