@@ -96,7 +96,7 @@ jobs:
           script: |
             const { S3_BUCKET_BASE } = process.env
 
-            console.log('S3_BUCKET_BASE:', $S3_BUCKET_BASE);
+            console.log('S3_BUCKET_BASE:', S3_BUCKET_BASE);
 
             const { ref } = context;
             const refArray = ref.split('/');
