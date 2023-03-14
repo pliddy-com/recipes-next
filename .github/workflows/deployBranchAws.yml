@@ -58,13 +58,11 @@ jobs:
           content="${content//$'\s+'/''}"
 
           echo "CDK_OUTPUTS: ${content}"
-          echo "{CDK_OUTPUTS}={$content}" >> $GITHUB_ENV
+          echo "CDK_OUTPUTS={$content}" >> $GITHUB_ENV
 
         # content="${content//'%'/'%25'}"
       - name: Test Outputs
         uses: actions/github-script@v6
-        env:
-          cdkOutputs: ${{ steps.cdk-outputs.outputs.cdkOutputs }}
         with:
           script: |
             console.log('context.ref:', context.ref);
@@ -91,6 +89,9 @@ jobs:
 
             const distributionLabel = `ExportRecipesDistribution${branchSlug}`
             console.log('distributionLabel:', distributionLabel);
+
+            const distributionId = CDK_OUTPUTS[stackLabel][distributionLabel];
+            console.log('distributionId', distributionId);
 
           # console.log('cdkOutputs:', cdkOutputs);
 
