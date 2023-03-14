@@ -48,21 +48,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: cd .github/cdk && npm run deploy
-
-        # TODO: create deploy using aws-sdk to lookup value & pass down
-      # - name: Branch Label
-      #   id: branch-label
-      #   uses: ASzc/change-string-case-action@v5
-      #   with:
-      #     string: ${{ github.event.ref }}
-      # - name: Stack Label Branch
-      #   id: stack-label-branch
-      #   uses: mad9000/actions-find-and-replace-string@3
-      #   with:
-      #     source: ${{ steps.branch-label.outputs.capitalized }}
-      #     find: '-'
-      #     replace: ''
-      #     replaceAll: true
       - name: Get CDK Outputs
         id: cdk-outputs
         # handle multi-line json
@@ -72,30 +57,10 @@ jobs:
           content="${content//$'\r'/''}"
           content="${content//$'\s+'/''}"
 
-          echo "cdkOutputs: ${content}"
-          echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
+          echo "CDK_OUTPUTS: ${content}"
+          echo "{CDK_OUTPUTS}={$content}" >> $GITHUB_ENV
 
         # content="${content//'%'/'%25'}"
-
-      # - name: Get CDK Output Values
-      #   id: cdk-outputs
-      #   uses: RadovanPelka/github-action-json@main
-      #   with:
-      #     path: '.github/cdk/cdk-outputs.json'
-      # - name: Get Stack Label
-      #   id: stack-label
-      #   uses: michpohl/action-concatenate-strings@v1.0.1
-      #   with:
-      #     first: 'RecipesBranchStack'
-      #     second: ${{ steps.branch-label.outputs.capitalized }}
-      #     output-var-name: 'STACK_LABEL'
-      # - name: Get Distribution Label
-      #   id: distribution-label
-      #   uses: michpohl/action-concatenate-strings@v1.0.1
-      #   with:
-      #     first: 'ExportRecipesDistribution'
-      #     second: ${{ steps.stack-label-branch.outputs.value }}
-      #     output-var-name: 'DISTRIBUTION_LABEL'
       - name: Test Outputs
         uses: actions/github-script@v6
         env:
@@ -104,8 +69,10 @@ jobs:
           script: |
             console.log('context.ref:', context.ref);
 
-            const { cdkOutputs } = process.env;
-            console.log('cdkOutputs:', cdkOutputs)
+            console.log('process.env:', process.env);
+
+            const { CDK_OUTPUTS } = process.env;
+            console.log('CDK_OUTPUTS:', CDK_OUTPUTS);
 
             const { ref } = context;
 
@@ -136,58 +103,6 @@ jobs:
         #   echo "DISTRIBUTION_ID: $DISTRIBUTION_ID"
 
         # echo "distributionId: ${{ steps.cdk-outputs.outputs.  .cdkOutputs[$STACK_LABEL][$DISTRIBUTION_LABEL] }}"
-
-      # - name: Get CDK Outputs
-      #   id: cdk-outputs
-      #   # handle multi-line json
-      #   run: |
-      #     content=`cd .github/cdk && cat ./cdk-outputs.json`
-      #     echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
-      # - name: Set Distribution Id
-      #   id: distribution-id
-      #   env:
-      #     BRANCH_LABEL: ${{ steps.branch-label.outputs.capitalized }}
-      #     STACK_LABEL: 'ExportRecipesDistribution${{steps.branch-label.outputs.capitalized}}'
-      #   # STACK_LABEL: ${{format('ExportRecipesDistribution{0}', $BRANCH_LABEL)}}
-      #   # DISTRIBUTION_LABEL: 'ExportRecipesDistribution && ${{ env.STACK_LABEL }}'
-      #   # DISTRIBUTION_LABEL: 'ExportRecipesDistribution${{ env.STACK_LABEL }}'
-      #   # DISTRIBUTION_ID: ${{ steps.cdk-outputs.outputs[env.DISTRIBUTION_LABEL][env.STACK_LABEL] }}
-      #   run: |
-      #     echo "STACK_LABEL: $STACK_LABEL"
-
-      #   # echo "stack outputs: ${{ steps.cdk-outputs.outputs[STACK_LABEL] }}"
-
-      #   # NEXT STEP: get branch label without dashes for property
-      #   # echo "distributionLabel: $DISTRIBUTION_LABEL"
-      #   # echo "distribution id: $DISTRIBUTION_ID"
-
-      # # json=${{ fromJSON(${{ content }}) }}
-
-      # # echo "json: ${json}"
-
-      # # stackLabel = "RecipesBranchStack$BRANCH_LABEL-deploy-branch"
-      # # resourceLabel = "ExportRecipesDistribution$BRANCH_LABEL"
-
-      # # echo "stackLabel: ${stackLabel}"
-      # # echo "resourceLabel: ${resourceLabel}"
-
-      # # distributionId = ${json[stackLabel][resourceLabel]}
-
-      # # echo "distributionId: ${distributionId}"
-
-      # # echo "{distributionId}={$distributionId}" >> $GITHUB_OUTPUT
-
-      # # echo "cdk outputs: ${fromJson(steps.cdk-outputs.outputs.cdkOutputs).ExportRecipesBranchStack087-deploy-shared}"
-
-      # #     echo "steps.branch-label.outputs.capitalized: ${{ steps.branch-label.outputs.capitalized }}"
-
-      # # echo "{distributionId}={$DISTRIBUTION_ID}" >> $GITHUB_OUTPUT
-
-      # # echo "CDK_OUTPUTS: ${{ CDK_OUTPUTS }}"
-
-      # # distributionId="${{ cdkOutputs }}.${{ outputId }}"
-
-      # # echo "distributionId: ${{ distributionId }}"
 
       # # - name: Deploy Site Content
       # #   id: deploy-site-content
