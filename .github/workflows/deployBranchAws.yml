@@ -58,7 +58,7 @@ jobs:
           content="${content//$'\s+'/''}"
 
           echo "CDK_OUTPUTS: ${content}"
-          echo "CDK_OUTPUTS={$content}" >> $GITHUB_ENV
+          echo "CDK_OUTPUTS=$content" >> $GITHUB_ENV
 
         # content="${content//'%'/'%25'}"
       - name: Test Outputs
@@ -89,9 +89,6 @@ jobs:
 
             const distributionLabel = `ExportRecipesDistribution${branchSlug}`
             console.log('distributionLabel:', distributionLabel);
-
-            const cdkOutputs = JSON.parse(CDK_OUTPUTS);
-            console.log('cdkOutputs:', cdkOutputs);
 
             const distributionId = CDK_OUTPUTS[stackLabel][distributionLabel];
             console.log('distributionId', distributionId);
