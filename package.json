@@ -12,7 +12,6 @@
     "postdeploy": "npm run invalidate",
     "predev": "npm run typegen",
     "dev": "next dev",
-    "preexport": "npm run build",
     "export": "next export",
     "invalidate": "dotenv -- cross-var aws cloudfront create-invalidation --distribution-id %DISTRIBUTION_ID% --paths '/*' --no-cli-pager",
     "lint": "prettier --check . && next lint",
