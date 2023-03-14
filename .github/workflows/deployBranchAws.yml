@@ -160,7 +160,7 @@ jobs:
             const branchLabel = branch === 'main' ? 'Prod' : branch[0].toUpperCase() + branch.slice(1);
 
             const stackLabel = `RecipesBranchStack${ branchLabel }`
-            const branchSlug = branchLabel.replaceAll('-', '');
+            const branchSlug = branch === 'main' ? 'Main' : branchLabel.replaceAll('-', '');
             const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
             const distributionId = cdkOutputs[stackLabel][distributionLabel];
 
