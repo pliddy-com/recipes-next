@@ -101,7 +101,7 @@ jobs:
             const { ref } = context;
             const refArray = ref.split('/');
             const branch = refArray[refArray.length - 1];
-            - 
+
             console.log('branch:', branch);
 
             const bucketName = `${ S3_BUCKET_BASE }-${ branch === 'main' ? 'prod' : 'dev' }`
@@ -115,8 +115,10 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+          BUCKET_NAME: ${{ steps.bucket-name.outputs.result }}
+          DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
         run: |
-          echo "deployment bucket: ${steps.bucket-name.outputs.result}"
-          echo "distributionId: ${steps.distribution-id.outputs.result}"
+          echo "deployment bucket: $BUCKET_NAME"
+          echo "distributionId: $DISTRIBUTION_ID"
 
         # npm run deploy
