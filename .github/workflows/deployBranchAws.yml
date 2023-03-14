@@ -66,7 +66,8 @@ jobs:
           result-encoding: string
           script: |
             const cdkOutputs = JSON.parse(process.env.CDK_OUTPUTS);
-            const branch = context.ref.split('/')[refArray.length - 1];
+            const refArray = context.ref.split('/');
+            const branch = refArray[refArray.length - 1];
             const branchLabel = branch && branch[0].toUpperCase() + branch.slice(1);
             const stackLabel = `RecipesBranchStack${branchLabel}`
             const branchSlug = branchLabel.replaceAll('-', '');
@@ -98,7 +99,6 @@ jobs:
             console.log('bucketName:', bucketName);
 
             return bucketName;
-          # TODO: identify S3 bucket from AWS & add '-dev' or -'prod' based on
       - name: Deploy Site Content
         id: deploy-site-content
         env:
