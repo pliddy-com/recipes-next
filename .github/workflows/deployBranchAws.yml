@@ -112,6 +112,17 @@ jobs:
             console.log('bucketName:', bucketName);
 
             return bucketName;
+      - name: Set Deployment Environment Variables
+        id: set-deploy-env
+        env:
+          S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
+          DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
+        run: |
+          echo "S3_BUCKET: $S3_BUCKET"
+          echo "DISTRIBUTION_ID: $DISTRIBUTION_ID"
+
+          echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_ENV
+          echo "DISTRIBUTION_ID=$DISTRIBUTION_ID" >> $GITHUB_ENV
   deploySite:
     name: Deploy Site
     runs-on: ubuntu-latest
@@ -123,8 +134,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
-          DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
+          S3_BUCKET: ${{ vars.S3_BUCKET }}
+          DISTRIBUTION_ID: ${{ vars.DISTRIBUTION_ID }}
           BRANCH: ${{ github.event.ref }}
         run: |
           echo "deployment bucket: $S3_BUCKET"
