@@ -99,7 +99,7 @@ jobs:
       - name: Test Outputs
         uses: actions/github-script@v6
         with:
-          cdkOutputs: ${{ steps.cdk-outputs.outputs }}
+          cdkOutputs: ${{ steps.cdk-outputs.outputs.cdkOutputs }}
           script: |
             console.log('context.ref:', context.ref);
 
