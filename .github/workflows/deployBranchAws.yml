@@ -65,53 +65,52 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const { CDK_OUTPUTS } = process.env;
-            const { ref } = context;
-
-            const refArray = ref.split('/');
-            const branch = refArray[refArray.length - 1];
-
-            console.log('branch:', branch);
-
+            const cdkOutputs = JSON.parse(process.env.CDK_OUTPUTS);
+            const branch = context.ref.split('/')[refArray.length - 1];
             const branchLabel = branch && branch[0].toUpperCase() + branch.slice(1);
-
-            console.log('branchLabel:', branchLabel);
-
-            const branchSlug = branchLabel.replaceAll('-', '');
-
-            console.log('branchSlug:', branchSlug);
-
             const stackLabel = `RecipesBranchStack${branchLabel}`
-
-            console.log('stackLabel:', stackLabel);
-
+            const branchSlug = branchLabel.replaceAll('-', '');
             const distributionLabel = `ExportRecipesDistribution${branchSlug}`
-
-            console.log('distributionLabel:', distributionLabel);
-
-            const cdkOutputs = JSON.parse(CDK_OUTPUTS);
+            const distributionId = cdkOutputs[stackLabel][distributionLabel];
 
             console.log('cdkOutputs:', cdkOutputs);
-
-            const stackOutputs = cdkOutputs[stackLabel];
-
-            console.log('stackOutputs', stackOutputs);
-
-            const distributionId = stackOutputs[distributionLabel];
-
+            console.log('branch:', branch);
+            console.log('branchLabel:', branchLabel);
+            console.log('stackLabel:', stackLabel);
+            console.log('branchSlug:', branchSlug);
+            console.log('distributionLabel:', distributionLabel);
             console.log('distributionId', distributionId);
 
             return distributionId;
-          # echo "DISTRIBUTION_ID=$distributionId" >> $GITHUB_ENV
+      - name: Get Bucket Name
+        id: bucket-name
+        uses: actions/github-script@v6
+        with:
+          result-encoding: string
+          script: |
+            const bucketBase = env.S3_BUCKET;
+            console.log('bucketBase:', bucketBase);
 
+            const branch = context.ref.split('/')[refArray.length - 1];
+            console.log('branch:', branch);
+
+            const bucketName = `${bucketBase}-${branch === 'main' ? '-prod' : '-dev'}`
+            console.log('bucketName:', bucketName);
+
+            return bucketName;
+          # TODO: identify S3 bucket from AWS & add '-dev' or -'prod' based on
       - name: Deploy Site Content
         id: deploy-site-content
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          DISTRIBUTION_ID: $DISTRIBUTION_ID
+          # DISTRIBUTION_ID: $DISTRIBUTION_ID
           S3_BUCKET: recipes.pliddy.com-dev # update based on branch name
         run: |
-          echo "distributionId: ${{ steps.distribution-id.outputs.result }}"
+          bucketName = ${{ steps.bucket-name.outputs.result }}"
+          distributionId = ${{ steps.distribution-id.outputs.result }}"
+
+          echo "deployment bucket: ${ bucketName }"
+          echo "distributionId: ${ distributionId}"
         # npm run deploy
