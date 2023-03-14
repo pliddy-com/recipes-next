@@ -57,7 +57,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          BRANCH: ${{ github.ref_name }}
+          BRANCH: ${{ github.event.ref }}
         run: |
           echo "branch: $BRANCH"
 
@@ -90,7 +90,7 @@ jobs:
         uses: actions/github-script@v6
         env:
           S3_BUCKET_BASE: ${{ vars.S3_BUCKET_BASE }}
-          BRANCH: ${{ github.ref_name }}
+          BRANCH: ${{ github.ref }}
         with:
           result-encoding: string
           script: |
@@ -109,7 +109,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          BRANCH: ${{ github.ref_name }}
+          BRANCH: ${{ github.ref }}
           S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
         run: |
           echo "BRANCH: $BRANCH"
