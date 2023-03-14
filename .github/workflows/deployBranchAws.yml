@@ -90,20 +90,11 @@ jobs:
             const distributionLabel = `ExportRecipesDistribution${branchSlug}`
             console.log('distributionLabel:', distributionLabel);
 
-            const distributionId = CDK_OUTPUTS[stackLabel][distributionLabel];
+            const stackOutputs = CDK_OUTPUTS[stackLabel];
+            console.log('stackOutputs', stackOutputs);
+
+            const distributionId = stackOutputs[distributionLabel];
             console.log('distributionId', distributionId);
-
-          # console.log('cdkOutputs:', cdkOutputs);
-
-        # run: |
-        #   echo "stackLabel: $STACK_LABEL"
-        #   echo "distributionLabel: $DISTRIBUTION_LABEL"
-        #   echo "cdk outputs: ${{ steps.cdk-outputs.outputs}}"
-
-        #   echo "cdk outputs (RecipesBranchStack088-deploy-branch.ExportRecipesDistribution088deploybranch): ${{ toJSON(steps.cdk-outputs.outputs.RecipesBranchStack088-deploy-branch.ExportRecipesDistribution088deploybranch) }}"
-        #   echo "DISTRIBUTION_ID: $DISTRIBUTION_ID"
-
-        # echo "distributionId: ${{ steps.cdk-outputs.outputs.  .cdkOutputs[$STACK_LABEL][$DISTRIBUTION_LABEL] }}"
 
       # # - name: Deploy Site Content
       # #   id: deploy-site-content
