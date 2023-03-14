@@ -122,5 +122,7 @@ jobs:
           echo "deployment bucket: $BUCKET_NAME"
           echo "distributionId: $DISTRIBUTION_ID"
 
-          aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
+          echo pwd
+
+          aws s3 sync ../../../out/ $S3_BUCKET/branches/$BRANCH --delete
           aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
