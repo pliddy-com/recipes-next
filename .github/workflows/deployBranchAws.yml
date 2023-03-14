@@ -121,4 +121,6 @@ jobs:
 
           echo "deployment bucket: ${bucketName}"
           echo "distributionId: ${distributionId}"
-        # npm run deploy
+
+          echo "BUCKET_NAME=$bucketName" >> $GITHUB_ENV
+          echo "DISTRIBUTION_ID=$distributionId" >> $GITHUB_ENV
