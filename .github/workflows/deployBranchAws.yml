@@ -92,7 +92,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const { S3_BUCKET_BASE } = process.env;
+            const { S3_BUCKET_BASE } = vars;
             console.log('S3_BUCKET_BASE:', S3_BUCKET_BASE);
 
             const { ref } = context;
