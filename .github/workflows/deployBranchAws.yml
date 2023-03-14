@@ -59,9 +59,11 @@ jobs:
 
           echo "CDK_OUTPUTS: ${content}"
           echo "CDK_OUTPUTS=$content" >> $GITHUB_ENV
-      - name: Test Outputs
+      - name: Get Distribution Id
+        id: distribution-id
         uses: actions/github-script@v6
         with:
+          result-encoding: string
           script: |
             const { CDK_OUTPUTS } = process.env;
             const { ref } = context;
@@ -97,17 +99,19 @@ jobs:
 
             const distributionId = stackOutputs[distributionLabel];
 
-            console.log('DISTRIBUTION_ID', distributionId);
+            console.log('distributionId', distributionId);
 
-            echo "DISTRIBUTION_ID=$distributionId" >> $GITHUB_ENV
+            return distributionId;
+          # echo "DISTRIBUTION_ID=$distributionId" >> $GITHUB_ENV
 
-      # # - name: Deploy Site Content
-      # #   id: deploy-site-content
-      # #   env:
-      # #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      # #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      # #     AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-      # #     DISTRIBUTION_ID: ${{steps.distribution-id.distributionId}}
-      # #     S3_BUCKET: recipes.pliddy.com-dev # update based on branch name
-      # #   run: |
-      # #     npm run deploy
+      - name: Deploy Site Content
+        id: deploy-site-content
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+          DISTRIBUTION_ID: $DISTRIBUTION_ID
+          S3_BUCKET: recipes.pliddy.com-dev # update based on branch name
+        run: |
+          echo "distributionId: ${{ steps.distribution-id.outputs.distributionId }}"
+        # npm run deploy
