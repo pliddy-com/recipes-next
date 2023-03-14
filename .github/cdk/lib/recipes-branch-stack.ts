@@ -14,6 +14,7 @@ import {
   DistributionProps,
   ErrorResponse,
   HttpVersion,
+  LambdaEdgeEventType,
   OriginAccessIdentity,
   OriginRequestPolicy,
   PriceClass,
@@ -23,6 +24,8 @@ import {
 } from 'aws-cdk-lib/aws-cloudfront';
 
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
+import { experimental } from 'aws-cdk-lib/aws-cloudfront';
+import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
@@ -153,6 +156,27 @@ export class RecipesBranchStack extends Stack {
     };
 
     /**
+     *  Create an origin request handler lambda@edge function version
+     *
+     *  Generate a CloudFormation output value for the origin request function
+     */
+
+    const originRequestHandler = new experimental.EdgeFunction(
+      this,
+      `OriginRequestHandler`,
+      {
+        functionName: `RecipesOriginRequestHandler${branchLabel}`,
+        runtime: Runtime.NODEJS_16_X,
+        handler: 'next-origin-request.handler',
+        code: Code.fromAsset('../cdk/lambda'),
+      }
+    );
+
+    this.exportValue(originRequestHandler.functionArn, {
+      name: `Recipes-OriginRequestHandler-${branchLabel}`,
+    });
+
+    /**
      *  Create a CloudFront Web Distribution
      *
      *  This solution is using Origin Access Identity (OAI) with Distribution
@@ -167,6 +191,12 @@ export class RecipesBranchStack extends Stack {
       defaultBehavior: {
         allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         compress: false,
+        edgeLambdas: [
+          {
+            functionVersion: originRequestHandler.currentVersion,
+            eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
+          },
+        ],
         origin: new S3Origin(siteBucket, {
           originPath,
           originShieldEnabled: true,
