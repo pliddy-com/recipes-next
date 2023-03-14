@@ -6,6 +6,9 @@ on:
     branches:
       - '!main'
   push:
+    branches:
+      - 'main'
+      - '!main'
   workflow_dispatch:
     branches:
       - 'main'
