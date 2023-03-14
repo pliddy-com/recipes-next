@@ -85,7 +85,7 @@ jobs:
       - name: Test Outputs
         uses: actions/github-script@v6
         with:
-          cdkOutputs: ${{ steps.cdk-outputs.outputs }}
+          # cdkOutputs: ${{ steps.cdk-outputs.outputs }}
           script: |
             const branch = github.event.ref;
             const branchLabel = branch && branch[0].toUpperCase() + branch.slice(1);
@@ -100,7 +100,7 @@ jobs:
             console.log('stackLabel:', stackLabel);
             console.log('distributionLabel:', distributionLabel);
 
-            console.log('cdkOutputs:', cdkOutputs);
+          # console.log('cdkOutputs:', cdkOutputs);
 
         # run: |
         #   echo "stackLabel: $STACK_LABEL"
