@@ -90,6 +90,9 @@ jobs:
             const distributionLabel = `ExportRecipesDistribution${branchSlug}`
             console.log('distributionLabel:', distributionLabel);
 
+            const cdkOutputs = JSON.parse(CDK_OUTPUTS);
+            console.log('cdkOutputs:', cdkOutputs);
+
             const distributionId = CDK_OUTPUTS[stackLabel][distributionLabel];
             console.log('distributionId', distributionId);
 
