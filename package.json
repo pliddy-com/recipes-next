@@ -7,6 +7,7 @@
     "build": "next build",
     "postbuild": "npm run sitemap && npm run export",
     "sitemap": "next-sitemap",
+    "predeploy": "npm run export",
     "deploy": "dotenv -- cross-var aws s3 sync out/ %S3_BUCKET%/branches/$(git symbolic-ref --short HEAD) --delete",
     "postdeploy": "npm run invalidate",
     "predev": "npm run typegen",
