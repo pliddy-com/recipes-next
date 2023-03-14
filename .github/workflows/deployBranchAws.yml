@@ -17,9 +17,10 @@ env:
 
 jobs:
   deployStack:
+    # TODO: figure out how to get AWS environment values for dist'n & s3 bucket
+    # for current branch if deploystack
     # set conditional so it does not deploy stack when triggered by webhook
     # webhook should re-build Next app with new content; doesn't need IAC
-    if: ${{ github.event.type }} == 'PushEvent'
     name: Deploy Stack
     runs-on: ubuntu-latest
     outputs:
