@@ -162,6 +162,8 @@ jobs:
           echo "deployment bucket: $S3_BUCKET"
           echo "distributionId: $DISTRIBUTION_ID"
 
-          aws s3 sync ./out/ $S3_BUCKET/branches/$BRANCH --delete
+          echo "workspace: ${{ github.workspace }}"
+
+          aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
           aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
         # npm run deploy
