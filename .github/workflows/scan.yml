@@ -2,10 +2,6 @@ name: Code Validation
 run-name: Code Validation
 
 on:
-  push:
-    # linting, typechecking, and unit test are part of build process, so no need for separate
-    branches-ignore:
-      - main
   workflow_dispatch:
 
 concurrency:
