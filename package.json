@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "scan": "npm run typegen && npm run lint && npm run test",
     "build": "next build",
     "postbuild": "npm run sitemap && npm run export",
     "sitemap": "next-sitemap",
@@ -18,6 +17,8 @@
     "lint:fix": "prettier --write . && next lint --fix",
     "prepare": "husky install",
     "prestart": "npm run build",
+    "remove": "dotenv -- cross-var aws s3 --recursive %S3_BUCKET%/branches/$(git symbolic-ref --short HEAD)",
+    "scan": "npm run typegen && npm run lint && npm run test",
     "start": "next start",
     "test": "jest",
     "test:dev": "jest --watch",
