@@ -88,7 +88,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const bucketBase = env.S3_BUCKET;
+            const bucketBase = env.S3_BUCKET_BASE;
             console.log('bucketBase:', bucketBase);
 
             const branch = context.ref.split('/')[refArray.length - 1];
@@ -105,8 +105,6 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          # DISTRIBUTION_ID: $DISTRIBUTION_ID
-          S3_BUCKET: recipes.pliddy.com-dev # update based on branch name
         run: |
           bucketName = ${{ steps.bucket-name.outputs.result }}"
           distributionId = ${{ steps.distribution-id.outputs.result }}"
