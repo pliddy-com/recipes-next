@@ -165,7 +165,6 @@ export class RecipesBranchStack extends Stack {
       this,
       `OriginRequestHandler`,
       {
-        functionName: `RecipesOriginRequestHandler${branchLabel}`,
         runtime: Runtime.NODEJS_16_X,
         handler: 'next-origin-request.handler',
         code: Code.fromAsset('../cdk/lambda'),
