@@ -116,11 +116,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: |
-          bucketName = ${{ steps.bucket-name.outputs.result }}
-          distributionId = ${{ steps.distribution-id.outputs.result }}
+          echo "deployment bucket: ${steps.bucket-name.outputs.result}"
+          echo "distributionId: ${steps.distribution-id.outputs.result}"
 
-          echo "deployment bucket: ${bucketName}"
-          echo "distributionId: ${distributionId}"
-
-          echo "BUCKET_NAME=$bucketName" >> $GITHUB_ENV
-          echo "DISTRIBUTION_ID=$distributionId" >> $GITHUB_ENV
+        # npm run deploy
