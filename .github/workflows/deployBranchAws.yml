@@ -50,19 +50,19 @@ jobs:
         run: cd .github/cdk && npm run deploy
 
         # TODO: create deploy using aws-sdk to lookup value & pass down
-      - name: Branch Label
-        id: branch-label
-        uses: ASzc/change-string-case-action@v5
-        with:
-          string: ${{ github.event.ref }}
-      - name: Stack Label Branch
-        id: stack-label-branch
-        uses: mad9000/actions-find-and-replace-string@3
-        with:
-          source: ${{ steps.branch-label.outputs.capitalized }}
-          find: '-'
-          replace: ''
-          replaceAll: true
+      # - name: Branch Label
+      #   id: branch-label
+      #   uses: ASzc/change-string-case-action@v5
+      #   with:
+      #     string: ${{ github.event.ref }}
+      # - name: Stack Label Branch
+      #   id: stack-label-branch
+      #   uses: mad9000/actions-find-and-replace-string@3
+      #   with:
+      #     source: ${{ steps.branch-label.outputs.capitalized }}
+      #     find: '-'
+      #     replace: ''
+      #     replaceAll: true
       - name: Get CDK Output Values
         id: cdk-outputs
         uses: RadovanPelka/github-action-json@main
@@ -87,7 +87,7 @@ jobs:
         with:
           # cdkOutputs: ${{ steps.cdk-outputs.outputs }}
           script: |
-            const branch = github.event.ref;
+            const branch = context.ref;
             const branchLabel = branch && branch[0].toUpperCase() + branch.slice(1);
             const branchSlug = branchLabel.replace('-', '');
 
