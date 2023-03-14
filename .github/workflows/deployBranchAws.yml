@@ -3,9 +3,9 @@ run-name: Deploy Branch AWS Resources
 
 on:
   push:
-  create:
-    branches:
-      - '!main'
+  # create:
+  #   branches:
+  #     - '!main'
   workflow_dispatch:
 
 concurrency:
@@ -41,7 +41,9 @@ jobs:
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
       - name: Install Dependencies
-        run: cd .github/cdk && npm ci --ignore-scripts
+        working-directory: .github/cdk/
+
+        run: npm ci --ignore-scripts
       - name: Deploy Branch-specific Stack for ${{github.event.ref}}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -49,10 +51,11 @@ jobs:
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: cd .github/cdk && npm run deploy
       - name: Get CDK Outputs
+        working-directory: .github/cdk/
         id: cdk-outputs
         # handle multi-line json
         run: |
-          content=`cd .github/cdk && cat ./cdk-outputs.json`
+          content=`cat ./cdk-outputs.json`
           content="${content//$'\n'/''}"
           content="${content//$'\r'/''}"
           content="${content//$'\s+'/''}"
@@ -110,6 +113,7 @@ jobs:
 
             return bucketName;
       - name: Deploy Site Content
+        working-directory: ./
         id: deploy-site-content
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -122,5 +126,9 @@ jobs:
           echo "deployment bucket: $BUCKET_NAME"
           echo "distributionId: $DISTRIBUTION_ID"
 
-          cd && aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
-          cd && aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
+          echo "github context: ${ github }"
+          echo "env context: ${ env }"
+          echo "runner context: ${ runner }"
+
+        # cd && aws s3 sync ./out/ $S3_BUCKET/branches/$BRANCH --delete
+        # cd && aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
