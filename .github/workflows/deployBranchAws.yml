@@ -101,9 +101,6 @@ jobs:
         with:
           # cdkOutputs: ${{ steps.cdk-outputs.outputs }}
           script: |
-            console.log('github:', github)
-            console.log('context:', context);
-
             console.log('context.ref:', context.ref);
 
             const { ref } = context;
@@ -124,8 +121,8 @@ jobs:
             const distributionLabel = `ExportRecipesDistribution${branchSlug}`
             console.log('distributionLabel:', distributionLabel);
 
-          # const cdkOutputs = ${{ (steps.cdk-outputs.outputs.cdkOutputs }}
-          # console.log('cdkOutputs:', cdkOutputs)
+            const cdkOutputs = ${{ (steps.cdk-outputs.outputs.cdkOutputs }}
+            console.log('cdkOutputs:', cdkOutputs)
 
           # console.log('cdkOutputs:', cdkOutputs);
 
