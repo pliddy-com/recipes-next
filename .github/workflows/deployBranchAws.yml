@@ -3,9 +3,6 @@ run-name: Deploy Branch AWS Resources
 
 on:
   push:
-  # create:
-  #   branches:
-  #     - '!main'
   workflow_dispatch:
 
 concurrency:
@@ -17,7 +14,6 @@ env:
 
 jobs:
   deployStack:
-    # if: github.event.ref_type == 'branch'
     name: Deploy Stack
     runs-on: ubuntu-latest
     outputs:
@@ -44,7 +40,6 @@ jobs:
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
       - name: Install Dependencies
-        working-directory: .github/cdk/
         run: npm ci --ignore-scripts
       - name: Deploy Branch-specific Stack for ${{github.event.ref}}
         working-directory: .github/cdk/
@@ -124,8 +119,8 @@ jobs:
           echo "S3_BUCKET: $S3_BUCKET"
           echo "DISTRIBUTION_ID: $DISTRIBUTION_ID"
 
-          echo "S3_BUCKET=$S3_BUCKET" >> "$GITHUB_OUTPUT"
-          echo "DISTRIBUTION_ID=$DISTRIBUTION_ID" >> "$GITHUB_OUTPUT"
+          echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_OUTPUT
+          echo "DISTRIBUTION_ID=$DISTRIBUTION_ID" >> $GITHUB_OUTPUT
   deploySite:
     # This script is for test purposes; should probably be a separate workflow
     name: Deploy Site
@@ -155,6 +150,7 @@ jobs:
         run: npm ci --ignore-scripts
       - name: Deploy Site Content
         id: deploy-site-content
+        working-directory: ./
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -166,6 +162,6 @@ jobs:
           echo "deployment bucket: $S3_BUCKET"
           echo "distributionId: $DISTRIBUTION_ID"
 
-          aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
+          aws s3 sync ./out/ $S3_BUCKET/branches/$BRANCH --delete
           aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
         # npm run deploy
