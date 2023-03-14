@@ -13,7 +13,7 @@
     "cdk": "cdk",
     "deploy": "cdk --require-approval never deploy --context scope=branch --outputs-file ./cdk-outputs.json",
     "deploy:shared": "cdk --require-approval never deploy --context scope=shared",
-    "destroy": "cdk --require-approval never destroy --context scope=branch",
+    "destroy": "cdk --require-approval never destroy --force --context scope=branch",
     "destroy:shared": "cdk --require-approval never destroy --context scope=shared",
     "hotswap": "cdk deploy --hotswap",
     "diff": "cdk diff"
