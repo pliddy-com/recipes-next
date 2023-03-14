@@ -113,5 +113,5 @@ jobs:
           DISTRIBUTION_ID: $DISTRIBUTION_ID
           S3_BUCKET: recipes.pliddy.com-dev # update based on branch name
         run: |
-          echo "distributionId: ${{ steps.distribution-id.outputs.distributionId }}"
+          echo "distributionId: ${{ steps.distribution-id.outputs.result }}"
         # npm run deploy
