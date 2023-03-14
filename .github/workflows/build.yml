@@ -2,17 +2,7 @@ name: Build and Deploy
 run-name: Build and Deploy
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
-  # Allows external webhook trigger with "event_type" = "publish-event"
-  repository_dispatch:
-    types: [publish-event]
-  workflow_run:
-    workflows: ['Deploy Branch AWS Resources']
-    types:
-      - completed
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
