@@ -89,18 +89,21 @@ jobs:
       - name: Get Bucket Name
         id: bucket-name
         uses: actions/github-script@v6
+        env:
+          S3_BUCKET_BASE: ${{ vars.S3_BUCKET_BASE }}
         with:
           result-encoding: string
           script: |
-            const { S3_BUCKET_BASE } = vars;
-            console.log('S3_BUCKET_BASE:', S3_BUCKET_BASE);
+            const baseName = $S3_BUCKET_BASE;
+
+            console.log('baseName:', $baseName);
 
             const { ref } = context;
             const refArray = ref.split('/');
             const branch = refArray[refArray.length - 1];
             console.log('branch:', branch);
 
-            const bucketName = `${S3_BUCKET_BASE}-${branch === 'main' ? '-prod' : '-dev'}`
+            const bucketName = `${baseName}-${branch === 'main' ? '-prod' : '-dev'}`
             console.log('bucketName:', bucketName);
 
             return bucketName;
