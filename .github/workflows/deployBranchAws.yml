@@ -2,16 +2,11 @@ name: Deploy Branch AWS Resources
 run-name: Deploy Branch AWS Resources
 
 on:
+  push:
   create:
     branches:
       - '!main'
-  push:
-    branches:
-      - 'main'
-      - '!main'
   workflow_dispatch:
-    branches:
-      - 'main'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -22,7 +17,7 @@ env:
 
 jobs:
   deployStack:
-    if: github.event.ref_type == 'branch' && github.event.ref != 'main'
+    if: github.event.ref_type == 'branch'
     name: Deploy Stack
     runs-on: ubuntu-latest
     steps:
