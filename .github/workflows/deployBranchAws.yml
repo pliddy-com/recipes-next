@@ -124,6 +124,7 @@ jobs:
           echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_ENV
           echo "DISTRIBUTION_ID=$DISTRIBUTION_ID" >> $GITHUB_ENV
   deploySite:
+    # This script is for test purposes; should probably be a separate workflow
     name: Deploy Site
     runs-on: ubuntu-latest
     needs: deployStack
@@ -135,11 +136,11 @@ jobs:
         with:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
           cache: 'npm'
-      - name: CDK Cache
-        id: cdk-cache
+      - name: Node Cache
+        id: node-cache
         uses: actions/cache@v3
         env:
-          cache-name: cdk-cache
+          cache-name: node-cache
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
@@ -162,6 +163,6 @@ jobs:
           echo "deployment bucket: $S3_BUCKET"
           echo "distributionId: $DISTRIBUTION_ID"
 
-          npm run deploy
-        # aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
-        # aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
+          aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
+          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
+        # npm run deploy
