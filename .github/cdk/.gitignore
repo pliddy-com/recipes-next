@@ -6,6 +6,7 @@
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+.github/cdk/cdk-outputs.json
 
 .env
 

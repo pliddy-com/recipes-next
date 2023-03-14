@@ -11,7 +11,7 @@
     "test": "npm run build && npm run jest",
     "test:snapshot": "npm run build && npm run jest -- -u",
     "cdk": "cdk",
-    "deploy": "cdk --require-approval never deploy --context scope=branch",
+    "deploy": "cdk --require-approval never deploy --context scope=branch --outputs-file ./cdk-outputs.json",
     "deploy:shared": "cdk --require-approval never deploy --context scope=shared",
     "destroy": "cdk --require-approval never destroy --context scope=branch",
     "destroy:shared": "cdk --require-approval never destroy --context scope=shared",
