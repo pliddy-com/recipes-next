@@ -59,52 +59,47 @@ jobs:
 
           echo "CDK_OUTPUTS: ${content}"
           echo "CDK_OUTPUTS=$content" >> $GITHUB_ENV
-
-        # content="${content//'%'/'%25'}"
       - name: Test Outputs
         uses: actions/github-script@v6
         with:
           script: |
-            console.log('context.ref:', context.ref);
-
-            console.log('process.env:', process.env);
-
             const { CDK_OUTPUTS } = process.env;
-            console.log('CDK_OUTPUTS:', CDK_OUTPUTS);
-
             const { ref } = context;
 
             const refArray = ref.split('/');
             const branch = refArray[refArray.length - 1];
+
             console.log('branch:', branch);
 
             const branchLabel = branch && branch[0].toUpperCase() + branch.slice(1);
+
             console.log('branchLabel:', branchLabel);
 
             const branchSlug = branchLabel.replaceAll('-', '');
+
             console.log('branchSlug:', branchSlug);
 
             const stackLabel = `RecipesBranchStack${branchLabel}`
+
             console.log('stackLabel:', stackLabel);
 
             const distributionLabel = `ExportRecipesDistribution${branchSlug}`
+
             console.log('distributionLabel:', distributionLabel);
 
-            const testObject = JSON.parse(CDK_OUTPUTS);
+            const cdkOutputs = JSON.parse(CDK_OUTPUTS);
+
             console.log('testObject:', testObject);
 
-            const testOutputs = testObject['RecipesBranchStack088-deploy-branch'];
-            console.log('testOutputs:', testOutputs)
+            const stackOutputs = cdkOutputs[stackLabel];
 
-            const testDistId = testOutputs.ExportRecipesDistribution088deploybranch;
-            console.log('testDistId:', testOutestDistIdtputs)
-
-
-            const stackOutputs = testObject[stackLabel];
             console.log('stackOutputs', stackOutputs);
 
             const distributionId = stackOutputs[distributionLabel];
-            console.log('distributionId', distributionId);
+
+            console.log('DISTRIBUTION_ID', distributionId);
+
+            echo "DISTRIBUTION_ID=$distributionId" >> $GITHUB_ENV
 
       # # - name: Deploy Site Content
       # #   id: deploy-site-content
