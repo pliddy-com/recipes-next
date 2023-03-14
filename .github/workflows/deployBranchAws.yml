@@ -20,6 +20,9 @@ jobs:
     # if: github.event.ref_type == 'branch'
     name: Deploy Stack
     runs-on: ubuntu-latest
+    outputs:
+      S3_BUCKET: ${{ steps.set-outputs.outputs.S3_BUCKET }}
+      DISTRIBUTION_ID: ${{ steps.set-outputs.outputs.DISTRIBUTION_ID }}
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
@@ -112,8 +115,8 @@ jobs:
             console.log('bucketName:', bucketName);
 
             return bucketName;
-      - name: Set Deployment Environment Variables
-        id: set-deploy-env
+      - name: Set Job Outputs
+        id: set-outputs
         env:
           S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
           DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
@@ -162,9 +165,6 @@ jobs:
         run: |
           echo "deployment bucket: $S3_BUCKET"
           echo "distributionId: $DISTRIBUTION_ID"
-
-          echo "needs.deployStack.outputs.S3_BUCKET: ${{ needs.deployStack.outputs.S3_BUCKET }}"
-          echo "needs.deployStack.outputs.DISTRIBUTION_ID: ${{ needs.deployStack.outputs.DISTRIBUTION_ID }}"
 
           aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
           aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
