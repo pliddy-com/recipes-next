@@ -68,6 +68,8 @@ jobs:
         # handle multi-line json
         run: |
           content=`cd .github/cdk && cat ./cdk-outputs.json`
+          content="${content//'%'/'%25'}"
+
           echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
 
       # - name: Get CDK Output Values
