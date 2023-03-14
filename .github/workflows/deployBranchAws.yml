@@ -150,7 +150,6 @@ jobs:
         run: npm ci --ignore-scripts
       - name: Deploy Site Content
         id: deploy-site-content
-        working-directory: ./
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -163,6 +162,8 @@ jobs:
           echo "distributionId: $DISTRIBUTION_ID"
 
           echo "workspace: ${{ github.workspace }}"
+
+          npm run build
 
           aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
           aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
