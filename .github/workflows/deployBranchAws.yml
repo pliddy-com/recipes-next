@@ -5,6 +5,9 @@ on:
   create:
     branches:
       - '!main'
+  push:
+    branches:
+      - '!main'
   workflow_dispatch:
     branches:
       - 'main'
@@ -69,30 +72,35 @@ jobs:
         uses: RadovanPelka/github-action-json@main
         with:
           path: '.github/cdk/cdk-outputs.json'
-      - name: Get Stack Label
-        id: stack-label
-        uses: michpohl/action-concatenate-strings@v1.0.1
-        with:
-          first: 'RecipesBranchStack'
-          second: ${{ steps.branch-label.outputs.capitalized }}
-          output-var-name: 'STACK_LABEL'
-      - name: Get Distribution Label
-        id: distribution-label
-        uses: michpohl/action-concatenate-strings@v1.0.1
-        with:
-          first: 'ExportRecipesDistribution'
-          second: ${{ steps.stack-label-branch.outputs.value }}
-          output-var-name: 'DISTRIBUTION_LABEL'
+      # - name: Get Stack Label
+      #   id: stack-label
+      #   uses: michpohl/action-concatenate-strings@v1.0.1
+      #   with:
+      #     first: 'RecipesBranchStack'
+      #     second: ${{ steps.branch-label.outputs.capitalized }}
+      #     output-var-name: 'STACK_LABEL'
+      # - name: Get Distribution Label
+      #   id: distribution-label
+      #   uses: michpohl/action-concatenate-strings@v1.0.1
+      #   with:
+      #     first: 'ExportRecipesDistribution'
+      #     second: ${{ steps.stack-label-branch.outputs.value }}
+      #     output-var-name: 'DISTRIBUTION_LABEL'
       - name: Test Outputs
         env:
-          DISTRIBUTION_ID: ${{ steps.cdk-outputs.outputs[format('{0}', env.STACK_LABEL)][format('{0}', env.DISTRIBUTION_LABEL)] }}
-        run: |
-          echo "stackLabel: $STACK_LABEL"
-          echo "distributionLabel: $DISTRIBUTION_LABEL"
-          echo "cdk outputs: ${{ steps.cdk-outputs.outputs}}"
+          CDK_OUTPUTS: ${{ steps.cdk-outputs.outputs}}
+        uses: actions/github-script@0.8.0
+        with:
+          script: |
+            console.log('CDK_OUTPUTS', $CDK_OUTPUTS)
 
-          echo "cdk outputs (RecipesBranchStack088-deploy-branch.ExportRecipesDistribution088deploybranch): ${{ toJSON(steps.cdk-outputs.outputs.RecipesBranchStack088-deploy-branch.ExportRecipesDistribution088deploybranch) }}"
-          echo "DISTRIBUTION_ID: $DISTRIBUTION_ID"
+        # run: |
+        #   echo "stackLabel: $STACK_LABEL"
+        #   echo "distributionLabel: $DISTRIBUTION_LABEL"
+        #   echo "cdk outputs: ${{ steps.cdk-outputs.outputs}}"
+
+        #   echo "cdk outputs (RecipesBranchStack088-deploy-branch.ExportRecipesDistribution088deploybranch): ${{ toJSON(steps.cdk-outputs.outputs.RecipesBranchStack088-deploy-branch.ExportRecipesDistribution088deploybranch) }}"
+        #   echo "DISTRIBUTION_ID: $DISTRIBUTION_ID"
 
         # echo "distributionId: ${{ steps.cdk-outputs.outputs.  .cdkOutputs[$STACK_LABEL][$DISTRIBUTION_LABEL] }}"
 
