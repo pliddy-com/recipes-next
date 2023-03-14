@@ -121,6 +121,5 @@ jobs:
           echo "deployment bucket: $BUCKET_NAME"
           echo "distributionId: $DISTRIBUTION_ID"
 
-          echo "S3_BUCKET=$BUCKET_NAME" >> $GITHUB_ENV
-
-          npm run deploy
+          aws s3 sync out/ %S3_BUCKET%/branches/$(git symbolic-ref --short HEAD) --delete
+          aws cloudfront create-invalidation --distribution-id %DISTRIBUTION_ID% --paths '/*' --no-cli-pager
