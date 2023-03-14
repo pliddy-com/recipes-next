@@ -98,10 +98,14 @@ jobs:
       #     output-var-name: 'DISTRIBUTION_LABEL'
       - name: Test Outputs
         uses: actions/github-script@v6
-        with:
+        env:
           cdkOutputs: ${{ steps.cdk-outputs.outputs.cdkOutputs }}
+        with:
           script: |
             console.log('context.ref:', context.ref);
+
+            const { cdkOutputs } = process.env;
+            console.log('cdkOutputs:', cdkOutputs)
 
             const { ref } = context;
 
@@ -120,8 +124,6 @@ jobs:
 
             const distributionLabel = `ExportRecipesDistribution${branchSlug}`
             console.log('distributionLabel:', distributionLabel);
-
-            console.log('cdkOutputs:', cdkOutputs)
 
           # console.log('cdkOutputs:', cdkOutputs);
 
