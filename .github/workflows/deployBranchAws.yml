@@ -65,8 +65,11 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const cdkOutputs = JSON.parse(process.env.CDK_OUTPUTS);
-            const refArray = context.ref.split('/');
+            const { CDK_OUTPUTS } = process.env;
+            const { ref } = context;
+
+            const cdkOutputs = JSON.parse(CDK_OUTPUTS);
+            const refArray = ref.split('/');
             const branch = refArray[refArray.length - 1];
             const branchLabel = branch && branch[0].toUpperCase() + branch.slice(1);
             const stackLabel = `RecipesBranchStack${branchLabel}`
@@ -89,13 +92,15 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const bucketBase = env.S3_BUCKET_BASE;
-            console.log('bucketBase:', bucketBase);
+            const { S3_BUCKET_BASE } = process.env;
+            console.log('S3_BUCKET_BASE:', S3_BUCKET_BASE);
 
-            const branch = context.ref.split('/')[refArray.length - 1];
+            const { ref } = context;
+            const refArray = ref.split('/');
+            const branch = refArray[refArray.length - 1];
             console.log('branch:', branch);
 
-            const bucketName = `${bucketBase}-${branch === 'main' ? '-prod' : '-dev'}`
+            const bucketName = `${S3_BUCKET_BASE}-${branch === 'main' ? '-prod' : '-dev'}`
             console.log('bucketName:', bucketName);
 
             return bucketName;
