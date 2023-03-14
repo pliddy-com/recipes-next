@@ -118,8 +118,9 @@ jobs:
           S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
           DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
         run: |
+          branch = ${{ github.event.ref }}
           echo "deployment bucket: $BUCKET_NAME"
           echo "distributionId: $DISTRIBUTION_ID"
 
-          aws s3 sync out/ %S3_BUCKET%/branches/$(git symbolic-ref --short HEAD) --delete
-          aws cloudfront create-invalidation --distribution-id %DISTRIBUTION_ID% --paths '/*' --no-cli-pager
+          aws s3 sync out/ $S3_BUCKET/branches/$branch --delete
+          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
