@@ -99,7 +99,7 @@ jobs:
       - name: Test Outputs
         uses: actions/github-script@v6
         with:
-          # cdkOutputs: ${{ steps.cdk-outputs.outputs }}
+          cdkOutputs: ${{ steps.cdk-outputs.outputs }}
           script: |
             console.log('context.ref:', context.ref);
 
@@ -121,7 +121,6 @@ jobs:
             const distributionLabel = `ExportRecipesDistribution${branchSlug}`
             console.log('distributionLabel:', distributionLabel);
 
-            const cdkOutputs = ${{ (steps.cdk-outputs.outputs.cdkOutputs }}
             console.log('cdkOutputs:', cdkOutputs)
 
           # console.log('cdkOutputs:', cdkOutputs);
