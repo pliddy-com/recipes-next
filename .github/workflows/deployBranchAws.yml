@@ -83,12 +83,24 @@ jobs:
       #     second: ${{ steps.stack-label-branch.outputs.value }}
       #     output-var-name: 'DISTRIBUTION_LABEL'
       - name: Test Outputs
-        env:
-          CDK_OUTPUTS: ${{ steps.cdk-outputs.outputs}}
-        uses: actions/github-script@0.8.0
+        uses: actions/github-script@v6
         with:
+          cdkOutputs: ${{ steps.cdk-outputs.outputs }}
           script: |
-            console.log('CDK_OUTPUTS', $CDK_OUTPUTS)
+            const branch = github.event.ref;
+            const branchLabel = branch && branch[0].toUpperCase() + branch.slice(1);
+            const branchSlug = branchLabel.replace('-', '');
+
+            const stackLabel = `RecipesBranchStack${branchLabel}`
+            const distributionLabel = `ExportRecipesDistribution${branchSlug}`
+
+            console.log('branch:', branch);
+            console.log('branchLabel:', branchLabel);
+            console.log('branchSlug:', branchSlug);
+            console.log('stackLabel:', stackLabel);
+            console.log('distributionLabel:', distributionLabel);
+
+            console.log('cdkOutputs:', cdkOutputs);
 
         # run: |
         #   echo "stackLabel: $STACK_LABEL"
