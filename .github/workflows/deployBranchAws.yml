@@ -121,8 +121,8 @@ jobs:
           echo "S3_BUCKET: $S3_BUCKET"
           echo "DISTRIBUTION_ID: $DISTRIBUTION_ID"
 
-          echo "S3_BUCKET=$S3_BUCKET" >> $GITHUB_OUTPUT
-          echo "DISTRIBUTION_ID=$DISTRIBUTION_ID" >> $GITHUB_OUTPUT
+          echo "S3_BUCKET=$S3_BUCKET" >> "$GITHUB_OUTPUT"
+          echo "DISTRIBUTION_ID=$DISTRIBUTION_ID" >> "$GITHUB_OUTPUT"
   deploySite:
     # This script is for test purposes; should probably be a separate workflow
     name: Deploy Site
