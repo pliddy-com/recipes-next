@@ -128,7 +128,7 @@ jobs:
           echo "distributionId: $DISTRIBUTION_ID"
 
           echo "github context: ${{ github }}"
-          echo "env context: ${{} env }}"
+          echo "env context: ${{ env }}"
           echo "runner context: ${{ runner }}"
 
           aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
