@@ -72,6 +72,7 @@ jobs:
           content="${content//$'\r'/''}"
           content="${content//$'\s+'/''}"
 
+          echo "cdkOutputs: ${content}"
           echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
 
         # content="${content//'%'/'%25'}"
@@ -100,25 +101,28 @@ jobs:
         with:
           # cdkOutputs: ${{ steps.cdk-outputs.outputs }}
           script: |
-            const branch = context.ref.split('/')[context.ref.length - 1];
+            console.log('github:', github)
+            console.log('context:', context);
+
+            console.log('context.ref:', context.ref);
+
+            const { ref } = context;
+
+            const refArray = ref.split('/');
+            const branch = refArray[refArray.length - 1];
+            console.log('branch:', branch);
+
             const branchLabel = branch && branch[0].toUpperCase() + branch.slice(1);
-            const branchSlug = branchLabel.replace('-', '');
+            console.log('branchLabel:', branchLabel);
+
+            const branchSlug = branchLabel.replaceAll('-', '');
+            console.log('branchSlug:', branchSlug);
 
             const stackLabel = `RecipesBranchStack${branchLabel}`
-            const distributionLabel = `ExportRecipesDistribution${branchSlug}`
-
-            console.log('branch:', branch);
-            console.log('branchLabel:', branchLabel);
-            console.log('branchSlug:', branchSlug);
             console.log('stackLabel:', stackLabel);
+
+            const distributionLabel = `ExportRecipesDistribution${branchSlug}`
             console.log('distributionLabel:', distributionLabel);
-
-
-            console.log('context:', context);
-            console.log('workflow:', workflow);
-            console.log('job:', job);
-            console.log('action:', action);
-            console.log('ref:', ref);
 
           # const cdkOutputs = ${{ (steps.cdk-outputs.outputs.cdkOutputs }}
           # console.log('cdkOutputs:', cdkOutputs)
@@ -161,7 +165,7 @@ jobs:
 
       # # json=${{ fromJSON(${{ content }}) }}
 
-      # # echo "json: ${json}}"
+      # # echo "json: ${json}"
 
       # # stackLabel = "RecipesBranchStack$BRANCH_LABEL-deploy-branch"
       # # resourceLabel = "ExportRecipesDistribution$BRANCH_LABEL"
