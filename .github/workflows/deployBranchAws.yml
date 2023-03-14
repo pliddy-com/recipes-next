@@ -42,7 +42,6 @@ jobs:
             ${{ github.repository }}-
       - name: Install Dependencies
         working-directory: .github/cdk/
-
         run: npm ci --ignore-scripts
       - name: Deploy Branch-specific Stack for ${{github.event.ref}}
         working-directory: .github/cdk/
@@ -113,8 +112,11 @@ jobs:
             console.log('bucketName:', bucketName);
 
             return bucketName;
+  deploySite:
+    name: Deploy Site
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy Site Content
-        working-directory: ./
         id: deploy-site-content
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
