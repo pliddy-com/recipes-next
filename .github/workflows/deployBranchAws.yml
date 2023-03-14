@@ -134,16 +134,13 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          S3_BUCKET: ${{ vars.S3_BUCKET }}
-          DISTRIBUTION_ID: ${{ vars.DISTRIBUTION_ID }}
+          S3_BUCKET: ${{ env.S3_BUCKET }}
+          DISTRIBUTION_ID: ${{ env.DISTRIBUTION_ID }}
           BRANCH: ${{ github.event.ref }}
         run: |
           echo "deployment bucket: $S3_BUCKET"
           echo "distributionId: $DISTRIBUTION_ID"
 
-          echo "github context: ${{ github }}"
-          echo "env context: ${{ env }}"
-          echo "runner context: ${{ runner }}"
-
-          aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
-          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
+          npm run deploy
+        # aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
+        # aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
