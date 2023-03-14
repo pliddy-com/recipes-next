@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "npm run typegen && npm run test",
+    "scan": "npm run typegen && npm run lint && npm run test",
     "build": "next build",
     "postbuild": "npm run sitemap && npm run export",
     "sitemap": "next-sitemap",
