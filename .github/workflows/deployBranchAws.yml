@@ -63,11 +63,18 @@ jobs:
       #     find: '-'
       #     replace: ''
       #     replaceAll: true
-      - name: Get CDK Output Values
+      - name: Get CDK Outputs
         id: cdk-outputs
-        uses: RadovanPelka/github-action-json@main
-        with:
-          path: '.github/cdk/cdk-outputs.json'
+        # handle multi-line json
+        run: |
+          content=`cd .github/cdk && cat ./cdk-outputs.json`
+          echo "{cdkOutputs}={$content}" >> $GITHUB_OUTPUT
+
+      # - name: Get CDK Output Values
+      #   id: cdk-outputs
+      #   uses: RadovanPelka/github-action-json@main
+      #   with:
+      #     path: '.github/cdk/cdk-outputs.json'
       # - name: Get Stack Label
       #   id: stack-label
       #   uses: michpohl/action-concatenate-strings@v1.0.1
@@ -87,7 +94,7 @@ jobs:
         with:
           # cdkOutputs: ${{ steps.cdk-outputs.outputs }}
           script: |
-            const branch = context.ref;
+            const branch = context.ref.split('/')[context.ref.length - 1];
             const branchLabel = branch && branch[0].toUpperCase() + branch.slice(1);
             const branchSlug = branchLabel.replace('-', '');
 
@@ -99,6 +106,16 @@ jobs:
             console.log('branchSlug:', branchSlug);
             console.log('stackLabel:', stackLabel);
             console.log('distributionLabel:', distributionLabel);
+
+
+            console.log('context:', context);
+            console.log('workflow:', workflow);
+            console.log('job:', job);
+            console.log('action:', action);
+            console.log('ref:', ref);
+
+          # const cdkOutputs = ${{ (steps.cdk-outputs.outputs.cdkOutputs }}
+          # console.log('cdkOutputs:', cdkOutputs)
 
           # console.log('cdkOutputs:', cdkOutputs);
 
