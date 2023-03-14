@@ -91,7 +91,7 @@ jobs:
           echo "distributionLabel: $DISTRIBUTION_LABEL"
           echo "cdk outputs: ${{ steps.cdk-outputs.outputs}}"
 
-          echo "cdk outputs as JSON: ${{ toJSON(steps.cdk-outputs.outputs[0]) }}"
+          echo "cdk outputs (RecipesBranchStack088-deploy-branch.ExportRecipesDistribution088deploybranch): ${{ toJSON(steps.cdk-outputs.outputs.RecipesBranchStack088-deploy-branch.ExportRecipesDistribution088deploybranch) }}"
           echo "DISTRIBUTION_ID: $DISTRIBUTION_ID"
 
         # echo "distributionId: ${{ steps.cdk-outputs.outputs.  .cdkOutputs[$STACK_LABEL][$DISTRIBUTION_LABEL] }}"
