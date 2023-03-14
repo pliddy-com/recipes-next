@@ -91,7 +91,7 @@ jobs:
 
             const cdkOutputs = JSON.parse(CDK_OUTPUTS);
 
-            console.log('testObject:', testObject);
+            console.log('cdkOutputs:', cdkOutputs);
 
             const stackOutputs = cdkOutputs[stackLabel];
 
