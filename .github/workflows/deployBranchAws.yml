@@ -90,6 +90,12 @@ jobs:
             const distributionLabel = `ExportRecipesDistribution${branchSlug}`
             console.log('distributionLabel:', distributionLabel);
 
+            const testOutputs = CDK_OUTPUTS.RecipesBranchStack088-deploy-branch;
+            console.log('testOutputs:', testOutputs)
+
+            const testDistId = testOutputs.ExportRecipesDistribution088deploybranch;
+            console.log('testDistId:', testOutestDistIdtputs)
+
             const stackOutputs = CDK_OUTPUTS[stackLabel];
             console.log('stackOutputs', stackOutputs);
 
