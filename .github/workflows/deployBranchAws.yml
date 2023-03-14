@@ -20,6 +20,9 @@ jobs:
     # if: github.event.ref_type == 'branch'
     name: Deploy Stack
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
@@ -115,6 +118,9 @@ jobs:
   deploySite:
     name: Deploy Site
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - name: Deploy Site Content
         id: deploy-site-content
