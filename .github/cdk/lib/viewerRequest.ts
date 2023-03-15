@@ -11,7 +11,7 @@ function handler(event) {
   rewrites.forEach((rewrite) => {
     const [original, revision] = rewrite;
 
-    if (request.uri.includes.original) {
+    if (request.uri.includes(original)) {
       request.uri.replace(original, revision);
     }
   });
