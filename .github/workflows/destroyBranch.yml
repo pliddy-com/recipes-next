@@ -66,7 +66,7 @@ jobs:
           echo "branch: $BRANCH"
           echo "SOURCE_BRANCH=$BRANCH" >> $GITHUB_OUTPUT
 
-          npm cdk --require-approval never destroy --force --context scope=branch --context branch=$BRANCH
+          cdk --require-approval never destroy --force --context scope=branch --context branch=$BRANCH
         # npm run destroy
   removeSiteFiles:
     name: Remove Site Files
