@@ -1,5 +1,15 @@
 'use strict';
 
+// interface EventProps {
+//   Records: {
+//     cf: {
+//       request: {
+//         uri: string;
+//       };
+//     };
+//   }[];
+// }
+
 // this is the origin request lambda@edge for the cloudfront distribution
 exports.handler = async (event) => {
   const eventRecord = event.Records[0];

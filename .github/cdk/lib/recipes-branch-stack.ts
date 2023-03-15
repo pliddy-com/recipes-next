@@ -12,6 +12,7 @@ import {
   AllowedMethods,
   Distribution,
   DistributionProps,
+  EdgeLambda,
   ErrorResponse,
   HttpVersion,
   LambdaEdgeEventType,
@@ -24,7 +25,8 @@ import {
 } from 'aws-cdk-lib/aws-cloudfront';
 
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
-import { Code, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
+import { Code, Function, Runtime, Version } from 'aws-cdk-lib/aws-lambda';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
@@ -76,6 +78,9 @@ export class RecipesBranchStack extends Stack {
     const responseHeadersPolicyId = Fn.importValue(
       `Recipes-ResponseHeadersPolicy-${branch === 'main' ? 'Prod' : 'Dev'}`
     );
+    // const originRequestHandlerVersion = Fn.importValue(
+    //   'Recipes-OriginRequestHandlerVersion'
+    // );
 
     const siteBucket = Bucket.fromBucketArn(
       this,
@@ -98,6 +103,11 @@ export class RecipesBranchStack extends Stack {
         'ResponseHeadersPolicy',
         responseHeadersPolicyId
       );
+    // const originRequestHandler = Version.fromVersionArn(
+    //   this,
+    //   'OriginRequestHandlerVersion',
+    //   originRequestHandlerVersion
+    // );
 
     /**
      *  Create strings based on branch, subdomain, and domain for use by the stack
@@ -161,29 +171,44 @@ export class RecipesBranchStack extends Stack {
      *  Generate a CloudFormation output value for the origin request function
      */
 
-    const originRequestHandler = new Function(this, `OriginRequestHandler`, {
-      runtime: Runtime.NODEJS_16_X,
-      handler: 'index.handler',
-      code: Code.fromAsset(path.join(__dirname, 'originRequest')),
-    });
+    const originRequestHandler = new NodejsFunction(this, 'originRequest');
 
-    // const originRequestHandler = new experimental.EdgeFunction(
+    // const originRequestHandler = new NodejsFunction(
     //   this,
     //   `OriginRequestHandler`,
     //   {
-    //     runtime: Runtime.NODEJS_16_X,
-    //     handler: 'index.handler',
-    //     code: Code.fromAsset('../cdk/lambda/originRequest'),
+    //     // runtime: Runtime.NODEJS_16_X,
+    //     handler: 'index',
+    //     entry: path.join(__dirname, 'originRequest/index.ts'),
+    //     // code: Code.fromAsset(path.join(__dirname, 'originRequest')),
     //   }
     // );
 
-    this.exportValue(originRequestHandler.functionArn, {
-      name: `Recipes-OriginRequestHandlerArn-${branchLabel}`,
-    });
+    // // const originRequestHandler = new experimental.EdgeFunction(
+    // //   this,
+    // //   `OriginRequestHandler`,
+    // //   {
+    // //     runtime: Runtime.NODEJS_16_X,
+    // //     handler: 'index.handler',
+    // //     code: Code.fromAsset('../cdk/lambda/originRequest'),
+    // //   }
+    // // );
 
-    // this.exportValue(originRequestHandler.currentVersion, {
+    // this.exportValue(originRequestHandler.functionArn, {
+    //   name: `Recipes-OriginRequestHandlerArn-${branchLabel}`,
+    // });
+
+    // this.exportValue(edgeLambda.functionVersion, {
     //   name: `Recipes-OriginRequestHandlerVersion-${branchLabel}`,
     // });
+
+    const edgeLambda: EdgeLambda = {
+      eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
+      functionVersion: originRequestHandler.currentVersion,
+
+      // the properties below are optional
+      includeBody: false,
+    };
 
     /**
      *  Create a CloudFront Web Distribution
@@ -200,12 +225,7 @@ export class RecipesBranchStack extends Stack {
       defaultBehavior: {
         allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         compress: false,
-        edgeLambdas: [
-          {
-            functionVersion: originRequestHandler.currentVersion,
-            eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
-          },
-        ],
+        edgeLambdas: [edgeLambda],
         origin: new S3Origin(siteBucket, {
           originPath,
           originShieldEnabled: true,
