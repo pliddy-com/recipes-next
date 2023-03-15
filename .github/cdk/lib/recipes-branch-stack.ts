@@ -21,6 +21,7 @@ import {
   DistributionProps,
   // EdgeLambda,
   ErrorResponse,
+  FunctionEventType,
   HttpVersion,
   // LambdaEdgeEventType,
   OriginAccessIdentity,
@@ -32,6 +33,7 @@ import {
 } from 'aws-cdk-lib/aws-cloudfront';
 
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 // import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
@@ -166,7 +168,8 @@ export class RecipesBranchStack extends Stack {
      *  Generate a CloudFormation output value for the origin request function
      */
 
-    // const originRequestHandler = new NodejsFunction(this, 'originRequest');
+    const viewerRequestHandler = new NodejsFunction(this, 'viewerRequest');
+
     // originRequestHandler.applyRemovalPolicy(RemovalPolicy.RETAIN);
 
     // const edgeLambda: EdgeLambda = {
@@ -190,6 +193,12 @@ export class RecipesBranchStack extends Stack {
         allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         compress: false,
         // edgeLambdas: [edgeLambda],
+        functionAssociations: [
+          {
+            function: viewerRequestHandler,
+            eventType: FunctionEventType.VIEWER_REQUEST,
+          },
+        ],
         origin: new S3Origin(siteBucket, {
           originPath,
           originShieldEnabled: true,
