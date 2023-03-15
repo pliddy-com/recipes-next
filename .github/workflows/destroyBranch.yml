@@ -66,8 +66,7 @@ jobs:
           echo "branch: $BRANCH"
           echo "SOURCE_BRANCH=$BRANCH" >> $GITHUB_OUTPUT
 
-          cdk --require-approval never destroy --force --context scope=branch --context branch=$BRANCH
-        # npm run destroy
+          npm run destroy:gha
   removeSiteFiles:
     name: Remove Site Files
     runs-on: ubuntu-latest
