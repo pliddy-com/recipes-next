@@ -181,9 +181,9 @@ export class RecipesBranchStack extends Stack {
       name: `Recipes-OriginRequestHandlerArn-${branchLabel}`,
     });
 
-    this.exportValue(originRequestHandler.currentVersion, {
-      name: `Recipes-OriginRequestHandlerVersion-${branchLabel}`,
-    });
+    // this.exportValue(originRequestHandler.currentVersion, {
+    //   name: `Recipes-OriginRequestHandlerVersion-${branchLabel}`,
+    // });
 
     /**
      *  Create a CloudFront Web Distribution
