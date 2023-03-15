@@ -17,7 +17,7 @@
     "destroy": "cdk --require-approval never destroy --force --context scope=branch --context branch=$BRANCH",
     "destroy:shared": "cdk --require-approval never destroy --context scope=shared",
     "synth": "cdk --require-approval never synth --context scope=branch --outputs-file ./cdk-outputs.json",
-    "sythn:shared": "cdk --require-approval never synth --context scope=shared",
+    "synth:shared": "cdk --require-approval never synth --context scope=shared",
     "hotswap": "cdk deploy --hotswap",
     "diff": "cdk diff"
   },

@@ -173,7 +173,6 @@ export class RecipesBranchStack extends Stack {
     // });
 
     const originRequestHandler = new NodejsFunction(this, 'originRequest');
-
     originRequestHandler.applyRemovalPolicy(RemovalPolicy.RETAIN);
 
     const edgeLambda: EdgeLambda = {
