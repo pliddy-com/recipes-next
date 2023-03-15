@@ -146,7 +146,7 @@ export class RecipesSharedStack extends Stack {
      *  Generate a CloudFormation output value for the origin request function
      */
 
-    const originRequestHandler = new NodejsFunction(this, 'OriginRequest');
+    const originRequestHandler = new NodejsFunction(this, 'originRequest');
     const version = originRequestHandler.currentVersion;
     const versionArn = version.edgeArn;
 
