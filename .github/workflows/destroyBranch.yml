@@ -52,6 +52,7 @@ jobs:
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
       - name: Install Dependencies
+        working-directory: .github/cdk/
         run: npm ci --ignore-scripts
       - name: Destroy AWS
         id: destroy-aws
