@@ -25,7 +25,7 @@ import {
 } from 'aws-cdk-lib/aws-cloudfront';
 
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
-import { Version } from 'aws-cdk-lib/aws-lambda';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
@@ -74,12 +74,9 @@ export class RecipesBranchStack extends Stack {
     const responseHeadersPolicyId = Fn.importValue(
       `Recipes-ResponseHeadersPolicy-${resourceLabel}`
     );
-    const originRequestHandlerArn = Fn.importValue(
-      `Recipes-OriginRequestHandlerArn-${resourceLabel}`
-    );
-    const originRequestHandlerVersionArn = Fn.importValue(
-      `Recipes-OriginRequestHandlerVersionArn-${resourceLabel}`
-    );
+    // const originRequestHandlerVersionArn = Fn.importValue(
+    //   `Recipes-OriginRequestHandlerVersionArn-${resourceLabel}`
+    // );
 
     const siteBucket = Bucket.fromBucketArn(
       this,
@@ -102,14 +99,6 @@ export class RecipesBranchStack extends Stack {
         'ResponseHeadersPolicy',
         responseHeadersPolicyId
       );
-
-    const originRequestHandlerVersion = Version.fromVersionArn(
-      this,
-      'OriginRequestHandler',
-      originRequestHandlerArn
-    );
-
-    // const originRequestHandlerVerison = Version.fromVersionArn;
 
     /**
      *  Create strings based on branch, subdomain, and domain for use by the stack
@@ -173,11 +162,11 @@ export class RecipesBranchStack extends Stack {
      *  Generate a CloudFormation output value for the origin request function
      */
 
-    // const originRequestHandler = new NodejsFunction(this, 'originRequest');
+    const originRequestHandler = new NodejsFunction(this, 'originRequest');
 
     const edgeLambda: EdgeLambda = {
       eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
-      functionVersion: originRequestHandlerVersion,
+      functionVersion: originRequestHandler.currentVersion,
     };
 
     /**
