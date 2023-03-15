@@ -121,5 +121,5 @@ jobs:
           echo "BRANCH: $BRANCH"
           echo "S3_BUCKET: $S3_BUCKET"
 
-          aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
+          aws s3 rm --recursive $S3_BUCKET/branches/$BRANCH
         # npm run remove
