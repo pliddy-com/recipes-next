@@ -25,7 +25,7 @@ import {
 } from 'aws-cdk-lib/aws-cloudfront';
 
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
+import { Version } from 'aws-cdk-lib/aws-lambda';
 import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
@@ -64,17 +64,21 @@ export class RecipesBranchStack extends Stack {
      *  import shared AWS resources
      */
 
-    const siteBucketArn = Fn.importValue(
-      `Recipes-BucketArn-${branch === 'main' ? 'Prod' : 'Dev'}`
-    );
+    const resourceLabel = branch === 'main' ? 'Prod' : 'Dev';
+
+    const siteBucketArn = Fn.importValue(`Recipes-BucketArn-${resourceLabel}`);
     const certificateArn = Fn.importValue(
-      `Recipes-Certificate-${branch === 'main' ? 'Prod' : 'Dev'}`
+      `Recipes-Certificate-${resourceLabel}`
     );
-    const cloudfrontOAIId = Fn.importValue(
-      `Recipes-OAI-${branch === 'main' ? 'Prod' : 'Dev'}`
-    );
+    const cloudfrontOAIId = Fn.importValue(`Recipes-OAI-${resourceLabel}`);
     const responseHeadersPolicyId = Fn.importValue(
-      `Recipes-ResponseHeadersPolicy-${branch === 'main' ? 'Prod' : 'Dev'}`
+      `Recipes-ResponseHeadersPolicy-${resourceLabel}`
+    );
+    const originRequestHandlerArn = Fn.importValue(
+      `Recipes-OriginRequestHandlerArn-${resourceLabel}`
+    );
+    const originRequestHandlerVersionArn = Fn.importValue(
+      `Recipes-OriginRequestHandlerVersionArn-${resourceLabel}`
     );
 
     const siteBucket = Bucket.fromBucketArn(
@@ -98,6 +102,14 @@ export class RecipesBranchStack extends Stack {
         'ResponseHeadersPolicy',
         responseHeadersPolicyId
       );
+
+    const originRequestHandlerVersion = Version.fromVersionArn(
+      this,
+      'OriginRequestHandler',
+      originRequestHandlerArn
+    );
+
+    // const originRequestHandlerVerison = Version.fromVersionArn;
 
     /**
      *  Create strings based on branch, subdomain, and domain for use by the stack
@@ -161,11 +173,11 @@ export class RecipesBranchStack extends Stack {
      *  Generate a CloudFormation output value for the origin request function
      */
 
-    const originRequestHandler = new NodejsFunction(this, 'originRequest');
+    // const originRequestHandler = new NodejsFunction(this, 'originRequest');
 
     const edgeLambda: EdgeLambda = {
       eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
-      functionVersion: originRequestHandler.currentVersion,
+      functionVersion: originRequestHandlerVersion,
     };
 
     /**

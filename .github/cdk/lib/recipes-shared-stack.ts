@@ -5,23 +5,19 @@
  */
 
 import { App, Duration, Stack, StackProps } from 'aws-cdk-lib';
-
 import {
   Certificate,
   CertificateValidation,
 } from 'aws-cdk-lib/aws-certificatemanager';
 import {
-  EdgeLambda,
   HeadersFrameOption,
   HeadersReferrerPolicy,
-  LambdaEdgeEventType,
   OriginAccessIdentity,
   ResponseHeadersPolicy,
 } from 'aws-cdk-lib/aws-cloudfront';
 import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { HostedZone } from 'aws-cdk-lib/aws-route53';
-
 import {
   BlockPublicAccess,
   Bucket,
@@ -143,6 +139,31 @@ export class RecipesSharedStack extends Stack {
     this.exportValue(responseHeadersPolicy.responseHeadersPolicyId, {
       name: `Recipes-ResponseHeadersPolicy-${branchLabel}`,
     });
+
+    /**
+     *  Create an origin request handler lambda@edge function version
+     *
+     *  Generate a CloudFormation output value for the origin request function
+     */
+
+    const originRequestHandler = new NodejsFunction(this, 'OriginRequest');
+    const version = originRequestHandler.currentVersion;
+    const versionArn = version.edgeArn;
+
+    // const version = originRequestHandler.currentVersion;
+    // const versionArn = version.version;
+    // const edgeLambda: EdgeLambda = {
+    //   eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
+    //   functionVersion: originRequestHandler.currentVersion,
+    // };
+
+    this.exportValue(versionArn, {
+      name: `Recipes-OriginRequestHandlerVersionArn-${branchLabel}`,
+    });
+
+    // this.exportValue(version.functionArn, {
+    //   name: `Recipes-OriginRequestHandlerVersionArn-${branchLabel}`,
+    // });
 
     /**
      *  Create an S3 bucket
