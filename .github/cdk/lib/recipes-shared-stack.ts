@@ -147,6 +147,33 @@ export class RecipesSharedStack extends Stack {
     });
 
     /**
+     *  Create an origin request handler lambda@edge function version
+     *
+     *  Generate a CloudFormation output value for the origin request function
+     */
+
+    // const originRequestHandler = new experimental.EdgeFunction(
+    //   this,
+    //   `OriginRequestHandler`,
+    //   {
+    //     runtime: Runtime.NODEJS_16_X,
+    //     handler: 'next-origin-request.handler',
+    //     code: Code.fromAsset('../cdk/lambda'),
+    //   }
+    // );
+
+    // this.exportValue(originRequestHandler.functionArn, {
+    //   name: `Recipes-OriginRequestHandlerArn-${
+    //     branch === 'main' ? 'Prod' : 'Dev'
+    //   }`,
+    // });
+    // this.exportValue(originRequestHandler.version, {
+    //   name: `Recipes-OriginRequestHandlerVerion-${
+    //     branch === 'main' ? 'Prod' : 'Dev'
+    //   }`,
+    // });
+
+    /**
      *  Create an S3 bucket
      *
      *  All branches will use the same bucket with individual /branches/{branch} subdirectories

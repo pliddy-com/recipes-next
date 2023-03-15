@@ -13,6 +13,7 @@ import {
   Distribution,
   DistributionProps,
   ErrorResponse,
+  experimental,
   HttpVersion,
   LambdaEdgeEventType,
   OriginAccessIdentity,
@@ -24,11 +25,11 @@ import {
 } from 'aws-cdk-lib/aws-cloudfront';
 
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
-import { experimental } from 'aws-cdk-lib/aws-cloudfront';
-import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
+import { Code, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
+import path from 'path';
 
 /**
  *  define the TypeScript interface for the stack
@@ -161,19 +162,35 @@ export class RecipesBranchStack extends Stack {
      *  Generate a CloudFormation output value for the origin request function
      */
 
-    const originRequestHandler = new experimental.EdgeFunction(
-      this,
-      `OriginRequestHandler`,
-      {
-        runtime: Runtime.NODEJS_16_X,
-        handler: 'index.handler',
-        code: Code.fromAsset('../cdk/lambda/originRequest'),
-      }
-    );
+    const originRequestHandler = new Function(this, `OriginRequestHandler`, {
+      runtime: Runtime.NODEJS_16_X,
+      handler: 'index.handler',
+      code: Code.fromAsset(path.join(__dirname, 'lambda/originRequest')),
+    });
+
+    // const originRequestHandler = new experimental.EdgeFunction(
+    //   this,
+    //   `OriginRequestHandler`,
+    //   {
+    //     runtime: Runtime.NODEJS_16_X,
+    //     handler: 'index.handler',
+    //     code: Code.fromAsset('../cdk/lambda/originRequest'),
+    //   }
+    // );
 
     this.exportValue(originRequestHandler.functionArn, {
-      name: `Recipes-OriginRequestHandler-${branchLabel}`,
+      name: `Recipes-OriginRequestHandlerArn-${branchLabel}`,
     });
+
+    this.exportValue(originRequestHandler.currentVersion, {
+      name: `Recipes-OriginRequestHandlerVersion-${branchLabel}`,
+    });
+
+    // this.exportValue(originRequestHandler.version, {
+    //   name: `Recipes-OriginRequestHandlerVerion-${
+    //     branch === 'main' ? 'Prod' : 'Dev'
+    //   }`,
+    // });
 
     /**
      *  Create a CloudFront Web Distribution
