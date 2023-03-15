@@ -20,14 +20,9 @@ import {
   Distribution,
   DistributionProps,
   EdgeLambda,
-  // EdgeLambda,
   ErrorResponse,
-  // Function,
-  // FunctionCode,
-  // FunctionEventType,
   HttpVersion,
   LambdaEdgeEventType,
-  // LambdaEdgeEventType,
   OriginAccessIdentity,
   OriginRequestPolicy,
   PriceClass,
@@ -41,7 +36,6 @@ import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
-import path from 'path';
 
 /**
  *  define the TypeScript interface for the stack
