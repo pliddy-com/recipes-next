@@ -5,6 +5,7 @@ on:
   delete:
     branches:
       - '!main'
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -64,7 +65,7 @@ jobs:
           echo "branch: $BRANCH"
           echo "SOURCE_BRANCH=$BRANCH" >> $GITHUB_OUTPUT
 
-          npm run destroy
+          npm run destroy --context branch=$BRANCH
   removeSiteFiles:
     name: Remove Site Files
     runs-on: ubuntu-latest
