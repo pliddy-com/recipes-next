@@ -17,6 +17,8 @@ jobs:
   destroyBranchAWS:
     name: Destroy Branch AWS Resources
     runs-on: ubuntu-latest
+    outputs:
+      SOURCE_BRANCH: ${{ github.event.ref }}
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js version in .nvmrc
@@ -60,6 +62,7 @@ jobs:
           BRANCH: ${{ github.event.ref }}
         run: |
           echo "branch: $BRANCH"
+          echo "SOURCE_BRANCH=$BRANCH" >> $GITHUB_OUTPUT
 
           npm run destroy
   removeSiteFiles:
@@ -110,7 +113,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          BRANCH: ${{ github.ref }}
+          BRANCH: ${{ needs.destroyBranchAWS.outputs.SOURCE_BRANCH }}
           S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
         run: |
           echo "BRANCH: $BRANCH"
