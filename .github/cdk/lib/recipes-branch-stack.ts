@@ -166,8 +166,8 @@ export class RecipesBranchStack extends Stack {
       `OriginRequestHandler`,
       {
         runtime: Runtime.NODEJS_16_X,
-        handler: 'next-origin-request.handler',
-        code: Code.fromAsset('../cdk/lambda'),
+        handler: 'index.handler',
+        code: Code.fromAsset('../cdk/lambda/originRequest'),
       }
     );
 
