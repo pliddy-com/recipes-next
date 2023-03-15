@@ -11,7 +11,7 @@ interface EventProps {
 }
 
 // this is the origin request lambda@edge for the cloudfront distribution
-exports.handler = async (event) => {
+exports.handler = async (event: EventProps) => {
   const eventRecord = event.Records[0];
   const request = eventRecord.cf.request;
   const requestUri = request.uri;

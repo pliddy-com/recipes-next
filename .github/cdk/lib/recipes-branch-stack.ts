@@ -4,7 +4,14 @@
  *  Import functions from aws-cdk-lib
  */
 
-import { App, Duration, Fn, Stack, StackProps } from 'aws-cdk-lib';
+import {
+  App,
+  Duration,
+  Fn,
+  RemovalPolicy,
+  Stack,
+  StackProps,
+} from 'aws-cdk-lib';
 
 import { Certificate } from 'aws-cdk-lib/aws-certificatemanager';
 
@@ -64,18 +71,19 @@ export class RecipesBranchStack extends Stack {
      *  import shared AWS resources
      */
 
-    const siteBucketArn = Fn.importValue(
-      `Recipes-BucketArn-${branch === 'main' ? 'Prod' : 'Dev'}`
-    );
+    const resourceLabel = branch === 'main' ? 'Prod' : 'Dev';
+
+    const siteBucketArn = Fn.importValue(`Recipes-BucketArn-${resourceLabel}`);
     const certificateArn = Fn.importValue(
-      `Recipes-Certificate-${branch === 'main' ? 'Prod' : 'Dev'}`
+      `Recipes-Certificate-${resourceLabel}`
     );
-    const cloudfrontOAIId = Fn.importValue(
-      `Recipes-OAI-${branch === 'main' ? 'Prod' : 'Dev'}`
-    );
+    const cloudfrontOAIId = Fn.importValue(`Recipes-OAI-${resourceLabel}`);
     const responseHeadersPolicyId = Fn.importValue(
-      `Recipes-ResponseHeadersPolicy-${branch === 'main' ? 'Prod' : 'Dev'}`
+      `Recipes-ResponseHeadersPolicy-${resourceLabel}`
     );
+    // const originRequestHandlerVersionArn = Fn.importValue(
+    //   `Recipes-OriginRequestHandlerVersionArn-${resourceLabel}`
+    // );
 
     const siteBucket = Bucket.fromBucketArn(
       this,
@@ -162,6 +170,7 @@ export class RecipesBranchStack extends Stack {
      */
 
     const originRequestHandler = new NodejsFunction(this, 'originRequest');
+    originRequestHandler.applyRemovalPolicy(RemovalPolicy.RETAIN);
 
     const edgeLambda: EdgeLambda = {
       eventType: LambdaEdgeEventType.ORIGIN_REQUEST,

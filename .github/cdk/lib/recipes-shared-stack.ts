@@ -5,23 +5,18 @@
  */
 
 import { App, Duration, Stack, StackProps } from 'aws-cdk-lib';
-
 import {
   Certificate,
   CertificateValidation,
 } from 'aws-cdk-lib/aws-certificatemanager';
 import {
-  EdgeLambda,
   HeadersFrameOption,
   HeadersReferrerPolicy,
-  LambdaEdgeEventType,
   OriginAccessIdentity,
   ResponseHeadersPolicy,
 } from 'aws-cdk-lib/aws-cloudfront';
 import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam';
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { HostedZone } from 'aws-cdk-lib/aws-route53';
-
 import {
   BlockPublicAccess,
   Bucket,
@@ -68,10 +63,11 @@ export class RecipesSharedStack extends Stack {
     const branchSubdomain = `${subdomain}.${domain}`;
 
     // add Main or Dev label based on branch
-    const branchLabel = branch === 'main' ? 'prod' : 'dev';
+    const bucketLabel = branch === 'main' ? 'prod' : 'dev';
+    const resourceLabel = branch === 'main' ? 'Prod' : 'Dev';
 
     // name of S3 bucket
-    const bucketName = `${branchSubdomain}-${branchLabel}`;
+    const bucketName = `${branchSubdomain}-${bucketLabel}`;
 
     // wildcard for all subdomains: *.recipes.pliddy.com
     const certDomain = `*.${branchSubdomain}`;
@@ -95,7 +91,7 @@ export class RecipesSharedStack extends Stack {
     });
 
     this.exportValue(cloudfrontOAI.originAccessIdentityId, {
-      name: `Recipes-OAI-${branchLabel}`,
+      name: `Recipes-OAI-${resourceLabel}`,
     });
 
     /**
@@ -106,7 +102,7 @@ export class RecipesSharedStack extends Stack {
 
     const responseHeadersPolicy = new ResponseHeadersPolicy(
       this,
-      `ResponseHeadersPolicy${branchLabel}`,
+      `ResponseHeadersPolicy${resourceLabel}`,
       {
         customHeadersBehavior: {
           customHeaders: [
@@ -117,7 +113,7 @@ export class RecipesSharedStack extends Stack {
             },
           ],
         },
-        responseHeadersPolicyName: `ResponseHeadersPolicy${branchLabel}`,
+        responseHeadersPolicyName: `ResponseHeadersPolicy${resourceLabel}`,
         removeHeaders: ['server'],
         securityHeadersBehavior: {
           contentTypeOptions: { override: true },
@@ -141,7 +137,7 @@ export class RecipesSharedStack extends Stack {
     );
 
     this.exportValue(responseHeadersPolicy.responseHeadersPolicyId, {
-      name: `Recipes-ResponseHeadersPolicy-${branchLabel}`,
+      name: `Recipes-ResponseHeadersPolicy-${resourceLabel}`,
     });
 
     /**
@@ -179,10 +175,10 @@ export class RecipesSharedStack extends Stack {
     );
 
     this.exportValue(siteBucket.bucketArn, {
-      name: `Recipes-BucketArn-${branch === 'main' ? 'Prod' : 'Dev'}`,
+      name: `Recipes-BucketArn-${resourceLabel}`,
     });
     this.exportValue(siteBucket.bucketName, {
-      name: `Recipes-BucketName-${branch === 'main' ? 'Prod' : 'Dev'}`,
+      name: `Recipes-BucketName-${resourceLabel}`,
     });
 
     /**
