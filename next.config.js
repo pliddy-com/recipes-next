@@ -32,7 +32,7 @@ const nextConfig = {
       },
     ];
   },
-  trailingSlash: true,
+  // trailingSlash: true,
 };
 
 module.exports = nextConfig;
