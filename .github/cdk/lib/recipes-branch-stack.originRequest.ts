@@ -27,7 +27,10 @@ exports.handler = async (event) => {
   // handle /[slug] dynamic route
   if (requestUri !== '/' && requestUri.startsWith('/')) {
     request.uri = requestUri + '.html';
-    console.log('request is a [slug] path, request.uri:', request.uri);
+    console.log(
+      'request is a [slug] path, add.html - request.uri:',
+      request.uri
+    );
     return request;
   }
 
@@ -36,7 +39,10 @@ exports.handler = async (event) => {
   // if URI ends with "/" slash, then remove it before appending .html
   if (requestUri.endsWith('/')) {
     request.uri = requestUri.substring(0, requestUri.length - 1);
-    console.log('request ends with a slash, request.uri:', request.uri);
+    console.log(
+      'request ends with a slash, add.html - request.uri:',
+      request.uri
+    );
   }
 
   request.uri += '.html';
