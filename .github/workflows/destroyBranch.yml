@@ -52,6 +52,7 @@ jobs:
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
       - name: Install Dependencies
+        working-directory: .github/cdk/
         run: npm ci --ignore-scripts
       - name: Destroy AWS
         id: destroy-aws
@@ -65,7 +66,7 @@ jobs:
           echo "branch: $BRANCH"
           echo "SOURCE_BRANCH=$BRANCH" >> $GITHUB_OUTPUT
 
-          cdk --require-approval never destroy --force --context scope=branch --context branch=$BRANCH
+          npm cdk --require-approval never destroy --force --context scope=branch --context branch=$BRANCH
         # npm run destroy
   removeSiteFiles:
     name: Remove Site Files
