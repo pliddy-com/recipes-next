@@ -23,12 +23,12 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/category/:slug*',
-        destination: '/tag/:slug*',
+        source: '/category/:slug',
+        destination: '/tag/:slug',
       },
       {
-        source: '/cuisine/:slug*',
-        destination: '/tag/:slug*',
+        source: '/cuisine/:slug',
+        destination: '/tag/:slug',
       },
     ];
   },
