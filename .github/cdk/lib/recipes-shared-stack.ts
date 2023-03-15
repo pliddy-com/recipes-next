@@ -62,8 +62,6 @@ export class RecipesSharedStack extends Stack {
 
     /**
      *  Create strings based on branch, subdomain, and domain for use by the stack
-     *
-     *  TODO: name bucket with production value once config is established
      */
 
     // subdomain used for recipes.pliddy.com
@@ -145,30 +143,6 @@ export class RecipesSharedStack extends Stack {
     this.exportValue(responseHeadersPolicy.responseHeadersPolicyId, {
       name: `Recipes-ResponseHeadersPolicy-${branchLabel}`,
     });
-
-    /**
-     *  Create an origin request handler lambda@edge function version
-     *
-     *  Generate a CloudFormation output value for the origin request function
-     */
-
-    // const originRequestHandler = new NodejsFunction(this, 'originRequest');
-
-    // const edgeLambda: EdgeLambda = {
-    //   eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
-    //   functionVersion: originRequestHandler.currentVersion,
-
-    //   // the properties below are optional
-    //   includeBody: false,
-    // };
-
-    // this.exportValue(originRequestHandler.functionArn, {
-    //   name: `Recipes-OriginRequestHandlerArn-${branchLabel}`,
-    // });
-
-    // this.exportValue(edgeLambda.functionVersion, {
-    //   name: `Recipes-OriginRequestHandlerVersion-${branchLabel}`,
-    // });
 
     /**
      *  Create an S3 bucket
