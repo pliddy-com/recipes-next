@@ -11,12 +11,15 @@ import {
   CertificateValidation,
 } from 'aws-cdk-lib/aws-certificatemanager';
 import {
+  EdgeLambda,
   HeadersFrameOption,
   HeadersReferrerPolicy,
+  LambdaEdgeEventType,
   OriginAccessIdentity,
   ResponseHeadersPolicy,
 } from 'aws-cdk-lib/aws-cloudfront';
 import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { HostedZone } from 'aws-cdk-lib/aws-route53';
 
 import {
@@ -66,10 +69,11 @@ export class RecipesSharedStack extends Stack {
     // subdomain used for recipes.pliddy.com
     const branchSubdomain = `${subdomain}.${domain}`;
 
+    // add Main or Dev label based on branch
+    const branchLabel = branch === 'main' ? 'prod' : 'dev';
+
     // name of S3 bucket
-    const bucketName = `${branchSubdomain}-${
-      branch === 'main' ? 'prod' : 'dev'
-    }`;
+    const bucketName = `${branchSubdomain}-${branchLabel}`;
 
     // wildcard for all subdomains: *.recipes.pliddy.com
     const certDomain = `*.${branchSubdomain}`;
@@ -93,7 +97,7 @@ export class RecipesSharedStack extends Stack {
     });
 
     this.exportValue(cloudfrontOAI.originAccessIdentityId, {
-      name: `Recipes-OAI-${branch === 'main' ? 'Prod' : 'Dev'}`,
+      name: `Recipes-OAI-${branchLabel}`,
     });
 
     /**
@@ -104,7 +108,7 @@ export class RecipesSharedStack extends Stack {
 
     const responseHeadersPolicy = new ResponseHeadersPolicy(
       this,
-      `ResponseHeadersPolicy${branch === 'main' ? 'Prod' : 'Dev'}`,
+      `ResponseHeadersPolicy${branchLabel}`,
       {
         customHeadersBehavior: {
           customHeaders: [
@@ -115,9 +119,7 @@ export class RecipesSharedStack extends Stack {
             },
           ],
         },
-        responseHeadersPolicyName: `ResponseHeadersPolicy${
-          branch === 'main' ? 'Prod' : 'Dev'
-        }`,
+        responseHeadersPolicyName: `ResponseHeadersPolicy${branchLabel}`,
         removeHeaders: ['server'],
         securityHeadersBehavior: {
           contentTypeOptions: { override: true },
@@ -141,10 +143,32 @@ export class RecipesSharedStack extends Stack {
     );
 
     this.exportValue(responseHeadersPolicy.responseHeadersPolicyId, {
-      name: `Recipes-ResponseHeadersPolicy-${
-        branch === 'main' ? 'Prod' : 'Dev'
-      }`,
+      name: `Recipes-ResponseHeadersPolicy-${branchLabel}`,
     });
+
+    /**
+     *  Create an origin request handler lambda@edge function version
+     *
+     *  Generate a CloudFormation output value for the origin request function
+     */
+
+    // const originRequestHandler = new NodejsFunction(this, 'originRequest');
+
+    // const edgeLambda: EdgeLambda = {
+    //   eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
+    //   functionVersion: originRequestHandler.currentVersion,
+
+    //   // the properties below are optional
+    //   includeBody: false,
+    // };
+
+    // this.exportValue(originRequestHandler.functionArn, {
+    //   name: `Recipes-OriginRequestHandlerArn-${branchLabel}`,
+    // });
+
+    // this.exportValue(edgeLambda.functionVersion, {
+    //   name: `Recipes-OriginRequestHandlerVersion-${branchLabel}`,
+    // });
 
     /**
      *  Create an S3 bucket
