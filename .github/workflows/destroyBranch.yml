@@ -65,7 +65,8 @@ jobs:
           echo "branch: $BRANCH"
           echo "SOURCE_BRANCH=$BRANCH" >> $GITHUB_OUTPUT
 
-          npm run destroy --context branch=$BRANCH
+          cdk --require-approval never destroy --force --context scope=branch --context branch=$BRANCH
+        # npm run destroy
   removeSiteFiles:
     name: Remove Site Files
     runs-on: ubuntu-latest
@@ -120,4 +121,5 @@ jobs:
           echo "BRANCH: $BRANCH"
           echo "S3_BUCKET: $S3_BUCKET"
 
-          npm run remove
+          aws s3 sync out/ $S3_BUCKET/branches/$BRANCH --delete
+        # npm run remove
