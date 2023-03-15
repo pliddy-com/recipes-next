@@ -4,7 +4,14 @@
  *  Import functions from aws-cdk-lib
  */
 
-import { App, Duration, Fn, Stack, StackProps } from 'aws-cdk-lib';
+import {
+  App,
+  Duration,
+  Fn,
+  RemovalPolicy,
+  Stack,
+  StackProps,
+} from 'aws-cdk-lib';
 
 import { Certificate } from 'aws-cdk-lib/aws-certificatemanager';
 
@@ -163,6 +170,7 @@ export class RecipesBranchStack extends Stack {
      */
 
     const originRequestHandler = new NodejsFunction(this, 'originRequest');
+    originRequestHandler.applyRemovalPolicy(RemovalPolicy.RETAIN);
 
     const edgeLambda: EdgeLambda = {
       eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
