@@ -13,7 +13,6 @@ import {
   Distribution,
   DistributionProps,
   ErrorResponse,
-  experimental,
   HttpVersion,
   LambdaEdgeEventType,
   OriginAccessIdentity,
@@ -165,7 +164,7 @@ export class RecipesBranchStack extends Stack {
     const originRequestHandler = new Function(this, `OriginRequestHandler`, {
       runtime: Runtime.NODEJS_16_X,
       handler: 'index.handler',
-      code: Code.fromAsset(path.join(__dirname, 'lambda/originRequest')),
+      code: Code.fromAsset(path.join(__dirname, 'originRequest')),
     });
 
     // const originRequestHandler = new experimental.EdgeFunction(
@@ -185,12 +184,6 @@ export class RecipesBranchStack extends Stack {
     this.exportValue(originRequestHandler.currentVersion, {
       name: `Recipes-OriginRequestHandlerVersion-${branchLabel}`,
     });
-
-    // this.exportValue(originRequestHandler.version, {
-    //   name: `Recipes-OriginRequestHandlerVerion-${
-    //     branch === 'main' ? 'Prod' : 'Dev'
-    //   }`,
-    // });
 
     /**
      *  Create a CloudFront Web Distribution
