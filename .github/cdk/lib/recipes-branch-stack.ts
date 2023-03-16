@@ -19,13 +19,10 @@ import {
   AllowedMethods,
   Distribution,
   DistributionProps,
-  // EdgeLambda,
+  EdgeLambda,
   ErrorResponse,
-  Function,
-  FunctionCode,
-  FunctionEventType,
   HttpVersion,
-  // LambdaEdgeEventType,
+  LambdaEdgeEventType,
   OriginAccessIdentity,
   OriginRequestPolicy,
   PriceClass,
@@ -35,10 +32,10 @@ import {
 } from 'aws-cdk-lib/aws-cloudfront';
 
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
-import path from 'path';
 
 /**
  *  define the TypeScript interface for the stack
@@ -169,19 +166,19 @@ export class RecipesBranchStack extends Stack {
      *  Generate a CloudFormation output value for the origin request function
      */
 
-    const viewerRequestHandler = new Function(this, 'ViewerRequestFunction', {
-      code: FunctionCode.fromFile({
-        filePath: path.join(__dirname, 'viewerRequest.ts'),
-      }),
-    });
-    // const viewerRequestHandler = new NodejsFunction(this, 'viewerRequest');
+    // const originRequestHandler = new Function(this, 'OriginRequestFunction', {
+    //   code: FunctionCode.fromFile({
+    //     filePath: path.join(__dirname, 'originRequest.ts'),
+    //   }),
+    // });
 
-    // originRequestHandler.applyRemovalPolicy(RemovalPolicy.RETAIN);
+    const originRequestHandler = new NodejsFunction(this, 'originRequest');
+    originRequestHandler.applyRemovalPolicy(RemovalPolicy.RETAIN);
 
-    // const edgeLambda: EdgeLambda = {
-    //   eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
-    //   functionVersion: originRequestHandler.currentVersion,
-    // };
+    const edgeLambda: EdgeLambda = {
+      eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
+      functionVersion: originRequestHandler.currentVersion,
+    };
 
     /**
      *  Create a CloudFront Web Distribution
@@ -198,13 +195,13 @@ export class RecipesBranchStack extends Stack {
       defaultBehavior: {
         allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         compress: false,
-        // edgeLambdas: [edgeLambda],
-        functionAssociations: [
-          {
-            function: viewerRequestHandler,
-            eventType: FunctionEventType.VIEWER_REQUEST,
-          },
-        ],
+        edgeLambdas: [edgeLambda],
+        // functionAssociations: [
+        //   {
+        //     function: viewerRequestHandler,
+        //     eventType: FunctionEventType.VIEWER_REQUEST,
+        //   },
+        // ],
         origin: new S3Origin(siteBucket, {
           originPath,
           originShieldEnabled: true,
