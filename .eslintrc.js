@@ -11,6 +11,7 @@ module.exports = {
     'prettier', // Prettier should always be last.
   ],
   ignorePatterns: [
+    '/.github/**',
     '!.*rc.js',
     '**/*.d.ts',
     '.next/**',
@@ -18,7 +19,6 @@ module.exports = {
     '.swc/**',
     '/src/types/**',
     'coverage/**/*.*',
-    '.github/cdk/**',
   ],
   plugins: ['@typescript-eslint'],
   /* error rules are listed before warn rules */

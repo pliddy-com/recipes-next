@@ -1,38 +1,53 @@
 'use strict';
 
-// this is the origin request lambda@edge for the cloudfront distribution
+import type {
+  CloudFrontRequestEvent,
+  CloudFrontResponseResult,
+  CloudFrontRequestResult,
+} from 'aws-lambda';
 
-exports.handler = async (event) => {
-  const eventRecord = event.Records[0];
-  const request = eventRecord.cf.request;
-  const requestUri = request.uri;
+export const handler = async (
+  event: CloudFrontRequestEvent
+): Promise<CloudFrontResponseResult | CloudFrontRequestResult> => {
+  const [eventRecord] = event.Records;
+  const {
+    cf: { request },
+  } = eventRecord;
 
-  console.log('request.uri', request.uri);
+  console.log('ORIGINAL REQUEST URI:', request.uri);
 
-  // if URI includes ".", indicates file extension, return early and don't modify URI
-  if (requestUri.includes('.')) {
-    console.log("request includes '.':", JSON.stringify(event, undefined, 2));
+  if (request.uri.includes('.')) {
+    console.log('FILE URI INCLUDES ".":', request.uri);
+
     return request;
   }
 
-  // handle /[slug] dynamic route
-  if (requestUri !== '/' && requestUri.startsWith('/')) {
-    request.uri = requestUri + '.html';
-    console.log('request is a [slug] path, request.uri:', request.uri);
+  if (request.uri === '/') {
+    console.log('ROOT URI:', request.uri);
     return request;
   }
 
-  console.log('request.uri:', request.uri);
+  if (
+    request.uri !== '/' &&
+    request.uri.startsWith('/') &&
+    !request.uri.endsWith('/')
+  ) {
+    request.uri = request.uri + '.html';
+    console.log('[slug] PATH URI:', request.uri);
 
-  // if URI ends with "/" slash, then remove it before appending .html
-  if (requestUri.endsWith('/')) {
-    request.uri = requestUri.substring(0, requestUri.length - 1);
-    console.log('request ends with a slash, request.uri:', request.uri);
+    return request;
+  }
+
+  console.log('REQUEST URI:', request.uri);
+
+  if (request.uri !== '/' && request.uri.endsWith('/')) {
+    request.uri = request.uri.substring(0, request.uri.length - 1);
+    console.log('REQUEST ENDS WITH A SLASH:', request.uri);
   }
 
   request.uri += '.html';
 
-  console.log('request.url returned:', request.uri);
+  console.log('RETURN:', request.uri);
 
   return request;
 };

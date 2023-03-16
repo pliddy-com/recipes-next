@@ -19,7 +19,7 @@ interface NavMenuType {
   isOpen: boolean;
   nav: TaxonomyChildrenItem[];
   onClose: VoidFunction;
-  root: 'category' | 'cuisine' | 'tag';
+  root: string;
 }
 
 const NavMenu = ({

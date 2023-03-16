@@ -77,7 +77,7 @@ const NavBar = ({ nav }: NavBarProps) => {
           isOpen={drawerState.categories}
           nav={categories}
           onClose={() => handleDrawerToggle({ id: 'categories' })}
-          root="category"
+          root="tag"
         />
       )}
       {cuisine && (
@@ -87,7 +87,7 @@ const NavBar = ({ nav }: NavBarProps) => {
           isOpen={drawerState.cuisine}
           nav={cuisine}
           onClose={() => handleDrawerToggle({ id: 'cuisine' })}
-          root="cuisine"
+          root="tag"
         />
       )}
       {tags && (

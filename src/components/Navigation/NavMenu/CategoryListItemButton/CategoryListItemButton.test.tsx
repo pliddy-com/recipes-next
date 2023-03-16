@@ -15,7 +15,7 @@ describe('CategoryListItemButton', () => {
       const slug = 'slug';
       const title = 'Test Title';
       const numRecipes = 10;
-      const root = 'category';
+      const root = 'tag';
 
       const expectedHref = `/${root}/${slug}`;
 

@@ -20,19 +20,6 @@ const nextConfig = {
     unoptimized: true,
   },
   reactStrictMode: true,
-  async rewrites() {
-    return [
-      {
-        source: '/category/:slug',
-        destination: '/tag/:slug',
-      },
-      {
-        source: '/cuisine/:slug',
-        destination: '/tag/:slug',
-      },
-    ];
-  },
-  // trailingSlash: true,
 };
 
 module.exports = nextConfig;

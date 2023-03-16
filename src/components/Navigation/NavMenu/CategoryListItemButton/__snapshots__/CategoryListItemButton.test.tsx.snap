@@ -5,7 +5,7 @@ exports[`CategoryListItemButton when there is a correct payload it renders a lis
   <a
     aria-label="slug category"
     class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-    href="/category/slug"
+    href="/tag/slug"
     tabindex="0"
   >
     <div
