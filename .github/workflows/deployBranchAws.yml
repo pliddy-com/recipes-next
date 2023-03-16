@@ -95,6 +95,7 @@ jobs:
   buildAndDeploySite:
     name: Build and Deploy Site
     runs-on: ubuntu-latest
+    needs: [lint, typecheck, test]
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
@@ -177,7 +178,7 @@ jobs:
     # webhook should re-build Next app with new content; doesn't need IAC
     name: Deploy Stack
     runs-on: ubuntu-latest
-    needs: [lint, typecheck, test, buildAndDeploySite]
+    needs: [buildAndDeploySite]
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
