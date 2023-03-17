@@ -12,8 +12,45 @@ env:
   NODE_VERSION_FILE: '.nvmrc'
 
 jobs:
-  deployStack:
-    name: Deploy Stack
+  scans:
+    name: Run Code Quality Scans
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js version in .nvmrc
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ${{ env.NODE_VERSION_FILE }}
+          cache: 'npm'
+      - name: Node Cache
+        id: node-cache
+        uses: actions/cache@v3
+        env:
+          cache-name: node-cache
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ github.repository }}-${{ env.cache-name }}-
+            ${{ github.repository }}-
+      - name: Install Dependencies
+        run: npm ci --ignore-scripts
+      - name: Run Scans on the CDK Workspace
+        run: |
+          npm run scan -w cdk
+      - name: Run Scans on the Next Workspace
+        run: |
+          npm run typegen
+          npm run scan -w next
+      # - name: Lint
+      #   run: npm run lint
+      # - name: Typecheck
+      #   run: npm run typecheck
+      # - name: Run Unit Tests
+      #   run: npm run test
+  deploy-shared-stack:
+    name: Deploy Shared Stack to AWS
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
@@ -23,11 +60,11 @@ jobs:
         with:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
           cache: 'npm'
-      - name: CDK Cache
-        id: cdk-cache
+      - name: Node Cache
+        id: node-cache
         uses: actions/cache@v3
         env:
-          cache-name: cdk-cache
+          cache-name: node-cache
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
@@ -35,14 +72,12 @@ jobs:
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
-
       - name: Install Dependencies
         run: npm ci --ignore-scripts
-
       - name: Deploy Shared AWS Stack for ${{github.event.ref}}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
 
-        run: cd .github/cdk && npm run deploy:shared
+        run: npm run deploy:shared

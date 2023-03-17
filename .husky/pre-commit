@@ -1,7 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run typegen
-npm run typecheck
-npx lint-staged
-npm test
+npm run scan:local

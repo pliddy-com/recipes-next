@@ -1,0 +1,19 @@
+# CDK build artifacts
+.next/
+.swc/
+cdk.out/
+bin/*.js
+lib/*.js
+test/*.js
+
+
+# JetBrains IDE configs
+.idea/
+
+# Generated
+package-lock.json
+*.d.ts
+/src/types/
+
+# test coverage
+coverage/
