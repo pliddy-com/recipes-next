@@ -40,7 +40,7 @@ jobs:
             ${{ github.repository }}-
       - name: Install Dependencies
         run: npm ci --ignore-scripts
-      - name: Scan
+      - name: Run Scans on Workspaces
         run: npm run scan
       # - name: Lint
       #   run: npm run lint
