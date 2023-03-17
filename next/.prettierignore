@@ -1,0 +1,15 @@
+# Next build artifacts
+.next/
+.swc/
+out/
+
+# JetBrains IDE configs
+.idea/
+
+# Generated
+package-lock.json
+*.d.ts
+/src/types/
+
+# test coverage
+coverage/

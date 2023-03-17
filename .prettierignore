@@ -2,6 +2,7 @@
 .next/
 .swc/
 out/
+cdk.out/
 
 # JetBrains IDE configs
 .idea/

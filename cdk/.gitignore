@@ -1,0 +1,45 @@
+*.js
+*.test.js
+!.eslintrc.js
+!jest.config.js
+
+*.js
+
+*.d.ts
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+cdk-outputs.json
+
+.env
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+
+# debug
+npm-debug.log*
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# sitemap
+public/robots.txt
+public/sitemap*
