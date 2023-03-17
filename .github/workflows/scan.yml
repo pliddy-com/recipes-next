@@ -36,12 +36,19 @@ jobs:
             ${{ github.repository }}-
       - name: Install Dependencies
         run: npm ci --ignore-scripts
-      - name: Lint
-        run: npm run lint
-      - name: Typecheck
-        run: npm run typecheck
-      - name: Run Unit Tests
-        run: npm run test
+      - name: Run Scans on the CDK Workspace
+        run: |
+          npm run scan -w cdk
+      - name: Run Scans on the Next Workspace
+        run: |
+          npm run typegen
+          npm run scan -w next
+      # - name: Typecheck
+      #   run: npm run typecheck
+      # - name: Lint
+      #   run: npm run lint
+      # - name: Run Unit Tests
+      #   run: npm run test
 
   # typecheck:
   #   name: Type Check
