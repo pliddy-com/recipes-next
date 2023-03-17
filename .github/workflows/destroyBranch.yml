@@ -108,4 +108,3 @@ jobs:
           echo "S3_BUCKET: $S3_BUCKET"
 
           aws s3 rm --recursive $S3_BUCKET/branches/$BRANCH
-        # npm run remove

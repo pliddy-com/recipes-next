@@ -41,14 +41,7 @@ jobs:
           npm run scan -w cdk
       - name: Run Scans on the Next Workspace
         run: |
-          npm run typegen
           npm run scan -w next
-      # - name: Lint
-      #   run: npm run lint
-      # - name: Typecheck
-      #   run: npm run typecheck
-      # - name: Run Unit Tests
-      #   run: npm run test
   deploy-shared-stack:
     name: Deploy Shared Stack to AWS
     runs-on: ubuntu-latest
