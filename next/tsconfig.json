@@ -27,7 +27,8 @@
     "custom.d.ts",
     "next-env.d.ts",
     "src/lib/__mocks__/lib",
-    "src/lib/__mocks__/next"
+    "src/lib/__mocks__/next",
+    "jest.config.js"
   ],
   "typeAcquisition": {
     "include": ["jest"]

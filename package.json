@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "deploy": "npm run deploy -w next && npm run deploy -w cdk",
     "lint": "npm run lint --workspaces",
+    "prepare": "husky install",
+    "remove": "npm run destroy -w cdk && npm run remove -w next",
     "test": "npm run test --workspaces",
     "typecheck": "npm run typecheck --workspaces",
     "typegen": "npm run typegen -w next",
-    "prepare": "husky install",
     "scan": "npm run scan -workspaces"
   },
   "workspaces": [

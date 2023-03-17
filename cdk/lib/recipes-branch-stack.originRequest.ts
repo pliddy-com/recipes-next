@@ -17,33 +17,22 @@ export const handler = async (
   console.log('ORIGINAL REQUEST URI:', request.uri);
 
   if (request.uri.includes('.')) {
-    console.log('FILE URI INCLUDES ".":', request.uri);
+    console.log('RETURN FILE URI (includes "."):', request.uri);
 
     return request;
   }
 
   if (request.uri === '/') {
-    console.log('ROOT URI:', request.uri);
+    console.log('RETURN ROOT URI:', request.uri);
     return request;
   }
 
-  if (
-    request.uri !== '/' &&
-    request.uri.startsWith('/') &&
-    !request.uri.endsWith('/')
-  ) {
-    request.uri = request.uri + '.html';
-    console.log('[slug] PATH URI:', request.uri);
-
-    return request;
+  if (request.uri.endsWith('/')) {
+    request.uri = request.uri.substring(0, request.uri.length - 1);
+    console.log('STRIP TRAILING SLASH:', request.uri);
   }
 
   console.log('REQUEST URI:', request.uri);
-
-  if (request.uri !== '/' && request.uri.endsWith('/')) {
-    request.uri = request.uri.substring(0, request.uri.length - 1);
-    console.log('REQUEST ENDS WITH A SLASH:', request.uri);
-  }
 
   request.uri += '.html';
 

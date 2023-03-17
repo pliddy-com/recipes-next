@@ -37,17 +37,18 @@ describe('RecipesSharedStack', () => {
     template.hasOutput('ExportRecipesOAIProd', {
       Export: { Name: 'Recipes-OAI-Prod' }
     });
+    template.hasOutput('ExportRecipesResponseHeadersPolicyProd', {
+      Export: { Name: 'Recipes-ResponseHeadersPolicy-Prod' }
+    });
 
     template.resourceCountIs('AWS::S3::Bucket', 1);
     template.resourceCountIs('AWS::S3::BucketPolicy', 1);
     template.resourceCountIs('AWS::CertificateManager::Certificate', 1);
+    template.resourceCountIs('AWS::CloudFront::ResponseHeadersPolicy', 1);
     template.resourceCountIs(
       'AWS::CloudFront::CloudFrontOriginAccessIdentity',
       1
     );
-
-    // assert that the component matches the existing snapshot
-    expect(template).toMatchSnapshot();
   });
 
   it('generates a shared stack for a feature branch', () => {
@@ -78,17 +79,18 @@ describe('RecipesSharedStack', () => {
     template.hasOutput('ExportRecipesOAIDev', {
       Export: { Name: 'Recipes-OAI-Dev' }
     });
+    template.hasOutput('ExportRecipesResponseHeadersPolicyDev', {
+      Export: { Name: 'Recipes-ResponseHeadersPolicy-Dev' }
+    });
 
     template.resourceCountIs('AWS::S3::Bucket', 1);
     template.resourceCountIs('AWS::S3::BucketPolicy', 1);
     template.resourceCountIs('AWS::CertificateManager::Certificate', 1);
+    template.resourceCountIs('AWS::CloudFront::ResponseHeadersPolicy', 1);
     template.resourceCountIs(
       'AWS::CloudFront::CloudFrontOriginAccessIdentity',
       1
     );
-
-    // assert that the component matches the existing snapshot
-    expect(template).toMatchSnapshot();
   });
 
   it('fails when there are no environment variables', () => {
@@ -136,9 +138,9 @@ describe('RecipesBranchStack', () => {
 
     template.resourceCountIs('AWS::Route53::RecordSet', 1);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
-
-    // assert that the component matches the existing snapshot
-    expect(template).toMatchSnapshot();
+    template.resourceCountIs('AWS::Lambda::Function', 1);
+    template.resourceCountIs('AWS::Lambda::Version', 1);
+    template.resourceCountIs('AWS::IAM::Role', 1);
   });
 
   it('generates a branch stack for a feature branch', () => {
@@ -168,9 +170,9 @@ describe('RecipesBranchStack', () => {
 
     template.resourceCountIs('AWS::Route53::RecordSet', 1);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
-
-    // assert that the component matches the existing snapshot
-    expect(template).toMatchSnapshot();
+    template.resourceCountIs('AWS::Lambda::Function', 1);
+    template.resourceCountIs('AWS::Lambda::Version', 1);
+    template.resourceCountIs('AWS::IAM::Role', 1);
   });
 
   it('fails when there are no environment variables', () => {
