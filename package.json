@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "deploy": "npm run deploy -w next && npm run deploy -w cdk",
+    "deploy:shared": "npm run deploy:shared -w cdk",
     "lint": "npm run lint --workspaces",
     "prepare": "husky install",
     "remove": "npm run destroy -w cdk && npm run remove -w next",

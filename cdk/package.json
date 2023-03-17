@@ -7,6 +7,7 @@
   "scripts": {
     "build": "tsc",
     "cdk": "cdk",
+    "predeploy:shared": "npm run scan",
     "deploy:shared": "cdk --require-approval never deploy --context scope=shared",
     "deploy": "cdk --require-approval never deploy --context scope=branch --outputs-file ./cdk-outputs.json",
     "destroy:local": "cdk --require-approval never destroy --force --context scope=branch",
