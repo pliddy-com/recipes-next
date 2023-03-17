@@ -17,13 +17,15 @@
     "prestart": "npm run build",
     "remove": "dotenv -- cross-var aws s3 rm --recursive %S3_BUCKET%/branches/$(git symbolic-ref --short HEAD)",
     "scan": "npm run typegen && npm run typecheck && npm run lint && npm run test",
+    "scan:local": "npm run typegen:local && npm run typecheck && npm run lint && npm run test",
     "start": "next start",
     "test": "jest",
     "test:dev": "jest --watch",
     "test:snapshot": "npm test -- -u",
     "test:ci": "jest --ci",
     "typecheck": "tsc",
-    "typegen": "graphql-codegen --config codegen.yml --require dotenv/config",
+    "typegen": "graphql-codegen --config codegen.ts",
+    "typegen:local": "graphql-codegen --config codegen.ts --require dotenv/config",
     "typegen:watch": "graphql-codegen --watch --config codegen.yml --require dotenv/config"
   },
   "dependencies": {

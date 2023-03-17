@@ -19,6 +19,7 @@
     "lint": "prettier --check . && eslint",
     "lint:fix": "prettier --write . && eslint --fix",
     "scan": "npm run typecheck && npm run lint && npm run test",
+    "scan:local": "npm run scan",
     "synth:shared": "cdk --require-approval never synth --context scope=shared",
     "synth": "cdk --require-approval never synth --context scope=branch --outputs-file ./cdk-outputs.json",
     "test:dev": "npm run build && npm run jest --watch",

@@ -11,7 +11,8 @@
     "test": "npm run test --workspaces",
     "typecheck": "npm run typecheck --workspaces",
     "typegen": "npm run typegen -w next",
-    "scan": "npm run scan -workspaces"
+    "scan": "npm run scan -workspaces",
+    "scan:local": "npm run scan:local -workspaces"
   },
   "workspaces": [
     "cdk",
