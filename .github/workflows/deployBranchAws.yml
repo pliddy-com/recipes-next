@@ -190,10 +190,7 @@ jobs:
             const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
             console.log('distributionLabel:', distributionLabel);
 
-            const distributionId = aws cloudformation describe-stacks \
-              --stack-name $stackName \
-              --query "Stacks[0].Outputs[?OutputKey==`${distributionLabel}`].OutputValue" \
-              --output text
+            const distributionId = await aws cloudformation describe-stacks --stack-name $stackName --query "Stacks[0].Outputs[?OutputKey==`${distributionLabel}`].OutputValue" --output text
 
             console.log('distributionId', distributionId);
 
