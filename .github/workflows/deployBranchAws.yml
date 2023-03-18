@@ -146,9 +146,12 @@ jobs:
             return bucketName;
       - name: Get CDK Outputs
         id: cdk-outputs
-        working-directory: 'cdk/'
+        working-directory: './cdk/'
         # handle multi-line json
         run: |
+          pwd
+          ls -la 
+
           content=`cat ./cdk-outputs.json`
           content="${content//$'\n'/''}"
           content="${content//$'\r'/''}"
