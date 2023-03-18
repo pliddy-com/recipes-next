@@ -80,8 +80,6 @@ jobs:
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: |
           npm run deploy -w cdk
-          pwd
-          ls -la
   build-and-deploy-site:
     name: Build and Deploy Site
     runs-on: ubuntu-latest
@@ -146,27 +144,27 @@ jobs:
             console.log('bucketName:', bucketName);
 
             return bucketName;
-      - name: Get CDK Outputs
-        id: cdk-outputs
-        working-directory: './cdk/'
-        # handle multi-line json
-        run: |
-          pwd
-          ls -la 
+      # - name: Get CDK Outputs
+      #   id: cdk-outputs
+      #   working-directory: './cdk/'
+      #   # handle multi-line json
+      #   run: |
+      #     pwd
+      #     ls -la
 
-          content=`cat ./cdk-outputs.json`
-          content="${content//$'\n'/''}"
-          content="${content//$'\r'/''}"
-          content="${content//$'\s+'/''}"
+      #     content=`cat ./cdk-outputs.json`
+      #     content="${content//$'\n'/''}"
+      #     content="${content//$'\r'/''}"
+      #     content="${content//$'\s+'/''}"
 
-          echo "CDK_OUTPUTS: ${content}"
-          echo "CDK_OUTPUTS=$content" >> $GITHUB_ENV
+      #     echo "CDK_OUTPUTS: ${content}"
+      #     echo "CDK_OUTPUTS=$content" >> $GITHUB_ENV
 
-        # USE AWS SDK TO RETRIEVE OUTPUT VALUE DIRECTLY?
-        # aws cloudformation describe-stacks \
-        #   --stack-name <my stack name> \
-        #   --query "Stacks[0].Outputs[?OutputKey==`LoadBalancerDNS`].OutputValue" \
-        #   --output text
+      #   # USE AWS SDK TO RETRIEVE OUTPUT VALUE DIRECTLY?
+      #   # aws cloudformation describe-stacks \
+      #   #   --stack-name <my stack name> \
+      #   #   --query "Stacks[0].Outputs[?OutputKey==`LoadBalancerDNS`].OutputValue" \
+      #   #   --output text
 
       - name: Get Distribution Id
         id: distribution-id
@@ -174,23 +172,29 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const { CDK_OUTPUTS } = process.env;
             const { ref } = context;
-            const cdkOutputs = JSON.parse(CDK_OUTPUTS);
-            const refArray = ref.split('/');
-            const branch = refArray[refArray.length - 1];
-            const branchLabel = branch === 'main' ? 'Prod' : branch[0].toUpperCase() + branch.slice(1);
-            const stackLabel = `RecipesBranchStack${ branchLabel }`
-            const branchSlug = branch === 'main' ? 'Main' : branchLabel.replaceAll('-', '');
-            const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
-            const distributionId = cdkOutputs[stackLabel][distributionLabel];
+            console.log('ref:', ref);
 
-            console.log('cdkOutputs:', cdkOutputs);
+            const refArray = ref.split('/');
+            console.log('refArray:', refArray);
+
+            const branch = refArray[refArray.length - 1];
             console.log('branch:', branch);
+
+            const branchLabel = branch === 'main' ? 'Prod' : branch[0].toUpperCase() + branch.slice(1);
             console.log('branchLabel:', branchLabel);
-            console.log('stackLabel:', stackLabel);
-            console.log('branchSlug:', branchSlug);
+
+            const stackName = `RecipesBranchStack${ branchLabel }`
+            console.log('stackName:', stackName);
+
+            const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
             console.log('distributionLabel:', distributionLabel);
+
+            const distributionId = aws cloudformation describe-stacks \
+              --stack-name $stackName \
+              --query "Stacks[0].Outputs[?OutputKey==`${distributionLabel}`].OutputValue" \
+              --output text
+
             console.log('distributionId', distributionId);
 
             return distributionId;
