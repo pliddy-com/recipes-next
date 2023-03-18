@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "deploy": "npm run deploy -w next && npm run deploy -w cdk",
+    "deploy": "npm run deploy -workspaces",
     "deploy:shared": "npm run deploy:shared -w cdk",
     "lint": "npm run lint --workspaces",
     "lint:fix": "npm run lint:fix --workspaces",

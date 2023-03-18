@@ -80,6 +80,8 @@ jobs:
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: |
           npm run deploy -w cdk
+          pwd
+          ls -la
   build-and-deploy-site:
     name: Build and Deploy Site
     runs-on: ubuntu-latest
@@ -159,6 +161,13 @@ jobs:
 
           echo "CDK_OUTPUTS: ${content}"
           echo "CDK_OUTPUTS=$content" >> $GITHUB_ENV
+
+        # USE AWS SDK TO RETRIEVE OUTPUT VALUE DIRECTLY?
+        # aws cloudformation describe-stacks \
+        #   --stack-name <my stack name> \
+        #   --query "Stacks[0].Outputs[?OutputKey==`LoadBalancerDNS`].OutputValue" \
+        #   --output text
+
       - name: Get Distribution Id
         id: distribution-id
         uses: actions/github-script@v6

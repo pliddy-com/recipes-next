@@ -9,6 +9,7 @@ lib/**/*.js
 .cdk.staging
 cdk.out
 cdk-outputs.json
+cdk.context.json
 
 .env
 
