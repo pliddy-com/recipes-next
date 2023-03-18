@@ -1,3 +1,18 @@
+<!--  -->
+
+---
+
+<p align="center">
+  <a href="../README.md">TL;DR</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="contentful.md">Contentful as Headless CMS</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="performance.md">Maximizing Performance</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="automation.md">Automation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <strong>Manual Scans</strong>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="next-steps.md">Next Steps</a>
+</p>
+
+---
+
 ## Manual Scans
 
 In addition to the automated code quality checks in the CI/CD pipeline, **manual scans** are executed on major deployments to identify any issues and resolve them early. This early intervention eliminates potential impacts to performance, security, SEO, and accessibility before they are implemented at scale and become long-running technical debt.
@@ -11,7 +26,7 @@ Lightouse scores for **Best Practices, SEO,** and **Accessibility** are 100.
 **Performance** scores are regularly in the high 90's, often achieving a perfect 100 if assets are cached on the CDN.
 
 <p align="center">
-  <img src="assets/lighthouse.png" alt="perfect lightouse scores"/>
+  <img src="assets/lighthouse.png" alt="perfect lightouse scores" width="720" />
 </p>
 
 ### Checkbot Site Scanner
@@ -27,7 +42,7 @@ The remaining issues that impact the application's potential SEO score are relat
 These issues will be addressed by updating all current recipe descriptions with more robust copy and the creation of additional recipes allow for more robust tagging. With the limited number of recipes currently in the system, tags are only applied to recipes if they would result in a unique collection page.
 
 <p align="center">
-  <img src="assets/checkbot-scan.png" alt="Checkbot SEO, Performance, and security scan results" />
+  <img src="assets/checkbot-scan.png" alt="Checkbot SEO, Performance, and security scan results" width="720" />
 </p>
 
 ### WAVE Evaluation Tool
@@ -41,7 +56,7 @@ While Lighthouse identifies major accessibility issues with a page, WAVE conduct
 The only outstanding warning from WAVE is the existence of a `<noscript>` tag on the page, which is inserted by Next.js as part of the build process.
 
 <p align="center">
-  <img src="assets/wave-scan.png" alt="WAVE accessiblity scan results" />
+  <img src="assets/wave-scan.png" alt="WAVE accessiblity scan results" width="720" />
 </p>
 
 ### Google Rich Results Test
@@ -53,11 +68,18 @@ In order to validate the structure of page schema for recipes and collection pag
 All recipe and collection page types have the full set required schemas for Rich Search Results, as well as most optional data. The only optional data fields that are not present are calorie totals, videos, and ratings. None of these items of content are currently part of the application.
 
 <p align="center">
-  <img src="assets/google-rich-results.png" alt="Google Rich Results Scan output" />
+  <img src="assets/google-rich-results.png" alt="Google Rich Results Scan output" width="720"/>
 </p>
 
 ---
 
 <p align="center">
-  <a href="../README.md">TL;DR</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="docs/contentful.md">Contentful as Headless CMS</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="performance.md">Maximizing Performance</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="automation.md">Automation</a>&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Manual Scans</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="next-steps.md">Next Steps</a>
+  <a href="../README.md">TL;DR</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="contentful.md">Contentful as Headless CMS</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="performance.md">Maximizing Performance</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="automation.md">Automation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <strong>Manual Scans</strong>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="next-steps.md">Next Steps</a>
 </p>
+
+---

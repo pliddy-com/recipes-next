@@ -149,7 +149,7 @@ export class RecipesBranchStack extends Stack {
     const customErrorResponse403: ErrorResponse = {
       httpStatus: 403,
       ttl: Duration.minutes(10),
-      responseHttpStatus: 403,
+      responseHttpStatus: 404,
       responsePagePath: '/404.html'
     };
 

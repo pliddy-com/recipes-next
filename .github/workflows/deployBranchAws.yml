@@ -148,7 +148,7 @@ jobs:
         id: cdk-outputs
         # handle multi-line json
         run: |
-          content=`cat ../cdk/cdk-outputs.json`
+          content=`cat ../../cdk/cdk-outputs.json`
           content="${content//$'\n'/''}"
           content="${content//$'\r'/''}"
           content="${content//$'\s+'/''}"
