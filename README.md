@@ -74,7 +74,7 @@ The technology stack for this project is built using:
 
 This repository is set up as monorepo using two <a href="https://docs.npmjs.com/cli/v9/using-npm/workspaces" target="_blank">npm workspaces</a>. Each workspace has its own package.json file for defining workspace-specific dependencies and npm scripts. Required environment variables are stored in a local `.env` file in each project. Additionally, there are configuration files at the root level of each workspace for framework-specific Typescript, linting, and unit testing.
 
-- The `next` workspace contains the project for the browser client application. In addition to the application source code, this project contains the package dependencies, npm scripts, and configuration for a statically generated Next.js app using GraphQL.
+- The `client` workspace contains the project for the browser client application. In addition to the application source code, this project contains the package dependencies, npm scripts, and configuration for a statically generated Next.js app using GraphQL.
 
 - The `cdk` workspace contains the project for generating and deploying infrastructure as code using the <a href="https://aws.amazon.com/cdk/" target="_blank">AWS Cloud Development Kit (CDK).</a>
 
@@ -97,7 +97,7 @@ recipes-next
  |   |_ .env           # local environment variables used by the AWS CDK app
  |   |_ package.json   # definition of the 'cdk' workspace, including npm scripts & dependencies
  |
- |_ next               # npm workspace defining the NextJS SSG project for the browser client
+ |_ client             # npm workspace defining the NextJS SSG project for the browser client
  |   |
  |   |_ mocks          # mocks for 3rd party modules used in unit testing
  |   |_ src            # source code for the NextJS SSG app
@@ -109,7 +109,7 @@ recipes-next
  |_ package.json       # repository-level definition of the project, including shared dependencies and npm scripts that execute on all workspaces
 ```
 
-#### Next Workspace
+#### Client Workspace
 
 The client for the system is a **Next.js** project bootstrapped with <a href="https://github.com/vercel/next.js/tree/canary/packages/create-next-app" target="_blank">`create-next-app`</a>.
 
@@ -121,7 +121,7 @@ cd recipes-next
 npm install
 ```
 
-Before running the application, a local `.env` file should be created at the root level of the `next` workspace to store environmental variables and secrets:
+Before running the application, a local `.env` file should be created at the root level of the `client` workspace to store environmental variables and secrets:
 
 ```bash
 # Public url for the deployed site
@@ -159,7 +159,7 @@ There are two CloudFormation stacks defined by the `cdk` application that are de
 
 - `RecipesBranchStack` - Creates a set of AWS resources used by a specific branch. Each branch has its own CloudFront distribution with an Origin Request Handler for routing web traffic to the correct static file and a DNS record for `{branch_name}.recipes.pliddy.com` pointing to the CloudFront distribution. All feature branches share the same shared stack for the `dev` environment, while the `main` branch is the only branch stack that uses the shared stack in the `prod` environment.
 
-For local development, an `.env` file should be created at the root level of the `next` workspace to store environmental variables and secrets:
+For local development, an `.env` file should be created at the root level of the `client` workspace to store environmental variables and secrets:
 
 ```bash
 CDK_DEFAULT_ACCOUNT={AWS_ACCOUNT_ID}

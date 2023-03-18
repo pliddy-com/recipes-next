@@ -39,9 +39,9 @@ jobs:
       - name: Run Scans on the CDK Workspace
         run: |
           npm run scan -w cdk
-      - name: Run Scans on the Next Workspace
+      - name: Run Scans on the Client Workspace
         run: |
-          npm run scan -w next
+          npm run scan -w client
   deploy-shared-stack:
     name: Deploy Shared Stack to AWS
     runs-on: ubuntu-latest

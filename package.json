@@ -8,19 +8,19 @@
     "lint": "npm run lint --workspaces",
     "lint:fix": "npm run lint:fix --workspaces",
     "prepare": "husky install",
-    "remove": "npm run destroy -w cdk && npm run remove -w next",
+    "remove": "npm run destroy -w cdk && npm run remove -w client",
     "test": "npm run test --workspaces",
     "test:ci": "npm run test:ci --workspaces",
     "test:dev": "npm run test:dev --workspaces",
     "typecheck": "npm run typecheck --workspaces",
-    "typegen": "npm run typegen -w next",
-    "typegen:watch": "npm run typegen:watch -w next",
+    "typegen": "npm run typegen -w client",
+    "typegen:watch": "npm run typegen:watch -w client",
     "scan": "npm run scan -workspaces",
     "scan:local": "npm run scan:local -workspaces"
   },
   "workspaces": [
     "cdk",
-    "next"
+    "client"
   ],
   "devDependencies": {
     "@tsconfig/recommended": "1.0.2",

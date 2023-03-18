@@ -25,7 +25,6 @@ module.exports = {
   plugins: ['@typescript-eslint', 'jest'],
   // /* error rules are listed before warn rules */
   rules: {
-    '@next/next/no-img-element': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {

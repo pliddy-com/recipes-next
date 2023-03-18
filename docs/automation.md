@@ -57,7 +57,7 @@ There is a collection of npm scripts in the root `package.json` file that are us
 
 #### Deployment Scripts
 
-- `deploy` - Deploys a branch-specific stack of AWS resources from the `cdk` workspace and a statically-rendered Next.js app from the `next` workspace
+- `deploy` - Deploys a branch-specific stack of AWS resources from the `cdk` workspace and a statically-rendered Next.js app from the `client` workspace
 - `deploy:shared` - Deploys a shared stack of AWS resources for `prod` if in the `main` branch or for `dev` if in a feature branch
 
 #### Local Development Scripts for the Next Workspace
@@ -89,7 +89,7 @@ There is a collection of npm scripts in the root `package.json` file that are us
 
 ### Unit Testing
 
-Unit testing for both workspaces uses `jest` with the addition of `testing-library` for React in the `next` workspace. Combining these two packages enables unit testing on TypeScript modules as well as user-centered testing of the React UI in cases where there are specific user actions that result in code execution.
+Unit testing for both workspaces uses `jest` with the addition of `testing-library` for React in the `client` workspace. Combining these two packages enables unit testing on TypeScript modules as well as user-centered testing of the React UI in cases where there are specific user actions that result in code execution.
 
 It is possible to get complete code coverage by rendering the React components and handling conditional use cases in the code, but this does not validate the rendered output. The addition of **snapshot tests** ensures that every time the unit test is run, the output of the component's render function can be tested for consistency without explicitly checking for individual rendered elements in each test.
 
