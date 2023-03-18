@@ -190,11 +190,15 @@ jobs:
             const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
             console.log('distributionLabel:', distributionLabel);
 
-            const distributionId = await aws cloudformation describe-stacks --stack-name $stackName --query "Stacks[0].Outputs[?OutputKey==`${distributionLabel}`].OutputValue" --output text
+            const distributionId = await aws cloudformation describe-stacks --stack-name `${stackName}` --query "Stacks[0].Outputs[?OutputKey==`${distributionLabel}`].OutputValue" --output text
 
             console.log('distributionId', distributionId);
 
+
             return distributionId;
+
+          # aws cloudformation describe-stacks --stack-name "RecipesBranchStack100-mime" --query "Stacks[0].Outputs[?OutputKey=='ExportRecipesDistribution100mime'].OutputValue" --output text
+
       - name: Build and Deploy
         id: build-and-deploy
         env:
