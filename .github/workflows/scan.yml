@@ -49,4 +49,6 @@ jobs:
         id: run-scans-cdk
         run: |
           npm run scan -w cdk
-          npm run scan -w client
+      - name: Run Scans on the Client Workspace
+        id: run-scans-client
+        run: npm run scan -w client

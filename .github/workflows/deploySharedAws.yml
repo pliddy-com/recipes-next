@@ -20,8 +20,6 @@ env:
 #   - install-dependencies
 #   - run-scans-cdk
 #
-
-#
 #   STEPS FOR DEPLOY SHARED STACKS JOB
 #
 #   - checkout-repo
@@ -69,14 +67,6 @@ jobs:
         id: run-scans-cdk
         run: |
           npm run scan -w cdk
-
-  #
-  # DON'T NEED TO SCAN CLIENT BEFORE DEPLOYING AWS STACK
-  #
-  # - name: Run Scans on the Client Workspace
-  #   run: |
-  #     npm run scan -w client
-  #
 
   DeploySharedStack:
     name: Deploy Shared Stack to AWS

@@ -23,6 +23,16 @@ env:
   #   - install-dependencies
   #   - destroy-branch-stack
   #
+  #   STEPS FOR REMOVE SITE FILES JOB
+  #
+  #   - checkout-repo
+  #   - set-node-version
+  #   - node-cache
+  #   - install-dependencies
+  #   - destroy-branch-stack
+  #   - bucket-name
+  #   - remove-files
+  #
 
 jobs:
   DestroyBranchStack:
@@ -62,27 +72,12 @@ jobs:
       - name: Destroy AWS
         id: destroy-branch-stack
         env:
-          # AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          # AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          # AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           BRANCH: ${{ github.event.ref }}
         run: |
           echo "branch: $BRANCH"
           echo "SOURCE_BRANCH=$BRANCH" >> $GITHUB_OUTPUT
 
           npm run destroy -w cdk
-
-  #
-  #   STEPS FOR REMOVE SITE FILES JOB
-  #
-  #   - checkout-repo
-  #   - set-node-version
-  #   - node-cache
-  #   - install-dependencies
-  #   - destroy-branch-stack
-  #   - bucket-name
-  #   - remove-files
-  #
 
   RemoveSiteFiles:
     name: Remove Site Files
@@ -138,9 +133,6 @@ jobs:
         id: remove-files
         working-directory: './'
         env:
-          # AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          # AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          # AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           BRANCH: ${{ needs.DestroyBranchStack.outputs.SOURCE_BRANCH }}
           S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
         run: |

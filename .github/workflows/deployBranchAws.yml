@@ -22,6 +22,26 @@ env:
 #   - run-scans-cdk
 #   - run-scans-client
 #
+#   STEPS FOR DEPLOY BRANCH STACKS JOB
+#
+#   - checkout-repo
+#   - set-node-version
+#   - node-cache
+#   - install-dependencies
+#   - deploy-branch-stack
+#
+#   STEPS FOR BUILD AND DEPLOY SITE JOB
+#
+#   - checkout-repo
+#   - set-node-version
+#   - node-cache
+#   - install-dependencies
+#   - deploy-branch-stack
+#   - next-build-cache
+#   - bucket-name
+#   - distribution-id
+#   - build-and-deploy-client
+#
 
 jobs:
   Scans:
@@ -31,6 +51,7 @@ jobs:
       NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
       NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
       NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+      NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
     steps:
       - name: Checkout Repo
         id: checkout-repo
@@ -64,19 +85,7 @@ jobs:
         id: run-scans-client
         run: npm run scan -w client
 
-  #
-  #   STEPS FOR DEPLOY BRANCH STACKS JOB
-  #
-  #   - checkout-repo
-  #   - set-node-version
-  #   - node-cache
-  #   - install-dependencies
-  #   - deploy-branch-stack
-  #
-
   DeployBranchStack:
-    # set conditional so it does not deploy stack when triggered by webhook?
-    # webhook should re-build Next app with new content; doesn't need IAC
     name: Deploy Branch Stack to AWS
     runs-on: ubuntu-latest
     needs: [Scans]
@@ -111,26 +120,8 @@ jobs:
         run: npm ci --ignore-scripts
       - name: Deploy Branch-specific Stack for ${{github.ref}}
         id: deploy-branch-stack
-        # env:
-        #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        #   AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: |
           npm run deploy -w cdk
-
-  #
-  #   STEPS FOR BUILD AND DEPLOY SITE JOB
-  #
-  #   - checkout-repo
-  #   - set-node-version
-  #   - node-cache
-  #   - install-dependencies
-  #   - deploy-branch-stack
-  #   - next-build-cache
-  #   - bucket-name
-  #   - distribution-id
-  #   - build-and-deploy-client
-  #
 
   BuildAndDeploySite:
     name: Build and Deploy Site
@@ -143,6 +134,7 @@ jobs:
       NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
       NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
       NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+      NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
     steps:
       - name: Checkout Repo
         id: checkout-repo
@@ -210,10 +202,6 @@ jobs:
       - name: Get Distribution ID
         id: distribution-id
         uses: actions/github-script@v6
-        # env:
-        #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        #   AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-        #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         with:
           result-encoding: string
           script: |
@@ -270,15 +258,8 @@ jobs:
       - name: Build and Deploy Client
         id: build-and-deploy-client
         env:
-          # AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          # AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          # AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           BRANCH: ${{ github.ref_name }}
           DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
-          NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
-          NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-          NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
           S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
         run: |
           echo "branch: $BRANCH"
