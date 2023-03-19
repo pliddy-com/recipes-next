@@ -4,9 +4,9 @@ description: This is an action to setup the environment in a workflow.
 runs:
   using: composite
   steps:
-    - name: Checkout Repo
-      id: checkout-repo
-      uses: actions/checkout@v3
+    # - name: Checkout Repo
+    #   id: checkout-repo
+    #   uses: actions/checkout@v3
 
     - name: Use Node.js version in .nvmrc
       id: set-node-version
