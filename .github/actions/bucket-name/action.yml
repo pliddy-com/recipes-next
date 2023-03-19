@@ -2,7 +2,7 @@ name: Get Bucket Name
 description: This is an action to get the S3 deployment bucket for the workflow.
 
 inputs:
-  bucketbase:
+  bucketBase:
     description: 'The base string for the S3 deployment bucket'
     required: true
 
@@ -13,7 +13,7 @@ runs:
       id: bucket-name
       uses: actions/github-script@v6
       with:
-        S3_BUCKET_BASE: ${{ inputs.bucketbase }}
+        S3_BUCKET_BASE: ${{ inputs.bucketBase }}
         result-encoding: string
         script: |
 
