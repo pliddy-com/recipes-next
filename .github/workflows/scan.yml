@@ -24,12 +24,14 @@ jobs:
       - name: Checkout Repo
         id: checkout-repo
         uses: actions/checkout@v3
+
       - name: Use Node.js version in .nvmrc
         id: set-node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
           cache: 'npm'
+
       - name: Node Cache
         id: node-cache
         uses: actions/cache@v3
@@ -42,13 +44,15 @@ jobs:
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
+
       - name: Install Dependencies
         id: install-dependencies
         run: npm ci --ignore-scripts
+
       - name: Run Scans on the CDK Workspace
         id: run-scans-cdk
-        run: |
-          npm run scan -w cdk
+        run: npm run scan -w cdk
+
       - name: Run Scans on the Client Workspace
         id: run-scans-client
         run: npm run scan -w client
