@@ -1,5 +1,5 @@
-name: Node Environment Setup
-description: This is an action to setup the environment in a workflow.
+name: Next Build Setup
+description: This is an action to setup the Next build environment wiin a workflow.
 
 runs:
   using: composite
@@ -20,6 +20,22 @@ runs:
         # npm cache files are stored in `~/.npm` on Linux/macOS
         path: ~/.npm
         key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ github.repository }}-${{ env.cache-name }}-
+          ${{ github.repository }}-
+
+    - name: Nextjs Build Cache
+      id: next-build-cache
+      env:
+        cache-name: build-cache
+      uses: actions/cache@v3
+      with:
+        path: |
+          ${{ github.workspace }}/node_modules
+          ${{ github.workspace }}/client/.next/cache
+        # Generate a new cache whenever packages or source files change.
+        key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('client/**.[jt]s', 'client/**.[jt]sx') }}
+        # If source files changed but packages didn't, rebuild from a prior cache.
         restore-keys: |
           ${{ github.repository }}-${{ env.cache-name }}-
           ${{ github.repository }}-
