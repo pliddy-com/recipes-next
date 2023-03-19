@@ -39,6 +39,10 @@ jobs:
       - name: Run Test on Distribution ID
         id: distribution-id
         script:
+          const CloudFormation = require('aws-sdk/clients/cloudformation');
+          const apiVersion = '2010-05-15';
+          const region = 'us-east-1';
+          
           const { ref } = context;
           console.log('ref:', ref);
 
@@ -62,8 +66,9 @@ jobs:
 
           const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
           console.log('distributionLabel:', distributionLabel);
-
-          const cloudformation = new CloudFormation({ apiVersion: API_VERSION, region });
+          
+          const cloudFormation = new CloudFormation({ apiVersion, region });
+                  
           const exportsList = {};
           
           const result = await cloudformation
