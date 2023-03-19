@@ -107,7 +107,7 @@ jobs:
         env:
           BRANCH: ${{ github.ref_name }}
           DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
-          S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
+          S3_BUCKET: ${{ steps.bucket-name.outputs.bucketName }}
         run: |
           echo "branch: $BRANCH"
           echo "deployment bucket: $S3_BUCKET"
