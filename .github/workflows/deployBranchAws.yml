@@ -84,7 +84,7 @@ jobs:
   build-and-deploy-site:
     name: Build and Deploy Site
     runs-on: ubuntu-latest
-    needs: [deploy-stack]
+    # needs: [deploy-stack]
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
