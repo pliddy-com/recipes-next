@@ -47,8 +47,14 @@ jobs:
 
           const branch = refArray[refArray.length - 1];
           console.log('branch:', branch);
-
-          const branchLabel = branch === 'main' ? 'Prod' : branch[0].toUpperCase() + branch.slice(1);
+          
+          let branchLabel;
+          
+          if (branch === main) {
+            branchLabel = 'Prod';
+          } else {
+            branchLabel = branch[0].toUpperCase() + branch.slice(1);
+          }
           console.log('branchLabel:', branchLabel);
 
           const stackName = `RecipesBranchStack${ branchLabel }`
