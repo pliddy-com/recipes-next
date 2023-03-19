@@ -190,11 +190,9 @@ jobs:
             const foundStacks = (result && result.Stacks) || [];
             const stack = foundStacks.find(s => s.StackName === stackName);
 
-            if (!stack) {
-              throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
-            }
+            if (!stack) throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
 
-            const distributionId = stack.Outputs.find({ OutputKey } => OutputKey === distributionLabel).OutputValue;
+            const distributionId = stack.Outputs.find(({ OutputKey }) => OutputKey === distributionLabel).OutputValue;
 
             console.log('distributionId:', distributionId);
 
