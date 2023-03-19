@@ -24,6 +24,7 @@ jobs:
       NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
       NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
       NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+      S3_BUCKET_BASE: ${{ vars.S3_BUCKET_BASE }}
     steps:
       - name: Checkout Repo
         id: checkout-repo

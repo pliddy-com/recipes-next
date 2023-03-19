@@ -22,6 +22,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      S3_BUCKET_BASE: ${{ vars.S3_BUCKET_BASE }}
     steps:
       - name: Checkout Repo
         id: checkout-repo
@@ -68,7 +69,7 @@ jobs:
         working-directory: './'
         env:
           BRANCH: ${{ github.ref }}
-          S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
+          # S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
         run: |
           echo "BRANCH: $BRANCH"
           echo "S3_BUCKET: $S3_BUCKET"
