@@ -13,12 +13,12 @@ runs:
       id: bucket-name
       uses: actions/github-script@v6
       with:
-        # env:
-        # S3_BUCKET_BASE: ${{ toJSON(inputs)['bucketBase'] }};
-        # S3_BUCKET_BASE: ${{ inputs.bucketBase }}
+        env:
+          S3_BUCKET_BASE: ${{ inputs.bucketBase }}
         result-encoding: string
         script: |
-          console.log'process.env:', process.env);
+          console.log('process.env:', process.env);
+
           console.log('context.inputs:', context.inputs);
 
           const S3_BUCKET_BASE = context.inputs.bucketBase;
