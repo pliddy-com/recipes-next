@@ -12,12 +12,20 @@ env:
   NODE_VERSION_FILE: '.nvmrc'
 
 jobs:
-  scan:
+  Scans:
     name: Run Code Quality Scans
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
+      NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+      NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+      NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repo
+        id: checkout-repo
+        uses: actions/checkout@v3
       - name: Use Node.js version in .nvmrc
+        id: set-node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
@@ -35,10 +43,12 @@ jobs:
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
       - name: Install Dependencies
+        id: install-dependencies
         run: npm ci --ignore-scripts
       - name: Run Scans on the CDK Workspace
+        id: run-scans-cdk
         run: |
           npm run scan -w cdk
       - name: Run Scans on the Client Workspace
-        run: |
-          npm run scan -w client
+        id: run-scans-client
+        run: npm run scan -w client

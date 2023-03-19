@@ -14,15 +14,42 @@ concurrency:
 env:
   NODE_VERSION_FILE: '.nvmrc'
 
+  #
+  #   STEPS FOR DESTROY BRANCH STACKS JOB
+  #
+  #   - checkout-repo
+  #   - set-node-version
+  #   - node-cache
+  #   - install-dependencies
+  #   - destroy-branch-stack
+  #
+  #   STEPS FOR REMOVE SITE FILES JOB
+  #
+  #   - checkout-repo
+  #   - set-node-version
+  #   - node-cache
+  #   - install-dependencies
+  #   - destroy-branch-stack
+  #   - bucket-name
+  #   - remove-files
+  #
+
 jobs:
-  destroy-branch-aws:
-    name: Destroy Branch AWS Resources
+  DestroyBranchStack:
+    name: Destroy Branch Stack on AWS
     runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     outputs:
       SOURCE_BRANCH: ${{ github.event.ref }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repo
+        id: checkout-repo
+        uses: actions/checkout@v3
       - name: Use Node.js version in .nvmrc
+        id: set-node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
@@ -40,26 +67,32 @@ jobs:
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
       - name: Install Dependencies
+        id: install-dependencies
         run: npm ci --ignore-scripts
       - name: Destroy AWS
-        id: destroy-aws
+        id: destroy-branch-stack
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           BRANCH: ${{ github.event.ref }}
         run: |
           echo "branch: $BRANCH"
           echo "SOURCE_BRANCH=$BRANCH" >> $GITHUB_OUTPUT
 
           npm run destroy -w cdk
-  remove-site-files:
+
+  RemoveSiteFiles:
     name: Remove Site Files
     runs-on: ubuntu-latest
-    needs: destroy-branch-aws
+    needs: [DestroyBranchStack]
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repo
+        id: checkout-repo
+        uses: actions/checkout@v3
       - name: Use Node.js version in .nvmrc
+        id: set-node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
@@ -76,6 +109,8 @@ jobs:
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
+
+      # NO NPM INSTALL HERE??? IS IT NEEDED FOR AWS-ONLY JOBS?
       - name: Get Bucket Name
         id: bucket-name
         uses: actions/github-script@v6
@@ -98,10 +133,7 @@ jobs:
         id: remove-files
         working-directory: './'
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          BRANCH: ${{ needs.destroyBranchAWS.outputs.SOURCE_BRANCH }}
+          BRANCH: ${{ needs.DestroyBranchStack.outputs.SOURCE_BRANCH }}
           S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
         run: |
           echo "BRANCH: $BRANCH"
