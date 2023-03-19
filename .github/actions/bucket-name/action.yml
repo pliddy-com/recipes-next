@@ -22,7 +22,7 @@ runs:
 
           console.log'process.env:', process.env);
 
-          const S3_BUCKET_BASE = inputs['bucketBase']
+          const S3_BUCKET_BASE = inputs.bucketBase;
 
           console.log('S3_BUCKET_BASE:', S3_BUCKET_BASE);
 
