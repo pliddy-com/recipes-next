@@ -27,4 +27,3 @@ runs:
           console.log('bucketName:', bucketName);
 
           return bucketName;
-      shell: bash
