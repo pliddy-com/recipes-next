@@ -25,7 +25,8 @@ runs:
 
           const envLabel = (branch === 'main') && 'prod' || 'dev';
 
-          const bucketName = `${ bucketBase }-${ envLabel }`
+          const bucketName = `${ bucketBase }-${ envLabel }`;
+
           console.log('bucketName:', bucketName);
 
           return bucketName;
