@@ -23,7 +23,9 @@ runs:
           const branch = refArray[refArray.length - 1];
           console.log('branch:', branch);
 
-          const bucketName = `${ bucketBase }-${ branch === 'main' ? 'prod' : 'dev' }`
+          const envLabel = (branch === 'main') && 'prod' || 'dev';
+
+          const bucketName = `${ bucketBase }-${ envLabel }`
           console.log('bucketName:', bucketName);
 
           return bucketName;
