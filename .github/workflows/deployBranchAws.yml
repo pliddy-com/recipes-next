@@ -157,13 +157,13 @@ jobs:
           result-encoding: string
           script: |
             const CloudFormation = require('aws-sdk/clients/cloudformation');
+
             const apiVersion = '2010-05-15';
             const region = 'us-east-1';
 
-            const { ref } = context;
-            console.log('ref:', ref);
+            const cloudFormation = new CloudFormation({ apiVersion, region });
 
-            const refArray = ref.split('/');
+            const refArray = context.ref.split('/');
             console.log('refArray:', refArray);
 
             const branch = refArray[refArray.length - 1];
@@ -179,8 +179,8 @@ jobs:
 
             console.log('branchLabel:', branchLabel);
 
-            const StackName = `RecipesBranchStack${ branchLabel }`
-            console.log('StackName:', StackName);
+            const stackName = `RecipesBranchStack${ branchLabel }`
+            console.log('stackName:', stackName);
 
             const branchSlug = branchLabel.replaceAll('-', '');
             console.log('branchSlug:', branchSlug);
@@ -188,21 +188,21 @@ jobs:
             const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
             console.log('distributionLabel:', distributionLabel);
 
-            const cloudFormation = new CloudFormation({ apiVersion, region });
+
             const exportsList = {};
 
-            const result = await cloudFormation.describeStacks({ StackName }).promise();
+            const result = await cloudFormation.describeStacks({ StackName: stackName }).promise();
 
             const foundStacks = (result && result.Stacks) || [];
 
-            const stack = foundStacks.find(s => s.StackName === StackName);
+            const stack = foundStacks.find(s => s.stackName === stackName);
 
             if (!stack) {
-              throw new Error(`Unable to find stack "${StackName}" in region "${region}"`);
+              throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
             }
 
             stack.Outputs.forEach(({ OutputKey, ExportName, OutputValue }) => {
-              exportList[(byOutputKey && OutputKey) || ExportName] = OutputValue;
+              exportsList[(byOutputKey && OutputKey) || ExportName] = OutputValue;
             });
 
             console.log(exportsList);
