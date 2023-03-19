@@ -157,12 +157,8 @@ jobs:
           result-encoding: string
           script: |
             const CloudFormation = require('aws-sdk/clients/cloudformation');
-
             const apiVersion = '2010-05-15';
             const region = 'us-east-1';
-
-            console.log({ apiVersion, region })
-
             const cloudFormation = new CloudFormation({ apiVersion, region });
 
             const refArray = context.ref.split('/');
@@ -190,31 +186,15 @@ jobs:
             const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
             console.log('distributionLabel:', distributionLabel);
 
-            const exportsList = {};
-
             const result = await cloudFormation.describeStacks({ StackName: stackName }).promise();
-
-            console.log('result:', result);
-
             const foundStacks = (result && result.Stacks) || [];
-
-            console.log('foundStacks:', foundStacks);
-
             const stack = foundStacks.find(s => s.StackName === stackName);
-
-            console.log('stack:', stack);
 
             if (!stack) {
               throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
             }
 
-            const distributionOutput = stack.Outputs.find(output => {
-              return output.OutputKey === distributionLabel
-            });
-
-            console.log('distributionOutput:', distributionOutput);
-
-            const distributionId = distributionOutput.OutputValue;
+            const distributionId = stack.Outputs.find({ OutputKey } => OutputKey === distributionLabel).OutputValue;
 
             console.log('distributionId:', distributionId);
 
