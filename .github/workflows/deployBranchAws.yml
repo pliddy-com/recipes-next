@@ -159,9 +159,8 @@ jobs:
             const CloudFormation = require('aws-sdk/clients/cloudformation');
 
             const apiVersion = '2010-05-15';
-            const region = 'us-east-1';
 
-            const cloudFormation = new CloudFormation({ apiVersion, region });
+            const cloudFormation = new CloudFormation({ apiVersion: '2010-05-15' });
 
             const refArray = context.ref.split('/');
             console.log('refArray:', refArray);
@@ -198,7 +197,7 @@ jobs:
             const stack = foundStacks.find(s => s.stackName === stackName);
 
             if (!stack) {
-              throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
+              throw new Error(`Unable to find stack "${stackName}"`);
             }
 
             stack.Outputs.forEach(({ OutputKey, ExportName, OutputValue }) => {
