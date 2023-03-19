@@ -16,17 +16,16 @@ runs:
         result-encoding: string
         script: |
           const bucketBase = '${{ inputs.bucketBase }}';
-          console.log('bucketBase', bucketBase);
+          console.log('bucketBase:', bucketBase);
 
           const { ref } = context;
           const refArray = ref.split('/');
           const branch = refArray[refArray.length - 1];
-          console.log('branch', branch);
+          console.log('branch:', branch);
 
           const envLabel = (branch === 'main') && 'prod' || 'dev';
-
           const bucketName = `${ bucketBase }-${ envLabel }`;
 
-          console.log('bucketName', bucketName);
+          console.log('bucketName:', bucketName);
 
           return bucketName;

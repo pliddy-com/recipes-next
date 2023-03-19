@@ -46,30 +46,12 @@ jobs:
         with:
           bucketBase: ${{ vars.S3_BUCKET_BASE }}
 
-      # - name: Get Bucket Name
-      #   id: bucket-name
-      #   uses: actions/github-script@v6
-      #   env:
-      #     S3_BUCKET_BASE: ${{ vars.S3_BUCKET_BASE }}
-      #     BRANCH: ${{ github.ref }}
-      #   with:
-      #     result-encoding: string
-      #     script: |
-      #       const { S3_BUCKET_BASE, BRANCH } = process.env
-      #       console.log('S3_BUCKET_BASE:', S3_BUCKET_BASE);
-      #       console.log('branch:', BRANCH);
-
-      #       const bucketName = `${ S3_BUCKET_BASE }-${ BRANCH === 'main' ? 'prod' : 'dev' }`
-      #       console.log('bucketName:', bucketName);
-
-      #       return bucketName;
-
       - name: Remove Files
         id: remove-files
         working-directory: './'
         env:
           BRANCH: ${{ github.ref }}
-          # S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
+          S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
         run: |
           echo "BRANCH: $BRANCH"
           echo "S3_BUCKET: $S3_BUCKET"
