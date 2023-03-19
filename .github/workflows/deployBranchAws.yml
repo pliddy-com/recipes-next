@@ -48,6 +48,8 @@ jobs:
         id: deploy-branch-stack
         run: npm run deploy -w cdk
 
+      # Bucket name should be looked up from shared resources outputs
+
       - name: Get Bucket Name
         id: bucket-name
         uses: actions/github-script@v6
