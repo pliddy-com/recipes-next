@@ -13,11 +13,13 @@ runs:
       id: bucket-name
       uses: actions/github-script@v6
       with:
+        inputs:
+          bucketBase:
         result-encoding: string
         script: |
           process.env && console.log('process.env:', process.env);
           context && console.log('context:', context);
-          inputs && console.log('inputs:', inputs);
+          console.log('inputs:', ${{ inputs.bucketBase }});
 
       # const { ref } = context;
       # const refArray = ref.split('/');
