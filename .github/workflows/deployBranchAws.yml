@@ -216,4 +216,4 @@ jobs:
           echo "deployment bucket: $S3_BUCKET"
 
           npm run deploy -w client
-          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli
+          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
