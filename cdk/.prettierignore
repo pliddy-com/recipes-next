@@ -1,6 +1,4 @@
 # CDK build artifacts
-.next/
-.swc/
 cdk.out/
 bin/*.js
 lib/*.js

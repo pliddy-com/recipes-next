@@ -149,7 +149,7 @@ export class RecipesBranchStack extends Stack {
     const customErrorResponse403: ErrorResponse = {
       httpStatus: 403,
       ttl: Duration.minutes(10),
-      responseHttpStatus: 403,
+      responseHttpStatus: 404,
       responsePagePath: '/404.html'
     };
 
@@ -194,7 +194,7 @@ export class RecipesBranchStack extends Stack {
       certificate,
       defaultBehavior: {
         allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
-        compress: false,
+        compress: true,
         edgeLambdas: [edgeLambda],
         origin: new S3Origin(siteBucket, {
           originAccessIdentity: cloudfrontOAI,

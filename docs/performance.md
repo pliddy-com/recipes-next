@@ -1,3 +1,18 @@
+<!--  -->
+
+---
+
+<p align="center">
+  <a href="../README.md">TL;DR</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="contentful.md">Contentful as Headless CMS</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <strong>Maximizing Performance</strong>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="automation.md">Automation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="manual-scans.md">Manual Scans</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="next-steps.md">Next Steps</a>
+</p>
+
+---
+
 ## Maximizing Performance
 
 A high level of overall site performance was a primary objective for this project. This has been achieved through iteration of various features during the development process.
@@ -16,7 +31,7 @@ Pages also utilize the Next `revalidate` feature, which means when a current pag
 
 If a new page is published, the site will require a full rebuild in order to know about the new page url. Building and deploying individual statically-generated pages would requrie some type of server to handle the request. If this feature is identified as a priority, it could potentially be handled through GitHub Actions or a standalone AWS Lambda function.
 
-Since the build and deploy process only takes **90-120 seconds** from start to availability across the AWS CloudFront CDN, the project can be statically generated **hundreds of times a month** within the free-tier limits of GitHub Actions and AWS.
+While a full deployment of new AWS resources can take up to 10 minutes, a static site build of the Next.js browser client only takes **90-120 seconds** to build and deploy across the AWS CloudFront CDN, the site can be re-generated **hundreds of times a month** within the free-tier limits of GitHub Actions and AWS.
 
 ### Dynamic Imports
 
@@ -38,24 +53,24 @@ This example configuration file for the [`RecipeCard`](src/components/RecipeCard
 breakpoints: [
   {
     viewMin: 669,
-    imgWidth: 450,
+    imgWidth: 450
   },
 
   {
     viewMin: 600,
-    imgWidth: 300,
+    imgWidth: 300
   },
   {
     viewMin: 485,
-    imgWidth: 600,
+    imgWidth: 600
   },
   {
     viewMin: 335,
-    imgWidth: 450,
+    imgWidth: 450
   },
   {
-    imgWidth: 300,
-  },
+    imgWidth: 300
+  }
 ];
 ```
 
@@ -84,5 +99,12 @@ The benefit of using a Material UI theme is that the required styling for a stat
 ---
 
 <p align="center">
-  <a href="../README.md">TL;DR</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="docs/contentful.md">Contentful as Headless CMS</a>&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Maximizing Performance</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="automation.md">Automation</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="manual-scans.md">Manual Scans</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="next-steps.md">Next Steps</a>
+  <a href="../README.md">TL;DR</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="contentful.md">Contentful as Headless CMS</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <strong>Maximizing Performance</strong>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="automation.md">Automation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="manual-scans.md">Manual Scans</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="next-steps.md">Next Steps</a>
 </p>
+
+---

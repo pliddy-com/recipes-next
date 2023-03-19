@@ -46,9 +46,9 @@ jobs:
         with:
           path: |
             ${{ github.workspace }}/node_modules
-            ${{ github.workspace }}/.next/cache
+            ${{ github.workspace }}/client/.next/cache
           # Generate a new cache whenever packages or source files change.
-          key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('client/**.[jt]s', 'client/**.[jt]sx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
@@ -94,4 +94,4 @@ jobs:
           echo "branch: $BRANCH"
           echo "deployment bucket: $S3_BUCKET"
 
-          npm run deploy -w next
+          npm run deploy -w client

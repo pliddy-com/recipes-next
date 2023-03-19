@@ -8,7 +8,7 @@ const {
 const schemaUrl = `https://graphql.contentful.com/content/v1/spaces/${spaceId}/`;
 
 const config: CodegenConfig = {
-  require: ['ts-node/register'],
+  // require: ['ts-node/register'],
   schema: [
     {
       [schemaUrl]: {
