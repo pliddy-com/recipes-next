@@ -144,34 +144,21 @@ jobs:
             console.log('bucketName:', bucketName);
 
             return bucketName;
-      # - name: Get CDK Outputs
-      #   id: cdk-outputs
-      #   working-directory: './cdk/'
-      #   # handle multi-line json
-      #   run: |
-      #     pwd
-      #     ls -la
 
-      #     content=`cat ./cdk-outputs.json`
-      #     content="${content//$'\n'/''}"
-      #     content="${content//$'\r'/''}"
-      #     content="${content//$'\s+'/''}"
-
-      #     echo "CDK_OUTPUTS: ${content}"
-      #     echo "CDK_OUTPUTS=$content" >> $GITHUB_ENV
-
-      #   # USE AWS SDK TO RETRIEVE OUTPUT VALUE DIRECTLY?
-      #   # aws cloudformation describe-stacks \
-      #   #   --stack-name <my stack name> \
-      #   #   --query "Stacks[0].Outputs[?OutputKey==`LoadBalancerDNS`].OutputValue" \
-      #   #   --output text
-
-      - name: Get Distribution Id
+      - name: Run Test on Distribution ID
         id: distribution-id
         uses: actions/github-script@v6
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         with:
           result-encoding: string
           script: |
+            const CloudFormation = require('aws-sdk/clients/cloudformation');
+            const apiVersion = '2010-05-15';
+            const region = 'us-east-1';
+
             const { ref } = context;
             console.log('ref:', ref);
 
@@ -181,40 +168,62 @@ jobs:
             const branch = refArray[refArray.length - 1];
             console.log('branch:', branch);
 
-            const branchLabel = branch === 'main' ? 'Prod' : branch[0].toUpperCase() + branch.slice(1);
+            let branchLabel;
+
+            if (branch === 'main') {
+              branchLabel = 'Prod';
+            } else {
+              branchLabel = branch[0].toUpperCase() + branch.slice(1);
+            }
+
             console.log('branchLabel:', branchLabel);
 
-            const stackName = `RecipesBranchStack${ branchLabel }`
-            console.log('stackName:', stackName);
+            const StackName = `RecipesBranchStack${ branchLabel }`
+            console.log('StackName:', StackName);
+
+            const branchSlug = branchLabel.replaceAll('-', '');
+            console.log('branchSlug:', branchSlug);
 
             const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
             console.log('distributionLabel:', distributionLabel);
 
-            const distributionId = await aws cloudformation describe-stacks --stack-name `${stackName}` --query "Stacks[0].Outputs[?OutputKey==`${distributionLabel}`].OutputValue" --output text
+            const cloudFormation = new CloudFormation({ apiVersion, region });
+            const exportsList = {};
 
-            console.log('distributionId', distributionId);
+            const result = await cloudFormation.describeStacks({ StackName }).promise();
 
+            const foundStacks = (result && result.Stacks) || [];
 
-            return distributionId;
+            const stack = foundStacks.find(s => s.StackName === StackName);
 
-          # aws cloudformation describe-stacks --stack-name "RecipesBranchStack100-mime" --query "Stacks[0].Outputs[?OutputKey=='ExportRecipesDistribution100mime'].OutputValue" --output text
+            if (!stack) {
+              throw new Error(`Unable to find stack "${StackName}" in region "${region}"`);
+            }
 
-      - name: Build and Deploy
-        id: build-and-deploy
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          BRANCH: ${{ github.ref_name }}
-          DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
-          NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
-          NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-          NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-          S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
-        run: |
-          echo "branch: $BRANCH"
-          echo "deployment bucket: $S3_BUCKET"
+            stack.Outputs.forEach(({ OutputKey, ExportName, OutputValue }) => {
+              exportList[(byOutputKey && OutputKey) || ExportName] = OutputValue;
+            });
 
-          npm run deploy -w client
-          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli
+            console.log(exportsList);
+
+            return exportsList;
+
+      # - name: Build and Deploy
+      #   id: build-and-deploy
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     BRANCH: ${{ github.ref_name }}
+      #     DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
+      #     NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
+      #     NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+      #     NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+      #     NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+      #     S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
+      #   run: |
+      #     echo "branch: $BRANCH"
+      #     echo "deployment bucket: $S3_BUCKET"
+
+      #     npm run deploy -w client
+      #     aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli
