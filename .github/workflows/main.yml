@@ -2,7 +2,10 @@ name: Code Quality Scans
 run-name: Code Quality Scans
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - '!main'
+
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.ref }}
