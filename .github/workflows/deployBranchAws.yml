@@ -12,121 +12,10 @@ concurrency:
 env:
   NODE_VERSION_FILE: '.nvmrc'
 
-#
-#   STEPS FOR SCANS JOB
-#
-#   - checkout-repo
-#   - set-node-version
-#   - node-cache
-#   - install-dependencies
-#   - run-scans-cdk
-#   - run-scans-client
-#
-#   STEPS FOR DEPLOY BRANCH STACKS JOB
-#
-#   - checkout-repo
-#   - set-node-version
-#   - node-cache
-#   - install-dependencies
-#   - deploy-branch-stack
-#
-#   STEPS FOR BUILD AND DEPLOY SITE JOB
-#
-#   - checkout-repo
-#   - set-node-version
-#   - node-cache
-#   - install-dependencies
-#   - deploy-branch-stack
-#   - next-build-cache
-#   - bucket-name
-#   - distribution-id
-#   - build-and-deploy-client
-#
-
 jobs:
-  Scans:
-    name: Run Code Quality Scans
-    runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
-      NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-      NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-      NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-    steps:
-      - name: Checkout Repo
-        id: checkout-repo
-        uses: actions/checkout@v3
-      - name: Use Node.js version in .nvmrc
-        id: set-node-version
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: ${{ env.NODE_VERSION_FILE }}
-          cache: 'npm'
-      - name: Node Cache
-        id: node-cache
-        uses: actions/cache@v3
-        env:
-          cache-name: node-cache
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ github.repository }}-${{ env.cache-name }}-
-            ${{ github.repository }}-
-      - name: Install Dependencies
-        id: install-dependencies
-        run: npm ci --ignore-scripts
-      - name: Run Scans on the CDK Workspace
-        id: run-scans-cdk
-        run: |
-          npm run scan -w cdk
-      - name: Run Scans on the Client Workspace
-        id: run-scans-client
-        run: npm run scan -w client
-
-  DeployBranchStack:
+  DeployBranch:
     name: Deploy Branch Stack to AWS
     runs-on: ubuntu-latest
-    needs: [Scans]
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    steps:
-      - name: Checkout Repo
-        id: checkout-repo
-        uses: actions/checkout@v3
-      - name: Use Node.js version in .nvmrc
-        id: set-node-version
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: ${{ env.NODE_VERSION_FILE }}
-          cache: 'npm'
-      - name: Node Cache
-        id: node-cache
-        uses: actions/cache@v3
-        env:
-          cache-name: node-cache
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ github.repository }}-${{ env.cache-name }}-
-            ${{ github.repository }}-
-      - name: Install Dependencies
-        id: install-dependencies
-        run: npm ci --ignore-scripts
-      - name: Deploy Branch-specific Stack for ${{github.ref}}
-        id: deploy-branch-stack
-        run: |
-          npm run deploy -w cdk
-
-  BuildAndDeploySite:
-    name: Build and Deploy Site
-    runs-on: ubuntu-latest
-    needs: [DeployBranchStack]
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
@@ -139,12 +28,14 @@ jobs:
       - name: Checkout Repo
         id: checkout-repo
         uses: actions/checkout@v3
+
       - name: Use Node.js version in .nvmrc
         id: set-node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
           cache: 'npm'
+
       - name: Node Cache
         id: node-cache
         uses: actions/cache@v3
@@ -157,6 +48,7 @@ jobs:
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
+
       - name: Nextjs Build Cache
         id: next-build-cache
         env:
@@ -172,9 +64,27 @@ jobs:
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
+
       - name: Install Dependencies
         id: install-dependencies
         run: npm ci --ignore-scripts
+
+      - name: Run Scans on the CDK Workspace
+        id: run-scans-cdk
+        run: npm run scan -w cdk
+
+      - name: Run Scans on the Client Workspace
+        id: run-scans-client
+        run: npm run scan -w client
+
+      - name: Deploy Shared AWS Stack for ${{github.event.ref}}
+        id: deploy-shared-stack
+        run: npm run deploy:shared
+
+      - name: Deploy Branch-specific Stack for ${{github.event.ref}}
+        id: deploy-branch-stack
+        run: npm run deploy -w cdk
+
       - name: Get Bucket Name
         id: bucket-name
         uses: actions/github-script@v6
@@ -184,17 +94,14 @@ jobs:
           result-encoding: string
           script: |
             const { S3_BUCKET_BASE } = process.env
-
             console.log('S3_BUCKET_BASE:', S3_BUCKET_BASE);
 
             const { ref } = context;
             const refArray = ref.split('/');
             const branch = refArray[refArray.length - 1];
-
             console.log('branch:', branch);
 
             const bucketName = `${ S3_BUCKET_BASE }-${ branch === 'main' ? 'prod' : 'dev' }`
-
             console.log('bucketName:', bucketName);
 
             return bucketName;
@@ -227,7 +134,6 @@ jobs:
             console.log('stackLabel:', stackLabel);
 
             const stackName = `RecipesBranchStack${ stackLabel }`
-
             console.log('stackName:', stackName);
 
             let branchLabel;
@@ -250,7 +156,6 @@ jobs:
             if (!stack) throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
 
             const distributionId = stack.Outputs.find(({ OutputKey }) => OutputKey === distributionLabel).OutputValue;
-
             console.log('distributionId:', distributionId);
 
             return distributionId;

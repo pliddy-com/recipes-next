@@ -30,12 +30,14 @@ jobs:
       - name: Checkout Repo
         id: checkout-repo
         uses: actions/checkout@v3
+
       - name: Use Node.js version in .nvmrc
         id: set-node-version
         uses: actions/setup-node@v3
         with:
           node-version-file: ${{ env.NODE_VERSION_FILE }}
           cache: 'npm'
+
       - name: Node Cache
         id: node-cache
         uses: actions/cache@v3
@@ -48,6 +50,7 @@ jobs:
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
+
       - name: Nextjs Build Cache
         id: next-build-cache
         env:
@@ -63,9 +66,11 @@ jobs:
           restore-keys: |
             ${{ github.repository }}-${{ env.cache-name }}-
             ${{ github.repository }}-
+
       - name: Install Dependencies
         id: install-dependencies
         run: npm ci --ignore-scripts
+
       - name: Get Bucket Name
         id: bucket-name
         uses: actions/github-script@v6
@@ -75,17 +80,14 @@ jobs:
           result-encoding: string
           script: |
             const { S3_BUCKET_BASE } = process.env
-
             console.log('S3_BUCKET_BASE:', S3_BUCKET_BASE);
 
             const { ref } = context;
             const refArray = ref.split('/');
             const branch = refArray[refArray.length - 1];
-
             console.log('branch:', branch);
 
             const bucketName = `${ S3_BUCKET_BASE }-${ branch === 'main' ? 'prod' : 'dev' }`
-
             console.log('bucketName:', bucketName);
 
             return bucketName;
@@ -118,7 +120,6 @@ jobs:
             console.log('stackLabel:', stackLabel);
 
             const stackName = `RecipesBranchStack${ stackLabel }`
-
             console.log('stackName:', stackName);
 
             let branchLabel;
@@ -141,7 +142,6 @@ jobs:
             if (!stack) throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
 
             const distributionId = stack.Outputs.find(({ OutputKey }) => OutputKey === distributionLabel).OutputValue;
-
             console.log('distributionId:', distributionId);
 
             return distributionId;
