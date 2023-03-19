@@ -167,7 +167,7 @@ jobs:
             const branch = refArray[refArray.length - 1];
             console.log('branch:', branch);
 
-            let branchLabel;
+            let stackLabel;
 
             if (branch === 'main') {
               stackLabel = 'Prod';
