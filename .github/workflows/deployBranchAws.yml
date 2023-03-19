@@ -167,23 +167,31 @@ jobs:
             const branch = refArray[refArray.length - 1];
             console.log('branch:', branch);
 
+            let stackLabel;
+
+            if (branch === 'main') {
+              stackLabel = 'Prod';
+            } else {
+              stackLabel = branch[0].toUpperCase() + branch.slice(1);
+            }
+
+            console.log('stackLabel:', stackLabel);
+
+            const stackName = `RecipesBranchStack${ stackLabel }`
+
+            console.log('stackName:', stackName);
+
             let branchLabel;
 
             if (branch === 'main') {
-              branchLabel = 'Prod';
+              branchLabel = 'Main';
             } else {
-              branchLabel = branch[0].toUpperCase() + branch.slice(1);
+              branchLabel = stackLabel.replaceAll('-', '');
             }
 
             console.log('branchLabel:', branchLabel);
 
-            const stackName = `RecipesBranchStack${ branchLabel }`
-            console.log('stackName:', stackName);
-
-            const branchSlug = branchLabel.replaceAll('-', '');
-            console.log('branchSlug:', branchSlug);
-
-            const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
+            const distributionLabel = `ExportRecipesDistribution${ branchLabel }`
             console.log('distributionLabel:', distributionLabel);
 
             const result = await cloudFormation.describeStacks({ StackName: stackName }).promise();
