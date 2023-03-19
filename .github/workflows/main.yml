@@ -61,7 +61,7 @@ jobs:
           }
           console.log('branchLabel:', branchLabel);
 
-          const stackName = `RecipesBranchStack${ branchLabel }`
+          const StackName = `RecipesBranchStack${ branchLabel }`
           console.log('stackName:', stackName);
 
           const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
@@ -71,10 +71,8 @@ jobs:
                   
           const exportsList = {};
           
-          const result = await cloudformation
-            .describeStacks({ StackName: stackName })
-            .promise();
-            
+          const result = await cloudformation.describeStacks({ StackName }).promise();
+          
           const foundStacks = (result && result.Stacks) || [];
           
           const stack = foundStacks.find(s => s.StackName === stackName);
