@@ -209,7 +209,7 @@ jobs:
             }
 
             const distributionOutput = stack.Outputs.find(output => {
-              return output.OutputKey ==== distributionLabel
+              return output.OutputKey === distributionLabel
             });
 
             console.log('distributionOutput:', distributionOutput);
