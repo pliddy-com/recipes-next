@@ -15,7 +15,7 @@ runs:
       with:
         result-encoding: string
         script: |
-          const bucketBase = ${{ inputs.bucketBase }};
+          const bucketBase = '${{ inputs.bucketBase }}';
           console.log('bucketBase', bucketBase);
 
           const { ref } = context;
