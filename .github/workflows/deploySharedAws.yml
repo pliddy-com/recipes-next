@@ -76,7 +76,7 @@ jobs:
   DeploySharedStack:
     name: Deploy Shared Stack to AWS
     runs-on: ubuntu-latest
-    needs: [DeployStack]
+    needs: [Scans]
     steps:
       - name: Checkout Repo
         id: checkout-repo
