@@ -1,0 +1,10 @@
+name: Scan CDK Workspace
+description: Run quality control scans on the CDK Workspace
+
+runs:
+  using: composite
+  steps:
+    - name: Run Scans on the CDK Workspace
+      id: run-scans-cdk
+      run: npm run scan -w cdk
+      shell: bash

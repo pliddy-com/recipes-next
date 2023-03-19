@@ -1,0 +1,10 @@
+name: Install Dependencies
+description: This is an action to install dependencies for the workflow.
+
+runs:
+  using: composite
+  steps:
+    - name: Install Dependencies
+      id: install-dependencies
+      run: npm ci --ignore-scripts
+      shell: bash

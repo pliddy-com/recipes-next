@@ -28,12 +28,14 @@ jobs:
         id: checkout-repo
         uses: actions/checkout@v3
 
-      - name: Setup Next
-        uses: './.github/actions/next-setup'
+      - name: Setup Node
+        uses: './.github/actions/setup-node'
+
+      - name: Install Dependencies
+        uses: './.github/actions/install-dependencies'
 
       - name: Run Scans on the CDK Workspace
-        id: run-scans-cdk
-        run: npm run scan -w cdk
+        uses: './.github/actions/scan-cdk'
 
       - name: Deploy Shared AWS Stack for ${{github.event.ref}}
         id: deploy-shared-stack

@@ -31,8 +31,14 @@ jobs:
         id: checkout-repo
         uses: actions/checkout@v3
 
+      - name: Setup Node
+        uses: './.github/actions/setup-node'
+
       - name: Setup Next
-        uses: './.github/actions/next-setup'
+        uses: './.github/actions/next-build-cache'
+
+      - name: Install Dependencies
+        uses: './.github/actions/install-dependencies'
 
       # Bucket name should be looked up from shared resources outputs
 
