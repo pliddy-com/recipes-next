@@ -13,8 +13,8 @@ env:
   NODE_VERSION_FILE: '.nvmrc'
 
 jobs:
-  DeployBranch:
-    name: Deploy Branch Stack to AWS
+  ScanBuildAndDeployBranch:
+    name: Scan, Build, and Deploy Branch Stack to AWS
     runs-on: ubuntu-latest
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

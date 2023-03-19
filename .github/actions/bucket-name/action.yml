@@ -13,11 +13,13 @@ runs:
       id: bucket-name
       uses: actions/github-script@v6
       with:
-        env:
-          bucketBase: ${{ inputs.bucketBase }}
+        # env:
+        #   bucketBase: ${{ inputs.bucketBase }}
         result-encoding: string
         script: |
-          const { bucketBase } = process.env;
+          console.log(context);
+
+          const { bucketBase } = context.payload.inputs.bucketBase;
 
           console.log('bucketBase:', bucketBase);
 
