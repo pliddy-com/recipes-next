@@ -38,53 +38,56 @@ jobs:
         run: npm ci --ignore-scripts
       - name: Run Test on Distribution ID
         id: distribution-id
-        script:
-          const CloudFormation = require('aws-sdk/clients/cloudformation');
-          const apiVersion = '2010-05-15';
-          const region = 'us-east-1';
-          
-          const { ref } = context;
-          console.log('ref:', ref);
+        uses: actions/github-script@v6
+        with:
+          result-encoding: string
+          script: |
+            const CloudFormation = require('aws-sdk/clients/cloudformation');
+            const apiVersion = '2010-05-15';
+            const region = 'us-east-1';
 
-          const refArray = ref.split('/');
-          console.log('refArray:', refArray);
+            const { ref } = context;
+            console.log('ref:', ref);
 
-          const branch = refArray[refArray.length - 1];
-          console.log('branch:', branch);
-          
-          let branchLabel;
-          
-          if (branch === main) {
-            branchLabel = 'Prod';
-          } else {
-            branchLabel = branch[0].toUpperCase() + branch.slice(1);
-          }
-          console.log('branchLabel:', branchLabel);
+            const refArray = ref.split('/');
+            console.log('refArray:', refArray);
 
-          const StackName = `RecipesBranchStack${ branchLabel }`
-          console.log('stackName:', stackName);
+            const branch = refArray[refArray.length - 1];
+            console.log('branch:', branch);
 
-          const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
-          console.log('distributionLabel:', distributionLabel);
-          
-          const cloudFormation = new CloudFormation({ apiVersion, region });
-                  
-          const exportsList = {};
-          
-          const result = await cloudformation.describeStacks({ StackName }).promise();
-          
-          const foundStacks = (result && result.Stacks) || [];
-          
-          const stack = foundStacks.find(s => s.StackName === stackName);
-          if (!stack) {
-            throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
-          }
+            let branchLabel;
 
-          stack.Outputs.forEach(({ OutputKey, ExportName, OutputValue }) => {
-              exportList[(byOutputKey && OutputKey) || ExportName] = OutputValue;
+            if (branch === main) {
+              branchLabel = 'Prod';
+            } else {
+              branchLabel = branch[0].toUpperCase() + branch.slice(1);
             }
-          });
-          
-          console.log(exportsList);
-          
-          return exportsList;
+            console.log('branchLabel:', branchLabel);
+
+            const StackName = `RecipesBranchStack${ branchLabel }`
+            console.log('stackName:', stackName);
+
+            const distributionLabel = `ExportRecipesDistribution${ branchSlug }`
+            console.log('distributionLabel:', distributionLabel);
+
+            const cloudFormation = new CloudFormation({ apiVersion, region });
+
+            const exportsList = {};
+
+            const result = await cloudformation.describeStacks({ StackName }).promise();
+
+            const foundStacks = (result && result.Stacks) || [];
+
+            const stack = foundStacks.find(s => s.StackName === stackName);
+            if (!stack) {
+              throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
+            }
+
+            stack.Outputs.forEach(({ OutputKey, ExportName, OutputValue }) => {
+                exportList[(byOutputKey && OutputKey) || ExportName] = OutputValue;
+              }
+            });
+
+            console.log(exportsList);
+
+            return exportsList;
