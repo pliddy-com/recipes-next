@@ -200,7 +200,7 @@ jobs:
 
             console.log('foundStacks:', foundStacks);
 
-            const stack = foundStacks.find(s => s.stackName === stackName);
+            const stack = foundStacks.find(s => s.StackName === stackName);
 
             console.log('stack:', stack);
 
