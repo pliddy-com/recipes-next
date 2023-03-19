@@ -1,6 +1,11 @@
 name: Get Bucket Name
 description: This is an action to get the S3 deployment bucket for the workflow.
 
+inputs:
+  bucketBase:
+    description: This is the base name of the S3 deployment bucket
+    required: true
+
 runs:
   using: composite
   steps:
@@ -8,9 +13,11 @@ runs:
       id: bucket-name
       uses: actions/github-script@v6
       with:
+        env:
+          S3_BUCKET_BASE: ${{ inputs.bucketBase }}
         result-encoding: string
         script: |
-          console.log(context);
+          console.log(process.env);
 
           const { S3_BUCKET_BASE } = process.env;
 
