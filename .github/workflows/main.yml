@@ -81,7 +81,8 @@ jobs:
           }
 
           stack.Outputs.forEach(({ OutputKey, ExportName, OutputValue }) => {
-            exportsList[byOutputKey ? OutputKey : ExportName] = OutputValue;
+              exportList[(byOutputKey && OutputKey) || ExportName] = OutputValue;
+            }
           });
           
           console.log(exportsList);
