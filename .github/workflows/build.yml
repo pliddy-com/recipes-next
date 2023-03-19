@@ -43,25 +43,30 @@ jobs:
       # Bucket name should be looked up from shared resources outputs
 
       - name: Get Bucket Name
-        id: bucket-name
-        uses: actions/github-script@v6
-        env:
-          S3_BUCKET_BASE: ${{ vars.S3_BUCKET_BASE }}
+        uses: './.github/actions/bucket-name'
         with:
-          result-encoding: string
-          script: |
-            const { S3_BUCKET_BASE } = process.env
-            console.log('S3_BUCKET_BASE:', S3_BUCKET_BASE);
+          bucketBase: ${{ vars.S3_BUCKET_BASE }}
 
-            const { ref } = context;
-            const refArray = ref.split('/');
-            const branch = refArray[refArray.length - 1];
-            console.log('branch:', branch);
+      # - name: Get Bucket Name
+      #   id: bucket-name
+      #   uses: actions/github-script@v6
+      #   env:
+      #     S3_BUCKET_BASE: ${{ vars.S3_BUCKET_BASE }}
+      #   with:
+      #     result-encoding: string
+      #     script: |
+      #       const { S3_BUCKET_BASE } = process.env
+      #       console.log('S3_BUCKET_BASE:', S3_BUCKET_BASE);
 
-            const bucketName = `${ S3_BUCKET_BASE }-${ branch === 'main' ? 'prod' : 'dev' }`
-            console.log('bucketName:', bucketName);
+      #       const { ref } = context;
+      #       const refArray = ref.split('/');
+      #       const branch = refArray[refArray.length - 1];
+      #       console.log('branch:', branch);
 
-            return bucketName;
+      #       const bucketName = `${ S3_BUCKET_BASE }-${ branch === 'main' ? 'prod' : 'dev' }`
+      #       console.log('bucketName:', bucketName);
+
+      #       return bucketName;
 
       - name: Get Distribution ID
         id: distribution-id

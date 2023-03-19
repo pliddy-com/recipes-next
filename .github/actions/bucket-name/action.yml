@@ -1,0 +1,30 @@
+name: Get Bucket Name
+description: This is an action to get the S3 deployment bucket for the workflow.
+
+inputs:
+  bucketbase:
+    description: 'The base string for the S3 deployment bucket'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Get Bucket Name
+      id: bucket-name
+      uses: actions/github-script@v6
+      with:
+        result-encoding: string
+        script: |
+          const bucketBase = inputs.bucketbase
+          console.log('bucketBase:', bucketBase);
+
+          const { ref } = context;
+          const refArray = ref.split('/');
+          const branch = refArray[refArray.length - 1];
+          console.log('branch:', branch);
+
+          const bucketName = `${ bucketBase }-${ branch === 'main' ? 'prod' : 'dev' }`
+          console.log('bucketName:', bucketName);
+
+          return bucketName;
+      shell: bash
