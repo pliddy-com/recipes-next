@@ -44,6 +44,7 @@ jobs:
       # Bucket name should be looked up from shared resources outputs
 
       - name: Get Bucket Name
+        id: bucket-name
         uses: './.github/actions/bucket-name'
         with:
           bucketBase: ${{ vars.S3_BUCKET_BASE }}
