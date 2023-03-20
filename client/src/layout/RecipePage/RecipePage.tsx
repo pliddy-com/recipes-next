@@ -39,11 +39,7 @@ const RecipePage = ({ content }: RecipePageProps) => {
 
   const { breakpoints } = config;
 
-  // TODO: pass full description text into rich text component
-  //       & destructure json & links inside component (needs types for json & links)
-  //       Need to remove typecasting of RecipeDescription
-
-  // const { json, links } = description ?? {};
+  const richText = description as RecipeDescription;
 
   const { items: ingredientsSections } = ingredientsCollection ?? {};
   const { items: instructionsSections } = instructionsCollection ?? {};
@@ -60,11 +56,7 @@ const RecipePage = ({ content }: RecipePageProps) => {
           <Grid item lg={6} className="contentGrid">
             <Stack className="description">
               {/* TODO: fix this with a rich text fragment */}
-              {description && (
-                <RichText
-                  content={description as unknown as RecipeDescription}
-                />
-              )}
+              {description && <RichText content={richText} />}
               {tags && <TagsSection tags={tags} />}
 
               <Grid container className="details">

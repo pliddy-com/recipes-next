@@ -95,9 +95,6 @@ const renderOptions = ({ links }: RenderOptionProps): Options => {
   };
 };
 
-// NOTE: is being passed json object; needs to know type/structure of full rich text payload
-//       and parse json and links children
-
 type RichTextProps = {
   content: RecipeDescription;
 };
