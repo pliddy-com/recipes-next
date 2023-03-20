@@ -1,0 +1,10 @@
+name: Scan Client Workspace
+description: Run quality control scans on the client Workspace
+
+runs:
+  using: composite
+  steps:
+    - name: Run Scans on the Client Workspace
+      id: run-scans-client
+      run: npm run scan -w client
+      shell: bash

@@ -1,0 +1,12 @@
+name: Node Environment Setup
+description: This is an action to setup the node environment.
+
+runs:
+  using: composite
+  steps:
+    - name: Use Node.js version in .nvmrc
+      id: set-node-version
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: ${{ env.NODE_VERSION_FILE }}
+        cache: 'npm'

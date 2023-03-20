@@ -26,71 +26,31 @@ jobs:
       NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
       NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
       NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+      S3_BUCKET_BASE: ${{ vars.S3_BUCKET_BASE }}
     steps:
       - name: Checkout Repo
         id: checkout-repo
         uses: actions/checkout@v3
 
-      - name: Use Node.js version in .nvmrc
-        id: set-node-version
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: ${{ env.NODE_VERSION_FILE }}
-          cache: 'npm'
+      - name: Setup Node
+        id: setup-node
+        uses: './.github/actions/setup-node'
 
-      - name: Node Cache
-        id: node-cache
-        uses: actions/cache@v3
-        env:
-          cache-name: node-cache
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ github.repository }}-${{ env.cache-name }}-
-            ${{ github.repository }}-
-
-      - name: Nextjs Build Cache
-        id: next-build-cache
-        env:
-          cache-name: build-cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ${{ github.workspace }}/node_modules
-            ${{ github.workspace }}/client/.next/cache
-          # Generate a new cache whenever packages or source files change.
-          key: ${{ github.repository }}-${{ env.cache-name }}-${{ hashFiles('client/**.[jt]s', 'client/**.[jt]sx') }}
-          # If source files changed but packages didn't, rebuild from a prior cache.
-          restore-keys: |
-            ${{ github.repository }}-${{ env.cache-name }}-
-            ${{ github.repository }}-
+      - name: Setup Next
+        id: setup-next
+        uses: './.github/actions/next-build-cache'
 
       - name: Install Dependencies
         id: install-dependencies
-        run: npm ci --ignore-scripts
+        uses: './.github/actions/install-dependencies'
+
+      # Bucket name should be looked up from shared resources outputs
 
       - name: Get Bucket Name
         id: bucket-name
-        uses: actions/github-script@v6
-        env:
-          S3_BUCKET_BASE: ${{ vars.S3_BUCKET_BASE }}
+        uses: './.github/actions/bucket-name'
         with:
-          result-encoding: string
-          script: |
-            const { S3_BUCKET_BASE } = process.env
-            console.log('S3_BUCKET_BASE:', S3_BUCKET_BASE);
-
-            const { ref } = context;
-            const refArray = ref.split('/');
-            const branch = refArray[refArray.length - 1];
-            console.log('branch:', branch);
-
-            const bucketName = `${ S3_BUCKET_BASE }-${ branch === 'main' ? 'prod' : 'dev' }`
-            console.log('bucketName:', bucketName);
-
-            return bucketName;
+          bucketBase: ${{ vars.S3_BUCKET_BASE }}
 
       - name: Get Distribution ID
         id: distribution-id
@@ -151,7 +111,7 @@ jobs:
         env:
           BRANCH: ${{ github.ref_name }}
           DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
-          S3_BUCKET: ${{ steps.bucket-name.outputs.result }}
+          S3_BUCKET: ${{ steps.bucket-name.outputs.bucketName }}
         run: |
           echo "branch: $BRANCH"
           echo "deployment bucket: $S3_BUCKET"
