@@ -58,14 +58,6 @@ exports[`RecipeGridPage when there is missing slug information it does not sort 
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </a>
-          <div
-            class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
-          >
-            <div
-              class="tagButtons css-m69qwo-MuiStack-root"
-              data-testid="tag-buttons"
-            />
-          </div>
         </div>
       </div>
       <div
@@ -107,26 +99,6 @@ exports[`RecipeGridPage when there is missing slug information it does not sort 
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </a>
-          <div
-            class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
-          >
-            <div
-              class="tagButtons css-m69qwo-MuiStack-root"
-              data-testid="tag-buttons"
-            >
-              <a
-                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                href="/tag/tag-2"
-                role="button"
-                tabindex="0"
-              >
-                Tag 2
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </div>
-          </div>
         </div>
       </div>
       <div
@@ -168,14 +140,6 @@ exports[`RecipeGridPage when there is missing slug information it does not sort 
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </a>
-          <div
-            class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
-          >
-            <div
-              class="tagButtons css-m69qwo-MuiStack-root"
-              data-testid="tag-buttons"
-            />
-          </div>
         </div>
       </div>
     </div>
@@ -241,14 +205,6 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </a>
-          <div
-            class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
-          >
-            <div
-              class="tagButtons css-m69qwo-MuiStack-root"
-              data-testid="tag-buttons"
-            />
-          </div>
         </div>
       </div>
     </div>

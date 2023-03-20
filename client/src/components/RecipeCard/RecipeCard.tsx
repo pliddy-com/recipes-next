@@ -1,15 +1,14 @@
 import Link from 'next/link';
 
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
-import CardActions from '@mui/material/CardActions';
+// import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-import TagButtons from 'components/Tags/TagButtons/TagButtons';
+// import TagButtons from 'components/Tags/TagButtons/TagButtons';
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 
 import { RecipeDefaultFragment } from 'types/queries';
@@ -31,14 +30,12 @@ const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
     <Card variant="outlined" className="recipe">
       <CardActionArea component={Link} href={`/recipe/${slug}`}>
         {image && (
-          <CardMedia>
-            <Box className="imageWrapper">
-              <DynamicImage
-                image={image}
-                breakpoints={breakpoints}
-                preload={preloadImg}
-              />
-            </Box>
+          <CardMedia className="imageWrapper">
+            <DynamicImage
+              image={image}
+              breakpoints={breakpoints}
+              preload={preloadImg}
+            />
           </CardMedia>
         )}
 
@@ -51,7 +48,7 @@ const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
           )}
         </CardContent>
       </CardActionArea>
-      <CardActions>{tags && <TagButtons tags={tags} />}</CardActions>
+      {/* <CardActions>{tags && <TagButtons tags={tags} />}</CardActions> */}
     </Card>
   ) : null;
 };

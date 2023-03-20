@@ -20,7 +20,7 @@ const cardThemeOptions: ThemeOptions = {
             marginBottom: '0.5rem'
           },
           '& .imageWrapper': {
-            height: '100%',
+            // height: '100%',
             position: 'relative',
             width: '100%',
             display: 'flex',
