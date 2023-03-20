@@ -33,3 +33,7 @@ runs:
           console.log('bucketName:', bucketName);
 
           return bucketName;
+    - name: Set outputs
+      id: set-outputs
+      run: echo "bucketName=$(steps.bucket-name.outputs.result)" >> $GITHUB_OUTPUT
+      shell: bash
