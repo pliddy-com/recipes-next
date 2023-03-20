@@ -32,6 +32,10 @@ jobs:
         id: setup-node
         uses: './.github/actions/setup-node'
 
+      - name: Install Dependencies
+        id: install-dependencies
+        uses: './.github/actions/install-dependencies'
+
       - name: Destroy AWS
         id: destroy-branch-stack
         env:

@@ -1,14 +1,14 @@
 import {
-  TagCollection,
-  NavMenuDataQuery,
-  RecipeDefaultFragment,
-  TagDefaultFragment
+  TagDefaultFragment,
+  NavTaxonomyFragment,
+  TagTaxonomyFragment,
+  RecipeSlugFragment
 } from 'types/queries';
 
 import { hasValue } from 'lib/utils';
 
 export const filterSlugs = (
-  items: (RecipeDefaultFragment | TagDefaultFragment)[]
+  items: (RecipeSlugFragment | TagDefaultFragment | null)[]
 ) =>
   items &&
   items
@@ -18,7 +18,7 @@ export const filterSlugs = (
 export const filterTagsWithRecipes = ({
   tagCollection
 }: {
-  tagCollection: TagCollection;
+  tagCollection: TagTaxonomyFragment;
 }) =>
   tagCollection &&
   tagCollection?.items
@@ -29,13 +29,17 @@ export const filterTagsWithRecipes = ({
         item?.linkedFrom?.recipeCollection?.total > 0
     );
 
-export const filterTaxonomyItemsWithRecipes = (
-  taxonomyCollection: NavMenuDataQuery['categories']
-) => {
+export const filterTaxonomyItemsWithRecipes = ({
+  taxonomyCollection
+}: {
+  taxonomyCollection: NavTaxonomyFragment;
+}) => {
   return taxonomyCollection?.items?.[0]?.childrenCollection?.items?.filter(
     (item) =>
       item &&
-      (('linkedFrom' in item && // is a tag
+      (('linkedFrom' in item &&
+        item.linkedFrom &&
+        'recipeCollection' in item.linkedFrom && // is a tag
         item?.linkedFrom?.recipeCollection?.total &&
         item?.linkedFrom?.recipeCollection?.total > 0) ||
         ('childrenCollection' in item && // is a taxonomy

@@ -8,6 +8,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:json/recommended',
     'plugin:@typescript-eslint/recommended',
+    // 'plugin:@typescript-eslint/recommended-requiring-typecheck',
     'next/core-web-vitals', // Next should always be second to last.
     'prettier' // Prettier should always be last.
   ],
@@ -21,6 +22,7 @@ module.exports = {
     '/src/types/**',
     '/coverage/**/*.*'
   ],
+  parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'json'],
   /* error rules are listed before warn rules */
   rules: {
@@ -62,6 +64,10 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-var-requires': 'off'
       }
+    },
+    {
+      files: ['**/*.test.{ts,tsx}'],
+      env: { jest: true, node: true }
     }
   ]
 };

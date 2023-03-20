@@ -19,16 +19,7 @@ query navMenuData {
   }
 
   tags: tagCollection(order: title_ASC) {
-    __typename
-    total
-    items {
-      ...TagDefault
-      linkedFrom {
-        recipeCollection(limit: 1) {
-          total
-        }
-      }
-    }
+    ...TagTaxonomy
   }
 }
 
@@ -39,7 +30,7 @@ query recipeSlugs($where: RecipeFilter) {
   recipeCollection(where: $where, order: title_ASC) {
     __typename
     items {
-      slug
+      ...RecipeSlug
     }
   }
 }
@@ -49,15 +40,7 @@ query recipeSlugs($where: RecipeFilter) {
 
 query tagSlugs($where: TagFilter) {
   tagCollection(where: $where, order: title_ASC) {
-    __typename
-    items {
-      slug
-      linkedFrom {
-        recipeCollection {
-          total
-        }
-      }
-    }
+    ...TagTaxonomy
   }
 }
 

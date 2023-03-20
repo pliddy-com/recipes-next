@@ -8,18 +8,7 @@ export interface ApiTestProps {
   getTagIndex: () => [{ slug: string; title: string }];
 }
 
-import * as urql from 'urql';
-import { Client } from 'urql';
-import { never } from 'wonka';
-
 jest.mock('urql');
-const mockedUrql = urql as jest.Mocked<typeof urql>;
-
-const client = {
-  query: jest.fn(() => never)
-};
-
-mockedUrql.createClient.mockReturnValue(client as unknown as Client);
 
 // import api library to mock
 const api: ApiTestProps = jest.createMockFromModule('lib/api');

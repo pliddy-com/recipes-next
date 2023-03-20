@@ -45,8 +45,11 @@ fragment TaxonomyWithChildren on Taxonomy {
   }
 }
 
+# Fragment with Fields for Taxonomy for Nav query
+
 fragment NavTaxonomy on TaxonomyCollection {
   __typename
+  total
   items {
     ...TaxonomyDefault
 
@@ -75,6 +78,23 @@ fragment NavTaxonomy on TaxonomyCollection {
     }
   }
 }
+
+# Fragment with Fields for Tag used with Taxonomy queries
+
+fragment TagTaxonomy on TagCollection {
+  __typename
+  total
+  items {
+    ...TagDefault
+    linkedFrom {
+      recipeCollection(limit: 1) {
+        total
+      }
+    }
+  }
+}
+
+# Fragment with Fields for Taxonomy used with schema queries
 
 fragment SchemaTaxonomy on TaxonomyCollection {
   __typename

@@ -1,8 +1,9 @@
 import '@testing-library/jest-dom';
 import {
-  NavMenuDataQuery,
-  TagCollection,
-  TagDefaultFragment
+  NavTaxonomyFragment,
+  // TagDefaultFragment,
+  TagTaxonomyFragment,
+  TagWithLinksFragment
 } from 'types/queries';
 
 import {
@@ -14,7 +15,7 @@ import {
 describe('apiFilter', () => {
   describe('when filterSlugs() is called', () => {
     it('it returns a filtered list of slugs', () => {
-      const payload = [
+      const payload: TagWithLinksFragment[] = [
         {
           __typename: 'Tag',
           slug: 'tag-a',
@@ -55,7 +56,7 @@ describe('apiFilter', () => {
 
       const expected = ['tag-a', 'tag-b', 'tag-c'];
 
-      const res = filterSlugs(payload as TagDefaultFragment[]);
+      const res = filterSlugs(payload);
       expect(res).toEqual(expected);
     });
   });
@@ -89,7 +90,7 @@ describe('apiFilter', () => {
         }
       ];
 
-      const tagCollectionPayload = {
+      const tagCollectionPayload: TagTaxonomyFragment = {
         __typename: 'TagCollection',
         total: 3,
         items: [
@@ -133,7 +134,7 @@ describe('apiFilter', () => {
       };
 
       const res = filterTagsWithRecipes({
-        tagCollection: tagCollectionPayload as TagCollection
+        tagCollection: tagCollectionPayload
       });
       expect(res).toEqual(expectedTags);
     });
@@ -214,7 +215,7 @@ describe('apiFilter', () => {
           }
         }
       ];
-      const payload = {
+      const payload: NavTaxonomyFragment = {
         items: [
           {
             __typename: 'Taxonomy',
@@ -311,12 +312,14 @@ describe('apiFilter', () => {
               __typename: 'TaxonomyChildrenCollection'
             }
           }
-        ]
+        ],
+        __typename: 'TaxonomyCollection',
+        total: 1
       };
 
-      const res = filterTaxonomyItemsWithRecipes(
-        payload as NavMenuDataQuery['categories']
-      );
+      const res = filterTaxonomyItemsWithRecipes({
+        taxonomyCollection: payload
+      });
 
       expect(res).toEqual(expected);
     });
