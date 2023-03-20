@@ -122,6 +122,7 @@ jobs:
         run: |
           echo "branch: $BRANCH"
           echo "deployment bucket: $S3_BUCKET"
+          echo "distribution: $DISTRIBUTION_ID"
 
-          npm run deploy -w client
-          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
+        # npm run deploy -w client
+        # aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
