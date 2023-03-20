@@ -118,10 +118,11 @@ jobs:
         env:
           BRANCH: ${{ github.ref_name }}
           DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
-          S3_BUCKET: ${{ steps.bucket-name.outputs.bucketName }}
+          S3_BUCKET: ${{ steps.bucket-name.outputs.bucketName || steps.bucket-name.outputs.result}}
         run: |
           echo "branch: $BRANCH"
           echo "deployment bucket: $S3_BUCKET"
+          echo "RESULT_BUCKET:${{ steps.bucket-name.outputs.result }}"
 
           npm run deploy -w client
           aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
