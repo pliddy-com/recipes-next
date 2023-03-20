@@ -30,18 +30,23 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Node
+        id: setup-node
         uses: './.github/actions/setup-node'
 
       - name: Setup Next
+        id: setup-next
         uses: './.github/actions/next-build-cache'
 
       - name: Install Dependencies
+        id: install-dependencies
         uses: './.github/actions/install-dependencies'
 
       - name: Run Scans on the CDK Workspace
+        id: scan-cdk
         uses: './.github/actions/scan-cdk'
 
       - name: Run Scans on the Client Workspace
+        id: scan-client
         uses: './.github/actions/scan-client'
 
       - name: Deploy Shared AWS Stack for ${{github.ref}}
@@ -59,27 +64,6 @@ jobs:
         uses: './.github/actions/bucket-name'
         with:
           bucketBase: ${{ vars.S3_BUCKET_BASE }}
-
-      # - name: Get Bucket Name
-      #   id: bucket-name
-      #   uses: actions/github-script@v6
-      #   env:
-      #     S3_BUCKET_BASE: ${{ vars.S3_BUCKET_BASE }}
-      #   with:
-      #     result-encoding: string
-      #     script: |
-      #       const { S3_BUCKET_BASE } = process.env
-      #       console.log('S3_BUCKET_BASE:', S3_BUCKET_BASE);
-
-      #       const { ref } = context;
-      #       const refArray = ref.split('/');
-      #       const branch = refArray[refArray.length - 1];
-      #       console.log('branch:', branch);
-
-      #       const bucketName = `${ S3_BUCKET_BASE }-${ branch === 'main' ? 'prod' : 'dev' }`
-      #       console.log('bucketName:', bucketName);
-
-      #       return bucketName;
 
       - name: Get Distribution ID
         id: distribution-id
@@ -146,5 +130,5 @@ jobs:
           echo "deployment bucket: $S3_BUCKET"
           echo "distribution: $DISTRIBUTION_ID"
 
-        # npm run deploy -w client
-        # aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
+          npm run deploy -w client
+          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
