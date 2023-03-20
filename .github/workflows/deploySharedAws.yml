@@ -37,6 +37,6 @@ jobs:
       - name: Run Scans on the CDK Workspace
         uses: './.github/actions/scan-cdk'
 
-      - name: Deploy Shared AWS Stack for ${{github.event.ref}}
+      - name: Deploy Shared AWS Stack for ${{github.ref}}
         id: deploy-shared-stack
         run: npm run deploy:shared
