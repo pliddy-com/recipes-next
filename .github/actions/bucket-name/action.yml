@@ -8,7 +8,7 @@ inputs:
 outputs:
   bucketName:
     description: 'S3 deployment bucket name'
-    value: ${{ steps.bucket-name.outputs.result }}
+    value: ${{ steps.set-outputs.outputs.bucketName }}
 
 runs:
   using: composite
