@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev": "npm run typegen:local -w client && npm run dev -w client",
     "deploy": "npm run deploy -workspaces",
     "deploy:shared": "npm run deploy:shared -w cdk",
     "lint": "npm run lint --workspaces",

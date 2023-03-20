@@ -18,7 +18,6 @@ import {
   RecipeSlugsQueryVariables,
   TagSlugsDocument,
   TagSlugsQueryVariables,
-  TagDefaultFragment,
   NavMenuDataQuery,
   RecipeSlugsQuery,
   TagSlugsQuery,
@@ -79,7 +78,7 @@ export const getTagSlugs = async (variables?: TagSlugsQueryVariables) => {
       tagCollection
     });
 
-  return tags ? filterSlugs(tags as TagDefaultFragment[]) : [];
+  return tags ? filterSlugs(tags) : [];
 };
 
 // used to query content for home index page

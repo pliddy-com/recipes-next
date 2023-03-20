@@ -1,8 +1,9 @@
 import '@testing-library/jest-dom';
 import {
   NavTaxonomyFragment,
-  TagDefaultFragment,
-  TagTaxonomyFragment
+  // TagDefaultFragment,
+  TagTaxonomyFragment,
+  TagWithLinksFragment
 } from 'types/queries';
 
 import {
@@ -14,7 +15,7 @@ import {
 describe('apiFilter', () => {
   describe('when filterSlugs() is called', () => {
     it('it returns a filtered list of slugs', () => {
-      const payload = [
+      const payload: TagWithLinksFragment[] = [
         {
           __typename: 'Tag',
           slug: 'tag-a',
@@ -55,7 +56,7 @@ describe('apiFilter', () => {
 
       const expected = ['tag-a', 'tag-b', 'tag-c'];
 
-      const res = filterSlugs(payload as TagDefaultFragment[]);
+      const res = filterSlugs(payload);
       expect(res).toEqual(expected);
     });
   });
