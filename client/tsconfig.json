@@ -21,6 +21,8 @@
   "exclude": ["node_modules", "out", ".next", ".swc", "src/types"],
   "include": [
     "src",
+    "**/*.test.ts",
+    "**/*.test.tsx",
     "**/*.config.ts",
     "**/*.ts",
     "**/*.tsx",

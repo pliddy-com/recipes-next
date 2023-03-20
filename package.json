@@ -14,6 +14,7 @@
     "test:dev": "npm run test:dev --workspaces",
     "typecheck": "npm run typecheck --workspaces",
     "typegen": "npm run typegen -w client",
+    "typegen:local": "npm run typegen:local -w client",
     "typegen:watch": "npm run typegen:watch -w client",
     "scan": "npm run scan -workspaces",
     "scan:local": "npm run scan:local -workspaces"
