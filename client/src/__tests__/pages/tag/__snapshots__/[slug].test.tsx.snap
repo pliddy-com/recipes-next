@@ -3,10 +3,10 @@
 exports[`TagPage in tag/[slug].tsx when there is page content it renders the page 1`] = `
 <DocumentFragment>
   <title>
-    Tag Tag Default Title
+    Baking Tag Default Title
   </title>
   <meta
-    content="Tag default description for Tag"
+    content="Tag default description for Baking"
     name="description"
   />
   <script
@@ -14,28 +14,36 @@ exports[`TagPage in tag/[slug].tsx when there is page content it renders the pag
     id="recipe-list-schema"
     type="application/ld+json"
   >
-    {"@context":"https://schema.org","@type":"ItemList","name":"Tag","description":"Tag default description for Tag","url":"https://recipes.pliddy.com","numberOfItems":2,"itemListElement":[{"@type":"ListItem","position":1,"name":"Title 1","url":"https://recipes.pliddy.com/recipe/slug-1"},{"@type":"ListItem","position":2,"name":"Title 2","url":"https://recipes.pliddy.com/recipe/slug-2"}]}
+    {"@context":"https://schema.org","@type":"ItemList","name":"Baking","description":"Tag default description for Baking","url":"https://recipes.pliddy.com","numberOfItems":3,"itemListElement":[{"@type":"ListItem","position":1,"name":"Biscuits","url":"https://recipes.pliddy.com/recipe/biscuits"},{"@type":"ListItem","position":2,"name":"No-Knead Olive Bread","url":"https://recipes.pliddy.com/recipe/no-knead-olive-bread"},{"@type":"ListItem","position":3,"name":"No-Knead Bread","url":"https://recipes.pliddy.com/recipe/no-knead-bread"}]}
   </script>
   <div
     data-testid="RecipeGridPage"
   >
     <h1>
-      Tag Tag Default Title
+      Baking Tag Default Title
     </h1>
     <div>
       <p>
-        slug-1
+        biscuits
       </p>
       <p>
-        Title 1
+        Biscuits
       </p>
     </div>
     <div>
       <p>
-        slug-2
+        no-knead-olive-bread
       </p>
       <p>
-        Title 2
+        No-Knead Olive Bread
+      </p>
+    </div>
+    <div>
+      <p>
+        no-knead-bread
+      </p>
+      <p>
+        No-Knead Bread
       </p>
     </div>
   </div>

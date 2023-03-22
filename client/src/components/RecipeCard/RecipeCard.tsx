@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
@@ -31,14 +30,12 @@ const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
     <Card variant="outlined" className="recipe">
       <CardActionArea component={Link} href={`/recipe/${slug}`}>
         {image && (
-          <CardMedia>
-            <Box className="imageWrapper">
-              <DynamicImage
-                image={image}
-                breakpoints={breakpoints}
-                preload={preloadImg}
-              />
-            </Box>
+          <CardMedia className="imageWrapper">
+            <DynamicImage
+              image={image}
+              breakpoints={breakpoints}
+              preload={preloadImg}
+            />
           </CardMedia>
         )}
 

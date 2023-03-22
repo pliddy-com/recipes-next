@@ -19,10 +19,12 @@ describe('RecipeListSchema', () => {
 
       const { linkedFrom } = payload ?? {};
       const { recipeCollection } = linkedFrom ?? {};
-      const { items: recipes } = recipeCollection ?? {};
+      const { items } = recipeCollection ?? {};
 
       const { asFragment, queryByTestId } = render(
-        <RecipeListSchema recipes={recipes as RecipeDefaultFragment[]} />
+        <RecipeListSchema
+          recipes={items as unknown as RecipeDefaultFragment[]}
+        />
       );
 
       // assert that the component is rendered

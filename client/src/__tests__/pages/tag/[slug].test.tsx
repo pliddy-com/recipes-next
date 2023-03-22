@@ -3,7 +3,7 @@ import { act, render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
 import TagSlugPage, { getStaticPaths, getStaticProps } from 'pages/tag/[slug]';
-import { ListPageItemFragment } from 'types/queries';
+import { TagDefaultFragment } from 'types/queries';
 
 import * as api from 'lib/api';
 import config from 'lib/config';
@@ -24,10 +24,11 @@ describe('TagPage in tag/[slug].tsx', () => {
 
   describe('when there is page content', () => {
     it('it renders the page', async () => {
+      const data = await api.getRecipeList({});
+      const pageContent: TagDefaultFragment = data[0];
+
       const getTagSlugsSpy = jest.spyOn(api, 'getTagSlugs');
       const getRecipeListSpy = jest.spyOn(api, 'getRecipeList');
-
-      const [pageContent] = await api.getRecipeList({});
 
       const tagSlugData = { slug: 'slug-1' };
 
@@ -91,7 +92,7 @@ describe('TagPage in tag/[slug].tsx', () => {
     });
 
     it('it does not render the category page', async () => {
-      const pageContent = undefined as unknown as ListPageItemFragment;
+      const pageContent = undefined as unknown as TagDefaultFragment;
 
       const { queryByTestId } = render(
         <TagSlugPage pageContent={pageContent} preview={false} />
