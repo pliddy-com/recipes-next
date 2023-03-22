@@ -37,6 +37,9 @@ const containerThemeOptions: ThemeOptions = {
                 }
               }
             },
+            '&.recipeGrid': {
+              overflow: 'auto'
+            },
             '&.recipe': {
               '& .content': {
                 marginBottom: '3rem',

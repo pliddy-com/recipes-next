@@ -4,36 +4,25 @@ import { render } from '@testing-library/react';
 import RecipeGridPage from './RecipeGridPage';
 import { RecipeDefaultFragment } from 'types/queries';
 
+import * as api from 'lib/api';
+
 jest.mock('lib/api');
 
 describe('RecipeGridPage', () => {
   describe('when there is page content', () => {
-    it('it renders the RecipeGridPage if there is content', async () => {
-      // const recipes = await api.getRecipeList({});
+    it('it renders the RecipeGridPage', async () => {
+      // TODO: derive type
+      const [tags] = await api.getRecipeList({});
 
-      const recipes: (RecipeDefaultFragment | null)[] = [
-        {
-          __typename: 'Recipe',
-          sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
-          title: 'Title 1',
-          slug: 'slug-1',
-          tagsCollection: {
-            items: [
-              {
-                __typename: 'Tag',
-                title: 'Title 2',
-                slug: null
-              }
-            ],
-            __typename: 'RecipeTagsCollection'
-          }
-        }
-      ];
+      const recipes = tags?.linkedFrom?.recipeCollection?.items;
 
       const title = 'Title';
 
       const { asFragment, queryByTestId } = render(
-        <RecipeGridPage recipes={recipes} title={title} />
+        <RecipeGridPage
+          recipes={recipes as unknown as (RecipeDefaultFragment | null)[]}
+          title={title}
+        />
       );
 
       // assert that content is rendered
@@ -42,6 +31,8 @@ describe('RecipeGridPage', () => {
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
     });
+
+    // it('it lazy loads the page when the user scrolls', () => {});
   });
 
   describe('when there is no pageContent', () => {

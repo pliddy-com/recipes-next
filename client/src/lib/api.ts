@@ -91,7 +91,7 @@ export const getRecipeIndex = async (variables?: RecipeIndexQueryVariables) => {
   return recipeCollection ? recipeCollection.items.filter(hasValue) : [];
 };
 
-// used to query content for tag & category pagepage
+// used to query content for tag & category page
 export const getRecipeList = async (variables: RecipeListQueryVariables) => {
   const { tagCollection } = await queryGraphQLContent(
     RecipeListDocument,
