@@ -36,15 +36,9 @@ jobs:
         id: install-dependencies
         uses: './.github/actions/install-dependencies'
 
-      - name: Destroy AWS
-        id: destroy-branch-stack
-        env:
-          BRANCH: ${{ github.event.ref }}
-        run: |
-          echo "branch: $BRANCH"
-          echo "SOURCE_BRANCH=$BRANCH" >> $GITHUB_OUTPUT
-
-          npm run destroy -w cdk
+      - name: Destroy AWS Stack
+        id: destroy-aws-stack
+        uses: './.github/actions/destroy-aws-stack'
 
       - name: Get Bucket Name
         id: bucket-name
@@ -52,14 +46,9 @@ jobs:
         with:
           bucketBase: ${{ vars.S3_BUCKET_BASE }}
 
-      - name: Remove Files
-        id: remove-files
-        working-directory: './'
-        env:
-          BRANCH: ${{ github.ref }}
-          S3_BUCKET: ${{ steps.bucket-name.outputs.bucketName }}
-        run: |
-          echo "BRANCH: $BRANCH"
-          echo "S3_BUCKET: $S3_BUCKET"
-
-          aws s3 rm --recursive $S3_BUCKET/branches/$BRANCH
+      - name: Remove Client
+        id: remove-client
+        uses: './.github/actions/remove-client'
+        with:
+          branch: ${{ github.ref }}
+          s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}

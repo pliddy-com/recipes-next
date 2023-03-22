@@ -57,8 +57,6 @@ jobs:
         id: deploy-branch-stack
         run: npm run deploy -w cdk
 
-      # Bucket name should be looked up from shared resources outputs
-
       - name: Get Bucket Name
         id: bucket-name
         uses: './.github/actions/bucket-name'
@@ -67,68 +65,12 @@ jobs:
 
       - name: Get Distribution ID
         id: distribution-id
-        uses: actions/github-script@v6
-        with:
-          result-encoding: string
-          script: |
-            const CloudFormation = require('aws-sdk/clients/cloudformation');
-            const apiVersion = '2010-05-15';
-            const region = 'us-east-1';
-            const cloudFormation = new CloudFormation({ apiVersion, region });
-
-            const refArray = context.ref.split('/');
-            console.log('refArray:', refArray);
-
-            const branch = refArray[refArray.length - 1];
-            console.log('branch:', branch);
-
-            let stackLabel;
-
-            if (branch === 'main') {
-              stackLabel = 'Prod';
-            } else {
-              stackLabel = branch[0].toUpperCase() + branch.slice(1);
-            }
-
-            console.log('stackLabel:', stackLabel);
-
-            const stackName = `RecipesBranchStack${ stackLabel }`
-            console.log('stackName:', stackName);
-
-            let branchLabel;
-
-            if (branch === 'main') {
-              branchLabel = 'Main';
-            } else {
-              branchLabel = stackLabel.replaceAll('-', '');
-            }
-
-            console.log('branchLabel:', branchLabel);
-
-            const distributionLabel = `ExportRecipesDistribution${ branchLabel }`
-            console.log('distributionLabel:', distributionLabel);
-
-            const result = await cloudFormation.describeStacks({ StackName: stackName }).promise();
-            const foundStacks = (result && result.Stacks) || [];
-            const stack = foundStacks.find(s => s.StackName === stackName);
-
-            if (!stack) throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
-
-            const distributionId = stack.Outputs.find(({ OutputKey }) => OutputKey === distributionLabel).OutputValue;
-            console.log('distributionId:', distributionId);
-
-            return distributionId;
+        uses: './.github/actions/distribution-id'
 
       - name: Build and Deploy Client
         id: build-and-deploy-client
-        env:
-          BRANCH: ${{ github.ref_name }}
-          DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
-          S3_BUCKET: ${{ steps.bucket-name.outputs.bucketName}}
-        run: |
-          echo "branch: $BRANCH"
-          echo "deployment bucket: $S3_BUCKET"
-          echo "distribution: $DISTRIBUTION_ID"
-
-          npm run deploy -w client
-          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
+        uses: './.github/actions/build-and-deploy-client'
+        with:
+          branch: ${{ github.ref_name }}
+          distributionId: ${{ steps.distribution-id.outputs.distributionId }}
+          s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
