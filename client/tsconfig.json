@@ -18,7 +18,7 @@
     "types": ["react/next", "react-dom/next", "jest", "node"],
     "strict": true
   },
-  "exclude": ["node_modules", "out", ".next", ".swc", "src/types"],
+  "exclude": ["node_modules", "out", ".next", ".swc", "src/types", "*.js"],
   "include": [
     "src",
     "**/*.test.ts",
@@ -30,7 +30,8 @@
     "next-env.d.ts",
     "src/lib/__mocks__/lib",
     "src/lib/__mocks__/next",
-    "jest.config.js"
+    "jest.config.js",
+    "scripts"
   ],
   "typeAcquisition": {
     "include": ["jest"]
