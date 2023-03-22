@@ -106,15 +106,22 @@ jobs:
 
             return distributionId;
 
+      # - name: Build and Deploy Client
+      #   id: build-and-deploy-client
+      #   env:
+      #     BRANCH: ${{ github.ref_name }}
+      #     DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
+      #     S3_BUCKET: ${{ steps.bucket-name.outputs.bucketName }}
+      #   run: |
+      #     echo "branch: $BRANCH"
+      #     echo "deployment bucket: $S3_BUCKET"
+
+      #     npm run deploy -w client
+      #     aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
       - name: Build and Deploy Client
         id: build-and-deploy-client
-        env:
-          BRANCH: ${{ github.ref_name }}
-          DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
-          S3_BUCKET: ${{ steps.bucket-name.outputs.bucketName }}
-        run: |
-          echo "branch: $BRANCH"
-          echo "deployment bucket: $S3_BUCKET"
-
-          npm run deploy -w client
-          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
+        uses: './.github/actions/build-and-deploy-client'
+        with:
+          branch: ${{ github.ref_name }}
+          distributionId: ${{ steps.distribution-id.outputs.result }}
+          s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}

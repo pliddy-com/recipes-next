@@ -1,0 +1,30 @@
+name: Build and Deploy Client
+description: Build Next app & deploy to S3 with invalidation
+
+inputs:
+  branch:
+    description: This is the base name of the S3 deployment bucket
+    required: true
+  distributionId:
+    description: This is the base name of the S3 deployment bucket
+    required: true
+  s3Bucket:
+    description: This is the base name of the S3 deployment bucket
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Build and Deploy Client
+      id: build-and-deploy-client
+      # env:
+      #   BRANCH: ${{ github.ref_name }}
+      #   DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
+      #   S3_BUCKET: ${{ steps.bucket-name.outputs.bucketName }}
+      run: |
+        echo "branch: ${{ inputs.branch }}"
+        echo "deployment bucket: ${{ inputs.s3Bucket }}"
+
+        S3_BUCKET=${{ inputs.s3Bucket }} npm run deploy -w client
+        aws cloudfront create-invalidation --distribution-id ${{ inputs.distributionId }} --paths '/*' --no-cli-pager
+      shell: bash
