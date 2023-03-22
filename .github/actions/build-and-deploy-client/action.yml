@@ -17,10 +17,6 @@ runs:
   steps:
     - name: Build and Deploy Client
       id: build-and-deploy-client
-      # env:
-      #   BRANCH: ${{ github.ref_name }}
-      #   DISTRIBUTION_ID: ${{ steps.distribution-id.outputs.result }}
-      #   S3_BUCKET: ${{ steps.bucket-name.outputs.bucketName }}
       run: |
         echo "branch: ${{ inputs.branch }}"
         echo "deployment bucket: ${{ inputs.s3Bucket }}"

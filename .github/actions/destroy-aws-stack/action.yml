@@ -1,0 +1,16 @@
+name: Destroy AWS Stack
+description: Build Next app & deploy to S3 with invalidation
+
+runs:
+  using: composite
+  steps:
+    - name: Destroy AWS
+      id: destroy-branch-stack
+      # env:
+      #   BRANCH: ${{ github.event.ref }}
+      run: |
+        echo "branch: $BRANCH"
+        echo "SOURCE_BRANCH=$BRANCH" >> $GITHUB_OUTPUT
+
+        npm run destroy -w cdk
+      shell: bash
