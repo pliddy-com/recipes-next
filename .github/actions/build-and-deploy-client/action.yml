@@ -20,7 +20,8 @@ runs:
       run: |
         echo "branch: ${{ inputs.branch }}"
         echo "deployment bucket: ${{ inputs.s3Bucket }}"
+        echo "distribution id: ${{ inputs.distributionId }}"
 
         S3_BUCKET=${{ inputs.s3Bucket }} npm run deploy -w client
-        DISTRIBUTION_ID=${{ inputs.distributionId }} aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
+        DISTRIBUTION_ID=${{ inputs.distributionId }} npm run invalidate -w client
       shell: bash
