@@ -6,11 +6,9 @@ runs:
   steps:
     - name: Destroy AWS
       id: destroy-branch-stack
-      # env:
-      #   BRANCH: ${{ github.event.ref }}
       run: |
         echo "branch: $BRANCH"
         echo "SOURCE_BRANCH=$BRANCH" >> $GITHUB_OUTPUT
 
-        npm run destroy -w cdk
+        BRANCH=${{ github.event.ref }} npm run destroy -w cdk
       shell: bash

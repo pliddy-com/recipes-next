@@ -15,9 +15,6 @@ runs:
     - name: Remove Client
       id: remove-client
       working-directory: './'
-      # env:
-      #   BRANCH: ${{ github.ref }}
-      #   S3_BUCKET: ${{ steps.bucket-name.outputs.bucketName }}
       run: |
         echo "branch: ${{ inputs.branch }}"
         echo "s3Bucket: ${{ inputs.s3Bucket }}"
