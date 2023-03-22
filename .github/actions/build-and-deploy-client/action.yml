@@ -22,5 +22,5 @@ runs:
         echo "deployment bucket: ${{ inputs.s3Bucket }}"
 
         S3_BUCKET=${{ inputs.s3Bucket }} npm run deploy -w client
-        aws cloudfront create-invalidation --distribution-id ${{ inputs.distributionId }} --paths '/*' --no-cli-pager
+        DISTRIBUTION_ID=${{ inputs.distributionId }} aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths '/*' --no-cli-pager
       shell: bash
