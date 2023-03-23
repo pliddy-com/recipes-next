@@ -41,10 +41,12 @@ import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer
         recipe.fields.description
       ),
       abstract: recipe.fields.abstract,
+      image: recipe.fields.image,
       keywords: recipe.fields.keywords,
       objectID: recipe.sys.id,
       slug: recipe.fields.slug,
-      tags: recipe.fields.tags.map((tag) => tag.fields.title),
+      tags: recipe.fields.tags,
+      tagContent: recipe.fields.tags.map((tag) => tag.fields.title),
       title: recipe.fields.title,
       url: `/recipe/${recipe.fields.slug}/`
     }));
