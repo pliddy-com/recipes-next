@@ -36,11 +36,9 @@ const TagIndexPage = ({
         title={defaultTitle}
         description={description}
       />
-      {TagGridPage && (
-        <Suspense fallback={<Loading />}>
-          <TagGridPage tags={pageContent as (ListPageItemFragment | null)[]} />
-        </Suspense>
-      )}
+      <Suspense fallback={<Loading />}>
+        <TagGridPage tags={pageContent as (ListPageItemFragment | null)[]} />
+      </Suspense>
     </>
   ) : null;
 };

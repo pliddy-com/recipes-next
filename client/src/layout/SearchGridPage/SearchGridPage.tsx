@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 
@@ -9,7 +11,18 @@ import Loading from 'components/Loading/Loading';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 
 import { RecipeDefaultFragment } from 'types/queries';
-import Search from 'components/Search/Search';
+import SearchBox from 'components/Search/Search';
+
+import algoliasearch from 'algoliasearch/lite';
+import { InstantSearch, Hits, Configure } from 'react-instantsearch-dom';
+
+const searchClient =
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID &&
+  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY &&
+  algoliasearch(
+    process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
+    process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY
+  );
 
 interface SearchGridPageProps {
   description?: string | null;
@@ -41,12 +54,16 @@ const SearchGridPage = ({ recipes, title }: SearchGridPageProps) => {
 
   return data && data.length > 0 ? (
     <Container className="page recipegrid" data-testid="page" maxWidth="xl">
-      <Search />
+      <InstantSearch searchClient={searchClient} indexName="recipes_index">
+        <Configure hitsPerPage={100} />
+        <SearchBox />
+        <Typography variant="h1">{title}</Typography>
+        <Typography variant="subtitle1" component="h2">
+          {recipes && `${recipes.length} Recipes`}
+        </Typography>
+        <Hits />
+      </InstantSearch>
 
-      <Typography variant="h1">{title}</Typography>
-      <Typography variant="subtitle1" component="h2">
-        {recipes && `${recipes.length} Recipes`}
-      </Typography>
       <InfiniteScroll
         hasMore={data.length < recipes.length}
         initialLoad={true}

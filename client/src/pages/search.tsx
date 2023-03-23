@@ -8,7 +8,6 @@ import PageHead from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeIndex } from 'lib/api';
 import config from 'lib/config';
-import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/RecipeListSchema';
 
 const SearchGridPage = dynamic(
   () =>
@@ -21,7 +20,7 @@ const SearchGridPage = dynamic(
 const SearchPage = ({
   pageContent
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { defaultTitle, description } = config?.microcopy?.index ?? {};
+  const { defaultTitle, description } = config?.microcopy?.search ?? {};
 
   return pageContent && pageContent.length > 0 ? (
     <>
@@ -30,20 +29,13 @@ const SearchPage = ({
         defaultTitle={defaultTitle}
         description={description}
       />
-      <RecipeListSchema
-        recipes={pageContent}
-        title={defaultTitle}
-        description={description}
-      />
-      {SearchGridPage && (
-        <Suspense fallback={<Loading />}>
-          <SearchGridPage
-            recipes={pageContent}
-            title={defaultTitle}
-            description={description}
-          />
-        </Suspense>
-      )}
+      <Suspense fallback={<Loading />}>
+        <SearchGridPage
+          recipes={pageContent}
+          title={defaultTitle}
+          description={description}
+        />
+      </Suspense>
     </>
   ) : null;
 };

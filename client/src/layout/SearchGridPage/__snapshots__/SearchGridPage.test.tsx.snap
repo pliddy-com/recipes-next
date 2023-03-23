@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RecipeGridPage when there is missing slug information it does not sort the content 1`] = `
+exports[`SearchGridPage when there is missing slug information it does not sort the content 1`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXl page recipegrid css-19r6kue-MuiContainer-root"
@@ -8,7 +8,7 @@ exports[`RecipeGridPage when there is missing slug information it does not sort 
   >
     <form
       action=""
-      class="MuiPaper-root MuiPaper-outlined css-fexsn7-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-outlined css-ky7xcw-MuiPaper-root"
       role="search"
     >
       <div
@@ -45,13 +45,6 @@ exports[`RecipeGridPage when there is missing slug information it does not sort 
         />
       </button>
     </form>
-    <div
-      class="ais-Hits"
-    >
-      <ul
-        class="ais-Hits-list"
-      />
-    </div>
     <h1
       class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
     >
@@ -62,6 +55,13 @@ exports[`RecipeGridPage when there is missing slug information it does not sort 
     >
       3 Recipes
     </h2>
+    <div
+      class="ais-Hits"
+    >
+      <ul
+        class="ais-Hits-list"
+      />
+    </div>
     <div>
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
@@ -231,7 +231,7 @@ exports[`RecipeGridPage when there is missing slug information it does not sort 
 </DocumentFragment>
 `;
 
-exports[`RecipeGridPage when there is page content it renders the RecipeGridPage 1`] = `
+exports[`SearchGridPage when there is page content it renders the SearchGridPage 1`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXl page recipegrid css-19r6kue-MuiContainer-root"
@@ -239,7 +239,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
   >
     <form
       action=""
-      class="MuiPaper-root MuiPaper-outlined css-fexsn7-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-outlined css-ky7xcw-MuiPaper-root"
       role="search"
     >
       <div
@@ -276,13 +276,6 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
         />
       </button>
     </form>
-    <div
-      class="ais-Hits"
-    >
-      <ul
-        class="ais-Hits-list"
-      />
-    </div>
     <h1
       class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
     >
@@ -293,6 +286,13 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
     >
       3 Recipes
     </h2>
+    <div
+      class="ais-Hits"
+    >
+      <ul
+        class="ais-Hits-list"
+      />
+    </div>
     <div>
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"

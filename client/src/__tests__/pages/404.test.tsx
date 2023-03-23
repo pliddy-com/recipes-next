@@ -66,7 +66,7 @@ describe('NotFoundPage in 404.tsx', () => {
   describe('when there is no page content', () => {
     it('it does not render the page', async () => {
       const { queryByTestId } = render(
-        <NotFoundPage pageContent={[]} preview={false} />
+        <NotFoundPage preview={false} pageContent={[]} />
       );
 
       // wait for dynamic component to load

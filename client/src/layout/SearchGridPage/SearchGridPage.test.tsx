@@ -8,9 +8,9 @@ import * as api from 'lib/api';
 
 jest.mock('lib/api');
 
-describe('RecipeGridPage', () => {
+describe('SearchGridPage', () => {
   describe('when there is page content', () => {
-    it('it renders the RecipeGridPage', async () => {
+    it('it renders the SearchGridPage', async () => {
       // TODO: derive type
       const [tags] = await api.getRecipeList({});
 
@@ -36,7 +36,7 @@ describe('RecipeGridPage', () => {
   });
 
   describe('when there is no pageContent', () => {
-    it('it does not render the RecipeGridPage', () => {
+    it('it does not render the SearchGridPage', () => {
       const title = 'Title';
       const recipes = [] as RecipeDefaultFragment[];
 
