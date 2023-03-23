@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 import algoliasearch from 'algoliasearch';
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 import contentful from 'contentful';
 const { createClient } = contentful;
 
 import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer';
 
 // initialize environment variables
-dotenv.config();
+// dotenv.config();
 
 const algoliaAppId = core.getInput('algoliaAppId-to-greet');
 const algoliaSearchAdminKey = core.getInput('algoliaSearchAdminKey');

@@ -17,9 +17,11 @@ jobs:
     name: Scan, Build, and Deploy Branch Stack to AWS
     runs-on: ubuntu-latest
     env:
+      ALGOLIA_SEARCH_ADMIN_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      NEXT_PUBLIC_ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
       NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
       NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
       NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
@@ -33,44 +35,53 @@ jobs:
         id: setup-node
         uses: './.github/actions/setup-node'
 
-      - name: Setup Next
-        id: setup-next
-        uses: './.github/actions/next-build-cache'
+      # - name: Setup Next
+      #   id: setup-next
+      #   uses: './.github/actions/next-build-cache'
 
       - name: Install Dependencies
         id: install-dependencies
         uses: './.github/actions/install-dependencies'
 
-      - name: Run Scans on the CDK Workspace
-        id: scan-cdk
-        uses: './.github/actions/scan-cdk'
+      # - name: Run Scans on the CDK Workspace
+      #   id: scan-cdk
+      #   uses: './.github/actions/scan-cdk'
 
-      - name: Run Scans on the Client Workspace
-        id: scan-client
-        uses: './.github/actions/scan-client'
+      # - name: Run Scans on the Client Workspace
+      #   id: scan-client
+      #   uses: './.github/actions/scan-client'
 
-      - name: Deploy Shared AWS Stack for ${{github.ref}}
-        id: deploy-shared-stack
-        run: npm run deploy:shared -w cdk
+      # - name: Deploy Shared AWS Stack for ${{github.ref}}
+      #   id: deploy-shared-stack
+      #   run: npm run deploy:shared -w cdk
 
-      - name: Deploy Branch-specific Stack for ${{github.ref}}
-        id: deploy-branch-stack
-        run: npm run deploy -w cdk
+      # - name: Deploy Branch-specific Stack for ${{github.ref}}
+      #   id: deploy-branch-stack
+      #   run: npm run deploy -w cdk
 
-      - name: Get Bucket Name
-        id: bucket-name
-        uses: './.github/actions/bucket-name'
+      # - name: Get Bucket Name
+      #   id: bucket-name
+      #   uses: './.github/actions/bucket-name'
+      #   with:
+      #     bucketBase: ${{ vars.S3_BUCKET_BASE }}
+
+      # - name: Get Distribution ID
+      #   id: distribution-id
+      #   uses: './.github/actions/distribution-id'
+
+      # - name: Build and Deploy Client
+      #   id: build-and-deploy-client
+      #   uses: './.github/actions/build-and-deploy-client'
+      #   with:
+      #     branch: ${{ github.ref_name }}
+      #     distributionId: ${{ steps.distribution-id.outputs.distributionId }}
+      #     s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
+
+      - name: Build Search Index
+        id: index-search
+        uses: './.github/actions/index-search'
         with:
-          bucketBase: ${{ vars.S3_BUCKET_BASE }}
-
-      - name: Get Distribution ID
-        id: distribution-id
-        uses: './.github/actions/distribution-id'
-
-      - name: Build and Deploy Client
-        id: build-and-deploy-client
-        uses: './.github/actions/build-and-deploy-client'
-        with:
-          branch: ${{ github.ref_name }}
-          distributionId: ${{ steps.distribution-id.outputs.distributionId }}
-          s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
+          algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+          algoliaSearchAdminKey: ${{ env.ALGOLIA_SEARCH_ADMIN_KEY }}
+          contentfulAccessToken: ${{ env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN }}
+          contentfulSpaceId: ${{ env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID }}
