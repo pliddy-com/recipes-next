@@ -1,9 +1,13 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
+// const github = require('@actions/github');
 
-import algoliasearch from 'algoliasearch';
+const algoliasearch = require('algoliasearch');
+const contentful = require('contentful');
+
+// import algoliasearch from 'algoliasearch';
 // import dotenv from 'dotenv';
-import contentful from 'contentful';
+// import contentful from 'contentful';
+
 const { createClient } = contentful;
 
 import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer';
