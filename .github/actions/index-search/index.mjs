@@ -1,12 +1,12 @@
 const core = require('@actions/core');
 // const github = require('@actions/github');
 
-const algoliasearch = require('algoliasearch');
-const contentful = require('contentful');
-
-// import algoliasearch from 'algoliasearch';
+// const algoliasearch = require('algoliasearch');
+// const contentful = require('contentful');
+import core from '@actions/core';
+import algoliasearch from 'algoliasearch';
 // import dotenv from 'dotenv';
-// import contentful from 'contentful';
+import contentful from 'contentful';
 
 const { createClient } = contentful;
 
