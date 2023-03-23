@@ -13,6 +13,7 @@ import TagButton from 'components/Navigation/Buttons/TagButton/TagButton';
 import { TaxonomyChildrenItem } from 'types/queries';
 
 import theme from 'theme';
+import SearchButton from 'components/Navigation/Buttons/SearchButton/SearchButton';
 
 export interface NavDataProps {
   categories: TaxonomyChildrenItem[];
@@ -47,7 +48,7 @@ const NavBar = ({ nav }: NavBarProps) => {
   return (
     <AppBar component="nav" data-testid="navbar">
       <Toolbar>
-        <LogoButton />
+        <LogoButton hideLabel={hideLabel} />
 
         {categories && (
           <CategoriesButton
@@ -67,6 +68,7 @@ const NavBar = ({ nav }: NavBarProps) => {
             onClick={() => handleDrawerToggle({ id: 'tags' })}
           />
         )}
+        <SearchButton hideLabel={hideLabel} />
       </Toolbar>
       {categories && (
         <NavMenu

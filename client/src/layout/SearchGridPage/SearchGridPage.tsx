@@ -9,14 +9,15 @@ import Loading from 'components/Loading/Loading';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 
 import { RecipeDefaultFragment } from 'types/queries';
+import Search from 'components/Search/Search';
 
-interface RecipeGridPageProps {
+interface SearchGridPageProps {
   description?: string | null;
   recipes: (RecipeDefaultFragment | null)[];
   title?: string | null;
 }
 
-const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
+const SearchGridPage = ({ recipes, title }: SearchGridPageProps) => {
   // sorting recipes; should be part of gql query?
   // recipes &&
   //   recipes.sort((a, b) =>
@@ -40,6 +41,8 @@ const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
 
   return data && data.length > 0 ? (
     <Container className="page recipegrid" data-testid="page" maxWidth="xl">
+      <Search />
+
       <Typography variant="h1">{title}</Typography>
       <Typography variant="subtitle1" component="h2">
         {recipes && `${recipes.length} Recipes`}
@@ -67,4 +70,4 @@ const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
   ) : null;
 };
 
-export default RecipeGridPage;
+export default SearchGridPage;
