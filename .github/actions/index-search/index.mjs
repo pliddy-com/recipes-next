@@ -40,7 +40,7 @@ try {
 
   const indexedContent = await algoliaIndex.saveObjects(recipes);
 
-  console.log(`${indexedContent.objectIDs.length} objects indexed`);
+  console.log(`${indexedContent.objectIDs.length} recipes indexed`);
 } catch (err) {
   console.error(err);
 }

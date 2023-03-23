@@ -54,7 +54,7 @@ import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer
     console.log(
       'Indexed Content:',
       indexedContent,
-      `${indexedContent.objectIDs.length} objects indexed`
+      `${indexedContent.objectIDs.length} recipes indexed`
     );
   } catch (err) {
     console.error(err);

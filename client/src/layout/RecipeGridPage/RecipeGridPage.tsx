@@ -9,6 +9,7 @@ import Loading from 'components/Loading/Loading';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 
 import { RecipeDefaultFragment } from 'types/queries';
+import Search from 'components/Search/Search';
 
 interface RecipeGridPageProps {
   description?: string | null;
@@ -40,6 +41,8 @@ const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
 
   return data && data.length > 0 ? (
     <Container className="page recipegrid" data-testid="page" maxWidth="xl">
+      <Search />
+
       <Typography variant="h1">{title}</Typography>
       <Typography variant="subtitle1" component="h2">
         {recipes && `${recipes.length} Recipes`}
