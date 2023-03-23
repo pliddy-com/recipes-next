@@ -1,20 +1,14 @@
 import core from '@actions/core';
 import algoliasearch from 'algoliasearch';
 import contentful from 'contentful';
+import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer';
 
 const { createClient } = contentful;
-
-import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer';
 
 const algoliaAppId = core.getInput('algoliaAppId');
 const algoliaSearchAdminKey = core.getInput('algoliaSearchAdminKey');
 const contentfulAccessToken = core.getInput('contentfulAccessToken');
 const contentfulSpaceId = core.getInput('contentfulSpaceId');
-
-console.log({ algoliaAppId });
-console.log({ algoliaSearchAdminKey });
-console.log({ contentfulAccessToken });
-console.log({ contentfulSpaceId });
 
 const algoliaClient = algoliasearch(algoliaAppId, algoliaSearchAdminKey);
 const algoliaIndex = algoliaClient.initIndex('recipes_index');
@@ -46,11 +40,7 @@ try {
 
   const indexedContent = await algoliaIndex.saveObjects(recipes);
 
-  console.log(
-    'Indexed Content:',
-    indexedContent,
-    `${indexedContent.objectIDs.length} objects indexed`
-  );
+  console.log(`${indexedContent.objectIDs.length} objects indexed`);
 } catch (err) {
   console.error(err);
 }

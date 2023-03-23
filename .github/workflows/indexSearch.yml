@@ -3,9 +3,6 @@ run-name: Build Search Index
 
 on:
   workflow_dispatch:
-  # Allows external webhook trigger with "event_type" = "publish-event"
-  repository_dispatch:
-    types: [publish-event]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.ref }}

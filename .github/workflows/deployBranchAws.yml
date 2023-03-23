@@ -39,47 +39,47 @@ jobs:
         id: npm-cache
         uses: './.github/actions/npm-cache'
 
-      # - name: Setup Next Cache
-      #   id: setup-next
-      #   uses: './.github/actions/next-build-cache'
+      - name: Setup Next Cache
+        id: setup-next
+        uses: './.github/actions/next-build-cache'
 
       - name: Install Dependencies
         id: install-dependencies
         uses: './.github/actions/install-dependencies'
 
-      # - name: Run Scans on the CDK Workspace
-      #   id: scan-cdk
-      #   uses: './.github/actions/scan-cdk'
+      - name: Run Scans on the CDK Workspace
+        id: scan-cdk
+        uses: './.github/actions/scan-cdk'
 
-      # - name: Run Scans on the Client Workspace
-      #   id: scan-client
-      #   uses: './.github/actions/scan-client'
+      - name: Run Scans on the Client Workspace
+        id: scan-client
+        uses: './.github/actions/scan-client'
 
-      # - name: Deploy Shared AWS Stack for ${{github.ref}}
-      #   id: deploy-shared-stack
-      #   run: npm run deploy:shared -w cdk
+      - name: Deploy Shared AWS Stack for ${{github.ref}}
+        id: deploy-shared-stack
+        run: npm run deploy:shared -w cdk
 
-      # - name: Deploy Branch-specific Stack for ${{github.ref}}
-      #   id: deploy-branch-stack
-      #   run: npm run deploy -w cdk
+      - name: Deploy Branch-specific Stack for ${{github.ref}}
+        id: deploy-branch-stack
+        run: npm run deploy -w cdk
 
-      # - name: Get Bucket Name
-      #   id: bucket-name
-      #   uses: './.github/actions/bucket-name'
-      #   with:
-      #     bucketBase: ${{ vars.S3_BUCKET_BASE }}
+      - name: Get Bucket Name
+        id: bucket-name
+        uses: './.github/actions/bucket-name'
+        with:
+          bucketBase: ${{ vars.S3_BUCKET_BASE }}
 
-      # - name: Get Distribution ID
-      #   id: distribution-id
-      #   uses: './.github/actions/distribution-id'
+      - name: Get Distribution ID
+        id: distribution-id
+        uses: './.github/actions/distribution-id'
 
-      # - name: Build and Deploy Client
-      #   id: build-and-deploy-client
-      #   uses: './.github/actions/build-and-deploy-client'
-      #   with:
-      #     branch: ${{ github.ref_name }}
-      #     distributionId: ${{ steps.distribution-id.outputs.distributionId }}
-      #     s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
+      - name: Build and Deploy Client
+        id: build-and-deploy-client
+        uses: './.github/actions/build-and-deploy-client'
+        with:
+          branch: ${{ github.ref_name }}
+          distributionId: ${{ steps.distribution-id.outputs.distributionId }}
+          s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
 
       - name: Build Search Index
         id: index-search
