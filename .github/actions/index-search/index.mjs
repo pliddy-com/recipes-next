@@ -6,7 +6,7 @@ const { createClient } = contentful;
 
 import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer';
 
-const algoliaAppId = core.getInput('algoliaAppId-to-greet');
+const algoliaAppId = core.getInput('algoliaAppId');
 const algoliaSearchAdminKey = core.getInput('algoliaSearchAdminKey');
 const contentfulAccessToken = core.getInput('contentfulAccessToken');
 const contentfulSpaceId = core.getInput('contentfulSpaceId');
