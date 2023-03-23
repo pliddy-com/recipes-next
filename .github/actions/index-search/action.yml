@@ -1,0 +1,19 @@
+name: 'Index Search'
+description: 'Generate Algolia search index from Contentful'
+inputs:
+  algoliaAppId:
+    description: 'Algolia app id secret'
+    required: true
+  algoliaSearchAdminKey:
+    description: 'Algolia search admin key secret'
+    required: true
+  contentfulAccessToken:
+    description: 'Contentful access token secret'
+    required: true
+  contentfulSpaceId:
+    description: 'Contentful space id secret'
+    required: true
+
+runs:
+  using: 'node16'
+  main: 'index.mjs'

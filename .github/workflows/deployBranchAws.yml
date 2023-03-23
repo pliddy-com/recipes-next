@@ -17,9 +17,11 @@ jobs:
     name: Scan, Build, and Deploy Branch Stack to AWS
     runs-on: ubuntu-latest
     env:
+      ALGOLIA_SEARCH_ADMIN_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      NEXT_PUBLIC_ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
       NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
       NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
       NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
@@ -33,7 +35,11 @@ jobs:
         id: setup-node
         uses: './.github/actions/setup-node'
 
-      - name: Setup Next
+      - name: Setup npm cache
+        id: npm-cache
+        uses: './.github/actions/npm-cache'
+
+      - name: Setup Next Cache
         id: setup-next
         uses: './.github/actions/next-build-cache'
 
@@ -74,3 +80,12 @@ jobs:
           branch: ${{ github.ref_name }}
           distributionId: ${{ steps.distribution-id.outputs.distributionId }}
           s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
+
+      - name: Build Search Index
+        id: index-search
+        uses: './.github/actions/index-search'
+        with:
+          algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+          algoliaSearchAdminKey: ${{ env.ALGOLIA_SEARCH_ADMIN_KEY }}
+          contentfulAccessToken: ${{ env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN }}
+          contentfulSpaceId: ${{ env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID }}
