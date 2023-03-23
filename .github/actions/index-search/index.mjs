@@ -11,6 +11,11 @@ const algoliaSearchAdminKey = core.getInput('algoliaSearchAdminKey');
 const contentfulAccessToken = core.getInput('contentfulAccessToken');
 const contentfulSpaceId = core.getInput('contentfulSpaceId');
 
+console.log({ algoliaAppId });
+console.log({ algoliaSearchAdminKey });
+console.log({ contentfulAccessToken });
+console.log({ contentfulSpaceId });
+
 const algoliaClient = algoliasearch(algoliaAppId, algoliaSearchAdminKey);
 const algoliaIndex = algoliaClient.initIndex('recipes_index');
 
