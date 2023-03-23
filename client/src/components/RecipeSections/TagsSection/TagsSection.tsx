@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 
-import TagButtons from 'components/Tags/TagButtons/TagButtons';
+import TagButtons from 'components/TagButtons/TagButtons';
 
 import { TagDefaultFragment } from 'types/queries';
 

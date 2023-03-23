@@ -4,12 +4,7 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Paper from '@mui/material/Paper';
 
-// import algoliasearch from 'algoliasearch/lite';
-import {
-  connectSearchBox
-  // InstantSearch,
-  // Hits
-} from 'react-instantsearch-dom';
+import { connectSearchBox } from 'react-instantsearch-dom';
 import { SearchBoxProvided } from 'react-instantsearch-core';
 
 const MuiSearchBox = ({ currentRefinement, refine }: SearchBoxProvided) => (
@@ -43,14 +38,6 @@ const MuiSearchBox = ({ currentRefinement, refine }: SearchBoxProvided) => (
 
 const CustomSearchBox = connectSearchBox(MuiSearchBox);
 
-// const searchClient =
-//   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID &&
-//   process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY &&
-//   algoliasearch(
-//     process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
-//     process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY
-//   );
+const SearchBox = () => <CustomSearchBox />;
 
-const Search = () => <CustomSearchBox />;
-
-export default Search;
+export default SearchBox;
