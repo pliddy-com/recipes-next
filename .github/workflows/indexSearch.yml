@@ -1,0 +1,34 @@
+name: Build Search Index
+run-name: Build Search Index
+
+on:
+  workflow_dispatch:
+  # Allows external webhook trigger with "event_type" = "publish-event"
+  repository_dispatch:
+    types: [publish-event]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION_FILE: '.nvmrc'
+
+jobs:
+  BuildAndDeploySite:
+    name: Build and Deploy Site
+    runs-on: ubuntu-latest
+    env:
+      ALGOLIA_SEARCH_ADMIN_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
+      NEXT_PUBLIC_ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+      NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN }}
+      NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_SPACE_ID }}
+    steps:
+      - name: Build Search Index
+        id: index-search
+        uses: './.github/actions/index-search'
+        with:
+          algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+          algoliaSearchAdminKey: ${{ env.ALGOLIA_SEARCH_ADMIN_KEY }}
+          contentfulAccessToken: ${{ env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN }}
+          contentfulSpaceId: ${{ env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID }}

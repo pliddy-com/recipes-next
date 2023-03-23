@@ -40,14 +40,22 @@ import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer
       content: richTextPlainTextRenderer.documentToPlainTextString(
         recipe.fields.description
       ),
+      abstract: recipe.fields.abstract,
+      keywords: recipe.fields.keywords,
       objectID: recipe.sys.id,
+      slug: recipe.fields.slug,
+      tags: recipe.fields.tags.map((tag) => tag.fields.title),
       title: recipe.fields.title,
       url: `/recipe/${recipe.fields.slug}/`
     }));
 
     const indexedContent = await algoliaIndex.saveObjects(recipes);
 
-    console.log('Indexed Content:', indexedContent);
+    console.log(
+      'Indexed Content:',
+      indexedContent,
+      `${indexedContent.objectIDs.length} objects indexed`
+    );
   } catch (err) {
     console.error(err);
   }
