@@ -1,4 +1,5 @@
-#!/usr/bin/env node
+const core = require('@actions/core');
+const github = require('@actions/github');
 
 import algoliasearch from 'algoliasearch';
 // import dotenv from 'dotenv';
