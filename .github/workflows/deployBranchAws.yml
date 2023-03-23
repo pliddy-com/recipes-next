@@ -35,7 +35,11 @@ jobs:
         id: setup-node
         uses: './.github/actions/setup-node'
 
-      # - name: Setup Next
+      - name: Setup npm cache
+        id: npm-cache
+        uses: './.github/actions/npm-cache'
+
+      # - name: Setup Next Cache
       #   id: setup-next
       #   uses: './.github/actions/next-build-cache'
 

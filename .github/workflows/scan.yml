@@ -29,6 +29,10 @@ jobs:
         id: setup-node
         uses: './.github/actions/setup-node'
 
+      - name: Setup npm cache
+        id: npm-cache
+        uses: './.github/actions/npm-cache'
+
       - name: Install Dependencies
         id: install-dependencies
         uses: './.github/actions/install-dependencies'
