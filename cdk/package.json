@@ -29,7 +29,6 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "15.16.2",
     "aws-cdk-lib": "2.67.0",
     "current-git-branch": "^1.1.0"
   },
