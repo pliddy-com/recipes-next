@@ -30,9 +30,7 @@
   },
   "dependencies": {
     "aws-cdk-lib": "2.67.0",
-    "current-git-branch": "^1.1.0",
-    "@actions/core": "^1.10.0",
-    "esbuild": "^0.17.11"
+    "current-git-branch": "^1.1.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.113",
@@ -40,6 +38,7 @@
     "@types/jest": "^29.5.0",
     "aws-cdk": "2.67.0",
     "aws-lambda": "^1.0.7",
-    "constructs": "^10.0.0"
+    "constructs": "^10.0.0",
+    "esbuild": "^0.17.11"
   }
 }
