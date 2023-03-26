@@ -1,15 +1,16 @@
-/* istanbul ignore file */
-
-import Paper from '@mui/material/Paper';
 import {
   useCurrentRefinements,
   useSearchBox,
   UseSearchBoxProps
 } from 'react-instantsearch-hooks-web';
 
-import { InputAdornment, TextField } from '@mui/material';
+import InputAdornment from '@mui/material/InputAdornment';
+import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
+
 import SearchIcon from '@mui/icons-material/Search';
 
+/* istanbul ignore next */
 const queryHook: UseSearchBoxProps['queryHook'] = (query, search) => {
   search(query);
 };
@@ -21,9 +22,9 @@ const SearchBox = () => {
 
   const refinements = useCurrentRefinements();
 
-  return refine ? (
+  return (
     <Paper
-      action=""
+      aria-label="search"
       className="search"
       component="form"
       elevation={0}
@@ -44,6 +45,7 @@ const SearchBox = () => {
             </InputAdornment>
           )
         }}
+        name="search"
         onChange={(e) => refine(e.currentTarget.value)}
         placeholder="Search recipes…"
         size="small"
@@ -51,7 +53,7 @@ const SearchBox = () => {
         variant="outlined"
       />
     </Paper>
-  ) : null;
+  );
 };
 
 export default SearchBox;
