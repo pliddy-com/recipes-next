@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import AppBar from '@mui/material/AppBar';
-// import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -10,8 +9,6 @@ import LogoButton from 'components/Navigation/Buttons/LogoButton/LogoButton';
 import CategoriesButton from 'components/Navigation/Buttons/CategoriesButton/CategoriesButton';
 import NavMenu from 'components/Navigation/NavMenu/NavMenu';
 import TagButton from 'components/Navigation/Buttons/TagButton/TagButton';
-
-// import SearchBox from 'components/Search/SearchBox/SearchBox';
 
 import { TaxonomyChildrenItem } from 'types/queries';
 

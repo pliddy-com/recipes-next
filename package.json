@@ -48,11 +48,6 @@
     "typescript": "4.9.5"
   },
   "dependencies": {
-    "@actions/core": "^1.10.0",
-    "@contentful/rich-text-plain-text-renderer": "^16.0.3",
-    "algoliasearch": "^4.15.0",
-    "contentful": "^9.3.5",
-    "react-instantsearch-hooks-server": "^6.42.0",
-    "react-instantsearch-hooks-web": "^6.42.0"
+    "contentful": "^9.3.5"
   }
 }
