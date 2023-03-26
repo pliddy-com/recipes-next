@@ -34,7 +34,7 @@ const microcopy: MicrocopyProps = {
     defaultTitle: 'Recipe'
   },
   search: {
-    defaultTitle: 'Results for',
+    defaultTitle: 'Search Results',
     description: 'Search results'
   },
   site: {

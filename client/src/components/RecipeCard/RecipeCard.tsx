@@ -21,7 +21,6 @@ interface RecipeCardProps {
 }
 
 const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
-  console.log('RecipeCard:', { recipe });
   const { breakpoints } = config;
   const { title, abstract, image, slug, tagsCollection } = recipe ?? {};
   const { items: tags } = tagsCollection ?? {};

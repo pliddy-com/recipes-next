@@ -8,7 +8,7 @@ exports[`NavBar when there is a properly structured nav property it renders a na
     style=""
   >
     <div
-      class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-hyum1k-MuiToolbar-root"
+      class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular menu css-hyum1k-MuiToolbar-root"
     >
       <a
         aria-label="home"

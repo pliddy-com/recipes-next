@@ -7,8 +7,6 @@ import '@testing-library/jest-dom';
 // import the component to test
 import NavBar, { NavDataProps } from './NavBar';
 
-// import { TaxonomyChildrenItem } from 'types/queries';
-
 import * as api from 'lib/api';
 
 jest.mock('lib/api');
@@ -33,6 +31,7 @@ describe('NavBar', () => {
       const { container, queryByRole } = render(
         <NavBar nav={nav as NavDataProps} />
       );
+
       const component = container.getElementsByClassName('MuiAppBar-root')[0];
 
       // assert that component has been rendered
