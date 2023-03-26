@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchGridPage when there is page content it renders the SearchGridPage 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthXl page recipegrid search css-19r6kue-MuiContainer-root"
+    data-testid="page"
+  >
+    <div
+      data-testid="search-box"
+    >
+      SearchBox
+    </div>
+    <div
+      data-testid="search-results"
+    >
+      SearchResults
+    </div>
+  </div>
+</DocumentFragment>
+`;

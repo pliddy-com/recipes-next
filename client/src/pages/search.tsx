@@ -7,6 +7,7 @@ import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeIndex } from 'lib/api';
+
 import config from 'lib/config';
 
 const SearchGridPage = dynamic(
@@ -30,11 +31,7 @@ const SearchPage = ({
         description={description}
       />
       <Suspense fallback={<Loading />}>
-        <SearchGridPage
-          recipes={pageContent}
-          title={defaultTitle}
-          description={description}
-        />
+        <SearchGridPage title={defaultTitle} />
       </Suspense>
     </>
   ) : null;

@@ -1,8 +1,6 @@
 /* istanbul ignore file */
+
 import Paper from '@mui/material/Paper';
-
-import SearchIcon from '@mui/icons-material/Search';
-
 import {
   useCurrentRefinements,
   useSearchBox,
@@ -10,19 +8,20 @@ import {
 } from 'react-instantsearch-hooks-web';
 
 import { InputAdornment, TextField } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
 const queryHook: UseSearchBoxProps['queryHook'] = (query, search) => {
   search(query);
 };
 
 const SearchBox = () => {
-  const searchBoxApi = useSearchBox({
+  const { refine } = useSearchBox({
     queryHook
   });
 
   const refinements = useCurrentRefinements();
 
-  return (
+  return refine ? (
     <Paper
       action=""
       className="search"
@@ -45,14 +44,14 @@ const SearchBox = () => {
             </InputAdornment>
           )
         }}
-        onChange={(e) => searchBoxApi.refine(e.currentTarget.value)}
+        onChange={(e) => refine(e.currentTarget.value)}
         placeholder="Search recipes…"
         size="small"
         value={refinements.items[0]}
         variant="outlined"
       />
     </Paper>
-  );
+  ) : null;
 };
 
 export default SearchBox;
