@@ -47,6 +47,9 @@ const SearchResults = ({ title }: { title: string | null | undefined }) => {
 
   const hits = results.hits as unknown as Array<HitProps>;
 
+  if (!query)
+    hits.sort((a, b) => (a.slug && b.slug && a.slug > b.slug ? 1 : -1));
+
   return (
     <>
       <Typography variant="h1">{`${title} ${

@@ -17,12 +17,6 @@ interface RecipeGridPageProps {
 }
 
 const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
-  // sorting recipes; should be part of gql query?
-  // recipes &&
-  //   recipes.sort((a, b) =>
-  //     a && b && a.slug && b.slug && a.slug > b.slug ? 1 : -1
-  //   );
-
   const [data, setData] = useState<(RecipeDefaultFragment | null)[]>([]);
 
   const numPreload = 6;

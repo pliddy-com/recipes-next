@@ -8,6 +8,7 @@ import {
   useSearchBox,
   UseSearchBoxProps
 } from 'react-instantsearch-hooks-web';
+
 import { InputAdornment, TextField } from '@mui/material';
 
 const queryHook: UseSearchBoxProps['queryHook'] = (query, search) => {
