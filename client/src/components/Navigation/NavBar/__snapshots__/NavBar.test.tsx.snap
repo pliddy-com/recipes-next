@@ -46,7 +46,7 @@ exports[`NavBar when there is a properly structured nav property it renders a na
       </a>
       <button
         aria-label="open categories menu"
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge menu css-kpm0tx-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge menu-button css-kpm0tx-MuiButtonBase-root-MuiButton-root"
         role="button"
         tabindex="0"
         type="button"
@@ -73,7 +73,7 @@ exports[`NavBar when there is a properly structured nav property it renders a na
       </button>
       <button
         aria-label="open cuisine menu"
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge menu css-kpm0tx-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge menu-button css-kpm0tx-MuiButtonBase-root-MuiButton-root"
         role="button"
         tabindex="0"
         type="button"
@@ -100,7 +100,7 @@ exports[`NavBar when there is a properly structured nav property it renders a na
       </button>
       <button
         aria-label="open tags menu"
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge menu css-kpm0tx-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge menu-button css-kpm0tx-MuiButtonBase-root-MuiButton-root"
         role="button"
         tabindex="0"
         type="button"
@@ -127,7 +127,7 @@ exports[`NavBar when there is a properly structured nav property it renders a na
       </button>
       <a
         aria-label="search"
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge menu css-kpm0tx-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge menu-button css-kpm0tx-MuiButtonBase-root-MuiButton-root"
         href="/search"
         role="button"
         tabindex="0"

@@ -19,7 +19,7 @@ const buttonThemeOptions: ThemeOptions = {
             textTransform: 'capitalize',
             wordSpacing: '.0625rem'
           },
-          '&.menu': {
+          '&.menu-button': {
             marginLeft: '0.5rem',
             menuIcon: { ml: 'auto' },
             color: colors.common.white
@@ -37,7 +37,7 @@ const buttonThemeOptions: ThemeOptions = {
             // fontSize: '1.125rem',
             // fontWeight: fontWeightBold,
           },
-          '&.menu': {
+          '&.menu-button': {
             marginLeft: '0.5rem',
             menuIcon: { ml: 'auto' },
             color: colors.common.white

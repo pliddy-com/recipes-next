@@ -10,8 +10,13 @@ import NavMenu from './NavMenu';
 import { TaxonomyChildrenItem } from 'types/queries';
 
 import * as api from 'lib/api';
+import Icon from '@mui/material/Icon';
 
 jest.mock('lib/api');
+
+const TestIcon = () => <Icon />;
+const featuredLabel = 'Test Label';
+const featuredUrl = 'http://test.url';
 
 describe('NavMenu', () => {
   const root = 'category';
@@ -20,20 +25,16 @@ describe('NavMenu', () => {
     it('it renders a nav menu hidden by default', async () => {
       const nav = await api.getNavTaxonomy();
 
-      const onClick = jest.fn();
-      const isOpen = false;
-
-      const featuredLabel = 'Label';
-      const featuredUrl = 'http://test.url';
-
       const { asFragment, container } = render(
         <NavMenu
+          ariaLabel="open test menu"
+          label="Test"
+          icon={<TestIcon />}
+          data-testid="test-menu"
           featuredLabel={featuredLabel}
           featuredUrl={featuredUrl}
           id={'categories'}
-          isOpen={isOpen}
           nav={nav.categories as TaxonomyChildrenItem[]}
-          onClose={onClick}
           root={root}
         />
       );
@@ -51,15 +52,16 @@ describe('NavMenu', () => {
     const nav = undefined;
 
     it('it does not render', () => {
-      const isOpen = false;
-      const onClick = jest.fn();
-
       const { container } = render(
         <NavMenu
+          ariaLabel="open test menu"
+          label="Test"
+          icon={<TestIcon />}
+          data-testid="test-menu"
+          featuredLabel={featuredLabel}
+          featuredUrl={featuredUrl}
           id={'categories'}
-          isOpen={isOpen}
           nav={nav as unknown as TaxonomyChildrenItem[]}
-          onClose={onClick}
           root={root}
         />
       );
@@ -100,15 +102,16 @@ describe('NavMenu', () => {
     ];
 
     it('it does not render', () => {
-      const isOpen = false;
-      const onClick = jest.fn();
-
       const { container } = render(
         <NavMenu
+          ariaLabel="open test menu"
+          label="Test"
+          icon={<TestIcon />}
+          data-testid="test-menu"
+          featuredLabel={featuredLabel}
+          featuredUrl={featuredUrl}
           id={'categories'}
-          isOpen={isOpen}
           nav={nav as unknown as TaxonomyChildrenItem[]}
-          onClose={onClick}
           root={root}
         />
       );

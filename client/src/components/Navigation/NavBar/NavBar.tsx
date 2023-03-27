@@ -1,14 +1,13 @@
-import { useState } from 'react';
-
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-import CuisineButton from 'components/Navigation/Buttons/CuisineButton/CuisineButton';
+import LanguageIcon from '@mui/icons-material/Language';
+import MenuIcon from '@mui/icons-material/Menu';
+import TagIcon from '@mui/icons-material/Tag';
+
 import LogoButton from 'components/Navigation/Buttons/LogoButton/LogoButton';
-import CategoriesButton from 'components/Navigation/Buttons/CategoriesButton/CategoriesButton';
 import NavMenu from 'components/Navigation/NavMenu/NavMenu';
-import TagButton from 'components/Navigation/Buttons/TagButton/TagButton';
 
 import { TaxonomyChildrenItem } from 'types/queries';
 
@@ -26,90 +25,57 @@ export interface NavBarProps {
 }
 
 const NavBar = ({ nav }: NavBarProps) => {
+  // TODO: don't use hook, just use media query styles
   const hideLabel = useMediaQuery(theme.breakpoints.down('md'));
 
   const { categories, cuisine, tags } = nav ?? {};
 
-  interface navOptions {
-    id: 'categories' | 'cuisine' | 'tags';
-  }
-
-  const initialState = {
-    categories: false,
-    cuisine: false,
-    tags: false
-  };
-
-  const [drawerState, setDrawerState] = useState(initialState);
-
-  const handleDrawerToggle = ({ id }: navOptions) =>
-    setDrawerState({ ...drawerState, [id]: !drawerState[id] });
-
+  // THIS IS THE DESKTOP (NON-MOBILE) MENU BAR
+  // TODO: create an alternate version with a single menu and show by CSS media queries
   return (
     <>
       <AppBar component="nav" data-testid="navbar">
         <Toolbar className="menu">
           <LogoButton hideLabel={hideLabel} />
-
           {categories && (
-            <CategoriesButton
-              hideLabel={hideLabel}
-              onClick={() => handleDrawerToggle({ id: 'categories' })}
+            <NavMenu
+              ariaLabel="open categories menu"
+              label="Categories"
+              icon={<MenuIcon />}
+              data-testid="categories-menu"
+              featuredLabel="All Recipes"
+              featuredUrl="/"
+              id="categories"
+              nav={categories}
+              root="tag"
             />
           )}
           {cuisine && (
-            <CuisineButton
-              hideLabel={hideLabel}
-              onClick={() => handleDrawerToggle({ id: 'cuisine' })}
+            <NavMenu
+              ariaLabel="open cuisine menu"
+              label="Cuisine"
+              icon={<LanguageIcon />}
+              data-testid="cuisine-menu"
+              id="cuisine"
+              nav={cuisine}
+              root="tag"
             />
           )}
           {tags && (
-            <TagButton
-              hideLabel={hideLabel}
-              onClick={() => handleDrawerToggle({ id: 'tags' })}
+            <NavMenu
+              ariaLabel="open tags menu"
+              label="Tags"
+              icon={<TagIcon />}
+              data-testid="tags-menu"
+              featuredLabel="All Tags"
+              featuredUrl="/tag"
+              id="tags"
+              nav={tags}
+              root="tag"
             />
           )}
           <SearchButton hideLabel={hideLabel} />
         </Toolbar>
-        {categories && (
-          <NavMenu
-            data-testid="categories-menu"
-            featuredLabel="All Recipes"
-            featuredUrl="/"
-            id="categories"
-            isOpen={drawerState.categories}
-            nav={categories}
-            onClose={() => handleDrawerToggle({ id: 'categories' })}
-            root="tag"
-          />
-        )}
-        {cuisine && (
-          <NavMenu
-            data-testid="cuisine-menu"
-            id="cuisine"
-            isOpen={drawerState.cuisine}
-            nav={cuisine}
-            onClose={() => handleDrawerToggle({ id: 'cuisine' })}
-            root="tag"
-          />
-        )}
-        {tags && (
-          <NavMenu
-            data-testid="tags-menu"
-            featuredLabel="All Tags"
-            featuredUrl="/tag"
-            id="tags"
-            isOpen={drawerState.tags}
-            nav={tags}
-            onClose={() => handleDrawerToggle({ id: 'tags' })}
-            root="tag"
-          />
-        )}
-        {/* <Toolbar className="search">
-          <Container maxWidth="xl">
-            <SearchBox />
-          </Container>
-        </Toolbar> */}
       </AppBar>
     </>
   );

@@ -7,7 +7,7 @@ interface SearchButtonProps {
 
 const SearchButton = ({ hideLabel }: SearchButtonProps) => {
   const ariaLabel = 'search';
-  const className = 'menu';
+  const className = 'menu-button';
   const label = 'Search';
   const href = '/search';
 
