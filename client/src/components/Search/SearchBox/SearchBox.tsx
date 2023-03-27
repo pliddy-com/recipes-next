@@ -35,6 +35,7 @@ const SearchBox = () => {
     >
       <TextField
         autoComplete="false"
+        autoFocus={true}
         fullWidth
         inputProps={{ 'aria-label': 'search' }}
         InputProps={{
