@@ -50,6 +50,8 @@ The technology stack for this project is built using:
 
 - <a href="https://www.contentful.com/" target="_blank"><strong>Contentful</strong></a> as a headless CMS to separate the browser client from the back end technology
 
+- <a href="https://www.algolia.com/" target="_blank"><strong>Algolia</strong></a> for headless site search
+
 - <a href="https://www.typescriptlang.org/" target="_blank"><strong>Typescript</strong></a> for type definition
 
 - <a href="https://jestjs.io/" target="_blank"><strong>Jest</strong></a> with <a href="https://testing-library.com/docs/react-testing-library/intro/" target="_blank">React Testing Library</a> for unit tests
@@ -109,6 +111,23 @@ recipes-next
  |_ package.json       # repository-level definition of the project, including shared dependencies and npm scripts that execute on all workspaces
 ```
 
+#### Project Root
+
+The root level of the monorepo contains a package.json file with npm packages shared across workspaces. It also has a root-level `.env` file that contains environmental variables used by GitHub Actions for automation:
+
+```bash
+# Contentful api credentials
+NEXT_PUBLIC_CONTENTFUL_SPACE_ID={CONTENTFUL_SPACE_ID}
+NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN={CONTENTFUL_ACCESS_TOKEN}
+NEXT_PUBLIC_API_ENDPOINT={API_ENDPOINT}
+
+# Algolia search credentials
+NEXT_PUBLIC_ALGOLIA_APP_ID={ALGOLIA_APP_ID}
+NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY={ALGOLIA_SEARCH_API_KEY}
+ALGOLIA_SEARCH_ADMIN_KEY={ALGOLIA_SEARCH_ADMIN_KEY}
+
+```
+
 #### Client Workspace
 
 The client for the system is a **Next.js** project bootstrapped with <a href="https://github.com/vercel/next.js/tree/canary/packages/create-next-app" target="_blank">`create-next-app`</a>.
@@ -135,6 +154,12 @@ NEXT_PUBLIC_API_ENDPOINT={API_ENDPOINT}
 # AWS S3 and CloudFront identifiers
 DISTRIBUTION_ID={DISTRIBUTION_ID}
 S3_BUCKET={S3_BUCKET_NAME}
+
+# Algolia search credentials
+NEXT_PUBLIC_ALGOLIA_APP_ID={ALGOLIA_APP_ID}
+NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY={ALGOLIA_SEARCH_API_KEY}
+ALGOLIA_SEARCH_ADMIN_KEY={ALGOLIA_SEARCH_ADMIN_KEY}
+
 ```
 
 Once the local development environment is configured, launch the development server:

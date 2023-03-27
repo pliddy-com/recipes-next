@@ -125,6 +125,8 @@ The GitHub Actions `scan` workflow performs **linting, checks Typescript types,*
 
 The GitHub Actions `build` workflow generates the most recent types based on current content models and runs unit tests, then executes a Next.js build. The artifacts from the build are deployed to the web by syncing with an AWS S3 bucket and invalidating the CloudFront distribution.
 
+Once the new client is deployed, the `build` workflow also updates the **Algolia** search index with the most up-to-date content from **Contentful**.
+
 `build` is triggered by merging the main branch through an approved pull request.
 
 `build` is also triggered when a scheduled publish event occurs in Contentful and it posts a request to a GitHub webhook that triggers the build and deploy workflow.
