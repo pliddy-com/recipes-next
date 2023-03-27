@@ -13,7 +13,7 @@ const baseTheme = createTheme({
   },
   mixins: {
     toolbar: {
-      minHeight: '4rem'
+      // minHeight: '4rem'
     }
   },
   breakpoints: {

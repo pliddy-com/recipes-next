@@ -30,17 +30,31 @@ try {
       recipe.fields.description
     ),
     abstract: recipe.fields.abstract,
+    image: {
+      url: recipe.fields.image.fields.file.url,
+      description: recipe.fields.image.fields.description,
+      height: recipe.fields.image.fields.file.details.image.height,
+      width: recipe.fields.image.fields.file.details.image.width
+    },
     keywords: recipe.fields.keywords,
     objectID: recipe.sys.id,
     slug: recipe.fields.slug,
-    tags: recipe.fields.tags.map((tag) => tag.fields.title),
+    sys: recipe.sys,
+    tagsCollection: {
+      items: recipe.fields.tags.map((tag) => ({
+        slug: tag.fields.slug,
+        title: tag.fields.title
+      }))
+    },
+    tagContent: recipe.fields.tags.map((tag) => tag.fields.title),
     title: recipe.fields.title,
-    url: `/recipe/${recipe.fields.slug}/`
+    __typename: recipe.__typename,
+    url: `/recipe/${recipe.fields.slug}`
   }));
 
   const indexedContent = await algoliaIndex.saveObjects(recipes);
 
-  console.log(`${indexedContent.objectIDs.length} objects indexed`);
+  console.log(`${indexedContent.objectIDs.length} recipes indexed`);
 } catch (err) {
   console.error(err);
 }

@@ -13,6 +13,10 @@ const microcopy = {
     defaultDescription: 'Recipe default description for',
     defaultTitle: 'Recipe Default Title'
   },
+  search: {
+    defaultTitle: 'Results for',
+    description: 'Search results'
+  },
   site: {
     title: 'Site Title',
     domain: 'https://recipes.pliddy.com'

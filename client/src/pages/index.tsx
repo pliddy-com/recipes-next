@@ -35,15 +35,13 @@ const IndexPage = ({
         title={defaultTitle}
         description={description}
       />
-      {RecipeGridPage && (
-        <Suspense fallback={<Loading />}>
-          <RecipeGridPage
-            recipes={pageContent}
-            title={defaultTitle}
-            description={description}
-          />
-        </Suspense>
-      )}
+      <Suspense fallback={<Loading />}>
+        <RecipeGridPage
+          recipes={pageContent}
+          title={defaultTitle}
+          description={description}
+        />
+      </Suspense>
     </>
   ) : null;
 };

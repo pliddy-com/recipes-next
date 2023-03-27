@@ -92,7 +92,7 @@ export const getRecipeIndex = async (variables?: RecipeIndexQueryVariables) => {
 };
 
 // used to query content for tag & category page
-export const getRecipeList = async (variables: RecipeListQueryVariables) => {
+export const getRecipeList = async (variables?: RecipeListQueryVariables) => {
   const { tagCollection } = await queryGraphQLContent(
     RecipeListDocument,
     variables

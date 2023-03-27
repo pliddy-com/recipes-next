@@ -13,6 +13,7 @@ import TagButton from 'components/Navigation/Buttons/TagButton/TagButton';
 import { TaxonomyChildrenItem } from 'types/queries';
 
 import theme from 'theme';
+import SearchButton from 'components/Navigation/Buttons/SearchButton/SearchButton';
 
 export interface NavDataProps {
   categories: TaxonomyChildrenItem[];
@@ -45,64 +46,72 @@ const NavBar = ({ nav }: NavBarProps) => {
     setDrawerState({ ...drawerState, [id]: !drawerState[id] });
 
   return (
-    <AppBar component="nav" data-testid="navbar">
-      <Toolbar>
-        <LogoButton />
+    <>
+      <AppBar component="nav" data-testid="navbar">
+        <Toolbar className="menu">
+          <LogoButton hideLabel={hideLabel} />
 
+          {categories && (
+            <CategoriesButton
+              hideLabel={hideLabel}
+              onClick={() => handleDrawerToggle({ id: 'categories' })}
+            />
+          )}
+          {cuisine && (
+            <CuisineButton
+              hideLabel={hideLabel}
+              onClick={() => handleDrawerToggle({ id: 'cuisine' })}
+            />
+          )}
+          {tags && (
+            <TagButton
+              hideLabel={hideLabel}
+              onClick={() => handleDrawerToggle({ id: 'tags' })}
+            />
+          )}
+          <SearchButton hideLabel={hideLabel} />
+        </Toolbar>
         {categories && (
-          <CategoriesButton
-            hideLabel={hideLabel}
-            onClick={() => handleDrawerToggle({ id: 'categories' })}
+          <NavMenu
+            data-testid="categories-menu"
+            featuredLabel="All Recipes"
+            featuredUrl="/"
+            id="categories"
+            isOpen={drawerState.categories}
+            nav={categories}
+            onClose={() => handleDrawerToggle({ id: 'categories' })}
+            root="tag"
           />
         )}
         {cuisine && (
-          <CuisineButton
-            hideLabel={hideLabel}
-            onClick={() => handleDrawerToggle({ id: 'cuisine' })}
+          <NavMenu
+            data-testid="cuisine-menu"
+            id="cuisine"
+            isOpen={drawerState.cuisine}
+            nav={cuisine}
+            onClose={() => handleDrawerToggle({ id: 'cuisine' })}
+            root="tag"
           />
         )}
         {tags && (
-          <TagButton
-            hideLabel={hideLabel}
-            onClick={() => handleDrawerToggle({ id: 'tags' })}
+          <NavMenu
+            data-testid="tags-menu"
+            featuredLabel="All Tags"
+            featuredUrl="/tag"
+            id="tags"
+            isOpen={drawerState.tags}
+            nav={tags}
+            onClose={() => handleDrawerToggle({ id: 'tags' })}
+            root="tag"
           />
         )}
-      </Toolbar>
-      {categories && (
-        <NavMenu
-          data-testid="categories-menu"
-          featuredLabel="All Recipes"
-          featuredUrl="/"
-          id="categories"
-          isOpen={drawerState.categories}
-          nav={categories}
-          onClose={() => handleDrawerToggle({ id: 'categories' })}
-          root="tag"
-        />
-      )}
-      {cuisine && (
-        <NavMenu
-          data-testid="cuisine-menu"
-          id="cuisine"
-          isOpen={drawerState.cuisine}
-          nav={cuisine}
-          onClose={() => handleDrawerToggle({ id: 'cuisine' })}
-          root="tag"
-        />
-      )}
-      {tags && (
-        <NavMenu
-          data-testid="tags-menu"
-          featuredLabel="All Tags"
-          featuredUrl="/tag"
-          id="tags"
-          isOpen={drawerState.tags}
-          nav={tags}
-          onClose={() => handleDrawerToggle({ id: 'tags' })}
-          root="tag"
-        />
-      )}
-    </AppBar>
+        {/* <Toolbar className="search">
+          <Container maxWidth="xl">
+            <SearchBox />
+          </Container>
+        </Toolbar> */}
+      </AppBar>
+    </>
   );
 };
 

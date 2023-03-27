@@ -8,7 +8,7 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-import TagButtons from 'components/Tags/TagButtons/TagButtons';
+import TagButtons from 'components/TagButtons/TagButtons';
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 
 import { RecipeDefaultFragment } from 'types/queries';

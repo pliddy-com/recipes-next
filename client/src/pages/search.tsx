@@ -6,23 +6,22 @@ import Layout from 'layout/Layout/Layout';
 import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
 
-import { getTagIndex } from 'lib/api';
-import config from 'lib/config';
-import TagListSchema from 'components/PageHead/Schema/TagListSchema/TagListSchema';
-import { ListPageItemFragment } from 'types/queries';
+import { getRecipeIndex } from 'lib/api';
 
-const TagGridPage = dynamic(
+import config from 'lib/config';
+
+const SearchGridPage = dynamic(
   () =>
     import(
-      /* webpackChunkName: 'TagGridPage' */ 'layout/TagGridPage/TagGridPage'
+      /* webpackChunkName: 'SearchGrid' */ 'layout/SearchGridPage/SearchGridPage'
     ),
   { suspense: true }
 );
 
-const TagIndexPage = ({
+const SearchPage = ({
   pageContent
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { defaultTitle, description } = config?.microcopy?.tagIndex ?? {};
+  const { defaultTitle, description } = config?.microcopy?.search ?? {};
 
   return pageContent && pageContent.length > 0 ? (
     <>
@@ -31,24 +30,19 @@ const TagIndexPage = ({
         defaultTitle={defaultTitle}
         description={description}
       />
-      <TagListSchema
-        tags={pageContent as (ListPageItemFragment | null)[]}
-        title={defaultTitle}
-        description={description}
-      />
       <Suspense fallback={<Loading />}>
-        <TagGridPage tags={pageContent as (ListPageItemFragment | null)[]} />
+        <SearchGridPage title={defaultTitle} />
       </Suspense>
     </>
   ) : null;
 };
 
 export const getStaticProps = async ({ preview = false }) => {
-  const pageContent = await getTagIndex();
+  const pageContent = await getRecipeIndex();
 
   return { props: { pageContent, preview }, revalidate: 60 };
 };
 
-TagIndexPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+SearchPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
-export default TagIndexPage;
+export default SearchPage;

@@ -7,7 +7,7 @@ import { sansFontFamily } from './fontface';
 
 const { breakpoints } = baseTheme ?? {};
 
-const containerThemeOptions: ThemeOptions = {
+const pageThemeOptions: ThemeOptions = {
   components: {
     MuiContainer: {
       styleOverrides: {
@@ -16,10 +16,7 @@ const containerThemeOptions: ThemeOptions = {
             backgroundColor: colors.common.white,
             minHeight: '100vh',
             paddingBottom: '3rem',
-            paddingTop: '5rem',
-            [breakpoints.up('md')]: {
-              paddingTop: '6rem'
-            },
+            paddingTop: '6rem',
             '& .MuiGrid-root': {
               display: 'flex'
             },
@@ -113,6 +110,20 @@ const containerThemeOptions: ThemeOptions = {
                   height: '24px'
                 }
               }
+            },
+            '&.search': {
+              paddingTop: '5rem',
+              '& .MuiPaper-root': {
+                '&.search': {
+                  alignItems: 'center',
+                  display: 'flex',
+                  marginBottom: '1rem',
+                  padding: '2px 4px',
+                  '& .MuiInputBase-input': {
+                    flex: 1
+                  }
+                }
+              }
             }
           },
           '&.loading': {
@@ -127,4 +138,4 @@ const containerThemeOptions: ThemeOptions = {
   }
 };
 
-export default containerThemeOptions;
+export default pageThemeOptions;

@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { act, render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
-import NotFoundPage, { getStaticProps } from 'pages/404';
+import SearchPage, { getStaticProps } from 'pages/search';
 import { RecipeSummaryFragment } from 'types/queries';
 
 import config from 'lib/config';
@@ -11,9 +11,9 @@ import * as api from 'lib/api';
 jest.mock('lib/config');
 jest.mock('lib/api');
 jest.mock('components/PageHead/PageTags/PageTags');
-jest.mock('layout/RecipeGridPage/RecipeGridPage');
+jest.mock('layout/SearchGridPage/SearchGridPage');
 
-describe('NotFoundPage in 404.tsx', () => {
+describe('Index in index.tsx', () => {
   afterEach(() => {
     jest.resetModules();
   });
@@ -23,7 +23,7 @@ describe('NotFoundPage in 404.tsx', () => {
   });
 
   describe('when there is content', () => {
-    it('it renders the 404 page', async () => {
+    it('it renders the index page', async () => {
       const apiSpy = jest.spyOn(api, 'getRecipeIndex');
       const recipeCollectionData = await api.getRecipeIndex();
 
@@ -41,7 +41,7 @@ describe('NotFoundPage in 404.tsx', () => {
       };
 
       const { asFragment, queryByTestId } = render(
-        <NotFoundPage
+        <SearchPage
           pageContent={recipeCollectionData as RecipeSummaryFragment[]}
           preview={false}
         />
@@ -66,12 +66,12 @@ describe('NotFoundPage in 404.tsx', () => {
   describe('when there is no page content', () => {
     it('it does not render the page', async () => {
       const { queryByTestId } = render(
-        <NotFoundPage preview={false} pageContent={[]} />
+        <SearchPage pageContent={[]} preview={false} />
       );
 
       // wait for dynamic component to load
       await act(async () =>
-        waitFor(() => expect(queryByTestId('RecipeGridPage')).toBeNull())
+        waitFor(() => expect(queryByTestId('RecipeGrid')).toBeNull())
       );
     });
   });
@@ -84,12 +84,12 @@ describe('NotFoundPage in 404.tsx', () => {
 
     it('it does not render the page', async () => {
       const { queryByTestId } = render(
-        <NotFoundPage pageContent={[]} preview={false} />
+        <SearchPage pageContent={[]} preview={false} />
       );
 
       // wait for dynamic component to load
       await act(async () =>
-        waitFor(() => expect(queryByTestId('RecipeGridPage')).toBeNull())
+        waitFor(() => expect(queryByTestId('RecipeGrid')).toBeNull())
       );
     });
   });
