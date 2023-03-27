@@ -67,7 +67,7 @@ The technology stack for this project is built using:
 ### System Architecture
 
 <p align="center">
-  <img src="docs/assets/architecture.png" alt="system architecture"/>
+  <img src="docs/assets/architecture.svg" alt="system architecture"/>
 </p>
 
 ### Monorepo Structure
