@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import {
   useHits,
   useSearchBox,
@@ -35,6 +33,7 @@ interface HitProps {
   sys: object;
 }
 
+/* istanbul ignore next */
 const queryHook: UseSearchBoxProps['queryHook'] = (query, search) => {
   search(query);
 };
@@ -45,17 +44,19 @@ const SearchResults = ({ title }: { title: string | null | undefined }) => {
   });
 
   const results = useHits();
+
   // TODO: infer props?
   const hits = results.hits as unknown as Array<HitProps>;
 
+  console.log('query:', query.length);
   if (!query)
     hits.sort((a, b) => (a.slug && b.slug && a.slug > b.slug ? 1 : -1));
 
   return (
     hits && (
       <>
-        <Typography variant="h1">{`${title} ${
-          query ? 'for ' : ''
+        <Typography variant="h1">{`${title}${
+          query.length > 0 ? ' for ' : ''
         }${query}`}</Typography>
         <Typography variant="subtitle1" component="h2">
           {hits && `${hits.length} Recipes`}

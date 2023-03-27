@@ -5,7 +5,7 @@ import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import SearchBox from 'components/Search/SearchBox/SearchBox';
+import SearchBox from './SearchBox';
 
 jest.mock('react-instantsearch-hooks-web', () => ({
   useSearchBox: jest.fn().mockReturnValue({
