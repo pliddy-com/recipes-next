@@ -68,6 +68,11 @@ exports[`NavBar when there is a properly structured nav property it renders a na
         </span>
         Categories
         <span
+          class="dropdown-icon"
+        >
+          ▼
+        </span>
+        <span
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
@@ -95,6 +100,11 @@ exports[`NavBar when there is a properly structured nav property it renders a na
         </span>
         Cuisine
         <span
+          class="dropdown-icon"
+        >
+          ▼
+        </span>
+        <span
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
@@ -121,6 +131,11 @@ exports[`NavBar when there is a properly structured nav property it renders a na
           </svg>
         </span>
         Tags
+        <span
+          class="dropdown-icon"
+        >
+          ▼
+        </span>
         <span
           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />

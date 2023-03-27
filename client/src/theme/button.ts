@@ -22,7 +22,10 @@ const buttonThemeOptions: ThemeOptions = {
           '&.menu-button': {
             marginLeft: '0.5rem',
             menuIcon: { ml: 'auto' },
-            color: colors.common.white
+            color: colors.common.white,
+            '& .dropdown-icon': {
+              marginLeft: '0.5rem'
+            }
           }
         }
       }
@@ -36,12 +39,12 @@ const buttonThemeOptions: ThemeOptions = {
 
             // fontSize: '1.125rem',
             // fontWeight: fontWeightBold,
-          },
-          '&.menu-button': {
-            marginLeft: '0.5rem',
-            menuIcon: { ml: 'auto' },
-            color: colors.common.white
           }
+          // '&.menu-button': {
+          //   marginLeft: '0.5rem',
+          //   menuIcon: { ml: 'auto' },
+          //   color: colors.common.white
+          // }
         }
       }
     }

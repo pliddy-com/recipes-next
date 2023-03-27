@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import NavMenu from './NavMenu';
+import NavMenuControl from './NavMenuControl';
 
 import { TaxonomyChildrenItem } from 'types/queries';
 
@@ -18,7 +18,7 @@ const TestIcon = () => <Icon />;
 const featuredLabel = 'Test Label';
 const featuredUrl = 'http://test.url';
 
-describe('NavMenu', () => {
+describe('NavMenuControl', () => {
   const root = 'category';
 
   describe('when there is a properly structured nav property', () => {
@@ -26,7 +26,7 @@ describe('NavMenu', () => {
       const nav = await api.getNavTaxonomy();
 
       const { asFragment, container } = render(
-        <NavMenu
+        <NavMenuControl
           ariaLabel="open test menu"
           label="Test"
           icon={<TestIcon />}
@@ -53,7 +53,7 @@ describe('NavMenu', () => {
 
     it('it does not render', () => {
       const { container } = render(
-        <NavMenu
+        <NavMenuControl
           ariaLabel="open test menu"
           label="Test"
           icon={<TestIcon />}
@@ -103,7 +103,7 @@ describe('NavMenu', () => {
 
     it('it does not render', () => {
       const { container } = render(
-        <NavMenu
+        <NavMenuControl
           ariaLabel="open test menu"
           label="Test"
           icon={<TestIcon />}

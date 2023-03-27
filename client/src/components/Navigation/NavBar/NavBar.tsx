@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import TagIcon from '@mui/icons-material/Tag';
 
 import LogoButton from 'components/Navigation/Buttons/LogoButton/LogoButton';
-import NavMenu from 'components/Navigation/NavMenu/NavMenu';
+import NavMenuControl from 'components/Navigation/NavMenu/NavMenuControl/NavMenuControl';
 
 import { TaxonomyChildrenItem } from 'types/queries';
 
@@ -38,7 +38,7 @@ const NavBar = ({ nav }: NavBarProps) => {
         <Toolbar className="menu">
           <LogoButton hideLabel={hideLabel} />
           {categories && (
-            <NavMenu
+            <NavMenuControl
               ariaLabel="open categories menu"
               label="Categories"
               icon={<MenuIcon />}
@@ -51,7 +51,7 @@ const NavBar = ({ nav }: NavBarProps) => {
             />
           )}
           {cuisine && (
-            <NavMenu
+            <NavMenuControl
               ariaLabel="open cuisine menu"
               label="Cuisine"
               icon={<LanguageIcon />}
@@ -62,7 +62,7 @@ const NavBar = ({ nav }: NavBarProps) => {
             />
           )}
           {tags && (
-            <NavMenu
+            <NavMenuControl
               ariaLabel="open tags menu"
               label="Tags"
               icon={<TagIcon />}

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NavMenu when there is a properly structured nav property it renders a nav menu hidden by default 1`] = `
+exports[`NavMenuControl when there is a properly structured nav property it renders a nav menu hidden by default 1`] = `
 <DocumentFragment>
   <button
     aria-label="open test menu"
@@ -18,6 +18,11 @@ exports[`NavMenu when there is a properly structured nav property it renders a n
       />
     </span>
     Test
+    <span
+      class="dropdown-icon"
+    >
+      ▼
+    </span>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />

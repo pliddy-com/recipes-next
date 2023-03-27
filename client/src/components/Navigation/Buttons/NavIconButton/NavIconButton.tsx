@@ -9,6 +9,7 @@ interface NavIconButtonProps {
   ariaLabel: string;
   className: string;
   hideLabel?: boolean;
+  isMenu?: boolean;
   href?: string;
   icon: ReactNode;
   label?: string;
@@ -18,6 +19,7 @@ interface NavIconButtonProps {
 const NavIconButton = ({
   ariaLabel,
   className,
+  isMenu = false,
   label,
   onClick,
   hideLabel = false,
@@ -37,6 +39,7 @@ const NavIconButton = ({
       startIcon={icon}
     >
       {label}
+      {isMenu && <span className="dropdown-icon">▼</span>}
     </Button>
   ) : (
     <IconButton

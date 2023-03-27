@@ -15,7 +15,7 @@ import NavIconButton from 'components/Navigation/Buttons/NavIconButton/NavIconBu
 import { TaxonomyChildrenItem } from 'types/queries';
 import ListSubheader from '@mui/material/ListSubheader';
 
-interface NavMenuType {
+interface NavMenuControlProps {
   ariaLabel: string;
   featuredLabel?: string;
   featuredUrl?: string;
@@ -26,7 +26,7 @@ interface NavMenuType {
   root: string;
 }
 
-const NavMenu = ({
+const NavMenuControl = ({
   ariaLabel,
   featuredLabel,
   featuredUrl,
@@ -35,7 +35,7 @@ const NavMenu = ({
   label,
   nav,
   root
-}: NavMenuType) => {
+}: NavMenuControlProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleDrawerToggle = () => setIsOpen(!isOpen);
@@ -46,14 +46,17 @@ const NavMenu = ({
   return (
     nav && (
       <>
+        {/* Menu Button */}
         <NavIconButton
           ariaLabel={ariaLabel}
           className="menu-button"
           hideLabel={false}
           icon={icon}
+          isMenu={true}
           label={label}
           onClick={onClick}
         />
+        {/* Menu List Drawer */}
         <Drawer
           anchor="right"
           ModalProps={{
@@ -109,4 +112,4 @@ const NavMenu = ({
   );
 };
 
-export default NavMenu;
+export default NavMenuControl;
