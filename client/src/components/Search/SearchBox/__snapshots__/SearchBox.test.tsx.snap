@@ -3,7 +3,6 @@
 exports[`SearchBox when there is properly formatted content it renders the SearchBox 1`] = `
 <DocumentFragment>
   <form
-    aria-label="search"
     class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 search css-9mq7az-MuiPaper-root"
     role="search"
   >
@@ -11,7 +10,6 @@ exports[`SearchBox when there is properly formatted content it renders the Searc
       class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
     >
       <div
-        aria-label="search recipes"
         class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-8j6b76-MuiInputBase-root-MuiOutlinedInput-root"
       >
         <div
@@ -36,9 +34,10 @@ exports[`SearchBox when there is properly formatted content it renders the Searc
         </div>
         <input
           aria-invalid="false"
+          aria-label="search"
           autocomplete="false"
           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input"
-          id=":r0:"
+          id="search"
           name="search"
           placeholder="Search recipes…"
           type="text"

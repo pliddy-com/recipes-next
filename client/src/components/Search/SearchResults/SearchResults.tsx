@@ -48,7 +48,6 @@ const SearchResults = ({ title }: { title: string | null | undefined }) => {
   // TODO: infer props?
   const hits = results.hits as unknown as Array<HitProps>;
 
-  console.log('query:', query.length);
   if (!query)
     hits.sort((a, b) => (a.slug && b.slug && a.slug > b.slug ? 1 : -1));
 

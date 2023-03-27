@@ -24,7 +24,6 @@ const SearchBox = () => {
 
   return (
     <Paper
-      aria-label="search"
       className="search"
       component="form"
       elevation={0}
@@ -37,14 +36,15 @@ const SearchBox = () => {
       <TextField
         autoComplete="false"
         fullWidth
+        inputProps={{ 'aria-label': 'search' }}
         InputProps={{
-          'aria-label': 'search recipes',
           startAdornment: (
             <InputAdornment position="start">
               <SearchIcon color="primary" />
             </InputAdornment>
           )
         }}
+        id="search"
         name="search"
         onChange={(e) => refine(e.currentTarget.value)}
         placeholder="Search recipes…"
