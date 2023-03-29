@@ -9,9 +9,10 @@ exports[`CategoryMenu when there is a properly structured category property it r
       class="MuiBox-root css-0"
     >
       <li
-        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding menuItem css-1rki8sg-MuiListItem-root"
+        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters menuItem css-o3dcea-MuiListItem-root-MuiButtonBase-root-MuiMenuItem-root"
         data-testid="category item"
         role="menuitem"
+        tabindex="-1"
       >
         <a
           aria-label="category-slug category"
@@ -20,7 +21,7 @@ exports[`CategoryMenu when there is a properly structured category property it r
           tabindex="0"
         >
           <div
-            class="MuiListItemText-root menuItem css-tlelie-MuiListItemText-root"
+            class="MuiListItemText-root css-tlelie-MuiListItemText-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
@@ -32,6 +33,9 @@ exports[`CategoryMenu when there is a properly structured category property it r
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
         <div
           class="MuiListItemSecondaryAction-root css-518kzi-MuiListItemSecondaryAction-root"
         >
@@ -74,8 +78,10 @@ exports[`CategoryMenu when there is a properly structured category property it r
               class="MuiList-root css-1mk9mw3-MuiList-root"
             >
               <li
-                class="MuiListItem-root MuiListItem-gutters MuiListItem-padding subMenuItem css-1p823my-MuiListItem-root"
+                class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters subMenuItem css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
                 data-testid="subcategory item"
+                role="menuitem"
+                tabindex="-1"
               >
                 <a
                   aria-label="tag-1 category"
@@ -84,7 +90,7 @@ exports[`CategoryMenu when there is a properly structured category property it r
                   tabindex="0"
                 >
                   <div
-                    class="MuiListItemText-root menuItem css-tlelie-MuiListItemText-root"
+                    class="MuiListItemText-root css-tlelie-MuiListItemText-root"
                   >
                     <span
                       class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
@@ -96,6 +102,9 @@ exports[`CategoryMenu when there is a properly structured category property it r
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
               </li>
             </div>
           </div>

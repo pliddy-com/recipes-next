@@ -3,17 +3,18 @@ import Link from 'next/link';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 
-import { ReactNode } from 'react';
+import { MouseEventHandler, ReactNode } from 'react';
 
 interface NavIconButtonProps {
   ariaLabel: string;
   className: string;
   hideLabel?: boolean;
+  id?: string;
   isMenu?: boolean;
   href?: string;
   icon: ReactNode;
   label?: string;
-  onClick?: VoidFunction;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 const NavIconButton = ({
@@ -24,13 +25,15 @@ const NavIconButton = ({
   onClick,
   hideLabel = false,
   href,
-  icon
+  icon,
+  id
 }: NavIconButtonProps) =>
   !hideLabel ? (
     <Button
       aria-label={ariaLabel}
       className={className}
       color="primary"
+      id={id}
       onClick={onClick}
       {...(href ? { href } : {})}
       {...(href ? { component: Link } : {})}

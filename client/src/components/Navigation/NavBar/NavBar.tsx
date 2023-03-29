@@ -1,18 +1,17 @@
 import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 import LanguageIcon from '@mui/icons-material/Language';
 import MenuIcon from '@mui/icons-material/Menu';
 import TagIcon from '@mui/icons-material/Tag';
 
 import LogoButton from 'components/Navigation/Buttons/LogoButton/LogoButton';
-import NavMenuControl from 'components/Navigation/NavMenu/NavMenuControl/NavMenuControl';
+import MobileNavControl from 'components/Navigation/MobileNavControl/MobileNavControl';
+import NavMenuControl from 'components/Navigation/NavMenuControl/NavMenuControl';
+import SearchButton from 'components/Navigation/Buttons/SearchButton/SearchButton';
 
 import { TaxonomyChildrenItem } from 'types/queries';
-
-import theme from 'theme';
-import SearchButton from 'components/Navigation/Buttons/SearchButton/SearchButton';
 
 export interface NavDataProps {
   categories: TaxonomyChildrenItem[];
@@ -25,60 +24,69 @@ export interface NavBarProps {
 }
 
 const NavBar = ({ nav }: NavBarProps) => {
-  // TODO: don't use hook, just use media query styles
-  const hideLabel = useMediaQuery(theme.breakpoints.down('md'));
-
   const { categories, cuisine, tags } = nav ?? {};
 
-  // THIS IS THE DESKTOP (NON-MOBILE) MENU BAR
-  // TODO: create an alternate version with a single menu and show by CSS media queries
-  return (
+  return nav ? (
     <>
       <AppBar component="nav" data-testid="navbar">
-        <Toolbar className="menu">
-          <LogoButton hideLabel={hideLabel} />
-          {categories && (
-            <NavMenuControl
-              ariaLabel="open categories menu"
-              label="Categories"
-              icon={<MenuIcon />}
-              data-testid="categories-menu"
-              featuredLabel="All Recipes"
-              featuredUrl="/"
-              id="categories"
-              nav={categories}
-              root="tag"
-            />
-          )}
-          {cuisine && (
-            <NavMenuControl
-              ariaLabel="open cuisine menu"
-              label="Cuisine"
-              icon={<LanguageIcon />}
-              data-testid="cuisine-menu"
-              id="cuisine"
-              nav={cuisine}
-              root="tag"
-            />
-          )}
-          {tags && (
-            <NavMenuControl
-              ariaLabel="open tags menu"
-              label="Tags"
-              icon={<TagIcon />}
-              data-testid="tags-menu"
-              featuredLabel="All Tags"
-              featuredUrl="/tag"
-              id="tags"
-              nav={tags}
-              root="tag"
-            />
-          )}
-          <SearchButton hideLabel={hideLabel} />
+        <Toolbar className="navbar">
+          <LogoButton />
+
+          {/* Mobile Navigation */}
+
+          <Box className="mobile-nav">
+            <MobileNavControl ariaLabel="open navigation menu" nav={nav} />
+          </Box>
+
+          {/* Desktop Navigation */}
+
+          <Box className="desktop-nav">
+            {categories && (
+              <NavMenuControl
+                ariaLabel="open categories menu"
+                label="Categories"
+                icon={<MenuIcon />}
+                data-testid="categories-menu"
+                featuredLabel="All Recipes"
+                featuredUrl="/"
+                id="categories"
+                nav={categories}
+                root="tag"
+              />
+            )}
+
+            {cuisine && (
+              <NavMenuControl
+                ariaLabel="open cuisine menu"
+                label="Cuisine"
+                icon={<LanguageIcon />}
+                data-testid="cuisine-menu"
+                id="cuisine"
+                nav={cuisine}
+                root="tag"
+              />
+            )}
+
+            {tags && (
+              <NavMenuControl
+                ariaLabel="open tags menu"
+                label="Tags"
+                icon={<TagIcon />}
+                data-testid="tags-menu"
+                featuredLabel="All Tags"
+                featuredUrl="/tag"
+                id="tags"
+                nav={tags}
+                root="tag"
+              />
+            )}
+
+            <SearchButton />
+          </Box>
         </Toolbar>
       </AppBar>
     </>
-  );
+  ) : null;
 };
 
 export default NavBar;

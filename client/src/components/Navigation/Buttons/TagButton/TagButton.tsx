@@ -9,7 +9,7 @@ interface TagButtonProps {
 
 const CuisineButton = ({ onClick, hideLabel }: TagButtonProps) => {
   const ariaLabel = 'open tags menu';
-  const className = 'menu';
+  const className = 'menu-button';
   const label = 'Tags';
 
   return (

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavMenuList when there is a properly structured nav property it renders a nav menu list 1`] = `
+<DocumentFragment>
+  <nav
+    aria-label="categories menu"
+    class="MuiList-root MuiList-padding MuiList-subheader menuList css-p64g7a-MuiList-root"
+    role="menu"
+    tabindex="-1"
+  >
+    <li
+      class="MuiListSubheader-root MuiListSubheader-gutters MuiListSubheader-sticky css-uob957-MuiListSubheader-root"
+    >
+      Categories
+    </li>
+    <li
+      class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters menuItem featured css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+      role="menuitem"
+      tabindex="0"
+    >
+      <a
+        class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+        href="/tags"
+        tabindex="0"
+      >
+        <div
+          class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        >
+          <span
+            class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          >
+            Categories
+          </span>
+        </div>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </a>
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+      />
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </li>
+  </nav>
+</DocumentFragment>
+`;

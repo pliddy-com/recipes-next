@@ -4,9 +4,10 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
 import { Maybe } from 'types/queries';
+import { MouseEventHandler } from 'react';
 
 interface CategoryListItemButtonProps {
-  onClick: VoidFunction;
+  onClick: MouseEventHandler;
   root: Maybe<string> | undefined;
   slug: Maybe<string> | undefined;
   title: Maybe<string> | undefined;
@@ -27,7 +28,7 @@ const CategoryListItemButton = ({
       href={`/${root}/${slug}`}
       onClick={onClick}
     >
-      <ListItemText primary={`${title} (${total})`} className="menuItem" />
+      <ListItemText primary={`${title} (${total})`} />
     </ListItemButton>
   ) : null;
 

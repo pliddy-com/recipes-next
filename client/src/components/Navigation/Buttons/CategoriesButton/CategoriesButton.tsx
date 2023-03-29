@@ -9,7 +9,7 @@ interface CategoriesButtonProps {
 
 const CategoriesButton = ({ onClick, hideLabel }: CategoriesButtonProps) => {
   const ariaLabel = 'open categories menu';
-  const className = 'menu';
+  const className = 'menu-button';
   const label = 'Categories';
 
   return (

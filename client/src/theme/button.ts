@@ -36,15 +36,7 @@ const buttonThemeOptions: ThemeOptions = {
           '&.logo': {
             marginRight: 'auto',
             marginLeft: '-4px'
-
-            // fontSize: '1.125rem',
-            // fontWeight: fontWeightBold,
           }
-          // '&.menu-button': {
-          //   marginLeft: '0.5rem',
-          //   menuIcon: { ml: 'auto' },
-          //   color: colors.common.white
-          // }
         }
       }
     }

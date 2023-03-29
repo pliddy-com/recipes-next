@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -25,7 +25,7 @@ describe('NavMenuControl', () => {
     it('it renders a nav menu hidden by default', async () => {
       const nav = await api.getNavTaxonomy();
 
-      const { asFragment, container } = render(
+      const { asFragment, queryByRole } = render(
         <NavMenuControl
           ariaLabel="open test menu"
           label="Test"
@@ -33,17 +33,34 @@ describe('NavMenuControl', () => {
           data-testid="test-menu"
           featuredLabel={featuredLabel}
           featuredUrl={featuredUrl}
-          id={'categories'}
+          id={'test'}
           nav={nav.categories as TaxonomyChildrenItem[]}
           root={root}
         />
       );
 
-      expect(container.getElementsByClassName('menu'));
+      const testButton = queryByRole('button', {
+        name: 'open test menu'
+      });
 
-      // assert that the component matches the existing snapshot
-      // test snapshot against component since container is rendered hidden
-      // and doesn't show up in initial container
+      // assert that callback is called on click & there was a change in the DOM
+      testButton && fireEvent.click(testButton);
+
+      const testMenu = queryByRole('menu', {
+        name: 'test menu'
+      });
+
+      waitFor(() => expect(testMenu).toBeVisible());
+
+      testMenu &&
+        fireEvent.keyDown(testMenu, {
+          key: 'Escape',
+          code: 'Escape',
+          charCode: 27
+        });
+
+      waitFor(() => expect(testMenu).not.toBeVisible());
+
       expect(asFragment()).toMatchSnapshot();
     });
   });
