@@ -87,6 +87,9 @@ const cardThemeOptions: ThemeOptions = {
                   marginBottom: '.25rem'
                 }
               }
+            },
+            '& .MuiCardContent-root': {
+              minHeight: '102px'
             }
           },
           '&.preview': {

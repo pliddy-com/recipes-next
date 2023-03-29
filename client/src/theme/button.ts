@@ -4,6 +4,11 @@ import { fontWeightBold, sansFontFamily } from './fontface';
 
 const buttonThemeOptions: ThemeOptions = {
   components: {
+    // MuiButtonBase: {
+    //   defaultProps: {
+    //     disableRipple: true
+    //   }
+    // },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -26,6 +31,9 @@ const buttonThemeOptions: ThemeOptions = {
             '& .dropdown-icon': {
               marginLeft: '0.5rem'
             }
+          },
+          '&.Mui-focusVisible': {
+            color: 'yellow'
           }
         }
       }

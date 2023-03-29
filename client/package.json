@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "analyze": "ANALYZE=true npm run build",
     "build": "next build",
     "postbuild": "npm run sitemap && npm run export",
     "sitemap": "next-sitemap",
@@ -53,6 +54,7 @@
     "@graphql-codegen/typescript": "2.8.7",
     "@graphql-codegen/typescript-operations": "2.5.12",
     "@graphql-typed-document-node/core": "3.1.1",
+    "@next/bundle-analyzer": "^13.2.4",
     "@testing-library/dom": "8.20.0",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",

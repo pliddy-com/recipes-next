@@ -1,5 +1,8 @@
 /* eslint @typescript-eslint/no-var-requires: "off" */
 // @ts-check
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+});
 
 const { NEXT_PUBLIC_CONTENTFUL_SPACE_ID } = process.env;
 
@@ -23,3 +26,7 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
+module.exports = withBundleAnalyzer({
+  ...nextConfig
+});

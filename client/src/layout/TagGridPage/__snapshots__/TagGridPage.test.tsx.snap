@@ -16,111 +16,109 @@ exports[`TagGridPage when there is missing slug information it does not sort the
     >
       1 Tags
     </h2>
-    <div>
-      <div
-        class="MuiBox-root css-0"
+    <div
+      class="MuiBox-root css-0"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
+        href="/tag/tag-1"
       >
-        <a
-          class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
-          href="/tag/tag-1"
+        Tag 1 Title 
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="ArrowRightIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Tag 1 Title 
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="ArrowRightIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="m10 17 5-5-5-5v10z"
-            />
-          </svg>
-        </a>
+          <path
+            d="m10 17 5-5-5-5v10z"
+          />
+        </svg>
+      </a>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
+      >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
-            <div
-              class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipe/title-1"
+              tabindex="0"
             >
-              <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-                href="/recipe/title-1"
-                tabindex="0"
+              <div
+                class="stack css-nen11g-MuiStack-root"
               >
                 <div
-                  class="stack css-nen11g-MuiStack-root"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
                   <div
-                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                   >
                     <div
-                      class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                     >
-                      <div
-                        class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                      <span
+                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                       >
-                        <span
-                          class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                        >
-                          Title 1
-                        </span>
-                      </div>
+                        Title 1
+                      </span>
                     </div>
                   </div>
                 </div>
-                <span
-                  class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-                />
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </div>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
           </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
-            <div
-              class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipe/null"
+              tabindex="0"
             >
-              <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-                href="/recipe/null"
-                tabindex="0"
+              <div
+                class="stack css-nen11g-MuiStack-root"
               >
                 <div
-                  class="stack css-nen11g-MuiStack-root"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
                   <div
-                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                   >
                     <div
-                      class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                     >
-                      <div
-                        class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                      <span
+                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                       >
-                        <span
-                          class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                        >
-                          Title 2
-                        </span>
-                      </div>
+                        Title 2
+                      </span>
                     </div>
                   </div>
                 </div>
-                <span
-                  class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-                />
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </div>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -145,218 +143,216 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
     >
       2 Tags
     </h2>
-    <div>
-      <div
-        class="MuiBox-root css-0"
+    <div
+      class="MuiBox-root css-0"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
+        href="/tag/tag-1"
       >
-        <a
-          class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
-          href="/tag/tag-1"
+        Tag 1 Title 
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="ArrowRightIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Tag 1 Title 
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="ArrowRightIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="m10 17 5-5-5-5v10z"
-            />
-          </svg>
-        </a>
+          <path
+            d="m10 17 5-5-5-5v10z"
+          />
+        </svg>
+      </a>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
+      >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
-            <div
-              class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipe/slug-1"
+              tabindex="0"
             >
-              <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-                href="/recipe/slug-1"
-                tabindex="0"
+              <div
+                class="stack css-nen11g-MuiStack-root"
               >
                 <div
-                  class="stack css-nen11g-MuiStack-root"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
                   <div
-                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                   >
                     <div
-                      class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                     >
-                      <div
-                        class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                      <span
+                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                       >
-                        <span
-                          class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                        >
-                          Title 2
-                        </span>
-                      </div>
+                        Title 2
+                      </span>
                     </div>
                   </div>
                 </div>
-                <span
-                  class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-                />
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </div>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
           </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
-            <div
-              class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipe/slug-2"
+              tabindex="0"
             >
-              <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-                href="/recipe/slug-2"
-                tabindex="0"
+              <div
+                class="stack css-nen11g-MuiStack-root"
               >
                 <div
-                  class="stack css-nen11g-MuiStack-root"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
                   <div
-                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                   >
                     <div
-                      class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                     >
-                      <div
-                        class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                      <span
+                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                       >
-                        <span
-                          class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                        >
-                          Title 1
-                        </span>
-                      </div>
+                        Title 1
+                      </span>
                     </div>
                   </div>
                 </div>
-                <span
-                  class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-                />
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </div>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
           </div>
         </div>
       </div>
-      <div
-        class="MuiBox-root css-0"
+    </div>
+    <div
+      class="MuiBox-root css-0"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
+        href="/tag/tag-2"
       >
-        <a
-          class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
-          href="/tag/tag-2"
+        Tag 2 Title 
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="ArrowRightIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Tag 2 Title 
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="ArrowRightIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="m10 17 5-5-5-5v10z"
-            />
-          </svg>
-        </a>
+          <path
+            d="m10 17 5-5-5-5v10z"
+          />
+        </svg>
+      </a>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
+      >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
-            <div
-              class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipe/slug-3"
+              tabindex="0"
             >
-              <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-                href="/recipe/slug-3"
-                tabindex="0"
+              <div
+                class="stack css-nen11g-MuiStack-root"
               >
                 <div
-                  class="stack css-nen11g-MuiStack-root"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
                   <div
-                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                   >
                     <div
-                      class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                     >
-                      <div
-                        class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                      <span
+                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                       >
-                        <span
-                          class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                        >
-                          Title 3
-                        </span>
-                      </div>
+                        Title 3
+                      </span>
                     </div>
                   </div>
                 </div>
-                <span
-                  class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-                />
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </div>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
           </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
-            <div
-              class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipe/slug-4"
+              tabindex="0"
             >
-              <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-                href="/recipe/slug-4"
-                tabindex="0"
+              <div
+                class="stack css-nen11g-MuiStack-root"
               >
                 <div
-                  class="stack css-nen11g-MuiStack-root"
+                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
                 >
                   <div
-                    class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                   >
                     <div
-                      class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                     >
-                      <div
-                        class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                      <span
+                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                       >
-                        <span
-                          class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                        >
-                          Title 5
-                        </span>
-                      </div>
+                        Title 5
+                      </span>
                     </div>
                   </div>
                 </div>
-                <span
-                  class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-                />
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </div>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
           </div>
         </div>
       </div>

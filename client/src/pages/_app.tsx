@@ -4,8 +4,8 @@ import type { NextPage } from 'next';
 import { AppProps } from 'next/app';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { InstantSearch, Configure } from 'react-instantsearch-hooks-web';
-import algoliasearch from 'algoliasearch/lite';
+// import { InstantSearch, Configure } from 'react-instantsearch-hooks-web';
+// import algoliasearch from 'algoliasearch/lite';
 
 import createEmotionCache from 'lib/createEmotionCache';
 import theme from 'theme';
@@ -17,10 +17,10 @@ export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 
-const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',
-  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY || ''
-);
+// const searchClient = algoliasearch(
+//   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',
+//   process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY || ''
+// );
 
 interface AppLayoutProps extends AppProps {
   emotionCache: EmotionCache;
@@ -41,15 +41,15 @@ const MyApp = (props: AppLayoutProps) => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <InstantSearch searchClient={searchClient} indexName="recipes_index">
-        <Configure hitsPerPage={100} />
-        <CacheProvider value={emotionCache}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            {getLayout(<Component {...pageProps} />)}
-          </ThemeProvider>
-        </CacheProvider>
-      </InstantSearch>
+      {/* <InstantSearch searchClient={searchClient} indexName="recipes_index">
+        <Configure hitsPerPage={100} /> */}
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          {getLayout(<Component {...pageProps} />)}
+        </ThemeProvider>
+      </CacheProvider>
+      {/* </InstantSearch> */}
     </>
   );
 };
