@@ -9,8 +9,6 @@ import CategoryMenu from './CategoryMenu';
 
 import { TaxonomyChildrenItem } from 'types/queries';
 
-// TODO: test conditional (render item for category or menu for subcategory)
-
 describe('CategoryMenu', () => {
   const callback = jest.fn();
 
@@ -94,10 +92,60 @@ describe('CategoryMenu', () => {
 
   describe('when there is an improperly structured category property', () => {
     it('it does not render', () => {
+      const category = [
+        {
+          __typename: 'Tag',
+          title: 'Tag A',
+          slug: 'tag-a',
+          linkedFrom: null
+        },
+        {
+          __typename: 'Tag',
+          title: 'Tag B',
+          slug: 'tag-b',
+          linkedFrom: {
+            recipeCollection: null
+          }
+        },
+        {
+          __typename: 'Tag',
+          title: 'Tag C',
+          slug: 'tag-c'
+        },
+        {
+          __typename: 'Taxonomy',
+          title: 'Tag D',
+          slug: 'tag-d',
+          linkedFrom: {
+            recipeCollection: null
+          }
+        }
+      ];
+
+      const { queryByRole } = render(
+        <CategoryMenu
+          category={category as unknown as TaxonomyChildrenItem}
+          onClick={callback}
+          root="category"
+        />
+      );
+
+      // assert that menu has not been rendered
+      const categoryLink = queryByRole('link');
+      expect(categoryLink).toBeNull();
+    });
+  });
+
+  describe('when there is an null category property', () => {
+    it('it does not render', () => {
       const category = null;
 
       const { queryByRole } = render(
-        <CategoryMenu category={category} onClick={callback} root="category" />
+        <CategoryMenu
+          category={category as unknown as TaxonomyChildrenItem}
+          onClick={callback}
+          root="category"
+        />
       );
 
       // assert that menu has not been rendered

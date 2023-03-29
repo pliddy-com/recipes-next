@@ -19,10 +19,13 @@ const buttonThemeOptions: ThemeOptions = {
             textTransform: 'capitalize',
             wordSpacing: '.0625rem'
           },
-          '&.menu': {
+          '&.menu-button': {
             marginLeft: '0.5rem',
             menuIcon: { ml: 'auto' },
-            color: colors.common.white
+            color: colors.common.white,
+            '& .dropdown-icon': {
+              marginLeft: '0.5rem'
+            }
           }
         }
       }
@@ -33,14 +36,6 @@ const buttonThemeOptions: ThemeOptions = {
           '&.logo': {
             marginRight: 'auto',
             marginLeft: '-4px'
-
-            // fontSize: '1.125rem',
-            // fontWeight: fontWeightBold,
-          },
-          '&.menu': {
-            marginLeft: '0.5rem',
-            menuIcon: { ml: 'auto' },
-            color: colors.common.white
           }
         }
       }

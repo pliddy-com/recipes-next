@@ -9,7 +9,7 @@ exports[`CategoryListItemButton when there is a correct payload it renders a lis
     tabindex="0"
   >
     <div
-      class="MuiListItemText-root menuItem css-tlelie-MuiListItemText-root"
+      class="MuiListItemText-root css-tlelie-MuiListItemText-root"
     >
       <span
         class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"

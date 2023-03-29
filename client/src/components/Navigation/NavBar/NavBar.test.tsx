@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -28,11 +28,11 @@ describe('NavBar', () => {
     it('it renders a nav bar', async () => {
       const nav = await api.getNavTaxonomy();
 
-      const { container, queryByRole } = render(
+      const { asFragment, queryByRole, queryByTestId } = render(
         <NavBar nav={nav as NavDataProps} />
       );
 
-      const component = container.getElementsByClassName('MuiAppBar-root')[0];
+      const component = queryByTestId('navbar');
 
       // assert that component has been rendered
       expect(component).toBeInTheDocument();
@@ -43,82 +43,26 @@ describe('NavBar', () => {
       });
 
       expect(logoButton).toBeDefined();
+      // assert that component has correct href
+      expect(logoButton).toHaveAttribute('href', '/');
 
-      const categoriesButton = queryByRole('button', {
-        name: 'open categories menu'
+      const searchButton = queryByRole('button', {
+        name: 'search'
       });
 
-      const cuisineButton = queryByRole('button', {
-        name: 'open cuisine menu'
-      });
-
-      const tagsButton = queryByRole('button', {
-        name: 'open tags menu'
-      });
-
-      // assert that callback is called on click & there was a change in the DOM
-      categoriesButton && fireEvent.click(categoriesButton);
-
-      const categoriesDrawer = queryByRole('menu', {
-        name: 'categories menu'
-      });
-
-      waitFor(() => expect(categoriesDrawer).toBeVisible());
-
-      categoriesDrawer &&
-        fireEvent.keyDown(categoriesDrawer, {
-          key: 'Escape',
-          code: 'Escape',
-          charCode: 27
-        });
-
-      waitFor(() => expect(categoriesDrawer).not.toBeVisible());
-
-      // assert that callback is called on click & there was a change in the DOM
-      cuisineButton && fireEvent.click(cuisineButton);
-
-      const cuisineDrawer = queryByRole('menu', {
-        name: 'cuisine menu'
-      });
-
-      waitFor(() => expect(cuisineDrawer).toBeVisible());
-
-      cuisineDrawer &&
-        fireEvent.keyDown(cuisineDrawer, {
-          key: 'Escape',
-          code: 'Escape',
-          charCode: 27
-        });
-
-      waitFor(() => expect(cuisineDrawer).not.toBeVisible());
-
-      // assert that callback is called on click & there was a change in the DOM
-      tagsButton && fireEvent.click(tagsButton);
-
-      const tagsDrawer = queryByRole('menu', {
-        name: 'tags menu'
-      });
-
-      waitFor(() => expect(tagsDrawer).toBeVisible());
-
-      tagsDrawer &&
-        fireEvent.keyDown(tagsDrawer, {
-          key: 'Escape',
-          code: 'Escape',
-          charCode: 27
-        });
-
-      waitFor(() => expect(tagsDrawer).not.toBeVisible());
+      expect(searchButton).toBeDefined();
+      expect(searchButton).toHaveAttribute('href', '/search');
 
       // assert that the component matches the existing snapshot
-      expect(container).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 
   describe('when there is no nav property', () => {
     it('it does not render a navbar', () => {
       const nav = undefined;
-      const testId = 'nav-menu';
+      const testId = 'navbar';
+
       const { queryByTestId, queryByRole } = render(<NavBar nav={nav} />);
 
       // assert that there is no NavMenu

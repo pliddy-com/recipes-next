@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { MouseEventHandler, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import MenuItem from '@mui/material/MenuItem';
 
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -15,7 +16,7 @@ import { Maybe, Tag, TaxonomyChildrenItem } from 'types/queries';
 
 interface SubcategoryMenuProps {
   category?: Maybe<TaxonomyChildrenItem>;
-  onClick: VoidFunction;
+  onClick: MouseEventHandler;
   root: string;
 }
 
@@ -41,7 +42,8 @@ const SubcategoryMenu = ({ category, onClick, root }: SubcategoryMenuProps) => {
 
   return slug && title && categoryChildren ? (
     <Box>
-      <ListItem
+      <MenuItem
+        component={ListItem}
         data-testid="category item"
         className="menuItem"
         role="menuitem"
@@ -63,7 +65,7 @@ const SubcategoryMenu = ({ category, onClick, root }: SubcategoryMenuProps) => {
           total={total}
           root={root}
         />
-      </ListItem>
+      </MenuItem>
       <Collapse in={open} timeout="auto" data-testid={`${title} menu`}>
         {categoryChildren && (
           <List component="div" disablePadding>
@@ -75,7 +77,7 @@ const SubcategoryMenu = ({ category, onClick, root }: SubcategoryMenuProps) => {
               const { total } = recipeCollection ?? {};
 
               return child && slug && title && total ? (
-                <ListItem
+                <MenuItem
                   className="subMenuItem"
                   data-testid="subcategory item"
                   key={slug}
@@ -87,7 +89,7 @@ const SubcategoryMenu = ({ category, onClick, root }: SubcategoryMenuProps) => {
                     total={total}
                     root={root}
                   />
-                </ListItem>
+                </MenuItem>
               ) : null;
             })}
           </List>

@@ -9,7 +9,7 @@ interface CuisineButtonProps {
 
 const CuisineButton = ({ onClick, hideLabel }: CuisineButtonProps) => {
   const ariaLabel = 'open cuisine menu';
-  const className = 'menu';
+  const className = 'menu-button';
   const label = 'Cuisine';
 
   return (
