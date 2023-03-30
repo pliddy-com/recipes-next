@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
+import preloadAll from 'jest-next-dynamic';
 
 import RecipeGridPage from './RecipeGridPage';
 import { RecipeDefaultFragment } from 'types/queries';
@@ -9,6 +10,14 @@ import * as api from 'lib/api';
 jest.mock('lib/api');
 
 describe('RecipeGridPage', () => {
+  afterEach(() => {
+    jest.resetModules();
+  });
+
+  beforeAll(async () => {
+    await preloadAll();
+  });
+
   describe('when there is page content', () => {
     it('it renders the RecipeGridPage', async () => {
       // TODO: derive type
@@ -26,30 +35,33 @@ describe('RecipeGridPage', () => {
       );
 
       // assert that content is rendered
-      expect(queryByTestId('page')).toBeInTheDocument();
+      await act(async () =>
+        waitFor(() => expect(queryByTestId('page')).toBeInTheDocument())
+      );
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
     });
-
-    // it('it lazy loads the page when the user scrolls', () => {});
   });
 
   describe('when there is no pageContent', () => {
-    it('it does not render the RecipeGridPage', () => {
+    it('it does not render the RecipeGridPage', async () => {
       const title = 'Title';
       const recipes = [] as RecipeDefaultFragment[];
 
       render(<RecipeGridPage title={title} recipes={recipes} />);
 
       // test if card compoent is not rendered
-      const card = document.querySelector('.MuiCard-root');
-      expect(card).toBeNull();
+      await act(async () =>
+        waitFor(() =>
+          expect(document.querySelector('.MuiCard-root')).toBeNull()
+        )
+      );
     });
   });
 
   describe('when there is missing slug information', () => {
-    it('it does not sort the content', () => {
+    it('it does not sort the content', async () => {
       const title = 'Title';
 
       const recipes: RecipeDefaultFragment[] = [
@@ -107,7 +119,10 @@ describe('RecipeGridPage', () => {
       const { asFragment } = render(
         <RecipeGridPage title={title} recipes={recipes} />
       );
-      expect(asFragment()).toMatchSnapshot();
+
+      await act(async () =>
+        waitFor(() => expect(asFragment()).toMatchSnapshot())
+      );
     });
   });
 });

@@ -1,5 +1,6 @@
 /* istanbul ignore file */
-import * as React from 'react';
+import { Children } from 'react';
+
 import Document, {
   DocumentContext,
   DocumentInitialProps,
@@ -8,13 +9,12 @@ import Document, {
   Main,
   NextScript
 } from 'next/document';
+
 import createEmotionCache from 'lib/createEmotionCache';
 import createEmotionServer from '@emotion/server/create-instance';
 
 import FaviconTags from 'components/PageHead/FaviconTags/FaviconTags';
 import FontPreloadTags from 'components/PageHead/FontPreloadTags/FontPreloadTags';
-
-// TODO: test render of main against snapshot for head content
 
 export default class MainDocument extends Document {
   static getInitialProps = (
@@ -71,9 +71,6 @@ MainDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
-    styles: [
-      ...React.Children.toArray(initialProps.styles),
-      ...emotionStyleTags
-    ]
+    styles: [...Children.toArray(initialProps.styles), ...emotionStyleTags]
   };
 };

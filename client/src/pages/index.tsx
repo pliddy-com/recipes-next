@@ -3,12 +3,13 @@ import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
 
 import Layout from 'layout/Layout/Layout';
+
 import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
+import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/RecipeListSchema';
 
 import { getRecipeIndex } from 'lib/api';
 import config from 'lib/config';
-import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/RecipeListSchema';
 
 const RecipeGridPage = dynamic(
   () =>

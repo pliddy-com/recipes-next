@@ -87,38 +87,39 @@ const cardThemeOptions: ThemeOptions = {
                   marginBottom: '.25rem'
                 }
               }
+            },
+            '& .MuiCardContent-root': {
+              minHeight: '102px'
             }
           },
           '&.preview': {
             '& .MuiCardActionArea-root': {
-              '& .stack': {
-                ...(breakpoints &&
-                  breakpoints.only && {
-                    [breakpoints.only('xs')]: {
-                      flexDirection: 'column'
-                    }
-                  }),
-                ...(breakpoints &&
-                  breakpoints.only && {
-                    [breakpoints.only('sm')]: {
-                      flexDirection: 'row'
-                    }
-                  }),
-                ...(breakpoints &&
-                  breakpoints.only && {
-                    [breakpoints.only('md')]: {
-                      flexDirection: 'column'
-                    }
-                  }),
-                ...(breakpoints &&
-                  breakpoints.up && {
-                    [breakpoints.up('lg')]: {
-                      flexDirection: 'column'
-                    }
-                  }),
-                flexDirection: 'column',
-                alignItems: 'stretch'
-              }
+              ...(breakpoints &&
+                breakpoints.only && {
+                  [breakpoints.only('xs')]: {
+                    flexDirection: 'column'
+                  }
+                }),
+              ...(breakpoints &&
+                breakpoints.only && {
+                  [breakpoints.only('sm')]: {
+                    flexDirection: 'row'
+                  }
+                }),
+              ...(breakpoints &&
+                breakpoints.only && {
+                  [breakpoints.only('md')]: {
+                    flexDirection: 'column'
+                  }
+                }),
+              ...(breakpoints &&
+                breakpoints.up && {
+                  [breakpoints.up('lg')]: {
+                    flexDirection: 'column'
+                  }
+                }),
+              flexDirection: 'column',
+              alignItems: 'stretch'
             },
             '& .MuiCardHeader-root': {
               padding: '0.5rem 0'

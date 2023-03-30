@@ -36,6 +36,23 @@ const baseTheme = createTheme({
       main: colors.error.main
     }
   },
+  // transitions: {
+  //   duration: {
+  //     shortest: 100,
+  //     shorter: 125,
+  //     short: 150,
+  //     // most basic recommended timing
+  //     standard: 200,
+  //     // this is to be used in complex animations
+  //     complex: 300,
+  //     // recommended when something is entering screen
+  //     enteringScreen: 200,
+  //     // recommended when something is leaving screen
+  //     leavingScreen: 150
+  //   },
+  //   // So we have `transition: none;` everywhere
+  //   create: () => 'none'
+  // },
   typography: {
     fontFamily: serifFontFamily,
     fontSize: 16,

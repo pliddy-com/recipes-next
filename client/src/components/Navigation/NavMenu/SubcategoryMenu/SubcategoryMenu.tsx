@@ -1,6 +1,5 @@
 import { MouseEventHandler, useState } from 'react';
 
-import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
@@ -41,7 +40,7 @@ const SubcategoryMenu = ({ category, onClick, root }: SubcategoryMenuProps) => {
   };
 
   return slug && title && categoryChildren ? (
-    <Box>
+    <>
       <MenuItem
         component={ListItem}
         data-testid="category item"
@@ -95,7 +94,7 @@ const SubcategoryMenu = ({ category, onClick, root }: SubcategoryMenuProps) => {
           </List>
         )}
       </Collapse>
-    </Box>
+    </>
   ) : null;
 };
 

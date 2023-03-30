@@ -1,9 +1,9 @@
-import Box from '@mui/material/Box';
+import { MouseEventHandler } from 'react';
+
 import MenuItem from '@mui/material/MenuItem';
 
 import CategoryListItemButton from 'components/Navigation/NavMenu/CategoryListItemButton/CategoryListItemButton';
 import SubcategoryMenu from 'components/Navigation/NavMenu/SubcategoryMenu/SubcategoryMenu';
-import { MouseEventHandler } from 'react';
 
 import { Maybe, TaxonomyChildrenItem } from 'types/queries';
 
@@ -40,7 +40,7 @@ const CategoryMenu = ({ category, onClick, root }: CategoryMenuProps) => {
   const numRecipes = recipeCollection?.total;
 
   return category ? (
-    <Box>
+    <>
       {categoryChildrenCollection ? (
         <SubcategoryMenu category={category} onClick={onClick} root={root} />
       ) : (
@@ -54,7 +54,7 @@ const CategoryMenu = ({ category, onClick, root }: CategoryMenuProps) => {
           />
         </MenuItem>
       )}
-    </Box>
+    </>
   ) : null;
 };
 

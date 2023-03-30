@@ -95,8 +95,13 @@ const menuThemeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           '&.menu-drawer': {
-            '&.menuList': {
-              padding: 0
+            '& .menuList': {
+              padding: 0,
+              '& .menuItem': {
+                '&.featured': {
+                  maxHeight: `calc(${theme.mixins.toolbar.minHeight})`
+                }
+              }
             },
             '& .MuiListSubheader-root': {
               backgroundColor: colors.primary.main,
