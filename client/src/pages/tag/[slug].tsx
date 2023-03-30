@@ -9,13 +9,14 @@ import {
 import dynamic from 'next/dynamic';
 
 import Layout from 'layout/Layout/Layout';
+
+import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/RecipeListSchema';
 import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
 
 import { getTagSlugs, getRecipeList } from 'lib/api';
 import config from 'lib/config';
 import { hasValue } from 'lib/utils';
-import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/RecipeListSchema';
 
 const RecipeGridPage = dynamic(
   () =>

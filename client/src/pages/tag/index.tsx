@@ -3,12 +3,14 @@ import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
 
 import Layout from 'layout/Layout/Layout';
+
 import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
+import TagListSchema from 'components/PageHead/Schema/TagListSchema/TagListSchema';
 
 import { getTagIndex } from 'lib/api';
 import config from 'lib/config';
-import TagListSchema from 'components/PageHead/Schema/TagListSchema/TagListSchema';
+
 import { ListPageItemFragment } from 'types/queries';
 
 const TagGridPage = dynamic(

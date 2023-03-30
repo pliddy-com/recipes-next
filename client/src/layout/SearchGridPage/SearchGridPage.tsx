@@ -6,7 +6,6 @@ import SearchBox from 'components/Search/SearchBox/SearchBox';
 interface SearchGridPageProps {
   title?: string | null;
 }
-
 const SearchGridPage = ({ title }: SearchGridPageProps) => {
   return (
     <Container

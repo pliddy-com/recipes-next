@@ -6,6 +6,7 @@
     "dev": "npm run typegen:local -w client && npm run dev -w client",
     "deploy": "npm run deploy -workspaces",
     "deploy:shared": "npm run deploy:shared -w cdk",
+    "invalidate": "npm run invalidate -w client",
     "lint": "npm run lint --workspaces",
     "lint:fix": "npm run lint:fix --workspaces",
     "prepare": "husky install",
