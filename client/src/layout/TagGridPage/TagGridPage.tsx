@@ -1,6 +1,3 @@
-// import { useEffect, useState } from 'react';
-// import InfiniteScroll from 'react-infinite-scroller';
-
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -9,7 +6,6 @@ import Typography from '@mui/material/Typography';
 
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
-// import Loading from 'components/Loading/Loading';
 import PreviewCard from 'components/PreviewCard/PreviewCard';
 
 import { ListPageItemFragment } from 'types/queries';
@@ -19,21 +15,6 @@ interface TagGridPageProps {
 }
 
 const TagGridPage = ({ tags }: TagGridPageProps) => {
-  // const [data, setData] = useState<(ListPageItemFragment | null)[]>([]);
-
-  // const numPreload = 3;
-  // const scrollThreshold = 900;
-
-  // useEffect(() => {
-  //   if (tags) {
-  //     const subset = tags.slice(0, numPreload);
-  //     setData(subset);
-  //   }
-  // }, [tags]);
-
-  /* istanbul ignore next */
-  // const loadNext = () => setData(tags.slice(0, data.length + numPreload));
-
   return tags && tags.length > 0 ? (
     <Container className="page tagGrid" data-testid="page" maxWidth="xl">
       <Typography variant="h1">Tag Collections</Typography>
@@ -41,14 +22,6 @@ const TagGridPage = ({ tags }: TagGridPageProps) => {
         {tags && `${tags.length} Tags`}
       </Typography>
 
-      {/* <InfiniteScroll
-        hasMore={data.length < tags.length}
-        initialLoad={true}
-        loader={<Loading key={`loading-${data.length}`} />}
-        loadMore={loadNext}
-        pageStart={0}
-        threshold={scrollThreshold}
-      > */}
       {tags.map((tag) => {
         const { slug, title, linkedFrom } = tag ?? {};
 
@@ -78,7 +51,6 @@ const TagGridPage = ({ tags }: TagGridPageProps) => {
           </Box>
         ) : null;
       })}
-      {/* </InfiniteScroll> */}
     </Container>
   ) : null;
 };

@@ -1,11 +1,7 @@
-// import { useEffect, useState } from 'react';
-// import InfiniteScroll from 'react-infinite-scroller';
-
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-// import Loading from 'components/Loading/Loading';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 
 import { RecipeDefaultFragment } from 'types/queries';
@@ -17,35 +13,12 @@ interface RecipeGridPageProps {
 }
 
 const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
-  // const [data, setData] = useState<(RecipeDefaultFragment | null)[]>([]);
-
-  // const numPreload = 6;
-  // const scrollThreshold = 900;
-
-  // useEffect(() => {
-  //   if (recipes) {
-  //     const subset = recipes.slice(0, numPreload);
-  //     setData(subset);
-  //   }
-  // }, [recipes]);
-
-  /* istanbul ignore next */
-  // const loadNext = () => setData(recipes.slice(0, data.length + numPreload));
-
   return recipes && recipes.length > 0 ? (
     <Container className="page recipegrid" data-testid="page" maxWidth="xl">
       <Typography variant="h1">{title}</Typography>
       <Typography variant="subtitle1" component="h2">
         {recipes && `${recipes.length} Recipes`}
       </Typography>
-      {/* <InfiniteScroll
-        hasMore={data.length < recipes.length}
-        initialLoad={true}
-        loader={<Loading key={`loading-${data.length}`} />}
-        loadMore={loadNext}
-        pageStart={0}
-        threshold={scrollThreshold}
-      > */}
       <Grid container spacing={2}>
         {recipes &&
           recipes.map((recipe, index) => (
@@ -54,7 +27,6 @@ const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
             </Grid>
           ))}
       </Grid>
-      {/* </InfiniteScroll> */}
     </Container>
   ) : null;
 };
