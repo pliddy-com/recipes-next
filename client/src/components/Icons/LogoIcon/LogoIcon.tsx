@@ -1,11 +1,9 @@
-import { FC } from 'react';
-
 import Box from '@mui/material/Box';
-import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
+import SvgIcon from '@mui/material/SvgIcon';
 
 import colors from 'theme/colors';
 
-const LogoIcon: FC<SvgIconProps> = () => (
+const LogoIcon = () => (
   <Box role="graphics-symbol" data-testid="logo" aria-label="logo">
     <SvgIcon>
       <path

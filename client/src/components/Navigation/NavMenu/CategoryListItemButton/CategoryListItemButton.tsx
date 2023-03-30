@@ -1,10 +1,11 @@
+import { MouseEventHandler } from 'react';
+
 import Link from 'next/link';
 
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
 import { Maybe } from 'types/queries';
-import { MouseEventHandler } from 'react';
 
 interface CategoryListItemButtonProps {
   onClick: MouseEventHandler;

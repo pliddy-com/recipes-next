@@ -1,5 +1,6 @@
 /* istanbul ignore file */
-import * as React from 'react';
+import { Children } from 'react';
+
 import Document, {
   DocumentContext,
   DocumentInitialProps,
@@ -70,9 +71,6 @@ MainDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
-    styles: [
-      ...React.Children.toArray(initialProps.styles),
-      ...emotionStyleTags
-    ]
+    styles: [...Children.toArray(initialProps.styles), ...emotionStyleTags]
   };
 };

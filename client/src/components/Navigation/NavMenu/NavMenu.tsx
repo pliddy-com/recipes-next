@@ -1,8 +1,9 @@
-import Menu from '@mui/material/Menu';
 import { MouseEventHandler } from 'react';
 
+import Menu from '@mui/material/Menu';
+
 import { TaxonomyChildrenItem } from 'types/queries';
-import NavMenuList from '../NavMenuList/NavMenuList';
+import NavMenuList from 'components/Navigation//NavMenuList/NavMenuList';
 
 export interface NavMenuProps {
   anchorEl: null | HTMLElement;

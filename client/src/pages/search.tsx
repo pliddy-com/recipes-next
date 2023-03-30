@@ -2,6 +2,9 @@ import { ReactElement, Suspense } from 'react';
 import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
 
+import algoliasearch from 'algoliasearch/lite';
+import { InstantSearch, Configure } from 'react-instantsearch-hooks-web';
+
 import Layout from 'layout/Layout/Layout';
 import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
@@ -9,9 +12,6 @@ import PageHead from 'components/PageHead/PageTags/PageTags';
 import { getRecipeIndex } from 'lib/api';
 
 import config from 'lib/config';
-
-import { InstantSearch, Configure } from 'react-instantsearch-hooks-web';
-import algoliasearch from 'algoliasearch/lite';
 
 const SearchGridPage = dynamic(
   () =>

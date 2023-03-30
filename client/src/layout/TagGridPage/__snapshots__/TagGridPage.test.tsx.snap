@@ -51,23 +51,19 @@ exports[`TagGridPage when there is missing slug information it does not sort the
               tabindex="0"
             >
               <div
-                class="stack css-nen11g-MuiStack-root"
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
               >
                 <div
-                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                 >
                   <div
-                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                   >
-                    <div
-                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      <span
-                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                      >
-                        Title 1
-                      </span>
-                    </div>
+                      Title 1
+                    </span>
                   </div>
                 </div>
               </div>
@@ -92,23 +88,19 @@ exports[`TagGridPage when there is missing slug information it does not sort the
               tabindex="0"
             >
               <div
-                class="stack css-nen11g-MuiStack-root"
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
               >
                 <div
-                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                 >
                   <div
-                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                   >
-                    <div
-                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      <span
-                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                      >
-                        Title 2
-                      </span>
-                    </div>
+                      Title 2
+                    </span>
                   </div>
                 </div>
               </div>
@@ -178,23 +170,19 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
               tabindex="0"
             >
               <div
-                class="stack css-nen11g-MuiStack-root"
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
               >
                 <div
-                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                 >
                   <div
-                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                   >
-                    <div
-                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      <span
-                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                      >
-                        Title 2
-                      </span>
-                    </div>
+                      Title 2
+                    </span>
                   </div>
                 </div>
               </div>
@@ -219,23 +207,19 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
               tabindex="0"
             >
               <div
-                class="stack css-nen11g-MuiStack-root"
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
               >
                 <div
-                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                 >
                   <div
-                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                   >
-                    <div
-                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      <span
-                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                      >
-                        Title 1
-                      </span>
-                    </div>
+                      Title 1
+                    </span>
                   </div>
                 </div>
               </div>
@@ -285,23 +269,19 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
               tabindex="0"
             >
               <div
-                class="stack css-nen11g-MuiStack-root"
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
               >
                 <div
-                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                 >
                   <div
-                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                   >
-                    <div
-                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      <span
-                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                      >
-                        Title 3
-                      </span>
-                    </div>
+                      Title 3
+                    </span>
                   </div>
                 </div>
               </div>
@@ -326,23 +306,19 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
               tabindex="0"
             >
               <div
-                class="stack css-nen11g-MuiStack-root"
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
               >
                 <div
-                  class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                 >
                   <div
-                    class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                   >
-                    <div
-                      class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      <span
-                        class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                      >
-                        Title 5
-                      </span>
-                    </div>
+                      Title 5
+                    </span>
                   </div>
                 </div>
               </div>

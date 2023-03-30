@@ -11,6 +11,7 @@
     "lint:fix": "npm run lint:fix --workspaces",
     "prepare": "husky install",
     "remove": "npm run destroy -w cdk && npm run remove -w client",
+    "start": "npm run start -w client",
     "test": "npm run test --workspaces",
     "test:ci": "npm run test:ci --workspaces",
     "test:dev": "npm run test:dev --workspaces",

@@ -1,3 +1,7 @@
+import { Suspense } from 'react';
+
+import dynamic from 'next/dynamic';
+
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -6,9 +10,17 @@ import Typography from '@mui/material/Typography';
 
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
-import PreviewCard from 'components/PreviewCard/PreviewCard';
+import Loading from 'components/Loading/Loading';
 
 import { ListPageItemFragment } from 'types/queries';
+
+const PreviewCard = dynamic(
+  () =>
+    import(
+      /* webpackChunkName: 'PreviewCard' */ 'components/PreviewCard/PreviewCard'
+    ),
+  { suspense: true }
+);
 
 interface TagGridPageProps {
   tags: (ListPageItemFragment | null)[];
@@ -43,7 +55,9 @@ const TagGridPage = ({ tags }: TagGridPageProps) => {
                 items.map((recipe, index) => (
                   <Grid item lg={3} md={6} sm={12} xs={12} key={recipe?.slug}>
                     {recipe && (
-                      <PreviewCard recipe={recipe} preloadImg={index < 2} />
+                      <Suspense fallback={<Loading />}>
+                        <PreviewCard recipe={recipe} preloadImg={index < 2} />
+                      </Suspense>
                     )}
                   </Grid>
                 ))}

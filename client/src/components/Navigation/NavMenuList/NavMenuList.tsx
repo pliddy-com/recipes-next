@@ -5,13 +5,13 @@ import Link from 'next/link';
 import Divider from '@mui/material/Divider';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import ListSubheader from '@mui/material/ListSubheader';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 
 import CategoryMenu from 'components/Navigation/NavMenu/CategoryMenu/CategoryMenu';
 
 import { TaxonomyChildrenItem } from 'types/queries';
-import ListSubheader from '@mui/material/ListSubheader';
 
 export interface NavMenuListProps {
   className: string;

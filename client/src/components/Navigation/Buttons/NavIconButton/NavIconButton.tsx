@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 
-import { MouseEventHandler, ReactNode } from 'react';
+import { MouseEventHandler } from 'react';
 
 interface NavIconButtonProps {
   ariaLabel: string;
@@ -12,7 +12,7 @@ interface NavIconButtonProps {
   id?: string;
   isMenu?: boolean;
   href?: string;
-  icon: ReactNode;
+  icon: JSX.Element;
   label?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
