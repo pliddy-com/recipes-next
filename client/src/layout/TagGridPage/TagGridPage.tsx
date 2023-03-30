@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 // import InfiniteScroll from 'react-infinite-scroller';
 
 import Box from '@mui/material/Box';
@@ -19,22 +19,22 @@ interface TagGridPageProps {
 }
 
 const TagGridPage = ({ tags }: TagGridPageProps) => {
-  const [data, setData] = useState<(ListPageItemFragment | null)[]>([]);
+  // const [data, setData] = useState<(ListPageItemFragment | null)[]>([]);
 
-  const numPreload = 3;
+  // const numPreload = 3;
   // const scrollThreshold = 900;
 
-  useEffect(() => {
-    if (tags) {
-      const subset = tags.slice(0, numPreload);
-      setData(subset);
-    }
-  }, [tags]);
+  // useEffect(() => {
+  //   if (tags) {
+  //     const subset = tags.slice(0, numPreload);
+  //     setData(subset);
+  //   }
+  // }, [tags]);
 
   /* istanbul ignore next */
   // const loadNext = () => setData(tags.slice(0, data.length + numPreload));
 
-  return data && data.length > 0 ? (
+  return tags && tags.length > 0 ? (
     <Container className="page tagGrid" data-testid="page" maxWidth="xl">
       <Typography variant="h1">Tag Collections</Typography>
       <Typography variant="subtitle1" component="h2">
@@ -49,7 +49,7 @@ const TagGridPage = ({ tags }: TagGridPageProps) => {
         pageStart={0}
         threshold={scrollThreshold}
       > */}
-      {data.map((tag) => {
+      {tags.map((tag) => {
         const { slug, title, linkedFrom } = tag ?? {};
 
         const { recipeCollection } = linkedFrom ?? {};
