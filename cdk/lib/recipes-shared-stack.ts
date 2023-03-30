@@ -116,10 +116,6 @@ export class RecipesSharedStack extends Stack {
         responseHeadersPolicyName: `ResponseHeadersPolicy${resourceLabel}`,
         removeHeaders: ['server'],
         securityHeadersBehavior: {
-          contentSecurityPolicy: {
-            contentSecurityPolicy: 'default-src https:;',
-            override: true
-          },
           contentTypeOptions: { override: true },
           frameOptions: {
             frameOption: HeadersFrameOption.DENY,
