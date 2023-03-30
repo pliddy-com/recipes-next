@@ -96,7 +96,7 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
         <NavMenuList
           className="menuList"
           featuredLabel="All Tags"
-          featuredUrl="/tags"
+          featuredUrl="/tag"
           id="tags"
           label="Tags"
           nav={nav.tags}
