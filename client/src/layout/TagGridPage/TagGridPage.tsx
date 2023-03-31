@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 
 import dynamic from 'next/dynamic';
+// import { useRouter } from 'next/router';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -27,6 +28,9 @@ interface TagGridPageProps {
 }
 
 const TagGridPage = ({ tags }: TagGridPageProps) => {
+  // const { query } = useRouter();
+  // const [scrollPage, setScrollPage] = useState<string | string[] | undefined>();
+
   return tags && tags.length > 0 ? (
     <Container className="page tagGrid" data-testid="page" maxWidth="xl">
       <Typography variant="h1">Tag Collections</Typography>
