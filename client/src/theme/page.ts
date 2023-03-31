@@ -21,6 +21,7 @@ const pageThemeOptions: ThemeOptions = {
               display: 'flex'
             },
             '&.tagGrid': {
+              overflow: 'auto',
               '& .MuiTypography-h2': {
                 '&.MuiLink-root': {
                   border: 'none',
