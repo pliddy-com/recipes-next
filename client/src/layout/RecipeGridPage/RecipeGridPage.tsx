@@ -29,8 +29,10 @@ const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
 
   const numPages = pagedResults.length;
 
-  const [data, setData] = useState<(object | null)[][]>([[]]);
   const [pageNum, setPageNum] = useState<number>(0);
+  const [data, setData] = useState<(object | null)[][]>([
+    pagedResults[pageNum]
+  ]);
 
   const hasMore = pageNum < numPages;
 
@@ -64,7 +66,7 @@ const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
       </Typography>
       <InfiniteScroll
         hasMore={hasMore}
-        initialLoad={false}
+        initialLoad={true}
         isReverse={false}
         loader={<Loading key={`loading-${data.length}`} />}
         loadMore={loadMore}

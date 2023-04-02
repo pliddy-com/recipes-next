@@ -38,8 +38,6 @@ export const loadNext = ({
   setDataCallback,
   setPageNumCallback
 }: LoadNextProps): void => {
-  console.log('loadNext', pageNum);
-
   if (pageNum < pagedResults.length) setPageNumCallback(pageNum + 1);
   setDataCallback(pagedResults.slice(0, pageNum + 1));
 };
