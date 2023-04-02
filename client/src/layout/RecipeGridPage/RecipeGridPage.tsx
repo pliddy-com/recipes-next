@@ -27,7 +27,6 @@ interface RecipeGridPageProps {
  */
 
 const RecipeGridPage = ({ recipes, title, page }: RecipeGridPageProps) => {
-  console.log('RecipeGridPage', { page });
   const pageSize = 6;
   const scrollThreshold = 600;
 
@@ -46,9 +45,7 @@ const RecipeGridPage = ({ recipes, title, page }: RecipeGridPageProps) => {
   const hasMore = pageNum < numPages;
 
   useEffect(() => {
-    setData([pagedResults[page ? page : 0]]);
-
-    console.log('useEffect', { page, pageNum });
+    setData([pagedResults[page ? page - 1 : 0]]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 

@@ -42,8 +42,8 @@ const getExpected = ({ expectedUri }: { expectedUri: string }) => {
 
 describe('OriginRequest', () => {
   it('strips the trailing slash adds .html to default requests', async () => {
-    const originalUri = '/tag/';
-    const expectedUri = '/tag.html';
+    const originalUri = '/tags/';
+    const expectedUri = '/tags.html';
     const event = getEvent({ originalUri });
     const expected = getExpected({ expectedUri });
 
@@ -75,7 +75,7 @@ describe('OriginRequest', () => {
   });
 
   it('adds .html to default requests without a trailing slash', async () => {
-    const originalUri = '/tag';
+    const originalUri = '/tags';
     const expectedUri = `${originalUri}.html`;
     const event = getEvent({ originalUri });
     const expected = getExpected({ expectedUri });

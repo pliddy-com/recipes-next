@@ -175,7 +175,7 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
       >
         <a
           class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-          href="/tag/vegetables"
+          href="/tags/vegetables"
           role="button"
           tabindex="0"
         >

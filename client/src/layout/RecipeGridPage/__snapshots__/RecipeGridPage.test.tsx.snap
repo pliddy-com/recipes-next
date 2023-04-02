@@ -197,7 +197,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/small-plates"
+                  href="/tags/small-plates"
                   role="button"
                   tabindex="0"
                 >
@@ -208,7 +208,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                 </a>
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/bacon"
+                  href="/tags/bacon"
                   role="button"
                   tabindex="0"
                 >
@@ -219,7 +219,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                 </a>
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/mediterranean"
+                  href="/tags/mediterranean"
                   role="button"
                   tabindex="0"
                 >
@@ -408,7 +408,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/rice"
+                  href="/tags/rice"
                   role="button"
                   tabindex="0"
                 >
@@ -597,7 +597,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/baking"
+                  href="/tags/baking"
                   role="button"
                   tabindex="0"
                 >
@@ -608,7 +608,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                 </a>
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/biscuits"
+                  href="/tags/biscuits"
                   role="button"
                   tabindex="0"
                 >
@@ -619,7 +619,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                 </a>
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/breakfast"
+                  href="/tags/breakfast"
                   role="button"
                   tabindex="0"
                 >
@@ -630,7 +630,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                 </a>
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/southern"
+                  href="/tags/southern"
                   role="button"
                   tabindex="0"
                 >
@@ -749,7 +749,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/meat"
+                  href="/tags/meat"
                   role="button"
                   tabindex="0"
                 >
@@ -760,7 +760,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                 </a>
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/beef"
+                  href="/tags/beef"
                   role="button"
                   tabindex="0"
                 >
@@ -771,7 +771,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                 </a>
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/stew"
+                  href="/tags/stew"
                   role="button"
                   tabindex="0"
                 >
@@ -782,7 +782,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                 </a>
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/french"
+                  href="/tags/french"
                   role="button"
                   tabindex="0"
                 >
@@ -901,7 +901,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/meat"
+                  href="/tags/meat"
                   role="button"
                   tabindex="0"
                 >
@@ -912,7 +912,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                 </a>
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/chicken"
+                  href="/tags/chicken"
                   role="button"
                   tabindex="0"
                 >
@@ -923,7 +923,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                 </a>
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/brine"
+                  href="/tags/brine"
                   role="button"
                   tabindex="0"
                 >
@@ -1042,7 +1042,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/pickles"
+                  href="/tags/pickles"
                   role="button"
                   tabindex="0"
                 >
@@ -1053,7 +1053,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                 </a>
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/canning"
+                  href="/tags/canning"
                   role="button"
                   tabindex="0"
                 >
@@ -1064,7 +1064,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                 </a>
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-                  href="/tag/cucumbers"
+                  href="/tags/cucumbers"
                   role="button"
                   tabindex="0"
                 >
@@ -1078,11 +1078,6 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
           </div>
         </div>
       </div>
-      <a
-        href="/recipes/page/0"
-      >
-        Load Previous
-      </a>
       <a
         href="/recipes/page/2"
       >

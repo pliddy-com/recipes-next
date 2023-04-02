@@ -15,6 +15,9 @@ interface ResultsPageProps {
 const ResultsPage = (props: ResultsPageProps) => {
   const { data, numPages, pageNum } = props;
 
+  /**
+   *  TODO: make styles visible if page
+   */
   return (
     <>
       <Grid container spacing={2} data-testid="results-page">
@@ -25,7 +28,7 @@ const ResultsPage = (props: ResultsPageProps) => {
             </Grid>
           ))}
       </Grid>
-      {pageNum > 0 && (
+      {pageNum > 1 && (
         <Link
           href={`/recipes/page/${pageNum - 1}`}
           // style={{ display: 'flex', height: '1rem', visibility: 'hidden' }}

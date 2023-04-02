@@ -23,7 +23,7 @@ const TagButtons = ({ tags }: TagButtonsProps) => {
               key={slug}
               role="button"
               size="small"
-              href={`/tag/${slug}`}
+              href={`/tags/${slug}`}
               variant="outlined"
             >
               {title}

@@ -191,7 +191,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
           >
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/baking"
+              href="/tags/baking"
               role="button"
               tabindex="0"
             >
@@ -202,7 +202,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/bread"
+              href="/tags/bread"
               role="button"
               tabindex="0"
             >
@@ -391,7 +391,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
           >
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/baking"
+              href="/tags/baking"
               role="button"
               tabindex="0"
             >
@@ -402,7 +402,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/biscuits"
+              href="/tags/biscuits"
               role="button"
               tabindex="0"
             >
@@ -413,7 +413,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/breakfast"
+              href="/tags/breakfast"
               role="button"
               tabindex="0"
             >
@@ -424,7 +424,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/southern"
+              href="/tags/southern"
               role="button"
               tabindex="0"
             >
@@ -613,7 +613,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
           >
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/baking"
+              href="/tags/baking"
               role="button"
               tabindex="0"
             >
@@ -624,7 +624,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/bread"
+              href="/tags/bread"
               role="button"
               tabindex="0"
             >
@@ -635,7 +635,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/olives"
+              href="/tags/olives"
               role="button"
               tabindex="0"
             >
@@ -646,7 +646,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/mediterranean"
+              href="/tags/mediterranean"
               role="button"
               tabindex="0"
             >
@@ -854,7 +854,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
           >
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/baking"
+              href="/tags/baking"
               role="button"
               tabindex="0"
             >
@@ -865,7 +865,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/biscuits"
+              href="/tags/biscuits"
               role="button"
               tabindex="0"
             >
@@ -876,7 +876,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/breakfast"
+              href="/tags/breakfast"
               role="button"
               tabindex="0"
             >
@@ -887,7 +887,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/southern"
+              href="/tags/southern"
               role="button"
               tabindex="0"
             >
@@ -1076,7 +1076,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
           >
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/baking"
+              href="/tags/baking"
               role="button"
               tabindex="0"
             >
@@ -1087,7 +1087,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/bread"
+              href="/tags/bread"
               role="button"
               tabindex="0"
             >
@@ -1276,7 +1276,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
           >
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/baking"
+              href="/tags/baking"
               role="button"
               tabindex="0"
             >
@@ -1287,7 +1287,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/bread"
+              href="/tags/bread"
               role="button"
               tabindex="0"
             >
@@ -1298,7 +1298,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/olives"
+              href="/tags/olives"
               role="button"
               tabindex="0"
             >
@@ -1309,7 +1309,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
             </a>
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-              href="/tag/mediterranean"
+              href="/tags/mediterranean"
               role="button"
               tabindex="0"
             >

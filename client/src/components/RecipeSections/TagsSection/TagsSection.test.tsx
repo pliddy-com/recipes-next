@@ -46,7 +46,7 @@ describe('Tags', () => {
 
       // assert that tag href links are correct
       const tag = queryByText(expectedTitle)?.closest('a');
-      expect(tag).toHaveAttribute('href', `/tag/${expectedSlug}`);
+      expect(tag).toHaveAttribute('href', `/tags/${expectedSlug}`);
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
