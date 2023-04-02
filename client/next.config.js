@@ -9,6 +9,14 @@ const { NEXT_PUBLIC_CONTENTFUL_SPACE_ID } = process.env;
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/page/:page',
+        destination: '/' // The :path parameter isn't used here so will be automatically passed in the query
+      }
+    ];
+  },
   eslint: {
     dirs: ['./']
   },

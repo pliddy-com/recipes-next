@@ -18,6 +18,12 @@ interface RecipeGridPageProps {
   title?: string | null;
 }
 
+/**
+ *
+ * TODO: refactor logic so no page param means page = 1
+ *       or should there be logic (show load)
+ */
+
 const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
   const pageSize = 6;
   const scrollThreshold = 600;
