@@ -77,8 +77,6 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   const page = params?.page ? Number(params.page) : undefined;
   const pageContent = await getRecipeIndex();
 
-  console.log({ page });
-
   return {
     props: { pageContent, page, preview: Boolean(preview) },
     revalidate: 60

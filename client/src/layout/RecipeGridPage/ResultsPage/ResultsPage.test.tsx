@@ -29,6 +29,7 @@ describe('ResultsPage', () => {
           data={pagedRecipes[pageNum] as RecipeDefaultFragment[]}
           pageNum={pageNum}
           numPages={numPages}
+          hideLinks={true}
         />
       );
 
@@ -51,6 +52,7 @@ describe('ResultsPage', () => {
           data={pagedRecipes[pageNum] as RecipeDefaultFragment[]}
           pageNum={pageNum}
           numPages={numPages}
+          hideLinks={false}
         />
       );
 

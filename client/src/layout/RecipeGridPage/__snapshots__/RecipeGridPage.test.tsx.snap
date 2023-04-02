@@ -1079,11 +1079,11 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
         </div>
       </div>
       <div
-        class="MuiBox-root css-nb45ws"
+        class="MuiBox-root css-12vrgl9"
       >
         <a
           class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1jkewew-MuiButtonBase-root-MuiButton-root"
-          href="/recipes/page/2"
+          href="/recipes/page/1"
           tabindex="0"
         >
           Load Next

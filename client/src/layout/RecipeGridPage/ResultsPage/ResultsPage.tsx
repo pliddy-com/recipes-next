@@ -13,12 +13,15 @@ import Button from '@mui/material/Button';
 
 interface ResultsPageProps {
   data: (RecipeDefaultFragment | null)[];
+  hideLinks: boolean;
   numPages: number;
   pageNum: number;
 }
 
 const ResultsPage = (props: ResultsPageProps) => {
-  const { data, numPages, pageNum } = props;
+  const { data, hideLinks, numPages, pageNum } = props;
+
+  // console.log({ pageNum });
 
   /**
    *  TODO: make styles visible if page
@@ -38,7 +41,9 @@ const ResultsPage = (props: ResultsPageProps) => {
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          marginTop: '1rem'
+          marginTop: '1rem',
+          height: hideLinks ? 0 : 'auto',
+          visibility: hideLinks ? 'hidden' : 'visible'
         }}
       >
         {pageNum > 1 && (

@@ -1064,7 +1064,7 @@ exports[`ResultsPage when there is paged content it renders the ResultsPage 1`] 
     </div>
   </div>
   <div
-    class="MuiBox-root css-nb45ws"
+    class="MuiBox-root css-12vrgl9"
   >
     <a
       class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1jkewew-MuiButtonBase-root-MuiButton-root"

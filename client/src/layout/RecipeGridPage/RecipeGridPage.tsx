@@ -73,6 +73,7 @@ const RecipeGridPage = ({ recipes, title, page }: RecipeGridPageProps) => {
             data={pageData as RecipeDefaultFragment[]}
             pageNum={page ? page : 1}
             numPages={numPages}
+            hideLinks={false}
           />
         ))
       ) : (
@@ -90,8 +91,10 @@ const RecipeGridPage = ({ recipes, title, page }: RecipeGridPageProps) => {
               <ResultsPage
                 key={`results-${pageNum}`}
                 data={pageData as RecipeDefaultFragment[]}
-                pageNum={page ? page : 1}
+                pageNum={pageNum || 0}
+                // {...(page && { pageNum: page })}
                 numPages={numPages}
+                hideLinks={true}
               />
             ))}
         </InfiniteScroll>
