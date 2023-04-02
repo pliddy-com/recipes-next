@@ -28,7 +28,7 @@ interface RecipeGridPageProps {
 
 const RecipeGridPage = ({ recipes, title, page }: RecipeGridPageProps) => {
   const pageSize = 6;
-  const scrollThreshold = 600;
+  const scrollThreshold = 800;
 
   const pagedResults = useMemo(
     () => paginateResults({ data: recipes, pageSize }),

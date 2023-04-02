@@ -1,10 +1,15 @@
 import Link from 'next/link';
 
+import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 
 import { RecipeDefaultFragment } from 'types/queries';
+import Button from '@mui/material/Button';
 
 interface ResultsPageProps {
   data: (RecipeDefaultFragment | null)[];
@@ -18,6 +23,7 @@ const ResultsPage = (props: ResultsPageProps) => {
   /**
    *  TODO: make styles visible if page
    */
+
   return (
     <>
       <Grid container spacing={2} data-testid="results-page">
@@ -28,23 +34,36 @@ const ResultsPage = (props: ResultsPageProps) => {
             </Grid>
           ))}
       </Grid>
-      {pageNum > 1 && (
-        <Link
-          href={`/recipes/page/${pageNum - 1}`}
-          // style={{ display: 'flex', height: '1rem', visibility: 'hidden' }}
-        >
-          Load Previous
-        </Link>
-      )}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          marginTop: '1rem'
+        }}
+      >
+        {pageNum > 1 && (
+          <Button
+            component={Link}
+            href={`/recipes/page/${pageNum - 1}`}
+            startIcon={<NavigateBeforeIcon />}
+            variant="text"
+          >
+            Load Previous
+          </Button>
+        )}
 
-      {pageNum < numPages && (
-        <Link
-          href={`/recipes/page/${pageNum + 1}`}
-          // style={{ display: 'flex', height: '1rem', visibility: 'hidden' }}
-        >
-          Load Next
-        </Link>
-      )}
+        {pageNum < numPages && (
+          <Button
+            component={Link}
+            endIcon={<NavigateNextIcon />}
+            href={`/recipes/page/${pageNum + 1}`}
+            variant="text"
+            sx={{ marginLeft: 'auto' }}
+          >
+            Load Next
+          </Button>
+        )}
+      </Box>
     </>
   );
 };
