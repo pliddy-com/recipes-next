@@ -24,6 +24,7 @@
   - [Checkbot Site Scanner](docs/manual-scans.md#checkbot-site-scanner)
   - [WAVE Evaluation Tool](docs/manual-scans.md#wave-evaluation-tool)
   - [Google Rich Results Test](docs/manual-scans.md#google-rich-results-test)
+  - [Bot Simulator](docs/manual-scans.md#bot-simulator)
 - [Next Steps](docs/next-steps.md)
 
 ## TL;DR

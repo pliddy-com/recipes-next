@@ -31,7 +31,7 @@ Lightouse scores for **Best Practices, SEO,** and **Accessibility** are 100.
 
 ### Checkbot Site Scanner
 
-In order to get more detailed technical scans for **SEO, security,** and **performance,** the application is scanned with the <a href="https://chrome.google.com/webstore/detail/checkbot-seo-web-speed-se/dagohlmlhagincbfilmkadjgmdnkjinl" target="_blank">Checkbot Site Scanner</a> Chrome Browser extension.
+In order to get more detailed technical scans for **SEO, security,** and **performance,** the application is scanned with the <a href="https://chrome.google.com/webstore/detail/checkbot-seo-web-speed-se/dagohlmlhagincbfilmkadjgmdnkjinl" target="_blank"><strong>Checkbot Site Scanner</strong></a> Chrome Browser extension.
 
 Checkbot identified a variety of potential security issues with the configuration of the static site delivery through AWS CloudFront and S3. Any potential security issues were addressed by proper configuration of response header tags in CloudFront.
 
@@ -47,7 +47,7 @@ These issues will be addressed by updating all current recipe descriptions with 
 
 ### WAVE Evaluation Tool
 
-In order to get more detailed information regarding **site accessibility,** the application is scanned with the <a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh" target="_blank">WAVE Evaluation Tool</a> Chrome Browser extension.
+In order to get more detailed information regarding **site accessibility,** the application is scanned with the <a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh" target="_blank"><strong>WAVE Evaluation Tool</strong></a> Chrome Browser extension.
 
 While Lighthouse identifies major accessibility issues with a page, WAVE conducts a more detailed scans and identifies specific WCAG issues which can affect a page's accessibility.
 
@@ -61,7 +61,7 @@ The only outstanding warning from WAVE is the existence of a `<noscript>` tag on
 
 ### Google Rich Results Test
 
-In order to validate the structure of page schema for recipes and collection pages, pages of each type are manually checked using Google's <a href="https://https://search.google.com/test/rich-results" target="_blank">Rich Results Tool</a>. This scan checks the `ld+json` schema specified in the page head and confirms that the content data is correctly structured to populate Google's Rich Search Results for recipe content.
+In order to validate the structure of page schema for recipes and collection pages, pages of each type are manually checked using Google's <a href="https://https://search.google.com/test/rich-results" target="_blank"><strong>Rich Results Tool</strong></a>. This scan checks the `ld+json` schema specified in the page head and confirms that the content data is correctly structured to populate Google's Rich Search Results for recipe content.
 
 #### Current issues identified by Google Rich Results Test
 
@@ -71,7 +71,13 @@ All recipe and collection page types have the full set required schemas for Rich
   <img src="assets/google-rich-results.png" alt="Google Rich Results Scan output" width="720"/>
 </p>
 
----
+### Bot Simulator
+
+Statically generated pages are reviewed using <a href="https://botsimulator.com/" target="_blank"><strong>Bot Simulator</strong></a> to validate bot-friendly content, especailly on pages that generate script-free versions for pages that implement infinite scrolling.
+
+<p align="center">
+  <img src="assets/botsimulator.png" alt="Bot Simulator Scan output" width="720"/>
+</p>
 
 <p align="center">
   <a href="../README.md">TL;DR</a>&nbsp;&nbsp;|&nbsp;&nbsp;
