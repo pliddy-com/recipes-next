@@ -5,7 +5,7 @@ import preloadAll from 'jest-next-dynamic';
 import RecipeSlugPage, {
   getStaticPaths,
   getStaticProps
-} from 'pages/recipe/[slug]';
+} from 'pages/recipes/[slug]';
 
 import {
   RecipeDefaultFragment,

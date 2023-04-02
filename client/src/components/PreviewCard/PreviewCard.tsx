@@ -24,7 +24,7 @@ const PreviewCard = ({ recipe, preloadImg = false }: PreviewCardProps) => {
 
   return recipe && breakpoints && breakpoints.length > 0 ? (
     <Card variant="outlined" className="preview">
-      <CardActionArea component={Link} href={`/recipe/${slug}`}>
+      <CardActionArea component={Link} href={`/recipes/${slug}`}>
         {image && (
           <CardMedia className="imageWrapper">
             <DynamicImage

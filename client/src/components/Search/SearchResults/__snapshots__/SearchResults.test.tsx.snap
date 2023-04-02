@@ -23,7 +23,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
       >
         <a
           class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-          href="/recipe/no-knead-bread"
+          href="/recipes/no-knead-bread"
           tabindex="0"
         >
           <div
@@ -223,7 +223,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
       >
         <a
           class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-          href="/recipe/biscuits"
+          href="/recipes/biscuits"
           tabindex="0"
         >
           <div
@@ -445,7 +445,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
       >
         <a
           class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-          href="/recipe/no-knead-olive-bread"
+          href="/recipes/no-knead-olive-bread"
           tabindex="0"
         >
           <div
@@ -686,7 +686,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
       >
         <a
           class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-          href="/recipe/biscuits"
+          href="/recipes/biscuits"
           tabindex="0"
         >
           <div
@@ -908,7 +908,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
       >
         <a
           class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-          href="/recipe/no-knead-bread"
+          href="/recipes/no-knead-bread"
           tabindex="0"
         >
           <div
@@ -1108,7 +1108,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 2`] =
       >
         <a
           class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-          href="/recipe/no-knead-olive-bread"
+          href="/recipes/no-knead-olive-bread"
           tabindex="0"
         >
           <div

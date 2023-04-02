@@ -58,12 +58,12 @@ describe('ResultsPage', () => {
         waitFor(() => expect(queryByTestId('results-page')).toBeInTheDocument())
       );
 
-      const nextLink = queryByText('Load More');
+      const nextLink = queryByText('Load Next');
 
       expect(nextLink).toBeDefined();
 
       // assert that component has correct href
-      expect(nextLink).toHaveAttribute('href', '/?page=2');
+      expect(nextLink).toHaveAttribute('href', '/recipes/page/2');
     });
   });
 });

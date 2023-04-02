@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { act, render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
-import TagSlugPage, { getStaticPaths, getStaticProps } from 'pages/tag/[slug]';
+import TagSlugPage, { getStaticPaths, getStaticProps } from 'pages/tags/[slug]';
 import { TagDefaultFragment } from 'types/queries';
 
 import * as api from 'lib/api';

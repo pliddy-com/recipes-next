@@ -9,7 +9,13 @@ const NEXT_SSG_FILES = [
   '/*.js$'
 ];
 
-const exclude = ['/tag/*', '/category/*', '/cuisine/*', '/search/*'];
+const exclude = [
+  '/tags/*',
+  '/category/*',
+  '/cuisine/*',
+  '/search/*',
+  'recipes/page/*'
+];
 
 // extend the configuration
 /** @type {import('next-sitemap').IConfig} */

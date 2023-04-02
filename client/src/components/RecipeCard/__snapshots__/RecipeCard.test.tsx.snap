@@ -7,7 +7,7 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
   >
     <a
       class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-      href="/recipe/basmati-rice"
+      href="/recipes/basmati-rice"
       tabindex="0"
     >
       <div

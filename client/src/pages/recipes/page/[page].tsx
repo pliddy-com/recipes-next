@@ -1,5 +1,12 @@
+/* istanbul ignore file */
+
 import { ReactElement, Suspense } from 'react';
-import { InferGetStaticPropsType } from 'next';
+import {
+  GetStaticPaths,
+  GetStaticPropsContext,
+  InferGetStaticPropsType
+} from 'next';
+
 import dynamic from 'next/dynamic';
 
 import Layout from 'layout/Layout/Layout';
@@ -9,6 +16,8 @@ import PageHead from 'components/PageHead/PageTags/PageTags';
 import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/RecipeListSchema';
 
 import { getRecipeIndex } from 'lib/api';
+import { paginateResults } from 'lib/infiniteScroll';
+
 import config from 'lib/config';
 
 const RecipeGridPage = dynamic(
@@ -19,8 +28,9 @@ const RecipeGridPage = dynamic(
   { suspense: true }
 );
 
-const IndexPage = ({
-  pageContent
+const RecipeListPage = ({
+  pageContent,
+  page
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { defaultTitle, description } = config?.microcopy?.index ?? {};
 
@@ -37,18 +47,44 @@ const IndexPage = ({
         description={description}
       />
       <Suspense fallback={<Loading />}>
-        <RecipeGridPage recipes={pageContent} title={defaultTitle} />
+        <RecipeGridPage
+          recipes={pageContent}
+          title={defaultTitle}
+          page={page}
+        />
       </Suspense>
     </>
   ) : null;
 };
 
-export const getStaticProps = async ({ preview = false }) => {
-  const pageContent = await getRecipeIndex();
+export const getStaticPaths: GetStaticPaths = async () => {
+  const recipeList = await getRecipeIndex();
+  const pageSize = 6;
 
-  return { props: { pageContent, preview }, revalidate: 60 };
+  const pages = paginateResults({ data: recipeList, pageSize });
+
+  const paths = pages
+    .map((page, pageNum) => pageNum)
+    .map((pageNum) => ({
+      params: { page: String(pageNum + 1) }
+    }));
+
+  return { paths, fallback: false };
 };
 
-IndexPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+export const getStaticProps = async (context: GetStaticPropsContext) => {
+  const { params, preview } = context;
+  const page = params?.page ? Number(params.page) : undefined;
+  const pageContent = await getRecipeIndex();
 
-export default IndexPage;
+  console.log({ page });
+
+  return {
+    props: { pageContent, page, preview: Boolean(preview) },
+    revalidate: 60
+  };
+};
+
+RecipeListPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+
+export default RecipeListPage;

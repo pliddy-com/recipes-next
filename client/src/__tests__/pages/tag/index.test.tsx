@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { act, render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
-import TagIndexPage, { getStaticProps } from 'pages/tag/index';
+import TagIndexPage, { getStaticProps } from 'pages/tags/index';
 // import { RecipeSummaryFragment } from 'types/queries';
 
 import config from 'lib/config';

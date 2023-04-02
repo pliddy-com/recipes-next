@@ -47,7 +47,7 @@ exports[`TagGridPage when there is missing slug information it does not sort the
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipe/title-1"
+              href="/recipes/title-1"
               tabindex="0"
             >
               <div
@@ -84,7 +84,7 @@ exports[`TagGridPage when there is missing slug information it does not sort the
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipe/null"
+              href="/recipes/null"
               tabindex="0"
             >
               <div
@@ -166,7 +166,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipe/slug-1"
+              href="/recipes/slug-1"
               tabindex="0"
             >
               <div
@@ -203,7 +203,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipe/slug-2"
+              href="/recipes/slug-2"
               tabindex="0"
             >
               <div
@@ -265,7 +265,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipe/slug-3"
+              href="/recipes/slug-3"
               tabindex="0"
             >
               <div
@@ -302,7 +302,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipe/slug-4"
+              href="/recipes/slug-4"
               tabindex="0"
             >
               <div

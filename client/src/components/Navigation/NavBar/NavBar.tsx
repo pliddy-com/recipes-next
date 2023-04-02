@@ -51,7 +51,7 @@ const NavBar = ({ nav }: NavBarProps) => {
                 featuredUrl="/"
                 id="categories"
                 nav={categories}
-                root="tag"
+                root="tags"
               />
             )}
 
@@ -63,7 +63,7 @@ const NavBar = ({ nav }: NavBarProps) => {
                 data-testid="cuisine-menu"
                 id="cuisine"
                 nav={cuisine}
-                root="tag"
+                root="tags"
               />
             )}
 
@@ -74,10 +74,10 @@ const NavBar = ({ nav }: NavBarProps) => {
                 icon={<TagIcon />}
                 data-testid="tags-menu"
                 featuredLabel="All Tags"
-                featuredUrl="/tag"
+                featuredUrl="/tags"
                 id="tags"
                 nav={tags}
-                root="tag"
+                root="tags"
               />
             )}
 
