@@ -13,3 +13,6 @@ package-lock.json
 
 # test coverage
 coverage/
+
+# google verification
+/public/google*.html
