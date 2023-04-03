@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { TagDefaultFragment } from 'types/queries';
-import config from 'lib/config';
 
 interface TagListSchemaProps {
   tags: (TagDefaultFragment | null)[];
@@ -11,7 +10,7 @@ interface TagListSchemaProps {
 const TagListSchema = ({ tags, title, description }: TagListSchemaProps) => {
   if (!tags) return null;
 
-  const domain = config?.microcopy?.site.domain;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   const elements =
     tags &&
@@ -19,7 +18,7 @@ const TagListSchema = ({ tags, title, description }: TagListSchemaProps) => {
       '@type': 'ListItem',
       position: index + 1,
       name: tag?.title,
-      url: `${domain}/tag/${tag?.slug}`
+      url: `${siteUrl}/tag/${tag?.slug}`
     }));
 
   const schema = {
@@ -27,7 +26,7 @@ const TagListSchema = ({ tags, title, description }: TagListSchemaProps) => {
     '@type': 'ItemList',
     ...(title && { name: title }),
     ...(description && { description }),
-    url: domain,
+    url: siteUrl,
     numberOfItems: tags.length,
     ...(title && { name: title }),
     itemListElement: elements

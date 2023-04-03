@@ -18,8 +18,7 @@ const microcopy = {
     description: 'Search results'
   },
   site: {
-    title: 'Site Title',
-    domain: 'https://recipes.pliddy.com'
+    title: 'Site Title'
   },
   tag: {
     defaultDescription: 'Tag default description for',
