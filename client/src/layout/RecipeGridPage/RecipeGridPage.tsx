@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import { useEffect, useMemo, useState } from 'react';
 
 import InfiniteScroll from 'react-infinite-scroller';
@@ -65,7 +63,7 @@ const RecipeGridPage = ({ recipes, title, page }: RecipeGridPageProps) => {
           <ResultsPage
             key={`results-${pageNum}`}
             data={pageData as RecipeDefaultFragment[]}
-            pageNum={page ? page : 1}
+            pageNum={page}
             numPages={numPages}
             hideLinks={false}
           />
