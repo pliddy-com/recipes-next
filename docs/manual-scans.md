@@ -19,7 +19,7 @@ In addition to the automated code quality checks in the CI/CD pipeline, **manual
 
 ### Google Lighthouse
 
-The application is manually checked for **performance, accessibility, best practices,** and **SEO** using the Lighthouse in the Google Chrome developer tools.
+The application is manually checked for **performance, accessibility, best practices,** and **SEO** using <a href="https://developer.chrome.com/docs/lighthouse/overview/" target="_blank"><strong>Lighthouse</strong></a> in the Google Chrome developer tools.
 
 Lightouse scores for **Best Practices, SEO,** and **Accessibility** are 100.
 
@@ -61,7 +61,7 @@ The only outstanding warning from WAVE is the existence of a `<noscript>` tag on
 
 ### Google Rich Results Test
 
-In order to validate the structure of page schema for recipes and collection pages, pages of each type are manually checked using Google's <a href="https://https://search.google.com/test/rich-results" target="_blank"><strong>Rich Results Tool</strong></a>. This scan checks the `ld+json` schema specified in the page head and confirms that the content data is correctly structured to populate Google's Rich Search Results for recipe content.
+In order to validate the structure of page schema for recipes and collection pages, pages of each type are manually checked using Google's <a href="https://search.google.com/test/rich-results" target="_blank"><strong>Rich Results Tool</strong></a>. This scan checks the `ld+json` schema specified in the page head and confirms that the content data is correctly structured to populate Google's Rich Search Results for recipe content.
 
 #### Current issues identified by Google Rich Results Test
 

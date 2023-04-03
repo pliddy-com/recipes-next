@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { RecipeDefaultFragment } from 'types/queries';
-import config from 'lib/config';
 
 interface RecipeListSchemaProps {
   recipes: (RecipeDefaultFragment | null)[];
@@ -15,7 +14,7 @@ const RecipeListSchema = ({
 }: RecipeListSchemaProps) => {
   if (!recipes) return null;
 
-  const domain = config?.microcopy?.site.domain;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   const elements =
     recipes &&
@@ -23,7 +22,7 @@ const RecipeListSchema = ({
       '@type': 'ListItem',
       position: index + 1,
       name: recipe?.title,
-      url: `${domain}/recipe/${recipe?.slug}`
+      url: `${siteUrl}/recipe/${recipe?.slug}`
     }));
 
   const schema = {
@@ -31,7 +30,7 @@ const RecipeListSchema = ({
     '@type': 'ItemList',
     ...(title && { name: title }),
     ...(description && { description }),
-    url: domain,
+    url: siteUrl,
     numberOfItems: recipes.length,
     ...(title && { name: title }),
     itemListElement: elements

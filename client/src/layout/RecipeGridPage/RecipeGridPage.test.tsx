@@ -39,11 +39,7 @@ describe('RecipeGridPage', () => {
 
   describe('when page number is > 0', () => {
     it('it renders the RecipeGridPage', async () => {
-      const pageNum = '1';
-
-      const paramSpy = jest
-        .spyOn(URLSearchParams.prototype, 'get')
-        .mockImplementation(() => pageNum);
+      const page = 1;
 
       const title = 'Title';
 
@@ -51,6 +47,7 @@ describe('RecipeGridPage', () => {
         <RecipeGridPage
           recipes={recipes as unknown as (RecipeDefaultFragment | null)[]}
           title={title}
+          page={page}
         />
       );
 
@@ -59,7 +56,6 @@ describe('RecipeGridPage', () => {
         waitFor(() => expect(queryByTestId('page')).toBeInTheDocument())
       );
 
-      expect(paramSpy).toBeCalled();
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
     });

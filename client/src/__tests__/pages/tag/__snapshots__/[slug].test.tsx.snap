@@ -14,7 +14,7 @@ exports[`TagPage in tag/[slug].tsx when there is page content it renders the pag
     id="recipe-list-schema"
     type="application/ld+json"
   >
-    {"@context":"https://schema.org","@type":"ItemList","name":"Baking","description":"Tag default description for Baking","url":"https://recipes.pliddy.com","numberOfItems":3,"itemListElement":[{"@type":"ListItem","position":1,"name":"Biscuits","url":"https://recipes.pliddy.com/recipe/biscuits"},{"@type":"ListItem","position":2,"name":"No-Knead Olive Bread","url":"https://recipes.pliddy.com/recipe/no-knead-olive-bread"},{"@type":"ListItem","position":3,"name":"No-Knead Bread","url":"https://recipes.pliddy.com/recipe/no-knead-bread"}]}
+    {"@context":"https://schema.org","@type":"ItemList","name":"Baking","description":"Tag default description for Baking","url":"https://test.recipes.pliddy.com","numberOfItems":3,"itemListElement":[{"@type":"ListItem","position":1,"name":"Biscuits","url":"https://test.recipes.pliddy.com/recipe/biscuits"},{"@type":"ListItem","position":2,"name":"No-Knead Olive Bread","url":"https://test.recipes.pliddy.com/recipe/no-knead-olive-bread"},{"@type":"ListItem","position":3,"name":"No-Knead Bread","url":"https://test.recipes.pliddy.com/recipe/no-knead-bread"}]}
   </script>
   <div
     data-testid="RecipeGridPage"

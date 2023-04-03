@@ -5,7 +5,7 @@ import preloadAll from 'jest-next-dynamic';
 import RecipeSlugPage, {
   getStaticPaths,
   getStaticProps
-} from 'pages/recipe/[slug]';
+} from 'pages/recipes/[slug]';
 
 import {
   RecipeDefaultFragment,
@@ -21,6 +21,8 @@ jest.mock('lib/api');
 jest.mock('components/PageHead/PageTags/PageTags');
 jest.mock('layout/RecipePage/RecipePage');
 
+const env = process.env;
+
 interface PageContentProps {
   recipe: RecipeDefaultFragment | undefined;
   categories:
@@ -30,12 +32,19 @@ interface PageContentProps {
 }
 
 describe('RecipePage in recipe/[slug].tsx', () => {
-  beforeAll(async () => {
+  beforeEach(async () => {
+    jest.resetModules();
+
+    process.env = {
+      ...env,
+      NEXT_PUBLIC_SITE_URL: 'https://test.recipes.pliddy.com'
+    };
+
     await preloadAll();
   });
 
   afterEach(() => {
-    jest.resetModules();
+    process.env = env;
   });
 
   describe('when there is page content', () => {

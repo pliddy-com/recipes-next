@@ -2,7 +2,11 @@ import '@testing-library/jest-dom';
 import { act, render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
-import IndexPage, { getStaticProps } from 'pages/index';
+import RecipeListPage, {
+  getStaticPaths,
+  getStaticProps
+} from 'pages/recipes/page/[page]';
+
 import { RecipeSummaryFragment } from 'types/queries';
 
 import config from 'lib/config';
@@ -15,9 +19,10 @@ jest.mock('layout/RecipeGridPage/RecipeGridPage');
 
 const env = process.env;
 
-describe('Index in index.tsx', () => {
+describe('RecipeListPage in [page].tsx', () => {
   beforeEach(async () => {
     jest.resetModules();
+
     process.env = {
       ...env,
       NEXT_PUBLIC_SITE_URL: 'https://test.recipes.pliddy.com'
@@ -31,26 +36,34 @@ describe('Index in index.tsx', () => {
   });
 
   describe('when there is content', () => {
-    it('it renders the index page', async () => {
-      const apiSpy = jest.spyOn(api, 'getRecipeIndex');
+    it('it renders the page', async () => {
+      const getRecipeIndexSpy = jest.spyOn(api, 'getRecipeIndex');
       const recipeCollectionData = await api.getRecipeIndex();
+      const page = 1;
 
       const expectedProps = {
         props: {
           pageContent: recipeCollectionData,
-          preview: true
+          preview: true,
+          page
         },
         revalidate: 60
       };
 
-      const expectedDefaultProps = {
-        ...expectedProps,
-        props: { ...expectedProps.props, preview: false }
+      const context = {
+        params: { page: '1' },
+        preview: true
+      };
+
+      const expectedPaths = {
+        fallback: false,
+        paths: [{ params: { page: '1' } }]
       };
 
       const { asFragment, queryByTestId } = render(
-        <IndexPage
+        <RecipeListPage
           pageContent={recipeCollectionData as RecipeSummaryFragment[]}
+          page={page}
           preview={false}
         />
       );
@@ -59,12 +72,48 @@ describe('Index in index.tsx', () => {
       await act(async () => waitFor(() => queryByTestId('RecipeGrid')));
 
       // assert getStaticProps returns a value and manages preview default
-      expect(await getStaticProps({ preview: true })).toEqual(expectedProps);
-      expect(await getStaticProps({ preview: undefined })).toEqual(
-        expectedDefaultProps
+      expect(await getStaticProps(context)).toEqual(expectedProps);
+      expect(await getStaticPaths({})).toEqual(expectedPaths);
+
+      expect(getRecipeIndexSpy).toHaveBeenCalledTimes(3);
+
+      // assert that the component matches the existing snapshot
+      expect(asFragment()).toMatchSnapshot();
+    });
+  });
+
+  describe('when there is no page parameter', () => {
+    it('it renders the page', async () => {
+      // const getRecipeIndexSpy = jest.spyOn(api, 'getRecipeIndex');
+      const recipeCollectionData = await api.getRecipeIndex();
+
+      const expectedProps = {
+        props: {
+          pageContent: recipeCollectionData,
+          preview: true,
+          page: undefined
+        },
+        revalidate: 60
+      };
+
+      const context = {
+        params: { page: undefined },
+        preview: true
+      };
+
+      const { asFragment, queryByTestId } = render(
+        <RecipeListPage
+          pageContent={recipeCollectionData as RecipeSummaryFragment[]}
+          page={undefined}
+          preview={false}
+        />
       );
 
-      expect(apiSpy).toHaveBeenCalledTimes(3);
+      // wait for dynamic component to load
+      await act(async () => waitFor(() => queryByTestId('RecipeGrid')));
+
+      // assert getStaticProps returns a value and manages preview default
+      expect(await getStaticProps(context)).toEqual(expectedProps);
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -74,7 +123,7 @@ describe('Index in index.tsx', () => {
   describe('when there is no page content', () => {
     it('it does not render the page', async () => {
       const { queryByTestId } = render(
-        <IndexPage pageContent={[]} preview={false} />
+        <RecipeListPage pageContent={[]} preview={false} page={undefined} />
       );
 
       // wait for dynamic component to load
@@ -92,7 +141,7 @@ describe('Index in index.tsx', () => {
 
     it('it does not render the page', async () => {
       const { queryByTestId } = render(
-        <IndexPage pageContent={[]} preview={false} />
+        <RecipeListPage pageContent={[]} preview={false} page={undefined} />
       );
 
       // wait for dynamic component to load

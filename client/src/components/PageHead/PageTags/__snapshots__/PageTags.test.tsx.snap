@@ -50,11 +50,11 @@ exports[`PageHeadingTag when there is a config object it renders a Next Head tag
     property="og:type"
   />
   <meta
-    content="https://recipes.pliddy.com/category/path"
+    content="https://test.recipes.pliddy.com/category/path"
     property="og:url"
   />
   <link
-    href="https://recipes.pliddy.com/tag/path"
+    href="https://test.recipes.pliddy.com/tags/path"
     rel="canonical"
   />
 </DocumentFragment>

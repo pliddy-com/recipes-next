@@ -18,7 +18,7 @@ const PageTags = ({
   image
 }: PageTagsProps) => {
   const { site, index } = config?.microcopy ?? {};
-  const { title: siteTitle, domain } = site ?? {};
+  const { title: siteTitle } = site ?? {};
   const { description: defaultDescription } = index ?? {};
 
   const tagDescription = description || defaultDescription;
@@ -32,13 +32,15 @@ const PageTags = ({
   const imgHeight = 300;
   const locale = 'en_US';
 
-  const url = `${domain}${asPath}`;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+  const url = `${siteUrl}${asPath}`;
 
   const canonicalPath = asPath.includes('category')
-    ? `${asPath.replace('category', 'tag')}`
+    ? `${asPath.replace('category', 'tags')}`
     : `${asPath}`;
 
-  const canonicalUrl = `${domain}${canonicalPath}`;
+  const canonicalUrl = `${siteUrl}${canonicalPath}`;
 
   return siteTitle || defaultTitle || description || defaultDescription ? (
     <Head>

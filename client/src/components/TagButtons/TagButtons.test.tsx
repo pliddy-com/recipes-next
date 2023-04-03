@@ -47,10 +47,10 @@ describe('TagButtons', () => {
 
       // assert that href links are correct
       const tag1 = queryByText(title1)?.closest('a');
-      expect(tag1).toHaveAttribute('href', `/tag/${slug1}`);
+      expect(tag1).toHaveAttribute('href', `/tags/${slug1}`);
 
       const tag2 = queryByText(title2)?.closest('a');
-      expect(tag2).toHaveAttribute('href', `/tag/${slug2}`);
+      expect(tag2).toHaveAttribute('href', `/tags/${slug2}`);
 
       // assert that the component matches the existing snapshot
       expect(component).toMatchSnapshot();

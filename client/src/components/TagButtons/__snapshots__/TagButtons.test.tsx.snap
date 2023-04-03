@@ -7,7 +7,7 @@ exports[`TagButtons when there are properly structured tag props it renders a ro
 >
   <a
     class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-    href="/tag/tagtitle1"
+    href="/tags/tagtitle1"
     role="button"
     tabindex="0"
   >
@@ -18,7 +18,7 @@ exports[`TagButtons when there are properly structured tag props it renders a ro
   </a>
   <a
     class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-    href="/tag/tagtitle2"
+    href="/tags/tagtitle2"
     role="button"
     tabindex="0"
   >

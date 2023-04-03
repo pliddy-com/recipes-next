@@ -40,7 +40,7 @@ const IndexPage = ({
         <RecipeGridPage
           recipes={pageContent}
           title={defaultTitle}
-          description={description}
+          isIndex={true}
         />
       </Suspense>
     </>

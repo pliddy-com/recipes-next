@@ -79,7 +79,7 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
           label="Categories"
           nav={nav.categories}
           onClick={onClick}
-          root="tag"
+          root="tags"
           showLabel={true}
         />
 
@@ -96,12 +96,12 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
         <NavMenuList
           className="menuList"
           featuredLabel="All Tags"
-          featuredUrl="/tag"
+          featuredUrl="/tags"
           id="tags"
           label="Tags"
           nav={nav.tags}
           onClick={onClick}
-          root="tag"
+          root="tags"
           showLabel={true}
         />
       </Drawer>

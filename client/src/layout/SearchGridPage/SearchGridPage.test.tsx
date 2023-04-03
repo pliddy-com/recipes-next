@@ -8,7 +8,6 @@ jest.mock('components/Search/SearchResults/SearchResults');
 
 describe('SearchGridPage', () => {
   // const env = process.env;
-
   describe('when there is page content', () => {
     it('it renders the SearchGridPage', async () => {
       const title = 'Title';

@@ -13,20 +13,20 @@ import { paginateResults, loadNext } from 'lib/infiniteScroll';
 import { RecipeDefaultFragment } from 'types/queries';
 
 interface RecipeGridPageProps {
-  description?: string | null;
   recipes: (RecipeDefaultFragment | object | null)[];
   title?: string | null;
+  page?: number;
+  isIndex?: boolean;
 }
 
-/**
- *
- * TODO: refactor logic so no page param means page = 1
- *       or should there be logic (show load)
- */
-
-const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
+const RecipeGridPage = ({
+  isIndex = false,
+  page,
+  recipes,
+  title
+}: RecipeGridPageProps) => {
   const pageSize = 6;
-  const scrollThreshold = 600;
+  const scrollThreshold = 800;
 
   const pagedResults = useMemo(
     () => paginateResults({ data: recipes, pageSize }),
@@ -35,23 +35,16 @@ const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
 
   const numPages = pagedResults.length;
 
-  const [pageNum, setPageNum] = useState<number>(0);
+  const [pageNum, setPageNum] = useState<number>(page ? page : 1);
   const [data, setData] = useState<(object | null)[][]>([
-    pagedResults[pageNum]
+    pagedResults[pageNum - 1]
   ]);
 
   const hasMore = pageNum < numPages;
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const pageQuery = urlParams.get('page') || 0;
-
-    const pageNumber =
-      pageQuery && Number(pageQuery) > 0 ? Number(pageQuery) : 0;
-
-    if (Number(pageQuery) < pagedResults.length) setPageNum(Number(pageQuery));
-
-    setData([pagedResults[pageNumber]]);
+    setData([pagedResults[page ? page - 1 : 0]]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pagedResults]);
 
   /* istanbul ignore next */
@@ -70,25 +63,42 @@ const RecipeGridPage = ({ recipes, title }: RecipeGridPageProps) => {
       <Typography variant="subtitle1" component="h2">
         {recipes && `${recipes.length} Recipes`}
       </Typography>
-      <InfiniteScroll
-        hasMore={hasMore}
-        initialLoad={true}
-        isReverse={false}
-        loader={<Loading key={`loading-${data.length}`} />}
-        loadMore={loadMore}
-        pageStart={pageNum}
-        threshold={scrollThreshold}
-      >
-        {data &&
-          data.map((pageData, pageNum) => (
-            <ResultsPage
-              key={`results-${pageNum}`}
-              data={pageData as RecipeDefaultFragment[]}
-              pageNum={pageNum}
-              numPages={numPages}
-            />
-          ))}
-      </InfiniteScroll>
+      {page ? (
+        data &&
+        data.map((pageData, pageNum) => (
+          <ResultsPage
+            key={`results-${pageNum}`}
+            data={pageData as RecipeDefaultFragment[]}
+            pageNum={page}
+            numPages={numPages}
+            hideLinks={false}
+            isIndex={isIndex}
+          />
+        ))
+      ) : (
+        <InfiniteScroll
+          hasMore={hasMore}
+          initialLoad={true}
+          isReverse={false}
+          loader={<Loading key={`loading-${data.length}`} />}
+          loadMore={loadMore}
+          pageStart={pageNum}
+          threshold={scrollThreshold}
+        >
+          {data &&
+            data.map((pageData, pageNum) => (
+              <ResultsPage
+                key={`results-${pageNum}`}
+                data={pageData as RecipeDefaultFragment[]}
+                pageNum={pageNum || 0}
+                // {...(page && { pageNum: page })}
+                numPages={numPages}
+                hideLinks={true}
+                isIndex={isIndex}
+              />
+            ))}
+        </InfiniteScroll>
+      )}
     </Container>
   );
 };

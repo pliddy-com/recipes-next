@@ -33,13 +33,19 @@ If a new page is published, the site will require a full rebuild in order to kno
 
 While a full deployment of new AWS resources can take up to 10 minutes, a static site build of the Next.js browser client only takes **90-120 seconds** to build and deploy across the AWS CloudFront CDN, the site can be re-generated **hundreds of times a month** within the free-tier limits of GitHub Actions and AWS.
 
+### SEO-Compatible Infinite Scrolling
+
+Pages that display lists of content components can generate DOM structures with an large number of node elements that can exceed acceptible Lighthouse scores. To minimize initial page loads, recipe list pages utilize **infinite scrolling** that populates the DOM with content as the user scrolls down the page. This approach results in a smaller DOM structure on initial page load but results in a page that is not bot-friendly because it requires a rendered window with **user-generated scroll events** to populate the page with additional content.
+
+In cases where infinite scrolling is implemented to display a list of content items, individual pages with **paginated lists of content** are statically generated at build time with navigation links between the results pages that can be followed by site crawlers.
+
 ### Dynamic Imports
 
 This application utilizes the `dyamic` import feature of Next.js to lazy load page-level components. Dynamic importing results in code bundles that split shared framework code from page-specific code. Loading of page-specific components is deferred and helps increase initial performance by reducing the amount of code required to initially render the page in the browser.
 
 ### Images
 
-While static site generation can optimize html templates, content, and script bundles, images are, usually, the largest contributor to page loading. To eliminate issues with performance and accessibility, I created a [`DynamicImage`](src/components/Image/DynamicImage/) component to effectively handle responsive images.
+While static site generation can optimize html templates, content, and script bundles, images are, usually, the largest contributor to page loading. To eliminate issues with performance and accessibility, I created a [`DynamicImage`](../client/src/components/Image/DynamicImage/) component to effectively handle responsive images.
 
 Instead of relying on a 3rd-party higher order component to manage image loading behind the scenes, the `DynamicImage` component renders standard `html` tags for the body and head elements of the page. The use of `html` tags instead of runtime JavaScript means that the optimum image can be identified and loaded by the browser before any in-page scripts are executed.
 
@@ -47,26 +53,33 @@ Instead of relying on a 3rd-party higher order component to manage image loading
 
 The `DynamicImage` component can be used in place of an html `img` tag or in any Material UI component that accepts an image property. Since images can have a variety of sizes and responsive behaviors in the application, the `DynamicImage` is a generic solution. The specifications for proper image width at any given size are provided by a `[componentname].config.tsx` file stored in the same directory as the component that uses `DynamicImage`.
 
-This example configuration file for the [`RecipeCard`](src/components/RecipeCard/) component provides a series of minimum viewport widths and corresponding image widths. The widths used have been standardized at 150px increments to minimize the number of cached, pre-rendered versions of the image stored on Contentful's image API CDN.
+This example configuration file for the [`RecipeCard`](../client/src/components/RecipeCard/) component provides a series of minimum viewport widths and corresponding image widths. The widths used have been standardized at 150px increments to minimize the number of cached, pre-rendered versions of the image stored on Contentful's image API CDN.
 
 ```javascript
 breakpoints: [
   {
-    viewMin: 669,
-    imgWidth: 450
+    viewMin: 987,
+    imgWidth: 400
   },
-
   {
-    viewMin: 600,
+    viewMin: 768,
     imgWidth: 300
   },
   {
-    viewMin: 485,
-    imgWidth: 600
+    viewMin: 668,
+    imgWidth: 400
+  },
+  {
+    viewMin: 480,
+    imgWidth: 300
+  },
+  {
+    viewMin: 434,
+    imgWidth: 500
   },
   {
     viewMin: 335,
-    imgWidth: 450
+    imgWidth: 400
   },
   {
     imgWidth: 300
