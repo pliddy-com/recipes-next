@@ -16,9 +16,15 @@ interface RecipeGridPageProps {
   recipes: (RecipeDefaultFragment | object | null)[];
   title?: string | null;
   page?: number;
+  isIndex?: boolean;
 }
 
-const RecipeGridPage = ({ recipes, title, page }: RecipeGridPageProps) => {
+const RecipeGridPage = ({
+  isIndex = false,
+  page,
+  recipes,
+  title
+}: RecipeGridPageProps) => {
   const pageSize = 6;
   const scrollThreshold = 800;
 
@@ -66,6 +72,7 @@ const RecipeGridPage = ({ recipes, title, page }: RecipeGridPageProps) => {
             pageNum={page}
             numPages={numPages}
             hideLinks={false}
+            isIndex={isIndex}
           />
         ))
       ) : (
@@ -87,6 +94,7 @@ const RecipeGridPage = ({ recipes, title, page }: RecipeGridPageProps) => {
                 // {...(page && { pageNum: page })}
                 numPages={numPages}
                 hideLinks={true}
+                isIndex={isIndex}
               />
             ))}
         </InfiniteScroll>

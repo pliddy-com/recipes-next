@@ -16,16 +16,11 @@ interface ResultsPageProps {
   hideLinks: boolean;
   numPages: number;
   pageNum: number;
+  isIndex?: boolean;
 }
 
 const ResultsPage = (props: ResultsPageProps) => {
-  const { data, hideLinks, numPages, pageNum } = props;
-
-  // console.log({ pageNum });
-
-  /**
-   *  TODO: make styles visible if page
-   */
+  const { data, hideLinks, isIndex = false, numPages, pageNum } = props;
 
   return (
     <>
@@ -37,38 +32,40 @@ const ResultsPage = (props: ResultsPageProps) => {
             </Grid>
           ))}
       </Grid>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          marginTop: '1rem',
-          height: hideLinks ? 0 : 'auto',
-          visibility: hideLinks ? 'hidden' : 'visible'
-        }}
-      >
-        {pageNum > 1 && (
-          <Button
-            component={Link}
-            href={`/recipes/page/${pageNum - 1}`}
-            startIcon={<NavigateBeforeIcon />}
-            variant="text"
-          >
-            Load Previous
-          </Button>
-        )}
+      {Boolean(isIndex || pageNum) && (
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginTop: '1rem',
+            height: hideLinks ? 0 : 'auto',
+            visibility: hideLinks ? 'hidden' : 'visible'
+          }}
+        >
+          {pageNum > 1 && (
+            <Button
+              component={Link}
+              href={`/recipes/page/${pageNum - 1}`}
+              startIcon={<NavigateBeforeIcon />}
+              variant="text"
+            >
+              Load Previous
+            </Button>
+          )}
 
-        {pageNum < numPages && (
-          <Button
-            component={Link}
-            endIcon={<NavigateNextIcon />}
-            href={`/recipes/page/${pageNum + 1}`}
-            variant="text"
-            sx={{ marginLeft: 'auto' }}
-          >
-            Load Next
-          </Button>
-        )}
-      </Box>
+          {pageNum < numPages && (
+            <Button
+              component={Link}
+              endIcon={<NavigateNextIcon />}
+              href={`/recipes/page/${pageNum + 1}`}
+              variant="text"
+              sx={{ marginLeft: 'auto' }}
+            >
+              Load Next
+            </Button>
+          )}
+        </Box>
+      )}
     </>
   );
 };

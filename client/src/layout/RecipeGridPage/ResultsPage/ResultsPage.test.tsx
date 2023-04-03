@@ -68,4 +68,33 @@ describe('ResultsPage', () => {
       expect(nextLink).toHaveAttribute('href', '/recipes/page/2');
     });
   });
+
+  describe('when hideLinks is true', () => {
+    it('it hides the links', async () => {
+      const pageNum = 1;
+      const numPages = pagedRecipes.length;
+
+      const { queryByTestId, queryByText } = render(
+        <ResultsPage
+          key={`results-${pageNum}`}
+          data={pagedRecipes[pageNum] as RecipeDefaultFragment[]}
+          pageNum={pageNum}
+          numPages={numPages}
+          hideLinks={true}
+        />
+      );
+
+      await act(async () =>
+        waitFor(() => expect(queryByTestId('results-page')).toBeInTheDocument())
+      );
+
+      const nextLink = queryByText('Load Next');
+
+      expect(nextLink).toBeDefined();
+      expect(nextLink).not.toBeVisible();
+
+      // assert that component has correct href
+      expect(nextLink).toHaveAttribute('href', '/recipes/page/2');
+    });
+  });
 });

@@ -1063,34 +1063,5 @@ exports[`ResultsPage when there is paged content it renders the ResultsPage 1`] 
       </div>
     </div>
   </div>
-  <div
-    class="MuiBox-root css-12vrgl9"
-  >
-    <a
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1jkewew-MuiButtonBase-root-MuiButton-root"
-      href="/recipes/page/1"
-      tabindex="0"
-    >
-      Load Next
-      <span
-        class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-          data-testid="NavigateNextIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-          />
-        </svg>
-      </span>
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </a>
-  </div>
 </DocumentFragment>
 `;

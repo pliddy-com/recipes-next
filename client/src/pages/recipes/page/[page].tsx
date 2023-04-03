@@ -32,24 +32,22 @@ const RecipeListPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { defaultTitle, description } = config?.microcopy?.index ?? {};
 
+  const title = `${defaultTitle} (Page ${page})`;
+
   return pageContent && pageContent.length > 0 ? (
     <>
       <PageHead
-        title={defaultTitle}
+        title={title}
         defaultTitle={defaultTitle}
         description={description}
       />
       <RecipeListSchema
         recipes={pageContent}
-        title={defaultTitle}
+        title={title}
         description={description}
       />
       <Suspense fallback={<Loading />}>
-        <RecipeGridPage
-          recipes={pageContent}
-          title={defaultTitle}
-          page={page}
-        />
+        <RecipeGridPage recipes={pageContent} title={title} page={page} />
       </Suspense>
     </>
   ) : null;
