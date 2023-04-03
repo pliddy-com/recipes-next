@@ -20,12 +20,6 @@ interface RecipeGridPageProps {
   page?: number;
 }
 
-/**
- *
- * TODO: refactor logic so no page param means page = 1
- *       or should there be logic (show load)
- */
-
 const RecipeGridPage = ({ recipes, title, page }: RecipeGridPageProps) => {
   const pageSize = 6;
   const scrollThreshold = 800;
@@ -47,7 +41,7 @@ const RecipeGridPage = ({ recipes, title, page }: RecipeGridPageProps) => {
   useEffect(() => {
     setData([pagedResults[page ? page - 1 : 0]]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  }, [pagedResults]);
 
   /* istanbul ignore next */
   const loadMore = () =>
