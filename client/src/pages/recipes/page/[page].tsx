@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import { ReactElement, Suspense } from 'react';
 import {
   GetStaticPaths,
