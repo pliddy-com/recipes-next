@@ -7,7 +7,7 @@ exports[`RecipeListSchema when there is content it renders the component 1`] = `
     id="recipe-list-schema"
     type="application/ld+json"
   >
-    {"@context":"https://schema.org","@type":"ItemList","url":"https://recipes.pliddy.com","numberOfItems":3,"itemListElement":[{"@type":"ListItem","position":1,"name":"Biscuits","url":"https://recipes.pliddy.com/recipe/biscuits"},{"@type":"ListItem","position":2,"name":"No-Knead Olive Bread","url":"https://recipes.pliddy.com/recipe/no-knead-olive-bread"},{"@type":"ListItem","position":3,"name":"No-Knead Bread","url":"https://recipes.pliddy.com/recipe/no-knead-bread"}]}
+    {"@context":"https://schema.org","@type":"ItemList","url":"https://localhost:3000","numberOfItems":3,"itemListElement":[{"@type":"ListItem","position":1,"name":"Biscuits","url":"https://localhost:3000/recipe/biscuits"},{"@type":"ListItem","position":2,"name":"No-Knead Olive Bread","url":"https://localhost:3000/recipe/no-knead-olive-bread"},{"@type":"ListItem","position":3,"name":"No-Knead Bread","url":"https://localhost:3000/recipe/no-knead-bread"}]}
   </script>
 </DocumentFragment>
 `;

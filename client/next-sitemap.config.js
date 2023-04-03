@@ -20,7 +20,7 @@ const config = {
     policies: [
       {
         userAgent: '*',
-        disallow: NEXT_SSG_FILES
+        disallow: [...NEXT_SSG_FILES, ...exclude]
       }
     ]
   },
