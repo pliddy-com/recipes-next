@@ -45,7 +45,7 @@ This application utilizes the `dyamic` import feature of Next.js to lazy load pa
 
 ### Images
 
-While static site generation can optimize html templates, content, and script bundles, images are, usually, the largest contributor to page loading. To eliminate issues with performance and accessibility, I created a [`DynamicImage`](src/components/Image/DynamicImage/) component to effectively handle responsive images.
+While static site generation can optimize html templates, content, and script bundles, images are, usually, the largest contributor to page loading. To eliminate issues with performance and accessibility, I created a [`DynamicImage`](../client/src/components/Image/DynamicImage/) component to effectively handle responsive images.
 
 Instead of relying on a 3rd-party higher order component to manage image loading behind the scenes, the `DynamicImage` component renders standard `html` tags for the body and head elements of the page. The use of `html` tags instead of runtime JavaScript means that the optimum image can be identified and loaded by the browser before any in-page scripts are executed.
 
@@ -53,7 +53,7 @@ Instead of relying on a 3rd-party higher order component to manage image loading
 
 The `DynamicImage` component can be used in place of an html `img` tag or in any Material UI component that accepts an image property. Since images can have a variety of sizes and responsive behaviors in the application, the `DynamicImage` is a generic solution. The specifications for proper image width at any given size are provided by a `[componentname].config.tsx` file stored in the same directory as the component that uses `DynamicImage`.
 
-This example configuration file for the [`RecipeCard`](src/components/RecipeCard/) component provides a series of minimum viewport widths and corresponding image widths. The widths used have been standardized at 150px increments to minimize the number of cached, pre-rendered versions of the image stored on Contentful's image API CDN.
+This example configuration file for the [`RecipeCard`](../client/src/components/RecipeCard/) component provides a series of minimum viewport widths and corresponding image widths. The widths used have been standardized at 150px increments to minimize the number of cached, pre-rendered versions of the image stored on Contentful's image API CDN.
 
 ```javascript
 breakpoints: [
