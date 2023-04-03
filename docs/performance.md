@@ -33,6 +33,10 @@ If a new page is published, the site will require a full rebuild in order to kno
 
 While a full deployment of new AWS resources can take up to 10 minutes, a static site build of the Next.js browser client only takes **90-120 seconds** to build and deploy across the AWS CloudFront CDN, the site can be re-generated **hundreds of times a month** within the free-tier limits of GitHub Actions and AWS.
 
+### SEO-Compatible Infinite Scrolling
+
+[ CONTENT GOES HERE]
+
 ### Dynamic Imports
 
 This application utilizes the `dyamic` import feature of Next.js to lazy load page-level components. Dynamic importing results in code bundles that split shared framework code from page-specific code. Loading of page-specific components is deferred and helps increase initial performance by reducing the amount of code required to initially render the page in the browser.
@@ -52,21 +56,28 @@ This example configuration file for the [`RecipeCard`](src/components/RecipeCard
 ```javascript
 breakpoints: [
   {
-    viewMin: 669,
-    imgWidth: 450
+    viewMin: 987,
+    imgWidth: 400
   },
-
   {
-    viewMin: 600,
+    viewMin: 768,
     imgWidth: 300
   },
   {
-    viewMin: 485,
-    imgWidth: 600
+    viewMin: 668,
+    imgWidth: 400
+  },
+  {
+    viewMin: 480,
+    imgWidth: 300
+  },
+  {
+    viewMin: 434,
+    imgWidth: 500
   },
   {
     viewMin: 335,
-    imgWidth: 450
+    imgWidth: 400
   },
   {
     imgWidth: 300

@@ -10,6 +10,7 @@
   - [AI-generated Placeholder Content](docs/contentful.md#ai-generated-placeholder-content)
 - [Maximizing Performance](docs/performance.md)
   - [Static Site Generation](docs/performance.md#static-site-generation)
+  - [SEO-Compatible Infinite Scrolling](docs/performance.md#seo-compatible-infinite-scrolling)
   - [Dynamic Imports](docs/performance.md#dynamic-imports)
   - [Images](docs/performance.md#images)
   - [Fonts](docs/performance.md#fonts)
