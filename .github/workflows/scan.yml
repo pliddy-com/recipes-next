@@ -28,12 +28,6 @@ jobs:
         id: setup-node
         uses: './.github/actions/setup-node'
 
-      - name: Set site url
-        id: site-url
-        run: |
-          echo 'NEXT_PUBLIC_SITE_URL=https://${{ github.ref_name }}.recipes.pliddy.com'
-        if: github.ref_name != 'main'
-
       - name: Setup npm cache
         id: npm-cache
         uses: './.github/actions/npm-cache'

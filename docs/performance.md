@@ -35,7 +35,9 @@ While a full deployment of new AWS resources can take up to 10 minutes, a static
 
 ### SEO-Compatible Infinite Scrolling
 
-[ CONTENT GOES HERE]
+Pages that display lists of content components can generate DOM structures with an large number of node elements that can exceed acceptible Lighthouse scores. To minimize initial page loads, recipe list pages utilize **infinite scrolling** that populates the DOM with content as the user scrolls down the page. This approach results in a smaller DOM structure on initial page load but results in a page that is not bot-friendly because it requires a rendered window with **user-generated scroll events** to populate the page with additional content.
+
+In cases where infinite scrolling is implemented to display a list of content items, individual pages with **paginated lists of content** are statically generated at build time with navigation links between the results pages that can be followed by site crawlers.
 
 ### Dynamic Imports
 
