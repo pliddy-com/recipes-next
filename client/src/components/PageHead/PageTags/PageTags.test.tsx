@@ -16,10 +16,19 @@ jest.mock('next/router', () => ({
   })
 }));
 
+const env = process.env;
+
 describe('PageHeadingTag', () => {
-  // reset mocks after each test
-  afterEach(() => {
+  beforeAll(() => {
     jest.resetModules();
+    process.env = {
+      ...env,
+      NEXT_PUBLIC_SITE_URL: 'https://test.recipes.pliddy.com'
+    };
+  });
+
+  afterEach(() => {
+    process.env = env;
   });
 
   describe('when there is a config object', () => {

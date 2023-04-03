@@ -12,7 +12,21 @@ import { RecipeDefaultFragment } from 'types/queries';
 
 jest.mock('lib/api');
 
+const env = process.env;
+
 describe('RecipeListSchema', () => {
+  beforeAll(() => {
+    jest.resetModules();
+    process.env = {
+      ...env,
+      NEXT_PUBLIC_SITE_URL: 'https://test.recipes.pliddy.com'
+    };
+  });
+
+  afterEach(() => {
+    process.env = env;
+  });
+
   describe('when there is content', () => {
     it('it renders the component', async () => {
       const [payload] = await api.getRecipeList({});

@@ -7,6 +7,6 @@ runs:
     - name: Set site url
       id: site-url
       run: |
-        echo NEXT_PUBLIC_SITE_URL=https://${{ github.ref_name }}.recipes.pliddy.com
+        echo 'NEXT_PUBLIC_SITE_URL=https://${{ github.ref_name }}.recipes.pliddy.com'
       if: github.ref_name != 'main'
       shell: bash

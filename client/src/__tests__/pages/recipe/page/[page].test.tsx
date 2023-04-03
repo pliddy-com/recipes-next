@@ -17,13 +17,21 @@ jest.mock('lib/api');
 jest.mock('components/PageHead/PageTags/PageTags');
 jest.mock('layout/RecipeGridPage/RecipeGridPage');
 
+const env = process.env;
+
 describe('Index in index.tsx', () => {
   beforeAll(async () => {
+    jest.resetModules();
+    process.env = {
+      ...env,
+      NEXT_PUBLIC_SITE_URL: 'https://test.recipes.pliddy.com'
+    };
+
     await preloadAll();
   });
 
   afterEach(() => {
-    jest.resetModules();
+    process.env = env;
   });
 
   describe('when there is content', () => {
