@@ -10,19 +10,18 @@ concurrency:
 
 env:
   NODE_VERSION_FILE: '.nvmrc'
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+  NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
+  NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+  NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+  NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
 
 jobs:
   DeploySharedStack:
     name: Deploy Shared Stack to AWS
     runs-on: ubuntu-latest
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-      NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
-      NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-      NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-      NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
     steps:
       - name: Checkout Repo
         id: checkout-repo
@@ -31,6 +30,10 @@ jobs:
       - name: Setup Node
         id: setup-node
         uses: './.github/actions/setup-node'
+
+      - name: Set Site Url
+        id: site-url
+        uses: './.github/actions/site-url'
 
       - name: Setup npm cache
         id: npm-cache
