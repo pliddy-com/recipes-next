@@ -22,6 +22,6 @@ runs:
         echo "deployment bucket: ${{ inputs.s3Bucket }}"
         echo "distribution id: ${{ inputs.distributionId }}"
 
-        [ ${{ inputs.branch }} != 'main'] && NEXT_PUBLIC_SITE_URL=https://${{ github.ref_name }}.recipes.pliddy.com S3_BUCKET=${{ inputs.s3Bucket }} npm run deploy -w client
+        [ ${{ inputs.branch }} != 'main'] && NEXT_PUBLIC_SITE_URL=https://${{ github.ref_name }}.recipes.pliddy.com || NEXT_PUBLIC_SITE_URL=https://recipes.pliddy.com S3_BUCKET=${{ inputs.s3Bucket }} npm run deploy -w client
         DISTRIBUTION_ID=${{ inputs.distributionId }} npm run invalidate -w client
       shell: bash
