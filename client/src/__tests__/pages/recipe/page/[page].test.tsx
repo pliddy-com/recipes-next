@@ -19,9 +19,10 @@ jest.mock('layout/RecipeGridPage/RecipeGridPage');
 
 const env = process.env;
 
-describe('Index in index.tsx', () => {
-  beforeAll(async () => {
+describe('RecipeListPage in [page].tsx', () => {
+  beforeEach(async () => {
     jest.resetModules();
+
     process.env = {
       ...env,
       NEXT_PUBLIC_SITE_URL: 'https://test.recipes.pliddy.com'
@@ -35,7 +36,7 @@ describe('Index in index.tsx', () => {
   });
 
   describe('when there is content', () => {
-    it('it renders the index page', async () => {
+    it('it renders the page', async () => {
       const getRecipeIndexSpy = jest.spyOn(api, 'getRecipeIndex');
       const recipeCollectionData = await api.getRecipeIndex();
       const page = 1;
@@ -82,7 +83,7 @@ describe('Index in index.tsx', () => {
   });
 
   describe('when there is no page parameter', () => {
-    it('it renders the index page', async () => {
+    it('it renders the page', async () => {
       // const getRecipeIndexSpy = jest.spyOn(api, 'getRecipeIndex');
       const recipeCollectionData = await api.getRecipeIndex();
 

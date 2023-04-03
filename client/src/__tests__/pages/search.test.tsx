@@ -14,12 +14,12 @@ jest.mock('components/PageHead/PageTags/PageTags');
 jest.mock('layout/SearchGridPage/SearchGridPage');
 
 describe('Index in index.tsx', () => {
-  afterEach(() => {
-    jest.resetModules();
+  beforeEach(async () => {
+    await preloadAll();
   });
 
-  beforeAll(async () => {
-    await preloadAll();
+  afterEach(() => {
+    jest.resetModules();
   });
 
   describe('when there is content', () => {

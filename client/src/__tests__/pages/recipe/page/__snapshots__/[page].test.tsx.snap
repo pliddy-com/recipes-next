@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Index in index.tsx when there is content it renders the index page 1`] = `
+exports[`RecipeListPage in [page].tsx when there is content it renders the page 1`] = `
 <DocumentFragment>
   <title>
     Index Default Title
@@ -42,7 +42,7 @@ exports[`Index in index.tsx when there is content it renders the index page 1`] 
 </DocumentFragment>
 `;
 
-exports[`Index in index.tsx when there is no page parameter it renders the index page 1`] = `
+exports[`RecipeListPage in [page].tsx when there is no page parameter it renders the page 1`] = `
 <DocumentFragment>
   <title>
     Index Default Title

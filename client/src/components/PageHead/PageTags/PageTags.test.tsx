@@ -19,7 +19,7 @@ jest.mock('next/router', () => ({
 const env = process.env;
 
 describe('PageHeadingTag', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     jest.resetModules();
     process.env = {
       ...env,

@@ -15,8 +15,9 @@ jest.mock('lib/api');
 const env = process.env;
 
 describe('TagListSchema', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     jest.resetModules();
+
     process.env = {
       ...env,
       NEXT_PUBLIC_SITE_URL: 'https://test.recipes.pliddy.com'

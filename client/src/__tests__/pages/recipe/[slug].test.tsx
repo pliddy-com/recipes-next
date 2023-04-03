@@ -32,8 +32,9 @@ interface PageContentProps {
 }
 
 describe('RecipePage in recipe/[slug].tsx', () => {
-  beforeAll(async () => {
+  beforeEach(async () => {
     jest.resetModules();
+
     process.env = {
       ...env,
       NEXT_PUBLIC_SITE_URL: 'https://test.recipes.pliddy.com'

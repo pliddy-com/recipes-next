@@ -16,7 +16,7 @@ jest.mock('layout/TagGridPage/TagGridPage');
 const env = process.env;
 
 describe('TagIndexPage in tag/index.tsx', () => {
-  beforeAll(async () => {
+  beforeEach(async () => {
     jest.resetModules();
     process.env = {
       ...env,
