@@ -74,7 +74,7 @@ const typeThemeOptions: ThemeOptions = {
       fontFamily: sansFontFamily,
       fontSize: `${30 / baseRemSize}rem`,
       fontWeight: fontWeightBold,
-      lineHeight: 1.125
+      lineHeight: 1.2
     },
     h2: {
       borderBottom: `1px solid ${colors.secondary.main}`,
