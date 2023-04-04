@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import Loading from 'components/Loading/Loading';
-import ResultsPage from 'layout/RecipeGridPage/ResultsPage/ResultsPage';
+import ResultsPage from 'components/ResultsPage/ResultsPage';
 
 import { paginateResults, loadNext } from 'lib/infiniteScroll';
 
