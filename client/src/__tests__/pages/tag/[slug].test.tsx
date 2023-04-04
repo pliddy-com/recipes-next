@@ -15,7 +15,7 @@ jest.mock('layout/RecipeGridPage/RecipeGridPage');
 
 const env = process.env;
 
-describe('TagPage in tag/[slug].tsx', () => {
+describe('TagPage in tags/[slug].tsx', () => {
   beforeEach(async () => {
     jest.resetModules();
     process.env = {
