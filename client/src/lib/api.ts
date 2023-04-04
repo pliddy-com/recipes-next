@@ -28,7 +28,7 @@ import { hasValue } from './utils';
 
 // used to query content for nav menu taxonomy on client layout
 export const getNavTaxonomy = async () => {
-  // const { queryGraphQLContent } = await import('lib/gqlClient');
+  const { queryGraphQLContent } = await import('lib/gqlClient');
 
   const results: NavMenuDataQuery = await queryGraphQLContent(
     NavMenuDataDocument

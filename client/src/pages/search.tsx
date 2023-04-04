@@ -21,14 +21,14 @@ const SearchGridPage = dynamic(
   { suspense: true }
 );
 
-const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
-  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string
-);
-
 const SearchPage = ({
   pageContent
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const searchClient = algoliasearch(
+    process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
+    process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string
+  );
+
   const { defaultTitle, description } = config?.microcopy?.search ?? {};
 
   return pageContent && pageContent.length > 0 ? (
