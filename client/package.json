@@ -20,7 +20,7 @@
     "prestart": "npm run build",
     "remove": "dotenv -- cross-var aws s3 rm --recursive %S3_BUCKET%/branches/$(git symbolic-ref --short HEAD)",
     "scan": "dotenv -- cross-var npm run typegen && npm run nav && npm run typecheck && npm run lint && npm run test",
-    "scan:local": "npm run typegen:local && npm run typecheck && npm run lint && npm run test",
+    "scan:local": "npm run typegen:local && npm run nav && npm run typecheck && npm run lint && npm run test",
     "start": "next start",
     "test": "jest",
     "test:dev": "jest --watch",

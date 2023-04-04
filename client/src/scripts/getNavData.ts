@@ -14,7 +14,7 @@ import {
   filterTaxonomyItemsWithRecipes
 } from '../lib/apiFilters';
 
-const filePath = path.join(__dirname, '../data/navData.json');
+const filePath = path.join(__dirname, '../navData.json');
 
 export const getNavTaxonomy = async () => {
   const results: NavMenuDataQuery = await queryGraphQLContent(
@@ -43,6 +43,7 @@ const main = async () => {
     getNavTaxonomy().then((navData) => {
       fs.writeFileSync(filePath, JSON.stringify(navData, null, 2));
     });
+    console.log('generated src/navData.json');
   } catch (e) {
     console.error(e);
   }

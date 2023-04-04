@@ -4,7 +4,7 @@ import NavBar from 'components/Navigation/NavBar/NavBar';
 
 import { TaxonomyChildrenItem } from 'types/queries';
 
-import navData from 'data/navData.json';
+import navData from 'navData.json';
 
 interface LayoutProps {
   children?: ReactElement[] | ReactElement;
