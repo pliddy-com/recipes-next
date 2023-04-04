@@ -91,7 +91,6 @@ const RecipeGridPage = ({
                 key={`results-${pageNum}`}
                 data={pageData as RecipeDefaultFragment[]}
                 pageNum={pageNum || 0}
-                // {...(page && { pageNum: page })}
                 numPages={numPages}
                 hideLinks={true}
                 isIndex={isIndex}

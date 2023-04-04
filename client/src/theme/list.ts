@@ -11,13 +11,17 @@ const listThemeOptions: ThemeOptions = {
             paddingBottom: 0,
             paddingTop: 0,
             '&.orderedList': {
-              '& .MuiListItemText-root': {
-                marginTop: '4px',
-                marginBottom: '0px',
-                paddingTop: '4px'
+              '& .MuiListItemText': {
+                '&-root': {
+                  marginTop: '4px',
+                  marginBottom: '0px',
+                  paddingTop: '4px'
+                }
               },
-              '& .MuiListItem-root': {
-                alignItems: 'flex-start'
+              '& .MuiListItem': {
+                '&-root': {
+                  alignItems: 'flex-start'
+                }
               }
             }
           }

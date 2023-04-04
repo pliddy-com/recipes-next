@@ -89,7 +89,7 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
           label="Cuisine"
           nav={nav.cuisine}
           onClick={onClick}
-          root="tag"
+          root="tags"
           showLabel={true}
         />
 

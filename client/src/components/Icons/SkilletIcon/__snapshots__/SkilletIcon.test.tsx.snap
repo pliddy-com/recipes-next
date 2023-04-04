@@ -10,9 +10,8 @@ exports[`LogoIcon loads and displays greeting 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icon css-i4bv87-MuiSvgIcon-root"
       focusable="false"
-      style="height: 1.5rem; width: 1.5rem;"
       viewBox="0 0 24 24"
     >
       <path

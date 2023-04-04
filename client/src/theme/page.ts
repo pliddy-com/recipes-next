@@ -17,20 +17,28 @@ const pageThemeOptions: ThemeOptions = {
             minHeight: '100vh',
             paddingBottom: '3rem',
             paddingTop: '6rem',
-            '& .MuiGrid-root': {
-              display: 'flex'
+            '& .MuiGrid': {
+              '&-root': {
+                display: 'flex'
+              }
             },
             '&.tagGrid': {
               overflow: 'auto',
-              '& .MuiTypography-h2': {
-                '&.MuiLink-root': {
-                  border: 'none',
-                  display: 'flex',
-                  lineHeight: 1.125,
-                  paddingBottom: '0px',
-                  textDecoration: 'none',
-                  '& .MuiSvgIcon-root': {
-                    marginTop: '2px'
+              '& .MuiTypography': {
+                '&-h2': {
+                  '&.MuiLink': {
+                    '&-root': {
+                      border: 'none',
+                      display: 'flex',
+                      lineHeight: 1.125,
+                      paddingBottom: '0px',
+                      textDecoration: 'none',
+                      '& .MuiSvgIcon': {
+                        '&-root': {
+                          marginTop: '2px'
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -62,11 +70,13 @@ const pageThemeOptions: ThemeOptions = {
                       justifyContent: 'flex-end'
                     }
                   },
-                  '& .MuiTypography-subtitle2': {
-                    fontFamily: sansFontFamily,
-                    lineHeight: 1.375,
-                    '& strong': {
-                      color: baseTheme.palette.primary.main
+                  '& .MuiTypography': {
+                    '&-subtitle2': {
+                      fontFamily: sansFontFamily,
+                      lineHeight: 1.375,
+                      '& strong': {
+                        color: baseTheme.palette.primary.main
+                      }
                     }
                   }
                 },
@@ -107,21 +117,25 @@ const pageThemeOptions: ThemeOptions = {
               },
               '& .equipment': {
                 '& .icon': {
-                  width: '24px',
-                  height: '24px'
+                  width: '1.5rem',
+                  height: '1.5rem'
                 }
               }
             },
             '&.search': {
               paddingTop: '5rem',
-              '& .MuiPaper-root': {
-                '&.search': {
-                  alignItems: 'center',
-                  display: 'flex',
-                  marginBottom: '1rem',
-                  padding: '2px 4px',
-                  '& .MuiInputBase-input': {
-                    flex: 1
+              '& .MuiPaper': {
+                '&-root': {
+                  '&.search': {
+                    alignItems: 'center',
+                    display: 'flex',
+                    marginBottom: '1rem',
+                    padding: '2px 4px',
+                    '& .MuiInputBase': {
+                      '&-input': {
+                        flex: 1
+                      }
+                    }
                   }
                 }
               }

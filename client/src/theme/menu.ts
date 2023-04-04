@@ -9,10 +9,12 @@ const menuThemeOptions: ThemeOptions = {
     MuiMenu: {
       styleOverrides: {
         root: {
-          '& .MuiList-root': {
-            padding: 0,
-            '&.menuList': {
-              padding: 0
+          '& .MuiList': {
+            '&-root': {
+              padding: 0,
+              '&.menuList': {
+                padding: 0
+              }
             }
           }
         }
@@ -24,8 +26,10 @@ const menuThemeOptions: ThemeOptions = {
           '&.menuItem': {
             padding: 0,
             '&.featured': {
-              '& .MuiListItemText-primary': {
-                fontWeight: fontWeightBold
+              '& .MuiListItemText': {
+                '&-primary': {
+                  fontWeight: fontWeightBold
+                }
               }
             }
           },
@@ -33,12 +37,14 @@ const menuThemeOptions: ThemeOptions = {
           '&.menuItem, &.subMenuItem': {
             paddingTop: 0,
             paddingBottom: 0,
-            '& .MuiListItemText-primary': {
-              color: colors.primary.main,
-              fontFamily: sansFontFamily,
-              minWidth: '11rem',
-              paddingTop: '0.5rem',
-              paddingBottom: '0.5rem'
+            '& .MuiListItemText': {
+              '&-primary': {
+                color: colors.primary.main,
+                fontFamily: sansFontFamily,
+                minWidth: '11rem',
+                paddingTop: '0.5rem',
+                paddingBottom: '0.5rem'
+              }
             }
           }
         }
@@ -60,13 +66,15 @@ const menuThemeOptions: ThemeOptions = {
           display: 'flex',
           marginRight: '.5rem',
           minWidth: '2.5rem',
-          '& .MuiAvatar-root': {
-            color: colors.primary.main,
-            backgroundColor: colors.common.white,
-            fontFamily: sansFontFamily,
-            fontSize: '24px',
-            fontWeight: 600,
-            letterSpacing: '-.5px'
+          '& .MuiAvatar': {
+            '&-root': {
+              color: colors.primary.main,
+              backgroundColor: colors.common.white,
+              fontFamily: sansFontFamily,
+              fontSize: '24px',
+              fontWeight: 600,
+              letterSpacing: '-.5px'
+            }
           }
         }
       }
@@ -82,10 +90,12 @@ const menuThemeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           '&.dropdown-menu': {
-            '& .MuiMenu-paper': {
-              border: `1px solid ${colors.primary.main}`,
-              borderRadius: 0,
-              maxHeight: `calc(100vh - 2 * ${theme.mixins.toolbar.minHeight})`
+            '& .MuiMenu': {
+              '&-paper': {
+                border: `1px solid ${colors.primary.main}`,
+                borderRadius: 0,
+                maxHeight: `calc(100vh - 2 * ${theme.mixins.toolbar.minHeight})`
+              }
             }
           }
         }
@@ -103,15 +113,17 @@ const menuThemeOptions: ThemeOptions = {
                 }
               }
             },
-            '& .MuiListSubheader-root': {
-              backgroundColor: colors.primary.main,
-              color: colors.common.white,
-              fontFamily: sansFontFamily,
-              fontSize: '1rem',
-              fontWeight: fontWeightBold,
-              minHeight: theme.mixins.toolbar.minHeight,
-              paddingTop: '.25rem',
-              textTransform: 'capitalize'
+            '& .MuiListSubheader': {
+              '&-root': {
+                backgroundColor: colors.primary.main,
+                color: colors.common.white,
+                fontFamily: sansFontFamily,
+                fontSize: '1rem',
+                fontWeight: fontWeightBold,
+                minHeight: theme.mixins.toolbar.minHeight,
+                paddingTop: '.25rem',
+                textTransform: 'capitalize'
+              }
             }
           }
         }
