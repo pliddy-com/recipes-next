@@ -16,7 +16,7 @@ const pageThemeOptions: ThemeOptions = {
             backgroundColor: colors.common.white,
             minHeight: '100vh',
             paddingBottom: '3rem',
-            paddingTop: '6rem',
+            paddingTop: '5.5rem',
             '& .MuiGrid': {
               '&-root': {
                 display: 'flex'

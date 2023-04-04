@@ -59,19 +59,17 @@ describe('NavBar', () => {
   });
 
   describe('when there is no nav property', () => {
-    it('it does not render a navbar', () => {
-      const nav = undefined;
-      const testId = 'navbar';
-
-      const { queryByTestId, queryByRole } = render(<NavBar nav={nav} />);
+    it('it does not render nav items', () => {
+      const { queryByRole } = render(<NavBar nav={undefined} />);
 
       // assert that there is no NavMenu
-      const menu = queryByTestId(testId);
-      expect(menu).toBeNull();
+      const mobileNav = queryByRole('button', { name: 'open navigation menu' });
+      expect(mobileNav).toBeNull();
 
-      // assert that there is no menu button
-      const button = queryByRole('button', { name: 'open drawer' });
-      expect(button).toBeNull();
+      const desktopNav = queryByRole('button', {
+        name: 'open categories menu'
+      });
+      expect(desktopNav).toBeNull();
     });
   });
 });

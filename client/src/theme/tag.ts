@@ -8,7 +8,8 @@ const tagThemeOptions: ThemeOptions = {
         root: {
           '&.tagButtons': {
             flexDirection: 'row',
-            flexWrap: 'wrap'
+            flexWrap: 'wrap',
+            minHeight: '33px'
           }
         }
       }

@@ -3,9 +3,9 @@ import {
   NavTaxonomyFragment,
   TagTaxonomyFragment,
   RecipeSlugFragment
-} from 'types/queries';
+} from '../types/queries';
 
-import { hasValue } from 'lib/utils';
+import { hasValue } from './utils';
 
 export const filterSlugs = (
   items: (RecipeSlugFragment | TagDefaultFragment | null)[]

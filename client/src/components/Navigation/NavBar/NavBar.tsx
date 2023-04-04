@@ -26,67 +26,65 @@ export interface NavBarProps {
 const NavBar = ({ nav }: NavBarProps) => {
   const { categories, cuisine, tags } = nav ?? {};
 
-  return nav ? (
-    <>
-      <AppBar component="nav" data-testid="navbar">
-        <Toolbar className="navbar">
-          <LogoButton />
+  return (
+    <AppBar component="nav" data-testid="navbar">
+      <Toolbar className="navbar">
+        <LogoButton />
 
-          {/* Mobile Navigation */}
+        {nav ? (
+          <>
+            <Box className="mobile-nav">
+              <MobileNavControl ariaLabel="open navigation menu" nav={nav} />
+            </Box>
 
-          <Box className="mobile-nav">
-            <MobileNavControl ariaLabel="open navigation menu" nav={nav} />
-          </Box>
+            <Box className="desktop-nav">
+              {categories && (
+                <NavMenuControl
+                  ariaLabel="open categories menu"
+                  label="Categories"
+                  icon={<MenuIcon />}
+                  data-testid="categories-menu"
+                  featuredLabel="All Recipes"
+                  featuredUrl="/"
+                  id="categories"
+                  nav={categories}
+                  root="tags"
+                />
+              )}
 
-          {/* Desktop Navigation */}
+              {cuisine && (
+                <NavMenuControl
+                  ariaLabel="open cuisine menu"
+                  label="Cuisine"
+                  icon={<LanguageIcon />}
+                  data-testid="cuisine-menu"
+                  id="cuisine"
+                  nav={cuisine}
+                  root="tags"
+                />
+              )}
 
-          <Box className="desktop-nav">
-            {categories && (
-              <NavMenuControl
-                ariaLabel="open categories menu"
-                label="Categories"
-                icon={<MenuIcon />}
-                data-testid="categories-menu"
-                featuredLabel="All Recipes"
-                featuredUrl="/"
-                id="categories"
-                nav={categories}
-                root="tags"
-              />
-            )}
+              {tags && (
+                <NavMenuControl
+                  ariaLabel="open tags menu"
+                  label="Tags"
+                  icon={<TagIcon />}
+                  data-testid="tags-menu"
+                  featuredLabel="All Tags"
+                  featuredUrl="/tags"
+                  id="tags"
+                  nav={tags}
+                  root="tags"
+                />
+              )}
 
-            {cuisine && (
-              <NavMenuControl
-                ariaLabel="open cuisine menu"
-                label="Cuisine"
-                icon={<LanguageIcon />}
-                data-testid="cuisine-menu"
-                id="cuisine"
-                nav={cuisine}
-                root="tags"
-              />
-            )}
-
-            {tags && (
-              <NavMenuControl
-                ariaLabel="open tags menu"
-                label="Tags"
-                icon={<TagIcon />}
-                data-testid="tags-menu"
-                featuredLabel="All Tags"
-                featuredUrl="/tags"
-                id="tags"
-                nav={tags}
-                root="tags"
-              />
-            )}
-
-            <SearchButton />
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </>
-  ) : null;
+              <SearchButton />
+            </Box>
+          </>
+        ) : null}
+      </Toolbar>
+    </AppBar>
+  );
 };
 
 export default NavBar;

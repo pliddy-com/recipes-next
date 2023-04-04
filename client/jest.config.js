@@ -16,7 +16,8 @@ const customJestConfig = {
     '!src/**/types/**',
     '!**/node_modules/**',
     '!src/theme/**',
-    '!src/**.config.ts'
+    '!src/**.config.ts',
+    '!src/scripts/*.*'
   ],
   coverageThreshold: {
     global: {

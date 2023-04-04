@@ -1,4 +1,4 @@
-import { queryGraphQLContent } from 'lib/gqlClient';
+import { queryGraphQLContent } from './gqlClient';
 
 import {
   filterSlugs,
@@ -22,9 +22,9 @@ import {
   RecipeSlugsQuery,
   TagSlugsQuery,
   RecipeListQuery
-} from 'types/queries';
+} from '../types/queries';
 
-import { hasValue } from 'lib/utils';
+import { hasValue } from './utils';
 
 // used to query content for nav menu taxonomy on client layout
 export const getNavTaxonomy = async () => {

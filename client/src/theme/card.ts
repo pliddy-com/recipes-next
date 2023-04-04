@@ -31,7 +31,8 @@ const cardThemeOptions: ThemeOptions = {
               height: 'auto',
               minWidth: '100%',
               minHeight: '100%',
-              objectFit: 'cover'
+              objectFit: 'cover',
+              aspectRatio: '3 / 2'
             }
           },
           '& .MuiCardHeader': {

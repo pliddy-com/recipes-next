@@ -45,3 +45,6 @@ public/sitemap*
 .cdk.staging
 cdk.out
 .github/cdk/cdk-outputs.json
+
+# auto generated nav data
+**/navData.json

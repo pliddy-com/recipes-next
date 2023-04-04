@@ -10,7 +10,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "noEmit": true,
     "resolveJsonModule": true,
@@ -31,7 +31,7 @@
     "src/lib/__mocks__/lib",
     "src/lib/__mocks__/next",
     "jest.config.js",
-    "scripts"
+    "src/scripts"
   ],
   "typeAcquisition": {
     "include": ["jest"]
