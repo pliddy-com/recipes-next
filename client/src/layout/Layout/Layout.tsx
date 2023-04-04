@@ -1,36 +1,25 @@
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement } from 'react';
 
 import NavBar from 'components/Navigation/NavBar/NavBar';
 
-import { getNavTaxonomy } from 'lib/api';
-
 import { TaxonomyChildrenItem } from 'types/queries';
+
+import navData from 'data/navData.json';
 
 interface LayoutProps {
   children?: ReactElement[] | ReactElement;
 }
 
-interface NavDataProps {
+export interface NavDataProps {
   categories: TaxonomyChildrenItem[];
   cuisine: TaxonomyChildrenItem[];
   tags: TaxonomyChildrenItem[];
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const [navData, setNavData] = useState<NavDataProps>();
-
-  useEffect(() => {
-    getNavTaxonomy()
-      .then((nav) => {
-        nav && setNavData(nav as NavDataProps);
-      })
-      // eslint-disable-next-line no-console
-      .catch((e) => console.error(e));
-  }, [setNavData]);
-
   return (
     <>
-      <NavBar nav={navData} />
+      {navData && <NavBar nav={navData as unknown as NavDataProps} />}
       <main>{children}</main>
     </>
   );

@@ -16,3 +16,6 @@ coverage/
 
 # google verification
 /public/google*.html
+
+# auto generated nav data
+**/navData.json
