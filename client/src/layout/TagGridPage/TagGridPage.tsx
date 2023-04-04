@@ -51,7 +51,7 @@ const TagGridPage = ({ tags }: TagGridPageProps) => {
 
         return slug && title && items ? (
           <Box key={slug}>
-            <Link href={`/tag/${slug}`} underline="none" variant="h2">
+            <Link href={`/tags/${slug}`} underline="none" variant="h2">
               {title} <ArrowRightIcon />
             </Link>
             <Grid container spacing={2} mb={4}>

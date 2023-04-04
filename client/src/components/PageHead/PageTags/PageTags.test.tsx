@@ -103,7 +103,7 @@ describe('PageHeadingTag', () => {
         (useRouter as jest.Mock).mockReturnValueOnce({
           route: '/route',
           pathname: '/path',
-          asPath: '/tag/path'
+          asPath: '/tags/path'
         });
 
         const title = 'Test Title';

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TagPage in tag/[slug].tsx when there is page content it renders the page 1`] = `
+exports[`TagPage in tags/[slug].tsx when there is page content it renders the page 1`] = `
 <DocumentFragment>
   <title>
     Baking Tag Default Title

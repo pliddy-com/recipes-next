@@ -4,11 +4,6 @@ import { fontWeightBold, sansFontFamily } from './fontface';
 
 const buttonThemeOptions: ThemeOptions = {
   components: {
-    // MuiButtonBase: {
-    //   defaultProps: {
-    //     disableRipple: true
-    //   }
-    // },
     MuiButton: {
       styleOverrides: {
         root: {
