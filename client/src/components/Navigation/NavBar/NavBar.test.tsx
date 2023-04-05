@@ -46,6 +46,13 @@ describe('NavBar', () => {
       // assert that component has correct href
       expect(logoButton).toHaveAttribute('href', '/');
 
+      const searchButton = queryByRole('button', {
+        name: 'search'
+      });
+
+      expect(searchButton).toBeDefined();
+      expect(searchButton).toHaveAttribute('href', '/search');
+
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
     });

@@ -2,10 +2,14 @@ import { ReactElement, Suspense } from 'react';
 import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
 
+import algoliasearch from 'algoliasearch/lite';
+import { InstantSearch, Configure } from 'react-instantsearch-hooks-web';
+
 import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeIndex } from 'lib/api';
+
 import config from 'lib/config';
 
 const Layout = dynamic(
@@ -13,32 +17,36 @@ const Layout = dynamic(
   { suspense: true }
 );
 
-const RecipeGridPage = dynamic(
+const SearchGridPage = dynamic(
   () =>
     import(
-      /* webpackChunkName: 'RecipeGrid' */ 'layout/RecipeGridPage/RecipeGridPage'
+      /* webpackChunkName: 'SearchGrid' */ 'layout/SearchGridPage/SearchGridPage'
     ),
   { suspense: true }
 );
 
-const NotFoundPage = ({
+const SearchPage = ({
   pageContent
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { defaultTitle, description } = config?.microcopy?.notFound ?? {};
+  const searchClient = algoliasearch(
+    process.env.NEXT_PUBLIC_ALGOLIA_APP_ID as string,
+    process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY as string
+  );
 
-  return defaultTitle && description ? (
-    <>
+  const { defaultTitle, description } = config?.microcopy?.search ?? {};
+
+  return pageContent && pageContent.length > 0 ? (
+    <InstantSearch searchClient={searchClient} indexName="recipes_index">
+      <Configure hitsPerPage={100} />
       <PageHead
         title={defaultTitle}
         defaultTitle={defaultTitle}
         description={description}
       />
-      {pageContent && pageContent.length > 0 && RecipeGridPage && (
-        <Suspense fallback={<Loading />}>
-          <RecipeGridPage recipes={pageContent} title={defaultTitle} />
-        </Suspense>
-      )}
-    </>
+      <Suspense fallback={<Loading />}>
+        <SearchGridPage title={defaultTitle} />
+      </Suspense>
+    </InstantSearch>
   ) : null;
 };
 
@@ -48,10 +56,10 @@ export const getStaticProps = async ({ preview = false }) => {
   return { props: { pageContent, preview }, revalidate: 60 };
 };
 
-NotFoundPage.getLayout = (page: ReactElement) => (
+SearchPage.getLayout = (page: ReactElement) => (
   <Suspense fallback={<Loading />}>
     <Layout>{page}</Layout>
   </Suspense>
 );
 
-export default NotFoundPage;
+export default SearchPage;

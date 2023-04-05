@@ -2,8 +2,6 @@ import { ReactElement, Suspense } from 'react';
 import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
 
-// import Layout from 'layout/Layout/Layout';
-
 import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
 import TagListSchema from 'components/PageHead/Schema/TagListSchema/TagListSchema';

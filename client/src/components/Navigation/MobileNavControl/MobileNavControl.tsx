@@ -1,12 +1,20 @@
 import { useState } from 'react';
+import Link from 'next/link';
 
 import Drawer from '@mui/material/Drawer';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import MenuItem from '@mui/material/MenuItem';
+import MenuList from '@mui/material/MenuList';
+
+import SearchIcon from '@mui/icons-material/Search';
 
 import NavIconButton from '../Buttons/NavIconButton/NavIconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import NavMenuList from '../NavMenuList/NavMenuList';
 
 import { TaxonomyChildrenItem } from 'types/queries';
+import ListItemIcon from '@mui/material/ListItemIcon';
 
 export interface NavDataProps {
   categories: TaxonomyChildrenItem[];
@@ -52,6 +60,17 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
         variant="temporary"
         data-testid="mobile-nav"
       >
+        <MenuList className="menuList">
+          <MenuItem className="menuItem featured">
+            <ListItemButton component={Link} href="/search" onClick={onClick}>
+              <ListItemText primary="Search" />
+              <ListItemIcon>
+                <SearchIcon fontSize="small" />
+              </ListItemIcon>
+            </ListItemButton>
+          </MenuItem>
+        </MenuList>
+
         <NavMenuList
           className="menuList"
           featuredLabel="All Recipes"
