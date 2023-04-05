@@ -7,7 +7,7 @@ import {
 
 import dynamic from 'next/dynamic';
 
-import Layout from 'layout/Layout/Layout';
+// import Layout from 'layout/Layout/Layout';
 
 import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
@@ -17,6 +17,11 @@ import { getRecipeIndex } from 'lib/api';
 import { paginateResults } from 'lib/infiniteScroll';
 
 import config from 'lib/config';
+
+const Layout = dynamic(
+  () => import(/* webpackChunkName: 'Layout' */ 'layout/Layout/Layout'),
+  { suspense: true }
+);
 
 const RecipeGridPage = dynamic(
   () =>
@@ -79,6 +84,12 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   };
 };
 
-RecipeListPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+// RecipeListPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+
+RecipeListPage.getLayout = (page: ReactElement) => (
+  <Suspense fallback={<Loading />}>
+    <Layout>{page}</Layout>
+  </Suspense>
+);
 
 export default RecipeListPage;

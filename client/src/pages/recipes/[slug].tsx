@@ -8,7 +8,7 @@ import {
 
 import dynamic from 'next/dynamic';
 
-import Layout from 'layout/Layout/Layout';
+// import Layout from 'layout/Layout/Layout';
 
 import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
@@ -17,6 +17,11 @@ import RecipeSchema from 'components/PageHead/Schema/RecipeSchema/RecipeSchema';
 import { getRecipeSlugs, getRecipePage } from 'lib/api';
 import config from 'lib/config';
 import { hasValue } from 'lib/utils';
+
+const Layout = dynamic(
+  () => import(/* webpackChunkName: 'Layout' */ 'layout/Layout/Layout'),
+  { suspense: true }
+);
 
 const RecipePage = dynamic(
   () =>
@@ -81,6 +86,10 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   return { props: { pageContent, preview: Boolean(preview) }, revalidate: 60 };
 };
 
-RecipeSlugPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+RecipeSlugPage.getLayout = (page: ReactElement) => (
+  <Suspense fallback={<Loading />}>
+    <Layout>{page}</Layout>
+  </Suspense>
+);
 
 export default RecipeSlugPage;
