@@ -5,13 +5,17 @@ import dynamic from 'next/dynamic';
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Configure } from 'react-instantsearch-hooks-web';
 
-import Layout from 'layout/Layout/Layout';
 import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeIndex } from 'lib/api';
 
 import config from 'lib/config';
+
+const Layout = dynamic(
+  () => import(/* webpackChunkName: 'Layout' */ 'layout/Layout/Layout'),
+  { suspense: true }
+);
 
 const SearchGridPage = dynamic(
   () =>
@@ -52,6 +56,10 @@ export const getStaticProps = async ({ preview = false }) => {
   return { props: { pageContent, preview }, revalidate: 60 };
 };
 
-SearchPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+SearchPage.getLayout = (page: ReactElement) => (
+  <Suspense fallback={<Loading />}>
+    <Layout>{page}</Layout>
+  </Suspense>
+);
 
 export default SearchPage;

@@ -1,8 +1,7 @@
 import { ReactElement, Suspense } from 'react';
 import { InferGetStaticPropsType } from 'next';
-import dynamic from 'next/dynamic';
 
-import Layout from 'layout/Layout/Layout';
+import dynamic from 'next/dynamic';
 
 import Loading from 'components/Loading/Loading';
 import PageHead from 'components/PageHead/PageTags/PageTags';
@@ -10,6 +9,11 @@ import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/Recipe
 
 import { getRecipeIndex } from 'lib/api';
 import config from 'lib/config';
+
+const Layout = dynamic(
+  () => import(/* webpackChunkName: 'Layout' */ 'layout/Layout/Layout'),
+  { suspense: true }
+);
 
 const RecipeGridPage = dynamic(
   () =>
@@ -53,6 +57,10 @@ export const getStaticProps = async ({ preview = false }) => {
   return { props: { pageContent, preview }, revalidate: 60 };
 };
 
-IndexPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+IndexPage.getLayout = (page: ReactElement) => (
+  <Suspense fallback={<Loading />}>
+    <Layout>{page}</Layout>
+  </Suspense>
+);
 
 export default IndexPage;
