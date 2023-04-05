@@ -43,7 +43,7 @@ const main = async () => {
     getNavTaxonomy().then((navData) => {
       fs.writeFileSync(filePath, JSON.stringify(navData, null, 2));
     });
-    console.log('generated src/navData.json');
+    console.log('> generated src/navData.json');
   } catch (e) {
     console.error(e);
   }
