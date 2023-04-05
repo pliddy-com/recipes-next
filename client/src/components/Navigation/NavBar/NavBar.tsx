@@ -9,7 +9,6 @@ import TagIcon from '@mui/icons-material/Tag';
 import LogoButton from 'components/Navigation/Buttons/LogoButton/LogoButton';
 import MobileNavControl from 'components/Navigation/MobileNavControl/MobileNavControl';
 import NavMenuControl from 'components/Navigation/NavMenuControl/NavMenuControl';
-import SearchButton from 'components/Navigation/Buttons/SearchButton/SearchButton';
 
 import { TaxonomyChildrenItem } from 'types/queries';
 
@@ -77,8 +76,6 @@ const NavBar = ({ nav }: NavBarProps) => {
                   root="tags"
                 />
               )}
-
-              <SearchButton />
             </Box>
           </>
         ) : null}
