@@ -20,7 +20,7 @@ describe('PagedRecipes', () => {
 
   describe('when there is paged content', () => {
     it('it renders the pageinated tags list', async () => {
-      const pageNum = 0;
+      const pageNum = 3;
       const numPages = pagedTags.length;
 
       const { asFragment, queryByTestId } = render(
@@ -42,8 +42,8 @@ describe('PagedRecipes', () => {
   });
 
   describe('when there is a page parameter', () => {
-    it('it renders the default next anchor for page 2', async () => {
-      const pageNum = 1;
+    it('it renders the default pagination anchors', async () => {
+      const pageNum = 2;
       const numPages = pagedTags.length;
 
       const { queryByTestId, queryByText } = render(
@@ -65,7 +65,14 @@ describe('PagedRecipes', () => {
       expect(nextLink).toBeDefined();
 
       // assert that component has correct href
-      expect(nextLink).toHaveAttribute('href', './2');
+      expect(nextLink).toHaveAttribute('href', './3');
+
+      const prevLink = queryByText('Load Previous');
+
+      expect(prevLink).toBeDefined();
+
+      // assert that component has correct href
+      expect(prevLink).toHaveAttribute('href', './');
     });
   });
 

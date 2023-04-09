@@ -68,7 +68,7 @@ const PagedTags = (props: PagedTagsProps) => {
           {pageNum > 1 && (
             <Button
               component={Link}
-              href={`./${pageNum - 1}`}
+              href={pageNum > 2 ? `./${pageNum - 1}` : './'}
               startIcon={<NavigateBeforeIcon />}
               variant="text"
             >

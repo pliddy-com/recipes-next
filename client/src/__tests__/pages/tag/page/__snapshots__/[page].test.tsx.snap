@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RecipeListPage in [page].tsx when there is content it renders the page 1`] = `
+exports[`TagListPage in [page].tsx when there is content it renders the page 1`] = `
 <DocumentFragment>
   <title>
     Tag Index Default Title (Page 1)
@@ -19,7 +19,7 @@ exports[`RecipeListPage in [page].tsx when there is content it renders the page 
 </DocumentFragment>
 `;
 
-exports[`RecipeListPage in [page].tsx when there is no page parameter it renders the page 1`] = `
+exports[`TagListPage in [page].tsx when there is no page parameter it renders the page 1`] = `
 <DocumentFragment>
   <title>
     Tag Index Default Title (Page undefined)

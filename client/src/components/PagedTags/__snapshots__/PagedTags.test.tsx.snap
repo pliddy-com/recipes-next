@@ -11,9 +11,9 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
     >
       <a
         class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
-        href="/tags/asian"
+        href="/tags/cucumbers"
       >
-        Asian 
+        Cucumbers 
         <svg
           aria-hidden="true"
           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
@@ -37,7 +37,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipes/korean-bean-sprouts"
+              href="/recipes/canned-pickles"
               tabindex="0"
             >
               <div
@@ -46,8 +46,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75 2x"
                   media="(min-width: 960px)"
                   rel="preload"
                   sizes="300px"
@@ -56,8 +56,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=1000&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&fm=webp&q=75 2x"
                   media="(min-width: 868px) and (max-width: 959px)"
                   rel="preload"
                   sizes="500px"
@@ -66,8 +66,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=800&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&fm=webp&q=75 2x"
                   media="(min-width: 650px) and (max-width: 867px)"
                   rel="preload"
                   sizes="400px"
@@ -76,8 +76,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=1000&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&fm=webp&q=75 2x"
                   media="(min-width: 479px) and (max-width: 649px)"
                   rel="preload"
                   sizes="500px"
@@ -86,8 +86,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=800&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&fm=webp&q=75 2x"
                   media="(min-width: 334px) and (max-width: 478px)"
                   rel="preload"
                   sizes="400px"
@@ -96,8 +96,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75 2x"
                   media="(max-width: 333px)"
                   rel="preload"
                   sizes="300px"
@@ -109,40 +109,40 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75 2x"
                   />
                   <img
-                    alt="A bowl of Korean-style bean sprout salad"
+                    alt="jars of canned pickles"
                     class="dynamicImage"
                     fetchpriority="high"
                     height="225"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
                     width="300"
                   />
                 </picture>
@@ -159,14 +159,14 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     <span
                       class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      Korean Bean Sprouts
+                      Canned Pickles
                     </span>
                   </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
                 >
-                  A quick Korean-style bean sprout salad with salt, sesame, and scallions as a side for Korean barbecue.
+                  Classic Kosher garlic dill pickles made with fresh pickling cucumbers that are steam canned and shelf-stable for long-term storage.
                 </p>
               </div>
               <span
@@ -186,7 +186,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipes/peanut-sauce"
+              href="/recipes/summer-pickles"
               tabindex="0"
             >
               <div
@@ -195,8 +195,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75 2x"
                   media="(min-width: 960px)"
                   rel="preload"
                   sizes="300px"
@@ -205,8 +205,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=1000&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=1000&fm=webp&q=75 2x"
                   media="(min-width: 868px) and (max-width: 959px)"
                   rel="preload"
                   sizes="500px"
@@ -215,8 +215,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=800&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=800&fm=webp&q=75 2x"
                   media="(min-width: 650px) and (max-width: 867px)"
                   rel="preload"
                   sizes="400px"
@@ -225,8 +225,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=1000&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=1000&fm=webp&q=75 2x"
                   media="(min-width: 479px) and (max-width: 649px)"
                   rel="preload"
                   sizes="500px"
@@ -235,8 +235,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=800&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=800&fm=webp&q=75 2x"
                   media="(min-width: 334px) and (max-width: 478px)"
                   rel="preload"
                   sizes="400px"
@@ -245,8 +245,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75 2x"
                   media="(max-width: 333px)"
                   rel="preload"
                   sizes="300px"
@@ -258,40 +258,40 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75 2x"
                   />
                   <img
-                    alt="Thai peanut sauce on fresh fettuccine with chicken."
+                    alt="An open mason jar filled with pickle slices."
                     class="dynamicImage"
                     fetchpriority="high"
                     height="225"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
                     width="300"
                   />
                 </picture>
@@ -308,14 +308,14 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     <span
                       class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      Peanut Sauce
+                      Summer Pickles
                     </span>
                   </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
                 >
-                  Thai peanut sauce that adds sweet, tangy flavors to pasta, chicken, or grilled shrimp from the air fryer.
+                  Summer pickles are made from fresh cucumbers and pickling spices, typically vinegar, salt, and dill and don't require steam canning.
                 </p>
               </div>
               <span
@@ -335,7 +335,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipes/scallion-ginger-relish"
+              href="/recipes/tzatziki"
               tabindex="0"
             >
               <div
@@ -347,40 +347,40 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <img
-                    alt="Sliced pork tenderloin steaks with ginger scallion relish."
+                    alt="A plate of tzatziki and sliced pita wedges."
                     class="dynamicImage"
                     fetchpriority="auto"
                     height="225"
                     loading="lazy"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=600&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=600&fm=webp&q=75"
                     width="300"
                   />
                 </picture>
@@ -397,14 +397,14 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     <span
                       class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      Scallion Ginger Relish
+                      Tzatziki
                     </span>
                   </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
                 >
-                  A flavorful blend of scallion, ginger, and lime that's perfect to garnish any grilled or roasted pork.
+                  Tzatziki is a traditional Greek dip/salad dressing made from yogurt, cucumber, lemon, garlic, and herbs. 
                 </p>
               </div>
               <span
@@ -423,9 +423,9 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
     >
       <a
         class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
-        href="/tags/bacon"
+        href="/tags/eastern-european"
       >
-        Bacon 
+        Eastern European 
         <svg
           aria-hidden="true"
           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
@@ -441,155 +441,6 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
       >
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
-        >
-          <div
-            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
-          >
-            <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipes/bacon-wrapped-dates"
-              tabindex="0"
-            >
-              <div
-                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
-              >
-                <link
-                  as="image"
-                  fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75 2x"
-                  media="(min-width: 960px)"
-                  rel="preload"
-                  sizes="300px"
-                  type="image/webp"
-                />
-                <link
-                  as="image"
-                  fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=1000&fm=webp&q=75 2x"
-                  media="(min-width: 868px) and (max-width: 959px)"
-                  rel="preload"
-                  sizes="500px"
-                  type="image/webp"
-                />
-                <link
-                  as="image"
-                  fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75 2x"
-                  media="(min-width: 650px) and (max-width: 867px)"
-                  rel="preload"
-                  sizes="400px"
-                  type="image/webp"
-                />
-                <link
-                  as="image"
-                  fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=1000&fm=webp&q=75 2x"
-                  media="(min-width: 479px) and (max-width: 649px)"
-                  rel="preload"
-                  sizes="500px"
-                  type="image/webp"
-                />
-                <link
-                  as="image"
-                  fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75 2x"
-                  media="(min-width: 334px) and (max-width: 478px)"
-                  rel="preload"
-                  sizes="400px"
-                  type="image/webp"
-                />
-                <link
-                  as="image"
-                  fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75 2x"
-                  media="(max-width: 333px)"
-                  rel="preload"
-                  sizes="300px"
-                  type="image/webp"
-                />
-                <picture
-                  style="height: 100%;"
-                >
-                  <source
-                    media="(min-width: 960px)"
-                    sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 868px) and (max-width: 959px)"
-                    sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=1000&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 650px) and (max-width: 867px)"
-                    sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 479px) and (max-width: 649px)"
-                    sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=1000&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 334px) and (max-width: 478px)"
-                    sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(max-width: 333px)"
-                    sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75 2x"
-                  />
-                  <img
-                    alt="A plate of bacon-wrapped dates"
-                    class="dynamicImage"
-                    fetchpriority="high"
-                    height="225"
-                    loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75"
-                    width="300"
-                  />
-                </picture>
-              </div>
-              <div
-                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-              >
-                <div
-                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
-                >
-                  <div
-                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
-                  >
-                    <span
-                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                    >
-                      Bacon-Wrapped Dates
-                    </span>
-                  </div>
-                </div>
-                <p
-                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
-                >
-                  The perfect appetizer, bacon-wrapped dates are salty and crisp on the outside, soft and sweet once your teeth sink in.
-                </p>
-              </div>
-              <span
-                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-              />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </a>
-          </div>
-        </div>
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
         >
@@ -739,95 +590,6 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
             </a>
           </div>
         </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
-        >
-          <div
-            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
-          >
-            <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipes/oven-bacon"
-              tabindex="0"
-            >
-              <div
-                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
-              >
-                <picture
-                  style="height: 100%;"
-                >
-                  <source
-                    media="(min-width: 960px)"
-                    sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=600&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 868px) and (max-width: 959px)"
-                    sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=1000&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 650px) and (max-width: 867px)"
-                    sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=800&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 479px) and (max-width: 649px)"
-                    sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=1000&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 334px) and (max-width: 478px)"
-                    sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=800&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(max-width: 333px)"
-                    sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=600&fm=webp&q=75 2x"
-                  />
-                  <img
-                    alt="Strips of bacon on two baking sheets with backing racks "
-                    class="dynamicImage"
-                    fetchpriority="auto"
-                    height="225"
-                    loading="lazy"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=600&fm=webp&q=75"
-                    width="300"
-                  />
-                </picture>
-              </div>
-              <div
-                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-              >
-                <div
-                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
-                >
-                  <div
-                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
-                  >
-                    <span
-                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                    >
-                      Oven Bacon
-                    </span>
-                  </div>
-                </div>
-                <p
-                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
-                >
-                  A low-mess technique for cooking a pound of bacon in the oven for breakfast or to save in the freezer.
-                </p>
-              </div>
-              <span
-                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-              />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </a>
-          </div>
-        </div>
       </div>
     </div>
     <div
@@ -835,9 +597,9 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
     >
       <a
         class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
-        href="/tags/baking"
+        href="/tags/french"
       >
-        Baking 
+        French 
         <svg
           aria-hidden="true"
           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
@@ -861,7 +623,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipes/biscuits"
+              href="/recipes/boeuf-bourguignon"
               tabindex="0"
             >
               <div
@@ -870,8 +632,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75 2x"
                   media="(min-width: 960px)"
                   rel="preload"
                   sizes="300px"
@@ -880,8 +642,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=1000&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&fm=webp&q=75 2x"
                   media="(min-width: 868px) and (max-width: 959px)"
                   rel="preload"
                   sizes="500px"
@@ -890,8 +652,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&fm=webp&q=75 2x"
                   media="(min-width: 650px) and (max-width: 867px)"
                   rel="preload"
                   sizes="400px"
@@ -900,8 +662,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=1000&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&fm=webp&q=75 2x"
                   media="(min-width: 479px) and (max-width: 649px)"
                   rel="preload"
                   sizes="500px"
@@ -910,8 +672,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&fm=webp&q=75 2x"
                   media="(min-width: 334px) and (max-width: 478px)"
                   rel="preload"
                   sizes="400px"
@@ -920,8 +682,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75 2x"
                   media="(max-width: 333px)"
                   rel="preload"
                   sizes="300px"
@@ -933,40 +695,40 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <img
-                    alt="A batch of baking soda biscuits on a parchment-lined baking sheet."
+                    alt="A dutch oven with boeuf bourguignon."
                     class="dynamicImage"
                     fetchpriority="high"
                     height="225"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
                     width="300"
                   />
                 </picture>
@@ -983,14 +745,14 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     <span
                       class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      Biscuits
+                      Boeuf Bourguignon
                     </span>
                   </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
                 >
-                  Traditional baking powder biscuits that use grated frozen butter and folded dough to give the biscuits a soft, flaky texture.
+                  Boeuf Bourguignon is a classic French dish made with beef braised in red wine, vegetables, and herbs. It's hearty, flavorful, and perfect for cold days.
                 </p>
               </div>
               <span
@@ -1010,7 +772,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipes/no-knead-bread"
+              href="/recipes/carrot-soup"
               tabindex="0"
             >
               <div
@@ -1019,8 +781,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75 2x"
                   media="(min-width: 960px)"
                   rel="preload"
                   sizes="300px"
@@ -1029,8 +791,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=1000&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=1000&fm=webp&q=75 2x"
                   media="(min-width: 868px) and (max-width: 959px)"
                   rel="preload"
                   sizes="500px"
@@ -1039,8 +801,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=800&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=800&fm=webp&q=75 2x"
                   media="(min-width: 650px) and (max-width: 867px)"
                   rel="preload"
                   sizes="400px"
@@ -1049,8 +811,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=1000&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=1000&fm=webp&q=75 2x"
                   media="(min-width: 479px) and (max-width: 649px)"
                   rel="preload"
                   sizes="500px"
@@ -1059,8 +821,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=800&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=800&fm=webp&q=75 2x"
                   media="(min-width: 334px) and (max-width: 478px)"
                   rel="preload"
                   sizes="400px"
@@ -1069,8 +831,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75 2x"
                   media="(max-width: 333px)"
                   rel="preload"
                   sizes="300px"
@@ -1082,40 +844,40 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <img
-                    alt="Loaf of no-knead bread cooling on a wire baking rack."
+                    alt="A bowl of pureed carrot soup."
                     class="dynamicImage"
                     fetchpriority="high"
                     height="225"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
                     width="300"
                   />
                 </picture>
@@ -1132,14 +894,14 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     <span
                       class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      No-Knead Bread
+                      Carrot Soup
                     </span>
                   </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
                 >
-                  No-knead bread using instant yeast and a dutch oven or covered ceramic bread pan for a classic, crispy crust.
+                  A simple but elegant soup made from pureed carrots and cream with the addition of a Sauce Velouté for extra silkiness.
                 </p>
               </div>
               <span
@@ -1159,7 +921,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipes/no-knead-olive-bread"
+              href="/recipes/chicken-gravy"
               tabindex="0"
             >
               <div
@@ -1171,40 +933,40 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <img
-                    alt="Loaf of no-knead olive bread"
+                    alt="Chicken gravy based on a French velouté with milk and herbs."
                     class="dynamicImage"
                     fetchpriority="auto"
                     height="225"
                     loading="lazy"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=600&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=600&fm=webp&q=75"
                     width="300"
                   />
                 </picture>
@@ -1221,14 +983,103 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     <span
                       class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      No-Knead Olive Bread
+                      Chicken Gravy
                     </span>
                   </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
                 >
-                  A savory variation of no-knead bread with the addition of olives, garlic, and rosemary to give it a Mediterranean twist.
+                  Simple, creamy herb gravy based on the French velouté sauce with the addition of milk for a smooth, velvety texture.
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipes/sole-meuniere"
+              tabindex="0"
+            >
+              <div
+                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
+              >
+                <picture
+                  style="height: 100%;"
+                >
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 868px) and (max-width: 959px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 650px) and (max-width: 867px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 479px) and (max-width: 649px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 334px) and (max-width: 478px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 333px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="Sole Meunière on a bed of chopped salad."
+                    class="dynamicImage"
+                    fetchpriority="auto"
+                    height="225"
+                    loading="lazy"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=600&fm=webp&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                >
+                  <div
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                    >
+                      Sole Meunière
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
+                >
+                  Crisp, sautéed fish filets topped with parsley and lemony beurre noisette made using a classic French technique.
                 </p>
               </div>
               <span
@@ -1247,9 +1098,9 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
     >
       <a
         class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
-        href="/tags/beans"
+        href="/tags/garlic"
       >
-        Beans 
+        Garlic 
         <svg
           aria-hidden="true"
           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
@@ -1273,7 +1124,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipes/escarole-soup"
+              href="/recipes/hasselback-potatoes"
               tabindex="0"
             >
               <div
@@ -1282,8 +1133,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75 2x"
                   media="(min-width: 960px)"
                   rel="preload"
                   sizes="300px"
@@ -1292,8 +1143,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=1000&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=1000&fm=webp&q=75 2x"
                   media="(min-width: 868px) and (max-width: 959px)"
                   rel="preload"
                   sizes="500px"
@@ -1302,8 +1153,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=800&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=800&fm=webp&q=75 2x"
                   media="(min-width: 650px) and (max-width: 867px)"
                   rel="preload"
                   sizes="400px"
@@ -1312,8 +1163,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=1000&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=1000&fm=webp&q=75 2x"
                   media="(min-width: 479px) and (max-width: 649px)"
                   rel="preload"
                   sizes="500px"
@@ -1322,8 +1173,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=800&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=800&fm=webp&q=75 2x"
                   media="(min-width: 334px) and (max-width: 478px)"
                   rel="preload"
                   sizes="400px"
@@ -1332,8 +1183,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75 2x"
                   media="(max-width: 333px)"
                   rel="preload"
                   sizes="300px"
@@ -1345,40 +1196,40 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <img
-                    alt="A bowl of escarole soup with white beans and orzo."
+                    alt="Roasted hasselback potato with garlic and rosemary in a cast iron skillet."
                     class="dynamicImage"
                     fetchpriority="high"
                     height="225"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
                     width="300"
                   />
                 </picture>
@@ -1395,14 +1246,14 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     <span
                       class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      Escarole Soup
+                      Hasselback Potatoes
                     </span>
                   </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
                 >
-                  A classic Italian soup made with escarole, beans, and pasta in a chicken broth with a dash of lemon juice.
+                  A slight variation on the Hasselback potato with the addition of sliced garlic and fresh rosemary sprigs for extra flavor.
                 </p>
               </div>
               <span
@@ -1422,7 +1273,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipes/green-chicken-chili"
+              href="/recipes/pizza-bianca"
               tabindex="0"
             >
               <div
@@ -1431,8 +1282,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75 2x"
                   media="(min-width: 960px)"
                   rel="preload"
                   sizes="300px"
@@ -1441,8 +1292,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=1000&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=1000&fm=webp&q=75 2x"
                   media="(min-width: 868px) and (max-width: 959px)"
                   rel="preload"
                   sizes="500px"
@@ -1451,8 +1302,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=800&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=800&fm=webp&q=75 2x"
                   media="(min-width: 650px) and (max-width: 867px)"
                   rel="preload"
                   sizes="400px"
@@ -1461,8 +1312,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=1000&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=1000&fm=webp&q=75 2x"
                   media="(min-width: 479px) and (max-width: 649px)"
                   rel="preload"
                   sizes="500px"
@@ -1471,8 +1322,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=800&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=800&fm=webp&q=75 2x"
                   media="(min-width: 334px) and (max-width: 478px)"
                   rel="preload"
                   sizes="400px"
@@ -1481,8 +1332,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                 <link
                   as="image"
                   fetchpriority="high"
-                  href="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&fm=webp&q=75"
-                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&fm=webp&q=75 2x"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75 2x"
                   media="(max-width: 333px)"
                   rel="preload"
                   sizes="300px"
@@ -1494,40 +1345,40 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <img
-                    alt="A bowl of green chicken chili"
+                    alt="White pizza with prosciutto, fig jam, and arugula."
                     class="dynamicImage"
                     fetchpriority="high"
                     height="225"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
                     width="300"
                   />
                 </picture>
@@ -1544,14 +1395,14 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     <span
                       class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      Green Chicken Chili
+                      Pizza Bianca
                     </span>
                   </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
                 >
-                  Green chicken chili is a flavorful Mexican-inspired dish made in the Instant Pot with shredded chicken, tangy tomatillos, and spicy green chilies.
+                  White pizza with prosciutto, fig, and arugula is a delicious combination of salty, sweet, and peppery flavors that complement each other well.
                 </p>
               </div>
               <span
@@ -1571,7 +1422,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           >
             <a
               class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipes/red-beans-and-rice"
+              href="/recipes/sauteed-garlic-shrimp"
               tabindex="0"
             >
               <div
@@ -1583,40 +1434,40 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=1000&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=1000&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=800&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=800&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=600&fm=webp&q=75 2x"
                   />
                   <img
-                    alt="Bowl of red beans with ham on rice."
+                    alt="Garlic shrimp tossed with fresh pasta and chopped parsley."
                     class="dynamicImage"
                     fetchpriority="auto"
                     height="225"
                     loading="lazy"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=600&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=600&fm=webp&q=75"
                     width="300"
                   />
                 </picture>
@@ -1633,103 +1484,14 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     <span
                       class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
                     >
-                      Red Beans & Rice
+                      Sautéed Garlic Shrimp
                     </span>
                   </div>
                 </div>
                 <p
                   class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
                 >
-                  Traditional red beans made with red kidney beans and ham, with bacon, andouille, or sausage over rice.
-                </p>
-              </div>
-              <span
-                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-              />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </a>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
-        >
-          <div
-            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
-          >
-            <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
-              href="/recipes/tuscan-white-bean-soup"
-              tabindex="0"
-            >
-              <div
-                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
-              >
-                <picture
-                  style="height: 100%;"
-                >
-                  <source
-                    media="(min-width: 960px)"
-                    sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=600&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 868px) and (max-width: 959px)"
-                    sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=1000&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 650px) and (max-width: 867px)"
-                    sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=800&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 479px) and (max-width: 649px)"
-                    sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=1000&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(min-width: 334px) and (max-width: 478px)"
-                    sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=800&fm=webp&q=75 2x"
-                  />
-                  <source
-                    media="(max-width: 333px)"
-                    sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=600&fm=webp&q=75 2x"
-                  />
-                  <img
-                    alt="A bowl of Tuscan white bean soup."
-                    class="dynamicImage"
-                    fetchpriority="auto"
-                    height="225"
-                    loading="lazy"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=600&fm=webp&q=75"
-                    width="300"
-                  />
-                </picture>
-              </div>
-              <div
-                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-              >
-                <div
-                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
-                >
-                  <div
-                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
-                  >
-                    <span
-                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
-                    >
-                      Tuscan White Bean Soup
-                    </span>
-                  </div>
-                </div>
-                <p
-                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
-                >
-                  Tuscan white bean soup is a hearty and flavorful dish that features pancetta as one of its key ingredients, adding a savory and salty flavor.
+                  Garlic sautéed shrimp that are a quick, easy dinner over fresh pasta or served with crostini as part of Seven Fishes Tapas.
                 </p>
               </div>
               <span
@@ -1742,6 +1504,60 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="MuiBox-root css-12vrgl9"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-oywzk5-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        href="./2"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="NavigateBeforeIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+            />
+          </svg>
+        </span>
+        Load Previous
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-2sjepu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        href="./4"
+        tabindex="0"
+      >
+        Load Next
+        <span
+          class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="NavigateNextIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </a>
     </div>
   </div>
 </DocumentFragment>
