@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic';
 
 import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/RecipeListSchema';
 import Loading from 'components/Loading/Loading';
-import PageHead from 'components/PageHead/PageTags/PageTags';
+import PageTags from 'components/PageHead/PageTags/PageTags';
 
 import { getTagSlugs, getRecipeList } from 'lib/api';
 import config from 'lib/config';
@@ -42,7 +42,7 @@ const TagSlugPage = ({
 
   return pageContent && title ? (
     <>
-      <PageHead
+      <PageTags
         title={`${title} ${defaultTitle}`}
         defaultTitle={defaultTitle}
         description={description}

@@ -5,7 +5,7 @@ import preloadAll from 'jest-next-dynamic';
 import RecipeListPage, {
   getStaticPaths,
   getStaticProps
-} from 'pages/recipes/page/[page]';
+} from 'pages/page/[page]';
 
 import { RecipeSummaryFragment } from 'types/queries';
 

@@ -45,7 +45,7 @@ const ResultsPage = (props: ResultsPageProps) => {
           {pageNum > 1 && (
             <Button
               component={Link}
-              href={`/recipes/page/${pageNum - 1}`}
+              href={`/page/${pageNum - 1}`}
               startIcon={<NavigateBeforeIcon />}
               variant="text"
             >
@@ -57,7 +57,7 @@ const ResultsPage = (props: ResultsPageProps) => {
             <Button
               component={Link}
               endIcon={<NavigateNextIcon />}
-              href={`/recipes/page/${pageNum + 1}`}
+              href={`/page/${pageNum + 1}`}
               variant="text"
               sx={{ marginLeft: 'auto' }}
             >

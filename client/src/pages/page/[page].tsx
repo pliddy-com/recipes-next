@@ -8,7 +8,7 @@ import {
 import dynamic from 'next/dynamic';
 
 import Loading from 'components/Loading/Loading';
-import PageHead from 'components/PageHead/PageTags/PageTags';
+import PageTags from 'components/PageHead/PageTags/PageTags';
 import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/RecipeListSchema';
 
 import { getRecipeIndex } from 'lib/api';
@@ -39,10 +39,11 @@ const RecipeListPage = ({
 
   return pageContent && pageContent.length > 0 ? (
     <>
-      <PageHead
-        title={title}
+      <PageTags
+        {...(page === 1 ? { canonicalPath: '/' } : {})}
         defaultTitle={defaultTitle}
         description={description}
+        title={title}
       />
       <RecipeListSchema
         recipes={pageContent}
@@ -76,13 +77,13 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   const page = params?.page ? Number(params.page) : undefined;
   const pageContent = await getRecipeIndex();
 
+  console.log({ page });
+
   return {
     props: { pageContent, page, preview: Boolean(preview) },
     revalidate: 60
   };
 };
-
-// RecipeListPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
 RecipeListPage.getLayout = (page: ReactElement) => (
   <Suspense fallback={<Loading />}>

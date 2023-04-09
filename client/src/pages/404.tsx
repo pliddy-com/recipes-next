@@ -3,7 +3,7 @@ import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
 
 import Loading from 'components/Loading/Loading';
-import PageHead from 'components/PageHead/PageTags/PageTags';
+import PageTags from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeIndex } from 'lib/api';
 import config from 'lib/config';
@@ -28,7 +28,7 @@ const NotFoundPage = ({
 
   return defaultTitle && description ? (
     <>
-      <PageHead
+      <PageTags
         title={defaultTitle}
         defaultTitle={defaultTitle}
         description={description}

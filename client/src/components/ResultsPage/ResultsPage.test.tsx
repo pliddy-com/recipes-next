@@ -65,7 +65,7 @@ describe('ResultsPage', () => {
       expect(nextLink).toBeDefined();
 
       // assert that component has correct href
-      expect(nextLink).toHaveAttribute('href', '/recipes/page/2');
+      expect(nextLink).toHaveAttribute('href', '/page/2');
     });
   });
 
@@ -94,7 +94,7 @@ describe('ResultsPage', () => {
       expect(nextLink).not.toBeVisible();
 
       // assert that component has correct href
-      expect(nextLink).toHaveAttribute('href', '/recipes/page/2');
+      expect(nextLink).toHaveAttribute('href', '/page/2');
     });
   });
 });

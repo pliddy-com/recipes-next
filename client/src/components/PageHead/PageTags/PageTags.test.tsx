@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
-import PageHeadTag from './PageTags';
+import PageTags from './PageTags';
 
 import config from 'lib/config';
 import { ImageDefaultFragment } from 'types/queries';
@@ -18,7 +18,7 @@ jest.mock('next/router', () => ({
 
 const env = process.env;
 
-describe('PageHeadingTag', () => {
+describe('PageTags', () => {
   beforeEach(() => {
     jest.resetModules();
     process.env = {
@@ -48,7 +48,7 @@ describe('PageHeadingTag', () => {
       };
 
       const { asFragment } = render(
-        <PageHeadTag title={title} description={description} image={image} />
+        <PageTags title={title} description={description} image={image} />
       );
 
       const titleTag = document.getElementsByTagName('title')[0];
@@ -70,7 +70,7 @@ describe('PageHeadingTag', () => {
       const defaultTitle = config?.microcopy?.site?.title;
       const defaultDescription = config?.microcopy?.index?.description;
 
-      render(<PageHeadTag defaultTitle={defaultTitle} />);
+      render(<PageTags defaultTitle={defaultTitle} />);
 
       const titleTag = document.getElementsByTagName('title')[0];
 
@@ -87,7 +87,7 @@ describe('PageHeadingTag', () => {
     it('it renders a Next Head tag if no values defaults are passed', () => {
       const defaultDescription = config?.microcopy?.index?.description;
 
-      render(<PageHeadTag />);
+      render(<PageTags />);
 
       const titleTag = document.getElementsByTagName('title')[0];
       const descriptionTag = document.querySelector(
@@ -109,7 +109,7 @@ describe('PageHeadingTag', () => {
         const title = 'Test Title';
         const description = 'Decription';
 
-        render(<PageHeadTag title={title} description={description} />);
+        render(<PageTags title={title} description={description} />);
 
         const titleTag = document.getElementsByTagName('title')[0];
 
@@ -131,7 +131,7 @@ describe('PageHeadingTag', () => {
 
     it('it does not render', () => {
       // no tags props, so should return null
-      render(<PageHeadTag />);
+      render(<PageTags />);
 
       const titleTag = document.getElementsByTagName('title')[0];
       expect(titleTag).toBeUndefined();

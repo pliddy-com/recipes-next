@@ -4,7 +4,7 @@ import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
 
 import Loading from 'components/Loading/Loading';
-import PageHead from 'components/PageHead/PageTags/PageTags';
+import PageTags from 'components/PageHead/PageTags/PageTags';
 import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/RecipeListSchema';
 
 import { getRecipeIndex } from 'lib/api';
@@ -30,7 +30,7 @@ const IndexPage = ({
 
   return pageContent && pageContent.length > 0 ? (
     <>
-      <PageHead
+      <PageTags
         title={defaultTitle}
         defaultTitle={defaultTitle}
         description={description}
