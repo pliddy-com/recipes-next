@@ -6,17 +6,17 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import Loading from 'components/Loading/Loading';
-import ResultsPage from 'components/ResultsPage/ResultsPage';
+import PagedRecipes from 'components/PagedRecipes/PagedRecipes';
 
 import { paginateResults, loadNext } from 'lib/infiniteScroll';
 
 import { RecipeDefaultFragment } from 'types/queries';
 
 interface RecipeGridPageProps {
+  isIndex?: boolean;
+  page?: number;
   recipes: (RecipeDefaultFragment | object | null)[];
   title?: string | null;
-  page?: number;
-  isIndex?: boolean;
 }
 
 const RecipeGridPage = ({
@@ -57,7 +57,7 @@ const RecipeGridPage = ({
       setPageNumCallback: setPageNum
     });
 
-  return (
+  return data && recipes && recipes.length > 0 ? (
     <Container className="page recipegrid" data-testid="page" maxWidth="xl">
       <Typography variant="h1">{title}</Typography>
       <Typography variant="subtitle1" component="h2">
@@ -66,7 +66,7 @@ const RecipeGridPage = ({
       {page ? (
         data &&
         data.map((pageData, pageNum) => (
-          <ResultsPage
+          <PagedRecipes
             key={`results-${pageNum}`}
             data={pageData as RecipeDefaultFragment[]}
             pageNum={page}
@@ -87,7 +87,7 @@ const RecipeGridPage = ({
         >
           {data &&
             data.map((pageData, pageNum) => (
-              <ResultsPage
+              <PagedRecipes
                 key={`results-${pageNum}`}
                 data={pageData as RecipeDefaultFragment[]}
                 pageNum={pageNum || 0}
@@ -99,7 +99,7 @@ const RecipeGridPage = ({
         </InfiniteScroll>
       )}
     </Container>
-  );
+  ) : null;
 };
 
 export default RecipeGridPage;

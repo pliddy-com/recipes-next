@@ -1082,7 +1082,7 @@ exports[`RecipeGridPage when page number is > 0 it renders the RecipeGridPage 1`
     >
       <a
         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1jkewew-MuiButtonBase-root-MuiButton-root"
-        href="/page/2"
+        href="./2"
         tabindex="0"
       >
         Load Next

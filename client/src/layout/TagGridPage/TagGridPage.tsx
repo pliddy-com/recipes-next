@@ -1,74 +1,99 @@
-import { Suspense } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
-import dynamic from 'next/dynamic';
-// import { useRouter } from 'next/router';
+import InfiniteScroll from 'react-infinite-scroller';
 
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-
 import Loading from 'components/Loading/Loading';
+import PagedTags from 'components/PagedTags/PagedTags';
+
+import { paginateResults, loadNext } from 'lib/infiniteScroll';
 
 import { ListPageItemFragment } from 'types/queries';
 
-const PreviewCard = dynamic(
-  () =>
-    import(
-      /* webpackChunkName: 'PreviewCard' */ 'components/PreviewCard/PreviewCard'
-    ),
-  { suspense: true }
-);
-
 interface TagGridPageProps {
+  isIndex?: boolean;
+  page?: number;
   tags: (ListPageItemFragment | null)[];
+  title?: string | null;
 }
 
-const TagGridPage = ({ tags }: TagGridPageProps) => {
-  // const { query } = useRouter();
-  // const [scrollPage, setScrollPage] = useState<string | string[] | undefined>();
+const TagGridPage = ({ isIndex, page, tags, title }: TagGridPageProps) => {
+  const pageSize = 4;
+  const scrollThreshold = 800;
 
-  return tags && tags.length > 0 ? (
+  const pagedResults = useMemo(
+    () => paginateResults({ data: tags, pageSize }),
+    [tags]
+  );
+
+  const numPages = pagedResults.length;
+
+  const [pageNum, setPageNum] = useState<number>(page ? page : 1);
+  const [data, setData] = useState<(object | null)[][]>([
+    pagedResults[pageNum - 1]
+  ]);
+
+  const hasMore = pageNum < numPages;
+
+  useEffect(() => {
+    setData([pagedResults[page ? page - 1 : 0]]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pagedResults]);
+
+  /* istanbul ignore next */
+  const loadMore = () =>
+    loadNext({
+      pagedResults,
+      pageNum,
+      pageSize,
+      setDataCallback: setData,
+      setPageNumCallback: setPageNum
+    });
+
+  return data && tags && tags.length > 0 ? (
     <Container className="page tagGrid" data-testid="page" maxWidth="xl">
-      <Typography variant="h1">Tag Collections</Typography>
+      <Typography variant="h1">{title}</Typography>
       <Typography variant="subtitle1" component="h2">
         {tags && `${tags.length} Tags`}
       </Typography>
 
-      {tags.map((tag) => {
-        const { slug, title, linkedFrom } = tag ?? {};
-
-        const { recipeCollection } = linkedFrom ?? {};
-        const { items } = recipeCollection ?? {};
-
-        items &&
-          items.sort((a, b) =>
-            a && b && a.slug && b.slug && a.slug > b.slug ? 1 : -1
-          );
-
-        return slug && title && items ? (
-          <Box key={slug}>
-            <Link href={`/tags/${slug}`} underline="none" variant="h2">
-              {title} <ArrowRightIcon />
-            </Link>
-            <Grid container spacing={2} mb={4}>
-              {items &&
-                items.map((recipe, index) => (
-                  <Grid item lg={3} md={6} sm={12} xs={12} key={recipe?.slug}>
-                    {recipe && (
-                      <Suspense fallback={<Loading />}>
-                        <PreviewCard recipe={recipe} preloadImg={index < 2} />
-                      </Suspense>
-                    )}
-                  </Grid>
-                ))}
-            </Grid>
-          </Box>
-        ) : null;
-      })}
+      {page ? (
+        data &&
+        data.map((pageData, pageNum) => (
+          <PagedTags
+            key={`results-${pageNum}`}
+            data={pageData as ListPageItemFragment[]}
+            pageNum={page}
+            numPages={numPages}
+            hideLinks={false}
+            isIndex={isIndex}
+          />
+        ))
+      ) : (
+        <InfiniteScroll
+          hasMore={hasMore}
+          initialLoad={true}
+          isReverse={false}
+          loader={<Loading key={`loading-${data.length}`} />}
+          loadMore={loadMore}
+          pageStart={pageNum}
+          threshold={scrollThreshold}
+        >
+          {data &&
+            data.map((pageData, pageNum) => (
+              <PagedTags
+                key={`results-${pageNum}`}
+                data={pageData as ListPageItemFragment[]}
+                pageNum={pageNum || 0}
+                numPages={numPages}
+                hideLinks={true}
+                isIndex={isIndex}
+              />
+            ))}
+        </InfiniteScroll>
+      )}
     </Container>
   ) : null;
 };

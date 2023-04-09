@@ -32,17 +32,21 @@ const TagIndexPage = ({
   return pageContent && pageContent.length > 0 ? (
     <>
       <PageTags
-        title={defaultTitle}
         defaultTitle={defaultTitle}
         description={description}
+        title={defaultTitle}
       />
       <TagListSchema
+        description={description}
         tags={pageContent as (ListPageItemFragment | null)[]}
         title={defaultTitle}
-        description={description}
       />
       <Suspense fallback={<Loading />}>
-        <TagGridPage tags={pageContent as (ListPageItemFragment | null)[]} />
+        <TagGridPage
+          isIndex={true}
+          tags={pageContent as (ListPageItemFragment | null)[]}
+          title={defaultTitle}
+        />
       </Suspense>
     </>
   ) : null;

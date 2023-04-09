@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
@@ -9,9 +10,8 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 
 import { RecipeDefaultFragment } from 'types/queries';
-import Button from '@mui/material/Button';
 
-interface ResultsPageProps {
+interface PagedRecipesProps {
   data: (RecipeDefaultFragment | null)[];
   hideLinks: boolean;
   numPages: number;
@@ -19,10 +19,10 @@ interface ResultsPageProps {
   isIndex?: boolean;
 }
 
-const ResultsPage = (props: ResultsPageProps) => {
+const PagedRecipes = (props: PagedRecipesProps) => {
   const { data, hideLinks, isIndex = false, numPages, pageNum } = props;
 
-  return (
+  return data && data.length > 0 ? (
     <>
       <Grid container spacing={2} data-testid="results-page">
         {data &&
@@ -45,7 +45,7 @@ const ResultsPage = (props: ResultsPageProps) => {
           {pageNum > 1 && (
             <Button
               component={Link}
-              href={`/page/${pageNum - 1}`}
+              href={`./${pageNum - 1}`}
               startIcon={<NavigateBeforeIcon />}
               variant="text"
             >
@@ -57,7 +57,7 @@ const ResultsPage = (props: ResultsPageProps) => {
             <Button
               component={Link}
               endIcon={<NavigateNextIcon />}
-              href={`/page/${pageNum + 1}`}
+              href={`./${pageNum + 1}`}
               variant="text"
               sx={{ marginLeft: 'auto' }}
             >
@@ -67,7 +67,7 @@ const ResultsPage = (props: ResultsPageProps) => {
         </Box>
       )}
     </>
-  );
+  ) : null;
 };
 
-export default ResultsPage;
+export default PagedRecipes;

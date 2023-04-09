@@ -4,36 +4,37 @@ import {
   GetStaticPropsContext,
   InferGetStaticPropsType
 } from 'next';
-
 import dynamic from 'next/dynamic';
 
 import Loading from 'components/Loading/Loading';
 import PageTags from 'components/PageHead/PageTags/PageTags';
-import RecipeListSchema from 'components/PageHead/Schema/RecipeListSchema/RecipeListSchema';
+import TagListSchema from 'components/PageHead/Schema/TagListSchema/TagListSchema';
 
-import { getRecipeIndex } from 'lib/api';
+import { getTagIndex } from 'lib/api';
 import { paginateResults } from 'lib/infiniteScroll';
 
 import config from 'lib/config';
+
+import { ListPageItemFragment } from 'types/queries';
 
 const Layout = dynamic(
   () => import(/* webpackChunkName: 'Layout' */ 'layout/Layout/Layout'),
   { suspense: true }
 );
 
-const RecipeGridPage = dynamic(
+const TagGridPage = dynamic(
   () =>
     import(
-      /* webpackChunkName: 'RecipeGrid' */ 'layout/RecipeGridPage/RecipeGridPage'
+      /* webpackChunkName: 'TagGridPage' */ 'layout/TagGridPage/TagGridPage'
     ),
   { suspense: true }
 );
 
-const RecipeListPage = ({
+const TagListPage = ({
   pageContent,
   page
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { defaultTitle, description } = config?.microcopy?.index ?? {};
+  const { defaultTitle, description } = config?.microcopy?.tagIndex ?? {};
   const title = `${defaultTitle} (Page ${page})`;
 
   return pageContent && pageContent.length > 0 ? (
@@ -44,23 +45,27 @@ const RecipeListPage = ({
         description={description}
         title={title}
       />
-      <RecipeListSchema
-        recipes={pageContent}
-        title={title}
+      <TagListSchema
         description={description}
+        tags={pageContent as (ListPageItemFragment | null)[]}
+        title={title}
       />
       <Suspense fallback={<Loading />}>
-        <RecipeGridPage recipes={pageContent} title={title} page={page} />
+        <TagGridPage
+          page={page}
+          tags={pageContent as (ListPageItemFragment | null)[]}
+          title={title}
+        />
       </Suspense>
     </>
   ) : null;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const recipeList = await getRecipeIndex();
+  const tagList = await getTagIndex();
   const pageSize = 6;
 
-  const pages = paginateResults({ data: recipeList, pageSize });
+  const pages = paginateResults({ data: tagList, pageSize });
 
   const paths = pages
     .map((page, pageNum) => pageNum)
@@ -74,7 +79,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const { params, preview } = context;
   const page = params?.page ? Number(params.page) : undefined;
-  const pageContent = await getRecipeIndex();
+  const pageContent = await getTagIndex();
 
   return {
     props: { pageContent, page, preview: Boolean(preview) },
@@ -82,10 +87,10 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   };
 };
 
-RecipeListPage.getLayout = (page: ReactElement) => (
+TagListPage.getLayout = (page: ReactElement) => (
   <Suspense fallback={<Loading />}>
     <Layout>{page}</Layout>
   </Suspense>
 );
 
-export default RecipeListPage;
+export default TagListPage;

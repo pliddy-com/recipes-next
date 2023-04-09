@@ -2,14 +2,14 @@ import '@testing-library/jest-dom';
 import { act, render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
-import ResultsPage from './ResultsPage';
-import { RecipeDefaultFragment } from 'types/queries';
+import PagedTags from './PagedTags';
+import { ListPageItemFragment } from 'types/queries';
 
-import pagedRecipes from 'layout/RecipeGridPage/testPayloads/pagedRecipes.json';
+import pagedTags from 'layout/TagGridPage/testPayloads/pagedTags.json';
 
 jest.mock('lib/api');
 
-describe('ResultsPage', () => {
+describe('PagedRecipes', () => {
   afterEach(() => {
     jest.resetModules();
   });
@@ -19,14 +19,14 @@ describe('ResultsPage', () => {
   });
 
   describe('when there is paged content', () => {
-    it('it renders the ResultsPage', async () => {
+    it('it renders the pageinated tags list', async () => {
       const pageNum = 0;
-      const numPages = pagedRecipes.length;
+      const numPages = pagedTags.length;
 
       const { asFragment, queryByTestId } = render(
-        <ResultsPage
+        <PagedTags
           key={`results-${pageNum}`}
-          data={pagedRecipes[pageNum] as RecipeDefaultFragment[]}
+          data={pagedTags[pageNum] as ListPageItemFragment[]}
           pageNum={pageNum}
           numPages={numPages}
           hideLinks={true}
@@ -44,12 +44,12 @@ describe('ResultsPage', () => {
   describe('when there is a page parameter', () => {
     it('it renders the default next anchor for page 2', async () => {
       const pageNum = 1;
-      const numPages = pagedRecipes.length;
+      const numPages = pagedTags.length;
 
       const { queryByTestId, queryByText } = render(
-        <ResultsPage
+        <PagedTags
           key={`results-${pageNum}`}
-          data={pagedRecipes[pageNum] as RecipeDefaultFragment[]}
+          data={pagedTags[pageNum] as ListPageItemFragment[]}
           pageNum={pageNum}
           numPages={numPages}
           hideLinks={false}
@@ -65,19 +65,19 @@ describe('ResultsPage', () => {
       expect(nextLink).toBeDefined();
 
       // assert that component has correct href
-      expect(nextLink).toHaveAttribute('href', '/page/2');
+      expect(nextLink).toHaveAttribute('href', './2');
     });
   });
 
   describe('when hideLinks is true', () => {
     it('it hides the links', async () => {
       const pageNum = 1;
-      const numPages = pagedRecipes.length;
+      const numPages = pagedTags.length;
 
       const { queryByTestId, queryByText } = render(
-        <ResultsPage
+        <PagedTags
           key={`results-${pageNum}`}
-          data={pagedRecipes[pageNum] as RecipeDefaultFragment[]}
+          data={pagedTags[pageNum] as ListPageItemFragment[]}
           pageNum={pageNum}
           numPages={numPages}
           hideLinks={true}
@@ -94,7 +94,30 @@ describe('ResultsPage', () => {
       expect(nextLink).not.toBeVisible();
 
       // assert that component has correct href
-      expect(nextLink).toHaveAttribute('href', '/page/2');
+      expect(nextLink).toHaveAttribute('href', './2');
+    });
+  });
+
+  describe('when there is no paged content', () => {
+    it('it does not render the pageinated recipes list', async () => {
+      const pageNum = 0;
+      const numPages = pagedTags.length;
+
+      const { queryByTestId } = render(
+        <PagedTags
+          key={`results-${pageNum}`}
+          data={[] as ListPageItemFragment[]}
+          pageNum={pageNum}
+          numPages={numPages}
+          hideLinks={true}
+        />
+      );
+
+      await act(async () =>
+        waitFor(() =>
+          expect(queryByTestId('results-page')).not.toBeInTheDocument()
+        )
+      );
     });
   });
 });

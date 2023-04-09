@@ -31,20 +31,20 @@ const IndexPage = ({
   return pageContent && pageContent.length > 0 ? (
     <>
       <PageTags
-        title={defaultTitle}
         defaultTitle={defaultTitle}
         description={description}
+        title={defaultTitle}
       />
       <RecipeListSchema
+        description={description}
         recipes={pageContent}
         title={defaultTitle}
-        description={description}
       />
       <Suspense fallback={<Loading />}>
         <RecipeGridPage
+          isIndex={true}
           recipes={pageContent}
           title={defaultTitle}
-          isIndex={true}
         />
       </Suspense>
     </>
