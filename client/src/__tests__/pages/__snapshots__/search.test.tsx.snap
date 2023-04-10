@@ -9,15 +9,5 @@ exports[`Index in index.tsx when there is content it renders the index page 1`] 
     content="Search results"
     name="description"
   />
-  <h1
-    class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
-  >
-    Results for
-  </h1>
-  <h2
-    class="MuiTypography-root MuiTypography-subtitle1 css-10wpov9-MuiTypography-root"
-  >
-    2 Recipes
-  </h2>
 </DocumentFragment>
 `;

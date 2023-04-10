@@ -2,16 +2,6 @@
 
 exports[`SearchResults when there is a query it renders the SearchResults 1`] = `
 <DocumentFragment>
-  <h1
-    class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
-  >
-    Recipe Title for test query
-  </h1>
-  <h2
-    class="MuiTypography-root MuiTypography-subtitle1 css-10wpov9-MuiTypography-root"
-  >
-    3 Recipes
-  </h2>
   <div
     class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
   >
@@ -665,16 +655,6 @@ exports[`SearchResults when there is a query it renders the SearchResults 1`] = 
 
 exports[`SearchResults when there is no query it renders the SearchResults 1`] = `
 <DocumentFragment>
-  <h1
-    class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
-  >
-    Recipe Title
-  </h1>
-  <h2
-    class="MuiTypography-root MuiTypography-subtitle1 css-10wpov9-MuiTypography-root"
-  >
-    3 Recipes
-  </h2>
   <div
     class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
   >

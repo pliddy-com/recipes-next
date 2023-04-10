@@ -5,7 +5,8 @@ import dynamic from 'next/dynamic';
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Configure } from 'react-instantsearch-hooks-web';
 
-import Typography from '@mui/material/Typography';
+// import Container from '@mui/material/Container';
+// import Typography from '@mui/material/Typography';
 
 import Loading from 'components/Loading/Loading';
 import PageTags from 'components/PageHead/PageTags/PageTags';
@@ -13,6 +14,8 @@ import PageTags from 'components/PageHead/PageTags/PageTags';
 import { getRecipeIndex } from 'lib/api';
 
 import config from 'lib/config';
+// import Container from '@mui/system/Container';
+// import Typography from '@mui/material/Typography';
 
 const Layout = dynamic(
   () => import(/* webpackChunkName: 'Layout' */ 'layout/Layout/Layout'),
@@ -44,12 +47,12 @@ const SearchPage = ({
         defaultTitle={defaultTitle}
         description={description}
       />
-      <>
+      {/* <Container maxWidth="xl" sx={{ paddingTop: '5rem' }}>
         <Typography variant="h1">{defaultTitle}</Typography>
         <Typography variant="subtitle1" component="h2">
           {pageContent.length} Recipes
         </Typography>
-      </>
+      </Container> */}
 
       <InstantSearch searchClient={searchClient} indexName="recipes_index">
         <Configure hitsPerPage={100} />

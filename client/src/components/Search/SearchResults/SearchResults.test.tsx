@@ -163,8 +163,8 @@ describe('SearchResults', () => {
         isSearchStalled: false
       });
 
-      const title = 'Recipe Title';
-      const { asFragment } = render(<SearchResults title={title} />);
+      // const title = 'Recipe Title';
+      const { asFragment } = render(<SearchResults />);
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -180,8 +180,8 @@ describe('SearchResults', () => {
         isSearchStalled: false
       });
 
-      const title = 'Recipe Title';
-      const { asFragment } = render(<SearchResults title={title} />);
+      // const title = 'Recipe Title';
+      const { asFragment } = render(<SearchResults />);
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
