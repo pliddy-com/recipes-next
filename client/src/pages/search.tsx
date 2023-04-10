@@ -36,17 +36,23 @@ const SearchPage = ({
   const { defaultTitle, description } = config?.microcopy?.search ?? {};
 
   return pageContent && pageContent.length > 0 ? (
-    <InstantSearch searchClient={searchClient} indexName="recipes_index">
-      <Configure hitsPerPage={100} />
+    <>
       <PageTags
         title={defaultTitle}
         defaultTitle={defaultTitle}
         description={description}
       />
-      <Suspense fallback={<Loading />}>
-        <SearchGridPage title={defaultTitle} />
-      </Suspense>
-    </InstantSearch>
+
+      <InstantSearch searchClient={searchClient} indexName="recipes_index">
+        <Configure hitsPerPage={100} />
+        <Suspense fallback={<Loading />}>
+          <SearchGridPage
+            title={defaultTitle}
+            numRecipes={pageContent.length}
+          />
+        </Suspense>
+      </InstantSearch>
+    </>
   ) : null;
 };
 

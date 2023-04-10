@@ -38,7 +38,12 @@ const queryHook: UseSearchBoxProps['queryHook'] = (query, search) => {
   search(query);
 };
 
-const SearchResults = ({ title }: { title: string | null | undefined }) => {
+interface SearchResultsProps {
+  numRecipes: number;
+  title: string | null | undefined;
+}
+
+const SearchResults = ({ numRecipes, title }: SearchResultsProps) => {
   const { query } = useSearchBox({
     queryHook
   });
@@ -51,28 +56,33 @@ const SearchResults = ({ title }: { title: string | null | undefined }) => {
   if (!query)
     hits.sort((a, b) => (a.slug && b.slug && a.slug > b.slug ? 1 : -1));
 
-  return (
-    hits && (
-      <>
-        <Typography variant="h1">{`${title}${
-          query.length > 0 ? ' for ' : ''
-        }${query}`}</Typography>
-        <Typography variant="subtitle1" component="h2">
-          {hits && `${hits.length} Recipes`}
-        </Typography>
+  return hits && hits.length > 0 ? (
+    <>
+      <Typography variant="h1">{`${title}${
+        query.length > 0 ? ' for ' : ''
+      }${query}`}</Typography>
+      <Typography variant="subtitle1" component="h2">
+        {hits && `${hits.length} Recipes`}
+      </Typography>
 
-        <Grid container spacing={2}>
-          {hits &&
-            hits.map((hit, index) => {
-              return (
-                <Grid item lg={4} md={4} sm={6} xs={12} key={hit.slug}>
-                  {hit && <RecipeCard recipe={hit} preloadImg={index < 3} />}
-                </Grid>
-              );
-            })}
-        </Grid>
-      </>
-    )
+      <Grid container spacing={2}>
+        {hits &&
+          hits.map((hit, index) => {
+            return (
+              <Grid item lg={4} md={4} sm={6} xs={12} key={hit.slug}>
+                {hit && <RecipeCard recipe={hit} preloadImg={index < 3} />}
+              </Grid>
+            );
+          })}
+      </Grid>
+    </>
+  ) : (
+    <>
+      <Typography variant="h1">{title}</Typography>
+      <Typography variant="subtitle1" component="h2">
+        {numRecipes} Recipes
+      </Typography>
+    </>
   );
 };
 

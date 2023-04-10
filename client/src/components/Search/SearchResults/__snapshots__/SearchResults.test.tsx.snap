@@ -1,6 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchResults when there is no query it renders the SearchResults 1`] = `
+exports[`SearchResults when there are no hits it renders the default headings 1`] = `
+<DocumentFragment>
+  <h1
+    class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
+  >
+    Recipe Title
+  </h1>
+  <h2
+    class="MuiTypography-root MuiTypography-subtitle1 css-10wpov9-MuiTypography-root"
+  >
+    3 Recipes
+  </h2>
+</DocumentFragment>
+`;
+
+exports[`SearchResults when there is a query it renders the SearchResults 1`] = `
 <DocumentFragment>
   <h1
     class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
@@ -663,7 +678,7 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
 </DocumentFragment>
 `;
 
-exports[`SearchResults when there is no query it renders the SearchResults 2`] = `
+exports[`SearchResults when there is no query it renders the SearchResults 1`] = `
 <DocumentFragment>
   <h1
     class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
