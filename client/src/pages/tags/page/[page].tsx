@@ -63,7 +63,7 @@ const TagListPage = ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const tagList = await getTagIndex();
-  const pageSize = 6;
+  const pageSize = 4;
 
   const pages = paginateResults({ data: tagList, pageSize });
 

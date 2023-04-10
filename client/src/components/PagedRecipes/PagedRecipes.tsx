@@ -57,7 +57,7 @@ const PagedRecipes = (props: PagedRecipesProps) => {
             <Button
               component={Link}
               endIcon={<NavigateNextIcon />}
-              href={`./${pageNum + 1}`}
+              href={pageNum > 1 ? `./${pageNum + 1}` : '/page/2'}
               variant="text"
               sx={{ marginLeft: 'auto' }}
             >

@@ -41,7 +41,35 @@ describe('PagedRecipes', () => {
     });
   });
 
-  describe('when there is a page parameter', () => {
+  describe('when there is a page parameter less than 1', () => {
+    it('it renders the default next anchor for page 2', async () => {
+      const pageNum = 1;
+      const numPages = pagedTags.length;
+
+      const { queryByTestId, queryByText } = render(
+        <PagedTags
+          key={`results-${pageNum}`}
+          data={pagedTags[pageNum] as ListPageItemFragment[]}
+          pageNum={pageNum}
+          numPages={numPages}
+          hideLinks={false}
+        />
+      );
+
+      await act(async () =>
+        waitFor(() => expect(queryByTestId('results-page')).toBeInTheDocument())
+      );
+
+      const nextLink = queryByText('Load Next');
+
+      expect(nextLink).toBeDefined();
+
+      // assert that component has correct href
+      expect(nextLink).toHaveAttribute('href', '/tags/page/2');
+    });
+  });
+
+  describe('when there is a page parameter greater than 1', () => {
     it('it renders the default pagination anchors', async () => {
       const pageNum = 2;
       const numPages = pagedTags.length;
@@ -72,7 +100,7 @@ describe('PagedRecipes', () => {
       expect(prevLink).toBeDefined();
 
       // assert that component has correct href
-      expect(prevLink).toHaveAttribute('href', './');
+      expect(prevLink).toHaveAttribute('href', './1');
     });
   });
 
@@ -101,7 +129,7 @@ describe('PagedRecipes', () => {
       expect(nextLink).not.toBeVisible();
 
       // assert that component has correct href
-      expect(nextLink).toHaveAttribute('href', './2');
+      expect(nextLink).toHaveAttribute('href', '/tags/page/2');
     });
   });
 

@@ -1762,7 +1762,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
       >
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-2sjepu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-          href="./2"
+          href="/tags/page/2"
           tabindex="0"
         >
           Load Next
