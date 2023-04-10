@@ -93,14 +93,14 @@ describe('PagedRecipes', () => {
       expect(nextLink).toBeDefined();
 
       // assert that component has correct href
-      expect(nextLink).toHaveAttribute('href', './3');
+      expect(nextLink).toHaveAttribute('href', '/page/3');
 
       const prevLink = queryByText('Load Previous');
 
       expect(prevLink).toBeDefined();
 
       // assert that component has correct href
-      expect(prevLink).toHaveAttribute('href', './1');
+      expect(prevLink).toHaveAttribute('href', '/page/1');
     });
   });
 

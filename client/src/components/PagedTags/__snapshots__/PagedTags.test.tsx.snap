@@ -1510,7 +1510,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
     >
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-oywzk5-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-        href="./2"
+        href="/tags/page/2"
         tabindex="0"
       >
         <span
@@ -1535,7 +1535,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
       </a>
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-2sjepu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-        href="./4"
+        href="/tags/page/4"
         tabindex="0"
       >
         Load Next
