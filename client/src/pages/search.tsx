@@ -6,7 +6,7 @@ import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Configure } from 'react-instantsearch-hooks-web';
 
 import Loading from 'components/Loading/Loading';
-import PageHead from 'components/PageHead/PageTags/PageTags';
+import PageTags from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeIndex } from 'lib/api';
 
@@ -38,7 +38,7 @@ const SearchPage = ({
   return pageContent && pageContent.length > 0 ? (
     <InstantSearch searchClient={searchClient} indexName="recipes_index">
       <Configure hitsPerPage={100} />
-      <PageHead
+      <PageTags
         title={defaultTitle}
         defaultTitle={defaultTitle}
         description={description}

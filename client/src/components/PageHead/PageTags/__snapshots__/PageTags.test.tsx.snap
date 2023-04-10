@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PageHeadingTag when there is a config object it renders a Next Head tag with a title and description 1`] = `
+exports[`PageTags when there is a config object it renders a Next Head tag with a title and description 1`] = `
 <DocumentFragment>
   <title>
     Patrick's Recipes | Test Title
@@ -54,7 +54,7 @@ exports[`PageHeadingTag when there is a config object it renders a Next Head tag
     property="og:url"
   />
   <link
-    href="https://test.recipes.pliddy.com/tags/path"
+    href="https://test.recipes.pliddy.com/category/path"
     rel="canonical"
   />
 </DocumentFragment>

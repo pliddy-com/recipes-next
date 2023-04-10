@@ -8,7 +8,7 @@ jest.genMockFromModule('../PageTags');
 
 jest.mock('next/head');
 
-interface PageHeadProps {
+interface PageTagsProps {
   title?: string | null;
   defaultTitle?: string;
   description?: string;
@@ -16,7 +16,7 @@ interface PageHeadProps {
 }
 
 export const PageTags = jest.fn(
-  ({ title, defaultTitle, description, image }: PageHeadProps) => {
+  ({ title, defaultTitle, description, image }: PageTagsProps) => {
     return (
       <Head>
         <title>{title || defaultTitle}</title>

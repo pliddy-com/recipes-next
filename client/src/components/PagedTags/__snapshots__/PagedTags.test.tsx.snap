@@ -1,0 +1,1564 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PagedRecipes when there is paged content it renders the pageinated tags list 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiBox-root css-0"
+    data-testid="results-page"
+  >
+    <div
+      class="MuiBox-root css-0"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
+        href="/tags/cucumbers"
+      >
+        Cucumbers 
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="ArrowRightIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="m10 17 5-5-5-5v10z"
+          />
+        </svg>
+      </a>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipes/canned-pickles"
+              tabindex="0"
+            >
+              <div
+                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
+              >
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75 2x"
+                  media="(min-width: 960px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 868px) and (max-width: 959px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 650px) and (max-width: 867px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 479px) and (max-width: 649px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 334px) and (max-width: 478px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75 2x"
+                  media="(max-width: 333px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <picture
+                  style="height: 100%;"
+                >
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 868px) and (max-width: 959px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 650px) and (max-width: 867px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 479px) and (max-width: 649px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 334px) and (max-width: 478px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 333px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="jars of canned pickles"
+                    class="dynamicImage"
+                    fetchpriority="high"
+                    height="225"
+                    loading="eager"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                >
+                  <div
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                    >
+                      Canned Pickles
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
+                >
+                  Classic Kosher garlic dill pickles made with fresh pickling cucumbers that are steam canned and shelf-stable for long-term storage.
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipes/summer-pickles"
+              tabindex="0"
+            >
+              <div
+                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
+              >
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75 2x"
+                  media="(min-width: 960px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 868px) and (max-width: 959px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 650px) and (max-width: 867px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 479px) and (max-width: 649px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 334px) and (max-width: 478px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75 2x"
+                  media="(max-width: 333px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <picture
+                  style="height: 100%;"
+                >
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 868px) and (max-width: 959px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 650px) and (max-width: 867px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 479px) and (max-width: 649px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 334px) and (max-width: 478px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 333px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="An open mason jar filled with pickle slices."
+                    class="dynamicImage"
+                    fetchpriority="high"
+                    height="225"
+                    loading="eager"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&fm=webp&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                >
+                  <div
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                    >
+                      Summer Pickles
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
+                >
+                  Summer pickles are made from fresh cucumbers and pickling spices, typically vinegar, salt, and dill and don't require steam canning.
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipes/tzatziki"
+              tabindex="0"
+            >
+              <div
+                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
+              >
+                <picture
+                  style="height: 100%;"
+                >
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 868px) and (max-width: 959px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 650px) and (max-width: 867px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 479px) and (max-width: 649px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 334px) and (max-width: 478px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 333px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="A plate of tzatziki and sliced pita wedges."
+                    class="dynamicImage"
+                    fetchpriority="auto"
+                    height="225"
+                    loading="lazy"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=600&fm=webp&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                >
+                  <div
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                    >
+                      Tzatziki
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
+                >
+                  Tzatziki is a traditional Greek dip/salad dressing made from yogurt, cucumber, lemon, garlic, and herbs. 
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiBox-root css-0"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
+        href="/tags/eastern-european"
+      >
+        Eastern European 
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="ArrowRightIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="m10 17 5-5-5-5v10z"
+          />
+        </svg>
+      </a>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipes/cabbage-pie"
+              tabindex="0"
+            >
+              <div
+                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
+              >
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&fm=webp&q=75 2x"
+                  media="(min-width: 960px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 868px) and (max-width: 959px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 650px) and (max-width: 867px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 479px) and (max-width: 649px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 334px) and (max-width: 478px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&fm=webp&q=75 2x"
+                  media="(max-width: 333px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <picture
+                  style="height: 100%;"
+                >
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 868px) and (max-width: 959px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 650px) and (max-width: 867px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 479px) and (max-width: 649px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 334px) and (max-width: 478px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 333px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="A skillet with fried cabbage and shredded potato pie."
+                    class="dynamicImage"
+                    fetchpriority="high"
+                    height="225"
+                    loading="eager"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&fm=webp&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                >
+                  <div
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                    >
+                      Cabbage Pie
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
+                >
+                  A simple, savory Eastern European dish made with cooked cabbage or sauerkraut, onions, carrot, and bacon.
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiBox-root css-0"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
+        href="/tags/french"
+      >
+        French 
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="ArrowRightIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="m10 17 5-5-5-5v10z"
+          />
+        </svg>
+      </a>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipes/boeuf-bourguignon"
+              tabindex="0"
+            >
+              <div
+                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
+              >
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75 2x"
+                  media="(min-width: 960px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 868px) and (max-width: 959px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 650px) and (max-width: 867px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 479px) and (max-width: 649px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 334px) and (max-width: 478px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75 2x"
+                  media="(max-width: 333px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <picture
+                  style="height: 100%;"
+                >
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 868px) and (max-width: 959px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 650px) and (max-width: 867px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 479px) and (max-width: 649px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 334px) and (max-width: 478px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 333px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="A dutch oven with boeuf bourguignon."
+                    class="dynamicImage"
+                    fetchpriority="high"
+                    height="225"
+                    loading="eager"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                >
+                  <div
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                    >
+                      Boeuf Bourguignon
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
+                >
+                  Boeuf Bourguignon is a classic French dish made with beef braised in red wine, vegetables, and herbs. It's hearty, flavorful, and perfect for cold days.
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipes/carrot-soup"
+              tabindex="0"
+            >
+              <div
+                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
+              >
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75 2x"
+                  media="(min-width: 960px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 868px) and (max-width: 959px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 650px) and (max-width: 867px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 479px) and (max-width: 649px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 334px) and (max-width: 478px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75 2x"
+                  media="(max-width: 333px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <picture
+                  style="height: 100%;"
+                >
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 868px) and (max-width: 959px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 650px) and (max-width: 867px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 479px) and (max-width: 649px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 334px) and (max-width: 478px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 333px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="A bowl of pureed carrot soup."
+                    class="dynamicImage"
+                    fetchpriority="high"
+                    height="225"
+                    loading="eager"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&fm=webp&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                >
+                  <div
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                    >
+                      Carrot Soup
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
+                >
+                  A simple but elegant soup made from pureed carrots and cream with the addition of a Sauce Velouté for extra silkiness.
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipes/chicken-gravy"
+              tabindex="0"
+            >
+              <div
+                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
+              >
+                <picture
+                  style="height: 100%;"
+                >
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 868px) and (max-width: 959px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 650px) and (max-width: 867px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 479px) and (max-width: 649px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 334px) and (max-width: 478px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 333px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="Chicken gravy based on a French velouté with milk and herbs."
+                    class="dynamicImage"
+                    fetchpriority="auto"
+                    height="225"
+                    loading="lazy"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=600&fm=webp&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                >
+                  <div
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                    >
+                      Chicken Gravy
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
+                >
+                  Simple, creamy herb gravy based on the French velouté sauce with the addition of milk for a smooth, velvety texture.
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipes/sole-meuniere"
+              tabindex="0"
+            >
+              <div
+                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
+              >
+                <picture
+                  style="height: 100%;"
+                >
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 868px) and (max-width: 959px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 650px) and (max-width: 867px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 479px) and (max-width: 649px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 334px) and (max-width: 478px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 333px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="Sole Meunière on a bed of chopped salad."
+                    class="dynamicImage"
+                    fetchpriority="auto"
+                    height="225"
+                    loading="lazy"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=600&fm=webp&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                >
+                  <div
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                    >
+                      Sole Meunière
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
+                >
+                  Crisp, sautéed fish filets topped with parsley and lemony beurre noisette made using a classic French technique.
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiBox-root css-0"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-h2 MuiLink-root MuiLink-underlineNone css-2eo3m5-MuiTypography-root-MuiLink-root"
+        href="/tags/garlic"
+      >
+        Garlic 
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="ArrowRightIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="m10 17 5-5-5-5v10z"
+          />
+        </svg>
+      </a>
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-71btut-MuiGrid-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipes/hasselback-potatoes"
+              tabindex="0"
+            >
+              <div
+                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
+              >
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75 2x"
+                  media="(min-width: 960px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 868px) and (max-width: 959px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 650px) and (max-width: 867px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 479px) and (max-width: 649px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 334px) and (max-width: 478px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75 2x"
+                  media="(max-width: 333px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <picture
+                  style="height: 100%;"
+                >
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 868px) and (max-width: 959px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 650px) and (max-width: 867px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 479px) and (max-width: 649px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 334px) and (max-width: 478px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 333px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="Roasted hasselback potato with garlic and rosemary in a cast iron skillet."
+                    class="dynamicImage"
+                    fetchpriority="high"
+                    height="225"
+                    loading="eager"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&fm=webp&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                >
+                  <div
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                    >
+                      Hasselback Potatoes
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
+                >
+                  A slight variation on the Hasselback potato with the addition of sliced garlic and fresh rosemary sprigs for extra flavor.
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipes/pizza-bianca"
+              tabindex="0"
+            >
+              <div
+                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
+              >
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75 2x"
+                  media="(min-width: 960px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 868px) and (max-width: 959px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 650px) and (max-width: 867px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=1000&fm=webp&q=75 2x"
+                  media="(min-width: 479px) and (max-width: 649px)"
+                  rel="preload"
+                  sizes="500px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=800&fm=webp&q=75 2x"
+                  media="(min-width: 334px) and (max-width: 478px)"
+                  rel="preload"
+                  sizes="400px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75 2x"
+                  media="(max-width: 333px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <picture
+                  style="height: 100%;"
+                >
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 868px) and (max-width: 959px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 650px) and (max-width: 867px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 479px) and (max-width: 649px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 334px) and (max-width: 478px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 333px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="White pizza with prosciutto, fig jam, and arugula."
+                    class="dynamicImage"
+                    fetchpriority="high"
+                    height="225"
+                    loading="eager"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&fm=webp&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                >
+                  <div
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                    >
+                      Pizza Bianca
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
+                >
+                  White pizza with prosciutto, fig, and arugula is a delicious combination of salty, sweet, and peppery flavors that complement each other well.
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 css-72mr71-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
+          >
+            <a
+              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              href="/recipes/sauteed-garlic-shrimp"
+              tabindex="0"
+            >
+              <div
+                class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
+              >
+                <picture
+                  style="height: 100%;"
+                >
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 868px) and (max-width: 959px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 650px) and (max-width: 867px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 479px) and (max-width: 649px)"
+                    sizes="500px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=1000&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 334px) and (max-width: 478px)"
+                    sizes="400px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=800&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 333px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=600&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="Garlic shrimp tossed with fresh pasta and chopped parsley."
+                    class="dynamicImage"
+                    fetchpriority="auto"
+                    height="225"
+                    loading="lazy"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=600&fm=webp&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+              >
+                <div
+                  class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
+                >
+                  <div
+                    class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-1qvr50w-MuiTypography-root"
+                    >
+                      Sautéed Garlic Shrimp
+                    </span>
+                  </div>
+                </div>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 abstract css-e784if-MuiTypography-root"
+                >
+                  Garlic sautéed shrimp that are a quick, easy dinner over fresh pasta or served with crostini as part of Seven Fishes Tapas.
+                </p>
+              </div>
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiBox-root css-12vrgl9"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-oywzk5-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        href="/tags/page/2"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="NavigateBeforeIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+            />
+          </svg>
+        </span>
+        Load Previous
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </a>
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-2sjepu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        href="/tags/page/4"
+        tabindex="0"
+      >
+        Load Next
+        <span
+          class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="NavigateNextIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;

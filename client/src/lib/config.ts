@@ -21,7 +21,7 @@ export interface ConfigProps {
 
 const microcopy: MicrocopyProps = {
   index: {
-    defaultTitle: 'All the Recipes',
+    defaultTitle: 'All Recipes',
     description: "Patrick's recipe collection"
   },
   notFound: {

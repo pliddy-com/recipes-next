@@ -2,14 +2,14 @@ import '@testing-library/jest-dom';
 import { act, render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
-import ResultsPage from './ResultsPage';
+import PagedRecipes from './PagedRecipes';
 import { RecipeDefaultFragment } from 'types/queries';
 
 import pagedRecipes from 'layout/RecipeGridPage/testPayloads/pagedRecipes.json';
 
 jest.mock('lib/api');
 
-describe('ResultsPage', () => {
+describe('PagedRecipes', () => {
   afterEach(() => {
     jest.resetModules();
   });
@@ -19,12 +19,12 @@ describe('ResultsPage', () => {
   });
 
   describe('when there is paged content', () => {
-    it('it renders the ResultsPage', async () => {
+    it('it renders the pageinated recipes list', async () => {
       const pageNum = 0;
       const numPages = pagedRecipes.length;
 
       const { asFragment, queryByTestId } = render(
-        <ResultsPage
+        <PagedRecipes
           key={`results-${pageNum}`}
           data={pagedRecipes[pageNum] as RecipeDefaultFragment[]}
           pageNum={pageNum}
@@ -41,13 +41,13 @@ describe('ResultsPage', () => {
     });
   });
 
-  describe('when there is a page parameter', () => {
+  describe('when there is a page parameter less than 1', () => {
     it('it renders the default next anchor for page 2', async () => {
       const pageNum = 1;
       const numPages = pagedRecipes.length;
 
       const { queryByTestId, queryByText } = render(
-        <ResultsPage
+        <PagedRecipes
           key={`results-${pageNum}`}
           data={pagedRecipes[pageNum] as RecipeDefaultFragment[]}
           pageNum={pageNum}
@@ -65,7 +65,42 @@ describe('ResultsPage', () => {
       expect(nextLink).toBeDefined();
 
       // assert that component has correct href
-      expect(nextLink).toHaveAttribute('href', '/recipes/page/2');
+      expect(nextLink).toHaveAttribute('href', '/page/2');
+    });
+  });
+
+  describe('when there is a page parameter greater than 1', () => {
+    it('it renders the default pagination anchors', async () => {
+      const pageNum = 2;
+      const numPages = pagedRecipes.length;
+
+      const { queryByTestId, queryByText } = render(
+        <PagedRecipes
+          key={`results-${pageNum}`}
+          data={pagedRecipes[pageNum] as RecipeDefaultFragment[]}
+          pageNum={pageNum}
+          numPages={numPages}
+          hideLinks={false}
+        />
+      );
+
+      await act(async () =>
+        waitFor(() => expect(queryByTestId('results-page')).toBeInTheDocument())
+      );
+
+      const nextLink = queryByText('Load Next');
+
+      expect(nextLink).toBeDefined();
+
+      // assert that component has correct href
+      expect(nextLink).toHaveAttribute('href', '/page/3');
+
+      const prevLink = queryByText('Load Previous');
+
+      expect(prevLink).toBeDefined();
+
+      // assert that component has correct href
+      expect(prevLink).toHaveAttribute('href', '/page/1');
     });
   });
 
@@ -75,7 +110,7 @@ describe('ResultsPage', () => {
       const numPages = pagedRecipes.length;
 
       const { queryByTestId, queryByText } = render(
-        <ResultsPage
+        <PagedRecipes
           key={`results-${pageNum}`}
           data={pagedRecipes[pageNum] as RecipeDefaultFragment[]}
           pageNum={pageNum}
@@ -94,7 +129,30 @@ describe('ResultsPage', () => {
       expect(nextLink).not.toBeVisible();
 
       // assert that component has correct href
-      expect(nextLink).toHaveAttribute('href', '/recipes/page/2');
+      expect(nextLink).toHaveAttribute('href', '/page/2');
+    });
+  });
+
+  describe('when there is no paged content', () => {
+    it('it does not render the pageinated recipes list', async () => {
+      const pageNum = 0;
+      const numPages = pagedRecipes.length;
+
+      const { queryByTestId } = render(
+        <PagedRecipes
+          key={`results-${pageNum}`}
+          data={[] as RecipeDefaultFragment[]}
+          pageNum={pageNum}
+          numPages={numPages}
+          hideLinks={true}
+        />
+      );
+
+      await act(async () =>
+        waitFor(() =>
+          expect(queryByTestId('results-page')).not.toBeInTheDocument()
+        )
+      );
     });
   });
 });

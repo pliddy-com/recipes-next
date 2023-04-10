@@ -5,17 +5,19 @@ import { ImageDefaultFragment } from 'types/queries';
 import { useRouter } from 'next/router';
 
 interface PageTagsProps {
-  title?: string | null;
+  canonicalPath?: string;
   defaultTitle?: string;
   description?: string;
   image?: ImageDefaultFragment | null;
+  title?: string | null;
 }
 
 const PageTags = ({
-  title,
+  canonicalPath,
   defaultTitle,
   description,
-  image
+  image,
+  title
 }: PageTagsProps) => {
   const { site, index } = config?.microcopy ?? {};
   const { title: siteTitle } = site ?? {};
@@ -36,11 +38,7 @@ const PageTags = ({
 
   const url = `${siteUrl}${asPath}`;
 
-  const canonicalPath = asPath.includes('category')
-    ? `${asPath.replace('category', 'tags')}`
-    : `${asPath}`;
-
-  const canonicalUrl = `${siteUrl}${canonicalPath}`;
+  const canonicalUrl = `${siteUrl}${canonicalPath || asPath}`;
 
   return siteTitle || defaultTitle || description || defaultDescription ? (
     <Head>
