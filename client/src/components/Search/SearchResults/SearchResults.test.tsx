@@ -163,8 +163,8 @@ describe('SearchResults', () => {
         isSearchStalled: false
       });
 
-      // const title = 'Recipe Title';
-      const { asFragment } = render(<SearchResults />);
+      const title = 'Recipe Title';
+      const { asFragment } = render(<SearchResults title={title} />);
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -180,36 +180,34 @@ describe('SearchResults', () => {
         isSearchStalled: false
       });
 
-      // const title = 'Recipe Title';
-      const { asFragment } = render(<SearchResults />);
+      const title = 'Recipe Title';
+      const { asFragment } = render(<SearchResults title={title} />);
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
     });
   });
 
-  // describe('when there are no hits', () => {
-  //   it('it renders the default headings', () => {
-  //     jest.spyOn(hooks, 'useSearchBox').mockReturnValueOnce({
-  //       query: 'test query',
-  //       refine: jest.fn(),
-  //       clear: jest.fn(),
-  //       isSearchStalled: false
-  //     });
+  describe('when there are no hits', () => {
+    it('it renders the default headings', () => {
+      jest.spyOn(hooks, 'useSearchBox').mockReturnValueOnce({
+        query: 'test query',
+        refine: jest.fn(),
+        clear: jest.fn(),
+        isSearchStalled: false
+      });
 
-  //     jest.spyOn(hooks, 'useHits').mockReturnValueOnce({
-  //       hits: [],
-  //       sendEvent: jest.fn(),
-  //       bindEvent: jest.fn()
-  //     });
+      jest.spyOn(hooks, 'useHits').mockReturnValueOnce({
+        hits: [],
+        sendEvent: jest.fn(),
+        bindEvent: jest.fn()
+      });
 
-  //     const title = 'Recipe Title';
-  //     const { asFragment } = render(
-  //       <SearchResults title={title} />
-  //     );
+      const title = 'Recipe Title';
+      const { asFragment } = render(<SearchResults title={title} />);
 
-  //     // assert that the component matches the existing snapshot
-  //     expect(asFragment()).toMatchSnapshot();
-  //   });
-  // });
+      // assert that the component matches the existing snapshot
+      expect(asFragment()).toMatchSnapshot();
+    });
+  });
 });

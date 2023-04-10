@@ -14,6 +14,7 @@ import PageTags from 'components/PageHead/PageTags/PageTags';
 import { getRecipeIndex } from 'lib/api';
 
 import config from 'lib/config';
+import Typography from '@mui/material/Typography';
 // import Container from '@mui/system/Container';
 // import Typography from '@mui/material/Typography';
 
@@ -47,12 +48,9 @@ const SearchPage = ({
         defaultTitle={defaultTitle}
         description={description}
       />
-      {/* <Container maxWidth="xl" sx={{ paddingTop: '5rem' }}>
-        <Typography variant="h1">{defaultTitle}</Typography>
-        <Typography variant="subtitle1" component="h2">
-          {pageContent.length} Recipes
-        </Typography>
-      </Container> */}
+      <Typography variant="h1" sx={{ visibility: 'hidden', height: 0 }}>
+        {defaultTitle}
+      </Typography>
 
       <InstantSearch searchClient={searchClient} indexName="recipes_index">
         <Configure hitsPerPage={100} />

@@ -6,11 +6,6 @@ exports[`SearchGridPage when there is page content it renders the SearchGridPage
     class="MuiContainer-root MuiContainer-maxWidthXl page recipegrid search css-19r6kue-MuiContainer-root"
     data-testid="page"
   >
-    <h1
-      class="MuiTypography-root MuiTypography-h1 css-1nu87ig-MuiTypography-root"
-    >
-      Title
-    </h1>
     <div
       data-testid="search-box"
     >

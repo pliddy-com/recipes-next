@@ -5,7 +5,7 @@ import {
 } from 'react-instantsearch-hooks-web';
 
 import Grid from '@mui/material/Grid';
-// import Typography from '@mui/material/Typography';
+import Typography from '@mui/material/Typography';
 
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 
@@ -40,11 +40,11 @@ const queryHook: UseSearchBoxProps['queryHook'] = (query, search) => {
   search(query);
 };
 
-// interface SearchResultsProps {
-//   title: string | null | undefined;
-// }
+interface SearchResultsProps {
+  title: string | null | undefined;
+}
 
-const SearchResults = () => {
+const SearchResults = ({ title }: SearchResultsProps) => {
   const { query } = useSearchBox({
     queryHook
   });
@@ -59,12 +59,12 @@ const SearchResults = () => {
 
   return (
     <>
-      {/* <Typography variant="h1">{`${title}${
+      <Typography variant="h1">{`${title}${
         query.length > 0 ? ' for ' : ''
       }${query}`}</Typography>
       <Typography variant="subtitle1" component="h2">
         {hits && `${hits.length} Recipes`}
-      </Typography> */}
+      </Typography>
 
       <Grid container spacing={2}>
         {hits &&
