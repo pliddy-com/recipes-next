@@ -9,5 +9,10 @@ exports[`Index in index.tsx when there is content it renders the index page 1`] 
     content="Search results"
     name="description"
   />
+  <h1
+    class="MuiTypography-root MuiTypography-h1 css-ec67a2-MuiTypography-root"
+  >
+    Results for
+  </h1>
 </DocumentFragment>
 `;

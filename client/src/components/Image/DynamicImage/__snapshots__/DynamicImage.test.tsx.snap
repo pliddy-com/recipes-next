@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DynamicImage when there is a url & image object it renders a picture component and generates head elements 1`] = `
-<div>
+<DocumentFragment>
   <link
     as="image"
     fetchpriority="high"
@@ -60,5 +60,5 @@ exports[`DynamicImage when there is a url & image object it renders a picture co
       width="400"
     />
   </picture>
-</div>
+</DocumentFragment>
 `;

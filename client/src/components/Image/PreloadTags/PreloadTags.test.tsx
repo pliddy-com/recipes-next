@@ -32,7 +32,7 @@ describe('PreloadTags', () => {
       const srcSetSpy = jest.spyOn(responsiveImage, 'createSrcSet');
       const mediaQuerySpy = jest.spyOn(responsiveImage, 'createMediaQuery');
 
-      const { container } = render(
+      const { asFragment } = render(
         <PreloadTags
           breakpoints={breakpoints}
           url={url}
@@ -54,7 +54,7 @@ describe('PreloadTags', () => {
       expect(testTag.textContent?.includes(expectedImageSizes));
 
       // assert that the component matches the existing snapshot
-      expect(container).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 

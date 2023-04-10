@@ -154,7 +154,7 @@ describe('SearchResults', () => {
     jest.resetModules();
   });
 
-  describe('when there is no query', () => {
+  describe('when there is a query', () => {
     it('it renders the SearchResults', () => {
       jest.spyOn(hooks, 'useSearchBox').mockReturnValueOnce({
         query: 'test query',
@@ -178,6 +178,29 @@ describe('SearchResults', () => {
         refine: jest.fn(),
         clear: jest.fn(),
         isSearchStalled: false
+      });
+
+      const title = 'Recipe Title';
+      const { asFragment } = render(<SearchResults title={title} />);
+
+      // assert that the component matches the existing snapshot
+      expect(asFragment()).toMatchSnapshot();
+    });
+  });
+
+  describe('when there are no hits', () => {
+    it('it renders the default headings', () => {
+      jest.spyOn(hooks, 'useSearchBox').mockReturnValueOnce({
+        query: 'test query',
+        refine: jest.fn(),
+        clear: jest.fn(),
+        isSearchStalled: false
+      });
+
+      jest.spyOn(hooks, 'useHits').mockReturnValueOnce({
+        hits: [],
+        sendEvent: jest.fn(),
+        bindEvent: jest.fn()
       });
 
       const title = 'Recipe Title';

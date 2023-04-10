@@ -41,9 +41,7 @@ const cardThemeOptions: ThemeOptions = {
               paddingBottom: 0
             },
             '&-title': {
-              color: colors.primary.main,
-              borderBottom: `1px solid ${palette.secondary.main}`,
-              paddingBottom: '.25rem'
+              color: colors.primary.main
             },
             '&-subheader': {
               fontFamily: sansFontFamily,
@@ -84,7 +82,6 @@ const cardThemeOptions: ThemeOptions = {
                 flexDirection: 'column-reverse',
                 '& .MuiCardHeader': {
                   '&-title': {
-                    display: 'block',
                     borderTop: `1px solid ${colors.secondary.main}`,
                     borderBottom: 'none',
                     paddingTop: '.25rem'
@@ -135,7 +132,11 @@ const cardThemeOptions: ThemeOptions = {
             },
             '& .MuiCardHeader': {
               '&-root': {
-                padding: '0.5rem 0'
+                padding: '0 0 .5rem 0'
+              },
+              '&-title': {
+                borderBottom: `1px solid ${palette.secondary.main}`,
+                paddingBottom: '.25rem'
               }
             },
             '& .MuiCardContent': {

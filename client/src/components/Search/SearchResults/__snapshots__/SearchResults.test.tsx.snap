@@ -1,17 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchResults when there is no query it renders the SearchResults 1`] = `
+exports[`SearchResults when there are no hits it renders the default headings 1`] = `
 <DocumentFragment>
-  <h1
+  <h2
     class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
   >
     Recipe Title for test query
-  </h1>
+  </h2>
+  <h3
+    class="MuiTypography-root MuiTypography-subtitle1 css-10wpov9-MuiTypography-root"
+  >
+    0 Recipes
+  </h3>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
+  />
+</DocumentFragment>
+`;
+
+exports[`SearchResults when there is a query it renders the SearchResults 1`] = `
+<DocumentFragment>
   <h2
+    class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
+  >
+    Recipe Title for test query
+  </h2>
+  <h3
     class="MuiTypography-root MuiTypography-subtitle1 css-10wpov9-MuiTypography-root"
   >
     3 Recipes
-  </h2>
+  </h3>
   <div
     class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
   >
@@ -663,18 +681,18 @@ exports[`SearchResults when there is no query it renders the SearchResults 1`] =
 </DocumentFragment>
 `;
 
-exports[`SearchResults when there is no query it renders the SearchResults 2`] = `
+exports[`SearchResults when there is no query it renders the SearchResults 1`] = `
 <DocumentFragment>
-  <h1
+  <h2
     class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
   >
     Recipe Title
-  </h1>
-  <h2
+  </h2>
+  <h3
     class="MuiTypography-root MuiTypography-subtitle1 css-10wpov9-MuiTypography-root"
   >
     3 Recipes
-  </h2>
+  </h3>
   <div
     class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-mhc70k-MuiGrid-root"
   >
