@@ -138,12 +138,6 @@ const cardThemeOptions: ThemeOptions = {
                 padding: '0.5rem 0'
               }
             },
-            '& .MuiCardMedia': {
-              '&-root': {
-                display: 'flex',
-                flex: '1 1 auto'
-              }
-            },
             '& .MuiCardContent': {
               '&-root': {
                 paddingTop: '1rem',
