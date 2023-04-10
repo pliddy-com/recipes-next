@@ -1,4 +1,5 @@
 import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 
 import SearchResults from 'components/Search/SearchResults/SearchResults';
 import SearchBox from 'components/Search/SearchBox/SearchBox';
@@ -15,7 +16,13 @@ const SearchGridPage = ({ numRecipes, title }: SearchGridPageProps) => {
       maxWidth="xl"
     >
       <SearchBox />
-      <SearchResults title={title} numRecipes={numRecipes} />
+      <>
+        <Typography variant="h1">{title}</Typography>
+        <Typography variant="subtitle1" component="h2">
+          {numRecipes} Recipes
+        </Typography>
+      </>
+      <SearchResults title={title} />
     </Container>
   );
 };

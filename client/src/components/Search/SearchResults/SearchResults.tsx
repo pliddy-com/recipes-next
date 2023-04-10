@@ -39,11 +39,10 @@ const queryHook: UseSearchBoxProps['queryHook'] = (query, search) => {
 };
 
 interface SearchResultsProps {
-  numRecipes: number;
   title: string | null | undefined;
 }
 
-const SearchResults = ({ numRecipes, title }: SearchResultsProps) => {
+const SearchResults = ({ title }: SearchResultsProps) => {
   const { query } = useSearchBox({
     queryHook
   });
@@ -56,7 +55,7 @@ const SearchResults = ({ numRecipes, title }: SearchResultsProps) => {
   if (!query)
     hits.sort((a, b) => (a.slug && b.slug && a.slug > b.slug ? 1 : -1));
 
-  return hits && hits.length > 0 ? (
+  return (
     <>
       <Typography variant="h1">{`${title}${
         query.length > 0 ? ' for ' : ''
@@ -75,13 +74,6 @@ const SearchResults = ({ numRecipes, title }: SearchResultsProps) => {
             );
           })}
       </Grid>
-    </>
-  ) : (
-    <>
-      <Typography variant="h1">{title}</Typography>
-      <Typography variant="subtitle1" component="h2">
-        {numRecipes} Recipes
-      </Typography>
     </>
   );
 };
