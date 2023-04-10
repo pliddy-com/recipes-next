@@ -5,6 +5,8 @@ import dynamic from 'next/dynamic';
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Configure } from 'react-instantsearch-hooks-web';
 
+import Typography from '@mui/material/Typography';
+
 import Loading from 'components/Loading/Loading';
 import PageTags from 'components/PageHead/PageTags/PageTags';
 
@@ -42,14 +44,17 @@ const SearchPage = ({
         defaultTitle={defaultTitle}
         description={description}
       />
+      <>
+        <Typography variant="h1">{defaultTitle}</Typography>
+        <Typography variant="subtitle1" component="h2">
+          {pageContent.length} Recipes
+        </Typography>
+      </>
 
       <InstantSearch searchClient={searchClient} indexName="recipes_index">
         <Configure hitsPerPage={100} />
         <Suspense fallback={<Loading />}>
-          <SearchGridPage
-            title={defaultTitle}
-            numRecipes={pageContent.length}
-          />
+          <SearchGridPage title={defaultTitle} />
         </Suspense>
       </InstantSearch>
     </>

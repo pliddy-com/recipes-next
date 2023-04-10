@@ -11,16 +11,6 @@ exports[`SearchGridPage when there is page content it renders the SearchGridPage
     >
       SearchBox
     </div>
-    <h1
-      class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
-    >
-      Title
-    </h1>
-    <h2
-      class="MuiTypography-root MuiTypography-subtitle1 css-10wpov9-MuiTypography-root"
-    >
-      3 Recipes
-    </h2>
     <div
       data-testid="search-results"
     >

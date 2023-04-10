@@ -13,7 +13,7 @@ describe('SearchGridPage', () => {
       const title = 'Title';
 
       const { asFragment, queryByTestId } = render(
-        <SearchGridPage title={title} numRecipes={3} />
+        <SearchGridPage title={title} />
       );
 
       // assert that content is rendered

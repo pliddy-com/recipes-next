@@ -44,7 +44,7 @@ describe('DynamicImage', () => {
 
       // const expectedAlt = image.description || 'Image Description';
 
-      const { container } = render(
+      const { asFragment } = render(
         <DynamicImage
           image={image}
           breakpoints={breakpoints}
@@ -75,7 +75,7 @@ describe('DynamicImage', () => {
       expect(srcSetSpy).toHaveBeenCalled();
 
       // assert that the component matches the existing snapshot
-      expect(container).toMatchSnapshot();
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('it does not generate link tags with preload property if preload === false', () => {

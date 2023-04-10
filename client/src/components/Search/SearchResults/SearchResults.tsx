@@ -33,6 +33,8 @@ interface HitProps {
   sys: object;
 }
 
+// TODO: mock for unit test
+
 /* istanbul ignore next */
 const queryHook: UseSearchBoxProps['queryHook'] = (query, search) => {
   search(query);
