@@ -59,10 +59,10 @@ const SearchResults = ({ title }: SearchResultsProps) => {
 
   return (
     <>
-      <Typography variant="h1">{`${title}${
+      <Typography variant="h1" component="h2">{`${title}${
         query.length > 0 ? ' for ' : ''
       }${query}`}</Typography>
-      <Typography variant="subtitle1" component="h2">
+      <Typography variant="subtitle1" component="h3">
         {hits && `${hits.length} Recipes`}
       </Typography>
 
