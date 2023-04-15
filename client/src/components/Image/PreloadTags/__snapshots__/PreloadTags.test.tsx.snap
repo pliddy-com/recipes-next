@@ -5,8 +5,8 @@ exports[`PreloadTags when props and url are provided it renders a set of preload
   <link
     as="image"
     fetchpriority="high"
-    href="https://URL.test?w=600&fm=webp&q=75"
-    imagesrcset="https://URL.test?w=300&fm=webp&q=75 1x, https://URL.test?w=600&fm=webp&q=75 2x"
+    href="https://URL.test?w=600&h=450&fm=webp&q=75"
+    imagesrcset="https://URL.test?w=300&h=225&fm=webp&q=75 1x, https://URL.test?w=600&h=450&fm=webp&q=75 2x"
     media="(min-width: 1000px)"
     rel="preload"
     sizes="300px"
@@ -15,8 +15,8 @@ exports[`PreloadTags when props and url are provided it renders a set of preload
   <link
     as="image"
     fetchpriority="high"
-    href="https://URL.test?w=600&fm=webp&q=75"
-    imagesrcset="https://URL.test?w=200&fm=webp&q=75 1x, https://URL.test?w=400&fm=webp&q=75 2x"
+    href="https://URL.test?w=600&h=450&fm=webp&q=75"
+    imagesrcset="https://URL.test?w=200&h=150&fm=webp&q=75 1x, https://URL.test?w=400&h=300&fm=webp&q=75 2x"
     media="(min-width: 500px) and (max-width: 999px)"
     rel="preload"
     sizes="200px"
@@ -25,8 +25,8 @@ exports[`PreloadTags when props and url are provided it renders a set of preload
   <link
     as="image"
     fetchpriority="high"
-    href="https://URL.test?w=600&fm=webp&q=75"
-    imagesrcset="https://URL.test?w=100&fm=webp&q=75 1x, https://URL.test?w=200&fm=webp&q=75 2x"
+    href="https://URL.test?w=600&h=450&fm=webp&q=75"
+    imagesrcset="https://URL.test?w=100&h=75&fm=webp&q=75 1x, https://URL.test?w=200&h=150&fm=webp&q=75 2x"
     media="(max-width: 499px)"
     rel="preload"
     sizes="100px"

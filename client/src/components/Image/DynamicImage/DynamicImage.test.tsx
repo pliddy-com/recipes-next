@@ -2,13 +2,18 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
 import DynamicImage from './DynamicImage';
-import responsiveImage from 'lib/responsiveImage';
+
+// import * as responsiveImage from 'lib/responsiveImage';
 
 import { ImageDefaultFragment } from 'types/queries';
 
 jest.mock('next/head');
 
 describe('DynamicImage', () => {
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   const breakpoints = [
     {
       viewMin: 1000,
@@ -38,12 +43,6 @@ describe('DynamicImage', () => {
     it('it renders a picture component and generates head elements', () => {
       const preload = true;
 
-      // test that createSrcSet & createMediaQuery are called
-      const srcSetSpy = jest.spyOn(responsiveImage, 'createSrcSet');
-      const mediaQuerySpy = jest.spyOn(responsiveImage, 'createMediaQuery');
-
-      // const expectedAlt = image.description || 'Image Description';
-
       const { asFragment } = render(
         <DynamicImage
           image={image}
@@ -69,10 +68,6 @@ describe('DynamicImage', () => {
       // assert that there are link tags
       const linkTags = document.getElementsByTagName('link');
       expect(linkTags[0]).toBeInTheDocument();
-
-      // assert that srcSet and mediaQuery creators to be called
-      expect(mediaQuerySpy).toHaveBeenCalled();
-      expect(srcSetSpy).toHaveBeenCalled();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

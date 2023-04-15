@@ -96,8 +96,9 @@ const RecipePage = ({ content }: RecipePageProps) => {
             {breakpoints && image && (
               <Box className="image">
                 <DynamicImage
-                  image={image}
+                  aspectRatio="4 / 3"
                   breakpoints={breakpoints}
+                  image={image}
                   preload={true}
                 />
               </Box>

@@ -28,6 +28,7 @@ const PreviewCard = ({ recipe, preloadImg = false }: PreviewCardProps) => {
         {image && (
           <CardMedia className="imageWrapper">
             <DynamicImage
+              aspectRatio="3 / 2"
               image={image}
               breakpoints={breakpoints}
               preload={preloadImg}

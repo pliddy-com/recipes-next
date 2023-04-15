@@ -1,29 +1,44 @@
 import PreloadTags from 'components/Image/PreloadTags/PreloadTags';
 
-import responsiveImage, { Breakpoints } from 'lib/responsiveImage';
+import {
+  AspectRatio,
+  Breakpoints,
+  calculateAspectRatio,
+  createSrcSet,
+  createMediaQuery
+} from 'lib/responsiveImage';
 
 import { ImageDefaultFragment } from 'types/queries';
 
 export interface ImageProps {
-  image: ImageDefaultFragment;
+  aspectRatio?: AspectRatio;
   breakpoints: Breakpoints[];
+  image: ImageDefaultFragment;
   preload?: boolean;
 }
 
-const DynamicImage = ({ image, breakpoints, preload = false }: ImageProps) => {
-  const { createSrcSet, createMediaQuery } = responsiveImage;
-
+const DynamicImage = ({
+  aspectRatio = '4 / 3',
+  image,
+  breakpoints,
+  preload = false
+}: ImageProps) => {
   const { url, description: alt, height: imgHeight, width: imgWidth } = image;
 
   const defaultWidth = breakpoints[0].imgWidth;
+
+  const defaultHeight = Math.ceil(
+    defaultWidth * calculateAspectRatio({ aspectRatio })
+  );
 
   return breakpoints && url && imgWidth && imgHeight && alt ? (
     <>
       {preload && (
         <PreloadTags
+          aspectRatio={aspectRatio}
           breakpoints={breakpoints}
-          url={url}
           defaultWidth={defaultWidth}
+          url={url}
         />
       )}
       <picture style={{ height: '100%' }}>
@@ -44,9 +59,11 @@ const DynamicImage = ({ image, breakpoints, preload = false }: ImageProps) => {
         <img
           alt={alt}
           className="dynamicImage"
-          height={defaultWidth * 0.75}
+          height={defaultHeight}
           loading={preload ? 'eager' : 'lazy'}
-          src={`${url}?w=${defaultWidth * 2}&fm=webp&q=75`}
+          src={`${url}?w=${defaultWidth * 2}&h=${
+            defaultHeight * 2
+          }&fm=webp&q=75`}
           width={defaultWidth}
           fetchpriority={preload ? 'high' : 'auto'}
         />

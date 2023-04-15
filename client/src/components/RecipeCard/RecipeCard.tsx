@@ -32,8 +32,9 @@ const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
         {image && (
           <CardMedia className="imageWrapper">
             <DynamicImage
-              image={image}
+              aspectRatio="3 / 2"
               breakpoints={breakpoints}
+              image={image}
               preload={preloadImg}
             />
           </CardMedia>

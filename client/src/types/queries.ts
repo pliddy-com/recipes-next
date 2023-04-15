@@ -915,7 +915,9 @@ export type RecipeFilter = {
   equipment_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   equipment_exists?: InputMaybe<Scalars['Boolean']>;
   image_exists?: InputMaybe<Scalars['Boolean']>;
+  ingredients?: InputMaybe<CfIngredientSectionNestedFilter>;
   ingredientsCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  instructions?: InputMaybe<CfInstructionSectionNestedFilter>;
   instructionsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   keywords_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   keywords_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -947,6 +949,7 @@ export type RecipeFilter = {
   slug_not_contains?: InputMaybe<Scalars['String']>;
   slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   sys?: InputMaybe<SysFilter>;
+  tags?: InputMaybe<CfTagNestedFilter>;
   tagsCollection_exists?: InputMaybe<Scalars['Boolean']>;
   title?: InputMaybe<Scalars['String']>;
   title_contains?: InputMaybe<Scalars['String']>;
@@ -1291,6 +1294,70 @@ export enum TaxonomyOrder {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC'
 }
+
+export type CfIngredientSectionNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfIngredientSectionNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfIngredientSectionNestedFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  ingredientList_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  ingredientList_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  ingredientList_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  ingredientList_exists?: InputMaybe<Scalars['Boolean']>;
+  label?: InputMaybe<Scalars['String']>;
+  label_contains?: InputMaybe<Scalars['String']>;
+  label_exists?: InputMaybe<Scalars['Boolean']>;
+  label_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  label_not?: InputMaybe<Scalars['String']>;
+  label_not_contains?: InputMaybe<Scalars['String']>;
+  label_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug?: InputMaybe<Scalars['String']>;
+  slug_contains?: InputMaybe<Scalars['String']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not?: InputMaybe<Scalars['String']>;
+  slug_not_contains?: InputMaybe<Scalars['String']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']>;
+  title_contains?: InputMaybe<Scalars['String']>;
+  title_exists?: InputMaybe<Scalars['Boolean']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  title_not?: InputMaybe<Scalars['String']>;
+  title_not_contains?: InputMaybe<Scalars['String']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type CfInstructionSectionNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfInstructionSectionNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfInstructionSectionNestedFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  instructionList_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  instructionList_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  instructionList_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  instructionList_exists?: InputMaybe<Scalars['Boolean']>;
+  label?: InputMaybe<Scalars['String']>;
+  label_contains?: InputMaybe<Scalars['String']>;
+  label_exists?: InputMaybe<Scalars['Boolean']>;
+  label_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  label_not?: InputMaybe<Scalars['String']>;
+  label_not_contains?: InputMaybe<Scalars['String']>;
+  label_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug?: InputMaybe<Scalars['String']>;
+  slug_contains?: InputMaybe<Scalars['String']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not?: InputMaybe<Scalars['String']>;
+  slug_not_contains?: InputMaybe<Scalars['String']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']>;
+  title_contains?: InputMaybe<Scalars['String']>;
+  title_exists?: InputMaybe<Scalars['Boolean']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  title_not?: InputMaybe<Scalars['String']>;
+  title_not_contains?: InputMaybe<Scalars['String']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
 
 export type CfTagNestedFilter = {
   AND?: InputMaybe<Array<InputMaybe<CfTagNestedFilter>>>;
