@@ -1,7 +1,6 @@
 import PreloadTags from 'components/Image/PreloadTags/PreloadTags';
 
 import {
-  AspectRatio,
   Breakpoints,
   calculateAspectRatio,
   createSrcSet,
@@ -9,6 +8,8 @@ import {
 } from 'lib/responsiveImage';
 
 import { ImageDefaultFragment } from 'types/queries';
+
+import { AspectRatio } from 'theme/values/images';
 
 export interface ImageProps {
   aspectRatio?: AspectRatio;

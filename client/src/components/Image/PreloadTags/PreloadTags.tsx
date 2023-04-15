@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import {
-  AspectRatio,
   Breakpoints,
   calculateAspectRatio,
   createMediaQuery,
   createSrcSet
 } from 'lib/responsiveImage';
+
+import { AspectRatio } from 'theme/values/images';
 
 interface PreloadTagsProps {
   aspectRatio?: AspectRatio;

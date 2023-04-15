@@ -1,4 +1,4 @@
-export type AspectRatio = '16 / 9' | '3 / 2' | '4 / 3' | '1 / 1';
+import { AspectRatio } from 'theme/values/images';
 
 export interface createSrcSetProps {
   aspectRatio?: AspectRatio;
