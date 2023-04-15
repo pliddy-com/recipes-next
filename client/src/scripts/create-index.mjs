@@ -7,6 +7,8 @@ const { createClient } = contentful;
 
 import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer';
 
+const defaultAspectRatio = 3 / 2;
+
 (async () => {
   // initialize environment variables
   dotenv.config();
@@ -44,7 +46,9 @@ import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer
       image: {
         url: recipe.fields.image.fields.file.url,
         description: recipe.fields.image.fields.description,
-        height: recipe.fields.image.fields.file.details.image.height,
+        height:
+          recipe.fields.image.fields.file.details.image.width /
+          defaultAspectRatio,
         width: recipe.fields.image.fields.file.details.image.width
       },
       keywords: recipe.fields.keywords,

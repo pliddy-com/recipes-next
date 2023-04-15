@@ -9,12 +9,12 @@ import RecipePage from './RecipePage';
 
 import { RecipeDefaultFragment } from 'types/queries';
 
-import config from './RecipePage.config';
+import { recipePageConfig } from 'theme/values/images';
 import * as api from 'lib/api';
 
 jest.mock('lib/api');
 
-jest.createMockFromModule('./RecipePage.config');
+jest.createMockFromModule('theme/values/images');
 
 describe('Recipe', () => {
   afterEach(() => {
@@ -41,7 +41,7 @@ describe('Recipe', () => {
   describe('when there is no page content', () => {
     // before each test, delete images node from config
     beforeEach(() => {
-      delete config.breakpoints;
+      delete recipePageConfig.breakpoints;
     });
 
     it('it does not render the Recipe', () => {

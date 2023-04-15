@@ -11,7 +11,7 @@ import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 
 import { RecipeDefaultFragment } from 'types/queries';
 
-import config from './PreviewCard.config';
+import { previewCardConfig } from 'theme/values/images';
 
 interface PreviewCardProps {
   recipe?: RecipeDefaultFragment;
@@ -19,7 +19,7 @@ interface PreviewCardProps {
 }
 
 const PreviewCard = ({ recipe, preloadImg = false }: PreviewCardProps) => {
-  const { breakpoints } = config;
+  const { aspectRatio, breakpoints } = previewCardConfig;
   const { title, abstract, image, slug } = recipe ?? {};
 
   return recipe && breakpoints && breakpoints.length > 0 ? (
@@ -28,6 +28,7 @@ const PreviewCard = ({ recipe, preloadImg = false }: PreviewCardProps) => {
         {image && (
           <CardMedia className="imageWrapper">
             <DynamicImage
+              aspectRatio={aspectRatio}
               image={image}
               breakpoints={breakpoints}
               preload={preloadImg}

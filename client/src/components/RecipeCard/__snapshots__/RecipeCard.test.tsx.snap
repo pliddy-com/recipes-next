@@ -16,8 +16,8 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
         <link
           as="image"
           fetchpriority="high"
-          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75 2x"
+          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75 2x"
           media="(min-width: 987px)"
           rel="preload"
           sizes="400px"
@@ -26,8 +26,8 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
         <link
           as="image"
           fetchpriority="high"
-          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&fm=webp&q=75 2x"
+          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&h=400&fm=webp&q=75 2x"
           media="(min-width: 768px) and (max-width: 986px)"
           rel="preload"
           sizes="300px"
@@ -36,8 +36,8 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
         <link
           as="image"
           fetchpriority="high"
-          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75 2x"
+          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75 2x"
           media="(min-width: 668px) and (max-width: 767px)"
           rel="preload"
           sizes="400px"
@@ -46,8 +46,8 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
         <link
           as="image"
           fetchpriority="high"
-          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&fm=webp&q=75 2x"
+          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&h=400&fm=webp&q=75 2x"
           media="(min-width: 480px) and (max-width: 667px)"
           rel="preload"
           sizes="300px"
@@ -56,8 +56,8 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
         <link
           as="image"
           fetchpriority="high"
-          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=1000&fm=webp&q=75 2x"
+          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=1000&h=668&fm=webp&q=75 2x"
           media="(min-width: 434px) and (max-width: 479px)"
           rel="preload"
           sizes="500px"
@@ -66,8 +66,8 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
         <link
           as="image"
           fetchpriority="high"
-          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75 2x"
+          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75 2x"
           media="(min-width: 335px) and (max-width: 433px)"
           rel="preload"
           sizes="400px"
@@ -76,58 +76,56 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
         <link
           as="image"
           fetchpriority="high"
-          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&fm=webp&q=75 2x"
+          href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+          imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&h=400&fm=webp&q=75 2x"
           media="(max-width: 334px)"
           rel="preload"
           sizes="300px"
           type="image/webp"
         />
-        <picture
-          style="height: 100%;"
-        >
+        <picture>
           <source
             media="(min-width: 987px)"
             sizes="400px"
-            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75 2x"
+            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75 2x"
           />
           <source
             media="(min-width: 768px) and (max-width: 986px)"
             sizes="300px"
-            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&fm=webp&q=75 2x"
+            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&h=400&fm=webp&q=75 2x"
           />
           <source
             media="(min-width: 668px) and (max-width: 767px)"
             sizes="400px"
-            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75 2x"
+            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75 2x"
           />
           <source
             media="(min-width: 480px) and (max-width: 667px)"
             sizes="300px"
-            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&fm=webp&q=75 2x"
+            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&h=400&fm=webp&q=75 2x"
           />
           <source
             media="(min-width: 434px) and (max-width: 479px)"
             sizes="500px"
-            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=1000&fm=webp&q=75 2x"
+            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=1000&h=668&fm=webp&q=75 2x"
           />
           <source
             media="(min-width: 335px) and (max-width: 433px)"
             sizes="400px"
-            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75 2x"
+            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75 2x"
           />
           <source
             media="(max-width: 334px)"
             sizes="300px"
-            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&fm=webp&q=75 2x"
+            srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&h=400&fm=webp&q=75 2x"
           />
           <img
             alt="Skillet with basmati rice and chopped parsley."
             class="dynamicImage"
             fetchpriority="high"
-            height="300"
+            height="267"
             loading="eager"
-            src="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
+            src="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75"
             width="400"
           />
         </picture>

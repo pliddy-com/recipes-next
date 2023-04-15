@@ -23,8 +23,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&h=534&fm=webp&q=75 2x"
               media="(min-width: 987px)"
               rel="preload"
               sizes="400px"
@@ -33,8 +33,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&h=400&fm=webp&q=75 2x"
               media="(min-width: 768px) and (max-width: 986px)"
               rel="preload"
               sizes="300px"
@@ -43,8 +43,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&h=534&fm=webp&q=75 2x"
               media="(min-width: 668px) and (max-width: 767px)"
               rel="preload"
               sizes="400px"
@@ -53,8 +53,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&h=400&fm=webp&q=75 2x"
               media="(min-width: 480px) and (max-width: 667px)"
               rel="preload"
               sizes="300px"
@@ -63,8 +63,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=1000&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=1000&h=668&fm=webp&q=75 2x"
               media="(min-width: 434px) and (max-width: 479px)"
               rel="preload"
               sizes="500px"
@@ -73,8 +73,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&h=534&fm=webp&q=75 2x"
               media="(min-width: 335px) and (max-width: 433px)"
               rel="preload"
               sizes="400px"
@@ -83,58 +83,56 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&h=400&fm=webp&q=75 2x"
               media="(max-width: 334px)"
               rel="preload"
               sizes="300px"
               type="image/webp"
             />
-            <picture
-              style="height: 100%;"
-            >
+            <picture>
               <source
                 media="(min-width: 987px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 768px) and (max-width: 986px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 668px) and (max-width: 767px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 480px) and (max-width: 667px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 434px) and (max-width: 479px)"
                 sizes="500px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=1000&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=1000&h=668&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 335px) and (max-width: 433px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(max-width: 334px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <img
                 alt="A plate of bacon-wrapped dates"
                 class="dynamicImage"
                 fetchpriority="high"
-                height="300"
+                height="267"
                 loading="eager"
-                src="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&fm=webp&q=75"
+                src="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&h=534&fm=webp&q=75"
                 width="400"
               />
             </picture>
@@ -234,8 +232,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75 2x"
               media="(min-width: 987px)"
               rel="preload"
               sizes="400px"
@@ -244,8 +242,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&h=400&fm=webp&q=75 2x"
               media="(min-width: 768px) and (max-width: 986px)"
               rel="preload"
               sizes="300px"
@@ -254,8 +252,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75 2x"
               media="(min-width: 668px) and (max-width: 767px)"
               rel="preload"
               sizes="400px"
@@ -264,8 +262,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&h=400&fm=webp&q=75 2x"
               media="(min-width: 480px) and (max-width: 667px)"
               rel="preload"
               sizes="300px"
@@ -274,8 +272,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=1000&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=1000&h=668&fm=webp&q=75 2x"
               media="(min-width: 434px) and (max-width: 479px)"
               rel="preload"
               sizes="500px"
@@ -284,8 +282,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75 2x"
               media="(min-width: 335px) and (max-width: 433px)"
               rel="preload"
               sizes="400px"
@@ -294,58 +292,56 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&h=400&fm=webp&q=75 2x"
               media="(max-width: 334px)"
               rel="preload"
               sizes="300px"
               type="image/webp"
             />
-            <picture
-              style="height: 100%;"
-            >
+            <picture>
               <source
                 media="(min-width: 987px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 768px) and (max-width: 986px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 668px) and (max-width: 767px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 480px) and (max-width: 667px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 434px) and (max-width: 479px)"
                 sizes="500px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=1000&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=1000&h=668&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 335px) and (max-width: 433px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(max-width: 334px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <img
                 alt="Skillet with basmati rice and chopped parsley."
                 class="dynamicImage"
                 fetchpriority="high"
-                height="300"
+                height="267"
                 loading="eager"
-                src="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&fm=webp&q=75"
+                src="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fm=webp&q=75"
                 width="400"
               />
             </picture>
@@ -423,8 +419,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&h=534&fm=webp&q=75 2x"
               media="(min-width: 987px)"
               rel="preload"
               sizes="400px"
@@ -433,8 +429,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&h=400&fm=webp&q=75 2x"
               media="(min-width: 768px) and (max-width: 986px)"
               rel="preload"
               sizes="300px"
@@ -443,8 +439,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&h=534&fm=webp&q=75 2x"
               media="(min-width: 668px) and (max-width: 767px)"
               rel="preload"
               sizes="400px"
@@ -453,8 +449,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&h=400&fm=webp&q=75 2x"
               media="(min-width: 480px) and (max-width: 667px)"
               rel="preload"
               sizes="300px"
@@ -463,8 +459,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=1000&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=1000&h=668&fm=webp&q=75 2x"
               media="(min-width: 434px) and (max-width: 479px)"
               rel="preload"
               sizes="500px"
@@ -473,8 +469,8 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&h=534&fm=webp&q=75 2x"
               media="(min-width: 335px) and (max-width: 433px)"
               rel="preload"
               sizes="400px"
@@ -483,58 +479,56 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
             <link
               as="image"
               fetchpriority="high"
-              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75"
-              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75 2x"
+              href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75"
+              imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&h=400&fm=webp&q=75 2x"
               media="(max-width: 334px)"
               rel="preload"
               sizes="300px"
               type="image/webp"
             />
-            <picture
-              style="height: 100%;"
-            >
+            <picture>
               <source
                 media="(min-width: 987px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 768px) and (max-width: 986px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 668px) and (max-width: 767px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 480px) and (max-width: 667px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 434px) and (max-width: 479px)"
                 sizes="500px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=1000&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=1000&h=668&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 335px) and (max-width: 433px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(max-width: 334px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <img
                 alt="A batch of baking soda biscuits on a parchment-lined baking sheet."
                 class="dynamicImage"
                 fetchpriority="high"
-                height="300"
+                height="267"
                 loading="eager"
-                src="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&fm=webp&q=75"
+                src="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&h=534&fm=webp&q=75"
                 width="400"
               />
             </picture>
@@ -642,51 +636,49 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
           <div
             class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
           >
-            <picture
-              style="height: 100%;"
-            >
+            <picture>
               <source
                 media="(min-width: 987px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 768px) and (max-width: 986px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 668px) and (max-width: 767px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 480px) and (max-width: 667px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 434px) and (max-width: 479px)"
                 sizes="500px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&h=668&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 335px) and (max-width: 433px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(max-width: 334px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <img
                 alt="A dutch oven with boeuf bourguignon."
                 class="dynamicImage"
                 fetchpriority="auto"
-                height="300"
+                height="267"
                 loading="lazy"
-                src="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&fm=webp&q=75"
+                src="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&h=534&fm=webp&q=75"
                 width="400"
               />
             </picture>
@@ -794,51 +786,49 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
           <div
             class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
           >
-            <picture
-              style="height: 100%;"
-            >
+            <picture>
               <source
                 media="(min-width: 987px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 768px) and (max-width: 986px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 668px) and (max-width: 767px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 480px) and (max-width: 667px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 434px) and (max-width: 479px)"
                 sizes="500px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=1000&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=1000&h=668&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 335px) and (max-width: 433px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(max-width: 334px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=600&h=400&fm=webp&q=75 2x"
               />
               <img
                 alt="Oven roasted chicken breasts after they have been brined."
                 class="dynamicImage"
                 fetchpriority="auto"
-                height="300"
+                height="267"
                 loading="lazy"
-                src="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=800&fm=webp&q=75"
+                src="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=800&h=534&fm=webp&q=75"
                 width="400"
               />
             </picture>
@@ -935,51 +925,49 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
           <div
             class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
           >
-            <picture
-              style="height: 100%;"
-            >
+            <picture>
               <source
                 media="(min-width: 987px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 768px) and (max-width: 986px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&h=400&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 668px) and (max-width: 767px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 480px) and (max-width: 667px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&h=400&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 434px) and (max-width: 479px)"
                 sizes="500px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&h=668&fm=webp&q=75 2x"
               />
               <source
                 media="(min-width: 335px) and (max-width: 433px)"
                 sizes="400px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&h=534&fm=webp&q=75 2x"
               />
               <source
                 media="(max-width: 334px)"
                 sizes="300px"
-                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&fm=webp&q=75 2x"
+                srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&h=400&fm=webp&q=75 2x"
               />
               <img
                 alt="jars of canned pickles"
                 class="dynamicImage"
                 fetchpriority="auto"
-                height="300"
+                height="267"
                 loading="lazy"
-                src="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&fm=webp&q=75"
+                src="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&h=534&fm=webp&q=75"
                 width="400"
               />
             </picture>

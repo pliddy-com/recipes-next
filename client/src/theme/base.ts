@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
-import colors from 'theme/colors';
-import { sansFontFamily, serifFontFamily } from 'theme/fontface';
+import colors from 'theme/values/colors';
+import { sansFontFamily, serifFontFamily } from 'theme/values/fontface';
 
 const baseTheme = createTheme({
   components: {

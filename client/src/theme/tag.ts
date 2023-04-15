@@ -1,5 +1,5 @@
 import { ThemeOptions } from '@mui/system';
-import { sansFontFamily } from './fontface';
+import { sansFontFamily } from './values/fontface';
 
 const tagThemeOptions: ThemeOptions = {
   components: {

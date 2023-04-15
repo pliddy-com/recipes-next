@@ -1,4 +1,4 @@
-import colors from 'theme/colors';
+import colors from 'theme/values/colors';
 
 const FaviconTags = () => (
   <>

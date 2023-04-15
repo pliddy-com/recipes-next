@@ -1,8 +1,8 @@
 import { ThemeOptions } from '@mui/material/styles';
 
-import colors from './colors';
+import colors from './values/colors';
 import theme from './base';
-import { fontWeightBold, sansFontFamily } from './fontface';
+import { fontWeightBold, sansFontFamily } from './values/fontface';
 
 const menuThemeOptions: ThemeOptions = {
   components: {

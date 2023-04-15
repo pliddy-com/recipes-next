@@ -1,6 +1,6 @@
 import { ThemeOptions } from '@mui/material/styles';
 
-import colors from './colors';
+import colors from './values/colors';
 import {
   baseFontSize,
   baseRemSize,
@@ -10,7 +10,7 @@ import {
   fontWeightRegular,
   sansFontFamily,
   serifFontFamily
-} from 'theme/fontface';
+} from 'theme/values/fontface';
 
 const typeThemeOptions: ThemeOptions = {
   components: {

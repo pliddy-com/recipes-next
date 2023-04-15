@@ -1,4 +1,7 @@
-import { regularSansFontPath, regularSerifFontPath } from 'theme/fontface';
+import {
+  regularSansFontPath,
+  regularSerifFontPath
+} from 'theme/values/fontface';
 
 const FontPreloadTags = () => (
   <>

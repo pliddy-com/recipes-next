@@ -1,11 +1,31 @@
+import { AspectRatio } from 'theme/values/images';
+
+export interface createSrcSetProps {
+  aspectRatio?: AspectRatio;
+  imgWidth: number;
+  url: string;
+}
+
+export const createSrcSet = ({
+  aspectRatio = '4 / 3',
+  imgWidth,
+  url
+}: createSrcSetProps) => {
+  const imgHeight = Math.ceil(imgWidth * calculateAspectRatio({ aspectRatio }));
+
+  return (
+    url &&
+    `${url}?${
+      imgWidth && `w=${imgWidth}&h=${imgHeight}`
+    }&fm=webp&q=75 1x, ${url}?${
+      imgWidth && `w=${imgWidth * 2}&h=${imgHeight * 2}&`
+    }fm=webp&q=75 2x`
+  );
+};
+
 export interface Breakpoints {
   viewMin?: number;
   imgWidth: number;
-}
-
-export interface createSrcSetProps {
-  url: string;
-  imgWidth?: number;
 }
 
 export interface createMediaQueryProps {
@@ -13,15 +33,6 @@ export interface createMediaQueryProps {
   index: number;
   breakpoints: Breakpoints[];
 }
-
-export const createSrcSet = ({ url, imgWidth }: createSrcSetProps) => {
-  return (
-    url &&
-    `${url}?${imgWidth && `w=${imgWidth}&`}fm=webp&q=75 1x, ${url}?${
-      imgWidth && `w=${imgWidth * 2}&`
-    }fm=webp&q=75 2x`
-  );
-};
 
 export const createMediaQuery = ({
   viewMin,
@@ -41,6 +52,17 @@ export const createMediaQuery = ({
   return mediaQuery;
 };
 
-const moduleExports = { createSrcSet, createMediaQuery };
+export const calculateAspectRatio = ({
+  aspectRatio
+}: {
+  aspectRatio: AspectRatio;
+}) =>
+  aspectRatio
+    .toString()
+    .split('/')
+    .map((value) => parseInt(value, 10))
+    .reduce((accumulator, currentValue) => currentValue / accumulator);
 
-export default moduleExports;
+// const moduleExports = { createSrcSet, createMediaQuery, calculateAspectRatio };
+
+// export default moduleExports;

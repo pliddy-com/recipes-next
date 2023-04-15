@@ -16,7 +16,7 @@ import { minToTime } from 'lib/utils';
 
 import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 
-import config from './RecipePage.config';
+import { recipePageConfig } from 'theme/values/images';
 
 interface RecipePageProps {
   content?: RecipeDefaultFragment;
@@ -37,7 +37,7 @@ const RecipePage = ({ content }: RecipePageProps) => {
     title
   } = content ?? {};
 
-  const { breakpoints } = config;
+  const { aspectRatio, breakpoints } = recipePageConfig;
 
   const richText = description as RecipeDescription;
 
@@ -96,8 +96,9 @@ const RecipePage = ({ content }: RecipePageProps) => {
             {breakpoints && image && (
               <Box className="image">
                 <DynamicImage
-                  image={image}
+                  aspectRatio={aspectRatio}
                   breakpoints={breakpoints}
+                  image={image}
                   preload={true}
                 />
               </Box>

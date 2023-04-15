@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import SvgIcon from '@mui/material/SvgIcon';
 
-import colors from 'theme/colors';
+import colors from 'theme/values/colors';
 
 const LogoIcon = () => (
   <Box role="graphics-symbol" data-testid="logo" aria-label="logo">

@@ -1,7 +1,7 @@
 import { ThemeOptions } from '@mui/material/styles';
 
-import colors from 'theme/colors';
-import { fontWeightMedium, sansFontFamily } from './fontface';
+import colors from 'theme/values/colors';
+import { fontWeightMedium, sansFontFamily } from './values/fontface';
 
 import baseTheme from 'theme/base';
 
@@ -20,17 +20,21 @@ const cardThemeOptions: ThemeOptions = {
             marginBottom: '0.5rem'
           },
           '& .imageWrapper': {
-            position: 'relative',
-            width: '100%',
+            alignItems: 'center',
+            aspectRatio: '3 / 2',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center',
             overflow: 'hidden',
+            position: 'relative',
+            width: '100%',
+            '& picture': {
+              height: '100%',
+              width: '100%'
+            },
             '& .dynamicImage': {
               width: '100%',
-              height: 'auto',
+              height: '100%',
               minWidth: '100%',
-              minHeight: '100%',
               objectFit: 'cover',
               aspectRatio: '3 / 2'
             }
@@ -128,6 +132,17 @@ const cardThemeOptions: ThemeOptions = {
                   }),
                 flexDirection: 'column',
                 alignItems: 'stretch'
+              }
+            },
+            '& .imageWrapper': {
+              '& picture': {
+                ...(breakpoints &&
+                  breakpoints.only && {
+                    [breakpoints.only('sm')]: {
+                      height: '100%'
+                      // width: '100%'
+                    }
+                  })
               }
             },
             '& .MuiCardHeader': {

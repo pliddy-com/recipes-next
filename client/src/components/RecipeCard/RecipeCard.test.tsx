@@ -9,8 +9,8 @@ import RecipeCard from './RecipeCard';
 
 import { Maybe, RecipeDefaultFragment } from 'types/queries';
 
-import config from './RecipeCard.config';
-jest.createMockFromModule('./RecipeCard.config');
+import { recipeCardConfig } from 'theme/values/images';
+jest.createMockFromModule('theme/values/images');
 
 describe('RecipeCard', () => {
   afterEach(() => {
@@ -75,7 +75,7 @@ describe('RecipeCard', () => {
   describe('when there are no config properties', () => {
     // before each test, delete images node from config
     beforeEach(() => {
-      delete config.breakpoints;
+      delete recipeCardConfig.breakpoints;
     });
 
     const recipe: RecipeDefaultFragment = {
