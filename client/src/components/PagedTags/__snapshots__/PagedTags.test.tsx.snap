@@ -109,32 +109,32 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <img
                     alt="jars of canned pickles"
@@ -258,32 +258,32 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <img
                     alt="An open mason jar filled with pickle slices."
@@ -347,32 +347,32 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <img
                     alt="A plate of tzatziki and sliced pita wedges."
@@ -521,32 +521,32 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <img
                     alt="A skillet with fried cabbage and shredded potato pie."
@@ -695,32 +695,32 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <img
                     alt="A dutch oven with boeuf bourguignon."
@@ -844,32 +844,32 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <img
                     alt="A bowl of pureed carrot soup."
@@ -933,32 +933,32 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <img
                     alt="Chicken gravy based on a French velouté with milk and herbs."
@@ -1022,32 +1022,32 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <img
                     alt="Sole Meunière on a bed of chopped salad."
@@ -1196,32 +1196,32 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <img
                     alt="Roasted hasselback potato with garlic and rosemary in a cast iron skillet."
@@ -1345,32 +1345,32 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <img
                     alt="White pizza with prosciutto, fig jam, and arugula."
@@ -1434,32 +1434,32 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 868px) and (max-width: 959px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 650px) and (max-width: 867px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 479px) and (max-width: 649px)"
                     sizes="500px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=500&h=375&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=1000&h=750&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=500&h=334&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=1000&h=668&fm=webp&q=75 2x"
                   />
                   <source
                     media="(min-width: 334px) and (max-width: 478px)"
                     sizes="400px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=400&h=300&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=800&h=600&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=400&h=267&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=800&h=534&fm=webp&q=75 2x"
                   />
                   <source
                     media="(max-width: 333px)"
                     sizes="300px"
-                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=300&h=225&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=600&h=450&fm=webp&q=75 2x"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=300&h=200&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=600&h=400&fm=webp&q=75 2x"
                   />
                   <img
                     alt="Garlic shrimp tossed with fresh pasta and chopped parsley."

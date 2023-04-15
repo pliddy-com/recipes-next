@@ -51,7 +51,7 @@ const DynamicImage = ({
                 index,
                 breakpoints
               })}
-              srcSet={createSrcSet({ url, imgWidth })}
+              srcSet={createSrcSet({ aspectRatio, imgWidth, url })}
               sizes={`${imgWidth}px`}
             />
           );

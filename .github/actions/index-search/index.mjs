@@ -13,6 +13,8 @@ const contentfulSpaceId = core.getInput('contentfulSpaceId');
 const algoliaClient = algoliasearch(algoliaAppId, algoliaSearchAdminKey);
 const algoliaIndex = algoliaClient.initIndex('recipes_index');
 
+const defaultAspectRatio = 3 / 2;
+
 const client = createClient({
   space: contentfulSpaceId,
   accessToken: contentfulAccessToken
@@ -33,7 +35,9 @@ try {
     image: {
       url: recipe.fields.image.fields.file.url,
       description: recipe.fields.image.fields.description,
-      height: recipe.fields.image.fields.file.details.image.height,
+      height:
+        recipe.fields.image.fields.file.details.image.width /
+        defaultAspectRatio,
       width: recipe.fields.image.fields.file.details.image.width
     },
     keywords: recipe.fields.keywords,
