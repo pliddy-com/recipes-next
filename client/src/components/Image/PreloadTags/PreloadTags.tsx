@@ -31,12 +31,10 @@ const PreloadTags = ({
           url && (
             <link
               rel="preload"
-              href={`${url}?w=${defaultWidth * 2}&h=${
-                defaultHeight * 2
-              }&fm=webp&q=75`}
+              href={`${url}?w=${defaultWidth}&h=${defaultHeight}&fm=webp&q=75`}
               as="image"
               sizes={`${imgWidth}px`}
-              imageSrcSet={createSrcSet({ url, imgWidth })}
+              imageSrcSet={createSrcSet({ aspectRatio, imgWidth, url })}
               key={`${url}-${viewMin || imgWidth}-preload`}
               media={createMediaQuery({
                 viewMin,

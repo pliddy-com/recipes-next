@@ -13,7 +13,7 @@ import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 
 import { RecipeDefaultFragment } from 'types/queries';
 
-import config from './RecipeCard.config';
+import { recipeCardConfig } from 'theme/values/images';
 
 interface RecipeCardProps {
   recipe?: RecipeDefaultFragment;
@@ -21,7 +21,7 @@ interface RecipeCardProps {
 }
 
 const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
-  const { breakpoints } = config;
+  const { aspectRatio, breakpoints } = recipeCardConfig;
   const { title, abstract, image, slug, tagsCollection } = recipe ?? {};
   const { items: tags } = tagsCollection ?? {};
   const { title: category } = tags?.[0] ?? {};
@@ -32,7 +32,7 @@ const RecipeCard = ({ recipe, preloadImg = false }: RecipeCardProps) => {
         {image && (
           <CardMedia className="imageWrapper">
             <DynamicImage
-              aspectRatio="3 / 2"
+              aspectRatio={aspectRatio}
               breakpoints={breakpoints}
               image={image}
               preload={preloadImg}
