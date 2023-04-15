@@ -41,7 +41,7 @@ const DynamicImage = ({
           url={url}
         />
       )}
-      <picture style={{ height: '100%' }}>
+      <picture>
         {breakpoints.map(({ viewMin, imgWidth }, index, breakpoints) => {
           return (
             <source

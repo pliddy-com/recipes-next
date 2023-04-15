@@ -83,9 +83,7 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
           sizes="300px"
           type="image/webp"
         />
-        <picture
-          style="height: 100%;"
-        >
+        <picture>
           <source
             media="(min-width: 987px)"
             sizes="400px"

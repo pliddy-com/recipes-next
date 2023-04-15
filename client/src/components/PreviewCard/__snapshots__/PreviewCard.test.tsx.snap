@@ -73,9 +73,7 @@ exports[`PreviewCard when there is content it renders the PreviewCard 1`] = `
           sizes="300px"
           type="image/webp"
         />
-        <picture
-          style="height: 100%;"
-        >
+        <picture>
           <source
             media="(min-width: 960px)"
             sizes="300px"

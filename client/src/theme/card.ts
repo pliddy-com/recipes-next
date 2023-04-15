@@ -26,9 +26,13 @@ const cardThemeOptions: ThemeOptions = {
             justifyContent: 'center',
             alignItems: 'center',
             overflow: 'hidden',
+            '& picture': {
+              height: 'auto',
+              width: '100%'
+            },
             '& .dynamicImage': {
               width: '100%',
-              height: 'auto',
+              height: '100%',
               minWidth: '100%',
               minHeight: '100%',
               objectFit: 'cover',
@@ -128,6 +132,17 @@ const cardThemeOptions: ThemeOptions = {
                   }),
                 flexDirection: 'column',
                 alignItems: 'stretch'
+              }
+            },
+            '& .imageWrapper': {
+              '& picture': {
+                ...(breakpoints &&
+                  breakpoints.only && {
+                    [breakpoints.only('sm')]: {
+                      height: '100%'
+                      // width: '100%'
+                    }
+                  })
               }
             },
             '& .MuiCardHeader': {

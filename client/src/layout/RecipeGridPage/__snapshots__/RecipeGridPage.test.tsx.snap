@@ -104,9 +104,7 @@ exports[`RecipeGridPage when page number is > 0 it renders the RecipeGridPage 1`
                 sizes="300px"
                 type="image/webp"
               />
-              <picture
-                style="height: 100%;"
-              >
+              <picture>
                 <source
                   media="(min-width: 987px)"
                   sizes="400px"
@@ -315,9 +313,7 @@ exports[`RecipeGridPage when page number is > 0 it renders the RecipeGridPage 1`
                 sizes="300px"
                 type="image/webp"
               />
-              <picture
-                style="height: 100%;"
-              >
+              <picture>
                 <source
                   media="(min-width: 987px)"
                   sizes="400px"
@@ -504,9 +500,7 @@ exports[`RecipeGridPage when page number is > 0 it renders the RecipeGridPage 1`
                 sizes="300px"
                 type="image/webp"
               />
-              <picture
-                style="height: 100%;"
-              >
+              <picture>
                 <source
                   media="(min-width: 987px)"
                   sizes="400px"
@@ -656,9 +650,7 @@ exports[`RecipeGridPage when page number is > 0 it renders the RecipeGridPage 1`
             <div
               class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
             >
-              <picture
-                style="height: 100%;"
-              >
+              <picture>
                 <source
                   media="(min-width: 987px)"
                   sizes="400px"
@@ -808,9 +800,7 @@ exports[`RecipeGridPage when page number is > 0 it renders the RecipeGridPage 1`
             <div
               class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
             >
-              <picture
-                style="height: 100%;"
-              >
+              <picture>
                 <source
                   media="(min-width: 987px)"
                   sizes="400px"
@@ -949,9 +939,7 @@ exports[`RecipeGridPage when page number is > 0 it renders the RecipeGridPage 1`
             <div
               class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
             >
-              <picture
-                style="height: 100%;"
-              >
+              <picture>
                 <source
                   media="(min-width: 987px)"
                   sizes="400px"
@@ -1215,9 +1203,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                   sizes="300px"
                   type="image/webp"
                 />
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 987px)"
                     sizes="400px"
@@ -1426,9 +1412,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                   sizes="300px"
                   type="image/webp"
                 />
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 987px)"
                     sizes="400px"
@@ -1615,9 +1599,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
                   sizes="300px"
                   type="image/webp"
                 />
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 987px)"
                     sizes="400px"
@@ -1767,9 +1749,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
               <div
                 class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
               >
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 987px)"
                     sizes="400px"
@@ -1919,9 +1899,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
               <div
                 class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
               >
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 987px)"
                     sizes="400px"
@@ -2060,9 +2038,7 @@ exports[`RecipeGridPage when there is page content it renders the RecipeGridPage
               <div
                 class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
               >
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 987px)"
                     sizes="400px"

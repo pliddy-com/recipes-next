@@ -90,9 +90,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
               sizes="300px"
               type="image/webp"
             />
-            <picture
-              style="height: 100%;"
-            >
+            <picture>
               <source
                 media="(min-width: 987px)"
                 sizes="400px"
@@ -301,9 +299,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
               sizes="300px"
               type="image/webp"
             />
-            <picture
-              style="height: 100%;"
-            >
+            <picture>
               <source
                 media="(min-width: 987px)"
                 sizes="400px"
@@ -490,9 +486,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
               sizes="300px"
               type="image/webp"
             />
-            <picture
-              style="height: 100%;"
-            >
+            <picture>
               <source
                 media="(min-width: 987px)"
                 sizes="400px"
@@ -642,9 +636,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
           <div
             class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
           >
-            <picture
-              style="height: 100%;"
-            >
+            <picture>
               <source
                 media="(min-width: 987px)"
                 sizes="400px"
@@ -794,9 +786,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
           <div
             class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
           >
-            <picture
-              style="height: 100%;"
-            >
+            <picture>
               <source
                 media="(min-width: 987px)"
                 sizes="400px"
@@ -935,9 +925,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated reci
           <div
             class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
           >
-            <picture
-              style="height: 100%;"
-            >
+            <picture>
               <source
                 media="(min-width: 987px)"
                 sizes="400px"

@@ -117,9 +117,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                     sizes="300px"
                     type="image/webp"
                   />
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -266,9 +264,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                     sizes="300px"
                     type="image/webp"
                   />
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -355,9 +351,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                 <div
                   class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
                 >
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -529,9 +523,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                     sizes="300px"
                     type="image/webp"
                   />
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -678,9 +670,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                     sizes="300px"
                     type="image/webp"
                   />
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -767,9 +757,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                 <div
                   class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
                 >
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -941,9 +929,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                     sizes="300px"
                     type="image/webp"
                   />
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -1090,9 +1076,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                     sizes="300px"
                     type="image/webp"
                   />
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -1179,9 +1163,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                 <div
                   class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
                 >
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -1353,9 +1335,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                     sizes="300px"
                     type="image/webp"
                   />
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -1502,9 +1482,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                     sizes="300px"
                     type="image/webp"
                   />
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -1591,9 +1569,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                 <div
                   class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
                 >
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -1680,9 +1656,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
                 <div
                   class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
                 >
-                  <picture
-                    style="height: 100%;"
-                  >
+                  <picture>
                     <source
                       media="(min-width: 960px)"
                       sizes="300px"
@@ -1907,9 +1881,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                       sizes="300px"
                       type="image/webp"
                     />
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"
@@ -2056,9 +2028,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                       sizes="300px"
                       type="image/webp"
                     />
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"
@@ -2145,9 +2115,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                   <div
                     class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
                   >
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"
@@ -2319,9 +2287,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                       sizes="300px"
                       type="image/webp"
                     />
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"
@@ -2468,9 +2434,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                       sizes="300px"
                       type="image/webp"
                     />
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"
@@ -2557,9 +2521,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                   <div
                     class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
                   >
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"
@@ -2731,9 +2693,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                       sizes="300px"
                       type="image/webp"
                     />
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"
@@ -2880,9 +2840,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                       sizes="300px"
                       type="image/webp"
                     />
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"
@@ -2969,9 +2927,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                   <div
                     class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
                   >
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"
@@ -3143,9 +3099,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                       sizes="300px"
                       type="image/webp"
                     />
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"
@@ -3292,9 +3246,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                       sizes="300px"
                       type="image/webp"
                     />
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"
@@ -3381,9 +3333,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                   <div
                     class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
                   >
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"
@@ -3470,9 +3420,7 @@ exports[`TagGridPage when there is page content it renders the page 1`] = `
                   <div
                     class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
                   >
-                    <picture
-                      style="height: 100%;"
-                    >
+                    <picture>
                       <source
                         media="(min-width: 960px)"
                         sizes="300px"

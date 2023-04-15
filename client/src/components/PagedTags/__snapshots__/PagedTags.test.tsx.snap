@@ -103,9 +103,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   sizes="300px"
                   type="image/webp"
                 />
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
@@ -252,9 +250,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   sizes="300px"
                   type="image/webp"
                 />
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
@@ -341,9 +337,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
               <div
                 class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
               >
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
@@ -515,9 +509,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   sizes="300px"
                   type="image/webp"
                 />
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
@@ -689,9 +681,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   sizes="300px"
                   type="image/webp"
                 />
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
@@ -838,9 +828,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   sizes="300px"
                   type="image/webp"
                 />
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
@@ -927,9 +915,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
               <div
                 class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
               >
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
@@ -1016,9 +1002,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
               <div
                 class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
               >
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
@@ -1190,9 +1174,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   sizes="300px"
                   type="image/webp"
                 />
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
@@ -1339,9 +1321,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                   sizes="300px"
                   type="image/webp"
                 />
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
@@ -1428,9 +1408,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
               <div
                 class="MuiCardMedia-root imageWrapper css-16cvb1l-MuiCardMedia-root"
               >
-                <picture
-                  style="height: 100%;"
-                >
+                <picture>
                   <source
                     media="(min-width: 960px)"
                     sizes="300px"
