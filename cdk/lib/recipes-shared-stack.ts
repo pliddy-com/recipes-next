@@ -255,10 +255,10 @@ export const createUserPool = ({
     signInAliases: { email: true },
     signInCaseSensitive: false, // case insensitive is preferred in most situations
     standardAttributes: {
-      email: {
-        required: true,
-        mutable: false
-      },
+      // email: {
+      //   required: true,
+      //   mutable: false
+      // },
       familyName: {
         required: true,
         mutable: false
