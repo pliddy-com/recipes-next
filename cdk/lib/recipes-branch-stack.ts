@@ -280,19 +280,11 @@ export class RecipesBranchStack extends Stack {
   constructor(scope: App, id: string, props: RecipesBranchStackProps) {
     super(scope, id, props);
 
-    /*
-     *  Desctructure props
-     */
-
     const { domain, subdomain, branch, env } = props;
     const { account, region } = env ?? {};
 
     if (!account || !region)
       throw 'Missing environment variable for account and region';
-
-    /**
-     *  import shared AWS resources
-     */
 
     const resourceLabel = branch === 'main' ? 'Prod' : 'Dev';
 

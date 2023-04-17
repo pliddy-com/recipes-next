@@ -17,7 +17,11 @@ import {
   OriginAccessIdentity,
   ResponseHeadersPolicy
 } from 'aws-cdk-lib/aws-cloudfront';
-import { UserPool, UserPoolEmail } from 'aws-cdk-lib/aws-cognito';
+import {
+  UserPool,
+  UserPoolEmail,
+  VerificationEmailStyle
+} from 'aws-cdk-lib/aws-cognito';
 
 import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { HostedZone } from 'aws-cdk-lib/aws-route53';
@@ -231,6 +235,7 @@ export const createUserPool = ({
 }: CreateUserPoolProps) => {
   const userPool = new UserPool(stack, 'UserPool', {
     autoVerify: { email: true },
+    deletionProtection: true,
     email: UserPoolEmail.withSES({
       fromEmail: 'pjliddy@gmail.com',
       fromName: 'Recipes',
@@ -250,20 +255,30 @@ export const createUserPool = ({
     signInAliases: { email: true },
     signInCaseSensitive: false, // case insensitive is preferred in most situations
     standardAttributes: {
+      email: {
+        required: true,
+        mutable: false
+      },
       familyName: {
-        required: false,
+        required: true,
         mutable: false
       },
       givenName: {
-        required: false,
+        required: true,
         mutable: false
       },
       phoneNumber: {
-        required: false,
+        required: true,
         mutable: false
       }
     },
-    userPoolName: `RecipesUserPool${resourceLabel}`
+    userPoolName: `RecipesUserPool${resourceLabel}`,
+    userVerification: {
+      emailSubject: 'Recipes verification link',
+      emailBody:
+        'Please click the link below to verify your email address. {##Verify Email##}',
+      emailStyle: VerificationEmailStyle.LINK
+    }
   });
 
   stack.exportValue(userPool.userPoolArn, {
@@ -288,10 +303,6 @@ export class RecipesSharedStack extends Stack {
   constructor(scope: App, id: string, props: RecipesSharedStackProps) {
     super(scope, id, props);
 
-    /*
-     *  Desctructure props
-     */
-
     const { domain, subdomain, env, branch } = props;
     const { account, region } = env ?? {};
 
@@ -308,16 +319,28 @@ export class RecipesSharedStack extends Stack {
     // add Main or Dev label based on branch
     const resourceLabel = branch === 'main' ? 'Prod' : 'Dev';
 
+    /**
+     *  Create an Origin Access Identity
+     */
+
     const cloudfrontOAI = createCloudFrontOAI({
       id,
       resourceLabel,
       stack: this
     });
 
+    /**
+     *  Create a custom Response Headers Policy
+     */
+
     createResponseHeaderPolicy({
       resourceLabel,
       stack: this
     });
+
+    /**
+     *  Create an S3 bucket
+     */
 
     createSiteBucket({
       branch,
@@ -327,12 +350,20 @@ export class RecipesSharedStack extends Stack {
       stack: this
     });
 
+    /**
+     *  Create a TLS certificate
+     */
+
     createCertificate({
       branch,
       branchSubdomain,
       domain,
       stack: this
     });
+
+    /**
+     *  Create a Cognito User Pool
+     */
 
     createUserPool({ branch, resourceLabel, stack: this });
   }
