@@ -5,18 +5,22 @@
  */
 
 import { App, Duration, Stack, StackProps } from 'aws-cdk-lib';
+
 import {
   Certificate,
   CertificateValidation
 } from 'aws-cdk-lib/aws-certificatemanager';
+
 import {
   HeadersFrameOption,
   HeadersReferrerPolicy,
   OriginAccessIdentity,
   ResponseHeadersPolicy
 } from 'aws-cdk-lib/aws-cloudfront';
+
 import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { HostedZone } from 'aws-cdk-lib/aws-route53';
+
 import {
   BlockPublicAccess,
   Bucket,
@@ -119,18 +123,24 @@ export const createResponseHeaderPolicy = ({
  */
 
 export interface CreateSiteBucketProps {
-  bucketName: string;
+  branch: string;
+  branchSubdomain: string;
   cloudfrontOAI: OriginAccessIdentity;
   resourceLabel: string;
   stack: RecipesSharedStack;
 }
 
 export const createSiteBucket = ({
-  bucketName,
+  branch,
+  branchSubdomain,
   cloudfrontOAI,
   resourceLabel,
   stack
 }: CreateSiteBucketProps) => {
+  // add Main or Dev label based on branch
+  const bucketLabel = branch === 'main' ? 'prod' : 'dev';
+  const bucketName = `${branchSubdomain}-${bucketLabel}`;
+
   const siteBucket = new Bucket(stack, 'DomainBucket', {
     accessControl: BucketAccessControl.PRIVATE,
     blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
@@ -174,7 +184,6 @@ export const createSiteBucket = ({
 export interface CreateCertificateProps {
   branch: string;
   branchSubdomain: string;
-  certDomain: string;
   domain: string;
   stack: RecipesSharedStack;
 }
@@ -182,7 +191,6 @@ export interface CreateCertificateProps {
 export const createCertificate = ({
   branch,
   branchSubdomain,
-  certDomain,
   domain,
   stack
 }: CreateCertificateProps) => {
@@ -190,6 +198,8 @@ export const createCertificate = ({
   const hostedZone = HostedZone.fromLookup(stack, 'HostedZone', {
     domainName: domain
   });
+
+  const certDomain = `*.${branchSubdomain}`;
 
   const certificate = new Certificate(stack, 'DomainCertificate', {
     domainName: branch === 'main' ? branchSubdomain : certDomain,
@@ -236,14 +246,7 @@ export class RecipesSharedStack extends Stack {
     const branchSubdomain = `${subdomain}.${domain}`;
 
     // add Main or Dev label based on branch
-    const bucketLabel = branch === 'main' ? 'prod' : 'dev';
     const resourceLabel = branch === 'main' ? 'Prod' : 'Dev';
-
-    // name of S3 bucket
-    const bucketName = `${branchSubdomain}-${bucketLabel}`;
-
-    // wildcard for all subdomains: *.recipes.pliddy.com
-    const certDomain = `*.${branchSubdomain}`;
 
     const cloudfrontOAI = createCloudFrontOAI({
       id,
@@ -257,7 +260,8 @@ export class RecipesSharedStack extends Stack {
     });
 
     const siteBucket = createSiteBucket({
-      bucketName,
+      branch,
+      branchSubdomain,
       cloudfrontOAI,
       resourceLabel,
       stack: this
@@ -266,7 +270,6 @@ export class RecipesSharedStack extends Stack {
     const certificate = createCertificate({
       branch,
       branchSubdomain,
-      certDomain,
       domain,
       stack: this
     });
