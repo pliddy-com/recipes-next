@@ -17,6 +17,7 @@ import {
   OriginAccessIdentity,
   ResponseHeadersPolicy
 } from 'aws-cdk-lib/aws-cloudfront';
+import { UserPool, UserPoolEmail } from 'aws-cdk-lib/aws-cognito';
 
 import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { HostedZone } from 'aws-cdk-lib/aws-route53';
@@ -119,7 +120,7 @@ export const createResponseHeaderPolicy = ({
  *  to host files for hosting the main branch and testing feature branches, so the stack
  *  checks to see if there is an ARN for the CloudFormation Output 'Recipes-Bucket'
  *
- *  Generates a CloudFormation output value for the bucket name and nARN if it creates a bucket
+ *  Generates a CloudFormation output value for the bucket name and ARN if it creates a bucket
  */
 
 export interface CreateSiteBucketProps {
@@ -212,6 +213,65 @@ export const createCertificate = ({
 };
 
 /**
+ *  Create a Cognito User Pool
+ *
+ *  Generates a CloudFormation output value for the user pool ARN
+ */
+
+export interface CreateUserPoolProps {
+  branch: string;
+  resourceLabel: string;
+  stack: RecipesSharedStack;
+}
+
+export const createUserPool = ({
+  branch,
+  resourceLabel,
+  stack
+}: CreateUserPoolProps) => {
+  const userPool = new UserPool(stack, 'UserPool', {
+    autoVerify: { email: true },
+    email: UserPoolEmail.withSES({
+      fromEmail: 'pjliddy@gmail.com',
+      fromName: 'Recipes',
+      replyTo: 'pjliddy@gmail.com'
+    }),
+    keepOriginal: {
+      email: true
+    },
+    passwordPolicy: {
+      minLength: 8,
+      requireLowercase: true,
+      requireUppercase: true,
+      requireDigits: true,
+      requireSymbols: true,
+      tempPasswordValidity: Duration.days(3)
+    },
+    signInAliases: { email: true },
+    signInCaseSensitive: false, // case insensitive is preferred in most situations
+    standardAttributes: {
+      familyName: {
+        required: false,
+        mutable: false
+      },
+      givenName: {
+        required: false,
+        mutable: false
+      },
+      phoneNumber: {
+        required: false,
+        mutable: false
+      }
+    },
+    userPoolName: `RecipesUserPool${resourceLabel}`
+  });
+
+  stack.exportValue(userPool.userPoolArn, {
+    name: `Recipes-UserPool-${branch === 'main' ? 'Prod' : 'Dev'}`
+  });
+};
+
+/**
  *  Generate a CloudFormation Stack to deploy site infrastructure:
  *    - S3 bucket to store static files
  *    - ACM Certificate for SSL for all *.recipes.pliddy.com
@@ -254,12 +314,12 @@ export class RecipesSharedStack extends Stack {
       stack: this
     });
 
-    const responseHeadersPolicy = createResponseHeaderPolicy({
+    createResponseHeaderPolicy({
       resourceLabel,
       stack: this
     });
 
-    const siteBucket = createSiteBucket({
+    createSiteBucket({
       branch,
       branchSubdomain,
       cloudfrontOAI,
@@ -267,11 +327,13 @@ export class RecipesSharedStack extends Stack {
       stack: this
     });
 
-    const certificate = createCertificate({
+    createCertificate({
       branch,
       branchSubdomain,
       domain,
       stack: this
     });
+
+    createUserPool({ branch, resourceLabel, stack: this });
   }
 }

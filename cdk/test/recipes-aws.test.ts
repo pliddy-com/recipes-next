@@ -40,6 +40,9 @@ describe('RecipesSharedStack', () => {
     template.hasOutput('ExportRecipesResponseHeadersPolicyProd', {
       Export: { Name: 'Recipes-ResponseHeadersPolicy-Prod' }
     });
+    template.hasOutput('ExportRecipesUserPoolProd', {
+      Export: { Name: 'Recipes-UserPool-Prod' }
+    });
 
     template.resourceCountIs('AWS::S3::Bucket', 1);
     template.resourceCountIs('AWS::S3::BucketPolicy', 1);
@@ -49,6 +52,7 @@ describe('RecipesSharedStack', () => {
       'AWS::CloudFront::CloudFrontOriginAccessIdentity',
       1
     );
+    template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 
   it('generates a shared stack for a feature branch', () => {
@@ -82,6 +86,9 @@ describe('RecipesSharedStack', () => {
     template.hasOutput('ExportRecipesResponseHeadersPolicyDev', {
       Export: { Name: 'Recipes-ResponseHeadersPolicy-Dev' }
     });
+    template.hasOutput('ExportRecipesUserPoolDev', {
+      Export: { Name: 'Recipes-UserPool-Dev' }
+    });
 
     template.resourceCountIs('AWS::S3::Bucket', 1);
     template.resourceCountIs('AWS::S3::BucketPolicy', 1);
@@ -91,6 +98,7 @@ describe('RecipesSharedStack', () => {
       'AWS::CloudFront::CloudFrontOriginAccessIdentity',
       1
     );
+    template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 
   it('fails when there are no environment variables', () => {
