@@ -4,7 +4,7 @@
  *  Import functions from aws-cdk-lib
  */
 
-import { App, Duration, Stack, StackProps } from 'aws-cdk-lib';
+import { App, Duration, RemovalPolicy, Stack, StackProps } from 'aws-cdk-lib';
 
 import {
   Certificate,
@@ -211,6 +211,8 @@ export const createCertificate = ({
     validation: CertificateValidation.fromDns(hostedZone)
   });
 
+  certificate.applyRemovalPolicy(RemovalPolicy.RETAIN);
+
   stack.exportValue(certificate.certificateArn, {
     name: `Recipes-Certificate-${branch === 'main' ? 'Prod' : 'Dev'}`
   });
@@ -255,10 +257,10 @@ export const createUserPool = ({
     signInAliases: { email: true },
     signInCaseSensitive: false, // case insensitive is preferred in most situations
     standardAttributes: {
-      // email: {
-      //   required: true,
-      //   mutable: false
-      // },
+      email: {
+        required: true,
+        mutable: false
+      },
       familyName: {
         required: true,
         mutable: false

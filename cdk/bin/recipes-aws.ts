@@ -33,7 +33,7 @@ const branchLabel = branch && branch[0].toUpperCase() + branch.slice(1);
 if (scope === 'shared') {
   new RecipesSharedStack(
     app,
-    `RecipesSharedStack${branch === 'main' ? 'Prod' : 'Dev'}`,
+    `RecipesEnvStack${branch === 'main' ? 'Prod' : 'Dev'}`,
     {
       domain: DOMAIN ?? 'pliddy.com',
       subdomain: 'recipes',
@@ -59,26 +59,3 @@ if (scope === 'shared') {
     }
   );
 }
-
-/** 
- *  Deploy a shared stack: 
- *      cdk deploy --context scope=shared
- *      npm run deploy:shared
- * 
- *  Deploy a branch-specific stack: 
- *      cdk deploy --context scope=dev
- *      npm run deploy
- * 
- *  Test
- *      cdk synth --context scope=branch
- * 
- * 
- *  npx cdk \
-        --require-approval never \
-        --verbose \
-        --execute true \
-        --force \
-        --toolkit-stack-name "cdk-toolkit-master" \
-        --app "ts-node ./bin/recipes-aws.ts" \
-        deploy
- */
