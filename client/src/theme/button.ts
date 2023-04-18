@@ -27,6 +27,10 @@ const buttonThemeOptions: ThemeOptions = {
               marginLeft: '0.5rem'
             }
           },
+          '&.submit': {
+            marginTop: '1rem',
+            padding: '.75rem'
+          },
           '&.Mui-focusVisible': {
             color: 'yellow'
           }

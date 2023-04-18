@@ -35,10 +35,25 @@ const SignInPage = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
 
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    console.log('submit', { email, password });
+
+    setEmailError(false);
+    setPasswordError(false);
+
+    if (email === '') {
+      setEmailError(true);
+    }
+    if (password === '') {
+      setPasswordError(true);
+    }
+
+    if (email && password) {
+      console.log('submit', { email, password });
+    }
   };
 
   return defaultTitle && description ? (
@@ -58,8 +73,9 @@ const SignInPage = () => {
 
         <Container maxWidth="xs">
           <form onSubmit={handleSubmit}>
-            <FormControl sx={{ width: '100%', marginTop: '2rem' }}>
+            <FormControl>
               <TextField
+                error={emailError}
                 id="email"
                 label="Email"
                 onChange={(e) => setEmail(e.target.value)}
@@ -70,6 +86,7 @@ const SignInPage = () => {
               />
 
               <TextField
+                error={passwordError}
                 id="password"
                 label="Password"
                 margin="normal"
@@ -80,11 +97,11 @@ const SignInPage = () => {
               />
 
               <Button
+                className="submit"
                 color="primary"
                 size="large"
                 type="submit"
                 variant="contained"
-                sx={{ marginTop: '1rem', padding: '.75rem' }}
               >
                 Sign In
               </Button>

@@ -130,12 +130,12 @@ const pageThemeOptions: ThemeOptions = {
                     alignItems: 'center',
                     display: 'flex',
                     marginBottom: '1rem',
-                    padding: '2px 4px',
-                    '& .MuiInputBase': {
-                      '&-input': {
-                        flex: 1
-                      }
-                    }
+                    padding: '2px 4px'
+                    // '& .MuiInputBase': {
+                    //   '&-input': {
+                    //     flex: 1
+                    //   }
+                    // }
                   }
                 }
               }

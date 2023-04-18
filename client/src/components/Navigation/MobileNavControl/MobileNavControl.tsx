@@ -16,6 +16,7 @@ import NavMenuList from '../NavMenuList/NavMenuList';
 
 import { TaxonomyChildrenItem } from 'types/queries';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import { Divider } from '@mui/material';
 
 export interface NavDataProps {
   categories: TaxonomyChildrenItem[];
@@ -70,6 +71,9 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
               </ListItemIcon>
             </ListItemButton>
           </MenuItem>
+
+          <Divider style={{ marginTop: 0, marginBottom: 0 }} />
+
           <MenuItem className="menuItem featured">
             <ListItemButton component={Link} href="/search" onClick={onClick}>
               <ListItemText primary="Search" />
