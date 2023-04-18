@@ -276,15 +276,8 @@ export const createUserPool = ({
     },
     userPoolName: `RecipesUserPool${resourceLabel}`,
     userInvitation: {
-      emailSubject: 'Recipes verification link',
+      emailSubject: 'Recipes invitation',
       emailBody: 'Your username is {username} and temporary password is {####}.'
-    },
-
-    userVerification: {
-      emailSubject: 'Recipes verification link',
-      emailBody:
-        'Please click the link below to verify your email address. {##Verify Email##}',
-      emailStyle: VerificationEmailStyle.LINK
     }
   });
 
