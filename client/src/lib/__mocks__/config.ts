@@ -17,6 +17,10 @@ const microcopy = {
     defaultTitle: 'Results for',
     description: 'Search results'
   },
+  signIn: {
+    defaultTitle: 'Sign In',
+    description: 'Site sign in'
+  },
   site: {
     title: 'Site Title'
   },

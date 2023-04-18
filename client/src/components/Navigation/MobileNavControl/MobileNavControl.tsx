@@ -7,6 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 
 import NavIconButton from '../Buttons/NavIconButton/NavIconButton';
@@ -61,6 +62,14 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
         data-testid="mobile-nav"
       >
         <MenuList className="menuList">
+          <MenuItem className="menuItem featured">
+            <ListItemButton component={Link} href="/signin" onClick={onClick}>
+              <ListItemText primary="Sign In" />
+              <ListItemIcon>
+                <AccountCircleIcon fontSize="small" />
+              </ListItemIcon>
+            </ListItemButton>
+          </MenuItem>
           <MenuItem className="menuItem featured">
             <ListItemButton component={Link} href="/search" onClick={onClick}>
               <ListItemText primary="Search" />

@@ -11,13 +11,13 @@ const navbarThemeOptions: ThemeOptions = {
           '&.navbar': {
             '& .mobile-nav': {
               display: 'block',
-              [breakpoints.up('md')]: {
+              [breakpoints.up('lg')]: {
                 display: 'none'
               }
             },
             '& .desktop-nav': {
               display: 'none',
-              [breakpoints.up('md')]: {
+              [breakpoints.up('lg')]: {
                 display: 'block'
               }
             }
