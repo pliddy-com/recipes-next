@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-import { ReactElement, Suspense } from 'react';
+import { ReactElement, Suspense, useState } from 'react';
 // import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
 
@@ -30,15 +30,15 @@ const Layout = dynamic(
 //   { suspense: true }
 // );
 
-// const style = {
-//   formInput: {}
-// };
-
 const SignInPage = () => {
   const { defaultTitle, description } = config?.microcopy?.signIn ?? {};
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
+    console.log('submit', { email, password });
   };
 
   return defaultTitle && description ? (
@@ -60,20 +60,34 @@ const SignInPage = () => {
           <form onSubmit={handleSubmit}>
             <FormControl sx={{ width: '100%', marginTop: '2rem' }}>
               <TextField
-                label="Email"
                 id="email"
-                size="small"
+                label="Email"
+                onChange={(e) => setEmail(e.target.value)}
                 margin="normal"
+                size="small"
+                type="email"
+                value={email}
               />
 
               <TextField
-                label="Password"
                 id="password"
-                size="small"
+                label="Password"
                 margin="normal"
+                onChange={(e) => setPassword(e.target.value)}
+                size="small"
+                type="password"
+                value={password}
               />
 
-              <Button>Sign In</Button>
+              <Button
+                color="primary"
+                size="large"
+                type="submit"
+                variant="contained"
+                sx={{ marginTop: '1rem', padding: '.75rem' }}
+              >
+                Sign In
+              </Button>
             </FormControl>
           </form>
         </Container>
