@@ -33,7 +33,7 @@ const branchLabel = branch && branch[0].toUpperCase() + branch.slice(1);
 if (scope === 'shared') {
   new RecipesSharedStack(
     app,
-    `RecipesEnvStack${branch === 'main' ? 'Prod' : 'Dev'}`,
+    `RecipesSharedStack${branch === 'main' ? 'Prod' : 'Dev'}`,
     {
       domain: DOMAIN ?? 'pliddy.com',
       subdomain: 'recipes',
