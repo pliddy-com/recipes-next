@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { RemovalPolicy } from 'aws-cdk-lib';
 import {
   Certificate,

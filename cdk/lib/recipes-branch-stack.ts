@@ -217,21 +217,21 @@ export class RecipesBranchStack extends Stack {
 
     console.log({ authDomainName });
 
-    const userPoolDomain = new UserPoolDomain(this, 'UserPoolDomain', {
-      userPool,
-      customDomain: {
-        domainName: authDomainName,
-        certificate
-      }
-    });
+    // const userPoolDomain = new UserPoolDomain(this, 'UserPoolDomain', {
+    //   userPool,
+    //   customDomain: {
+    //     domainName: authDomainName,
+    //     certificate
+    //   }
+    // });
 
     // TODO: create alias record for auth.recipes.pliddy.com
     // create branch version for {branch}.auth.recipes.pliddy.com
-    const authAliasRecord = new ARecord(this, 'UserPoolAuthAliasRecord', {
-      zone: hostedZone,
-      recordName: authDomainName,
-      target: RecordTarget.fromAlias(new UserPoolDomainTarget(userPoolDomain))
-    });
+    // const authAliasRecord = new ARecord(this, 'UserPoolAuthAliasRecord', {
+    //   zone: hostedZone,
+    //   recordName: authDomainName,
+    //   target: RecordTarget.fromAlias(new UserPoolDomainTarget(userPoolDomain))
+    // });
 
     const userPoolClientOptions = {
       authFlows: {
@@ -272,19 +272,19 @@ export class RecipesBranchStack extends Stack {
     //   stack: this
     // });
 
-    const authCertificate = createAuthCertificate({
-      branch,
-      branchLabel,
-      branchSubdomain,
-      domain,
-      stack: this
-    });
+    // const authCertificate = createAuthCertificate({
+    //   branch,
+    //   branchLabel,
+    //   branchSubdomain,
+    //   domain,
+    //   stack: this
+    // });
 
-    userPool.addDomain('CustomDomain', {
-      customDomain: {
-        domainName: authAliasRecord.domainName,
-        certificate: authCertificate
-      }
-    });
+    // userPool.addDomain('CustomDomain', {
+    //   customDomain: {
+    //     domainName: authAliasRecord.domainName,
+    //     certificate: authCertificate
+    //   }
+    // });
   }
 }
