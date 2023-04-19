@@ -39,6 +39,7 @@ import {
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
 
 import {
+  OAuthScope,
   UserPool,
   UserPoolDomain,
   UserPoolDomainProps,
@@ -54,7 +55,10 @@ import {
   RecordTarget
 } from 'aws-cdk-lib/aws-route53';
 
-import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
+import {
+  CloudFrontTarget,
+  UserPoolDomainTarget
+} from 'aws-cdk-lib/aws-route53-targets';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 
 /**
@@ -285,18 +289,18 @@ export const createAuthCertificate = ({
 export interface CreateUserPoolProps {
   branch: string;
   branchLabel: string;
-  branchSubdomain: string;
-  domain: string;
-  siteDomain: string;
+  // branchSubdomain: string;
+  // domain: string;
+  // siteDomain: string;
   stack: RecipesBranchStack;
 }
 
 export const createUserPool = ({
   branch,
   branchLabel,
-  branchSubdomain,
-  domain,
-  siteDomain,
+  // branchSubdomain,
+  // domain,
+  // siteDomain,
   stack
 }: CreateUserPoolProps) => {
   const userPool = new UserPool(stack, 'UserPool', {
@@ -318,6 +322,8 @@ export const createUserPool = ({
       requireSymbols: true,
       tempPasswordValidity: Duration.days(3)
     },
+    removalPolicy:
+      branch === 'main' ? RemovalPolicy.RETAIN : RemovalPolicy.DESTROY,
     signInAliases: { email: true },
     signInCaseSensitive: false, // case insensitive is preferred in most situations
     standardAttributes: {
@@ -415,39 +421,41 @@ export const createAliasRecord = ({
  *  Generates a CloudFormation output value for the Site Alias Record
  */
 
-export interface CreateAuthAliasRecordProps {
-  branch: string;
-  branchLabel: string;
-  branchSubdomain: string;
-  distribution: IDistribution;
-  hostedZone: IHostedZone;
-  siteDomain: string;
-  stack: RecipesBranchStack;
-}
+// export interface CreateAuthAliasRecordProps {
+//   branch: string;
+//   branchLabel: string;
+//   branchSubdomain: string;
+//   userPoolDomain: UserPoolDomain;
+//   hostedZone: IHostedZone;
+//   siteDomain: string;
+//   stack: RecipesBranchStack;
+// }
 
-export const createAuthAliasRecord = ({
-  branch,
-  branchLabel,
-  branchSubdomain,
-  distribution,
-  hostedZone,
-  siteDomain,
-  stack
-}: CreateAuthAliasRecordProps) => {
-  const recordName = `auth.${branch === 'main' ? branchSubdomain : siteDomain}`;
+// export const createAuthAliasRecord = ({
+//   branch,
+//   branchLabel,
+//   branchSubdomain,
+//   userPoolDomain,
+//   hostedZone,
+//   siteDomain,
+//   stack
+// }: CreateAuthAliasRecordProps) => {
+//   const recordName = `auth.${branch === 'main' ? branchSubdomain : siteDomain}`;
 
-  const record = new ARecord(stack, `AuthAliasRecord`, {
-    recordName,
-    target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
-    zone: hostedZone
-  });
+//   const record = new ARecord(stack, `AuthAliasRecord`, {
+//     recordName,
+//     target: RecordTarget.fromAlias(new UserPoolDomainTarget(userPoolDomain)),
 
-  stack.exportValue(recordName, {
-    name: `Recipes-AuthAliasRecord-${branchLabel}`
-  });
+//     // target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
+//     zone: hostedZone
+//   });
 
-  return record;
-};
+//   stack.exportValue(recordName, {
+//     name: `Recipes-AuthAliasRecord-${branchLabel}`
+//   });
+
+//   return record;
+// };
 
 /**
  *  Generate a CloudFormation Stack to deploy site infrastructure:
@@ -537,25 +545,65 @@ export class RecipesBranchStack extends Stack {
     const userPool = createUserPool({
       branch,
       branchLabel,
-      branchSubdomain,
-      domain,
-      siteDomain,
       stack: this
     });
+
+    const authDomainName = `auth.${
+      branch === 'main' ? branchSubdomain : siteDomain
+    }`;
+
+    const userPoolDomain = new UserPoolDomain(this, 'UserPoolDomain', {
+      userPool,
+      customDomain: {
+        domainName: authDomainName,
+        certificate
+      }
+    });
+
+    const authAliasRecord = new ARecord(this, 'UserPoolAuthAliasRecord', {
+      zone: hostedZone,
+      recordName: authDomainName,
+      target: RecordTarget.fromAlias(new UserPoolDomainTarget(userPoolDomain))
+    });
+
+    const userPoolClientOptions = {
+      authFlows: {
+        userPassword: true,
+        userSrp: true
+      },
+      oAuth: {
+        flows: {
+          authorizationCodeGrant: true
+        },
+        scopes: [OAuthScope.EMAIL, OAuthScope.OPENID],
+        callbackUrls: [
+          `https://${branch === 'main' ? branchSubdomain : siteDomain}`
+        ],
+        logoutUrls: [
+          `https://${branch === 'main' ? branchSubdomain : siteDomain}/signin`
+        ]
+      },
+      userPoolClientName: `RecipesClient${branchLabel}`
+    };
+
+    const userPoolClient = userPool.addClient(
+      'UserPoolClient',
+      userPoolClientOptions
+    );
 
     /**
      *  Create a Route53 alias record for the Cognito User Pool
      */
 
-    const authAliasRecord = createAuthAliasRecord({
-      branch,
-      branchLabel,
-      branchSubdomain,
-      distribution,
-      hostedZone,
-      siteDomain,
-      stack: this
-    });
+    // const authAliasRecord = createAuthAliasRecord({
+    //   branch,
+    //   branchLabel,
+    //   branchSubdomain,
+    //   userPoolDomain: userPool,
+    //   hostedZone,
+    //   siteDomain,
+    //   stack: this
+    // });
 
     const authCertificate = createAuthCertificate({
       branch,
@@ -565,22 +613,12 @@ export class RecipesBranchStack extends Stack {
       stack: this
     });
 
-    userPool.addDomain('CustomDomain', {
-      customDomain: {
-        domainName: authAliasRecord.domainName,
-        certificate: authCertificate
-      }
-    });
-
-    const userPoolOptions = {
-      authFlows: {
-        userPassword: true,
-        userSrp: true
-      },
-      userPoolClientName: `RecipesClient${branchLabel}`
-    };
-
-    userPool.addClient('UserPoolClient', userPoolOptions);
+    // userPool.addDomain('CustomDomain', {
+    //   customDomain: {
+    //     domainName: authAliasRecord.domainName,
+    //     certificate: authCertificate
+    //   }
+    // });
 
     /**
      *  Create a Route53 alias record for the CloudFront distribution

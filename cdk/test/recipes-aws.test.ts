@@ -146,9 +146,9 @@ describe('RecipesBranchStack', () => {
 
     template.resourceCountIs('AWS::Route53::RecordSet', 2);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
-    template.resourceCountIs('AWS::Lambda::Function', 1);
+    template.resourceCountIs('AWS::Lambda::Function', 2);
     template.resourceCountIs('AWS::Lambda::Version', 1);
-    template.resourceCountIs('AWS::IAM::Role', 1);
+    template.resourceCountIs('AWS::IAM::Role', 2);
   });
 
   it('generates a branch stack for a feature branch', () => {
@@ -178,9 +178,9 @@ describe('RecipesBranchStack', () => {
 
     template.resourceCountIs('AWS::Route53::RecordSet', 2);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
-    template.resourceCountIs('AWS::Lambda::Function', 1);
+    template.resourceCountIs('AWS::Lambda::Function', 2);
     template.resourceCountIs('AWS::Lambda::Version', 1);
-    template.resourceCountIs('AWS::IAM::Role', 1);
+    template.resourceCountIs('AWS::IAM::Role', 2);
   });
 
   it('fails when there are no environment variables', () => {
