@@ -181,6 +181,20 @@ export class RecipesBranchStack extends Stack {
     });
 
     /**
+     *  Create a Route53 alias record for the CloudFront distribution
+     */
+
+    createAliasRecord({
+      branch,
+      branchLabel,
+      branchSubdomain,
+      distribution,
+      hostedZone,
+      siteDomain,
+      stack: this
+    });
+
+    /**
      *  Create a Cognito User Pool
      */
 
@@ -271,20 +285,6 @@ export class RecipesBranchStack extends Stack {
         domainName: authAliasRecord.domainName,
         certificate: authCertificate
       }
-    });
-
-    /**
-     *  Create a Route53 alias record for the CloudFront distribution
-     */
-
-    createAliasRecord({
-      branch,
-      branchLabel,
-      branchSubdomain,
-      distribution,
-      hostedZone,
-      siteDomain,
-      stack: this
     });
   }
 }
