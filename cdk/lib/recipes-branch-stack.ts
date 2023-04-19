@@ -4,9 +4,7 @@
  *  Import functions from aws-cdk-lib
  */
 
-import { App, Fn, Stack, StackProps } from 'aws-cdk-lib';
-
-import { Certificate } from 'aws-cdk-lib/aws-certificatemanager';
+import { App, Stack, StackProps } from 'aws-cdk-lib';
 
 import { createAliasRecord } from './resources/branch/aliasRecord';
 import { createDistribution } from './resources/branch/distribution';
@@ -36,11 +34,11 @@ export class RecipesBranchStack extends Stack {
     if (!account || !region)
       throw 'Missing environment variable for account and region';
 
-    const resourceLabel = branch === 'main' ? 'Prod' : 'Dev';
-
     /**
      *  Create strings based on branch, subdomain, and domain for use by the stack
      */
+
+    const resourceLabel = branch === 'main' ? 'Prod' : 'Dev';
 
     // capitalize first letter for PascalCase
     const branchLabel = branch && branch[0].toUpperCase() + branch.slice(1);
@@ -50,16 +48,6 @@ export class RecipesBranchStack extends Stack {
 
     // full domain for feature branch: branch.recipes.pliddy.com
     const siteDomain = `${branch}.${branchSubdomain}`;
-
-    const certificateArn = Fn.importValue(
-      `Recipes-Certificate-${resourceLabel}`
-    );
-
-    const certificate = Certificate.fromCertificateArn(
-      this,
-      'DomainCertificate',
-      certificateArn
-    );
 
     /**
      *  get Route 53 hosted zone for the domain
@@ -88,7 +76,6 @@ export class RecipesBranchStack extends Stack {
       branch,
       branchLabel,
       branchSubdomain,
-      certificate,
       edgeLambda,
       resourceLabel,
       siteDomain,

@@ -1,5 +1,5 @@
 import { Fn, Duration } from 'aws-cdk-lib';
-import { ICertificate } from 'aws-cdk-lib/aws-certificatemanager';
+import { Certificate, ICertificate } from 'aws-cdk-lib/aws-certificatemanager';
 import {
   EdgeLambda,
   OriginAccessIdentity,
@@ -32,7 +32,6 @@ export interface createDistributionProps {
   branch: string;
   branchLabel: string;
   branchSubdomain: string;
-  certificate: ICertificate;
   edgeLambda: EdgeLambda;
   resourceLabel: string;
   siteDomain: string;
@@ -43,7 +42,6 @@ export const createDistribution = ({
   branch,
   branchLabel,
   branchSubdomain,
-  certificate,
   edgeLambda,
   resourceLabel,
   siteDomain,
@@ -52,8 +50,14 @@ export const createDistribution = ({
   // S3 path for serving branch files
   const originPath = `/branches/${branch}`;
 
-  const cloudfrontOAIId = Fn.importValue(`Recipes-OAI-${resourceLabel}`);
+  const certificateArn = Fn.importValue(`Recipes-Certificate-${resourceLabel}`);
+  const certificate = Certificate.fromCertificateArn(
+    stack,
+    'DomainCertificate',
+    certificateArn
+  );
 
+  const cloudfrontOAIId = Fn.importValue(`Recipes-OAI-${resourceLabel}`);
   const cloudfrontOAI = OriginAccessIdentity.fromOriginAccessIdentityId(
     stack,
     'DomainOAI',
@@ -63,7 +67,6 @@ export const createDistribution = ({
   const responseHeadersPolicyId = Fn.importValue(
     `Recipes-ResponseHeadersPolicy-${resourceLabel}`
   );
-
   const responseHeadersPolicy =
     ResponseHeadersPolicy.fromResponseHeadersPolicyId(
       stack,
