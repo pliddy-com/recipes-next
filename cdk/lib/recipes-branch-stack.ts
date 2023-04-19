@@ -165,32 +165,35 @@ export class RecipesBranchStack extends Stack {
       stack: this
     });
 
-    // TODO: create alias record for auth.recipes.pliddy.com
-    // create branch version for {branch}.auth.recipes.pliddy.com
-
     const authDomainName = `auth.${
       branch === 'main' ? branchSubdomain : siteDomain
     }`;
 
-    // const authDomainName = `auth.${
-    //   branch === 'main' ? `branchSubdomain` : siteDomain
-    // }`;
-
     console.log({ authDomainName });
+
+    const authCertificate = createAuthCertificate({
+      authDomainName,
+      branch,
+      branchLabel,
+      branchSubdomain,
+      domain,
+      stack: this
+    });
 
     const userPoolDomain = new UserPoolDomain(this, 'UserPoolDomain', {
       userPool,
       customDomain: {
         domainName: authDomainName,
-        certificate
+        certificate: authCertificate
       }
     });
 
     // Add dependency
+    userPoolDomain.node.addDependency(userPool);
+    userPoolDomain.node.addDependency(authCertificate);
     userPoolDomain.node.addDependency(aliasRecord);
 
-    // TODO: create alias record for auth.recipes.pliddy.com
-    // create branch version for {branch}.auth.recipes.pliddy.com
+    // create alias record for {branch}.?auth.recipes.pliddy.com
     const authAliasRecord = new ARecord(this, 'UserPoolAuthAliasRecord', {
       zone: hostedZone,
       recordName: authDomainName,
@@ -198,35 +201,35 @@ export class RecipesBranchStack extends Stack {
     });
 
     // Add dependency
-    authAliasRecord.node.addDependency(aliasRecord);
+    authAliasRecord.node.addDependency(userPoolDomain);
 
-    const userPoolClientOptions = {
-      authFlows: {
-        userPassword: true,
-        userSrp: true
-      },
-      oAuth: {
-        flows: {
-          authorizationCodeGrant: true
-        },
-        scopes: [OAuthScope.EMAIL, OAuthScope.OPENID],
-        callbackUrls: [
-          `https://${branch === 'main' ? branchSubdomain : siteDomain}`
-        ],
-        logoutUrls: [
-          `https://${branch === 'main' ? branchSubdomain : siteDomain}/signin`
-        ]
-      },
-      userPoolClientName: `RecipesClient${branchLabel}`
-    };
+    // const userPoolClientOptions = {
+    //   authFlows: {
+    //     userPassword: true,
+    //     userSrp: true
+    //   },
+    //   oAuth: {
+    //     flows: {
+    //       authorizationCodeGrant: true
+    //     },
+    //     scopes: [OAuthScope.EMAIL, OAuthScope.OPENID],
+    //     callbackUrls: [
+    //       `https://${branch === 'main' ? branchSubdomain : siteDomain}`
+    //     ],
+    //     logoutUrls: [
+    //       `https://${branch === 'main' ? branchSubdomain : siteDomain}/signin`
+    //     ]
+    //   },
+    //   userPoolClientName: `RecipesClient${branchLabel}`
+    // };
 
-    const userPoolClient = userPool.addClient(
-      'UserPoolClient',
-      userPoolClientOptions
-    );
+    // const userPoolClient = userPool.addClient(
+    //   'UserPoolClient',
+    //   userPoolClientOptions
+    // );
 
     // Add dependency
-    userPoolClient.node.addDependency(aliasRecord);
+    // userPoolClient.node.addDependency(authAliasRecord);
 
     /**
      *  Create a Route53 alias record for the Cognito User Pool

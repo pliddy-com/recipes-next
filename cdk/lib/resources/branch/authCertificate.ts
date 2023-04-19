@@ -15,6 +15,7 @@ import { RecipesBranchStack } from '../../recipes-branch-stack';
  */
 
 export interface CreateAuthCertificateProps {
+  authDomainName: string;
   branch: string;
   branchLabel: string;
   branchSubdomain: string;
@@ -23,9 +24,10 @@ export interface CreateAuthCertificateProps {
 }
 
 export const createAuthCertificate = ({
-  branch,
+  authDomainName,
+  // branch,
   branchLabel,
-  branchSubdomain,
+  // branchSubdomain,
   domain,
   stack
 }: CreateAuthCertificateProps) => {
@@ -34,12 +36,12 @@ export const createAuthCertificate = ({
     domainName: domain
   });
 
-  const certDomain = `auth.${branch}.${branchSubdomain}`;
+  // const certDomain = `auth.${branch}.${branchSubdomain}`;
 
-  const domainName = branch === 'main' ? `auth.${branchSubdomain}` : certDomain;
+  // const domainName = branch === 'main' ? `auth.${branchSubdomain}` : certDomain;
 
   const certificate = new Certificate(stack, 'AuthCertificate', {
-    domainName,
+    domainName: authDomainName,
     validation: CertificateValidation.fromDns(hostedZone)
   });
 
