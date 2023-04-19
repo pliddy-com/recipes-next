@@ -238,41 +238,41 @@ export const createDistribution = ({
  *  Generate a CloudFormation output value for the certificate ARN if it creates a certificate
  */
 
-// export interface CreateAuthCertificateProps {
-//   branch: string;
-//   branchSubdomain: string;
-//   domain: string;
-//   stack: RecipesBranchStack;
-// }
+export interface CreateAuthCertificateProps {
+  branch: string;
+  branchSubdomain: string;
+  domain: string;
+  stack: RecipesBranchStack;
+}
 
-// export const createAuthCertificate = ({
-//   branch,
-//   branchSubdomain,
-//   domain,
-//   stack
-// }: CreateAuthCertificateProps) => {
-//   // Identify the Route 53 hosted zone for the domain
-//   const hostedZone = HostedZone.fromLookup(stack, 'HostedZone', {
-//     domainName: domain
-//   });
+export const createAuthCertificate = ({
+  branch,
+  branchSubdomain,
+  domain,
+  stack
+}: CreateAuthCertificateProps) => {
+  // Identify the Route 53 hosted zone for the domain
+  const hostedZone = HostedZone.fromLookup(stack, 'HostedZone', {
+    domainName: domain
+  });
 
-//   const certDomain = `auth.${branch}.${branchSubdomain}`;
+  const certDomain = `auth.${branch}.${branchSubdomain}`;
 
-//   const domainName = branch === 'main' ? `auth.${branchSubdomain}` : certDomain;
+  const domainName = branch === 'main' ? `auth.${branchSubdomain}` : certDomain;
 
-//   const certificate = new Certificate(stack, 'AuthCertificate', {
-//     domainName,
-//     validation: CertificateValidation.fromDns(hostedZone)
-//   });
+  const certificate = new Certificate(stack, 'AuthCertificate', {
+    domainName,
+    validation: CertificateValidation.fromDns(hostedZone)
+  });
 
-//   certificate.applyRemovalPolicy(RemovalPolicy.RETAIN);
+  certificate.applyRemovalPolicy(RemovalPolicy.RETAIN);
 
-//   stack.exportValue(certificate.certificateArn, {
-//     name: `Recipes-Auth-Certificate-${branch === 'main' ? 'Prod' : 'Dev'}`
-//   });
+  stack.exportValue(certificate.certificateArn, {
+    name: `Recipes-Auth-Certificate-${branch === 'main' ? 'Prod' : 'Dev'}`
+  });
 
-//   return certificate;
-// };
+  return certificate;
+};
 
 /**
  *  Create a Cognito User Pool
@@ -343,13 +343,6 @@ export const createUserPool = ({
     }
   });
 
-  // const certificate = createAuthCertificate({
-  //   branch,
-  //   branchSubdomain,
-  //   domain,
-  //   stack
-  // });
-
   // userPool.addDomain('CustomDomain', {
   //   customDomain: {
   //     domainName: `auth.${branch === 'main' ? branchSubdomain : siteDomain}`,
@@ -370,6 +363,8 @@ export const createUserPool = ({
   stack.exportValue(userPool.userPoolArn, {
     name: `Recipes-UserPool-${branch === 'main' ? 'Prod' : 'Dev'}`
   });
+
+  return userPool;
 };
 
 /**
@@ -418,39 +413,39 @@ export const createAliasRecord = ({
  *  Generates a CloudFormation output value for the Site Alias Record
  */
 
-// export interface CreateAliasRecordProps {
-//   branch: string;
-//   branchLabel: string;
-//   branchSubdomain: string;
-//   distribution: IDistribution;
-//   hostedZone: IHostedZone;
-//   siteDomain: string;
-//   stack: RecipesBranchStack;
-// }
+export interface CreateAuthAliasRecordProps {
+  branch: string;
+  branchLabel: string;
+  branchSubdomain: string;
+  distribution: IDistribution;
+  hostedZone: IHostedZone;
+  siteDomain: string;
+  stack: RecipesBranchStack;
+}
 
-// export const createAuthAliasRecord = ({
-//   branch,
-//   branchLabel,
-//   branchSubdomain,
-//   distribution,
-//   hostedZone,
-//   siteDomain,
-//   stack
-// }: CreateAliasRecordProps) => {
-//   const recordName = branch === 'main' ? branchSubdomain : siteDomain;
+export const createAuthAliasRecord = ({
+  branch,
+  branchLabel,
+  branchSubdomain,
+  distribution,
+  hostedZone,
+  siteDomain,
+  stack
+}: CreateAuthAliasRecordProps) => {
+  const recordName = `auth.${branch === 'main' ? branchSubdomain : siteDomain}`;
 
-//   const record = new ARecord(stack, `BranchAliasRecord`, {
-//     recordName,
-//     target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
-//     zone: hostedZone
-//   });
+  const record = new ARecord(stack, `AuthAliasRecord`, {
+    recordName,
+    target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
+    zone: hostedZone
+  });
 
-//   stack.exportValue(recordName, {
-//     name: `Recipes-SubdomainAliasRecord-${branchLabel}`
-//   });
+  stack.exportValue(recordName, {
+    name: `Recipes-AuthAliasRecord-${branchLabel}`
+  });
 
-//   return record;
-// };
+  return record;
+};
 
 /**
  *  Generate a CloudFormation Stack to deploy site infrastructure:
@@ -533,31 +528,45 @@ export class RecipesBranchStack extends Stack {
       stack: this
     });
 
-    // /**
-    //  *  Create a Route53 alias record for the Cognito User Pool
-    //  */
-
-    // createAliasRecord({
-    //   branch,
-    //   branchLabel,
-    //   branchSubdomain,
-    //   distribution,
-    //   hostedZone,
-    //   siteDomain,
-    //   stack: this
-    // });
-
     /**
      *  Create a Cognito User Pool
      */
 
-    createUserPool({
+    const userPool = createUserPool({
       branch,
       branchLabel,
       branchSubdomain,
       domain,
       siteDomain,
       stack: this
+    });
+
+    /**
+     *  Create a Route53 alias record for the Cognito User Pool
+     */
+
+    const authAliasRecord = createAuthAliasRecord({
+      branch,
+      branchLabel,
+      branchSubdomain,
+      distribution,
+      hostedZone,
+      siteDomain,
+      stack: this
+    });
+
+    const authCertificate = createAuthCertificate({
+      branch,
+      branchSubdomain,
+      domain,
+      stack: this
+    });
+
+    userPool.addDomain('CustomDomain', {
+      customDomain: {
+        domainName: authAliasRecord.domainName,
+        certificate: authCertificate
+      }
     });
 
     /**

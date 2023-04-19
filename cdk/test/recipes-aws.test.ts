@@ -144,7 +144,7 @@ describe('RecipesBranchStack', () => {
       Export: { Name: 'Recipes-SubdomainAliasRecord-Main' }
     });
 
-    template.resourceCountIs('AWS::Route53::RecordSet', 1);
+    template.resourceCountIs('AWS::Route53::RecordSet', 2);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
     template.resourceCountIs('AWS::Lambda::Function', 1);
     template.resourceCountIs('AWS::Lambda::Version', 1);
@@ -176,7 +176,7 @@ describe('RecipesBranchStack', () => {
       Export: { Name: 'Recipes-SubdomainAliasRecord-TestBranch' }
     });
 
-    template.resourceCountIs('AWS::Route53::RecordSet', 1);
+    template.resourceCountIs('AWS::Route53::RecordSet', 2);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
     template.resourceCountIs('AWS::Lambda::Function', 1);
     template.resourceCountIs('AWS::Lambda::Version', 1);
