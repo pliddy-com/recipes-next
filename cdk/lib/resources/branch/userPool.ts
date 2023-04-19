@@ -88,9 +88,11 @@ export const createUserPool = ({
     }
   });
 
-  const authDomainName = `auth.${
-    branch === 'main' ? branchSubdomain : siteDomain
-  }`;
+  // const authDomainName = `auth.${
+  //   branch === 'main' ? branchSubdomain : siteDomain
+  // }`;
+
+  const authDomainName = `${branch !== 'main' && '*.'}auth.${branchSubdomain}`;
 
   const authCertificate = createAuthCertificate({
     authDomainName,
@@ -100,6 +102,8 @@ export const createUserPool = ({
     domain,
     stack
   });
+
+  authCertificate.node.addDependency(userPool);
 
   const userPoolDomain = new UserPoolDomain(stack, 'UserPoolDomain', {
     userPool,
