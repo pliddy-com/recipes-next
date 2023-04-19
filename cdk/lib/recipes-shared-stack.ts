@@ -201,11 +201,11 @@ export const createCertificate = ({
 
   const certDomain = `*.${branchSubdomain}`;
 
+  const domainName = branch === 'main' ? branchSubdomain : certDomain;
+
   const certificate = new Certificate(stack, 'DomainCertificate', {
-    domainName: branch === 'main' ? branchSubdomain : certDomain,
-    ...(branch === 'main' && {
-      subjectAlternativeNames: [`auth.${branchSubdomain}`]
-    }),
+    domainName,
+    subjectAlternativeNames: [`*.${domainName}`],
     validation: CertificateValidation.fromDns(hostedZone)
   });
 

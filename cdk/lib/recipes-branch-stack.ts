@@ -229,25 +229,6 @@ export const createDistribution = ({
 };
 
 /**
- *  Create a custom domain for the Cognito User Pool
- */
-
-// export interface CreateCustomCognitoDomainProps {
-//   stack: RecipesBranchStack;
-//   id: string;
-// }
-
-// export const createCustomCognitoDomain = ({
-//   stack
-// }: CreateCustomCognitoDomainProps) => {
-//   const props: UserPoolDomainProps = {
-//     customDomain: ''
-//   };
-
-//   const domain = new UserPoolDomain(stack, 'CustomDomain', props);
-// };
-
-/**
  *  Create a Cognito User Pool
  *
  *  Generates a CloudFormation output value for the user pool ARN
@@ -258,7 +239,6 @@ export interface CreateUserPoolProps {
   branchLabel: string;
   branchSubdomain: string;
   certificate: ICertificate;
-  distribution: IDistribution;
   siteDomain: string;
   stack: RecipesBranchStack;
 }
@@ -268,7 +248,6 @@ export const createUserPool = ({
   branchLabel,
   branchSubdomain,
   certificate,
-  distribution,
   siteDomain,
   stack
 }: CreateUserPoolProps) => {
@@ -460,7 +439,6 @@ export class RecipesBranchStack extends Stack {
       branchLabel,
       branchSubdomain,
       certificate,
-      distribution,
       siteDomain,
       stack: this
     });
