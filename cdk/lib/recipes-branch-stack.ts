@@ -240,6 +240,7 @@ export const createDistribution = ({
 
 export interface CreateAuthCertificateProps {
   branch: string;
+  branchLabel: string;
   branchSubdomain: string;
   domain: string;
   stack: RecipesBranchStack;
@@ -247,6 +248,7 @@ export interface CreateAuthCertificateProps {
 
 export const createAuthCertificate = ({
   branch,
+  branchLabel,
   branchSubdomain,
   domain,
   stack
@@ -268,7 +270,7 @@ export const createAuthCertificate = ({
   certificate.applyRemovalPolicy(RemovalPolicy.RETAIN);
 
   stack.exportValue(certificate.certificateArn, {
-    name: `Recipes-Auth-Certificate-${branch === 'main' ? 'Prod' : 'Dev'}`
+    name: `Recipes-Auth-Certificate-${branchLabel}`
   });
 
   return certificate;
@@ -361,7 +363,7 @@ export const createUserPool = ({
   // userPool.addClient('UserPoolClient', userPoolOptions);
 
   stack.exportValue(userPool.userPoolArn, {
-    name: `Recipes-UserPool-${branch === 'main' ? 'Prod' : 'Dev'}`
+    name: `Recipes-UserPool-${branchLabel}`
   });
 
   return userPool;
@@ -557,6 +559,7 @@ export class RecipesBranchStack extends Stack {
 
     const authCertificate = createAuthCertificate({
       branch,
+      branchLabel,
       branchSubdomain,
       domain,
       stack: this
@@ -568,6 +571,16 @@ export class RecipesBranchStack extends Stack {
         certificate: authCertificate
       }
     });
+
+    // const userPoolOptions = {
+    //   authFlows: {
+    //     userPassword: true,
+    //     userSrp: true
+    //   },
+    //   userPoolClientName: `RecipesClient${branchLabel}`
+    // };
+
+    // userPool.addClient('UserPoolClient', userPoolOptions);
 
     /**
      *  Create a Route53 alias record for the CloudFront distribution
