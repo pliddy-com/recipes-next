@@ -304,6 +304,16 @@ export const createUserPool = ({
     }
   });
 
+  const userPoolOptions = {
+    authFlows: {
+      userPassword: true,
+      userSrp: true
+    },
+    userPoolClientName: `RecipesClient${branch === 'main' ? 'Prod' : 'Dev'}`
+  };
+
+  userPool.addClient('UserPoolClient', userPoolOptions);
+
   stack.exportValue(userPool.userPoolArn, {
     name: `Recipes-UserPool-${branch === 'main' ? 'Prod' : 'Dev'}`
   });
