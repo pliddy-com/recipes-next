@@ -10,52 +10,13 @@ import { Certificate } from 'aws-cdk-lib/aws-certificatemanager';
 import { OAuthScope, UserPoolDomain } from 'aws-cdk-lib/aws-cognito';
 import { ARecord, IHostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
 import { UserPoolDomainTarget } from 'aws-cdk-lib/aws-route53-targets';
+
 import { createAliasRecord } from './resources/branch/aliasRecord';
 import { createAuthCertificate } from './resources/branch/authCertificate';
 import { createDistribution } from './resources/branch/distribution';
 import { createEdgeLambda } from './resources/branch/edgeLambda';
 import { createUserPool } from './resources/branch/userPool';
 import { getHostedZone } from './resources/branch/hostedZone';
-
-// /**
-//  *  Create a Route53 alias record for the CloudFront distribution
-//  *
-//  *  Generates a CloudFormation output value for the Site Alias Record
-//  */
-
-// export interface CreateAliasRecordProps {
-//   branch: string;
-//   branchLabel: string;
-//   branchSubdomain: string;
-//   distribution: IDistribution;
-//   hostedZone: IHostedZone;
-//   siteDomain: string;
-//   stack: RecipesBranchStack;
-// }
-
-// export const createAliasRecord = ({
-//   branch,
-//   branchLabel,
-//   branchSubdomain,
-//   distribution,
-//   hostedZone,
-//   siteDomain,
-//   stack
-// }: CreateAliasRecordProps) => {
-//   const recordName = branch === 'main' ? branchSubdomain : siteDomain;
-
-//   const record = new ARecord(stack, `BranchAliasRecord`, {
-//     recordName,
-//     target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
-//     zone: hostedZone
-//   });
-
-//   stack.exportValue(recordName, {
-//     name: `Recipes-SubdomainAliasRecord-${branchLabel}`
-//   });
-
-//   return record;
-// };
 
 /**
  *  Create a Route53 alias record for Cognito authentication
@@ -184,7 +145,7 @@ export class RecipesBranchStack extends Stack {
      *  Create a Route53 alias record for the CloudFront distribution
      */
 
-    createAliasRecord({
+    const aliasRecord = createAliasRecord({
       branch,
       branchLabel,
       branchSubdomain,
@@ -217,21 +178,27 @@ export class RecipesBranchStack extends Stack {
 
     console.log({ authDomainName });
 
-    // const userPoolDomain = new UserPoolDomain(this, 'UserPoolDomain', {
-    //   userPool,
-    //   customDomain: {
-    //     domainName: authDomainName,
-    //     certificate
-    //   }
-    // });
+    const userPoolDomain = new UserPoolDomain(this, 'UserPoolDomain', {
+      userPool,
+      customDomain: {
+        domainName: authDomainName,
+        certificate
+      }
+    });
+
+    // Add dependency
+    userPoolDomain.node.addDependency(aliasRecord);
 
     // TODO: create alias record for auth.recipes.pliddy.com
     // create branch version for {branch}.auth.recipes.pliddy.com
-    // const authAliasRecord = new ARecord(this, 'UserPoolAuthAliasRecord', {
-    //   zone: hostedZone,
-    //   recordName: authDomainName,
-    //   target: RecordTarget.fromAlias(new UserPoolDomainTarget(userPoolDomain))
-    // });
+    const authAliasRecord = new ARecord(this, 'UserPoolAuthAliasRecord', {
+      zone: hostedZone,
+      recordName: authDomainName,
+      target: RecordTarget.fromAlias(new UserPoolDomainTarget(userPoolDomain))
+    });
+
+    // Add dependency
+    authAliasRecord.node.addDependency(aliasRecord);
 
     const userPoolClientOptions = {
       authFlows: {
@@ -257,6 +224,9 @@ export class RecipesBranchStack extends Stack {
       'UserPoolClient',
       userPoolClientOptions
     );
+
+    // Add dependency
+    userPoolClient.node.addDependency(aliasRecord);
 
     /**
      *  Create a Route53 alias record for the Cognito User Pool
