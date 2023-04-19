@@ -13,7 +13,11 @@ import {
   StackProps
 } from 'aws-cdk-lib';
 
-import { Certificate, ICertificate } from 'aws-cdk-lib/aws-certificatemanager';
+import {
+  Certificate,
+  CertificateValidation,
+  ICertificate
+} from 'aws-cdk-lib/aws-certificatemanager';
 
 import {
   AllowedMethods,
@@ -228,6 +232,42 @@ export const createDistribution = ({
   return distribution;
 };
 
+export interface CreateAuthCertificateProps {
+  branch: string;
+  branchSubdomain: string;
+  domain: string;
+  stack: RecipesBranchStack;
+}
+
+export const createAuthCertificate = ({
+  branch,
+  branchSubdomain,
+  domain,
+  stack
+}: CreateAuthCertificateProps) => {
+  // Identify the Route 53 hosted zone for the domain
+  const hostedZone = HostedZone.fromLookup(stack, 'HostedZone', {
+    domainName: domain
+  });
+
+  const certDomain = `auth.${branch}.${branchSubdomain}`;
+
+  const domainName = branch === 'main' ? `auth.${branchSubdomain}` : certDomain;
+
+  const certificate = new Certificate(stack, 'AuthCertificate', {
+    domainName,
+    validation: CertificateValidation.fromDns(hostedZone)
+  });
+
+  certificate.applyRemovalPolicy(RemovalPolicy.RETAIN);
+
+  stack.exportValue(certificate.certificateArn, {
+    name: `Recipes-Auth-Certificate-${branch === 'main' ? 'Prod' : 'Dev'}`
+  });
+
+  return certificate;
+};
+
 /**
  *  Create a Cognito User Pool
  *
@@ -238,7 +278,7 @@ export interface CreateUserPoolProps {
   branch: string;
   branchLabel: string;
   branchSubdomain: string;
-  certificate: ICertificate;
+  domain: string;
   siteDomain: string;
   stack: RecipesBranchStack;
 }
@@ -247,7 +287,7 @@ export const createUserPool = ({
   branch,
   branchLabel,
   branchSubdomain,
-  certificate,
+  domain,
   siteDomain,
   stack
 }: CreateUserPoolProps) => {
@@ -295,6 +335,13 @@ export const createUserPool = ({
       emailSubject: 'Recipes invitation',
       emailBody: 'Your username is {username} and temporary password is {####}.'
     }
+  });
+
+  const certificate = createAuthCertificate({
+    branch,
+    branchSubdomain,
+    domain,
+    stack
   });
 
   userPool.addDomain('CustomDomain', {
@@ -448,7 +495,7 @@ export class RecipesBranchStack extends Stack {
       branch,
       branchLabel,
       branchSubdomain,
-      certificate,
+      domain,
       siteDomain,
       stack: this
     });
