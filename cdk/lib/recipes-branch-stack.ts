@@ -4,418 +4,58 @@
  *  Import functions from aws-cdk-lib
  */
 
-import {
-  App,
-  Duration,
-  Fn,
-  RemovalPolicy,
-  Stack,
-  StackProps
-} from 'aws-cdk-lib';
+import { App, Fn, Stack, StackProps } from 'aws-cdk-lib';
 
-import {
-  Certificate,
-  CertificateValidation,
-  ICertificate
-} from 'aws-cdk-lib/aws-certificatemanager';
-
-import {
-  AllowedMethods,
-  Distribution,
-  DistributionProps,
-  EdgeLambda,
-  ErrorResponse,
-  HttpVersion,
-  IDistribution,
-  LambdaEdgeEventType,
-  OriginAccessIdentity,
-  OriginRequestPolicy,
-  PriceClass,
-  ResponseHeadersPolicy,
-  SecurityPolicyProtocol,
-  ViewerProtocolPolicy
-} from 'aws-cdk-lib/aws-cloudfront';
-
-import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
-
-import {
-  OAuthScope,
-  UserPool,
-  UserPoolDomain,
-  UserPoolDomainProps,
-  UserPoolEmail
-} from 'aws-cdk-lib/aws-cognito';
-
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
-
-import {
-  ARecord,
-  HostedZone,
-  IHostedZone,
-  RecordTarget
-} from 'aws-cdk-lib/aws-route53';
-
-import {
-  CloudFrontTarget,
-  UserPoolDomainTarget
-} from 'aws-cdk-lib/aws-route53-targets';
-
-import { Bucket } from 'aws-cdk-lib/aws-s3';
-
+import { Certificate } from 'aws-cdk-lib/aws-certificatemanager';
+import { OAuthScope, UserPoolDomain } from 'aws-cdk-lib/aws-cognito';
+import { ARecord, IHostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
+import { UserPoolDomainTarget } from 'aws-cdk-lib/aws-route53-targets';
+import { createAliasRecord } from './resources/branch/aliasRecord';
+import { createAuthCertificate } from './resources/branch/authCertificate';
+import { createDistribution } from './resources/branch/distribution';
+import { createEdgeLambda } from './resources/branch/edgeLambda';
+import { createUserPool } from './resources/branch/userPool';
 import { getHostedZone } from './resources/branch/hostedZone';
+
 // /**
-//  *  Identify the Route 53 hosted zone for the domain
+//  *  Create a Route53 alias record for the CloudFront distribution
 //  *
-//  *  Generate a CloudFormation output value for the siteUrl for the current branch
+//  *  Generates a CloudFormation output value for the Site Alias Record
 //  */
 
-// export interface getHostedZoneProps {
+// export interface CreateAliasRecordProps {
 //   branch: string;
 //   branchLabel: string;
 //   branchSubdomain: string;
-//   domain: string;
+//   distribution: IDistribution;
+//   hostedZone: IHostedZone;
 //   siteDomain: string;
 //   stack: RecipesBranchStack;
 // }
 
-// const getHostedZone = ({
+// export const createAliasRecord = ({
 //   branch,
 //   branchLabel,
 //   branchSubdomain,
-//   domain,
+//   distribution,
+//   hostedZone,
 //   siteDomain,
 //   stack
-// }: getHostedZoneProps) => {
-//   const hostedZone = HostedZone.fromLookup(stack, 'Zone', {
-//     domainName: domain
+// }: CreateAliasRecordProps) => {
+//   const recordName = branch === 'main' ? branchSubdomain : siteDomain;
+
+//   const record = new ARecord(stack, `BranchAliasRecord`, {
+//     recordName,
+//     target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
+//     zone: hostedZone
 //   });
 
-//   stack.exportValue(
-//     `https://${branch === 'main' ? branchSubdomain : siteDomain}`,
-//     { name: `Recipes-SiteUrl-${branchLabel}` }
-//   );
+//   stack.exportValue(recordName, {
+//     name: `Recipes-SubdomainAliasRecord-${branchLabel}`
+//   });
 
-//   return hostedZone;
+//   return record;
 // };
-
-/**
- *  Create an origin request handler lambda@edge function version
- *
- *  Generate a CloudFormation output value for the origin request function
- */
-
-export interface CreateEdgeLambdaProps {
-  stack: RecipesBranchStack;
-}
-
-export const createEdgeLambda = ({ stack }: CreateEdgeLambdaProps) => {
-  const originRequestHandler = new NodejsFunction(stack, 'originRequest');
-  originRequestHandler.applyRemovalPolicy(RemovalPolicy.RETAIN);
-
-  const edgeLambda: EdgeLambda = {
-    eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
-    functionVersion: originRequestHandler.currentVersion
-  };
-
-  return edgeLambda;
-};
-
-/**
- *  Create a CloudFront Web Distribution
- *
- *  This solution is using Origin Access Identity (OAI) with Distribution
- *  to address AWS CDK internal conflicts between Origin Access Control (OAC)
- *  and OAI when trying to use OAC.
- *
- *  Generates a CloudFormation output value for the CloudFront distribution id
- */
-
-export interface createDistributionProps {
-  branch: string;
-  branchLabel: string;
-  branchSubdomain: string;
-  certificate: ICertificate;
-  edgeLambda: EdgeLambda;
-  resourceLabel: string;
-  siteDomain: string;
-  stack: RecipesBranchStack;
-}
-
-export const createDistribution = ({
-  branch,
-  branchLabel,
-  branchSubdomain,
-  certificate,
-  edgeLambda,
-  resourceLabel,
-  siteDomain,
-  stack
-}: createDistributionProps) => {
-  // S3 path for serving branch files
-  const originPath = `/branches/${branch}`;
-
-  const cloudfrontOAIId = Fn.importValue(`Recipes-OAI-${resourceLabel}`);
-
-  const cloudfrontOAI = OriginAccessIdentity.fromOriginAccessIdentityId(
-    stack,
-    'DomainOAI',
-    cloudfrontOAIId
-  );
-
-  const responseHeadersPolicyId = Fn.importValue(
-    `Recipes-ResponseHeadersPolicy-${resourceLabel}`
-  );
-
-  const responseHeadersPolicy =
-    ResponseHeadersPolicy.fromResponseHeadersPolicyId(
-      stack,
-      'ResponseHeadersPolicy',
-      responseHeadersPolicyId
-    );
-
-  const siteBucketArn = Fn.importValue(`Recipes-BucketArn-${resourceLabel}`);
-  const siteBucket = Bucket.fromBucketArn(stack, 'DomainBucket', siteBucketArn);
-
-  const customErrorResponse400: ErrorResponse = {
-    httpStatus: 400,
-    ttl: Duration.minutes(10),
-    responseHttpStatus: 404,
-    responsePagePath: '/404.html'
-  };
-
-  const customErrorResponse403: ErrorResponse = {
-    httpStatus: 403,
-    ttl: Duration.minutes(10),
-    responseHttpStatus: 404,
-    responsePagePath: '/404.html'
-  };
-
-  const customErrorResponse404: ErrorResponse = {
-    httpStatus: 404,
-    ttl: Duration.minutes(10),
-    responseHttpStatus: 404,
-    responsePagePath: '/404.html'
-  };
-
-  const distributionConfig: DistributionProps = {
-    certificate,
-    defaultBehavior: {
-      allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
-      compress: true,
-      edgeLambdas: [edgeLambda],
-      origin: new S3Origin(siteBucket, {
-        originAccessIdentity: cloudfrontOAI,
-        originPath
-        // originShieldEnabled: true,
-        // originShieldRegion: process.env.CDK_DEFAULT_REGION
-      }),
-      originRequestPolicy: OriginRequestPolicy.CORS_S3_ORIGIN,
-      responseHeadersPolicy,
-      viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS
-    },
-    defaultRootObject: 'index.html',
-    domainNames: [branch === 'main' ? branchSubdomain : siteDomain],
-    errorResponses: [
-      customErrorResponse400,
-      customErrorResponse403,
-      customErrorResponse404
-    ],
-    httpVersion: HttpVersion.HTTP2_AND_3,
-    minimumProtocolVersion: SecurityPolicyProtocol.TLS_V1_2_2021,
-    priceClass: PriceClass.PRICE_CLASS_100
-  };
-
-  const distribution = new Distribution(
-    stack,
-    'SiteDistribution',
-    distributionConfig
-  );
-
-  stack.exportValue(distribution.distributionId, {
-    name: `Recipes-Distribution-${branchLabel}`
-  });
-
-  return distribution;
-};
-
-/**
- *  Create a TLS certificate for use for authentication
- *
- *  Generate a CloudFormation output value for the certificate ARN if it creates a certificate
- */
-
-export interface CreateAuthCertificateProps {
-  branch: string;
-  branchLabel: string;
-  branchSubdomain: string;
-  domain: string;
-  stack: RecipesBranchStack;
-}
-
-export const createAuthCertificate = ({
-  branch,
-  branchLabel,
-  branchSubdomain,
-  domain,
-  stack
-}: CreateAuthCertificateProps) => {
-  // Identify the Route 53 hosted zone for the domain
-  const hostedZone = HostedZone.fromLookup(stack, 'HostedZone', {
-    domainName: domain
-  });
-
-  const certDomain = `auth.${branch}.${branchSubdomain}`;
-
-  const domainName = branch === 'main' ? `auth.${branchSubdomain}` : certDomain;
-
-  const certificate = new Certificate(stack, 'AuthCertificate', {
-    domainName,
-    validation: CertificateValidation.fromDns(hostedZone)
-  });
-
-  certificate.applyRemovalPolicy(RemovalPolicy.RETAIN);
-
-  stack.exportValue(certificate.certificateArn, {
-    name: `Recipes-Auth-Certificate-${branchLabel}`
-  });
-
-  return certificate;
-};
-
-/**
- *  Create a Cognito User Pool
- *
- *  Generates a CloudFormation output value for the user pool ARN
- */
-
-export interface CreateUserPoolProps {
-  branch: string;
-  branchLabel: string;
-  // branchSubdomain: string;
-  // domain: string;
-  // siteDomain: string;
-  stack: RecipesBranchStack;
-}
-
-export const createUserPool = ({
-  branch,
-  branchLabel,
-  // branchSubdomain,
-  // domain,
-  // siteDomain,
-  stack
-}: CreateUserPoolProps) => {
-  const userPool = new UserPool(stack, 'UserPool', {
-    autoVerify: { email: true },
-    deletionProtection: branch === 'main',
-    email: UserPoolEmail.withSES({
-      fromEmail: 'pjliddy@gmail.com',
-      fromName: 'Recipes',
-      replyTo: 'pjliddy@gmail.com'
-    }),
-    keepOriginal: {
-      email: true
-    },
-    passwordPolicy: {
-      minLength: 8,
-      requireLowercase: true,
-      requireUppercase: true,
-      requireDigits: true,
-      requireSymbols: true,
-      tempPasswordValidity: Duration.days(3)
-    },
-    removalPolicy:
-      branch === 'main' ? RemovalPolicy.RETAIN : RemovalPolicy.DESTROY,
-    signInAliases: { email: true },
-    signInCaseSensitive: false, // case insensitive is preferred in most situations
-    standardAttributes: {
-      email: {
-        required: true,
-        mutable: false
-      },
-      familyName: {
-        required: true,
-        mutable: false
-      },
-      givenName: {
-        required: true,
-        mutable: false
-      },
-      phoneNumber: {
-        required: true,
-        mutable: false
-      }
-    },
-    userPoolName: `RecipesUserPool${branchLabel}`,
-    userInvitation: {
-      emailSubject: 'Recipes invitation',
-      emailBody: 'Your username is {username} and temporary password is {####}.'
-    }
-  });
-
-  // userPool.addDomain('CustomDomain', {
-  //   customDomain: {
-  //     domainName: `auth.${branch === 'main' ? branchSubdomain : siteDomain}`,
-  //     certificate
-  //   }
-  // });
-
-  // const userPoolOptions = {
-  //   authFlows: {
-  //     userPassword: true,
-  //     userSrp: true
-  //   },
-  //   userPoolClientName: `RecipesClient${branch === 'main' ? 'Prod' : 'Dev'}`
-  // };
-
-  // userPool.addClient('UserPoolClient', userPoolOptions);
-
-  stack.exportValue(userPool.userPoolArn, {
-    name: `Recipes-UserPool-${branchLabel}`
-  });
-
-  return userPool;
-};
-
-/**
- *  Create a Route53 alias record for the CloudFront distribution
- *
- *  Generates a CloudFormation output value for the Site Alias Record
- */
-
-export interface CreateAliasRecordProps {
-  branch: string;
-  branchLabel: string;
-  branchSubdomain: string;
-  distribution: IDistribution;
-  hostedZone: IHostedZone;
-  siteDomain: string;
-  stack: RecipesBranchStack;
-}
-
-export const createAliasRecord = ({
-  branch,
-  branchLabel,
-  branchSubdomain,
-  distribution,
-  hostedZone,
-  siteDomain,
-  stack
-}: CreateAliasRecordProps) => {
-  const recordName = branch === 'main' ? branchSubdomain : siteDomain;
-
-  const record = new ARecord(stack, `BranchAliasRecord`, {
-    recordName,
-    target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
-    zone: hostedZone
-  });
-
-  stack.exportValue(recordName, {
-    name: `Recipes-SubdomainAliasRecord-${branchLabel}`
-  });
-
-  return record;
-};
 
 /**
  *  Create a Route53 alias record for Cognito authentication
@@ -554,8 +194,12 @@ export class RecipesBranchStack extends Stack {
     // create branch version for {branch}.auth.recipes.pliddy.com
 
     const authDomainName = `auth.${
-      branch === 'main' ? `branchSubdomain` : siteDomain
+      branch === 'main' ? branchSubdomain : siteDomain
     }`;
+
+    // const authDomainName = `auth.${
+    //   branch === 'main' ? `branchSubdomain` : siteDomain
+    // }`;
 
     console.log({ authDomainName });
 
@@ -622,12 +266,12 @@ export class RecipesBranchStack extends Stack {
       stack: this
     });
 
-    // userPool.addDomain('CustomDomain', {
-    //   customDomain: {
-    //     domainName: authAliasRecord.domainName,
-    //     certificate: authCertificate
-    //   }
-    // });
+    userPool.addDomain('CustomDomain', {
+      customDomain: {
+        domainName: authAliasRecord.domainName,
+        certificate: authCertificate
+      }
+    });
 
     /**
      *  Create a Route53 alias record for the CloudFront distribution

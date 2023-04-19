@@ -6,10 +6,10 @@
 
 import { App, Stack, StackProps } from 'aws-cdk-lib';
 
+import { createCertificate } from './resources/shared/certificate';
 import { createCloudFrontOAI } from './resources/shared/originAccessIdentity';
 import { createResponseHeaderPolicy } from './resources/shared/responseHeaderPolicy';
 import { createSiteBucket } from './resources/shared/s3Bucket';
-import { createCertificate } from './resources/shared/certificate';
 
 /**
  *  Generate a CloudFormation Stack to deploy site infrastructure:
