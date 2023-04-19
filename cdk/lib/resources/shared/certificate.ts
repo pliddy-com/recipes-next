@@ -3,7 +3,7 @@ import {
   Certificate,
   CertificateValidation
 } from 'aws-cdk-lib/aws-certificatemanager';
-import { HostedZone } from 'aws-cdk-lib/aws-route53';
+import { HostedZone, IHostedZone } from 'aws-cdk-lib/aws-route53';
 import { RecipesSharedStack } from '../../recipes-shared-stack';
 
 /**
@@ -18,26 +18,30 @@ import { RecipesSharedStack } from '../../recipes-shared-stack';
 export interface CreateCertificateProps {
   branch: string;
   branchSubdomain: string;
-  domain: string;
+  // domain: string;
+  hostedZone: IHostedZone;
+  label: string;
   stack: RecipesSharedStack;
 }
 
 export const createCertificate = ({
   branch,
   branchSubdomain,
-  domain,
+  // domain,
+  hostedZone,
+  label,
   stack
 }: CreateCertificateProps) => {
   // Identify the Route 53 hosted zone for the domain
-  const hostedZone = HostedZone.fromLookup(stack, 'HostedZone', {
-    domainName: domain
-  });
+  // const hostedZone = HostedZone.fromLookup(stack, 'HostedZone', {
+  //   domainName: domain
+  // });
 
   const certDomain = `*.${branchSubdomain}`;
 
   const domainName = branch === 'main' ? branchSubdomain : certDomain;
 
-  const certificate = new Certificate(stack, 'DomainCertificate', {
+  const certificate = new Certificate(stack, `${label}`, {
     domainName,
     validation: CertificateValidation.fromDns(hostedZone)
   });
@@ -45,6 +49,6 @@ export const createCertificate = ({
   certificate.applyRemovalPolicy(RemovalPolicy.RETAIN);
 
   stack.exportValue(certificate.certificateArn, {
-    name: `Recipes-Certificate-${branch === 'main' ? 'Prod' : 'Dev'}`
+    name: `Recipes-${label}-${branch === 'main' ? 'Prod' : 'Dev'}`
   });
 };

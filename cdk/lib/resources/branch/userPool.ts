@@ -1,4 +1,4 @@
-import { Duration, RemovalPolicy } from 'aws-cdk-lib';
+import { Duration, Fn, RemovalPolicy } from 'aws-cdk-lib';
 import {
   OAuthScope,
   UserPool,
@@ -11,7 +11,8 @@ import { UserPoolDomainTarget } from 'aws-cdk-lib/aws-route53-targets';
 
 import { RecipesBranchStack } from '../../recipes-branch-stack';
 
-import { createAuthCertificate } from './authCertificate';
+// import { createAuthCertificate } from './authCertificate';
+import { Certificate } from 'aws-cdk-lib/aws-certificatemanager';
 
 /**
  *  Create a Cognito User Pool
@@ -26,6 +27,7 @@ export interface CreateUserPoolProps {
   branchSubdomain: string;
   domain: string;
   hostedZone: IHostedZone;
+  resourceLabel: string;
   siteDomain: string;
   stack: RecipesBranchStack;
 }
@@ -37,9 +39,17 @@ export const createUserPool = ({
   branchSubdomain,
   domain,
   hostedZone,
+  resourceLabel,
   siteDomain,
   stack
 }: CreateUserPoolProps) => {
+  const certificateArn = Fn.importValue(`Recipes-SiteCert-${resourceLabel}`);
+  const authCertificate = Certificate.fromCertificateArn(
+    stack,
+    'AuthCert',
+    certificateArn
+  );
+
   const userPool = new UserPool(stack, 'UserPool', {
     autoVerify: { email: true },
     deletionProtection: branch === 'main',
@@ -94,16 +104,16 @@ export const createUserPool = ({
 
   const authDomainName = `${branch !== 'main' && '*.'}auth.${branchSubdomain}`;
 
-  const authCertificate = createAuthCertificate({
-    authDomainName,
-    branch,
-    branchLabel,
-    branchSubdomain,
-    domain,
-    stack
-  });
+  // const authCertificate = createAuthCertificate({
+  //   authDomainName,
+  //   branch,
+  //   branchLabel,
+  //   branchSubdomain,
+  //   domain,
+  //   stack
+  // });
 
-  authCertificate.node.addDependency(userPool);
+  // authCertificate.node.addDependency(userPool);
 
   const userPoolDomain = new UserPoolDomain(stack, 'UserPoolDomain', {
     userPool,
@@ -115,7 +125,7 @@ export const createUserPool = ({
 
   // Add dependency
   userPoolDomain.node.addDependency(userPool);
-  userPoolDomain.node.addDependency(authCertificate);
+  // userPoolDomain.node.addDependency(authCertificate);
   userPoolDomain.node.addDependency(aliasRecord);
 
   // create alias record for {branch}.?auth.recipes.pliddy.com

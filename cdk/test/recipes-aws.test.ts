@@ -31,8 +31,8 @@ describe('RecipesSharedStack', () => {
     template.hasOutput('ExportRecipesBucketNameProd', {
       Export: { Name: 'Recipes-BucketName-Prod' }
     });
-    template.hasOutput('ExportRecipesCertificateProd', {
-      Export: { Name: 'Recipes-Certificate-Prod' }
+    template.hasOutput('ExportRecipesSiteCertProd', {
+      Export: { Name: 'Recipes-SiteCert-Prod' }
     });
     template.hasOutput('ExportRecipesOAIProd', {
       Export: { Name: 'Recipes-OAI-Prod' }
@@ -46,7 +46,7 @@ describe('RecipesSharedStack', () => {
 
     template.resourceCountIs('AWS::S3::Bucket', 1);
     template.resourceCountIs('AWS::S3::BucketPolicy', 1);
-    template.resourceCountIs('AWS::CertificateManager::Certificate', 1);
+    template.resourceCountIs('AWS::CertificateManager::Certificate', 2);
     template.resourceCountIs('AWS::CloudFront::ResponseHeadersPolicy', 1);
     template.resourceCountIs(
       'AWS::CloudFront::CloudFrontOriginAccessIdentity',
@@ -77,8 +77,8 @@ describe('RecipesSharedStack', () => {
     template.hasOutput('ExportRecipesBucketNameDev', {
       Export: { Name: 'Recipes-BucketName-Dev' }
     });
-    template.hasOutput('ExportRecipesCertificateDev', {
-      Export: { Name: 'Recipes-Certificate-Dev' }
+    template.hasOutput('ExportRecipesSiteCertDev', {
+      Export: { Name: 'Recipes-SiteCert-Dev' }
     });
     template.hasOutput('ExportRecipesOAIDev', {
       Export: { Name: 'Recipes-OAI-Dev' }
@@ -92,7 +92,7 @@ describe('RecipesSharedStack', () => {
 
     template.resourceCountIs('AWS::S3::Bucket', 1);
     template.resourceCountIs('AWS::S3::BucketPolicy', 1);
-    template.resourceCountIs('AWS::CertificateManager::Certificate', 1);
+    template.resourceCountIs('AWS::CertificateManager::Certificate', 2);
     template.resourceCountIs('AWS::CloudFront::ResponseHeadersPolicy', 1);
     template.resourceCountIs(
       'AWS::CloudFront::CloudFrontOriginAccessIdentity',

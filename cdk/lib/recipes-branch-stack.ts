@@ -107,6 +107,7 @@ export class RecipesBranchStack extends Stack {
       branchSubdomain,
       domain,
       hostedZone,
+      resourceLabel,
       siteDomain,
       stack: this
     });

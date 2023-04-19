@@ -50,10 +50,10 @@ export const createDistribution = ({
   // S3 path for serving branch files
   const originPath = `/branches/${branch}`;
 
-  const certificateArn = Fn.importValue(`Recipes-Certificate-${resourceLabel}`);
+  const certificateArn = Fn.importValue(`Recipes-SiteCert-${resourceLabel}`);
   const certificate = Certificate.fromCertificateArn(
     stack,
-    'DomainCertificate',
+    'SiteCert',
     certificateArn
   );
 

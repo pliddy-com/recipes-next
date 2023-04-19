@@ -10,6 +10,7 @@ import { createCertificate } from './resources/shared/certificate';
 import { createCloudFrontOAI } from './resources/shared/originAccessIdentity';
 import { createResponseHeaderPolicy } from './resources/shared/responseHeaderPolicy';
 import { createSiteBucket } from './resources/shared/s3Bucket';
+import { HostedZone } from 'aws-cdk-lib/aws-route53';
 
 /**
  *  Generate a CloudFormation Stack to deploy site infrastructure:
@@ -44,6 +45,10 @@ export class RecipesSharedStack extends Stack {
     // add Main or Dev label based on branch
     const resourceLabel = branch === 'main' ? 'Prod' : 'Dev';
 
+    const hostedZone = HostedZone.fromLookup(this, 'HostedZone', {
+      domainName: domain
+    });
+
     /**
      *  Create an Origin Access Identity
      */
@@ -76,13 +81,26 @@ export class RecipesSharedStack extends Stack {
     });
 
     /**
-     *  Create a TLS certificate
+     *  Create a TLS certificate for Cloudfront distributions
      */
 
     createCertificate({
       branch,
       branchSubdomain,
-      domain,
+      hostedZone,
+      label: 'SiteCert',
+      stack: this
+    });
+
+    /**
+     *  Create a TLS certificate for Cognito authentication
+     */
+
+    createCertificate({
+      branch,
+      branchSubdomain: `auth.${branchSubdomain}`,
+      hostedZone,
+      label: 'AuthCert',
       stack: this
     });
   }
