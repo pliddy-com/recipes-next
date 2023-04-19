@@ -203,33 +203,28 @@ export class RecipesBranchStack extends Stack {
     // Add dependency
     authAliasRecord.node.addDependency(userPoolDomain);
 
-    // const userPoolClientOptions = {
-    //   authFlows: {
-    //     userPassword: true,
-    //     userSrp: true
-    //   },
-    //   oAuth: {
-    //     flows: {
-    //       authorizationCodeGrant: true
-    //     },
-    //     scopes: [OAuthScope.EMAIL, OAuthScope.OPENID],
-    //     callbackUrls: [
-    //       `https://${branch === 'main' ? branchSubdomain : siteDomain}`
-    //     ],
-    //     logoutUrls: [
-    //       `https://${branch === 'main' ? branchSubdomain : siteDomain}/signin`
-    //     ]
-    //   },
-    //   userPoolClientName: `RecipesClient${branchLabel}`
-    // };
-
-    // const userPoolClient = userPool.addClient(
-    //   'UserPoolClient',
-    //   userPoolClientOptions
-    // );
+    const userPoolClient = userPool.addClient('UserPoolClient', {
+      authFlows: {
+        userPassword: true,
+        userSrp: true
+      },
+      oAuth: {
+        flows: {
+          authorizationCodeGrant: true
+        },
+        scopes: [OAuthScope.EMAIL, OAuthScope.OPENID],
+        callbackUrls: [
+          `https://${branch === 'main' ? branchSubdomain : siteDomain}`
+        ],
+        logoutUrls: [
+          `https://${branch === 'main' ? branchSubdomain : siteDomain}/signin`
+        ]
+      },
+      userPoolClientName: `RecipesClient${branchLabel}`
+    });
 
     // Add dependency
-    // userPoolClient.node.addDependency(authAliasRecord);
+    userPoolClient.node.addDependency(userPool);
 
     /**
      *  Create a Route53 alias record for the Cognito User Pool
