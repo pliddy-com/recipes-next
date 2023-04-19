@@ -17,12 +17,6 @@ import {
   OriginAccessIdentity,
   ResponseHeadersPolicy
 } from 'aws-cdk-lib/aws-cloudfront';
-import {
-  UserPool,
-  UserPoolDomain,
-  UserPoolDomainProps,
-  UserPoolEmail
-} from 'aws-cdk-lib/aws-cognito';
 
 import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { HostedZone } from 'aws-cdk-lib/aws-route53';
@@ -209,6 +203,9 @@ export const createCertificate = ({
 
   const certificate = new Certificate(stack, 'DomainCertificate', {
     domainName: branch === 'main' ? branchSubdomain : certDomain,
+    ...(branch === 'main' && {
+      subjectAlternativeNames: [`auth.${branchSubdomain}`]
+    }),
     validation: CertificateValidation.fromDns(hostedZone)
   });
 
@@ -218,93 +215,6 @@ export const createCertificate = ({
     name: `Recipes-Certificate-${branch === 'main' ? 'Prod' : 'Dev'}`
   });
 };
-
-/**
- *  Create a custom domain for the Cognito User Pool
- */
-
-// export interface CreateCustomCognitoDomainProps {
-//   stack: RecipesSharedStack;
-//   id: string;
-// }
-
-// export const createCustomCognitoDomain = ({
-//   stack
-// }: CreateCustomCognitoDomainProps) => {
-//   const props: UserPoolDomainProps = {
-//     customDomain: ''
-//   };
-
-//   const domain = new UserPoolDomain(stack, 'CustomDomain', props);
-// };
-
-/**
- *  Create a Cognito User Pool
- *
- *  Generates a CloudFormation output value for the user pool ARN
- */
-
-// export interface CreateUserPoolProps {
-//   branch: string;
-//   resourceLabel: string;
-//   stack: RecipesSharedStack;
-// }
-
-// export const createUserPool = ({
-//   branch,
-//   resourceLabel,
-//   stack
-// }: CreateUserPoolProps) => {
-//   const userPool = new UserPool(stack, 'UserPool', {
-//     autoVerify: { email: true },
-//     deletionProtection: true,
-//     email: UserPoolEmail.withSES({
-//       fromEmail: 'pjliddy@gmail.com',
-//       fromName: 'Recipes',
-//       replyTo: 'pjliddy@gmail.com'
-//     }),
-//     keepOriginal: {
-//       email: true
-//     },
-//     passwordPolicy: {
-//       minLength: 8,
-//       requireLowercase: true,
-//       requireUppercase: true,
-//       requireDigits: true,
-//       requireSymbols: true,
-//       tempPasswordValidity: Duration.days(3)
-//     },
-//     signInAliases: { email: true },
-//     signInCaseSensitive: false, // case insensitive is preferred in most situations
-//     standardAttributes: {
-//       email: {
-//         required: true,
-//         mutable: false
-//       },
-//       familyName: {
-//         required: true,
-//         mutable: false
-//       },
-//       givenName: {
-//         required: true,
-//         mutable: false
-//       },
-//       phoneNumber: {
-//         required: true,
-//         mutable: false
-//       }
-//     },
-//     userPoolName: `RecipesUserPool${resourceLabel}`,
-//     userInvitation: {
-//       emailSubject: 'Recipes invitation',
-//       emailBody: 'Your username is {username} and temporary password is {####}.'
-//     }
-//   });
-
-//   stack.exportValue(userPool.userPoolArn, {
-//     name: `Recipes-UserPool-${branch === 'main' ? 'Prod' : 'Dev'}`
-//   });
-// };
 
 /**
  *  Generate a CloudFormation Stack to deploy site infrastructure:
@@ -380,11 +290,5 @@ export class RecipesSharedStack extends Stack {
       domain,
       stack: this
     });
-
-    /**
-     *  Create a Cognito User Pool
-     */
-
-    // createUserPool({ branch, resourceLabel, stack: this });
   }
 }

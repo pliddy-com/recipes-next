@@ -13,7 +13,7 @@ import {
   StackProps
 } from 'aws-cdk-lib';
 
-import { Certificate } from 'aws-cdk-lib/aws-certificatemanager';
+import { Certificate, ICertificate } from 'aws-cdk-lib/aws-certificatemanager';
 
 import {
   AllowedMethods,
@@ -33,13 +33,23 @@ import {
 } from 'aws-cdk-lib/aws-cloudfront';
 
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
+
+import {
+  UserPool,
+  UserPoolDomain,
+  UserPoolDomainProps,
+  UserPoolEmail
+} from 'aws-cdk-lib/aws-cognito';
+
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
+
 import {
   ARecord,
   HostedZone,
   IHostedZone,
   RecordTarget
 } from 'aws-cdk-lib/aws-route53';
+
 import { CloudFrontTarget } from 'aws-cdk-lib/aws-route53-targets';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 
@@ -114,6 +124,7 @@ export interface createDistributionProps {
   branch: string;
   branchLabel: string;
   branchSubdomain: string;
+  certificate: ICertificate;
   edgeLambda: EdgeLambda;
   resourceLabel: string;
   siteDomain: string;
@@ -124,6 +135,7 @@ export const createDistribution = ({
   branch,
   branchLabel,
   branchSubdomain,
+  certificate,
   edgeLambda,
   resourceLabel,
   siteDomain,
@@ -132,25 +144,16 @@ export const createDistribution = ({
   // S3 path for serving branch files
   const originPath = `/branches/${branch}`;
 
-  const certificateArn = Fn.importValue(`Recipes-Certificate-${resourceLabel}`);
   const cloudfrontOAIId = Fn.importValue(`Recipes-OAI-${resourceLabel}`);
-
-  const responseHeadersPolicyId = Fn.importValue(
-    `Recipes-ResponseHeadersPolicy-${resourceLabel}`
-  );
-
-  const siteBucketArn = Fn.importValue(`Recipes-BucketArn-${resourceLabel}`);
-
-  const certificate = Certificate.fromCertificateArn(
-    stack,
-    'DomainCertificate',
-    certificateArn
-  );
 
   const cloudfrontOAI = OriginAccessIdentity.fromOriginAccessIdentityId(
     stack,
     'DomainOAI',
     cloudfrontOAIId
+  );
+
+  const responseHeadersPolicyId = Fn.importValue(
+    `Recipes-ResponseHeadersPolicy-${resourceLabel}`
   );
 
   const responseHeadersPolicy =
@@ -160,6 +163,7 @@ export const createDistribution = ({
       responseHeadersPolicyId
     );
 
+  const siteBucketArn = Fn.importValue(`Recipes-BucketArn-${resourceLabel}`);
   const siteBucket = Bucket.fromBucketArn(stack, 'DomainBucket', siteBucketArn);
 
   const customErrorResponse400: ErrorResponse = {
@@ -222,6 +226,108 @@ export const createDistribution = ({
   });
 
   return distribution;
+};
+
+/**
+ *  Create a custom domain for the Cognito User Pool
+ */
+
+// export interface CreateCustomCognitoDomainProps {
+//   stack: RecipesBranchStack;
+//   id: string;
+// }
+
+// export const createCustomCognitoDomain = ({
+//   stack
+// }: CreateCustomCognitoDomainProps) => {
+//   const props: UserPoolDomainProps = {
+//     customDomain: ''
+//   };
+
+//   const domain = new UserPoolDomain(stack, 'CustomDomain', props);
+// };
+
+/**
+ *  Create a Cognito User Pool
+ *
+ *  Generates a CloudFormation output value for the user pool ARN
+ */
+
+export interface CreateUserPoolProps {
+  branch: string;
+  branchLabel: string;
+  branchSubdomain: string;
+  certificate: ICertificate;
+  distribution: IDistribution;
+  siteDomain: string;
+  stack: RecipesBranchStack;
+}
+
+export const createUserPool = ({
+  branch,
+  branchLabel,
+  branchSubdomain,
+  certificate,
+  distribution,
+  siteDomain,
+  stack
+}: CreateUserPoolProps) => {
+  const userPool = new UserPool(stack, 'UserPool', {
+    autoVerify: { email: true },
+    deletionProtection: branch == 'main',
+    email: UserPoolEmail.withSES({
+      fromEmail: 'pjliddy@gmail.com',
+      fromName: 'Recipes',
+      replyTo: 'pjliddy@gmail.com'
+    }),
+    keepOriginal: {
+      email: true
+    },
+    passwordPolicy: {
+      minLength: 8,
+      requireLowercase: true,
+      requireUppercase: true,
+      requireDigits: true,
+      requireSymbols: true,
+      tempPasswordValidity: Duration.days(3)
+    },
+    signInAliases: { email: true },
+    signInCaseSensitive: false, // case insensitive is preferred in most situations
+    standardAttributes: {
+      email: {
+        required: true,
+        mutable: false
+      },
+      familyName: {
+        required: true,
+        mutable: false
+      },
+      givenName: {
+        required: true,
+        mutable: false
+      },
+      phoneNumber: {
+        required: true,
+        mutable: false
+      }
+    },
+    userPoolName: `RecipesUserPool${branchLabel}`,
+    userInvitation: {
+      emailSubject: 'Recipes invitation',
+      emailBody: 'Your username is {username} and temporary password is {####}.'
+    }
+  });
+
+  userPool.addDomain('CustomDomain', {
+    customDomain: {
+      domainName: `auth.${branch === 'main' ? branchSubdomain : siteDomain}`,
+      certificate
+    }
+  });
+
+  stack.exportValue(userPool.userPoolArn, {
+    name: `Recipes-UserPool-${branch === 'main' ? 'Prod' : 'Dev'}`
+  });
 };
 
 /**
@@ -301,6 +407,16 @@ export class RecipesBranchStack extends Stack {
     // full domain for feature branch: branch.recipes.pliddy.com
     const siteDomain = `${branch}.${branchSubdomain}`;
 
+    const certificateArn = Fn.importValue(
+      `Recipes-Certificate-${resourceLabel}`
+    );
+
+    const certificate = Certificate.fromCertificateArn(
+      this,
+      'DomainCertificate',
+      certificateArn
+    );
+
     /**
      *  get Route 53 hosted zone for the domain
      */
@@ -328,8 +444,23 @@ export class RecipesBranchStack extends Stack {
       branch,
       branchLabel,
       branchSubdomain,
+      certificate,
       edgeLambda,
       resourceLabel,
+      siteDomain,
+      stack: this
+    });
+
+    /**
+     *  Create a Cognito User Pool
+     */
+
+    createUserPool({
+      branch,
+      branchLabel,
+      branchSubdomain,
+      certificate,
+      distribution,
       siteDomain,
       stack: this
     });
