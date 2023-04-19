@@ -572,15 +572,15 @@ export class RecipesBranchStack extends Stack {
       }
     });
 
-    // const userPoolOptions = {
-    //   authFlows: {
-    //     userPassword: true,
-    //     userSrp: true
-    //   },
-    //   userPoolClientName: `RecipesClient${branchLabel}`
-    // };
+    const userPoolOptions = {
+      authFlows: {
+        userPassword: true,
+        userSrp: true
+      },
+      userPoolClientName: `RecipesClient${branchLabel}`
+    };
 
-    // userPool.addClient('UserPoolClient', userPoolOptions);
+    userPool.addClient('UserPoolClient', userPoolOptions);
 
     /**
      *  Create a Route53 alias record for the CloudFront distribution
