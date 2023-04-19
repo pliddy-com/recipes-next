@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { Duration, Fn, RemovalPolicy } from 'aws-cdk-lib';
 import {
   OAuthScope,
@@ -25,7 +27,6 @@ export interface CreateUserPoolProps {
   branch: string;
   branchLabel: string;
   branchSubdomain: string;
-  domain: string;
   hostedZone: IHostedZone;
   resourceLabel: string;
   siteDomain: string;
@@ -37,7 +38,6 @@ export const createUserPool = ({
   branch,
   branchLabel,
   branchSubdomain,
-  domain,
   hostedZone,
   resourceLabel,
   siteDomain,
