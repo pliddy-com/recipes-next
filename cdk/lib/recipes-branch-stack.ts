@@ -59,42 +59,44 @@ import {
   CloudFrontTarget,
   UserPoolDomainTarget
 } from 'aws-cdk-lib/aws-route53-targets';
+
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 
-/**
- *  Identify the Route 53 hosted zone for the domain
- *
- *  Generate a CloudFormation output value for the siteUrl for the current branch
- */
+import { getHostedZone } from './resources/branch/hostedZone';
+// /**
+//  *  Identify the Route 53 hosted zone for the domain
+//  *
+//  *  Generate a CloudFormation output value for the siteUrl for the current branch
+//  */
 
-export interface getHostedZoneProps {
-  branch: string;
-  branchLabel: string;
-  branchSubdomain: string;
-  domain: string;
-  siteDomain: string;
-  stack: RecipesBranchStack;
-}
+// export interface getHostedZoneProps {
+//   branch: string;
+//   branchLabel: string;
+//   branchSubdomain: string;
+//   domain: string;
+//   siteDomain: string;
+//   stack: RecipesBranchStack;
+// }
 
-const getHostedZone = ({
-  branch,
-  branchLabel,
-  branchSubdomain,
-  domain,
-  siteDomain,
-  stack
-}: getHostedZoneProps) => {
-  const hostedZone = HostedZone.fromLookup(stack, 'Zone', {
-    domainName: domain
-  });
+// const getHostedZone = ({
+//   branch,
+//   branchLabel,
+//   branchSubdomain,
+//   domain,
+//   siteDomain,
+//   stack
+// }: getHostedZoneProps) => {
+//   const hostedZone = HostedZone.fromLookup(stack, 'Zone', {
+//     domainName: domain
+//   });
 
-  stack.exportValue(
-    `https://${branch === 'main' ? branchSubdomain : siteDomain}`,
-    { name: `Recipes-SiteUrl-${branchLabel}` }
-  );
+//   stack.exportValue(
+//     `https://${branch === 'main' ? branchSubdomain : siteDomain}`,
+//     { name: `Recipes-SiteUrl-${branchLabel}` }
+//   );
 
-  return hostedZone;
-};
+//   return hostedZone;
+// };
 
 /**
  *  Create an origin request handler lambda@edge function version
@@ -548,9 +550,14 @@ export class RecipesBranchStack extends Stack {
       stack: this
     });
 
+    // TODO: create alias record for auth.recipes.pliddy.com
+    // create branch version for {branch}.auth.recipes.pliddy.com
+
     const authDomainName = `auth.${
-      branch === 'main' ? branchSubdomain : siteDomain
+      branch === 'main' ? `branchSubdomain` : siteDomain
     }`;
+
+    console.log({ authDomainName });
 
     const userPoolDomain = new UserPoolDomain(this, 'UserPoolDomain', {
       userPool,
@@ -560,6 +567,8 @@ export class RecipesBranchStack extends Stack {
       }
     });
 
+    // TODO: create alias record for auth.recipes.pliddy.com
+    // create branch version for {branch}.auth.recipes.pliddy.com
     const authAliasRecord = new ARecord(this, 'UserPoolAuthAliasRecord', {
       zone: hostedZone,
       recordName: authDomainName,
