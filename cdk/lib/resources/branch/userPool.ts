@@ -1,6 +1,17 @@
 import { Duration, RemovalPolicy } from 'aws-cdk-lib';
-import { UserPool, UserPoolEmail } from 'aws-cdk-lib/aws-cognito';
+import {
+  OAuthScope,
+  UserPool,
+  UserPoolDomain,
+  UserPoolEmail
+} from 'aws-cdk-lib/aws-cognito';
+
+import { ARecord, IHostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
+import { UserPoolDomainTarget } from 'aws-cdk-lib/aws-route53-targets';
+
 import { RecipesBranchStack } from '../../recipes-branch-stack';
+
+import { createAuthCertificate } from './authCertificate';
 
 /**
  *  Create a Cognito User Pool
@@ -9,20 +20,24 @@ import { RecipesBranchStack } from '../../recipes-branch-stack';
  */
 
 export interface CreateUserPoolProps {
+  aliasRecord: ARecord;
   branch: string;
   branchLabel: string;
-  // branchSubdomain: string;
-  // domain: string;
-  // siteDomain: string;
+  branchSubdomain: string;
+  domain: string;
+  hostedZone: IHostedZone;
+  siteDomain: string;
   stack: RecipesBranchStack;
 }
 
 export const createUserPool = ({
+  aliasRecord,
   branch,
   branchLabel,
-  // branchSubdomain,
-  // domain,
-  // siteDomain,
+  branchSubdomain,
+  domain,
+  hostedZone,
+  siteDomain,
   stack
 }: CreateUserPoolProps) => {
   const userPool = new UserPool(stack, 'UserPool', {
@@ -73,22 +88,64 @@ export const createUserPool = ({
     }
   });
 
-  // userPool.addDomain('CustomDomain', {
-  //   customDomain: {
-  //     domainName: `auth.${branch === 'main' ? branchSubdomain : siteDomain}`,
-  //     certificate
-  //   }
-  // });
+  const authDomainName = `auth.${
+    branch === 'main' ? branchSubdomain : siteDomain
+  }`;
 
-  // const userPoolOptions = {
-  //   authFlows: {
-  //     userPassword: true,
-  //     userSrp: true
-  //   },
-  //   userPoolClientName: `RecipesClient${branch === 'main' ? 'Prod' : 'Dev'}`
-  // };
+  const authCertificate = createAuthCertificate({
+    authDomainName,
+    branch,
+    branchLabel,
+    branchSubdomain,
+    domain,
+    stack
+  });
 
-  // userPool.addClient('UserPoolClient', userPoolOptions);
+  const userPoolDomain = new UserPoolDomain(stack, 'UserPoolDomain', {
+    userPool,
+    customDomain: {
+      domainName: authDomainName,
+      certificate: authCertificate
+    }
+  });
+
+  // Add dependency
+  userPoolDomain.node.addDependency(userPool);
+  userPoolDomain.node.addDependency(authCertificate);
+  userPoolDomain.node.addDependency(aliasRecord);
+
+  // create alias record for {branch}.?auth.recipes.pliddy.com
+  const authAliasRecord = new ARecord(stack, 'UserPoolAuthAliasRecord', {
+    zone: hostedZone,
+    recordName: authDomainName,
+    target: RecordTarget.fromAlias(new UserPoolDomainTarget(userPoolDomain))
+  });
+
+  // Add dependency
+  authAliasRecord.node.addDependency(userPoolDomain);
+
+  const userPoolClient = userPool.addClient('UserPoolClient', {
+    authFlows: {
+      userPassword: true,
+      userSrp: true
+    },
+    oAuth: {
+      flows: {
+        authorizationCodeGrant: true
+      },
+      scopes: [OAuthScope.EMAIL, OAuthScope.OPENID],
+      callbackUrls: [
+        `https://${branch === 'main' ? branchSubdomain : siteDomain}`
+      ],
+      logoutUrls: [
+        `https://${branch === 'main' ? branchSubdomain : siteDomain}/signin`
+      ]
+    },
+    userPoolClientName: `RecipesClient${branchLabel}`
+  });
+
+  // Add dependency
+  userPoolClient.node.addDependency(userPool);
 
   stack.exportValue(userPool.userPoolArn, {
     name: `Recipes-UserPool-${branchLabel}`
