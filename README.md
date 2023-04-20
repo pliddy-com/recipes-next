@@ -62,7 +62,7 @@ The technology stack for this project is built using:
 
 - <a href="https://mui.com/" target="_blank"><strong>Material UI</strong></a> with a custom theme
 
-- <a href="https://aws.amazon.com/cdk/" target="_blank"><strong>AWS Cloud Development Kit (CDK)</strong></a> for serverless deployment of identical environments on a global content delivery network (CDN) using <a href="https://aws.amazon.com/s3/" target="_blank">AWS S3</a> and <a href="https://aws.amazon.com/cloudfront/" target="_blank">Cloudfront</a> with <a href="https://aws.amazon.com/lambda/edge/" target="_blank">lambda@edge</a> for middleware functions
+- <a href="https://aws.amazon.com/cdk/" target="_blank"><strong>AWS Cloud Development Kit (CDK)</strong></a> for serverless deployment of identical environments on a global content delivery network (CDN) using <a href="https://aws.amazon.com/s3/" target="_blank">AWS S3</a> and <a href="https://aws.amazon.com/cloudfront/" target="_blank">Cloudfront</a> with <a href="https://aws.amazon.com/lambda/edge/" target="_blank">lambda@edge</a> for middleware functions and <a href="https://aws.amazon.com/cognito/">Cognito</a> for user authentication
 
 - <a href="https://docs.github.com/en/actions" target="_blank"><strong>GitHub Actions</strong></a> as a CI/CD pipeline for code quality scans, build processes, and deployment automation
 
