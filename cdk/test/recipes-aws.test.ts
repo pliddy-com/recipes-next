@@ -40,9 +40,6 @@ describe('RecipesSharedStack', () => {
     template.hasOutput('ExportRecipesResponseHeadersPolicyProd', {
       Export: { Name: 'Recipes-ResponseHeadersPolicy-Prod' }
     });
-    // template.hasOutput('ExportRecipesUserPoolProd', {
-    //   Export: { Name: 'Recipes-UserPool-Prod' }
-    // });
 
     template.resourceCountIs('AWS::S3::Bucket', 1);
     template.resourceCountIs('AWS::S3::BucketPolicy', 1);
@@ -52,7 +49,6 @@ describe('RecipesSharedStack', () => {
       'AWS::CloudFront::CloudFrontOriginAccessIdentity',
       1
     );
-    // template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 
   it('generates a shared stack for a feature branch', () => {
@@ -86,9 +82,6 @@ describe('RecipesSharedStack', () => {
     template.hasOutput('ExportRecipesResponseHeadersPolicyDev', {
       Export: { Name: 'Recipes-ResponseHeadersPolicy-Dev' }
     });
-    // template.hasOutput('ExportRecipesUserPoolDev', {
-    //   Export: { Name: 'Recipes-UserPool-Dev' }
-    // });
 
     template.resourceCountIs('AWS::S3::Bucket', 1);
     template.resourceCountIs('AWS::S3::BucketPolicy', 1);
@@ -98,7 +91,6 @@ describe('RecipesSharedStack', () => {
       'AWS::CloudFront::CloudFrontOriginAccessIdentity',
       1
     );
-    // template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 
   it('fails when there are no environment variables', () => {
@@ -143,15 +135,19 @@ describe('RecipesBranchStack', () => {
     template.hasOutput('ExportRecipesSubdomainAliasRecordMain', {
       Export: { Name: 'Recipes-SubdomainAliasRecord-Main' }
     });
+    template.hasOutput('ExportRecipesUserPoolMain', {
+      Export: { Name: 'Recipes-UserPool-Main' }
+    });
 
-    template.resourceCountIs('AWS::Route53::RecordSet', 1);
-    // template.resourceCountIs('AWS::Route53::RecordSet', 2);
+    // template.resourceCountIs('AWS::Route53::RecordSet', 1);
+    template.resourceCountIs('AWS::Route53::RecordSet', 2);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
-    template.resourceCountIs('AWS::Lambda::Function', 1);
-    // template.resourceCountIs('AWS::Lambda::Function', 2);
+    // template.resourceCountIs('AWS::Lambda::Function', 1);
+    template.resourceCountIs('AWS::Lambda::Function', 2);
     template.resourceCountIs('AWS::Lambda::Version', 1);
-    template.resourceCountIs('AWS::IAM::Role', 1);
-    // template.resourceCountIs('AWS::IAM::Role', 2);
+    // template.resourceCountIs('AWS::IAM::Role', 1);
+    template.resourceCountIs('AWS::IAM::Role', 2);
+    template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 
   it('generates a branch stack for a feature branch', () => {
@@ -178,15 +174,19 @@ describe('RecipesBranchStack', () => {
     template.hasOutput('ExportRecipesSubdomainAliasRecordTestBranch', {
       Export: { Name: 'Recipes-SubdomainAliasRecord-TestBranch' }
     });
+    template.hasOutput('ExportRecipesUserPoolTestBranch', {
+      Export: { Name: 'Recipes-UserPool-TestBranch' }
+    });
 
-    template.resourceCountIs('AWS::Route53::RecordSet', 1);
-    // template.resourceCountIs('AWS::Route53::RecordSet', 2);
+    // template.resourceCountIs('AWS::Route53::RecordSet', 1);
+    template.resourceCountIs('AWS::Route53::RecordSet', 2);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
-    template.resourceCountIs('AWS::Lambda::Function', 1);
-    // template.resourceCountIs('AWS::Lambda::Function', 2);
+    // template.resourceCountIs('AWS::Lambda::Function', 1);
+    template.resourceCountIs('AWS::Lambda::Function', 2);
     template.resourceCountIs('AWS::Lambda::Version', 1);
-    template.resourceCountIs('AWS::IAM::Role', 1);
-    // template.resourceCountIs('AWS::IAM::Role', 2);
+    // template.resourceCountIs('AWS::IAM::Role', 1);
+    template.resourceCountIs('AWS::IAM::Role', 2);
+    template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 
   it('fails when there are no environment variables', () => {
