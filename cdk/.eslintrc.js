@@ -17,6 +17,7 @@ module.exports = {
     '**/*.js',
     '/bin/*.js',
     '/lib/*.js',
+    '/resources/*.js',
     '/cdk.out/**/*.*',
     '.*rc.js',
     '**/*.d.ts',

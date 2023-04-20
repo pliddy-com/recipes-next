@@ -10,6 +10,7 @@ interface MicrocopyProps {
   index: PageProps;
   recipe: PageProps;
   search: PageProps;
+  signIn: PageProps;
   site: PageProps;
   tag: PageProps;
   tagIndex: PageProps;
@@ -35,6 +36,10 @@ const microcopy: MicrocopyProps = {
   search: {
     defaultTitle: 'Search Results',
     description: 'Search results'
+  },
+  signIn: {
+    defaultTitle: 'Sign In',
+    description: 'Site sign in'
   },
   site: {
     title: "Patrick's Recipes"

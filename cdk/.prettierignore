@@ -1,7 +1,8 @@
 # CDK build artifacts
 cdk.out/
 bin/*.js
-lib/*.js
+lib/**/*.js
+resources/*.js
 test/*.js
 
 

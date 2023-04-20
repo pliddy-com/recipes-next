@@ -42,8 +42,8 @@ const menuThemeOptions: ThemeOptions = {
                 color: colors.primary.main,
                 fontFamily: sansFontFamily,
                 minWidth: '11rem',
-                paddingTop: '0.5rem',
-                paddingBottom: '0.5rem'
+                paddingTop: '0.25rem',
+                paddingBottom: '0.25rem'
               }
             }
           }
@@ -76,6 +76,13 @@ const menuThemeOptions: ThemeOptions = {
               letterSpacing: '-.5px'
             }
           }
+        }
+      }
+    },
+    MuiListItemText: {
+      styleOverrides: {
+        primary: {
+          fontSize: '1rem'
         }
       }
     },
@@ -120,7 +127,6 @@ const menuThemeOptions: ThemeOptions = {
                 fontFamily: sansFontFamily,
                 fontSize: '1rem',
                 fontWeight: fontWeightBold,
-                minHeight: theme.mixins.toolbar.minHeight,
                 paddingTop: '.25rem',
                 textTransform: 'capitalize'
               }

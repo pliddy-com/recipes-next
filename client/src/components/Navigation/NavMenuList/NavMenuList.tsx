@@ -12,6 +12,7 @@ import MenuList from '@mui/material/MenuList';
 import CategoryMenu from 'components/Navigation/NavMenu/CategoryMenu/CategoryMenu';
 
 import { TaxonomyChildrenItem } from 'types/queries';
+import Box from '@mui/system/Box';
 
 export interface NavMenuListProps {
   className: string;
@@ -45,12 +46,19 @@ const NavMenuList = ({
       {...(showLabel && { subheader: <ListSubheader>{label}</ListSubheader> })}
     >
       {featuredLabel && featuredUrl && (
-        <MenuItem className="menuItem featured">
-          <ListItemButton component={Link} href={featuredUrl} onClick={onClick}>
-            <ListItemText primary={featuredLabel} />
-          </ListItemButton>
-          <Divider />
-        </MenuItem>
+        <Box>
+          <MenuItem className="menuItem featured">
+            <ListItemButton
+              component={Link}
+              href={featuredUrl}
+              onClick={onClick}
+            >
+              <ListItemText primary={featuredLabel} />
+            </ListItemButton>
+          </MenuItem>
+
+          <Divider style={{ marginTop: 0, marginBottom: 0 }} />
+        </Box>
       )}
       {nav &&
         nav.map((item) => {

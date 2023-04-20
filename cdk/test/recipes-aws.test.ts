@@ -31,8 +31,8 @@ describe('RecipesSharedStack', () => {
     template.hasOutput('ExportRecipesBucketNameProd', {
       Export: { Name: 'Recipes-BucketName-Prod' }
     });
-    template.hasOutput('ExportRecipesCertificateProd', {
-      Export: { Name: 'Recipes-Certificate-Prod' }
+    template.hasOutput('ExportRecipesSiteCertProd', {
+      Export: { Name: 'Recipes-SiteCert-Prod' }
     });
     template.hasOutput('ExportRecipesOAIProd', {
       Export: { Name: 'Recipes-OAI-Prod' }
@@ -40,19 +40,19 @@ describe('RecipesSharedStack', () => {
     template.hasOutput('ExportRecipesResponseHeadersPolicyProd', {
       Export: { Name: 'Recipes-ResponseHeadersPolicy-Prod' }
     });
-    template.hasOutput('ExportRecipesUserPoolProd', {
-      Export: { Name: 'Recipes-UserPool-Prod' }
-    });
+    // template.hasOutput('ExportRecipesUserPoolProd', {
+    //   Export: { Name: 'Recipes-UserPool-Prod' }
+    // });
 
     template.resourceCountIs('AWS::S3::Bucket', 1);
     template.resourceCountIs('AWS::S3::BucketPolicy', 1);
-    template.resourceCountIs('AWS::CertificateManager::Certificate', 1);
+    template.resourceCountIs('AWS::CertificateManager::Certificate', 2);
     template.resourceCountIs('AWS::CloudFront::ResponseHeadersPolicy', 1);
     template.resourceCountIs(
       'AWS::CloudFront::CloudFrontOriginAccessIdentity',
       1
     );
-    template.resourceCountIs('AWS::Cognito::UserPool', 1);
+    // template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 
   it('generates a shared stack for a feature branch', () => {
@@ -77,8 +77,8 @@ describe('RecipesSharedStack', () => {
     template.hasOutput('ExportRecipesBucketNameDev', {
       Export: { Name: 'Recipes-BucketName-Dev' }
     });
-    template.hasOutput('ExportRecipesCertificateDev', {
-      Export: { Name: 'Recipes-Certificate-Dev' }
+    template.hasOutput('ExportRecipesSiteCertDev', {
+      Export: { Name: 'Recipes-SiteCert-Dev' }
     });
     template.hasOutput('ExportRecipesOAIDev', {
       Export: { Name: 'Recipes-OAI-Dev' }
@@ -86,19 +86,19 @@ describe('RecipesSharedStack', () => {
     template.hasOutput('ExportRecipesResponseHeadersPolicyDev', {
       Export: { Name: 'Recipes-ResponseHeadersPolicy-Dev' }
     });
-    template.hasOutput('ExportRecipesUserPoolDev', {
-      Export: { Name: 'Recipes-UserPool-Dev' }
-    });
+    // template.hasOutput('ExportRecipesUserPoolDev', {
+    //   Export: { Name: 'Recipes-UserPool-Dev' }
+    // });
 
     template.resourceCountIs('AWS::S3::Bucket', 1);
     template.resourceCountIs('AWS::S3::BucketPolicy', 1);
-    template.resourceCountIs('AWS::CertificateManager::Certificate', 1);
+    template.resourceCountIs('AWS::CertificateManager::Certificate', 2);
     template.resourceCountIs('AWS::CloudFront::ResponseHeadersPolicy', 1);
     template.resourceCountIs(
       'AWS::CloudFront::CloudFrontOriginAccessIdentity',
       1
     );
-    template.resourceCountIs('AWS::Cognito::UserPool', 1);
+    // template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 
   it('fails when there are no environment variables', () => {
@@ -145,10 +145,13 @@ describe('RecipesBranchStack', () => {
     });
 
     template.resourceCountIs('AWS::Route53::RecordSet', 1);
+    // template.resourceCountIs('AWS::Route53::RecordSet', 2);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
     template.resourceCountIs('AWS::Lambda::Function', 1);
+    // template.resourceCountIs('AWS::Lambda::Function', 2);
     template.resourceCountIs('AWS::Lambda::Version', 1);
     template.resourceCountIs('AWS::IAM::Role', 1);
+    // template.resourceCountIs('AWS::IAM::Role', 2);
   });
 
   it('generates a branch stack for a feature branch', () => {
@@ -177,10 +180,13 @@ describe('RecipesBranchStack', () => {
     });
 
     template.resourceCountIs('AWS::Route53::RecordSet', 1);
+    // template.resourceCountIs('AWS::Route53::RecordSet', 2);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
     template.resourceCountIs('AWS::Lambda::Function', 1);
+    // template.resourceCountIs('AWS::Lambda::Function', 2);
     template.resourceCountIs('AWS::Lambda::Version', 1);
     template.resourceCountIs('AWS::IAM::Role', 1);
+    // template.resourceCountIs('AWS::IAM::Role', 2);
   });
 
   it('fails when there are no environment variables', () => {
