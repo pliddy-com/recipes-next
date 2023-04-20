@@ -49,7 +49,9 @@ export const createUserPool = ({
   );
 
   const authDomainName =
-    branch === 'main' ? `auth.${branchSubdomain}` : `*.auth.${branchSubdomain}`;
+    branch === 'main'
+      ? `auth.${branchSubdomain}`
+      : `${branch}.auth.${branchSubdomain}`;
 
   const userPool = new UserPool(stack, 'UserPool', {
     autoVerify: { email: true },
