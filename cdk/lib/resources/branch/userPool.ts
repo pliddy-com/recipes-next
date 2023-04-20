@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import { Duration, Fn, RemovalPolicy } from 'aws-cdk-lib';
 import {
   OAuthScope,
@@ -13,7 +11,6 @@ import { UserPoolDomainTarget } from 'aws-cdk-lib/aws-route53-targets';
 
 import { RecipesBranchStack } from '../../recipes-branch-stack';
 
-// import { createAuthCertificate } from './authCertificate';
 import { Certificate } from 'aws-cdk-lib/aws-certificatemanager';
 
 /**
@@ -43,12 +40,18 @@ export const createUserPool = ({
   siteDomain,
   stack
 }: CreateUserPoolProps) => {
-  const certificateArn = Fn.importValue(`Recipes-SiteCert-${resourceLabel}`);
+  const certificateArn = Fn.importValue(`Recipes-AuthCert-${resourceLabel}`);
+
   const authCertificate = Certificate.fromCertificateArn(
     stack,
     'AuthCert',
     certificateArn
   );
+
+  const authDomainName =
+    branch === 'main'
+      ? `auth.${branchSubdomain}`
+      : `${branch}.auth.${branchSubdomain}`;
 
   const userPool = new UserPool(stack, 'UserPool', {
     autoVerify: { email: true },
@@ -97,23 +100,6 @@ export const createUserPool = ({
       emailBody: 'Your username is {username} and temporary password is {####}.'
     }
   });
-
-  // const authDomainName = `auth.${
-  //   branch === 'main' ? branchSubdomain : siteDomain
-  // }`;
-
-  const authDomainName = `${branch !== 'main' && '*.'}auth.${branchSubdomain}`;
-
-  // const authCertificate = createAuthCertificate({
-  //   authDomainName,
-  //   branch,
-  //   branchLabel,
-  //   branchSubdomain,
-  //   domain,
-  //   stack
-  // });
-
-  // authCertificate.node.addDependency(userPool);
 
   const userPoolDomain = new UserPoolDomain(stack, 'UserPoolDomain', {
     userPool,

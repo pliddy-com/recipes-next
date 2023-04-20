@@ -100,15 +100,15 @@ export class RecipesBranchStack extends Stack {
      *  Create a Cognito User Pool
      */
 
-    // const userPool = createUserPool({
-    //   aliasRecord,
-    //   branch,
-    //   branchLabel,
-    //   branchSubdomain,
-    //   hostedZone,
-    //   resourceLabel,
-    //   siteDomain,
-    //   stack: this
-    // });
+    const userPool = createUserPool({
+      aliasRecord,
+      branch,
+      branchLabel,
+      branchSubdomain,
+      hostedZone,
+      resourceLabel,
+      siteDomain,
+      stack: this
+    });
   }
 }
