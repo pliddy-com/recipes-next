@@ -1,6 +1,12 @@
 /* istanbul ignore file */
 
-import { ReactElement, createContext, useState } from 'react';
+import {
+  ReactElement,
+  createContext,
+  useCallback,
+  // useEffect,
+  useState
+} from 'react';
 
 import {
   AuthenticationDetails,
@@ -43,7 +49,7 @@ interface AuthenticationProps {
 const AuthenticationProvider = (props: AuthenticationProps) => {
   const [isAuth, setIsAuth] = useState(false);
 
-  const getSession = async () => {
+  const getSession = useCallback(async () => {
     await new Promise((resolve, reject) => {
       const user = userPool.getCurrentUser();
 
@@ -61,7 +67,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
         reject();
       }
     });
-  };
+  }, []);
 
   const signIn = async ({ email, password }: SignInProps) => {
     await new Promise((resolve, reject) => {
@@ -98,6 +104,18 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     setIsAuth(false);
     // Router.reload();
   };
+
+  // useEffect(() => {
+  //   getSession()
+  //     .then((session) => {
+  //       console.log('Session: ', session);
+  //       setIsAuth(true);
+  //     })
+  //     .catch((err) => {
+  //       console.log('Session: ', err);
+  //       setIsAuth(false);
+  //     });
+  // }, [getSession]);
 
   return (
     <AuthenticationContext.Provider

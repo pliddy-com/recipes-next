@@ -2,8 +2,8 @@
 
 import {
   // useState,
-  useContext,
-  useEffect
+  useContext
+  // useEffect
 } from 'react';
 import NavIconButton from '../NavIconButton/NavIconButton';
 import LoginIcon from '@mui/icons-material/Login';
@@ -16,24 +16,24 @@ interface SearchButtonProps {
 
 const SignInButton = ({ hideLabel }: SearchButtonProps) => {
   // const [isAuth, setIsAuth] = useState(false);
-  const { isAuth, getSession, signOut } = useContext(AuthenticationContext);
+  const { isAuth, signOut } = useContext(AuthenticationContext);
 
-  useEffect(() => {
-    getSession()
-      .then((session) => {
-        console.log('Session: ', session);
-        // setIsAuth(true);
-      })
-      .catch((err) => {
-        console.log('Session: ', err);
-        // setIsAuth(false);
-      });
-  }, [getSession]);
+  // useEffect(() => {
+  //   getSession()
+  //     .then((session) => {
+  //       console.log('Session: ', session);
+  //       // setIsAuth(true);
+  //     })
+  //     .catch((err) => {
+  //       console.log('Session: ', err);
+  //       // setIsAuth(false);
+  //     });
+  // }, [getSession]);
 
   return (
     <NavIconButton
       ariaLabel={isAuth ? 'sign out' : 'sign in'}
-      className="menu-button"
+      className="menu-button auth"
       hideLabel={hideLabel}
       icon={isAuth ? <LogoutIcon /> : <LoginIcon />}
       label={isAuth ? 'Sign Out' : 'Sign In'}

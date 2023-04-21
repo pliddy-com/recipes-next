@@ -43,7 +43,7 @@ describe('RecipesSharedStack', () => {
 
     template.resourceCountIs('AWS::S3::Bucket', 1);
     template.resourceCountIs('AWS::S3::BucketPolicy', 1);
-    template.resourceCountIs('AWS::CertificateManager::Certificate', 2);
+    template.resourceCountIs('AWS::CertificateManager::Certificate', 1);
     template.resourceCountIs('AWS::CloudFront::ResponseHeadersPolicy', 1);
     template.resourceCountIs(
       'AWS::CloudFront::CloudFrontOriginAccessIdentity',
@@ -85,7 +85,7 @@ describe('RecipesSharedStack', () => {
 
     template.resourceCountIs('AWS::S3::Bucket', 1);
     template.resourceCountIs('AWS::S3::BucketPolicy', 1);
-    template.resourceCountIs('AWS::CertificateManager::Certificate', 2);
+    template.resourceCountIs('AWS::CertificateManager::Certificate', 1);
     template.resourceCountIs('AWS::CloudFront::ResponseHeadersPolicy', 1);
     template.resourceCountIs(
       'AWS::CloudFront::CloudFrontOriginAccessIdentity',
@@ -139,14 +139,11 @@ describe('RecipesBranchStack', () => {
       Export: { Name: 'Recipes-UserPool-Main' }
     });
 
-    // template.resourceCountIs('AWS::Route53::RecordSet', 1);
-    template.resourceCountIs('AWS::Route53::RecordSet', 2);
+    template.resourceCountIs('AWS::Route53::RecordSet', 1);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
-    // template.resourceCountIs('AWS::Lambda::Function', 1);
-    template.resourceCountIs('AWS::Lambda::Function', 2);
+    template.resourceCountIs('AWS::Lambda::Function', 1);
     template.resourceCountIs('AWS::Lambda::Version', 1);
-    // template.resourceCountIs('AWS::IAM::Role', 1);
-    template.resourceCountIs('AWS::IAM::Role', 2);
+    template.resourceCountIs('AWS::IAM::Role', 1);
     template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 
@@ -178,14 +175,11 @@ describe('RecipesBranchStack', () => {
       Export: { Name: 'Recipes-UserPool-TestBranch' }
     });
 
-    // template.resourceCountIs('AWS::Route53::RecordSet', 1);
-    template.resourceCountIs('AWS::Route53::RecordSet', 2);
+    template.resourceCountIs('AWS::Route53::RecordSet', 1);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
-    // template.resourceCountIs('AWS::Lambda::Function', 1);
-    template.resourceCountIs('AWS::Lambda::Function', 2);
+    template.resourceCountIs('AWS::Lambda::Function', 1);
     template.resourceCountIs('AWS::Lambda::Version', 1);
-    // template.resourceCountIs('AWS::IAM::Role', 1);
-    template.resourceCountIs('AWS::IAM::Role', 2);
+    template.resourceCountIs('AWS::IAM::Role', 1);
     template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 

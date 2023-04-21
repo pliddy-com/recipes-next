@@ -1,17 +1,9 @@
-import { Duration, Fn, RemovalPolicy } from 'aws-cdk-lib';
-import {
-  OAuthScope,
-  UserPool,
-  UserPoolDomain,
-  UserPoolEmail
-} from 'aws-cdk-lib/aws-cognito';
+import { Duration, RemovalPolicy } from 'aws-cdk-lib';
+import { OAuthScope, UserPool, UserPoolEmail } from 'aws-cdk-lib/aws-cognito';
 
-import { ARecord, IHostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
-import { UserPoolDomainTarget } from 'aws-cdk-lib/aws-route53-targets';
+import { ARecord, IHostedZone } from 'aws-cdk-lib/aws-route53';
 
 import { RecipesBranchStack } from '../../recipes-branch-stack';
-
-import { Certificate } from 'aws-cdk-lib/aws-certificatemanager';
 
 /**
  *  Create a Cognito User Pool
@@ -31,28 +23,10 @@ export interface CreateUserPoolProps {
 }
 
 export const createUserPool = ({
-  aliasRecord,
   branch,
   branchLabel,
-  branchSubdomain,
-  hostedZone,
-  resourceLabel,
-  siteDomain,
   stack
 }: CreateUserPoolProps) => {
-  const certificateArn = Fn.importValue(`Recipes-AuthCert-${resourceLabel}`);
-
-  const authCertificate = Certificate.fromCertificateArn(
-    stack,
-    'AuthCert',
-    certificateArn
-  );
-
-  const authDomainName =
-    branch === 'main'
-      ? `auth.${branchSubdomain}`
-      : `${branch}.auth.${branchSubdomain}`;
-
   const userPool = new UserPool(stack, 'UserPool', {
     autoVerify: { email: true },
     deletionProtection: branch === 'main',
@@ -81,18 +55,6 @@ export const createUserPool = ({
         required: true,
         mutable: true
       }
-      // familyName: {
-      //   required: true,
-      //   mutable: true
-      // },
-      // givenName: {
-      //   required: true,
-      //   mutable: true
-      // },
-      // phoneNumber: {
-      //   required: true,
-      //   mutable: true
-      // }
     },
     userPoolName: `RecipesUserPool${branchLabel}`,
     userInvitation: {
@@ -100,29 +62,6 @@ export const createUserPool = ({
       emailBody: 'Your username is {username} and temporary password is {####}.'
     }
   });
-
-  const userPoolDomain = new UserPoolDomain(stack, 'UserPoolDomain', {
-    userPool,
-    customDomain: {
-      domainName: authDomainName,
-      certificate: authCertificate
-    }
-  });
-
-  // Add dependency
-  userPoolDomain.node.addDependency(userPool);
-  // userPoolDomain.node.addDependency(authCertificate);
-  userPoolDomain.node.addDependency(aliasRecord);
-
-  // create alias record for {branch}.?auth.recipes.pliddy.com
-  const authAliasRecord = new ARecord(stack, 'UserPoolAuthAliasRecord', {
-    zone: hostedZone,
-    recordName: authDomainName,
-    target: RecordTarget.fromAlias(new UserPoolDomainTarget(userPoolDomain))
-  });
-
-  // Add dependency
-  authAliasRecord.node.addDependency(userPoolDomain);
 
   const userPoolClient = userPool.addClient('UserPoolClient', {
     authFlows: {
@@ -133,13 +72,7 @@ export const createUserPool = ({
       flows: {
         authorizationCodeGrant: true
       },
-      scopes: [OAuthScope.EMAIL, OAuthScope.OPENID],
-      callbackUrls: [
-        `https://${branch === 'main' ? branchSubdomain : siteDomain}`
-      ],
-      logoutUrls: [
-        `https://${branch === 'main' ? branchSubdomain : siteDomain}/signin`
-      ]
+      scopes: [OAuthScope.EMAIL, OAuthScope.OPENID]
     },
     userPoolClientName: `RecipesClient${branchLabel}`
   });
