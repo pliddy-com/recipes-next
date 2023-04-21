@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 // import testing-library methods
 import { render } from '@testing-library/react';
 
@@ -32,10 +34,15 @@ describe('NavBar', () => {
         <NavBar nav={nav as NavDataProps} />
       );
 
-      const component = queryByTestId('navbar');
+      // assert that content is rendered
+      // await act(async () =>
+      //   waitFor(() => expect(queryByTestId('navbar')).toBeInTheDocument())
+      // );
+
+      const navBar = queryByTestId('navbar');
 
       // assert that component has been rendered
-      expect(component).toBeInTheDocument();
+      expect(navBar).toBeInTheDocument();
 
       // assert that buttons have been rendered
       const logoButton = queryByRole('button', {

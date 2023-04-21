@@ -6,6 +6,8 @@ import { AppProps } from 'next/app';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
+import { Authentication } from 'contexts/Authentication';
+
 import createEmotionCache from 'lib/createEmotionCache';
 import theme from 'theme';
 import Head from 'next/head';
@@ -43,12 +45,14 @@ const MyApp = (props: AppLayoutProps) => {
           href={`https://${NEXT_PUBLIC_ALGOLIA_APP_ID}-dsn.algolia.net`}
         />
       </Head>
-      <CacheProvider value={emotionCache}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {getLayout(<Component {...pageProps} />)}
-        </ThemeProvider>
-      </CacheProvider>
+      <Authentication>
+        <CacheProvider value={emotionCache}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            {getLayout(<Component {...pageProps} />)}
+          </ThemeProvider>
+        </CacheProvider>
+      </Authentication>
     </>
   );
 };

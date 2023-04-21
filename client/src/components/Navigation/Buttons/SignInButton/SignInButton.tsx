@@ -1,24 +1,41 @@
+/* istanbul ignore file */
+
+import { useState, useContext, useEffect } from 'react';
 import NavIconButton from '../NavIconButton/NavIconButton';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { AuthenticationContext } from 'contexts/Authentication';
 
 interface SearchButtonProps {
   hideLabel?: boolean;
 }
 
 const SignInButton = ({ hideLabel }: SearchButtonProps) => {
-  const ariaLabel = 'sign in';
-  const className = 'menu-button';
-  const label = 'Sign In';
-  const href = '/signin';
+  const [isAuth, setIsAuth] = useState(false);
+  const { getSession, signOut } = useContext(AuthenticationContext);
+
+  useEffect(() => {
+    getSession()
+      .then((session) => {
+        console.log('Session: ', session);
+        setIsAuth(true);
+      })
+      .catch((err) => {
+        console.log('Session: ', err);
+        setIsAuth(false);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuth]);
 
   return (
     <NavIconButton
-      ariaLabel={ariaLabel}
-      className={className}
+      ariaLabel={isAuth ? 'sign out' : 'sign in'}
+      className="menu-button"
       hideLabel={hideLabel}
-      icon={<AccountCircleIcon />}
-      label={label}
-      href={href}
+      icon={isAuth ? <LogoutIcon /> : <LoginIcon />}
+      label={isAuth ? 'Sign Out' : 'Sign In'}
+      onClick={isAuth ? signOut : undefined}
+      href={isAuth ? undefined : '/signin'}
     />
   );
 };

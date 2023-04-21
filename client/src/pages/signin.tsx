@@ -1,8 +1,10 @@
 /* istanbul ignore file */
 
-import { ReactElement, Suspense, useState } from 'react';
+import { ReactElement, Suspense, useContext, useState } from 'react';
 // import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
+
+import { AuthenticationContext } from 'contexts/Authentication';
 
 import Loading from 'components/Loading/Loading';
 import PageTags from 'components/PageHead/PageTags/PageTags';
@@ -16,7 +18,7 @@ import FormControl from '@mui/material/FormControl';
 // import FormLabel from '@mui/material/FormLabel';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { signIn } from 'lib/auth';
+// import { signIn } from 'lib/auth';
 
 const Layout = dynamic(
   () => import(/* webpackChunkName: 'Layout' */ 'layout/Layout/Layout'),
@@ -39,7 +41,9 @@ const SignInPage = () => {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
+  const { signIn } = useContext(AuthenticationContext);
+
+  const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
 
     setEmailError(false);
@@ -53,7 +57,17 @@ const SignInPage = () => {
     }
 
     if (email && password) {
-      signIn({ email, password });
+      // TODO: use next router & return to previous page
+      try {
+        // TODO: move this to use state & set up useEffect to wait for
+        // state update before navigating to page
+        await signIn({ email, password }).then(
+          () => (window.location.href = '/')
+        );
+      } catch (e) {
+        setEmailError(true);
+        setPasswordError(true);
+      }
     }
   };
 
