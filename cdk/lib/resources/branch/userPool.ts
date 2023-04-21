@@ -80,19 +80,19 @@ export const createUserPool = ({
       email: {
         required: true,
         mutable: true
-      },
-      familyName: {
-        required: true,
-        mutable: true
-      },
-      givenName: {
-        required: true,
-        mutable: true
-      },
-      phoneNumber: {
-        required: true,
-        mutable: true
       }
+      // familyName: {
+      //   required: true,
+      //   mutable: true
+      // },
+      // givenName: {
+      //   required: true,
+      //   mutable: true
+      // },
+      // phoneNumber: {
+      //   required: true,
+      //   mutable: true
+      // }
     },
     userPoolName: `RecipesUserPool${branchLabel}`,
     userInvitation: {

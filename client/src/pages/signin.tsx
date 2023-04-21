@@ -16,6 +16,7 @@ import FormControl from '@mui/material/FormControl';
 // import FormLabel from '@mui/material/FormLabel';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import { signIn } from 'lib/auth';
 
 const Layout = dynamic(
   () => import(/* webpackChunkName: 'Layout' */ 'layout/Layout/Layout'),
@@ -52,7 +53,7 @@ const SignInPage = () => {
     }
 
     if (email && password) {
-      console.log('submit', { email, password });
+      signIn({ email, password });
     }
   };
 
