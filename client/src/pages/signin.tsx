@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-import { ReactElement, Suspense, useContext, useState } from 'react';
+import { ReactElement, Suspense, useContext, useEffect, useState } from 'react';
 // import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
 
@@ -41,7 +41,11 @@ const SignInPage = () => {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const { signIn } = useContext(AuthenticationContext);
+  const { isAuth, signIn } = useContext(AuthenticationContext);
+
+  useEffect(() => {
+    if (isAuth) window.location.href = '/';
+  });
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -61,9 +65,7 @@ const SignInPage = () => {
       try {
         // TODO: move this to use state & set up useEffect to wait for
         // state update before navigating to page
-        await signIn({ email, password }).then(
-          () => (window.location.href = '/')
-        );
+        await signIn({ email, password });
       } catch (e) {
         setEmailError(true);
         setPasswordError(true);
@@ -87,7 +89,7 @@ const SignInPage = () => {
         <Typography variant="h1">{defaultTitle}</Typography>
 
         <Container maxWidth="xs">
-          <form onSubmit={handleSubmit}>
+          <form method="POST">
             <FormControl>
               <TextField
                 error={emailError}
@@ -117,6 +119,7 @@ const SignInPage = () => {
                 size="large"
                 type="submit"
                 variant="contained"
+                onClick={handleSubmit}
               >
                 Sign In
               </Button>

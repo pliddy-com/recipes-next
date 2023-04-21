@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-import { ReactElement, createContext } from 'react';
+import { ReactElement, createContext, useState } from 'react';
 
 import {
   AuthenticationDetails,
@@ -16,12 +16,14 @@ interface SignInProps {
 }
 
 interface AuthenticationContextValue {
+  isAuth: boolean;
   signIn({ email, password }: SignInProps): Promise<void>;
   getSession(): Promise<void>;
   signOut(): void;
 }
 
 const defaultContext = {
+  isAuth: false,
   signIn: () => Promise<void>,
   getSession: () => Promise<void>,
   signOut: () => {
@@ -37,7 +39,11 @@ interface AuthenticationProps {
   children: ReactElement | ReactElement[];
 }
 
-const Authentication = (props: AuthenticationProps) => {
+const AuthenticationProvider = (props: AuthenticationProps) => {
+  const [isAuth, setIsAuth] = useState(false);
+
+  console.log({ isAuth });
+
   const getSession = async () => {
     await new Promise((resolve, reject) => {
       const user = userPool.getCurrentUser();
@@ -45,8 +51,10 @@ const Authentication = (props: AuthenticationProps) => {
       if (user) {
         user.getSession((err: Error, session: CognitoUserSession | null) => {
           if (err) {
+            setIsAuth(false);
             reject(err);
           } else {
+            setIsAuth(true);
             resolve(session);
           }
         });
@@ -70,11 +78,11 @@ const Authentication = (props: AuthenticationProps) => {
 
       user.authenticateUser(authDetails, {
         onSuccess: (result) => {
-          // console.log('login success', result);
+          setIsAuth(true);
           resolve(result);
         },
         onFailure: (err) => {
-          // console.log('login failure', err);
+          setIsAuth(false);
           reject(err);
         },
         newPasswordRequired: (data) => {
@@ -88,14 +96,17 @@ const Authentication = (props: AuthenticationProps) => {
   const signOut = () => {
     const user = userPool.getCurrentUser();
     user && user.signOut();
+    setIsAuth(false);
     window.location.reload();
   };
 
   return (
-    <AuthenticationContext.Provider value={{ signIn, getSession, signOut }}>
+    <AuthenticationContext.Provider
+      value={{ isAuth, signIn, getSession, signOut }}
+    >
       {props.children}
     </AuthenticationContext.Provider>
   );
 };
 
-export { Authentication, AuthenticationContext };
+export { AuthenticationProvider, AuthenticationContext };

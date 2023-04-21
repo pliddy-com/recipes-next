@@ -1,6 +1,10 @@
 /* istanbul ignore file */
 
-import { useState, useContext, useEffect } from 'react';
+import {
+  // useState,
+  useContext,
+  useEffect
+} from 'react';
 import NavIconButton from '../NavIconButton/NavIconButton';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -11,21 +15,20 @@ interface SearchButtonProps {
 }
 
 const SignInButton = ({ hideLabel }: SearchButtonProps) => {
-  const [isAuth, setIsAuth] = useState(false);
-  const { getSession, signOut } = useContext(AuthenticationContext);
+  // const [isAuth, setIsAuth] = useState(false);
+  const { isAuth, getSession, signOut } = useContext(AuthenticationContext);
 
   useEffect(() => {
     getSession()
       .then((session) => {
         console.log('Session: ', session);
-        setIsAuth(true);
+        // setIsAuth(true);
       })
       .catch((err) => {
         console.log('Session: ', err);
-        setIsAuth(false);
+        // setIsAuth(false);
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuth]);
+  }, [getSession]);
 
   return (
     <NavIconButton
