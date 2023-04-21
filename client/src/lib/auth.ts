@@ -1,10 +1,8 @@
 /* istanbul ignore file */
 
-import {
-  AuthenticationDetails,
-  CognitoUser,
-  CognitoUserPool
-} from 'amazon-cognito-identity-js';
+import { AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js';
+
+import userPool from './userPool';
 
 const APP_CLIENT_ID = process.env.NEXT_PUBLIC_COGNITO_APP_CLIENT_ID;
 const USER_POOL_ID = process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID;
@@ -19,12 +17,12 @@ export const signIn = async ({ email, password }: signInProps) => {
   if (!(email && password && APP_CLIENT_ID && USER_POOL_ID))
     throw new Error('Must provide email and password to sign in');
   try {
-    const poolData = {
-      UserPoolId: USER_POOL_ID,
-      ClientId: APP_CLIENT_ID
-    };
+    // const poolData = {
+    //   UserPoolId: USER_POOL_ID,
+    //   ClientId: APP_CLIENT_ID
+    // };
 
-    const userPool = new CognitoUserPool(poolData);
+    // const userPool = new CognitoUserPool(poolData);
 
     const user = new CognitoUser({
       Username: email,
