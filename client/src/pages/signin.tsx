@@ -2,6 +2,8 @@
 
 import { ReactElement, Suspense, useContext, useEffect, useState } from 'react';
 // import { InferGetStaticPropsType } from 'next';
+import { useRouter } from 'next/navigation';
+
 import dynamic from 'next/dynamic';
 
 import { AuthenticationContext } from 'contexts/Authentication';
@@ -36,6 +38,8 @@ const Layout = dynamic(
 const SignInPage = () => {
   const { defaultTitle, description } = config?.microcopy?.signIn ?? {};
 
+  const router = useRouter();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState(false);
@@ -44,7 +48,7 @@ const SignInPage = () => {
   const { isAuth, signIn } = useContext(AuthenticationContext);
 
   useEffect(() => {
-    if (isAuth) window.location.href = '/';
+    if (isAuth) router.push('/');
   });
 
   const handleSubmit = async (event: React.SyntheticEvent) => {

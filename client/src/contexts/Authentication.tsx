@@ -9,6 +9,7 @@ import {
 } from 'amazon-cognito-identity-js';
 
 import userPool from 'lib/userPool';
+// import Router from 'next/router';
 
 interface SignInProps {
   email: string;
@@ -41,8 +42,6 @@ interface AuthenticationProps {
 
 const AuthenticationProvider = (props: AuthenticationProps) => {
   const [isAuth, setIsAuth] = useState(false);
-
-  console.log({ isAuth });
 
   const getSession = async () => {
     await new Promise((resolve, reject) => {
@@ -97,7 +96,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     const user = userPool.getCurrentUser();
     user && user.signOut();
     setIsAuth(false);
-    window.location.reload();
+    // Router.reload();
   };
 
   return (
