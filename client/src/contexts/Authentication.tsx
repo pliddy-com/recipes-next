@@ -4,7 +4,7 @@ import {
   ReactElement,
   createContext,
   useCallback,
-  // useEffect,
+  useContext,
   useState
 } from 'react';
 
@@ -15,7 +15,6 @@ import {
 } from 'amazon-cognito-identity-js';
 
 import userPool from 'lib/userPool';
-// import Router from 'next/router';
 
 interface SignInProps {
   email: string;
@@ -51,7 +50,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
 
   const getSession = useCallback(async () => {
     await new Promise((resolve, reject) => {
-      const user = userPool.getCurrentUser();
+      const user = userPool && userPool.getCurrentUser();
 
       if (user) {
         user.getSession((err: Error, session: CognitoUserSession | null) => {
@@ -71,35 +70,38 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
 
   const signIn = async ({ email, password }: SignInProps) => {
     await new Promise((resolve, reject) => {
-      const user = new CognitoUser({
-        Username: email,
-        Pool: userPool
-      });
+      const user =
+        userPool &&
+        new CognitoUser({
+          Username: email,
+          Pool: userPool
+        });
 
       const authDetails = new AuthenticationDetails({
         Username: email,
         Password: password
       });
 
-      user.authenticateUser(authDetails, {
-        onSuccess: (result) => {
-          setIsAuth(true);
-          resolve(result);
-        },
-        onFailure: (err) => {
-          setIsAuth(false);
-          reject(err);
-        },
-        newPasswordRequired: (data) => {
-          // console.log('new password required', data);
-          resolve(data);
-        }
-      });
+      user &&
+        user.authenticateUser(authDetails, {
+          onSuccess: (result) => {
+            setIsAuth(true);
+            resolve(result);
+          },
+          onFailure: (err) => {
+            setIsAuth(false);
+            reject(err);
+          },
+          newPasswordRequired: (data) => {
+            // console.log('new password required', data);
+            resolve(data);
+          }
+        });
     });
   };
 
   const signOut = () => {
-    const user = userPool.getCurrentUser();
+    const user = userPool && userPool.getCurrentUser();
     user && user.signOut();
     setIsAuth(false);
     // Router.reload();
@@ -125,5 +127,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     </AuthenticationContext.Provider>
   );
 };
+
+export const useAuthContext = () => useContext(AuthenticationContext);
 
 export { AuthenticationProvider, AuthenticationContext };

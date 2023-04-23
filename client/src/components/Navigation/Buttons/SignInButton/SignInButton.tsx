@@ -1,34 +1,16 @@
-/* istanbul ignore file */
-
-import {
-  // useState,
-  useContext
-  // useEffect
-} from 'react';
-import NavIconButton from '../NavIconButton/NavIconButton';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { AuthenticationContext } from 'contexts/Authentication';
+
+import NavIconButton from '../NavIconButton/NavIconButton';
+
+import { useAuthContext } from 'contexts/Authentication';
 
 interface SearchButtonProps {
   hideLabel?: boolean;
 }
 
 const SignInButton = ({ hideLabel }: SearchButtonProps) => {
-  // const [isAuth, setIsAuth] = useState(false);
-  const { isAuth, signOut } = useContext(AuthenticationContext);
-
-  // useEffect(() => {
-  //   getSession()
-  //     .then((session) => {
-  //       console.log('Session: ', session);
-  //       // setIsAuth(true);
-  //     })
-  //     .catch((err) => {
-  //       console.log('Session: ', err);
-  //       // setIsAuth(false);
-  //     });
-  // }, [getSession]);
+  const { isAuth, signOut } = useAuthContext();
 
   return (
     <NavIconButton

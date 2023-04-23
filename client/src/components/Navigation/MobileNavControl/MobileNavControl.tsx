@@ -1,22 +1,25 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 
 import NavIconButton from '../Buttons/NavIconButton/NavIconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import NavMenuList from '../NavMenuList/NavMenuList';
 
+import { useAuthContext } from 'contexts/Authentication';
+
 import { TaxonomyChildrenItem } from 'types/queries';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import { Divider } from '@mui/material';
 
 export interface NavDataProps {
   categories: TaxonomyChildrenItem[];
@@ -29,12 +32,19 @@ export interface MobileNavProps {
   nav: NavDataProps;
 }
 const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
+  const { isAuth, signOut } = useAuthContext();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => setIsOpen(!isOpen);
 
   const onClick = () => handleToggle();
   const onClose = () => handleToggle();
+
+  const onSignOutClick = () => {
+    handleToggle();
+    signOut();
+  };
 
   return (
     <>
@@ -64,10 +74,18 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
       >
         <MenuList className="menuList">
           <MenuItem className="menuItem featured">
-            <ListItemButton component={Link} href="/signin" onClick={onClick}>
-              <ListItemText primary="Sign In" />
+            <ListItemButton
+              aria-label={isAuth ? 'sign out' : 'sign in'}
+              {...(!isAuth ? { href: '/signin' } : {})}
+              onClick={isAuth ? onSignOutClick : onClick}
+            >
+              <ListItemText primary={isAuth ? 'Sign Out' : 'Sign In'} />
               <ListItemIcon>
-                <AccountCircleIcon fontSize="small" />
+                {isAuth ? (
+                  <LogoutIcon fontSize="small" />
+                ) : (
+                  <LoginIcon fontSize="small" />
+                )}
               </ListItemIcon>
             </ListItemButton>
           </MenuItem>
