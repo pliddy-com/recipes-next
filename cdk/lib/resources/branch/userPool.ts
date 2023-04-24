@@ -80,8 +80,12 @@ export const createUserPool = ({
   // Add dependency
   userPoolClient.node.addDependency(userPool);
 
-  stack.exportValue(userPool.userPoolArn, {
+  stack.exportValue(userPool.userPoolId, {
     name: `Recipes-UserPool-${branchLabel}`
+  });
+
+  stack.exportValue(userPoolClient.userPoolClientId, {
+    name: `Recipes-UserPoolClient-${branchLabel}`
   });
 
   return userPool;
