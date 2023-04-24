@@ -1,0 +1,30 @@
+name: Configure Default User
+description: Use admin to create default user and change password
+
+inputs:
+  userPoolId:
+    description: Cognito User Pool id
+    required: true
+  user:
+    description: Email address to use for default user id
+    required: true
+  password:
+    description: Password to change to for default user
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Create Default User
+      id: create-default-user
+      run: |
+        aws cognito-idp admin-create-user \
+          --user-pool-id ${{ inputs.userPoolId }} \
+          --username ${{ inputs.user }}
+
+        aws cognito-idp admin-set-user-password \
+        --user-pool-id ${{ inputs.userPoolId }} \
+        --username ${{ inputs.user }} \
+        --password ${{ inputs.password }} \
+        --permanent
+      shell: bash
