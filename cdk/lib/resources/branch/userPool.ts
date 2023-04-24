@@ -74,7 +74,7 @@ export const createUserPool = ({
       },
       scopes: [OAuthScope.EMAIL, OAuthScope.OPENID]
     },
-    userPoolClientName: `RecipesClient${branchLabel}`
+    userPoolClientName: `RecipesUserPoolClient${branchLabel}`
   });
 
   // Add dependency

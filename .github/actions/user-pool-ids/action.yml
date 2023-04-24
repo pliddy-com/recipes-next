@@ -1,0 +1,129 @@
+name: User Pool IDs
+description: This is an action to get user pool id and user pool client id for the workflow.
+
+outputs:
+  userPoolId:
+    description: 'Cognito User Pool ID'
+    value: ${{ steps.set-outputs.outputs.userPoolId }}
+  userPoolClientId:
+    description: 'Cognito User Pool Client ID'
+    value: ${{ steps.set-outputs.outputs.userPoolClientId }}
+
+runs:
+  using: composite
+  steps:
+    - name: Get User Pool ID
+      id: user-pool-id
+      uses: actions/github-script@v6
+      with:
+        result-encoding: string
+        script: |
+          const CloudFormation = require('aws-sdk/clients/cloudformation');
+          const apiVersion = '2010-05-15';
+          const region = 'us-east-1';
+          const cloudFormation = new CloudFormation({ apiVersion, region });
+
+          const refArray = context.ref.split('/');
+          console.log('refArray:', refArray);
+
+          const branch = refArray[refArray.length - 1];
+          console.log('branch:', branch);
+
+          let stackLabel;
+
+          if (branch === 'main') {
+            stackLabel = 'Prod';
+          } else {
+            stackLabel = branch[0].toUpperCase() + branch.slice(1);
+          }
+
+          console.log('stackLabel:', stackLabel);
+
+          const stackName = `RecipesBranchStack${ stackLabel }`
+          console.log('stackName:', stackName);
+
+          let branchLabel;
+
+          if (branch === 'main') {
+            branchLabel = 'Main';
+          } else {
+            branchLabel = stackLabel.replaceAll('-', '');
+          }
+
+          console.log('branchLabel:', branchLabel);
+
+          const userPoolLabel = `ExportRecipesUserPool${ branchLabel }`
+          console.log('userPoolLabel:', userPoolLabel);
+
+          const result = await cloudFormation.describeStacks({ StackName: stackName }).promise();
+          const foundStacks = (result && result.Stacks) || [];
+          const stack = foundStacks.find(s => s.StackName === stackName);
+
+          if (!stack) throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
+
+          const userPoolId = stack.Outputs.find(({ OutputKey }) => OutputKey === userPoolLabel).OutputValue;
+          console.log('userPoolId:', userPoolId);
+
+          return userPoolId;
+    - name: Get User Pool Client ID
+      id: user-pool-client-id
+      uses: actions/github-script@v6
+      with:
+        result-encoding: string
+        script: |
+          const CloudFormation = require('aws-sdk/clients/cloudformation');
+          const apiVersion = '2010-05-15';
+          const region = 'us-east-1';
+          const cloudFormation = new CloudFormation({ apiVersion, region });
+
+          const refArray = context.ref.split('/');
+          console.log('refArray:', refArray);
+
+          const branch = refArray[refArray.length - 1];
+          console.log('branch:', branch);
+
+          let stackLabel;
+
+          if (branch === 'main') {
+            stackLabel = 'Prod';
+          } else {
+            stackLabel = branch[0].toUpperCase() + branch.slice(1);
+          }
+
+          console.log('stackLabel:', stackLabel);
+
+          const stackName = `RecipesBranchStack${ stackLabel }`
+          console.log('stackName:', stackName);
+
+          let branchLabel;
+
+          if (branch === 'main') {
+            branchLabel = 'Main';
+          } else {
+            branchLabel = stackLabel.replaceAll('-', '');
+          }
+
+          console.log('branchLabel:', branchLabel);
+
+          const userPoolClientLabel = `ExportRecipesUserPoolClient${ branchLabel }`
+          console.log('userPoolClientLabel:', userPoolClientLabel);
+
+          const result = await cloudFormation.describeStacks({ StackName: stackName }).promise();
+          const foundStacks = (result && result.Stacks) || [];
+          const stack = foundStacks.find(s => s.StackName === stackName);
+
+          if (!stack) throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
+
+          const userPoolClientId = stack.Outputs.find(({ OutputKey }) => OutputKey === userPoolClientLabel).OutputValue;
+          console.log('userPoolClientId:', userPoolClientId);
+
+          return userPoolClientId;
+
+    - name: Set outputs
+      id: set-outputs
+      run: |
+        echo "userPoolId = ${{ steps.user-pool-id.outputs.result }}"
+        echo "userPoolId=${{ steps.user-pool-id.outputs.result }}" >> $GITHUB_OUTPUT
+        echo "userPoolClientId = ${{ steps.user-pool-client-id.outputs.result }}"
+        echo "userPoolClientId=${{ steps.user-pool-client-id.outputs.result }}" >> $GITHUB_OUTPUT
+      shell: bash
