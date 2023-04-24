@@ -11,6 +11,8 @@ const env = process.env;
 describe('userPool', () => {
   beforeEach(async () => {
     jest.resetModules();
+    process.env.NEXT_PUBLIC_COGNITO_APP_CLIENT_ID = 'APP_CLIENT_ID';
+    process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID = 'USER_POOL_ID';
   });
 
   afterEach(() => {
