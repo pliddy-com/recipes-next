@@ -19,7 +19,10 @@ describe('userPool', () => {
 
   describe('when there are config environment variables', () => {
     it('exports a Cognito user pool', () => {
-      const cognitoSpy = jest.spyOn(Cognito, 'CognitoUserPool');
+      const cognitoSpy = jest
+        .spyOn(Cognito, 'CognitoUserPool')
+        .mockImplementation();
+
       const testUserPool = userPool;
 
       expect(testUserPool).toBeDefined();

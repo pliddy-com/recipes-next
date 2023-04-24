@@ -1,4 +1,3 @@
-/* istanbul ignore file */
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -71,6 +70,7 @@ const SignInForm = () => {
         />
 
         <Button
+          aria-label="submit"
           className="submit"
           color="primary"
           size="large"

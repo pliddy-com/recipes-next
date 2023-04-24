@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import {
   ReactElement,
   createContext,
@@ -24,21 +22,12 @@ interface SignInProps {
 interface AuthenticationContextValue {
   isAuth: boolean;
   signIn({ email, password }: SignInProps): Promise<void>;
-  getSession(): Promise<void>;
+  getSession(): Promise<CognitoUserSession | null | void>;
   signOut(): void;
 }
 
-const defaultContext = {
-  isAuth: false,
-  signIn: () => Promise<void>,
-  getSession: () => Promise<void>,
-  signOut: () => {
-    null;
-  }
-};
-
 const AuthenticationContext = createContext<AuthenticationContextValue>(
-  defaultContext as unknown as AuthenticationContextValue
+  {} as AuthenticationContextValue
 );
 
 interface AuthenticationProps {
@@ -48,6 +37,7 @@ interface AuthenticationProps {
 const AuthenticationProvider = (props: AuthenticationProps) => {
   const [isAuth, setIsAuth] = useState(false);
 
+  /* istanbul ignore next */
   const getSession = useCallback(async () => {
     await new Promise((resolve, reject) => {
       const user = userPool && userPool.getCurrentUser();
@@ -68,6 +58,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     });
   }, []);
 
+  /* istanbul ignore next */
   const signIn = async ({ email, password }: SignInProps) => {
     await new Promise((resolve, reject) => {
       const user =
@@ -93,13 +84,13 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
             reject(err);
           },
           newPasswordRequired: (data) => {
-            // console.log('new password required', data);
             resolve(data);
           }
         });
     });
   };
 
+  /* istanbul ignore next */
   const signOut = () => {
     const user = userPool && userPool.getCurrentUser();
     user && user.signOut();
@@ -121,13 +112,18 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
 
   return (
     <AuthenticationContext.Provider
-      value={{ isAuth, signIn, getSession, signOut }}
+      value={{
+        isAuth,
+        signIn,
+        getSession,
+        signOut
+      }}
     >
       {props.children}
     </AuthenticationContext.Provider>
   );
 };
 
-export const useAuthContext = () => useContext(AuthenticationContext);
+const useAuthContext = () => useContext(AuthenticationContext);
 
-export { AuthenticationProvider, AuthenticationContext };
+export { AuthenticationProvider, useAuthContext };

@@ -25,16 +25,10 @@ describe('SignInPage in signIn.tsx', () => {
 
   describe('when there is content', () => {
     it('it renders the signin page', async () => {
-      const { asFragment, queryByTestId } = render(
-        // <AuthenticationProvider>
-        <SignInPage />
-        // </AuthenticationProvider>
-      );
+      const { asFragment, queryByTestId } = render(<SignInPage />);
 
       // wait for dynamic component to load
       await act(async () => waitFor(() => queryByTestId('page')));
-
-      //   expect(routerSpy).toBeCalled();
 
       // wait for dynamic component to load
       await act(async () => waitFor(() => queryByTestId('signInForm')));
