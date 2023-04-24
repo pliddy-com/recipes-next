@@ -77,6 +77,10 @@ jobs:
         id: distribution-id
         uses: './.github/actions/distribution-id'
 
+      - name: Get User Pool IDs
+        id: user-pool-ids
+        uses: './.github/actions/user-pool-ids'
+
       - name: Build and Deploy Client
         id: build-and-deploy-client
         uses: './.github/actions/build-and-deploy-client'
@@ -84,6 +88,8 @@ jobs:
           branch: ${{ github.ref_name }}
           distributionId: ${{ steps.distribution-id.outputs.distributionId }}
           s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
+          userPoolId: ${{ steps.user-pool-ids.outputs.userPoolId }}
+          userPoolClientId: ${{ steps.user-pool-ids.outputs.userPoolClientId }}
 
       - name: Build Search Index
         id: index-search
