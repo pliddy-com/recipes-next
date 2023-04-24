@@ -91,17 +91,5 @@ export class RecipesSharedStack extends Stack {
       label: 'SiteCert',
       stack: this
     });
-
-    /**
-     *  Create a TLS certificate for Cognito authentication
-     */
-
-    createCertificate({
-      branch,
-      branchSubdomain: `auth.${branchSubdomain}`,
-      hostedZone,
-      label: 'AuthCert',
-      stack: this
-    });
   }
 }

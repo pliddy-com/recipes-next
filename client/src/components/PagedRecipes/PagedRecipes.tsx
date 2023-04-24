@@ -22,6 +22,11 @@ interface PagedRecipesProps {
 const PagedRecipes = (props: PagedRecipesProps) => {
   const { data, hideLinks, isIndex = false, numPages, pageNum } = props;
 
+  data &&
+    data.sort((a, b) =>
+      a && b && a.slug && b.slug && a.slug > b.slug ? 1 : -1
+    );
+
   return data && data.length > 0 ? (
     <>
       <Grid container spacing={2} data-testid="results-page">

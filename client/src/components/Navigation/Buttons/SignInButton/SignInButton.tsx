@@ -1,24 +1,26 @@
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 import NavIconButton from '../NavIconButton/NavIconButton';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+import { useAuthContext } from 'contexts/Authentication';
 
 interface SearchButtonProps {
   hideLabel?: boolean;
 }
 
 const SignInButton = ({ hideLabel }: SearchButtonProps) => {
-  const ariaLabel = 'sign in';
-  const className = 'menu-button';
-  const label = 'Sign In';
-  const href = '/signin';
+  const { isAuth, signOut } = useAuthContext();
 
   return (
     <NavIconButton
-      ariaLabel={ariaLabel}
-      className={className}
+      ariaLabel={isAuth ? 'sign out' : 'sign in'}
+      className="menu-button auth"
       hideLabel={hideLabel}
-      icon={<AccountCircleIcon />}
-      label={label}
-      href={href}
+      icon={isAuth ? <LogoutIcon /> : <LoginIcon />}
+      label={isAuth ? 'Sign Out' : 'Sign In'}
+      onClick={isAuth ? signOut : undefined}
+      href={isAuth ? undefined : '/signin'}
     />
   );
 };

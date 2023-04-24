@@ -1,0 +1,70 @@
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
+
+import SignInButton from './SignInButton';
+
+import * as AuthContext from 'contexts/Authentication';
+
+jest.mock('contexts/Authentication');
+
+describe('SignInButton', () => {
+  it('renders a sign in button when not authenticated', () => {
+    const expectedHref = '/signin';
+    const expectedLabel = 'Sign In';
+
+    const contextValues = {
+      isAuth: false,
+      signIn: jest.fn(),
+      getSession: jest.fn(),
+      signOut: jest.fn()
+    };
+
+    const authSpy = jest
+      .spyOn(AuthContext, 'useAuthContext')
+      .mockImplementation(() => contextValues);
+
+    const { asFragment, getByRole } = render(<SignInButton />);
+
+    expect(authSpy).toBeCalled();
+
+    // assert that the component has been rendered
+    const component = getByRole('button', { name: 'sign in' });
+
+    // assert that the component has correct label
+    expect(component.textContent).toContain(expectedLabel);
+
+    // assert that the component has correct href
+    expect(component).toHaveAttribute('href', expectedHref);
+
+    // assert that the component matches the existing snapshot
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('renders a sign in button when authenticated', () => {
+    const expectedLabel = 'Sign Out';
+
+    const contextValues = {
+      isAuth: true,
+      signIn: jest.fn(),
+      getSession: jest.fn(),
+      signOut: jest.fn()
+    };
+
+    const authSpy = jest
+      .spyOn(AuthContext, 'useAuthContext')
+      .mockImplementation(() => contextValues);
+
+    const { getByRole } = render(<SignInButton />);
+
+    expect(authSpy).toBeCalled();
+
+    // assert that the component has been rendered
+    const component = getByRole('button', { name: 'sign out' });
+
+    // assert that the component has correct label
+    expect(component.textContent).toContain(expectedLabel);
+
+    // assert that the component matches the existing snapshot
+    expect(component).toMatchSnapshot();
+  });
+});

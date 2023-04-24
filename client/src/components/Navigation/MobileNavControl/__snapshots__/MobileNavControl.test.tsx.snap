@@ -26,3 +26,30 @@ exports[`NavMenuControl when there is a properly structured nav property it rend
   </button>
 </DocumentFragment>
 `;
+
+exports[`NavMenuControl when there is a properly structured nav property renders a sign in button when authenticated 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="open test menu"
+    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart MuiIconButton-sizeMedium menu-button css-1d6w9lk-MuiButtonBase-root-MuiIconButton-root"
+    role="button"
+    tabindex="0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="MenuIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </button>
+</DocumentFragment>
+`;

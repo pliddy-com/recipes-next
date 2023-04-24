@@ -10,7 +10,7 @@
     "sitemap": "next-sitemap",
     "predeploy": "npm run build",
     "deploy": "dotenv -- cross-var aws s3 sync out/ %S3_BUCKET%/branches/$(git symbolic-ref --short HEAD) --delete",
-    "dev": "next dev",
+    "dev": "npm run nav && next dev",
     "export": "next export",
     "find:unused": "next-unused",
     "invalidate": "dotenv -- cross-var aws cloudfront create-invalidation --distribution-id %DISTRIBUTION_ID% --paths '/*' --no-cli-pager",

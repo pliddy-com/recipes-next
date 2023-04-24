@@ -25,6 +25,9 @@ const buttonThemeOptions: ThemeOptions = {
             color: colors.common.white,
             '& .dropdown-icon': {
               marginLeft: '0.5rem'
+            },
+            '&.auth': {
+              minWidth: '6.5625rem'
             }
           },
           '&.submit': {
