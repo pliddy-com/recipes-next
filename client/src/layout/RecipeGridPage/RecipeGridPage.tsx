@@ -43,9 +43,9 @@ const RecipeGridPage = ({
   const hasMore = pageNum < numPages;
 
   useEffect(() => {
+    setPageNum(1);
     setData([pagedResults[page ? page - 1 : 0]]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pagedResults]);
+  }, [page, pagedResults]);
 
   /* istanbul ignore next */
   const loadMore = () =>
