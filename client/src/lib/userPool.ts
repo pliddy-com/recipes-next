@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { CognitoUserPool } from 'amazon-cognito-identity-js';
 
 const APP_CLIENT_ID = process.env.NEXT_PUBLIC_COGNITO_APP_CLIENT_ID;

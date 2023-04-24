@@ -13,6 +13,8 @@ import {
 //   AuthenticationDetails: jest.fn().mockImplementation()
 // }));
 
+jest.mock('lib/userPool');
+
 describe('Authentication', () => {
   describe('when the provider is called', () => {
     it('the Authentication provider renders', async () => {
