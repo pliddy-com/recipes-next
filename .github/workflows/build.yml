@@ -17,6 +17,8 @@ env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  DEFAULT_USER: ${{ vars.DEFAULT_USER }}
+  DEFAULT_PASSWORD: ${{ secrets.DEFAULT_PASSWORD }}
   NEXT_PUBLIC_ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
   NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: ${{ secrets.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY }}
@@ -63,6 +65,14 @@ jobs:
       - name: Get User Pool IDs
         id: user-pool-ids
         uses: './.github/actions/user-pool-ids'
+
+      - name: Create Default User
+        id: create-default-user
+        uses: './.github/actions/default-user'
+        with:
+          userPoolId: ${{ steps.user-pool-ids.outputs.userPoolId }}
+          user: ${{ env.DEFAULT_USER }}
+          password: ${{ env.DEFAULT_PASSWORD }}
 
       - name: Build and Deploy Client
         id: build-and-deploy-client
