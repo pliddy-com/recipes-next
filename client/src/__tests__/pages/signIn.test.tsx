@@ -7,6 +7,7 @@ import config from 'lib/config';
 
 jest.mock('lib/config');
 jest.mock('components/SignInForm/SignInForm');
+jest.mock('components/PageHead/PageTags/PageTags');
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({

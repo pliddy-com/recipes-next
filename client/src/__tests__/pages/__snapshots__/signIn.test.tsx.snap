@@ -7,39 +7,11 @@ exports[`SignInPage in signIn.tsx when there is content it renders the signin pa
     data-testid="page"
   >
     <title>
-      Site Title | Sign In
+      Sign In
     </title>
     <meta
       content="Site sign in"
       name="description"
-    />
-    <meta
-      content="Site sign in"
-      property="og:description"
-    />
-    <meta
-      content="en_US"
-      property="og:locale"
-    />
-    <meta
-      content="Site Title"
-      property="og:site_name"
-    />
-    <meta
-      content="Sign In"
-      property="og:title"
-    />
-    <meta
-      content="website"
-      property="og:type"
-    />
-    <meta
-      content="https://131-auth-integration.recipes.pliddy.comundefined"
-      property="og:url"
-    />
-    <link
-      href="https://131-auth-integration.recipes.pliddy.comundefined"
-      rel="canonical"
     />
     <h1
       class="MuiTypography-root MuiTypography-h1 css-o2w69a-MuiTypography-root"
