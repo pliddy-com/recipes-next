@@ -12,7 +12,7 @@ jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({
     route: '/route',
     pathname: '/path',
-    asPath: '/category/path'
+    asPath: '/tag/path'
   })
 }));
 
