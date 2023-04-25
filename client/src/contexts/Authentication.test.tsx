@@ -6,13 +6,6 @@ import {
   useAuthContext
 } from 'contexts/Authentication';
 
-// import * as Cognito from 'amazon-cognito-identity-js';
-
-// jest.mock('amazon-cognito-identity-js', () => ({
-//   CognitoUser: jest.fn().mockImplementation(),
-//   AuthenticationDetails: jest.fn().mockImplementation()
-// }));
-
 jest.genMockFromModule('amazon-cognito-identity-js');
 jest.mock('lib/userPool');
 
@@ -58,14 +51,6 @@ describe('Authentication', () => {
 
       const signOutButton = queryByTestId('signOut');
       signOutButton && fireEvent.click(signOutButton);
-
-      //   try {
-      //     const signOutButton = await queryByTestId('signOut');
-      //     // assert that callback is called on click
-      //     signOutButton && fireEvent.click(signOutButton);
-      //   } catch (e) {
-      //     console.error(e);
-      //   }
     });
   });
 });
