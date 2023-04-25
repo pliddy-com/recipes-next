@@ -7,7 +7,7 @@ exports[`SignInForm when isAuth is false it renders a sign in form 1`] = `
     method="POST"
   >
     <div
-      class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
+      class="MuiFormControl-root signin css-1nrlq1o-MuiFormControl-root"
     >
       <div
         class="MuiFormControl-root MuiFormControl-marginNormal MuiTextField-root css-1rv3ei8-MuiFormControl-root-MuiTextField-root"
@@ -102,7 +102,7 @@ exports[`SignInForm when isAuth is true it renders a sign in form 1`] = `
     method="POST"
   >
     <div
-      class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
+      class="MuiFormControl-root signin css-1nrlq1o-MuiFormControl-root"
     >
       <div
         class="MuiFormControl-root MuiFormControl-marginNormal MuiTextField-root css-1rv3ei8-MuiFormControl-root-MuiTextField-root"
@@ -187,5 +187,34 @@ exports[`SignInForm when isAuth is true it renders a sign in form 1`] = `
       </button>
     </div>
   </form>
+</DocumentFragment>
+`;
+
+exports[`SignInForm when isLoading is true it renders the loader 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg loading signInLoading css-1oqqzyl-MuiContainer-root"
+  >
+    <span
+      aria-label="spinner"
+      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+      role="graphics-symbol"
+      style="width: 40px; height: 40px;"
+    >
+      <svg
+        class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20.2"
+          stroke-width="3.6"
+        />
+      </svg>
+    </span>
+  </div>
 </DocumentFragment>
 `;

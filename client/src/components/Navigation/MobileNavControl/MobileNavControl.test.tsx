@@ -18,8 +18,9 @@ describe('NavMenuControl', () => {
       const nav = await api.getNavTaxonomy();
       const contextValues = {
         isAuth: false,
+        isLoading: false,
+        setIsLoading: jest.fn(),
         signIn: jest.fn(),
-        getSession: jest.fn(),
         signOut: jest.fn()
       };
 
@@ -65,8 +66,9 @@ describe('NavMenuControl', () => {
 
       const contextValues = {
         isAuth: true,
+        isLoading: false,
+        setIsLoading: jest.fn(),
         signIn: jest.fn(),
-        getSession: jest.fn(),
         signOut: jest.fn()
       };
 

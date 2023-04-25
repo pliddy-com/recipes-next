@@ -5,16 +5,15 @@ import SignInForm from './SignInForm';
 
 import * as AuthContext from 'contexts/Authentication';
 
-jest.mock('contexts/Authentication', () => ({
-  useAuthContext: jest.fn().mockReturnValue({
-    isAuth: false,
-    signIn: jest.fn()
-  })
-}));
+jest.mock('contexts/Authentication');
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({
-    push: jest.fn()
+    back: jest.fn(),
+    events: {
+      on: jest.fn(),
+      off: jest.fn()
+    }
   })
 }));
 
@@ -25,9 +24,10 @@ describe('SignInForm', () => {
       const passwordValue = 'password';
 
       const contextValues = {
-        getSession: jest.fn(),
         isAuth: false,
-        signIn: jest.fn().mockResolvedValue('success'),
+        isLoading: false,
+        setIsLoading: jest.fn(),
+        signIn: jest.fn(),
         signOut: jest.fn()
       };
 
@@ -85,8 +85,9 @@ describe('SignInForm', () => {
 
       const contextValues = {
         isAuth: false,
+        isLoading: false,
+        setIsLoading: jest.fn(),
         signIn: jest.fn().mockRejectedValue(new Error(testError)),
-        getSession: jest.fn(),
         signOut: jest.fn()
       };
 
@@ -106,8 +107,6 @@ describe('SignInForm', () => {
       // Test form field inputs
       const email_input = queryByLabelText('Email');
       const password_input = queryByLabelText('Password');
-
-      //   const form = queryByTestId('signInForm');
 
       email_input &&
         fireEvent.change(email_input, {
@@ -137,8 +136,32 @@ describe('SignInForm', () => {
   describe('when isAuth is true', () => {
     it('it renders a sign in form', () => {
       const contextValues = {
-        getSession: jest.fn(),
         isAuth: true,
+        isLoading: false,
+        setIsLoading: jest.fn(),
+        signIn: jest.fn(),
+        signOut: jest.fn()
+      };
+
+      const authSpy = jest
+        .spyOn(AuthContext, 'useAuthContext')
+        .mockImplementationOnce(() => contextValues);
+
+      const { asFragment } = render(<SignInForm />);
+
+      expect(authSpy).toBeCalled();
+
+      // assert that the component matches the existing snapshot
+      expect(asFragment()).toMatchSnapshot();
+    });
+  });
+
+  describe('when isLoading is true', () => {
+    it('it renders the loader', () => {
+      const contextValues = {
+        isAuth: false,
+        isLoading: true,
+        setIsLoading: jest.fn(),
         signIn: jest.fn(),
         signOut: jest.fn()
       };

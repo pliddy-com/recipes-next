@@ -7,19 +7,31 @@ import TextField from '@mui/material/TextField';
 
 import { useAuthContext } from 'contexts/Authentication';
 
+import Loading from 'components/Loading/Loading';
+
 const SignInForm = () => {
-  const { push } = useRouter();
+  const router = useRouter();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const { isAuth, signIn } = useAuthContext();
+  const { isAuth, isLoading, setIsLoading, signIn } = useAuthContext();
 
   useEffect(() => {
-    if (isAuth) push('/');
-  }, [isAuth, push]);
+    if (isAuth) {
+      router.back();
+      /* istanbul ignore next */
+      router.events.on('routeChangeComplete', () => setIsLoading(false));
+    }
+
+    /* unsubscribe from event when component dismounts*/
+    /* istanbul ignore next */
+    return () => {
+      router.events.off('routeChangeComplete', () => setIsLoading(false));
+    };
+  }, [isAuth, router, setIsLoading]);
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -44,9 +56,11 @@ const SignInForm = () => {
     }
   };
 
-  return (
+  return isLoading ? (
+    <Loading className="signInLoading" />
+  ) : (
     <form method="POST" data-testid="signInForm">
-      <FormControl>
+      <FormControl className="signin">
         <TextField
           error={emailError}
           id="email"

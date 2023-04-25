@@ -1,18 +1,12 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
 import {
   AuthenticationProvider,
   useAuthContext
 } from 'contexts/Authentication';
 
-// import * as Cognito from 'amazon-cognito-identity-js';
-
-// jest.mock('amazon-cognito-identity-js', () => ({
-//   CognitoUser: jest.fn().mockImplementation(),
-//   AuthenticationDetails: jest.fn().mockImplementation()
-// }));
-
+jest.genMockFromModule('amazon-cognito-identity-js');
 jest.mock('lib/userPool');
 
 describe('Authentication', () => {
@@ -22,14 +16,11 @@ describe('Authentication', () => {
       const password = 'password';
 
       const TestingComponent = () => {
-        const { getSession, signIn, signOut } = useAuthContext();
+        const { signIn, signOut } = useAuthContext();
 
         return (
           <>
             <p>test</p>
-            <button onClick={getSession} data-testid="getSession">
-              getSession
-            </button>
             <button
               onClick={async () => signIn({ email, password })}
               data-testid="signIn"
@@ -43,24 +34,23 @@ describe('Authentication', () => {
         );
       };
 
-      render(
+      const { queryByTestId } = render(
         <AuthenticationProvider>
           <TestingComponent />
         </AuthenticationProvider>
       );
 
       // wait for dynamic component to load
-      //   await act(async () =>
-      //     waitFor(() => expect(queryByTestId('signOut')).toBeInTheDocument())
-      //   );
+      await act(async () => {
+        waitFor(() => expect(queryByTestId('signIn')).toBeInTheDocument());
+        waitFor(() => expect(queryByTestId('signOut')).toBeInTheDocument());
+      });
 
-      //   try {
-      //     const signOutButton = await queryByTestId('signOut');
-      //     // assert that callback is called on click
-      //     signOutButton && fireEvent.click(signOutButton);
-      //   } catch (e) {
-      //     console.error(e);
-      //   }
+      const signInButton = queryByTestId('signIn');
+      signInButton && fireEvent.click(signInButton);
+
+      const signOutButton = queryByTestId('signOut');
+      signOutButton && fireEvent.click(signOutButton);
     });
   });
 });

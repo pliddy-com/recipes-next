@@ -2,13 +2,30 @@ import { ThemeOptions } from '@mui/material/styles';
 
 import { sansFontFamily } from './values/fontface';
 
+import baseTheme from './base';
+
 const formThemeOptions: ThemeOptions = {
   components: {
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          '&.signInLoading': {
+            border: `1px solid ${baseTheme.palette.grey[400]}`,
+            marginTop: '1.25rem',
+            maxHeight: '248px'
+          }
+        }
+      }
+    },
     MuiFormControl: {
       styleOverrides: {
         root: {
+          marginTop: '1rem',
           width: '100%',
-          marginTop: '1rem'
+          '&.signin': {
+            border: `1px solid ${baseTheme.palette.grey[400]}`,
+            padding: '1rem 2rem 2rem'
+          }
         }
       }
     },

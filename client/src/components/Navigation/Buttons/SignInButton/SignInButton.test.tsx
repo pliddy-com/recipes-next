@@ -14,8 +14,9 @@ describe('SignInButton', () => {
 
     const contextValues = {
       isAuth: false,
+      isLoading: false,
+      setIsLoading: jest.fn(),
       signIn: jest.fn(),
-      getSession: jest.fn(),
       signOut: jest.fn()
     };
 
@@ -45,8 +46,9 @@ describe('SignInButton', () => {
 
     const contextValues = {
       isAuth: true,
+      isLoading: false,
+      setIsLoading: jest.fn(),
       signIn: jest.fn(),
-      getSession: jest.fn(),
       signOut: jest.fn()
     };
 
