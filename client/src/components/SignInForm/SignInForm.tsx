@@ -25,6 +25,12 @@ const SignInForm = () => {
       /* istanbul ignore next */
       router.events.on('routeChangeComplete', () => setIsLoading(false));
     }
+
+    /* unsubscribe from event when component dismounts*/
+    /* istanbul ignore next */
+    return () => {
+      router.events.off('routeChangeComplete', () => setIsLoading(false));
+    };
   }, [isAuth, router, setIsLoading]);
 
   const handleSubmit = async (event: React.SyntheticEvent) => {

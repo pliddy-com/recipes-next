@@ -11,7 +11,8 @@ jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({
     back: jest.fn(),
     events: {
-      on: jest.fn()
+      on: jest.fn(),
+      off: jest.fn()
     }
   })
 }));
