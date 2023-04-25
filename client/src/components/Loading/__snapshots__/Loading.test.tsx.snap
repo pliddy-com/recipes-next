@@ -1,24 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LogoIcon loads and displays greeting 1`] = `
-<span
-  aria-label="spinner"
-  class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
-  role="graphics-symbol"
-  style="width: 40px; height: 40px;"
->
-  <svg
-    class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
-    viewBox="22 22 44 44"
+exports[`Loading handles custom class names 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg loading test-class css-1oqqzyl-MuiContainer-root"
   >
-    <circle
-      class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
-      cx="44"
-      cy="44"
-      fill="none"
-      r="20.2"
-      stroke-width="3.6"
-    />
-  </svg>
-</span>
+    <span
+      aria-label="spinner"
+      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+      role="graphics-symbol"
+      style="width: 40px; height: 40px;"
+    >
+      <svg
+        class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20.2"
+          stroke-width="3.6"
+        />
+      </svg>
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Loading loads and displays a spinner 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg loading css-1oqqzyl-MuiContainer-root"
+  >
+    <span
+      aria-label="spinner"
+      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+      role="graphics-symbol"
+      style="width: 40px; height: 40px;"
+    >
+      <svg
+        class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20.2"
+          stroke-width="3.6"
+        />
+      </svg>
+    </span>
+  </div>
+</DocumentFragment>
 `;

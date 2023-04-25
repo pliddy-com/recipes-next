@@ -22,14 +22,11 @@ describe('Authentication', () => {
       const password = 'password';
 
       const TestingComponent = () => {
-        const { getSession, signIn, signOut } = useAuthContext();
+        const { signIn, signOut } = useAuthContext();
 
         return (
           <>
             <p>test</p>
-            <button onClick={getSession} data-testid="getSession">
-              getSession
-            </button>
             <button
               onClick={async () => signIn({ email, password })}
               data-testid="signIn"

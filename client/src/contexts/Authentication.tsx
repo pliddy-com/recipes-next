@@ -1,16 +1,14 @@
 import {
+  Dispatch,
   ReactElement,
+  SetStateAction,
   createContext,
-  useCallback,
   useContext,
+  useEffect,
   useState
 } from 'react';
 
-import {
-  AuthenticationDetails,
-  CognitoUser,
-  CognitoUserSession
-} from 'amazon-cognito-identity-js';
+import { AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js';
 
 import userPool from 'lib/userPool';
 
@@ -21,8 +19,9 @@ interface SignInProps {
 
 interface AuthenticationContextValue {
   isAuth: boolean;
+  isLoading: boolean;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
   signIn({ email, password }: SignInProps): Promise<void>;
-  getSession(): Promise<CognitoUserSession | null | void>;
   signOut(): void;
 }
 
@@ -35,32 +34,20 @@ interface AuthenticationProps {
 }
 
 const AuthenticationProvider = (props: AuthenticationProps) => {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState<boolean>(false);
+  const [token, setToken] = useState<string | null>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   /* istanbul ignore next */
-  const getSession = useCallback(async () => {
-    await new Promise((resolve, reject) => {
-      const user = userPool && userPool.getCurrentUser();
-
-      if (user) {
-        user.getSession((err: Error, session: CognitoUserSession | null) => {
-          if (err) {
-            setIsAuth(false);
-            reject(err);
-          } else {
-            setIsAuth(true);
-            resolve(session);
-          }
-        });
-      } else {
-        reject();
-      }
-    });
-  }, []);
+  useEffect(() => {
+    setIsAuth(token ? true : false);
+  }, [token]);
 
   /* istanbul ignore next */
   const signIn = async ({ email, password }: SignInProps) => {
     await new Promise((resolve, reject) => {
+      setIsLoading(true);
+
       const user =
         userPool &&
         new CognitoUser({
@@ -76,15 +63,17 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
       user &&
         user.authenticateUser(authDetails, {
           onSuccess: (result) => {
-            setIsAuth(true);
+            setToken(result.getIdToken().getJwtToken());
             resolve(result);
+            // setIsAuth(true);
           },
           onFailure: (err) => {
-            setIsAuth(false);
             reject(err);
+            setIsLoading(false);
           },
           newPasswordRequired: (data) => {
             resolve(data);
+            setIsLoading(false);
           }
         });
     });
@@ -93,29 +82,19 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   /* istanbul ignore next */
   const signOut = () => {
     const user = userPool && userPool.getCurrentUser();
-    user && user.signOut();
-    setIsAuth(false);
-    // Router.reload();
-  };
+    // localStorage.removeItem('token');
+    setToken(null);
 
-  // useEffect(() => {
-  //   getSession()
-  //     .then((session) => {
-  //       console.log('Session: ', session);
-  //       setIsAuth(true);
-  //     })
-  //     .catch((err) => {
-  //       console.log('Session: ', err);
-  //       setIsAuth(false);
-  //     });
-  // }, [getSession]);
+    user && user.signOut();
+  };
 
   return (
     <AuthenticationContext.Provider
       value={{
         isAuth,
+        isLoading,
+        setIsLoading,
         signIn,
-        getSession,
         signOut
       }}
     >

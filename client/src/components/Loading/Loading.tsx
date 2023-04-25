@@ -1,8 +1,12 @@
 import Container from '@mui/material/Container';
 import CircularProgress from '@mui/material/CircularProgress';
 
-const Loading = () => (
-  <Container className="loading">
+interface ILoading {
+  className?: string;
+}
+
+const Loading = ({ className }: ILoading) => (
+  <Container className={`loading${className ? ` ${className}` : ''}`}>
     <CircularProgress
       color="primary"
       aria-label="spinner"
