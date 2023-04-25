@@ -4,22 +4,50 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import NavIconButton from '../NavIconButton/NavIconButton';
 
 import { useAuthContext } from 'contexts/Authentication';
+import { ListItemButton, ListItemText, ListItemIcon } from '@mui/material';
+import { MouseEvent, MouseEventHandler } from 'react';
 
 interface SearchButtonProps {
   hideLabel?: boolean;
+  style?: 'button' | 'menu';
+  onClick?: MouseEventHandler;
 }
 
-const SignInButton = ({ hideLabel }: SearchButtonProps) => {
+const SignInButton = ({
+  hideLabel = false,
+  onClick,
+  style = 'button'
+}: SearchButtonProps) => {
   const { isAuth, signOut } = useAuthContext();
 
-  return (
+  const onSignOutClick = (e: MouseEvent) => {
+    signOut();
+    onClick && onClick(e);
+  };
+
+  return style === 'menu' ? (
+    <ListItemButton
+      aria-label={isAuth ? 'sign out' : 'sign in'}
+      {...(!isAuth ? { href: '/signin' } : {})}
+      onClick={isAuth ? onSignOutClick : signOut}
+    >
+      <ListItemText primary={isAuth ? 'Sign Out' : 'Sign In'} />
+      <ListItemIcon>
+        {isAuth ? (
+          <LogoutIcon fontSize="small" />
+        ) : (
+          <LoginIcon fontSize="small" />
+        )}
+      </ListItemIcon>
+    </ListItemButton>
+  ) : (
     <NavIconButton
       ariaLabel={isAuth ? 'sign out' : 'sign in'}
       className="menu-button auth"
       hideLabel={hideLabel}
       icon={isAuth ? <LogoutIcon /> : <LoginIcon />}
       label={isAuth ? 'Sign Out' : 'Sign In'}
-      onClick={isAuth ? signOut : undefined}
+      onClick={isAuth ? onSignOutClick : undefined}
       href={isAuth ? undefined : '/signin'}
     />
   );
