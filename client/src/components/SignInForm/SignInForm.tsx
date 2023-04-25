@@ -10,7 +10,7 @@ import { useAuthContext } from 'contexts/Authentication';
 import Loading from 'components/Loading/Loading';
 
 const SignInForm = () => {
-  const { push } = useRouter();
+  const router = useRouter();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,9 +21,11 @@ const SignInForm = () => {
 
   useEffect(() => {
     if (isAuth) {
-      push('/').then(() => setIsLoading(false));
+      router.back();
+      /* istanbul ignore next */
+      router.events.on('routeChangeComplete', () => setIsLoading(false));
     }
-  }, [isAuth, push, setIsLoading]);
+  }, [isAuth, router, setIsLoading]);
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
