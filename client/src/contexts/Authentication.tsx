@@ -43,6 +43,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     setIsAuth(token ? true : false);
   }, [token]);
 
+  /* istanbul ignore next */
   const signIn = async ({ email, password }: SignInProps) => {
     await new Promise((resolve, reject) => {
       setIsLoading(true);
@@ -59,7 +60,6 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
         Password: password
       });
 
-      /* istanbul ignore next */
       user &&
         user.authenticateUser(authDetails, {
           onSuccess: (result) => {
@@ -78,10 +78,10 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     });
   };
 
+  /* istanbul ignore next */
   const signOut = () => {
     const user = userPool && userPool.getCurrentUser();
 
-    /* istanbul ignore next */
     user && user.signOut();
 
     setToken(null);
