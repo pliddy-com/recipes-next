@@ -85,12 +85,12 @@ jobs:
         id: build-and-deploy-client
         uses: './.github/actions/build-and-deploy-client'
         with:
+          algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
           branch: ${{ github.ref_name }}
           distributionId: ${{ steps.distribution-id.outputs.distributionId }}
           s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
-          userPoolId: ${{ steps.user-pool-ids.outputs.userPoolId }}
           userPoolClientId: ${{ steps.user-pool-ids.outputs.userPoolClientId }}
-          algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+          userPoolId: ${{ steps.user-pool-ids.outputs.userPoolId }}
 
       - name: Build Search Index
         id: index-search

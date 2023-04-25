@@ -14,7 +14,7 @@ import Head from 'next/head';
 
 const clientSideEmotionCache = createEmotionCache();
 
-const { NEXT_PUBLIC_ALGOLIA_APP_ID } = process.env;
+const NEXT_PUBLIC_ALGOLIA_APP_ID = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID;
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -38,7 +38,6 @@ const RecipesApp = (props: AppLayoutProps) => {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* <link rel="preconnect" href="https://graphql.contentful.com" /> */}
         <link rel="preconnect" href="https://images.ctfassets.net" />
         <link
           rel="preconnect"
