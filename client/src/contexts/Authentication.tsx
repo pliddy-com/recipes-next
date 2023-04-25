@@ -8,7 +8,11 @@ import {
   useState
 } from 'react';
 
-import { AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js';
+import {
+  AuthenticationDetails,
+  CognitoUser,
+  CognitoUserSession
+} from 'amazon-cognito-identity-js';
 
 import userPool from 'lib/userPool';
 
@@ -39,7 +43,24 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   /* istanbul ignore next */
+  const getToken = () => {
+    const user = userPool && userPool.getCurrentUser();
+
+    user &&
+      user.getSession((err: Error | null, session: CognitoUserSession) => {
+        if (err) {
+          alert(err.message || JSON.stringify(err));
+          return null;
+        }
+
+        setToken(session.getIdToken().getJwtToken());
+      });
+    return null;
+  };
+
+  /* istanbul ignore next */
   useEffect(() => {
+    getToken();
     setIsAuth(token ? true : false);
   }, [token]);
 
