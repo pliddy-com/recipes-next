@@ -43,7 +43,6 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     setIsAuth(token ? true : false);
   }, [token]);
 
-  /* istanbul ignore next */
   const signIn = async ({ email, password }: SignInProps) => {
     await new Promise((resolve, reject) => {
       setIsLoading(true);
@@ -60,12 +59,12 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
         Password: password
       });
 
+      /* istanbul ignore next */
       user &&
         user.authenticateUser(authDetails, {
           onSuccess: (result) => {
             setToken(result.getIdToken().getJwtToken());
             resolve(result);
-            // setIsAuth(true);
           },
           onFailure: (err) => {
             reject(err);
@@ -79,13 +78,13 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     });
   };
 
-  /* istanbul ignore next */
   const signOut = () => {
     const user = userPool && userPool.getCurrentUser();
-    // localStorage.removeItem('token');
-    setToken(null);
 
+    /* istanbul ignore next */
     user && user.signOut();
+
+    setToken(null);
   };
 
   return (

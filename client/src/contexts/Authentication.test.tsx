@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
 import {
   AuthenticationProvider,
@@ -13,6 +13,7 @@ import {
 //   AuthenticationDetails: jest.fn().mockImplementation()
 // }));
 
+jest.genMockFromModule('amazon-cognito-identity-js');
 jest.mock('lib/userPool');
 
 describe('Authentication', () => {
@@ -40,16 +41,23 @@ describe('Authentication', () => {
         );
       };
 
-      render(
+      const { queryByTestId } = render(
         <AuthenticationProvider>
           <TestingComponent />
         </AuthenticationProvider>
       );
 
       // wait for dynamic component to load
-      //   await act(async () =>
-      //     waitFor(() => expect(queryByTestId('signOut')).toBeInTheDocument())
-      //   );
+      await act(async () => {
+        waitFor(() => expect(queryByTestId('signIn')).toBeInTheDocument());
+        waitFor(() => expect(queryByTestId('signOut')).toBeInTheDocument());
+      });
+
+      const signInButton = queryByTestId('signIn');
+      signInButton && fireEvent.click(signInButton);
+
+      const signOutButton = queryByTestId('signOut');
+      signOutButton && fireEvent.click(signOutButton);
 
       //   try {
       //     const signOutButton = await queryByTestId('signOut');
