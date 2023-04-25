@@ -5,18 +5,13 @@ import dynamic from 'next/dynamic';
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Configure } from 'react-instantsearch-hooks-web';
 
-// import Container from '@mui/material/Container';
-// import Typography from '@mui/material/Typography';
+import Typography from '@mui/material/Typography';
 
 import Loading from 'components/Loading/Loading';
 import PageTags from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeIndex } from 'lib/api';
-
 import config from 'lib/config';
-import Typography from '@mui/material/Typography';
-// import Container from '@mui/system/Container';
-// import Typography from '@mui/material/Typography';
 
 const Layout = dynamic(
   () => import(/* webpackChunkName: 'Layout' */ 'layout/Layout/Layout'),
