@@ -90,6 +90,7 @@ jobs:
           s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
           userPoolId: ${{ steps.user-pool-ids.outputs.userPoolId }}
           userPoolClientId: ${{ steps.user-pool-ids.outputs.userPoolClientId }}
+          algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
 
       - name: Build Search Index
         id: index-search

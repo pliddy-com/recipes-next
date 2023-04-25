@@ -2,6 +2,9 @@ name: Build and Deploy Client
 description: Build Next app & deploy to S3 with invalidation
 
 inputs:
+  algoliaAppId:
+    description: 'Algolia app id secret'
+    required: true
   branch:
     description: This is the git branch
     required: true
@@ -28,6 +31,6 @@ runs:
         echo "deployment bucket: ${{ inputs.s3Bucket }}"
         echo "distribution id: ${{ inputs.distributionId }}"
 
-        NEXT_PUBLIC_COGNITO_USER_POOL_ID=${{ inputs.userPoolId }} NEXT_PUBLIC_COGNITO_APP_CLIENT_ID=${{ inputs.userPoolClientId }} S3_BUCKET=${{ inputs.s3Bucket }} npm run deploy -w client
+        NEXT_PUBLIC_ALGOLIA_APP_ID=${{ inputs.algoliaAppId }} NEXT_PUBLIC_COGNITO_USER_POOL_ID=${{ inputs.userPoolId }} NEXT_PUBLIC_COGNITO_APP_CLIENT_ID=${{ inputs.userPoolClientId }} S3_BUCKET=${{ inputs.s3Bucket }} npm run deploy -w client
         DISTRIBUTION_ID=${{ inputs.distributionId }} npm run invalidate -w client
       shell: bash
