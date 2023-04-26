@@ -30,7 +30,7 @@ const SignInButton = ({
     <ListItemButton
       aria-label={isAuth ? 'sign out' : 'sign in'}
       {...(!isAuth ? { href: '/signin' } : {})}
-      onClick={isAuth ? onSignOutClick : signOut}
+      onClick={isAuth ? onSignOutClick : undefined}
     >
       <ListItemText primary={isAuth ? 'Sign Out' : 'Sign In'} />
       <ListItemIcon>

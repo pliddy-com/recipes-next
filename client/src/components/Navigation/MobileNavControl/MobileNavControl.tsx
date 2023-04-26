@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import Link from 'next/link';
 
 import Divider from '@mui/material/Divider';
@@ -31,11 +31,21 @@ export interface MobileNavProps {
 const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleToggle = () => setIsOpen(!isOpen);
+  const handleToggle = (e: SyntheticEvent) => {
+    e.preventDefault();
+    setIsOpen(!isOpen);
+  };
 
-  const onClick = () => handleToggle();
-  const onClose = () => handleToggle();
+  const onClick = (e: SyntheticEvent) => {
+    e.preventDefault();
+    handleToggle(e);
+  };
+  const onClose = (e: SyntheticEvent) => {
+    e.preventDefault();
+    handleToggle(e);
+  };
 
+  /* istanbul ignore next */
   return (
     <>
       {/* Menu Button */}
@@ -46,7 +56,7 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
         hideLabel={true}
         icon={<MenuIcon />}
         label="Menu"
-        onClick={onClick}
+        onClick={(e) => onClick(e)}
       />
 
       {/* Menu List Drawer */}
@@ -70,7 +80,11 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
           <Divider style={{ marginTop: 0, marginBottom: 0 }} />
 
           <MenuItem className="menuItem featured">
-            <ListItemButton component={Link} href="/search" onClick={onClick}>
+            <ListItemButton
+              component={Link}
+              href="/search"
+              onClick={(e) => onClick(e)}
+            >
               <ListItemText primary="Search" />
               <ListItemIcon>
                 <SearchIcon fontSize="small" />
@@ -86,7 +100,7 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
           id="categories"
           label="Categories"
           nav={nav.categories}
-          onClick={onClick}
+          onClick={(e) => onClick(e)}
           root="tags"
           showLabel={true}
         />
@@ -96,7 +110,7 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
           id="cuisine"
           label="Cuisine"
           nav={nav.cuisine}
-          onClick={onClick}
+          onClick={(e) => onClick(e)}
           root="tags"
           showLabel={true}
         />
@@ -108,7 +122,7 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
           id="tags"
           label="Tags"
           nav={nav.tags}
-          onClick={onClick}
+          onClick={(e) => onClick(e)}
           root="tags"
           showLabel={true}
         />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Button from '@mui/material/Button';
@@ -33,7 +33,7 @@ const SignInForm = () => {
     };
   }, [isAuth, router, setIsLoading]);
 
-  const handleSubmit = async (event: React.SyntheticEvent) => {
+  const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
 
     setEmailError(false);
