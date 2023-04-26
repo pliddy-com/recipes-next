@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 
 import Divider from '@mui/material/Divider';
@@ -30,12 +30,6 @@ export interface MobileNavProps {
 }
 const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    return () => {
-      setIsOpen(false);
-    };
-  }, []);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);

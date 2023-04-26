@@ -21,7 +21,6 @@ const SignInButton = ({
   const { isAuth, signOut } = useAuthContext();
 
   const onSignOutClick = (e: MouseEvent) => {
-    // e.preventDefault();
     onClick && onClick(e);
     signOut();
   };
