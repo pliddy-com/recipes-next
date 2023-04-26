@@ -14,8 +14,6 @@ const pageThemeOptions: ThemeOptions = {
         root: {
           '&.page': {
             backgroundColor: colors.common.white,
-            // display: 'flex',
-            // minHeight: '100vh',
             paddingBottom: '3rem',
             paddingTop: '5.5rem',
             '& .MuiGrid': {
@@ -130,13 +128,8 @@ const pageThemeOptions: ThemeOptions = {
                   '&.search': {
                     alignItems: 'center',
                     display: 'flex',
-                    marginBottom: '1rem',
+                    marginBottom: '1.5rem',
                     padding: '2px 4px'
-                    // '& .MuiInputBase': {
-                    //   '&-input': {
-                    //     flex: 1
-                    //   }
-                    // }
                   }
                 }
               }

@@ -11,7 +11,7 @@ const formThemeOptions: ThemeOptions = {
         root: {
           '&.signInLoading': {
             border: `1px solid ${baseTheme.palette.grey[400]}`,
-            marginTop: '1.25rem',
+            marginTop: '1.5rem',
             maxHeight: '248px'
           }
         }
@@ -20,10 +20,10 @@ const formThemeOptions: ThemeOptions = {
     MuiFormControl: {
       styleOverrides: {
         root: {
-          marginTop: '1rem',
           width: '100%',
           '&.signin': {
             border: `1px solid ${baseTheme.palette.grey[400]}`,
+            marginTop: '1.25rem',
             padding: '1rem 2rem 2rem'
           }
         }
