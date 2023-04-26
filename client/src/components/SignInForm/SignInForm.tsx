@@ -22,8 +22,7 @@ const SignInForm = () => {
   /* istanbul ignore next */
   useEffect(() => {
     if (isAuth) {
-      const page = document.referrer;
-      if (page) router.push(page);
+      router.push('/');
       /* istanbul ignore next */
       router.events.on('routeChangeComplete', () => setIsLoading(false));
     }
