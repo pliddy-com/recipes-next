@@ -10,7 +10,7 @@ import LogoButton from 'components/Navigation/Buttons/LogoButton/LogoButton';
 import MobileNavControl from 'components/Navigation/MobileNavControl/MobileNavControl';
 import NavMenuControl from 'components/Navigation/NavMenuControl/NavMenuControl';
 import SearchButton from 'components/Navigation/Buttons/SearchButton/SearchButton';
-import SignInControl from '../Buttons/SignInControl/SignInControl';
+import SignInControl from '../../SignIn/SignInControl/SignInControl';
 
 import { TaxonomyChildrenItem } from 'types/queries';
 

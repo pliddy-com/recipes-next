@@ -61,11 +61,13 @@ const SignInDialog = ({
 
   return (
     <Dialog
-      open={isOpen}
-      onClose={onClose}
-      maxWidth="sm"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description"
       className="signInDialog"
       data-testid="signInDialog"
+      maxWidth="sm"
+      onClose={onClose}
+      open={isOpen}
     >
       <DialogTitle variant="h2" id="modal-title">
         Sign In

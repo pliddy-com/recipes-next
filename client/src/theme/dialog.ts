@@ -5,7 +5,7 @@ import { sansFontFamily } from './values/fontface';
 
 const { breakpoints } = baseTheme ?? {};
 
-const formThemeOptions: ThemeOptions = {
+const dialogThemeOptions: ThemeOptions = {
   components: {
     MuiContainer: {
       styleOverrides: {
@@ -31,9 +31,9 @@ const formThemeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           '&.signInDialog': {
+            alignItems: 'flex-start',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'flex-start',
             top: '3rem',
             '& .MuiDialogTitle': {
               '&-root': {
@@ -107,4 +107,4 @@ const formThemeOptions: ThemeOptions = {
   }
 };
 
-export default formThemeOptions;
+export default dialogThemeOptions;

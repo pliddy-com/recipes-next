@@ -1,11 +1,11 @@
+import { useEffect, useState } from 'react';
 import LoginIcon from '@mui/icons-material/Login';
 import LockIcon from '@mui/icons-material/Lock';
 
-import NavIconButton from '../NavIconButton/NavIconButton';
+import NavIconButton from 'components/Navigation/Buttons/NavIconButton/NavIconButton';
+import SignInDialog from 'components/SignIn/SignInDialog/SignInDialog';
 
 import { useAuthContext } from 'contexts/Authentication';
-import { useEffect, useState } from 'react';
-import SignInDialog from 'components/SignInDialog/SignInDialog';
 
 interface ISignInControl {
   hideLabel?: boolean;
