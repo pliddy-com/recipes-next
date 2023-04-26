@@ -47,6 +47,28 @@ exports[`NavBar when there is a properly structured nav property it renders a na
         class="mobile-nav MuiBox-root css-0"
       >
         <button
+          aria-label="sign in"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart MuiIconButton-sizeMedium menu-button auth css-1d6w9lk-MuiButtonBase-root-MuiIconButton-root"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="LoginIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M11 7 9.6 8.4l2.6 2.6H2v2h10.2l-2.6 2.6L11 17l5-5-5-5zm9 12h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-8v2h8v14z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+        <button
           aria-label="open navigation menu"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart MuiIconButton-sizeMedium menu-button css-1d6w9lk-MuiButtonBase-root-MuiIconButton-root"
           role="button"
@@ -195,12 +217,12 @@ exports[`NavBar when there is a properly structured nav property it renders a na
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
-        <a
+        <button
           aria-label="sign in"
           class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge menu-button auth css-kpm0tx-MuiButtonBase-root-MuiButton-root"
-          href="/signin"
           role="button"
           tabindex="0"
+          type="button"
         >
           <span
             class="MuiButton-startIcon MuiButton-iconSizeLarge css-htszrh-MuiButton-startIcon"
@@ -221,7 +243,7 @@ exports[`NavBar when there is a properly structured nav property it renders a na
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
-        </a>
+        </button>
       </div>
     </div>
   </nav>

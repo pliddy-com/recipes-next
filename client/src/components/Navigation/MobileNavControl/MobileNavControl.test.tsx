@@ -7,35 +7,19 @@ import '@testing-library/jest-dom';
 import MobileNavControl, { NavDataProps } from './MobileNavControl';
 
 import * as api from 'lib/api';
-import * as AuthContext from 'contexts/Authentication';
 
 jest.mock('lib/api');
-jest.mock('contexts/Authentication');
 
 describe('NavMenuControl', () => {
   describe('when there is a properly structured nav property', () => {
     it('it renders a nav menu hidden by default', async () => {
       const nav = await api.getNavTaxonomy();
-      const contextValues = {
-        isAuth: false,
-        isLoading: false,
-        setIsLoading: jest.fn(),
-        signIn: jest.fn(),
-        signOut: jest.fn()
-      };
-
-      const authSpy = jest
-        .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => contextValues);
-
       const { asFragment, queryByRole, queryByTestId } = render(
         <MobileNavControl
           ariaLabel="open test menu"
           nav={nav as NavDataProps}
         />
       );
-
-      expect(authSpy).toBeCalled();
 
       const testButton = queryByRole('button', {
         name: 'open test menu'
@@ -57,61 +41,6 @@ describe('NavMenuControl', () => {
 
       waitFor(() => expect(openMenu).not.toBeVisible());
 
-      expect(asFragment()).toMatchSnapshot();
-    });
-
-    it('renders a sign in button when authenticated', async () => {
-      const nav = await api.getNavTaxonomy();
-      const expectedLabel = 'Sign Out';
-
-      const contextValues = {
-        isAuth: true,
-        isLoading: false,
-        setIsLoading: jest.fn(),
-        signIn: jest.fn(),
-        signOut: jest.fn()
-      };
-
-      const authSpy = jest
-        .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => contextValues);
-
-      const { asFragment, queryByRole, queryByTestId } = render(
-        <MobileNavControl
-          ariaLabel="open test menu"
-          nav={nav as NavDataProps}
-        />
-      );
-
-      expect(authSpy).toBeCalled();
-
-      const testButton = queryByRole('button', {
-        name: 'open test menu'
-      });
-
-      // assert that callback is called on click & there was a change in the DOM
-      testButton && fireEvent.click(testButton);
-
-      const openMenu = queryByTestId('mobile-nav');
-
-      waitFor(() => expect(openMenu).toBeVisible());
-
-      // assert that the component has been rendered
-      const component = queryByRole('button', { name: 'sign out' });
-
-      // assert that the component has correct label
-      expect(component && component.textContent).toContain(expectedLabel);
-
-      const closeButton = queryByRole('button', {
-        name: 'sign out'
-      });
-
-      // assert that callback is called on click & there was a change in the DOM
-      closeButton && fireEvent.click(closeButton);
-
-      waitFor(() => expect(openMenu).Not.toBeVisible());
-
-      // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
     });
   });

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
-import SignInForm from './SignInForm';
+import SignInDialog from './SignInDialog';
 
 import * as AuthContext from 'contexts/Authentication';
 
@@ -18,33 +18,28 @@ jest.mock('next/router', () => ({
   })
 }));
 
-describe('SignInForm', () => {
+describe('SignInDialog', () => {
   describe('when isAuth is false', () => {
     it('it renders a sign in form', async () => {
       const emailValue = 'test@mail.com';
       const passwordValue = 'password';
 
-      const contextValues = {
-        isAuth: false,
-        isLoading: false,
-        setIsLoading: jest.fn(),
-        signIn: jest.fn(),
-        signOut: jest.fn()
-      };
-
-      const authSpy = jest
-        .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => contextValues);
-
       const { asFragment, queryByTestId, queryByLabelText, queryByRole } =
-        render(<SignInForm />);
+        render(
+          <SignInDialog
+            isLoading={false}
+            onSignIn={jest.fn()}
+            isOpen={true}
+            onClose={jest.fn()}
+          />
+        );
 
       // wait for dynamic component to load
       await act(async () =>
-        waitFor(() => expect(queryByTestId('signInForm')).toBeInTheDocument())
+        waitFor(() => expect(queryByTestId('signInDialog')).toBeInTheDocument())
       );
 
-      expect(authSpy).toBeCalled();
+      // expect(authSpy).toBeCalled();
 
       const submitButton = queryByRole('button', {
         name: 'submit'
@@ -70,8 +65,7 @@ describe('SignInForm', () => {
       expect(email_input).toHaveValue(emailValue);
       expect(password_input).toHaveValue(passwordValue);
 
-      // assert that callback is called on click
-      submitButton && fireEvent.click(submitButton);
+      waitFor(() => submitButton && fireEvent.click(submitButton));
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -97,12 +91,17 @@ describe('SignInForm', () => {
         .mockImplementation(() => contextValues);
 
       const { queryByTestId, queryByLabelText, queryByRole } = render(
-        <SignInForm />
+        <SignInDialog
+          isLoading={false}
+          onSignIn={jest.fn().mockRejectedValueOnce('error')}
+          isOpen={true}
+          onClose={jest.fn()}
+        />
       );
 
       // wait for dynamic component to load
       await act(async () =>
-        waitFor(() => expect(queryByTestId('signInForm')).toBeInTheDocument())
+        waitFor(() => expect(queryByTestId('signInDialog')).toBeInTheDocument())
       );
 
       // Test form field inputs
@@ -134,46 +133,26 @@ describe('SignInForm', () => {
     });
   });
 
-  describe('when isAuth is true', () => {
-    it('it renders a sign in form', () => {
-      const contextValues = {
-        isAuth: true,
-        isLoading: false,
-        setIsLoading: jest.fn(),
-        signIn: jest.fn(),
-        signOut: jest.fn()
-      };
-
-      const authSpy = jest
-        .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementationOnce(() => contextValues);
-
-      const { asFragment } = render(<SignInForm />);
-
-      expect(authSpy).toBeCalled();
-
-      // assert that the component matches the existing snapshot
-      expect(asFragment()).toMatchSnapshot();
-    });
-  });
-
   describe('when isLoading is true', () => {
-    it('it renders the loader', () => {
-      const contextValues = {
-        isAuth: false,
-        isLoading: true,
-        setIsLoading: jest.fn(),
-        signIn: jest.fn(),
-        signOut: jest.fn()
-      };
+    it('it renders a Loading indicator', async () => {
+      const { asFragment, queryByTestId, queryByRole } = render(
+        <SignInDialog
+          isLoading={true}
+          onSignIn={jest.fn()}
+          isOpen={true}
+          onClose={jest.fn()}
+        />
+      );
 
-      const authSpy = jest
-        .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementationOnce(() => contextValues);
+      // wait for dynamic component to load
+      await act(async () =>
+        waitFor(() => expect(queryByTestId('signInDialog')).toBeInTheDocument())
+      );
 
-      const { asFragment } = render(<SignInForm />);
-
-      expect(authSpy).toBeCalled();
+      const component = queryByRole('graphics-symbol', {
+        name: 'spinner'
+      });
+      expect(component).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

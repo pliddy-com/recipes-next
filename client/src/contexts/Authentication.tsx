@@ -1,7 +1,5 @@
 import {
-  Dispatch,
   ReactElement,
-  SetStateAction,
   createContext,
   useContext,
   useEffect,
@@ -24,7 +22,6 @@ interface SignInProps {
 interface AuthenticationContextValue {
   isAuth: boolean;
   isLoading: boolean;
-  setIsLoading: Dispatch<SetStateAction<boolean>>;
   signIn({ email, password }: SignInProps): Promise<void>;
   signOut(): void;
 }
@@ -66,9 +63,8 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
 
   /* istanbul ignore next */
   const signIn = async ({ email, password }: SignInProps) => {
+    setIsLoading(true);
     await new Promise((resolve, reject) => {
-      setIsLoading(true);
-
       const user =
         userPool &&
         new CognitoUser({
@@ -80,12 +76,12 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
         Username: email,
         Password: password
       });
-
       user &&
         user.authenticateUser(authDetails, {
           onSuccess: (result) => {
             setToken(result.getIdToken().getJwtToken());
             resolve(result);
+            setIsLoading(false);
           },
           onFailure: (err) => {
             reject(err);
@@ -97,6 +93,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
           }
         });
     });
+    setIsLoading(false);
   };
 
   /* istanbul ignore next */
@@ -113,7 +110,6 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
       value={{
         isAuth,
         isLoading,
-        setIsLoading,
         signIn,
         signOut
       }}
