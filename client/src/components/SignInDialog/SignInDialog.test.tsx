@@ -24,27 +24,22 @@ describe('SignInDialog', () => {
       const emailValue = 'test@mail.com';
       const passwordValue = 'password';
 
-      const contextValues = {
-        isAuth: false,
-        isLoading: false,
-        setIsLoading: jest.fn(),
-        signIn: jest.fn(),
-        signOut: jest.fn()
-      };
-
-      const authSpy = jest
-        .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => contextValues);
-
       const { asFragment, queryByTestId, queryByLabelText, queryByRole } =
-        render(<SignInDialog isOpen={true} onClose={jest.fn()} />);
+        render(
+          <SignInDialog
+            isLoading={false}
+            onSignIn={jest.fn()}
+            isOpen={true}
+            onClose={jest.fn()}
+          />
+        );
 
       // wait for dynamic component to load
       await act(async () =>
         waitFor(() => expect(queryByTestId('signInDialog')).toBeInTheDocument())
       );
 
-      expect(authSpy).toBeCalled();
+      // expect(authSpy).toBeCalled();
 
       const submitButton = queryByRole('button', {
         name: 'submit'
@@ -96,7 +91,12 @@ describe('SignInDialog', () => {
         .mockImplementation(() => contextValues);
 
       const { queryByTestId, queryByLabelText, queryByRole } = render(
-        <SignInDialog isOpen={true} onClose={jest.fn()} />
+        <SignInDialog
+          isLoading={false}
+          onSignIn={jest.fn().mockRejectedValueOnce('error')}
+          isOpen={true}
+          onClose={jest.fn()}
+        />
       );
 
       // wait for dynamic component to load
@@ -135,23 +135,14 @@ describe('SignInDialog', () => {
 
   describe('when isLoading is true', () => {
     it('it renders a Loading indicator', async () => {
-      const contextValues = {
-        isAuth: false,
-        isLoading: true,
-        setIsLoading: jest.fn(),
-        signIn: jest.fn(),
-        signOut: jest.fn()
-      };
-
-      const authSpy = jest
-        .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => contextValues);
-
       const { asFragment, queryByTestId, queryByRole } = render(
-        <SignInDialog isOpen={true} onClose={jest.fn()} />
+        <SignInDialog
+          isLoading={true}
+          onSignIn={jest.fn()}
+          isOpen={true}
+          onClose={jest.fn()}
+        />
       );
-
-      expect(authSpy).toBeCalled();
 
       // wait for dynamic component to load
       await act(async () =>

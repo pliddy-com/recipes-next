@@ -10,7 +10,7 @@ import LogoButton from 'components/Navigation/Buttons/LogoButton/LogoButton';
 import MobileNavControl from 'components/Navigation/MobileNavControl/MobileNavControl';
 import NavMenuControl from 'components/Navigation/NavMenuControl/NavMenuControl';
 import SearchButton from 'components/Navigation/Buttons/SearchButton/SearchButton';
-import SignInButton from '../Buttons/SignInButton/SignInButton';
+import SignInControl from '../Buttons/SignInControl/SignInControl';
 
 import { TaxonomyChildrenItem } from 'types/queries';
 
@@ -35,7 +35,7 @@ const NavBar = ({ nav }: NavBarProps) => {
         {nav ? (
           <>
             <Box className="mobile-nav">
-              <SignInButton hideLabel={true} />
+              <SignInControl hideLabel={true} />
               <MobileNavControl ariaLabel="open navigation menu" nav={nav} />
             </Box>
 
@@ -81,7 +81,7 @@ const NavBar = ({ nav }: NavBarProps) => {
               )}
 
               <SearchButton />
-              <SignInButton />
+              <SignInControl />
             </Box>
           </>
         ) : null}

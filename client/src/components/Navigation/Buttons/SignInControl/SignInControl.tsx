@@ -4,17 +4,15 @@ import LockIcon from '@mui/icons-material/Lock';
 import NavIconButton from '../NavIconButton/NavIconButton';
 
 import { useAuthContext } from 'contexts/Authentication';
-import { MouseEventHandler, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import SignInDialog from 'components/SignInDialog/SignInDialog';
 
-interface SearchButtonProps {
+interface ISignInControl {
   hideLabel?: boolean;
-  style?: 'button' | 'menu';
-  onClick?: MouseEventHandler;
 }
 
-const SignInButton = ({ hideLabel = false }: SearchButtonProps) => {
-  const { isAuth, signOut } = useAuthContext();
+const SignInControl = ({ hideLabel = false }: ISignInControl) => {
+  const { isAuth, isLoading, signIn, signOut } = useAuthContext();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -41,9 +39,14 @@ const SignInButton = ({ hideLabel = false }: SearchButtonProps) => {
         label={isAuth ? 'Sign Out' : 'Sign In'}
         onClick={isAuth ? signOut : handleClick}
       />
-      <SignInDialog isOpen={isOpen} onClose={onClose} />
+      <SignInDialog
+        isOpen={isOpen}
+        onClose={onClose}
+        isLoading={isLoading}
+        onSignIn={signIn}
+      />
     </>
   );
 };
 
-export default SignInButton;
+export default SignInControl;

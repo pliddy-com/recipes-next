@@ -1,13 +1,13 @@
 import '@testing-library/jest-dom';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
-import SignInButton from './SignInButton';
+import SignInControl from './SignInControl';
 
 import * as AuthContext from 'contexts/Authentication';
 
 jest.mock('contexts/Authentication');
 
-describe('SignInButton', () => {
+describe('SignInControl', () => {
   it('renders a sign in button when not authenticated', async () => {
     const expectedLabel = 'Sign In';
 
@@ -23,9 +23,7 @@ describe('SignInButton', () => {
       .spyOn(AuthContext, 'useAuthContext')
       .mockImplementation(() => contextValues);
 
-    const { asFragment, getByRole, queryByTestId } = render(
-      <SignInButton onClick={jest.fn()} />
-    );
+    const { asFragment, getByRole, queryByTestId } = render(<SignInControl />);
 
     expect(authSpy).toBeCalled();
 
@@ -67,7 +65,7 @@ describe('SignInButton', () => {
       .spyOn(AuthContext, 'useAuthContext')
       .mockImplementationOnce(() => contextValues);
 
-    const { getByRole } = render(<SignInButton onClick={jest.fn()} />);
+    const { getByRole } = render(<SignInControl />);
 
     expect(authSpy).toBeCalled();
 

@@ -6,25 +6,33 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
-
 import TextField from '@mui/material/TextField';
-
-import { useAuthContext } from 'contexts/Authentication';
 
 import Loading from 'components/Loading/Loading';
 
 interface ISignInDialog {
+  isLoading: boolean;
   isOpen: boolean;
   onClose: MouseEventHandler;
+  onSignIn({
+    email,
+    password
+  }: {
+    email: string;
+    password: string;
+  }): Promise<void>;
 }
 
-const SignInDialog = ({ isOpen, onClose }: ISignInDialog) => {
+const SignInDialog = ({
+  isLoading,
+  isOpen,
+  onClose,
+  onSignIn
+}: ISignInDialog) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-
-  const { isLoading, signIn } = useAuthContext();
 
   const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
@@ -41,7 +49,7 @@ const SignInDialog = ({ isOpen, onClose }: ISignInDialog) => {
 
     if (email && password) {
       try {
-        await signIn({ email, password });
+        await onSignIn({ email, password });
         setEmail('');
         setPassword('');
       } catch (e) {

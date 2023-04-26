@@ -2,19 +2,17 @@ import { ThemeOptions } from '@mui/material/styles';
 
 import { sansFontFamily } from './values/fontface';
 
-// import baseTheme from './base';
-
 const formThemeOptions: ThemeOptions = {
   components: {
     MuiContainer: {
       styleOverrides: {
         root: {
-          '&.signInLoading': {
-            background: 'red'
-            // background: baseTheme.palette.common.white,
-            // border: `1px solid ${baseTheme.palette.grey[400]}`,
-            // marginTop: '1.5rem',
-            // maxHeight: '248px'
+          '&.loading': {
+            alignItems: 'center',
+            display: 'flex',
+            maxHeight: '157px',
+            width: '432px',
+            justifyContent: 'center'
           }
         }
       }
@@ -23,6 +21,10 @@ const formThemeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           '&.signInDialog': {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            top: '3rem',
             '& .MuiDialogTitle': {
               '&-root': {
                 padding: '1rem 1rem .375rem',
@@ -30,6 +32,9 @@ const formThemeOptions: ThemeOptions = {
               }
             }
           }
+        },
+        container: {
+          alignItems: 'flex-start'
         }
       }
     },
