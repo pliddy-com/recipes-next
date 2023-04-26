@@ -89,13 +89,13 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
           },
           onFailure: (err) => {
             reject(err);
+            setIsLoading(false);
           },
           newPasswordRequired: (data) => {
             resolve(data);
+            setIsLoading(false);
           }
         });
-
-      setIsLoading(false);
     });
   };
 

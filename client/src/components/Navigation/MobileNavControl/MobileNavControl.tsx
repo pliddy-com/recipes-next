@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 
 import Divider from '@mui/material/Divider';
@@ -38,8 +38,10 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
   const onClick = () => {
     handleToggle();
   };
-  const onClose = (e: SyntheticEvent) => {
-    e.preventDefault();
+
+  // const onClose = (e: SyntheticEvent) => {
+  const onClose = () => {
+    // e.preventDefault();
     handleToggle();
   };
 
