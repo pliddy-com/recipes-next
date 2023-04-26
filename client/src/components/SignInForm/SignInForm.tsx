@@ -22,15 +22,16 @@ const SignInForm = () => {
   useEffect(() => {
     if (isAuth) {
       router.back();
+      setIsLoading(false);
       /* istanbul ignore next */
-      router.events.on('routeChangeComplete', () => setIsLoading(false));
+      // router.events.on('routeChangeComplete', () => setIsLoading(false));
     }
 
     /* unsubscribe from event when component dismounts*/
     /* istanbul ignore next */
-    return () => {
-      router.events.off('routeChangeComplete', () => void 0);
-    };
+    // return () => {
+    //   router.events.off('routeChangeComplete', () => void 0);
+    // };
   }, [isAuth, router, setIsLoading]);
 
   const handleSubmit = async (event: SyntheticEvent) => {
