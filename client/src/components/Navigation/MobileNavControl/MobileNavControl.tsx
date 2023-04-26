@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import Divider from '@mui/material/Divider';
@@ -31,6 +31,12 @@ export interface MobileNavProps {
 const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    return () => {
+      setIsOpen(false);
+    };
+  }, []);
+
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
@@ -39,9 +45,7 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
     handleToggle();
   };
 
-  // const onClose = (e: SyntheticEvent) => {
   const onClose = () => {
-    // e.preventDefault();
     handleToggle();
   };
 
