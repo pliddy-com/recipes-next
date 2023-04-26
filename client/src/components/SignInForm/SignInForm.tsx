@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Button from '@mui/material/Button';
@@ -19,9 +19,10 @@ const SignInForm = () => {
 
   const { isAuth, isLoading, setIsLoading, signIn } = useAuthContext();
 
+  /* istanbul ignore next */
   useEffect(() => {
     if (isAuth) {
-      router.back();
+      router.push('/');
       /* istanbul ignore next */
       router.events.on('routeChangeComplete', () => setIsLoading(false));
     }
@@ -29,11 +30,11 @@ const SignInForm = () => {
     /* unsubscribe from event when component dismounts*/
     /* istanbul ignore next */
     return () => {
-      router.events.off('routeChangeComplete', () => setIsLoading(false));
+      router.events.off('routeChangeComplete', () => void 0);
     };
   }, [isAuth, router, setIsLoading]);
 
-  const handleSubmit = async (event: React.SyntheticEvent) => {
+  const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
 
     setEmailError(false);

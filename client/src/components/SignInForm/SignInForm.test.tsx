@@ -9,6 +9,7 @@ jest.mock('contexts/Authentication');
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({
+    push: jest.fn(),
     back: jest.fn(),
     events: {
       on: jest.fn(),

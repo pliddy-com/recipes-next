@@ -31,10 +31,17 @@ export interface MobileNavProps {
 const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleToggle = () => setIsOpen(!isOpen);
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
 
-  const onClick = () => handleToggle();
-  const onClose = () => handleToggle();
+  const onClick = () => {
+    handleToggle();
+  };
+
+  const onClose = () => {
+    handleToggle();
+  };
 
   return (
     <>
