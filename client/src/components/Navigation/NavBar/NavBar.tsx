@@ -35,6 +35,7 @@ const NavBar = ({ nav }: NavBarProps) => {
         {nav ? (
           <>
             <Box className="mobile-nav">
+              <SignInButton hideLabel={true} />
               <MobileNavControl ariaLabel="open navigation menu" nav={nav} />
             </Box>
 

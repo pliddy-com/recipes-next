@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInDialog when isAuth is false it renders a sign in form 1`] = `<DocumentFragment />`;
+
+exports[`SignInDialog when isAuth is true it renders a sign in form 1`] = `<DocumentFragment />`;
+
+exports[`SignInDialog when isLoading is true it renders the loader 1`] = `<DocumentFragment />`;

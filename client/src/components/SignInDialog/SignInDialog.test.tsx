@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
-import SignInForm from './SignInForm';
+import SignInDialog from './SignInDialog';
 
 import * as AuthContext from 'contexts/Authentication';
 
@@ -18,7 +18,7 @@ jest.mock('next/router', () => ({
   })
 }));
 
-describe('SignInForm', () => {
+describe('SignInDialog', () => {
   describe('when isAuth is false', () => {
     it('it renders a sign in form', async () => {
       const emailValue = 'test@mail.com';
@@ -37,11 +37,11 @@ describe('SignInForm', () => {
         .mockImplementation(() => contextValues);
 
       const { asFragment, queryByTestId, queryByLabelText, queryByRole } =
-        render(<SignInForm />);
+        render(<SignInDialog isOpen={true} onClose={jest.fn()} />);
 
       // wait for dynamic component to load
       await act(async () =>
-        waitFor(() => expect(queryByTestId('signInForm')).toBeInTheDocument())
+        waitFor(() => expect(queryByTestId('signInDialog')).toBeInTheDocument())
       );
 
       expect(authSpy).toBeCalled();
@@ -97,12 +97,12 @@ describe('SignInForm', () => {
         .mockImplementation(() => contextValues);
 
       const { queryByTestId, queryByLabelText, queryByRole } = render(
-        <SignInForm />
+        <SignInDialog isOpen={true} onClose={jest.fn()} />
       );
 
       // wait for dynamic component to load
       await act(async () =>
-        waitFor(() => expect(queryByTestId('signInForm')).toBeInTheDocument())
+        waitFor(() => expect(queryByTestId('signInDialog')).toBeInTheDocument())
       );
 
       // Test form field inputs
@@ -148,7 +148,9 @@ describe('SignInForm', () => {
         .spyOn(AuthContext, 'useAuthContext')
         .mockImplementationOnce(() => contextValues);
 
-      const { asFragment } = render(<SignInForm />);
+      const { asFragment } = render(
+        <SignInDialog isOpen={true} onClose={jest.fn()} />
+      );
 
       expect(authSpy).toBeCalled();
 
@@ -171,7 +173,9 @@ describe('SignInForm', () => {
         .spyOn(AuthContext, 'useAuthContext')
         .mockImplementationOnce(() => contextValues);
 
-      const { asFragment } = render(<SignInForm />);
+      const { asFragment } = render(
+        <SignInDialog isOpen={true} onClose={jest.fn()} />
+      );
 
       expect(authSpy).toBeCalled();
 

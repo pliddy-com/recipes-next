@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -16,7 +15,6 @@ import NavIconButton from '../Buttons/NavIconButton/NavIconButton';
 import NavMenuList from '../NavMenuList/NavMenuList';
 
 import { TaxonomyChildrenItem } from 'types/queries';
-import SignInButton from '../Buttons/SignInButton/SignInButton';
 
 export interface NavDataProps {
   categories: TaxonomyChildrenItem[];
@@ -70,12 +68,6 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
         data-testid="mobile-nav"
       >
         <MenuList className="menuList">
-          <MenuItem className="menuItem featured">
-            <SignInButton style="menu" onClick={onClick} />
-          </MenuItem>
-
-          <Divider style={{ marginTop: 0, marginBottom: 0 }} />
-
           <MenuItem className="menuItem featured">
             <ListItemButton component={Link} href="/search" onClick={onClick}>
               <ListItemText primary="Search" />

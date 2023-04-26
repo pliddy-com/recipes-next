@@ -66,6 +66,8 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
 
   /* istanbul ignore next */
   const signIn = async ({ email, password }: SignInProps) => {
+    setIsLoading(true);
+
     await new Promise((resolve, reject) => {
       setIsLoading(true);
 
@@ -89,13 +91,13 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
           },
           onFailure: (err) => {
             reject(err);
-            setIsLoading(false);
           },
           newPasswordRequired: (data) => {
             resolve(data);
-            setIsLoading(false);
           }
         });
+
+      setIsLoading(false);
     });
   };
 

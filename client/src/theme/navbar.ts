@@ -10,15 +10,18 @@ const navbarThemeOptions: ThemeOptions = {
         root: {
           '&.navbar': {
             '& .mobile-nav': {
-              display: 'block',
+              display: 'flex',
               [breakpoints.up('lg')]: {
                 display: 'none'
+              },
+              '& > *': {
+                marginLeft: '1rem'
               }
             },
             '& .desktop-nav': {
               display: 'none',
               [breakpoints.up('lg')]: {
-                display: 'block'
+                display: 'flex'
               }
             }
           }
