@@ -29,10 +29,10 @@ const SignInDialog = ({
   onClose,
   onSignIn
 }: ISignInDialog) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [emailError, setEmailError] = useState<boolean>(false);
+  const [passwordError, setPasswordError] = useState<boolean>(false);
 
   const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
@@ -104,16 +104,22 @@ const SignInDialog = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose} className="submit" aria-label="cancel">
+        <Button
+          aria-label="cancel"
+          className="submit"
+          disabled={isLoading}
+          onClick={onClose}
+        >
           Cancel
         </Button>
         <Button
           aria-label="submit"
           className="submit"
           color="primary"
+          disabled={isLoading}
+          onClick={handleSubmit}
           type="submit"
           variant="contained"
-          onClick={handleSubmit}
         >
           Submit
         </Button>

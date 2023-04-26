@@ -10,9 +10,11 @@ const formThemeOptions: ThemeOptions = {
           '&.loading': {
             alignItems: 'center',
             display: 'flex',
-            maxHeight: '157px',
-            width: '432px',
-            justifyContent: 'center'
+            height: '165px',
+            maxHeight: '165px',
+            width: '458px',
+            justifyContent: 'center',
+            maxWidth: '458px'
           }
         }
       }
@@ -63,15 +65,15 @@ const formThemeOptions: ThemeOptions = {
     MuiFormLabel: {
       styleOverrides: {
         root: {
-          fontFamily: sansFontFamily
-          // paddingTop: '3.5px'
+          fontFamily: sansFontFamily,
+          paddingTop: '3.5px'
         }
       }
     },
     MuiInputAdornment: {
       styleOverrides: {
         root: {
-          // marginRight: '-0.25rem'
+          marginRight: '-0.25rem'
         }
       }
     },
@@ -86,7 +88,7 @@ const formThemeOptions: ThemeOptions = {
     MuiOutlinedInput: {
       styleOverrides: {
         input: {
-          // padding: '0.78125rem 0.875rem 0.53125rem'
+          padding: '0.78125rem 0.875rem 0.53125rem'
         }
       }
     }

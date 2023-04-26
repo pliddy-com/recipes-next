@@ -16,9 +16,7 @@ const SignInControl = ({ hideLabel = false }: ISignInControl) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    if (isAuth) {
-      setIsOpen(false);
-    }
+    if (isAuth) setIsOpen(false);
   }, [isAuth]);
 
   const handleClick = () => {

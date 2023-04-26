@@ -15,11 +15,13 @@ interface NavIconButtonProps {
   icon: JSX.Element;
   label?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 }
 
 const NavIconButton = ({
   ariaLabel,
   className,
+  disabled = false,
   isMenu = false,
   label,
   onClick,
@@ -32,6 +34,7 @@ const NavIconButton = ({
     <Button
       aria-label={ariaLabel}
       className={className}
+      disabled={disabled}
       color="primary"
       id={id}
       onClick={onClick}
