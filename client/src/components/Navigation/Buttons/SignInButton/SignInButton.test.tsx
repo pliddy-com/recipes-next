@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
 import SignInButton from './SignInButton';
 
@@ -8,7 +8,7 @@ import * as AuthContext from 'contexts/Authentication';
 jest.mock('contexts/Authentication');
 
 describe('SignInButton', () => {
-  it('renders a sign in button when not authenticated', () => {
+  it('renders a sign in button when not authenticated', async () => {
     const expectedLabel = 'Sign In';
 
     const contextValues = {
@@ -23,7 +23,7 @@ describe('SignInButton', () => {
       .spyOn(AuthContext, 'useAuthContext')
       .mockImplementation(() => contextValues);
 
-    const { asFragment, getByRole } = render(
+    const { asFragment, getByRole, queryByTestId } = render(
       <SignInButton onClick={jest.fn()} />
     );
 
@@ -36,6 +36,17 @@ describe('SignInButton', () => {
     expect(signInButton.textContent).toContain(expectedLabel);
 
     signInButton && fireEvent.click(signInButton);
+
+    // wait for dynamic component to load
+    await act(async () =>
+      waitFor(() => expect(queryByTestId('signInDialog')).toBeInTheDocument())
+    );
+
+    // click cancel button to trigger onClose
+    const cancelButton = getByRole('button', { name: 'cancel' });
+
+    expect(cancelButton).toBeInTheDocument();
+    cancelButton && fireEvent.click(cancelButton);
 
     // assert that the component matches the existing snapshot
     expect(asFragment()).toMatchSnapshot();

@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 // import testing-library methods
 import { render } from '@testing-library/react';
 

@@ -27,16 +27,8 @@ const SignInButton = ({ hideLabel = false }: SearchButtonProps) => {
     setIsOpen(!isOpen);
   };
 
-  /* istanbul ignore next */
   const onClose = () => {
-    console.log('onClose');
     setIsOpen(false);
-  };
-
-  /* istanbul ignore next */
-  const onSignOutClick = () => {
-    console.log('onSignOutClick');
-    signOut();
   };
 
   return (
@@ -47,7 +39,7 @@ const SignInButton = ({ hideLabel = false }: SearchButtonProps) => {
         hideLabel={hideLabel}
         icon={isAuth ? <LockIcon /> : <LoginIcon />}
         label={isAuth ? 'Sign Out' : 'Sign In'}
-        onClick={isAuth ? onSignOutClick : handleClick}
+        onClick={isAuth ? signOut : handleClick}
       />
       <SignInDialog isOpen={isOpen} onClose={onClose} />
     </>

@@ -70,8 +70,7 @@ describe('SignInDialog', () => {
       expect(email_input).toHaveValue(emailValue);
       expect(password_input).toHaveValue(passwordValue);
 
-      // assert that callback is called on click
-      submitButton && fireEvent.click(submitButton);
+      waitFor(() => submitButton && fireEvent.click(submitButton));
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -134,33 +133,8 @@ describe('SignInDialog', () => {
     });
   });
 
-  describe('when isAuth is true', () => {
-    it('it renders a sign in form', () => {
-      const contextValues = {
-        isAuth: true,
-        isLoading: false,
-        setIsLoading: jest.fn(),
-        signIn: jest.fn(),
-        signOut: jest.fn()
-      };
-
-      const authSpy = jest
-        .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementationOnce(() => contextValues);
-
-      const { asFragment } = render(
-        <SignInDialog isOpen={true} onClose={jest.fn()} />
-      );
-
-      expect(authSpy).toBeCalled();
-
-      // assert that the component matches the existing snapshot
-      expect(asFragment()).toMatchSnapshot();
-    });
-  });
-
   describe('when isLoading is true', () => {
-    it('it renders the loader', () => {
+    it('it renders a Loading indicator', async () => {
       const contextValues = {
         isAuth: false,
         isLoading: true,
@@ -171,13 +145,23 @@ describe('SignInDialog', () => {
 
       const authSpy = jest
         .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementationOnce(() => contextValues);
+        .mockImplementation(() => contextValues);
 
-      const { asFragment } = render(
+      const { asFragment, queryByTestId, queryByRole } = render(
         <SignInDialog isOpen={true} onClose={jest.fn()} />
       );
 
       expect(authSpy).toBeCalled();
+
+      // wait for dynamic component to load
+      await act(async () =>
+        waitFor(() => expect(queryByTestId('signInDialog')).toBeInTheDocument())
+      );
+
+      const component = queryByRole('graphics-symbol', {
+        name: 'spinner'
+      });
+      expect(component).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

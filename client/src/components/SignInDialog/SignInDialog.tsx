@@ -42,6 +42,8 @@ const SignInDialog = ({ isOpen, onClose }: ISignInDialog) => {
     if (email && password) {
       try {
         await signIn({ email, password });
+        setEmail('');
+        setPassword('');
       } catch (e) {
         setEmailError(true);
         setPasswordError(true);
@@ -94,7 +96,7 @@ const SignInDialog = ({ isOpen, onClose }: ISignInDialog) => {
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose} className="submit">
+        <Button onClick={onClose} className="submit" aria-label="cancel">
           Cancel
         </Button>
         <Button
