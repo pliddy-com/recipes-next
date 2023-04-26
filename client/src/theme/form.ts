@@ -1,6 +1,9 @@
 import { ThemeOptions } from '@mui/material/styles';
 
+import baseTheme from 'theme/base';
 import { sansFontFamily } from './values/fontface';
+
+const { breakpoints } = baseTheme ?? {};
 
 const formThemeOptions: ThemeOptions = {
   components: {
@@ -11,10 +14,15 @@ const formThemeOptions: ThemeOptions = {
             alignItems: 'center',
             display: 'flex',
             height: '165px',
-            maxHeight: '165px',
-            width: '458px',
             justifyContent: 'center',
-            maxWidth: '458px'
+            maxHeight: '165px',
+            [breakpoints.up('sm')]: {
+              maxWidth: '432px',
+              width: '432px'
+            },
+            [breakpoints.down('sm')]: {
+              maxWidth: 'calc(100vw - 7rem)'
+            }
           }
         }
       }
@@ -36,7 +44,11 @@ const formThemeOptions: ThemeOptions = {
           }
         },
         container: {
-          alignItems: 'flex-start'
+          alignItems: 'flex-start',
+          width: '100%'
+        },
+        paper: {
+          flexGrow: 1
         }
       }
     },
