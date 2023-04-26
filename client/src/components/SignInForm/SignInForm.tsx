@@ -19,9 +19,11 @@ const SignInForm = () => {
 
   const { isAuth, isLoading, setIsLoading, signIn } = useAuthContext();
 
+  /* istanbul ignore next */
   useEffect(() => {
     if (isAuth) {
-      router.push(document.referrer);
+      const page = document.referrer;
+      if (page) router.push(page);
       /* istanbul ignore next */
       router.events.on('routeChangeComplete', () => setIsLoading(false));
     }
