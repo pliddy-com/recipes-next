@@ -20,6 +20,7 @@ interface SignInProps {
 }
 
 interface AuthenticationContextValue {
+  getToken(): null;
   isAuth: boolean;
   isLoading: boolean;
   signIn({ email, password }: SignInProps): Promise<void>;
@@ -39,29 +40,25 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   const [token, setToken] = useState<string | null>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  /* istanbul ignore next */
   const getToken = () => {
     const user = userPool && userPool.getCurrentUser();
 
     user &&
       user.getSession((err: Error | null, session: CognitoUserSession) => {
         if (err) {
-          alert(err.message || JSON.stringify(err));
           return null;
         }
-
         setToken(session.getIdToken().getJwtToken());
       });
+
     return null;
   };
 
-  /* istanbul ignore next */
   useEffect(() => {
     getToken();
     setIsAuth(token ? true : false);
   }, [token]);
 
-  /* istanbul ignore next */
   const signIn = async ({ email, password }: SignInProps) => {
     setIsLoading(true);
     await new Promise((resolve, reject) => {
@@ -76,6 +73,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
         Username: email,
         Password: password
       });
+
       user &&
         user.authenticateUser(authDetails, {
           onSuccess: (result) => {
@@ -86,17 +84,16 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
           onFailure: (err) => {
             reject(err);
             setIsLoading(false);
-          },
-          newPasswordRequired: (data) => {
-            resolve(data);
-            setIsLoading(false);
           }
+          // newPasswordRequired: (data) => {
+          //   resolve(data);
+          //   setIsLoading(false);
+          // }
         });
     });
     setIsLoading(false);
   };
 
-  /* istanbul ignore next */
   const signOut = () => {
     const user = userPool && userPool.getCurrentUser();
 
@@ -108,6 +105,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   return (
     <AuthenticationContext.Provider
       value={{
+        getToken,
         isAuth,
         isLoading,
         signIn,
