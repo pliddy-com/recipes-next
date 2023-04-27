@@ -16,8 +16,8 @@ runs:
       id: remove-client
       working-directory: './'
       run: |
-        echo "branch: ${{ inputs.branch }}"
+        echo "branch: ${{ github.event.ref }}"
         echo "s3Bucket: ${{ inputs.s3Bucket }}"
 
-        aws s3 rm --recursive ${{ inputs.s3Bucket }}/branches/${{ inputs.branch }}
+        aws s3 rm --recursive ${{ inputs.s3Bucket }}/branches/${{ github.event.ref }}
       shell: bash
