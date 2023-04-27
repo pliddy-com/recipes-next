@@ -26,6 +26,8 @@ runs:
         script: |
           const bucketBase = '${{ inputs.bucketBase }}';
           console.log('bucketBase:', bucketBase);
+
+          const branch = '${{ inputs.branch }}'
           console.log('branch:', branch);
 
           const envLabel = (branch === 'main') && 'prod' || 'dev';
