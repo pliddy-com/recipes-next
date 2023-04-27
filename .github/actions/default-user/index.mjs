@@ -1,3 +1,4 @@
+import core from '@actions/core';
 import {
   AdminCreateUserCommand,
   AdminSetUserPasswordCommand,
