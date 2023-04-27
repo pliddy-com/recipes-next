@@ -43,15 +43,14 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   const getToken = async () => {
     const user = userPool && userPool.getCurrentUser();
 
+    /* istanbul ignore next */
     user &&
       user.getSession((err: Error | null, session: CognitoUserSession) => {
         /* NOTE: this works locally, but fails coverage on github actions */
-        /* istanbul ignore next */
         if (err) {
           return null;
         }
 
-        /* istanbul ignore next */
         setToken(session.getIdToken().getJwtToken());
       });
 
@@ -80,7 +79,6 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
       });
 
       /* NOTE: this works locally, but fails coverage on github actions */
-
       /* istanbul ignore next */
       user &&
         user.authenticateUser(authDetails, {
@@ -96,7 +94,6 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
         });
     });
 
-    /* istanbul ignore next */
     setIsLoading(false);
   };
 

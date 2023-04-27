@@ -41,8 +41,6 @@ describe('Authentication', () => {
 
   describe('when the provider is called', () => {
     it('the Authentication provider renders', async () => {
-      // const authSpy = jest.spyOn(cognitoIdentity, 'CognitoUserPool');
-
       const { queryByTestId } = render(
         <AuthenticationProvider>
           <TestingComponent />
