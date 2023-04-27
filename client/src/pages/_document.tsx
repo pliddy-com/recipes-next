@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+
 import { Children } from 'react';
 
 import Document, {
