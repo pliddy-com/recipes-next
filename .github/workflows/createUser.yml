@@ -45,6 +45,7 @@ jobs:
         id: create-default-user
         uses: './.github/actions/default-user'
         with:
+          awsDefaultRegion: ${{ env.AWS_DEFAULT_REGION }}
           userPoolId: ${{ steps.user-pool-ids.outputs.userPoolId }}
           user: ${{ env.DEFAULT_USER }}
           password: ${{ env.DEFAULT_PASSWORD }}
