@@ -35,10 +35,6 @@ describe('Authentication', () => {
     );
   };
 
-  afterEach(() => {
-    jest.resetModules();
-  });
-
   describe('when the provider is called', () => {
     it('the Authentication provider renders', async () => {
       const { queryByTestId } = render(

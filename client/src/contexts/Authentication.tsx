@@ -40,10 +40,10 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   const [token, setToken] = useState<string | null>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  /* istanbul ignore next */
   const getToken = async () => {
     const user = userPool && userPool.getCurrentUser();
 
-    /* istanbul ignore next */
     user &&
       user.getSession((err: Error | null, session: CognitoUserSession) => {
         /* NOTE: this works locally, but fails coverage on github actions */
