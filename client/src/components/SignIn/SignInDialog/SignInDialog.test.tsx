@@ -79,9 +79,9 @@ describe('SignInDialog', () => {
       const testError = 'sign in failed';
 
       const contextValues = {
+        getToken: jest.fn(),
         isAuth: false,
         isLoading: false,
-        setIsLoading: jest.fn(),
         signIn: jest.fn().mockRejectedValue(new Error(testError)),
         signOut: jest.fn()
       };

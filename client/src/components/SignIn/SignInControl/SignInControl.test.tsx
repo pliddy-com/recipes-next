@@ -12,9 +12,9 @@ describe('SignInControl', () => {
     const expectedLabel = 'Sign In';
 
     const contextValues = {
+      getToken: jest.fn(),
       isAuth: false,
       isLoading: false,
-      setIsLoading: jest.fn(),
       signIn: jest.fn(),
       signOut: jest.fn()
     };
@@ -54,9 +54,9 @@ describe('SignInControl', () => {
     const expectedLabel = 'Sign Out';
 
     const contextValues = {
+      getToken: jest.fn(),
       isAuth: true,
       isLoading: false,
-      setIsLoading: jest.fn(),
       signIn: jest.fn(),
       signOut: jest.fn()
     };

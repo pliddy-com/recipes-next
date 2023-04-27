@@ -31,7 +31,8 @@
     "src/lib/__mocks__/lib",
     "src/lib/__mocks__/next",
     "jest.config.js",
-    "src/scripts"
+    "src/scripts",
+    "__mocks__/amazon-cognito-identity-js.js"
   ],
   "typeAcquisition": {
     "include": ["jest"]
