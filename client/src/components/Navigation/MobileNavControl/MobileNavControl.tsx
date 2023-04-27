@@ -58,9 +58,9 @@ const MobileNav = ({ ariaLabel, nav }: MobileNavProps) => {
 
       <Drawer
         anchor="right"
-        ModalProps={{
-          keepMounted: true // Better open performance on mobile.
-        }}
+        // ModalProps={{
+        //   keepMounted: true // Better open performance on mobile.
+        // }}
         onClose={onClose}
         open={isOpen}
         className="menu-drawer"
