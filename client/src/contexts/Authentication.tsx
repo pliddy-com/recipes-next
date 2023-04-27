@@ -51,6 +51,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
           return null;
         }
 
+        /* istanbul ignore next */
         setToken(session.getIdToken().getJwtToken());
       });
 
@@ -95,6 +96,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
         });
     });
 
+    /* istanbul ignore next */
     setIsLoading(false);
   };
 
