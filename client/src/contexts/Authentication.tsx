@@ -46,7 +46,6 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     user &&
       user.getSession((err: Error | null, session: CognitoUserSession) => {
         /* NOTE: this works locally, but fails coverage on github actions */
-
         /* istanbul ignore next */
         if (err) {
           return null;

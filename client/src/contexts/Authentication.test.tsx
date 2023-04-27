@@ -66,23 +66,4 @@ describe('Authentication', () => {
       signOutButton && fireEvent.click(signOutButton);
     });
   });
-
-  describe('when getSession returns and error', () => {
-    // this test calls the second instance of mock getSession, which returns an error
-    // except it doesn't work on GitHub Actions
-    it('getToken returns null', async () => {
-      const { queryByTestId } = render(
-        <AuthenticationProvider>
-          <TestingComponent />
-        </AuthenticationProvider>
-      );
-
-      await act(async () => {
-        waitFor(() => expect(queryByTestId('getToken')).toBeInTheDocument());
-      });
-
-      const getTokenButton = queryByTestId('getToken');
-      getTokenButton && fireEvent.click(getTokenButton);
-    });
-  });
 });

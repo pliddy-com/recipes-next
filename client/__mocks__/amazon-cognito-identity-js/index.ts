@@ -1,3 +1,5 @@
+jest.createMockFromModule('amazon-cognito-identity-js');
+
 import cognitoUserPool from './CognitoUserPool';
 import cognitoUser from './CognitoUser';
 import authDetails from './AuthenticationDetails';
