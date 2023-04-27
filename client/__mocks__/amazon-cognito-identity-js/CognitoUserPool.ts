@@ -12,10 +12,10 @@ const session = {
 const user = {
   getSession: jest
     .fn()
-    .mockImplementationOnce((callback) => callback(null, session))
     .mockImplementationOnce((callback) =>
       callback(new Error('SESSION_ERROR'), null)
-    ),
+    )
+    .mockImplementation((callback) => callback(null, session)),
   signOut: jest.fn()
 };
 

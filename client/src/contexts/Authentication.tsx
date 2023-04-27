@@ -20,7 +20,7 @@ interface SignInProps {
 }
 
 interface AuthenticationContextValue {
-  getToken(): null;
+  getToken(): Promise<null>;
   isAuth: boolean;
   isLoading: boolean;
   signIn({ email, password }: SignInProps): Promise<void>;
@@ -40,7 +40,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   const [token, setToken] = useState<string | null>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const getToken = () => {
+  const getToken = async () => {
     const user = userPool && userPool.getCurrentUser();
 
     user &&
