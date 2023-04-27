@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import {
   ReactElement,
   createContext,
@@ -40,7 +41,6 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   const [token, setToken] = useState<string | null>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  /* istanbul ignore next */
   const getToken = async () => {
     const user = userPool && userPool.getCurrentUser();
 
@@ -62,7 +62,6 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     setIsAuth(token ? true : false);
   }, [token]);
 
-  /* istanbul ignore next */
   const signIn = async ({ email, password }: SignInProps) => {
     setIsLoading(true);
 

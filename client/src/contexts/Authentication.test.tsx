@@ -50,11 +50,11 @@ describe('Authentication', () => {
         waitFor(() => expect(queryByTestId('signOut')).toBeInTheDocument());
       });
 
-      const getTokenButton = queryByTestId('getToken');
-      getTokenButton && fireEvent.click(getTokenButton);
-
       const signInButton = queryByTestId('signIn');
       signInButton && (await fireEvent.click(signInButton));
+
+      const getTokenButton = queryByTestId('getToken');
+      getTokenButton && fireEvent.click(getTokenButton);
 
       const signOutButton = queryByTestId('signOut');
       signOutButton && fireEvent.click(signOutButton);
