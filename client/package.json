@@ -22,7 +22,7 @@
     "scan": "dotenv -- cross-var npm run typegen && npm run nav && npm run typecheck && npm run lint && npm run test",
     "scan:local": "npm run typegen:local && npm run nav && npm run typecheck && npm run lint && npm run test",
     "start": "next start",
-    "test": "jest --runInBand",
+    "test": "jest",
     "test:dev": "jest --watch",
     "test:snapshot": "npm test -- -u",
     "test:ci": "jest --ci",
