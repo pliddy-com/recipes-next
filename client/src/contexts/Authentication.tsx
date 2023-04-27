@@ -51,6 +51,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
         if (err) {
           return null;
         }
+
         setToken(session.getIdToken().getJwtToken());
       });
 
@@ -64,6 +65,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
 
   const signIn = async ({ email, password }: SignInProps) => {
     setIsLoading(true);
+
     await new Promise((resolve, reject) => {
       const user =
         userPool &&
@@ -93,6 +95,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
           }
         });
     });
+
     setIsLoading(false);
   };
 
