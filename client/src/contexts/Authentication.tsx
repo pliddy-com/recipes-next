@@ -85,10 +85,6 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
             reject(err);
             setIsLoading(false);
           }
-          // newPasswordRequired: (data) => {
-          //   resolve(data);
-          //   setIsLoading(false);
-          // }
         });
     });
     setIsLoading(false);

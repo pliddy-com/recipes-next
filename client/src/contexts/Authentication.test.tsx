@@ -35,12 +35,14 @@ describe('Authentication', () => {
     );
   };
 
-  afterAll(() => {
+  afterEach(() => {
     jest.resetModules();
   });
 
   describe('when the provider is called', () => {
     it('the Authentication provider renders', async () => {
+      // const authSpy = jest.spyOn(cognitoIdentity, 'CognitoUserPool');
+
       const { queryByTestId } = render(
         <AuthenticationProvider>
           <TestingComponent />
@@ -57,9 +59,6 @@ describe('Authentication', () => {
       const getTokenButton = queryByTestId('getToken');
       getTokenButton && fireEvent.click(getTokenButton);
 
-      // fire second click to generate error
-      getTokenButton && fireEvent.click(getTokenButton);
-
       const signInButton = queryByTestId('signIn');
       signInButton && (await fireEvent.click(signInButton));
 
@@ -68,37 +67,22 @@ describe('Authentication', () => {
     });
   });
 
-  // describe('when getSession returns and error', () => {
-  //   // this test calls the second instance of mock getSession, which returns an error
-  //   // except it doesn't work on GitHub Actions
-  //   it('getToken returns null', async () => {
-  //     const session = {
-  //       getIdToken: jest.fn().mockReturnValue({
-  //         getJwtToken: jest.fn().mockReturnValue('TOKEN')
-  //       })
-  //     };
+  describe('when getSession returns and error', () => {
+    // this test calls the second instance of mock getSession, which returns an error
+    // except it doesn't work on GitHub Actions
+    it('getToken returns null', async () => {
+      const { queryByTestId } = render(
+        <AuthenticationProvider>
+          <TestingComponent />
+        </AuthenticationProvider>
+      );
 
-  //     const user = {
-  //       getSession: jest
-  //         .fn()
-  //         .mockImplementationOnce((cb) => cb(new Error('SESSION_ERROR'), null)),
-  //       signOut: jest.fn()
-  //     };
+      await act(async () => {
+        waitFor(() => expect(queryByTestId('getToken')).toBeInTheDocument());
+      });
 
-  //     jest
-
-  //     const { queryByTestId } = render(
-  //       <AuthenticationProvider>
-  //         <TestingComponent />
-  //       </AuthenticationProvider>
-  //     );
-
-  //     await act(async () => {
-  //       waitFor(() => expect(queryByTestId('getToken')).toBeInTheDocument());
-  //     });
-
-  //     const getTokenButton = queryByTestId('getToken');
-  //     getTokenButton && fireEvent.click(getTokenButton);
-  //   });
-  // });
+      const getTokenButton = queryByTestId('getToken');
+      getTokenButton && fireEvent.click(getTokenButton);
+    });
+  });
 });
