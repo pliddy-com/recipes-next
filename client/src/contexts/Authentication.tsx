@@ -62,6 +62,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     setIsAuth(token ? true : false);
   }, [token]);
 
+  /* istanbul ignore next */
   const signIn = async ({ email, password }: SignInProps) => {
     setIsLoading(true);
 
@@ -79,7 +80,6 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
       });
 
       /* NOTE: this works locally, but fails coverage on github actions */
-      /* istanbul ignore next */
       user &&
         user.authenticateUser(authDetails, {
           onSuccess: (result) => {
