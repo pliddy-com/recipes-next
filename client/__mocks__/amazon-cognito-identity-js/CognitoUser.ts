@@ -8,6 +8,7 @@ const authenticateUser = jest
   .fn()
   .mockImplementation((_authDetails, callbacks) => {
     callbacks['onSuccess'](session);
+    // TODO: update mock with second callback as separate test
     callbacks['onFailure'](new Error('AUTHENTICATE USER ERRORa'));
   });
 

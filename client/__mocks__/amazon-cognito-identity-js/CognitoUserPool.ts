@@ -1,4 +1,4 @@
-interface ICognitoUserPoolData {
+export interface ICognitoUserPoolData {
   UserPoolId: string;
   ClientId: string;
 }
@@ -12,8 +12,10 @@ const session = {
 const user = {
   getSession: jest
     .fn()
-    .mockImplementationOnce((cb) => cb(null, session))
-    .mockImplementationOnce((cb) => cb(new Error('SESSION_ERROR'), null)),
+    .mockImplementationOnce((callback) => callback(null, session))
+    .mockImplementationOnce((callback) =>
+      callback(new Error('SESSION_ERROR'), null)
+    ),
   signOut: jest.fn()
 };
 
