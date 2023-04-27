@@ -35,7 +35,7 @@ describe('Authentication', () => {
     );
   };
 
-  afterEach(() => {
+  afterAll(() => {
     jest.resetModules();
   });
 
