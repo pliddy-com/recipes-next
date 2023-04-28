@@ -2,9 +2,6 @@ name: Get Bucket Name
 description: This is an action to get the S3 deployment bucket for the workflow.
 
 inputs:
-  branch:
-    description: name of this git branch
-    required: true
   bucketBase:
     description: This is the base name of the S3 deployment bucket
     required: true
@@ -27,7 +24,7 @@ runs:
           const bucketBase = '${{ inputs.bucketBase }}';
           console.log('bucketBase:', bucketBase);
 
-          const branch = '${{ inputs.branch }}'
+          const branch = ${{ github.ref_name }};
           console.log('branch:', branch);
 
           const envLabel = (branch === 'main') && 'prod' || 'dev';
