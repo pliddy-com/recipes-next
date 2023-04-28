@@ -2,9 +2,6 @@ name: Remove Client
 description: Removes statically-generated files from S3 bucket
 
 inputs:
-  branch:
-    description: This is the base name of the S3 deployment bucket
-    required: true
   s3Bucket:
     description: This is the base name of the S3 deployment bucket
     required: true

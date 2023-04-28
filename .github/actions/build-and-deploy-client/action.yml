@@ -24,7 +24,7 @@ runs:
     - name: Build and Deploy Client
       id: build-and-deploy-client
       run: |
-        echo "branch: ${{ github.event.ref }}"
+        echo "branch: ${{ github.ref_name }}"
         echo "deployment bucket: ${{ inputs.s3Bucket }}"
         echo "distribution id: ${{ inputs.distributionId }}"
 
