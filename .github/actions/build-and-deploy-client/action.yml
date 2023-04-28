@@ -5,9 +5,6 @@ inputs:
   algoliaAppId:
     description: 'Algolia app id secret'
     required: true
-  branch:
-    description: This is the git branch
-    required: true
   distributionId:
     description: This is the CloudFront distribution id
     required: true
@@ -27,7 +24,7 @@ runs:
     - name: Build and Deploy Client
       id: build-and-deploy-client
       run: |
-        echo "branch: ${{ inputs.branch }}"
+        echo "branch: ${{ github.event.ref }}"
         echo "deployment bucket: ${{ inputs.s3Bucket }}"
         echo "distribution id: ${{ inputs.distributionId }}"
 

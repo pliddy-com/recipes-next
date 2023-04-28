@@ -69,7 +69,6 @@ jobs:
         uses: './.github/actions/build-and-deploy-client'
         with:
           algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
-          branch: ${{ github.ref }}
           distributionId: ${{ steps.distribution-id.outputs.distributionId }}
           s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
           userPoolId: ${{ steps.user-pool-ids.outputs.userPoolId }}
