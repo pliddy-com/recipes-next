@@ -43,6 +43,6 @@ jobs:
         id: scan-cdk
         uses: './.github/actions/scan-cdk'
 
-      - name: Deploy Shared AWS Stack for ${{github.ref}}
+      - name: Deploy Shared AWS Stack for ${{github.ref_name}}
         id: deploy-shared-stack
         run: npm run deploy:shared

@@ -24,10 +24,7 @@ runs:
           const bucketBase = '${{ inputs.bucketBase }}';
           console.log('bucketBase:', bucketBase);
 
-          const refArray = context.ref.split('/');
-          console.log('refArray:', refArray);
-
-          const branch = refArray[refArray.length - 1];
+          const branch = ${{ github.ref_name }};
           console.log('branch:', branch);
 
           const envLabel = (branch === 'main') && 'prod' || 'dev';
