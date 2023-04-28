@@ -73,7 +73,6 @@ jobs:
         id: bucket-name
         uses: './.github/actions/bucket-name'
         with:
-          branch: ${{ github.ref }}
           bucketBase: ${{ vars.S3_BUCKET_BASE }}
 
       - name: Get Distribution ID
