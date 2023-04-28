@@ -99,13 +99,13 @@ fragment RecipeDefault on Recipe {
   recipeYield
   prepTime
   cookTime
-  ingredientsCollection(limit: 10) {
+  ingredientsCollection(limit: 6) {
     items {
       ...IngredientsDefault
     }
   }
   equipment
-  instructionsCollection(limit: 10) {
+  instructionsCollection(limit: 6) {
     items {
       ...InstructionsDefault
     }
@@ -130,7 +130,7 @@ fragment RecipeSummary on Recipe {
   image {
     ...ImageDefault
   }
-  tagsCollection(limit: 8) {
+  tagsCollection(limit: 6) {
     items {
       ...TagDefault
     }

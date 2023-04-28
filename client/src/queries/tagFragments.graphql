@@ -23,12 +23,11 @@ fragment TagWithLinks on Tag {
 
 # fragment for items on list page queries
 fragment ListPageItem on Tag {
-  #   ...TagDefault
   __typename
   slug
   title
   linkedFrom {
-    recipeCollection(limit: 10) {
+    recipeCollection(limit: 15) {
       total
       items {
         ...RecipeSummary
