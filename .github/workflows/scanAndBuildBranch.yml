@@ -33,80 +33,87 @@ jobs:
         id: checkout-repo
         uses: actions/checkout@v3
 
-      - name: Setup Node
-        id: setup-node
-        uses: './.github/actions/setup-node'
-
-      - name: Echo Env Vars through Context
+      - name: Test Branch Labels
+        id: test-branch-labels
         run: |
-          echo "$GITHUB_CONTEXT"
+          echo "github.event.ref: ${{ github.event.ref }}"
+          echo "github.ref: ${{ github.ref }}"
+          echo "github.ref_name: ${{ github.ref_name }}"
 
-      - name: Setup npm cache
-        id: npm-cache
-        uses: './.github/actions/npm-cache'
+      # - name: Setup Node
+      #   id: setup-node
+      #   uses: './.github/actions/setup-node'
 
-      - name: Setup Next Cache
-        id: setup-next
-        uses: './.github/actions/next-build-cache'
+      # - name: Echo Env Vars through Context
+      #   run: |
+      #     echo "$GITHUB_CONTEXT"
 
-      - name: Install Dependencies
-        id: install-dependencies
-        uses: './.github/actions/install-dependencies'
+      # - name: Setup npm cache
+      #   id: npm-cache
+      #   uses: './.github/actions/npm-cache'
 
-      - name: Run Scans on the CDK Workspace
-        id: scan-cdk
-        uses: './.github/actions/scan-cdk'
+      # - name: Setup Next Cache
+      #   id: setup-next
+      #   uses: './.github/actions/next-build-cache'
 
-      - name: Run Scans on the Client Workspace
-        id: scan-client
-        uses: './.github/actions/scan-client'
+      # - name: Install Dependencies
+      #   id: install-dependencies
+      #   uses: './.github/actions/install-dependencies'
 
-      - name: Deploy Shared AWS Stack for ${{github.ref}}
-        id: deploy-shared-stack
-        run: npm run deploy:shared -w cdk
+      # - name: Run Scans on the CDK Workspace
+      #   id: scan-cdk
+      #   uses: './.github/actions/scan-cdk'
 
-      - name: Deploy Branch-specific Stack for ${{github.ref}}
-        id: deploy-branch-stack
-        run: npm run deploy -w cdk
+      # - name: Run Scans on the Client Workspace
+      #   id: scan-client
+      #   uses: './.github/actions/scan-client'
 
-      - name: Get Bucket Name
-        id: bucket-name
-        uses: './.github/actions/bucket-name'
-        with:
-          bucketBase: ${{ vars.S3_BUCKET_BASE }}
+      # - name: Deploy Shared AWS Stack for ${{github.ref}}
+      #   id: deploy-shared-stack
+      #   run: npm run deploy:shared -w cdk
 
-      - name: Get Distribution ID
-        id: distribution-id
-        uses: './.github/actions/distribution-id'
+      # - name: Deploy Branch-specific Stack for ${{github.ref}}
+      #   id: deploy-branch-stack
+      #   run: npm run deploy -w cdk
 
-      - name: Get User Pool IDs
-        id: user-pool-ids
-        uses: './.github/actions/user-pool-ids'
+      # - name: Get Bucket Name
+      #   id: bucket-name
+      #   uses: './.github/actions/bucket-name'
+      #   with:
+      #     bucketBase: ${{ vars.S3_BUCKET_BASE }}
 
-      - name: Create Default User
-        id: create-default-user
-        uses: './.github/actions/default-user'
-        with:
-          awsDefaultRegion: ${{ env.AWS_DEFAULT_REGION }}
-          userPoolId: ${{ steps.user-pool-ids.outputs.userPoolId }}
-          user: ${{ env.DEFAULT_USER }}
-          password: ${{ env.DEFAULT_PASSWORD }}
+      # - name: Get Distribution ID
+      #   id: distribution-id
+      #   uses: './.github/actions/distribution-id'
 
-      - name: Build and Deploy Client
-        id: build-and-deploy-client
-        uses: './.github/actions/build-and-deploy-client'
-        with:
-          algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
-          distributionId: ${{ steps.distribution-id.outputs.distributionId }}
-          s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
-          userPoolClientId: ${{ steps.user-pool-ids.outputs.userPoolClientId }}
-          userPoolId: ${{ steps.user-pool-ids.outputs.userPoolId }}
+      # - name: Get User Pool IDs
+      #   id: user-pool-ids
+      #   uses: './.github/actions/user-pool-ids'
 
-      - name: Build Search Index
-        id: index-search
-        uses: './.github/actions/index-search'
-        with:
-          algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
-          algoliaSearchAdminKey: ${{ env.ALGOLIA_SEARCH_ADMIN_KEY }}
-          contentfulAccessToken: ${{ env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN }}
-          contentfulSpaceId: ${{ env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID }}
+      # - name: Create Default User
+      #   id: create-default-user
+      #   uses: './.github/actions/default-user'
+      #   with:
+      #     awsDefaultRegion: ${{ env.AWS_DEFAULT_REGION }}
+      #     userPoolId: ${{ steps.user-pool-ids.outputs.userPoolId }}
+      #     user: ${{ env.DEFAULT_USER }}
+      #     password: ${{ env.DEFAULT_PASSWORD }}
+
+      # - name: Build and Deploy Client
+      #   id: build-and-deploy-client
+      #   uses: './.github/actions/build-and-deploy-client'
+      #   with:
+      #     algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+      #     distributionId: ${{ steps.distribution-id.outputs.distributionId }}
+      #     s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
+      #     userPoolClientId: ${{ steps.user-pool-ids.outputs.userPoolClientId }}
+      #     userPoolId: ${{ steps.user-pool-ids.outputs.userPoolId }}
+
+      # - name: Build Search Index
+      #   id: index-search
+      #   uses: './.github/actions/index-search'
+      #   with:
+      #     algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+      #     algoliaSearchAdminKey: ${{ env.ALGOLIA_SEARCH_ADMIN_KEY }}
+      #     contentfulAccessToken: ${{ env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN }}
+      #     contentfulSpaceId: ${{ env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID }}
