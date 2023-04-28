@@ -99,7 +99,7 @@ fragment RecipeDefault on Recipe {
   recipeYield
   prepTime
   cookTime
-  ingredientsCollection(limit: 6) {
+  ingredientsCollection(limit: 4) {
     items {
       ...IngredientsDefault
     }
@@ -111,7 +111,7 @@ fragment RecipeDefault on Recipe {
     }
   }
   notes
-  tagsCollection(limit: 10) {
+  tagsCollection(limit: 4) {
     items {
       ...TagDefault
     }

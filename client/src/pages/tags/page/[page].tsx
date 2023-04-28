@@ -68,7 +68,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const pages = paginateResults({ data: tagList, pageSize });
 
   const paths = pages
-    .map((page, pageNum) => pageNum)
+    .map((_page, pageNum) => pageNum)
     .map((pageNum) => ({
       params: { page: String(pageNum + 1) }
     }));
