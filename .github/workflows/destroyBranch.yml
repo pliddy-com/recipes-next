@@ -31,35 +31,32 @@ jobs:
         id: test-branch-labels
         run: |
           echo "github.event.ref: ${{ github.event.ref }}"
-          echo "github.ref: ${{ github.ref }}"
           echo "github.ref_name: ${{ github.ref_name }}"
 
-      # - name: Setup Node
-      #   id: setup-node
-      #   uses: './.github/actions/setup-node'
+      - name: Setup Node
+        id: setup-node
+        uses: './.github/actions/setup-node'
 
-      # - name: Setup npm cache
-      #   id: npm-cache
-      #   uses: './.github/actions/npm-cache'
+      - name: Setup npm cache
+        id: npm-cache
+        uses: './.github/actions/npm-cache'
 
-      # - name: Install Dependencies
-      #   id: install-dependencies
-      #   uses: './.github/actions/install-dependencies'
+      - name: Install Dependencies
+        id: install-dependencies
+        uses: './.github/actions/install-dependencies'
 
-      # - name: Destroy AWS Stack
-      #   id: destroy-aws-stack
-      #   uses: './.github/actions/destroy-aws-stack'
+      - name: Destroy AWS Stack
+        id: destroy-aws-stack
+        uses: './.github/actions/destroy-aws-stack'
 
-      # - name: Get Bucket Name
-      #   id: bucket-name
-      #   uses: './.github/actions/bucket-name'
-      #   with:
-      #     branch: ${{ github.ref_name }}
-      #     bucketBase: ${{ vars.S3_BUCKET_BASE }}
+      - name: Get Bucket Name
+        id: bucket-name
+        uses: './.github/actions/bucket-name'
+        with:
+          bucketBase: ${{ vars.S3_BUCKET_BASE }}
 
-      # - name: Remove Client
-      #   id: remove-client
-      #   uses: './.github/actions/remove-client'
-      #   with:
-      #     branch: ${{ github.ref_name }}
-      #     s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
+      - name: Remove Client
+        id: remove-client
+        uses: './.github/actions/remove-client'
+        with:
+          s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}

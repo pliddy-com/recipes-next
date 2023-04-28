@@ -34,6 +34,12 @@ jobs:
         id: checkout-repo
         uses: actions/checkout@v3
 
+      - name: Display Branch Labels
+        id: test-branch-labels
+        run: |
+          echo "github.event.ref: ${{ github.event.ref }}"
+          echo "github.ref_name: ${{ github.ref_name }}"
+
       - name: Setup Node
         id: setup-node
         uses: './.github/actions/setup-node'
