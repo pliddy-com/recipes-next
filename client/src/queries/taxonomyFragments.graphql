@@ -59,7 +59,7 @@ fragment NavTaxonomy on TaxonomyCollection {
       slug
     }
 
-    childrenCollection(limit: 24) {
+    childrenCollection(limit: 26) {
       total
       items {
         ... on Tag {
