@@ -10,7 +10,7 @@ describe('responsiveImage', () => {
       const url = 'https://URL.test';
       const imgWidth = 1000;
       const expected =
-        'https://URL.test?w=1000&h=750&fm=webp&q=75 1x, https://URL.test?w=2000&h=1500&fm=webp&q=75 2x';
+        'https://URL.test?w=1000&h=750&fit=fill&fm=webp&q=75 1x, https://URL.test?w=2000&h=1500&fit=fill&fm=webp&q=75 2x';
 
       const srcSet = createSrcSet({ url, imgWidth });
 

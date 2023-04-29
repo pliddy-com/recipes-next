@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import LoginIcon from '@mui/icons-material/Login';
 import LockIcon from '@mui/icons-material/Lock';
 
@@ -37,12 +38,14 @@ const SignInControl = ({ hideLabel = false }: ISignInControl) => {
         label={isAuth ? 'Sign Out' : 'Sign In'}
         onClick={isAuth ? signOut : handleClick}
       />
-      <SignInDialog
-        isOpen={isOpen}
-        onClose={onClose}
-        isLoading={isLoading}
-        onSignIn={signIn}
-      />
+      {isOpen && (
+        <SignInDialog
+          isLoading={isLoading}
+          isOpen={isOpen}
+          onClose={onClose}
+          onSignIn={signIn}
+        />
+      )}
     </>
   );
 };

@@ -32,7 +32,7 @@ const PreloadTags = ({
           url && (
             <link
               rel="preload"
-              href={`${url}?w=${defaultWidth}&h=${defaultHeight}&fm=webp&q=75`}
+              href={`${url}?w=${defaultWidth}&h=${defaultHeight}&fit=fill&fm=webp&q=75`}
               as="image"
               sizes={`${imgWidth}px`}
               imageSrcSet={createSrcSet({ aspectRatio, imgWidth, url })}

@@ -17,9 +17,9 @@ export const createSrcSet = ({
     url &&
     `${url}?${
       imgWidth && `w=${imgWidth}&h=${imgHeight}`
-    }&fm=webp&q=75 1x, ${url}?${
-      imgWidth && `w=${imgWidth * 2}&h=${imgHeight * 2}&`
-    }fm=webp&q=75 2x`
+    }&fit=fill&fm=webp&q=75 1x, ${url}?${
+      imgWidth && `w=${imgWidth * 2}&h=${imgHeight * 2}`
+    }&fit=fill&fm=webp&q=75 2x`
   );
 };
 

@@ -64,7 +64,7 @@ const DynamicImage = ({
           loading={preload ? 'eager' : 'lazy'}
           src={`${url}?w=${defaultWidth * 2}&h=${
             defaultHeight * 2
-          }&fm=webp&q=75`}
+          }&fit=fill&fm=webp&q=75`}
           width={defaultWidth}
           fetchpriority={preload ? 'high' : 'auto'}
         />
