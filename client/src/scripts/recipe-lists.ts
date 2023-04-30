@@ -6,11 +6,7 @@
  *  NOTE: have to publish version after change
  */
 
-import {
-  RecipeEntryQueryDocument,
-  //   RecipeCollectionQueryDocument,
-  RecipeEntryQueryQuery
-} from '../types/queries';
+import { RecipeEntryQueryDocument } from '../types/queries';
 
 import * as dotenv from 'dotenv';
 
@@ -24,10 +20,131 @@ const {
 
 const restApi = `${CONTENTFUL_MANAGEMENT_API}/spaces/${CONTENTFUL_SPACE_ID}`;
 
-const getEntryData = (entry: RecipeEntryQueryQuery) => {
+const getEntry = async ({ id }: { id: string }) => {
+  const entryUrl = `${restApi}/entries/${id}`;
+
+  try {
+    const entry = await fetch(entryUrl, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`
+      }
+    });
+
+    return entry.json();
+  } catch (e) {
+    console.log('GET ERROR:', e);
+    throw e;
+  }
+};
+
+interface IEntryData {
+  id: string;
+  publishedVersion: number | null | undefined;
+  ingredientsList:
+    | {
+        sectionTitle: string | null | undefined;
+        sectionItems: (string | null)[] | null | undefined;
+      }[]
+    | undefined;
+  instructionsList:
+    | {
+        sectionTitle: string | null | undefined;
+        sectionItems: (string | null)[] | null | undefined;
+      }[]
+    | undefined;
+}
+
+const updateEntry = async ({
+  entryData,
+  id,
+  original
+}: {
+  entryData: IEntryData;
+  id: string;
+  original: { sys: { version: number }; fields: Array<never> };
+}) => {
+  const entryUrl = `${restApi}/entries/${id}`;
+  const obj = {
+    fields: {
+      ...original.fields,
+      ingredientsList: {
+        'en-US': entryData.ingredientsList
+      },
+      instructionsList: {
+        'en-US': entryData.instructionsList
+      }
+    }
+  };
+
+  const blob = new Blob([JSON.stringify(obj, null, 2)], {
+    type: 'application/json-patch+json'
+  });
+
+  const version = entryData.publishedVersion
+    ? entryData.publishedVersion + 1
+    : 1;
+
+  console.log({ version });
+
+  try {
+    const update = await fetch(entryUrl, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`,
+        'Content-Type': 'application/json-patch+json',
+        'X-Contentful-Version': `${version}`
+      },
+      body: blob
+    });
+
+    return update.json();
+  } catch (e) {
+    console.log('UPDATE ERROR:', e);
+    throw e;
+  }
+};
+
+const publishEntry = async ({
+  id,
+  version
+}: {
+  id: string;
+  version: number;
+}) => {
+  const entryUrl = `${restApi}/entries/${id}/published`;
+
+  try {
+    const entry = await fetch(entryUrl, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`,
+        'X-Contentful-Version': `${version}`
+      }
+    });
+
+    return entry.json();
+  } catch (e) {
+    console.log('PUBLISH ERROR:', e);
+    throw e;
+  }
+};
+
+const getEntryData = async ({ id }: { id: string }) => {
+  const { queryGraphQLContent } = await import('../lib/gqlClient');
+
+  const entryVariables = {
+    id
+  };
+
+  const entry = await queryGraphQLContent(
+    RecipeEntryQueryDocument,
+    entryVariables
+  );
+
   const { ingredientsCollection, instructionsCollection, sys } =
     entry.recipe ?? {};
-  const { id, publishedVersion } = sys ?? {};
+  const { publishedVersion } = sys ?? {};
 
   const ingredientSections = ingredientsCollection?.items;
   const instructionSections = instructionsCollection?.items;
@@ -52,99 +169,55 @@ const getEntryData = (entry: RecipeEntryQueryQuery) => {
     };
   });
 
+  console.log({ publishedVersion });
+
   return { id, publishedVersion, ingredientsList, instructionsList };
 };
 
 const main = async () => {
-  const { queryGraphQLContent } = await import('../lib/gqlClient');
+  /**
+   *  Get data for single entry
+   *  TODO: get all entries and process each
+   */
 
-  const entryVariables = {
-    id: '4MEb13R1iT1s7huTumqtBT'
-  };
+  const id = 'r6KIThu0NPUez675RWCG7';
+  const original = await getEntry({ id });
 
-  const entry = await queryGraphQLContent(
-    RecipeEntryQueryDocument,
-    entryVariables
-  );
+  console.log({ original });
 
-  const entryData = getEntryData(entry);
+  const entryData = await getEntryData({ id });
 
-  console.log(entry);
-  console.log(entryData);
+  console.log({ entryData });
 
-  //   const collection = await queryGraphQLContent(RecipeCollectionQueryDocument);
+  await updateEntry({ id, original, entryData });
 
-  //   console.log(collection);
+  const version = entryData.publishedVersion
+    ? entryData.publishedVersion + 2
+    : 1;
 
-  //   const output = collection?.recipeCollection?.items.map((item) => {
-  //     const { ingredientsCollection, instructionsCollection, sys } = item ?? {};
-  //     const { id, publishedVersion } = sys ?? {};
+  const publish = await publishEntry({ id, version });
 
-  //     const ingredientSections = ingredientsCollection?.items;
-  //     const instructionSections = instructionsCollection?.items;
+  console.log('PUBLISH:', publish);
 
-  //     const ingredientsList = ingredientSections?.map((section) => {
-  //       const sectionTitle = section?.label;
-  //       const sectionItems = section?.ingredientList;
+  // publish entry
 
-  //       return {
-  //         sectionTitle,
-  //         sectionItems
-  //       };
-  //     });
-
-  //     const instructionsList = instructionSections?.map((section) => {
-  //       const sectionTitle = section?.label;
-  //       const sectionItems = section?.instructionList;
-
-  //       return {
-  //         sectionTitle,
-  //         sectionItems
-  //       };
-  //     });
-
-  //     return { id, publishedVersion, ingredientsList, instructionsList };
+  // fetch(`${entryUrl}/published`, {
+  //   method: 'PUT',
+  //   headers: {
+  //     Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`
+  //   }
+  // })
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     console.log('PUBLISH:', data);
+  //     if (data.details && data.details.errors) {
+  //       data.details.errors.forEach((e: Error) => console.log(e));
+  //     }
+  //     return data;
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
   //   });
-
-  const entryUrl = `${restApi}/entries/${entryData.id}`;
-
-  const obj = [
-    {
-      op: 'replace',
-      path: '/fields/title/en-US',
-      value: 'Air Fry Pork Cutlets'
-    }
-  ];
-
-  const blob = new Blob([JSON.stringify(obj, null, 2)], {
-    type: 'application/json-patch+json'
-  });
-
-  console.log(blob);
-
-  fetch(entryUrl, {
-    method: 'PATCH',
-    headers: {
-      Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`,
-      'Content-Type': 'application/json-patch+json',
-      'X-Contentful-Version': `${
-        entryData.publishedVersion ? entryData.publishedVersion + 1 : 1
-      }`
-    },
-    body: blob
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log('RESPONSE');
-      console.log(data);
-      //   data.details.errors.forEach((e: Error) => console.log(e));
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
-  //   console.log({ output });
-  console.log({ restApi });
 };
 
 main();
