@@ -5,11 +5,15 @@ exports[`EquipmentSection when there is properly formatted content it renders th
   <div
     class="equipment css-nen11g-MuiStack-root"
   >
-    <h2
-      class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
+    <div
+      class="css-xzedd6-MuiStack-root"
     >
-      Equipment
-    </h2>
+      <h2
+        class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-1psfkrs-MuiTypography-root"
+      >
+        Equipment
+      </h2>
+    </div>
     <ul
       class="MuiList-root MuiList-padding recipeList unorderedList css-h4y409-MuiList-root"
     >

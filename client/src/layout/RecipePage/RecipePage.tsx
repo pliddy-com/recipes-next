@@ -4,6 +4,8 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
+import EditIcon from '@mui/icons-material/edit';
+
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 import EquipmentSection from 'components/RecipeSections/EquipmentSection/EquipmentSection';
 import IngredientsSection from 'components/RecipeSections/IngredientsSection/IngredientsSection';
@@ -17,6 +19,11 @@ import { minToTime } from 'lib/utils';
 import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 
 import { recipePageConfig } from 'theme/values/images';
+
+import colors from 'theme/values/colors';
+import Button from '@mui/material/Button';
+
+import { useAuthContext } from 'contexts/Authentication';
 
 interface RecipePageProps {
   content?: RecipeDefaultFragment;
@@ -37,6 +44,8 @@ const RecipePage = ({ content }: RecipePageProps) => {
     title
   } = content ?? {};
 
+  const { isAuth } = useAuthContext();
+
   const { aspectRatio, breakpoints } = recipePageConfig;
 
   const richText = description as RecipeDescription;
@@ -46,10 +55,35 @@ const RecipePage = ({ content }: RecipePageProps) => {
   return content ? (
     <Container className="page recipe" data-testid="page" maxWidth="xl">
       <Box className="recipe" data-testid="RecipePage">
-        <Typography variant="h1" gutterBottom>
-          {title}
-        </Typography>
-
+        <Stack
+          direction="row"
+          flex="true"
+          sx={{ justifyContent: 'space-between' }}
+        >
+          <Typography
+            variant="h1"
+            gutterBottom
+            sx={{
+              flexGrow: 1
+            }}
+          >
+            {title}
+          </Typography>
+          {isAuth && (
+            <Box
+              sx={{
+                alignItems: 'center',
+                borderBottom: `1px solid ${colors.secondary.main}`,
+                display: 'flex',
+                marginBottom: '10.5px'
+              }}
+            >
+              <Button variant="text" startIcon={<EditIcon />} className="edit">
+                Edit
+              </Button>
+            </Box>
+          )}
+        </Stack>
         <Grid container className="content">
           <Grid item lg={6} className="contentGrid">
             <Stack className="description">

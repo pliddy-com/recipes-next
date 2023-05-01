@@ -5,11 +5,15 @@ exports[`IngredientsSection when there is properly formatted content renders the
   <div
     class="ingredients css-1okj3ks-MuiStack-root"
   >
-    <h2
-      class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-i1hrn3-MuiTypography-root"
+    <div
+      class="css-xzedd6-MuiStack-root"
     >
-      Ingredients
-    </h2>
+      <h2
+        class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-1psfkrs-MuiTypography-root"
+      >
+        Ingredients
+      </h2>
+    </div>
     <div
       class="css-nen11g-MuiStack-root"
     >

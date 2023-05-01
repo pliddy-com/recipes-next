@@ -10,9 +10,13 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
       class="recipe MuiBox-root css-0"
       data-testid="RecipePage"
     >
-      <h1
-        class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom css-a4d0r7-MuiTypography-root"
-      />
+      <div
+        class="css-xzedd6-MuiStack-root"
+      >
+        <h1
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom css-1hgzw07-MuiTypography-root"
+        />
+      </div>
       <div
         class="MuiGrid-root MuiGrid-container content css-11lq3yg-MuiGrid-root"
       >
