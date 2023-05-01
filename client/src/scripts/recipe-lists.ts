@@ -1,9 +1,8 @@
 #!/usr/bin/env ts-node
+/* eslint-disable no-await-in-loop */
 
 /**
  *  ./client/src/scripts/recipe-lists.ts
- *
- *  NOTE: have to publish version after change
  */
 
 import { RecipeEntryQueryDocument } from '../types/queries';
@@ -18,25 +17,7 @@ const {
   CONTENTFUL_MANAGEMENT_TOKEN
 } = process.env;
 
-const restApi = `${CONTENTFUL_MANAGEMENT_API}/spaces/${CONTENTFUL_SPACE_ID}`;
-
-const getEntry = async ({ id }: { id: string }) => {
-  const entryUrl = `${restApi}/entries/${id}`;
-
-  try {
-    const entry = await fetch(entryUrl, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`
-      }
-    });
-
-    return entry.json();
-  } catch (e) {
-    console.log('GET ERROR:', e);
-    throw e;
-  }
-};
+const restApi = `${CONTENTFUL_MANAGEMENT_API}/spaces/${CONTENTFUL_SPACE_ID}/environments/test`;
 
 interface IEntryData {
   id: string;
@@ -55,80 +36,32 @@ interface IEntryData {
     | undefined;
 }
 
-const updateEntry = async ({
-  entryData,
-  id,
-  original
-}: {
-  entryData: IEntryData;
-  id: string;
-  original: { sys: { version: number }; fields: Array<never> };
-}) => {
-  const entryUrl = `${restApi}/entries/${id}`;
-  const obj = {
-    fields: {
-      ...original.fields,
-      ingredientsList: {
-        'en-US': entryData.ingredientsList
-      },
-      instructionsList: {
-        'en-US': entryData.instructionsList
-      }
-    }
+interface IRecipe {
+  sys: {
+    contentType: { sys: { id: string } };
+    id: string;
+    version: number;
   };
+  fields: Array<never>;
+}
 
-  const blob = new Blob([JSON.stringify(obj, null, 2)], {
-    type: 'application/json-patch+json'
-  });
+// const getEntry = async ({ id }: { id: string }) => {
+//   const url = `${restApi}/entries/${id}`;
 
-  const version = entryData.publishedVersion
-    ? entryData.publishedVersion + 1
-    : 1;
+//   try {
+//     const entry = await fetch(url, {
+//       method: 'GET',
+//       headers: {
+//         Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`
+//       }
+//     });
 
-  console.log({ version });
-
-  try {
-    const update = await fetch(entryUrl, {
-      method: 'PUT',
-      headers: {
-        Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`,
-        'Content-Type': 'application/json-patch+json',
-        'X-Contentful-Version': `${version}`
-      },
-      body: blob
-    });
-
-    return update.json();
-  } catch (e) {
-    console.log('UPDATE ERROR:', e);
-    throw e;
-  }
-};
-
-const publishEntry = async ({
-  id,
-  version
-}: {
-  id: string;
-  version: number;
-}) => {
-  const entryUrl = `${restApi}/entries/${id}/published`;
-
-  try {
-    const entry = await fetch(entryUrl, {
-      method: 'PUT',
-      headers: {
-        Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`,
-        'X-Contentful-Version': `${version}`
-      }
-    });
-
-    return entry.json();
-  } catch (e) {
-    console.log('PUBLISH ERROR:', e);
-    throw e;
-  }
-};
+//     return entry.json();
+//   } catch (e) {
+//     console.log('GET ERROR:', e);
+//     throw e;
+//   }
+// };
 
 const getEntryData = async ({ id }: { id: string }) => {
   const { queryGraphQLContent } = await import('../lib/gqlClient');
@@ -169,55 +102,129 @@ const getEntryData = async ({ id }: { id: string }) => {
     };
   });
 
-  console.log({ publishedVersion });
-
   return { id, publishedVersion, ingredientsList, instructionsList };
 };
 
-const main = async () => {
-  /**
-   *  Get data for single entry
-   *  TODO: get all entries and process each
-   */
+const getEntries = async (): Promise<IRecipe[]> => {
+  console.log('getEntryies');
 
-  const id = 'r6KIThu0NPUez675RWCG7';
-  const original = await getEntry({ id });
+  const url = `${restApi}/public/entries/`;
 
-  console.log({ original });
+  try {
+    const entries = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`
+      }
+    });
+    const res = await entries.json();
 
-  const entryData = await getEntryData({ id });
+    const recipes = res.items.filter(
+      (entry: IRecipe) => entry.sys.contentType.sys.id === 'recipe'
+    );
 
-  console.log({ entryData });
+    return recipes;
+  } catch (e) {
+    console.log('LIST ERROR:', e);
+    throw e;
+  }
+};
 
-  await updateEntry({ id, original, entryData });
+const updateEntry = async ({
+  entryData,
+  id,
+  original
+}: {
+  entryData: IEntryData;
+  id: string;
+  original: IRecipe;
+}) => {
+  console.log('updateEntry', id);
+
+  const url = `${restApi}/entries/${id}`;
+  const obj = {
+    fields: {
+      ...original.fields,
+      ingredientsList: {
+        'en-US': entryData.ingredientsList
+      },
+      instructionsList: {
+        'en-US': entryData.instructionsList
+      }
+    }
+  };
+
+  const blob = new Blob([JSON.stringify(obj, null, 2)], {
+    type: 'application/json-patch+json'
+  });
 
   const version = entryData.publishedVersion
-    ? entryData.publishedVersion + 2
+    ? entryData.publishedVersion + 1
     : 1;
 
-  const publish = await publishEntry({ id, version });
+  try {
+    const update = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`,
+        'Content-Type': 'application/json-patch+json',
+        'X-Contentful-Version': `${version}`
+      },
+      body: blob
+    });
 
-  console.log('PUBLISH:', publish);
+    return update.json();
+  } catch (e) {
+    console.log('UPDATE ERROR:', e);
+    throw e;
+  }
+};
 
-  // publish entry
+const publishEntry = async ({
+  id,
+  version
+}: {
+  id: string;
+  version: number;
+}) => {
+  console.log('publishEntry', id);
 
-  // fetch(`${entryUrl}/published`, {
-  //   method: 'PUT',
-  //   headers: {
-  //     Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`
-  //   }
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     console.log('PUBLISH:', data);
-  //     if (data.details && data.details.errors) {
-  //       data.details.errors.forEach((e: Error) => console.log(e));
-  //     }
-  //     return data;
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
+  const url = `${restApi}/entries/${id}/published`;
+
+  try {
+    const entry = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`,
+        'X-Contentful-Version': `${version}`
+      }
+    });
+
+    return entry.json();
+  } catch (e) {
+    console.log('PUBLISH ERROR:', e);
+    throw e;
+  }
+};
+
+const main = async () => {
+  const recipes = await getEntries();
+  console.log('recipes:', recipes.length);
+
+  for (const recipe of recipes) {
+    const id = recipe.sys.id;
+
+    const entryData = await getEntryData({ id });
+
+    const version = entryData.publishedVersion
+      ? entryData.publishedVersion + 2
+      : 1;
+
+    Promise.all([
+      await updateEntry({ id, original: recipe, entryData }),
+      await publishEntry({ id, version })
+    ]).then((res) => console.log({ res }));
+  }
 };
 
 main();
