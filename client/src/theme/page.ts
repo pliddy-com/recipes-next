@@ -54,7 +54,7 @@ const pageThemeOptions: ThemeOptions = {
                 },
                 [breakpoints.up('sm')]: {
                   flexDirection: 'row',
-                  marginBottom: '1rem'
+                  marginBottom: '2rem'
                 },
                 '& .contentGrid': {
                   width: '100%'
