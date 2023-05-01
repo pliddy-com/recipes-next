@@ -98,3 +98,55 @@ query recipePage($where: RecipeFilter) {
     ...SchemaTaxonomy
   }
 }
+
+query recipeEntryQuery($id: String!) {
+  recipe(id: $id) {
+    sys {
+      id
+      publishedVersion
+    }
+    ingredientsCollection {
+      total
+      items {
+        label
+        ingredientList
+      }
+    }
+    instructionsCollection {
+      total
+      items {
+        label
+        instructionList
+      }
+    }
+  }
+}
+
+# used for recipe content structure migration
+query recipeCollectionQuery {
+  recipeCollection {
+    total
+    items {
+      sys {
+        id
+        publishedVersion
+      }
+      # ingredientsCollection(limit: 10) {
+      #   total
+      #   items {
+      #     label
+      #     ingredientList
+      #   }
+      # }
+      # instructionsCollection(limit: 10) {
+      #   total
+      #   items {
+      #     label
+      #     instructionList
+      #   }
+      # }
+      ingredientsList
+      instructionsList
+    }
+  }
+}

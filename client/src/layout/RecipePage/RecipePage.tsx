@@ -28,8 +28,8 @@ const RecipePage = ({ content }: RecipePageProps) => {
     description,
     equipment,
     image,
-    ingredientsCollection,
-    instructionsCollection,
+    ingredientsList,
+    instructionsList,
     notes,
     prepTime,
     recipeYield,
@@ -41,8 +41,6 @@ const RecipePage = ({ content }: RecipePageProps) => {
 
   const richText = description as RecipeDescription;
 
-  const { items: ingredientsSections } = ingredientsCollection ?? {};
-  const { items: instructionsSections } = instructionsCollection ?? {};
   const { items: tags } = tagsCollection ?? {};
 
   return content ? (
@@ -107,14 +105,12 @@ const RecipePage = ({ content }: RecipePageProps) => {
         </Grid>
 
         <Stack direction="column" spacing={3}>
-          {ingredientsSections && (
-            <IngredientsSection sections={ingredientsSections} />
-          )}
+          {ingredientsList && <IngredientsSection sections={ingredientsList} />}
 
           {equipment && <EquipmentSection equipment={equipment} />}
 
-          {instructionsSections && (
-            <InstructionsSection sections={instructionsSections} />
+          {instructionsList && (
+            <InstructionsSection sections={instructionsList} />
           )}
 
           {notes && <NotesSection notes={notes} />}

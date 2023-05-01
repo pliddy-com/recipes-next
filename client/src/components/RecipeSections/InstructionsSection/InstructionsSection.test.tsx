@@ -3,24 +3,21 @@ import { render } from '@testing-library/react';
 
 import InstructionsSection from 'components/RecipeSections/InstructionsSection/InstructionsSection';
 
-import { InstructionsDefaultFragment } from 'types/queries';
+import { IRecipeSection } from 'types/json';
 
 describe('InstructionsSection', () => {
   const expectedTitle = 'Instructions';
 
   describe('when there is properly formatted content', () => {
     it('it renders the instructions section if there is content', () => {
-      const sections: InstructionsDefaultFragment[] = [
+      const sections: IRecipeSection[] = [
         {
-          title: 'Sole Meunière, Setup',
-          slug: 'sole-meuniere-setup',
-          label: 'Setup',
-          instructionList: ['Heat saute pan over medium-high heat.'],
-          __typename: 'InstructionSection'
+          sectionTitle: 'Sole Meunière, Setup',
+          sectionItems: ['Heat saute pan over medium-high heat.']
         }
       ];
 
-      const expectedItem = sections?.[0].instructionList?.[0];
+      const expectedItem = sections?.[0].sectionItems?.[0];
 
       const { container, queryByText } = render(
         <InstructionsSection sections={sections} />
@@ -53,17 +50,14 @@ describe('InstructionsSection', () => {
 
   describe('when there are missing content properties', () => {
     it('it does not render', () => {
-      const sections: InstructionsDefaultFragment[] = [
+      const sections: IRecipeSection[] = [
         {
-          title: 'Sole Meunière, Setup',
-          slug: 'sole-meuniere-setup',
-          label: null,
-          instructionList: null,
-          __typename: 'InstructionSection'
+          sectionTitle: 'Sole Meunière, Setup',
+          sectionItems: ['Heat saute pan over medium-high heat.']
         }
       ];
 
-      const expectedSubtitle = sections?.[0].label;
+      const expectedSubtitle = sections?.[0].sectionTitle;
 
       const { queryByText } = render(
         <InstructionsSection sections={sections} />

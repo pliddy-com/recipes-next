@@ -16,7 +16,7 @@ exports[`IngredientsSection when there is properly formatted content renders the
       <h3
         class="MuiTypography-root MuiTypography-h3 css-gepadz-MuiTypography-root"
       >
-        Section 1 Label
+        Section 1 Title
       </h3>
       <ul
         class="MuiList-root MuiList-padding recipeList unorderedList css-h4y409-MuiList-root"

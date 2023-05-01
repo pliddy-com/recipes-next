@@ -99,17 +99,9 @@ fragment RecipeDefault on Recipe {
   recipeYield
   prepTime
   cookTime
-  ingredientsCollection(limit: 4) {
-    items {
-      ...IngredientsDefault
-    }
-  }
+  ingredientsList
   equipment
-  instructionsCollection(limit: 6) {
-    items {
-      ...InstructionsDefault
-    }
-  }
+  instructionsList
   notes
   tagsCollection(limit: 4) {
     items {

@@ -8,10 +8,9 @@ const {
   NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: token
 } = process.env;
 
-const schemaUrl = `https://graphql.contentful.com/content/v1/spaces/${spaceId}/`;
+const schemaUrl = `https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`;
 
 const config: CodegenConfig = {
-  // require: ['ts-node/register'],
   schema: [
     {
       [schemaUrl]: {

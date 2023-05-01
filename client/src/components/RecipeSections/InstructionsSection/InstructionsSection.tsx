@@ -6,10 +6,10 @@ import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import { InstructionsDefaultFragment } from 'types/queries';
+import { IRecipeSection } from 'types/json';
 
 interface InstructionsProps {
-  sections?: (InstructionsDefaultFragment | null)[];
+  sections?: (IRecipeSection | null)[];
 }
 
 const InstructionsSection = ({ sections }: InstructionsProps) => {
@@ -24,18 +24,17 @@ const InstructionsSection = ({ sections }: InstructionsProps) => {
       </Typography>
       {sections &&
         sections.map((section) => {
-          const { label, instructionList } = section ?? {};
-          const instructions = instructionList;
+          const { sectionTitle, sectionItems } = section ?? {};
           return (
-            instructions && (
-              <Stack key={label} direction="column" spacing={0}>
+            section && (
+              <Stack key={sectionTitle} direction="column" spacing={0}>
                 {sections.length > 1 && (
-                  <Typography variant="h3">{label}</Typography>
+                  <Typography variant="h3">{sectionTitle}</Typography>
                 )}
 
                 <List className="recipeList orderedList" component="ol">
-                  {instructions &&
-                    instructions.map((instruction) => (
+                  {sectionItems &&
+                    sectionItems.map((instruction) => (
                       <ListItem key={`instruction-${num}`} disableGutters>
                         <ListItemAvatar>
                           <Avatar>{num++}.</Avatar>

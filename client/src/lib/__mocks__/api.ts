@@ -219,50 +219,23 @@ api.getRecipePage = jest.fn().mockResolvedValue({
       height: 300,
       width: 400
     },
-    ingredientsCollection: {
-      items: [
-        {
-          sys: {
-            id: 'sysid-2',
-            __typename: 'Sys'
-          },
-          title: 'Ingredients Title',
-          slug: 'ingredients-title',
-          label: 'Ingredients',
-          ingredientList: ['ingredient 1', 'ingredient 2'],
-          __typename: 'IngredientSection'
-        }
-      ],
-      __typename: 'RecipeIngredientsCollection'
-    },
+    ingredientsList: [
+      {
+        sectionTitle: 'Section Label 1',
+        sectionItems: ['ingredient 1', 'ingredient 2']
+      }
+    ],
     equipment: ['equipment 1', 'equipment 2'],
-    instructionsCollection: {
-      items: [
-        {
-          sys: {
-            id: 'sysid-3',
-            __typename: 'Sys'
-          },
-          title: 'Instructions Title',
-          slug: 'instructions-title',
-          label: 'Label 1',
-          instructionList: ['Instructions item 1'],
-          __typename: 'InstructionSection'
-        },
-        {
-          sys: {
-            id: 'sysid-7',
-            __typename: 'Sys'
-          },
-          title: 'Instructions Title 2',
-          slug: 'instructions-title',
-          label: 'Label 2',
-          instructionList: ['Instructions item 2', 'Instructions item 3'],
-          __typename: 'InstructionSection'
-        }
-      ],
-      __typename: 'RecipeInstructionsCollection'
-    },
+    instructionsList: [
+      {
+        sectionTitle: 'Section Label 1',
+        sectionItems: ['Instructions item 1']
+      },
+      {
+        sectionTitle: 'Section Label 2',
+        sectionItems: ['Instructions item 2', 'Instructions item 3']
+      }
+    ],
     notes: ['note 1'],
     tagsCollection: {
       items: [
