@@ -6,6 +6,8 @@ import {
 } from 'types/queries';
 import { minToIso } from 'lib/utils';
 
+import { IRecipeSection } from 'types/json';
+
 export interface RecipeSchemaProps {
   recipe: RecipeDefaultFragment;
   categories?: (TaxonomyDefaultFragment | TagDefaultFragment | null)[];
@@ -19,8 +21,8 @@ const RecipeSchema = ({ recipe, categories, cuisine }: RecipeSchemaProps) => {
     abstract,
     cookTime,
     image,
-    ingredientsCollection,
-    instructionsCollection,
+    ingredientsList,
+    instructionsList,
     keywords,
     prepTime,
     sys,
@@ -42,27 +44,23 @@ const RecipeSchema = ({ recipe, categories, cuisine }: RecipeSchemaProps) => {
     `${imageUrl}?w=${(imgHeight / 9) * 16}&h=${imgHeight}&fit=fill&fm=webp&q=75`
   ];
 
-  const { items: ingredientSections } = ingredientsCollection ?? {};
-
   const ingredients =
-    ingredientSections &&
-    ingredientSections?.map((section) =>
-      section?.ingredientList?.map((item) => item)
+    ingredientsList &&
+    ingredientsList?.map((section: IRecipeSection) =>
+      section?.sectionItems?.map((item) => item)
     );
-
-  const { items: instructionsSections } = instructionsCollection ?? {};
 
   let instructionStep = 1;
 
   const instructions =
-    instructionsSections &&
-    instructionsSections?.map((section) => ({
+    instructionsList &&
+    instructionsList?.map((section: IRecipeSection) => ({
       '@type': 'HowToSection',
-      name: section?.label,
+      name: section?.sectionTitle,
       itemListElement: [
-        section?.instructionList?.map((item) => ({
+        section?.sectionItems?.map((item) => ({
           '@type': 'HowToStep',
-          name: `${section?.label} Step ${instructionStep++}`,
+          name: `${section?.sectionTitle} Step ${instructionStep++}`,
           text: item
         }))
       ]

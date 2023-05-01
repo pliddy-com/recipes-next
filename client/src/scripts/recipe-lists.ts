@@ -17,7 +17,8 @@ const {
   CONTENTFUL_MANAGEMENT_TOKEN
 } = process.env;
 
-const restApi = `${CONTENTFUL_MANAGEMENT_API}/spaces/${CONTENTFUL_SPACE_ID}/environments/test`;
+// const contentfulEnv = 'test';
+const restApi = `${CONTENTFUL_MANAGEMENT_API}/spaces/${CONTENTFUL_SPACE_ID}/environments/master`;
 
 interface IEntryData {
   id: string;

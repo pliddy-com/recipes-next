@@ -7,25 +7,22 @@ import '@testing-library/jest-dom';
 // import the component to test
 import Ingredients from 'components/RecipeSections/IngredientsSection/IngredientsSection';
 
-import { IngredientsDefaultFragment } from 'types/queries';
+import { IRecipeSection } from 'types/json';
 
 describe('IngredientsSection', () => {
   const expectedTitle = 'Ingredients';
 
   describe('when there is properly formatted content', () => {
     it('renders the ingredients section if there is content', () => {
-      const sections: IngredientsDefaultFragment[] = [
+      const sections: IRecipeSection[] = [
         {
-          title: 'Section 1 Title',
-          slug: 'section-1-slug',
-          label: 'Section 1 Label',
-          ingredientList: ['section 1 item 1', 'section 1 item 2'],
-          __typename: 'IngredientSection'
+          sectionTitle: 'Section 1 Title',
+          sectionItems: ['section 1 item 1', 'section 1 item 2']
         }
       ];
 
-      const expectedSubtitle = sections?.[0].label;
-      const expectedItem = sections?.[0].ingredientList?.[0];
+      const expectedSubtitle = sections?.[0].sectionTitle;
+      const expectedItem = sections?.[0].sectionItems?.[0];
 
       const { container, queryByText } = render(
         <Ingredients sections={sections} />
@@ -58,17 +55,14 @@ describe('IngredientsSection', () => {
 
   describe('when there are missing properties', () => {
     it('it does not render', () => {
-      const sections: IngredientsDefaultFragment[] = [
+      const sections: IRecipeSection[] = [
         {
-          title: 'Section 1 Title',
-          slug: 'section-1-slug',
-          __typename: 'IngredientSection',
-          label: null,
-          ingredientList: null
+          sectionTitle: null,
+          sectionItems: null
         }
       ];
 
-      const expectedSubtitle = sections?.[0].label;
+      const expectedSubtitle = sections?.[0].sectionTitle;
 
       const { queryByText } = render(<Ingredients sections={sections} />);
 

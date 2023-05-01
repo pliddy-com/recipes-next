@@ -7,10 +7,10 @@ import Typography from '@mui/material/Typography';
 
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 
-import { IngredientsDefaultFragment } from 'types/queries';
+import { IRecipeSection } from 'types/json';
 
 interface IngredientsProps {
-  sections?: (IngredientsDefaultFragment | null)[];
+  sections?: (IRecipeSection | null)[];
 }
 
 const IngredientsSection = ({ sections }: IngredientsProps) =>
@@ -21,18 +21,18 @@ const IngredientsSection = ({ sections }: IngredientsProps) =>
       </Typography>
       {sections &&
         sections.map((section) => {
-          const { label, ingredientList } = section ?? {};
+          const { sectionTitle, sectionItems } = section ?? {};
 
           return (
             section &&
-            label &&
-            ingredientList && (
-              <Stack key={label} direction="column" spacing={0}>
-                {label !== 'Ingredients' && (
-                  <Typography variant="h3">{label}</Typography>
+            sectionTitle &&
+            sectionItems && (
+              <Stack key={sectionTitle} direction="column" spacing={0}>
+                {sectionTitle !== 'Ingredients' && (
+                  <Typography variant="h3">{sectionTitle}</Typography>
                 )}
                 <List className="recipeList unorderedList">
-                  {ingredientList.map((ingredient) => (
+                  {sectionItems.map((ingredient) => (
                     <ListItem key={ingredient} disableGutters>
                       <ListItemIcon>
                         <RestaurantMenuIcon color="secondary" />

@@ -131,20 +131,20 @@ query recipeCollectionQuery {
         id
         publishedVersion
       }
-      ingredientsCollection(limit: 10) {
-        total
-        items {
-          label
-          ingredientList
-        }
-      }
-      instructionsCollection(limit: 10) {
-        total
-        items {
-          label
-          instructionList
-        }
-      }
+      # ingredientsCollection(limit: 10) {
+      #   total
+      #   items {
+      #     label
+      #     ingredientList
+      #   }
+      # }
+      # instructionsCollection(limit: 10) {
+      #   total
+      #   items {
+      #     label
+      #     instructionList
+      #   }
+      # }
       ingredientsList
       instructionsList
     }
