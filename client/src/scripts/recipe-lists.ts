@@ -42,7 +42,7 @@ interface IRecipe {
     id: string;
     version: number;
   };
-  fields: Array<never>;
+  fields: { ingredientsList: object; instructionsList: object };
 }
 
 // const getEntry = async ({ id }: { id: string }) => {
@@ -220,10 +220,11 @@ const main = async () => {
       ? entryData.publishedVersion + 2
       : 1;
 
-    Promise.all([
-      await updateEntry({ id, original: recipe, entryData }),
-      await publishEntry({ id, version })
-    ]).then((res) => console.log({ res }));
+    entryData &&
+      Promise.all([
+        await updateEntry({ id, original: recipe, entryData }),
+        await publishEntry({ id, version })
+      ]).then((res) => console.log({ res }));
   }
 };
 

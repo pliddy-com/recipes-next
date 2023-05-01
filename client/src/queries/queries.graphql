@@ -122,6 +122,7 @@ query recipeEntryQuery($id: String!) {
   }
 }
 
+# used for recipe content structure migration
 query recipeCollectionQuery {
   recipeCollection {
     total
@@ -130,20 +131,22 @@ query recipeCollectionQuery {
         id
         publishedVersion
       }
-      ingredientsCollection(limit: 5) {
+      ingredientsCollection(limit: 10) {
         total
         items {
           label
           ingredientList
         }
       }
-      instructionsCollection(limit: 5) {
+      instructionsCollection(limit: 10) {
         total
         items {
           label
           instructionList
         }
       }
+      ingredientsList
+      instructionsList
     }
   }
 }
