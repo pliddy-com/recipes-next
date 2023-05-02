@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
@@ -9,13 +10,16 @@ import IngredientsSection from 'components/Recipe/RecipeSections/IngredientsSect
 import InstructionsSection from 'components/Recipe/RecipeSections/InstructionsSection/InstructionsSection';
 import NotesSection from 'components/Recipe/RecipeSections/NotesSection/NotesSection';
 import TagsSection from 'components/Recipe/RecipeSections/TagsSection/TagsSection';
-import RichText from 'components/RichText/RichText';
+
+// import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 
 import { minToTime } from 'lib/utils';
 
 import { recipePageConfig } from 'theme/values/images';
 
 import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
+import RichText from 'components/RichText/RichText';
+import InputAdornment from '@mui/material/InputAdornment';
 
 interface IRecipeEdit {
   content?: RecipeDefaultFragment;
@@ -23,6 +27,7 @@ interface IRecipeEdit {
 
 const RecipeEdit = ({ content }: IRecipeEdit) => {
   const {
+    abstract,
     cookTime,
     description,
     equipment,
@@ -32,38 +37,97 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     notes,
     prepTime,
     recipeYield,
+    slug,
     tagsCollection,
     title
   } = content ?? {};
 
   const { aspectRatio, breakpoints } = recipePageConfig;
   const richText = description as RecipeDescription;
+
   const { items: tags } = tagsCollection ?? {};
 
+  /**
+   *
+   *  replace multi-line text area with a React rich text editor
+   *
+   *  https://dev.to/pccprint/10-react-rich-text-editors-1hh5
+   *  https://www.sanity.io/guides/top-5-rich-text-react-components
+   *
+   */
+
+  // const richTextOutput = documentToPlainTextString(json);
+
   return content ? (
-    <Box data-testid="RecipeEdit" sx={{ background: 'mistyrose' }}>
-      <Typography variant="h1" gutterBottom>
-        {title}
-      </Typography>
+    <Box data-testid="RecipeEdit">
+      <TextField
+        className="field"
+        id="title"
+        label="Title"
+        value={title}
+        variant="outlined"
+      />
+      <TextField
+        className="field"
+        id="slug"
+        label="Slug"
+        value={slug}
+        variant="outlined"
+      />
+      <TextField
+        className="multiline"
+        id="abstract"
+        label="Abstract"
+        multiline
+        value={abstract}
+        variant="outlined"
+      />
       <Grid container className="content">
         <Grid item lg={6} className="contentGrid">
           <Stack className="description">
-            {/* TODO: fix this with a rich text fragment */}
             {description && <RichText content={richText} />}
+
+            {/* {description && (
+              <TextField
+                id="description"
+                label="Description"
+                multiline
+                maxRows={16}
+                value={richTextOutput}
+              />
+            )} */}
             {tags && <TagsSection tags={tags} />}
 
-            <Grid container className="details">
+            <Grid container className="details" spacing={2}>
               <Grid item xs={6}>
                 <Stack direction="column">
                   {prepTime && (
-                    <Typography variant="subtitle2">
-                      <strong>Prep Time:</strong> {minToTime(Number(prepTime))}
-                    </Typography>
+                    <TextField
+                      className="field number"
+                      id="prepTime"
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">Min</InputAdornment>
+                        )
+                      }}
+                      label="Prep Time"
+                      value={prepTime}
+                      variant="outlined"
+                    />
                   )}
                   {cookTime && (
-                    <Typography variant="subtitle2">
-                      <strong>Cook Time:</strong> {minToTime(Number(cookTime))}
-                    </Typography>
+                    <TextField
+                      className="field number"
+                      id="cookTime"
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">Min</InputAdornment>
+                        )
+                      }}
+                      label="Cook Time"
+                      value={cookTime}
+                      variant="outlined"
+                    />
                   )}
                   {(prepTime || cookTime) && (
                     <Typography variant="subtitle2">
@@ -75,9 +139,18 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
               </Grid>
               <Grid item xs={6} className="yield">
                 {recipeYield && (
-                  <Typography variant="subtitle2">
-                    <strong>Yield:</strong> {recipeYield} servings
-                  </Typography>
+                  <TextField
+                    className="field number"
+                    id="recipeYield"
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">Servings</InputAdornment>
+                      )
+                    }}
+                    label="Recipe Yield"
+                    value={recipeYield}
+                    variant="outlined"
+                  />
                 )}
               </Grid>
             </Grid>

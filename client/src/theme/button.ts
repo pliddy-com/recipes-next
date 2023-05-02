@@ -38,10 +38,7 @@ const buttonThemeOptions: ThemeOptions = {
             color: 'yellow'
           },
           '&.edit': {
-            color: colors.common.white,
-            '& .MuiButton-startIcon': {
-              marginRight: '0.25rem'
-            }
+            color: colors.common.white
           }
         }
       }

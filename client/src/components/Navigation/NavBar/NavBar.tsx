@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 
+import CancelIcon from '@mui/icons-material/Cancel';
 import EditIcon from '@mui/icons-material/Edit';
 import LanguageIcon from '@mui/icons-material/Language';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -32,7 +33,7 @@ export interface NavBarProps {
 
 const NavBar = ({ nav }: NavBarProps) => {
   const { categories, cuisine, tags } = nav ?? {};
-  const { isAuth, toggleEdit } = useAuthContext();
+  const { editMode, isAuth, toggleEdit } = useAuthContext();
 
   const { asPath } = useRouter();
 
@@ -103,10 +104,10 @@ const NavBar = ({ nav }: NavBarProps) => {
             className="edit"
             onClick={toggleEdit}
             size="small"
-            startIcon={<EditIcon />}
+            startIcon={editMode ? <CancelIcon /> : <EditIcon />}
             variant="text"
           >
-            Edit
+            {editMode ? 'Cancel' : 'Edit'}
           </Button>
         </Toolbar>
       ) : null}
