@@ -103,7 +103,7 @@ fragment RecipeDefault on Recipe {
   equipment
   instructionsList
   notes
-  tagsCollection(limit: 4) {
+  tagsCollection(limit: 6) {
     items {
       ...TagDefault
     }

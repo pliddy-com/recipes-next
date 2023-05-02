@@ -9,6 +9,7 @@ const navbarThemeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           '&.navbar': {
+            minHeight: '3.5rem',
             '& .mobile-nav': {
               display: 'flex',
               [breakpoints.up('lg')]: {
@@ -22,6 +23,16 @@ const navbarThemeOptions: ThemeOptions = {
               display: 'none',
               [breakpoints.up('lg')]: {
                 display: 'flex'
+              }
+            }
+          },
+          '&.userBar': {
+            background: baseTheme.palette.primary.light,
+            justifyContent: 'flex-end',
+            minHeight: '2.625rem',
+            '& .MuiButton-root': {
+              '&.edit': {
+                margin: '0.5rem 0'
               }
             }
           }

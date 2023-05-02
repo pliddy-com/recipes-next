@@ -13,8 +13,8 @@ interface EquipmentSectionProps {
   equipment?: Maybe<Array<Maybe<Scalars['String']>>>;
 }
 
-const EquipmentSection = ({ equipment }: EquipmentSectionProps) =>
-  equipment ? (
+const EquipmentSection = ({ equipment }: EquipmentSectionProps) => {
+  return equipment ? (
     <Stack direction="column" className="equipment">
       <Typography variant="h2">Equipment</Typography>
       <List className="recipeList unorderedList">
@@ -30,5 +30,6 @@ const EquipmentSection = ({ equipment }: EquipmentSectionProps) =>
       </List>
     </Stack>
   ) : null;
+};
 
 export default EquipmentSection;

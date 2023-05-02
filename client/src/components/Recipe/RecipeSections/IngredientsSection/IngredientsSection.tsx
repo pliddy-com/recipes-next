@@ -13,12 +13,10 @@ interface IngredientsProps {
   sections?: (IRecipeSection | null)[];
 }
 
-const IngredientsSection = ({ sections }: IngredientsProps) =>
-  sections ? (
+const IngredientsSection = ({ sections }: IngredientsProps) => {
+  return sections ? (
     <Stack direction="column" spacing={1} className="ingredients">
-      <Typography variant="h2" gutterBottom>
-        Ingredients
-      </Typography>
+      <Typography variant="h2">Ingredients</Typography>
       {sections &&
         sections.map((section) => {
           const { sectionTitle, sectionItems } = section ?? {};
@@ -47,5 +45,6 @@ const IngredientsSection = ({ sections }: IngredientsProps) =>
         })}
     </Stack>
   ) : null;
+};
 
 export default IngredientsSection;

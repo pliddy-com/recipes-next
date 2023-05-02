@@ -19,9 +19,8 @@ const InstructionsSection = ({ sections }: InstructionsProps) => {
 
   return sections ? (
     <Stack direction="column" spacing={1} className="instructions">
-      <Typography variant="h2" gutterBottom>
-        Instructions
-      </Typography>
+      <Typography variant="h2">Instructions</Typography>
+
       {sections &&
         sections.map((section) => {
           const { sectionTitle, sectionItems } = section ?? {};

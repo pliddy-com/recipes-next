@@ -50,7 +50,7 @@ describe('TagPage in tags/[slug].tsx', () => {
           pageContent,
           preview: false
         },
-        revalidate: 60
+        revalidate: 10
       };
 
       const expectedPaths = {

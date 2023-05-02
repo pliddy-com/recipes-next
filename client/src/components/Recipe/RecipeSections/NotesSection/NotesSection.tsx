@@ -7,10 +7,11 @@ interface NotesProps {
   notes?: Maybe<Array<Maybe<Scalars['String']>>>;
 }
 
-const Notes = ({ notes }: NotesProps) =>
-  notes ? (
+const Notes = ({ notes }: NotesProps) => {
+  return notes ? (
     <Box className="notes">
       <Typography variant="h2">Notes</Typography>
+
       {notes && (
         <ul>
           {notes.map((note) => (
@@ -20,5 +21,5 @@ const Notes = ({ notes }: NotesProps) =>
       )}
     </Box>
   ) : null;
-
+};
 export default Notes;

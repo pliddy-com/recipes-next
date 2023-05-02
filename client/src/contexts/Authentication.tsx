@@ -21,11 +21,13 @@ interface SignInProps {
 }
 
 interface AuthenticationContextValue {
+  editMode: boolean;
   getToken(): Promise<null>;
   isAuth: boolean;
   isLoading: boolean;
   signIn({ email, password }: SignInProps): Promise<void>;
   signOut(): void;
+  toggleEdit(): void;
 }
 
 const AuthenticationContext = createContext<AuthenticationContextValue>(
@@ -40,6 +42,11 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   const [isAuth, setIsAuth] = useState<boolean>(false);
   const [token, setToken] = useState<string | null>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [editMode, setEditMode] = useState<boolean>(false);
+
+  const toggleEdit = () => {
+    setEditMode(!editMode);
+  };
 
   const getToken = async () => {
     const user = userPool && userPool.getCurrentUser();
@@ -97,6 +104,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   };
 
   const signOut = () => {
+    setEditMode(false);
     const user = userPool && userPool.getCurrentUser();
 
     user && user.signOut();
@@ -107,9 +115,11 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   return (
     <AuthenticationContext.Provider
       value={{
+        editMode,
         getToken,
         isAuth,
         isLoading,
+        toggleEdit,
         signIn,
         signOut
       }}

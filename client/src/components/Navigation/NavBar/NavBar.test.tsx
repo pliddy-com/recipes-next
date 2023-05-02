@@ -8,8 +8,22 @@ import '@testing-library/jest-dom';
 import NavBar, { NavDataProps } from './NavBar';
 
 import * as api from 'lib/api';
+import * as AuthContext from 'contexts/Authentication';
 
 jest.mock('lib/api');
+jest.mock('contexts/Authentication');
+
+jest.mock('next/router', () => ({
+  useRouter: jest.fn().mockReturnValue({
+    asPath: '/recipes/',
+    push: jest.fn(),
+    back: jest.fn(),
+    events: {
+      on: jest.fn(),
+      off: jest.fn()
+    }
+  })
+}));
 
 describe('NavBar', () => {
   beforeAll(() => {
@@ -26,16 +40,27 @@ describe('NavBar', () => {
 
   describe('when there is a properly structured nav property', () => {
     it('it renders a nav bar', async () => {
+      const contextValues = {
+        editMode: false,
+        getToken: jest.fn(),
+        isAuth: false,
+        isLoading: false,
+        signIn: jest.fn(),
+        signOut: jest.fn(),
+        toggleEdit: jest.fn()
+      };
+
+      const authSpy = jest
+        .spyOn(AuthContext, 'useAuthContext')
+        .mockImplementation(() => contextValues);
+
       const nav = await api.getNavTaxonomy();
 
       const { asFragment, queryByRole, queryByTestId } = render(
         <NavBar nav={nav as NavDataProps} />
       );
 
-      // assert that content is rendered
-      // await act(async () =>
-      //   waitFor(() => expect(queryByTestId('navbar')).toBeInTheDocument())
-      // );
+      expect(authSpy).toBeCalled();
 
       const navBar = queryByTestId('navbar');
 
@@ -75,6 +100,33 @@ describe('NavBar', () => {
         name: 'open categories menu'
       });
       expect(desktopNav).toBeNull();
+    });
+  });
+
+  describe('when isAuth is true', () => {
+    it('it shows the user toolbar', async () => {
+      const contextValues = {
+        editMode: false,
+        getToken: jest.fn(),
+        isAuth: true,
+        isLoading: false,
+        signIn: jest.fn(),
+        signOut: jest.fn(),
+        toggleEdit: jest.fn()
+      };
+
+      const authSpy = jest
+        .spyOn(AuthContext, 'useAuthContext')
+        .mockImplementation(() => contextValues);
+
+      const nav = await api.getNavTaxonomy();
+
+      const { asFragment } = render(<NavBar nav={nav as NavDataProps} />);
+
+      expect(authSpy).toBeCalled();
+
+      // assert that the component matches the existing snapshot
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 });

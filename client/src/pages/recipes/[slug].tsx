@@ -8,8 +8,6 @@ import {
 
 import dynamic from 'next/dynamic';
 
-// import Layout from 'layout/Layout/Layout';
-
 import Loading from 'components/Loading/Loading';
 import PageTags from 'components/PageHead/PageTags/PageTags';
 import RecipeSchema from 'components/PageHead/Schema/RecipeSchema/RecipeSchema';
@@ -83,7 +81,13 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
   const pageContent = { recipe, categories, cuisine };
 
-  return { props: { pageContent, preview: Boolean(preview) }, revalidate: 60 };
+  return {
+    props: {
+      pageContent,
+      preview: Boolean(preview)
+    },
+    revalidate: 10
+  };
 };
 
 RecipeSlugPage.getLayout = (page: ReactElement) => (

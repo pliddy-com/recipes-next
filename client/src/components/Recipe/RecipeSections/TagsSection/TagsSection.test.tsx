@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import Tags from 'components/RecipeSections/TagsSection/TagsSection';
+import Tags from 'components/Recipe/RecipeSections/TagsSection/TagsSection';
 import { TagDefaultFragment } from 'types/queries';
 
 describe('Tags', () => {

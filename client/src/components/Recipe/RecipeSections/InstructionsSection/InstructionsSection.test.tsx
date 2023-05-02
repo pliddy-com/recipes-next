@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
-import InstructionsSection from 'components/RecipeSections/InstructionsSection/InstructionsSection';
+import InstructionsSection from 'components/Recipe/RecipeSections/InstructionsSection/InstructionsSection';
 
 import { IRecipeSection } from 'types/json';
 

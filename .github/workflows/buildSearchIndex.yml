@@ -16,8 +16,8 @@ env:
   NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_SPACE_ID }}
 
 jobs:
-  BuildAndDeploySite:
-    name: Build and Deploy Site
+  BuildSearchIndex:
+    name: Build Search Index
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo

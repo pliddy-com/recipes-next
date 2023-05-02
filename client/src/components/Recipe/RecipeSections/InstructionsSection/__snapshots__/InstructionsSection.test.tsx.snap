@@ -6,7 +6,7 @@ exports[`InstructionsSection when there is properly formatted content it renders
     class="instructions css-1okj3ks-MuiStack-root"
   >
     <h2
-      class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-i1hrn3-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
     >
       Instructions
     </h2>

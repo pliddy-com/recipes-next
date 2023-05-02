@@ -32,7 +32,7 @@ describe('Index in index.tsx', () => {
           pageContent: recipeCollectionData,
           preview: true
         },
-        revalidate: 60
+        revalidate: 10
       };
 
       const expectedDefaultProps = {

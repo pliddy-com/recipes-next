@@ -64,7 +64,7 @@ const menuThemeOptions: ThemeOptions = {
         root: {
           alignItems: 'center',
           display: 'flex',
-          marginRight: '.5rem',
+          marginRight: '.25rem',
           minWidth: '2.5rem',
           '& .MuiAvatar': {
             '&-root': {
@@ -89,7 +89,7 @@ const menuThemeOptions: ThemeOptions = {
     MuiListItemIcon: {
       styleOverrides: {
         root: {
-          minWidth: '2.75rem'
+          minWidth: '2.5rem'
         }
       }
     },
