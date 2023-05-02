@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Recipe when isAuth is true sets the container className to "auth" 1`] = `
+exports[`RecipePage when isAuth is true sets the container className to "auth" 1`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXl page recipe auth css-19r6kue-MuiContainer-root"
@@ -50,7 +50,7 @@ exports[`Recipe when isAuth is true sets the container className to "auth" 1`] =
 </DocumentFragment>
 `;
 
-exports[`Recipe when there is page content it renders the Recipe 1`] = `
+exports[`RecipePage when there is page content it renders the RecipePage 1`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXl page recipe noAuth css-19r6kue-MuiContainer-root"

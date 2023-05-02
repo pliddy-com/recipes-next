@@ -15,13 +15,13 @@ import * as AuthContext from 'contexts/Authentication';
 jest.mock('lib/api');
 jest.mock('contexts/Authentication');
 
-describe('Recipe', () => {
+describe('RecipePage', () => {
   afterEach(() => {
     jest.resetModules();
   });
 
   describe('when there is page content', () => {
-    it('it renders the Recipe', async () => {
+    it('it renders the RecipePage', async () => {
       const contextValues = {
         editMode: false,
         getToken: jest.fn(),
@@ -45,7 +45,7 @@ describe('Recipe', () => {
       expect(authSpy).toBeCalled();
 
       // assert that content is rendered
-      expect(queryByTestId('RecipePage')).toBeInTheDocument();
+      expect(queryByTestId('Recipe')).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -88,8 +88,8 @@ describe('Recipe', () => {
 
       expect(authSpy).toBeCalled();
 
-      const container = getByTestId('RecipePage');
-      expect(container).toHaveClass('auth');
+      expect(getByTestId('RecipePage')).toHaveClass('auth');
+      expect(getByTestId('RecipeEdit')).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
