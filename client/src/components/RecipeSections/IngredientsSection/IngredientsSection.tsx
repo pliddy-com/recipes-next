@@ -7,7 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import EditIcon from '@mui/icons-material/edit';
+import EditIcon from '@mui/icons-material/Edit';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 
 import { IRecipeSection } from 'types/json';

@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import EditIcon from '@mui/icons-material/edit';
+import EditIcon from '@mui/icons-material/Edit';
 
 import { Maybe, Scalars } from 'types/queries';
 

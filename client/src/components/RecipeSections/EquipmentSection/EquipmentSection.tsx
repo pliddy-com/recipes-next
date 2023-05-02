@@ -7,7 +7,9 @@ import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import EditIcon from '@mui/icons-material/edit';
+// import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from '@mui/icons-material/Edit';
+
 import SkilletIcon from 'components/Icons/SkilletIcon/SkilletIcon';
 
 import { Maybe, Scalars } from 'types/queries';

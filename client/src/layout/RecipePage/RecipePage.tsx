@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import EditIcon from '@mui/icons-material/edit';
+import EditIcon from '@mui/icons-material/Edit';
 
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 import EquipmentSection from 'components/RecipeSections/EquipmentSection/EquipmentSection';
