@@ -6,10 +6,10 @@ exports[`IngredientsSection when there is properly formatted content renders the
     class="ingredients css-1okj3ks-MuiStack-root"
   >
     <div
-      class="css-xzedd6-MuiStack-root"
+      class="recipe-header sub css-nen11g-MuiStack-root"
     >
       <h2
-        class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-1psfkrs-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
       >
         Ingredients
       </h2>

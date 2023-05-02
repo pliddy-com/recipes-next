@@ -14,8 +14,6 @@ import { Maybe, Scalars } from 'types/queries';
 
 import { useAuthContext } from 'contexts/Authentication';
 
-import colors from 'theme/values/colors';
-
 interface EquipmentSectionProps {
   equipment?: Maybe<Array<Maybe<Scalars['String']>>>;
 }
@@ -25,29 +23,10 @@ const EquipmentSection = ({ equipment }: EquipmentSectionProps) => {
 
   return equipment ? (
     <Stack direction="column" className="equipment">
-      <Stack
-        direction="row"
-        flex="true"
-        sx={{ justifyContent: 'space-between' }}
-      >
-        <Typography
-          variant="h2"
-          gutterBottom
-          sx={{
-            flexGrow: 1
-          }}
-        >
-          Equipment
-        </Typography>
+      <Stack className="recipe-header sub">
+        <Typography variant="h2">Equipment</Typography>
         {isAuth && (
-          <Box
-            sx={{
-              alignItems: 'center',
-              borderBottom: `1px solid ${colors.secondary.main}`,
-              display: 'flex',
-              marginBottom: '8.5px'
-            }}
-          >
+          <Box className="edit-box">
             <Button variant="text" startIcon={<EditIcon />} className="edit">
               Edit
             </Button>

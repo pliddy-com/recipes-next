@@ -7,14 +7,14 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
     data-testid="page"
   >
     <div
-      class="recipe MuiBox-root css-0"
+      class="MuiBox-root css-0"
       data-testid="RecipePage"
     >
       <div
-        class="css-xzedd6-MuiStack-root"
+        class="recipe-header css-nen11g-MuiStack-root"
       >
         <h1
-          class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom css-1hgzw07-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom css-a4d0r7-MuiTypography-root"
         />
       </div>
       <div

@@ -14,8 +14,6 @@ import { IRecipeSection } from 'types/json';
 
 import { useAuthContext } from 'contexts/Authentication';
 
-import colors from 'theme/values/colors';
-
 interface InstructionsProps {
   sections?: (IRecipeSection | null)[];
 }
@@ -29,29 +27,10 @@ const InstructionsSection = ({ sections }: InstructionsProps) => {
 
   return sections ? (
     <Stack direction="column" spacing={1} className="instructions">
-      <Stack
-        direction="row"
-        flex="true"
-        sx={{ justifyContent: 'space-between' }}
-      >
-        <Typography
-          variant="h2"
-          gutterBottom
-          sx={{
-            flexGrow: 1
-          }}
-        >
-          Instructions
-        </Typography>
+      <Stack className="recipe-header sub">
+        <Typography variant="h2">Instructions</Typography>
         {isAuth && (
-          <Box
-            sx={{
-              alignItems: 'center',
-              borderBottom: `1px solid ${colors.secondary.main}`,
-              display: 'flex',
-              marginBottom: '8.5px'
-            }}
-          >
+          <Box className="edit-box">
             <Button variant="text" startIcon={<EditIcon />} className="edit">
               Edit
             </Button>

@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
@@ -7,9 +8,6 @@ import EditIcon from '@mui/icons-material/edit';
 import { Maybe, Scalars } from 'types/queries';
 
 import { useAuthContext } from 'contexts/Authentication';
-
-import colors from 'theme/values/colors';
-import Button from '@mui/material/Button';
 
 interface NotesProps {
   notes?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -20,29 +18,10 @@ const Notes = ({ notes }: NotesProps) => {
 
   return notes ? (
     <Box className="notes">
-      <Stack
-        direction="row"
-        flex="true"
-        sx={{ justifyContent: 'space-between' }}
-      >
-        <Typography
-          variant="h2"
-          gutterBottom
-          sx={{
-            flexGrow: 1
-          }}
-        >
-          Notes
-        </Typography>
+      <Stack className="recipe-header sub">
+        <Typography variant="h2">Notes</Typography>
         {isAuth && (
-          <Box
-            sx={{
-              alignItems: 'center',
-              borderBottom: `1px solid ${colors.secondary.main}`,
-              display: 'flex',
-              marginBottom: '8.5px'
-            }}
-          >
+          <Box className="edit-box">
             <Button variant="text" startIcon={<EditIcon />} className="edit">
               Edit
             </Button>

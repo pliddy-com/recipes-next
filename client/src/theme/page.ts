@@ -1,8 +1,7 @@
 import { ThemeOptions } from '@mui/material/styles';
 
-import colors from './values/colors';
-
 import baseTheme from 'theme/base';
+
 import { sansFontFamily } from './values/fontface';
 
 const { breakpoints } = baseTheme ?? {};
@@ -13,7 +12,7 @@ const pageThemeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           '&.page': {
-            backgroundColor: colors.common.white,
+            backgroundColor: baseTheme.palette.common.white,
             paddingBottom: '3rem',
             paddingTop: '5.5rem',
             '& .MuiGrid': {
@@ -46,6 +45,28 @@ const pageThemeOptions: ThemeOptions = {
               overflow: 'auto'
             },
             '&.recipe': {
+              '& .recipe-header': {
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                '& .MuiTypography-h1': {
+                  flexGrow: 1
+                },
+                '& .edit-box': {
+                  alignItems: 'center',
+                  borderBottom: `1px solid ${baseTheme.palette.secondary.main}`,
+                  display: 'flex',
+                  marginBottom: '10.5px'
+                },
+                '&.sub': {
+                  '& .MuiTypography-h2': {
+                    flexGrow: 1
+                  },
+                  '& .edit-box': {
+                    marginBottom: '8px'
+                  }
+                }
+              },
               '& .content': {
                 marginBottom: '3rem',
                 [breakpoints.down('sm')]: {

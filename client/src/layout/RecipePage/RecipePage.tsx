@@ -20,7 +20,6 @@ import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 
 import { recipePageConfig } from 'theme/values/images';
 
-import colors from 'theme/values/colors';
 import Button from '@mui/material/Button';
 
 import { useAuthContext } from 'contexts/Authentication';
@@ -54,30 +53,13 @@ const RecipePage = ({ content }: RecipePageProps) => {
 
   return content ? (
     <Container className="page recipe" data-testid="page" maxWidth="xl">
-      <Box className="recipe" data-testid="RecipePage">
-        <Stack
-          direction="row"
-          flex="true"
-          sx={{ justifyContent: 'space-between' }}
-        >
-          <Typography
-            variant="h1"
-            gutterBottom
-            sx={{
-              flexGrow: 1
-            }}
-          >
+      <Box data-testid="RecipePage">
+        <Stack className="recipe-header">
+          <Typography variant="h1" gutterBottom>
             {title}
           </Typography>
           {isAuth && (
-            <Box
-              sx={{
-                alignItems: 'center',
-                borderBottom: `1px solid ${colors.secondary.main}`,
-                display: 'flex',
-                marginBottom: '10.5px'
-              }}
-            >
+            <Box className="edit-box">
               <Button variant="text" startIcon={<EditIcon />} className="edit">
                 Edit
               </Button>
