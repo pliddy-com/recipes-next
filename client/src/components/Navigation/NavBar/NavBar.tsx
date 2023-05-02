@@ -103,7 +103,7 @@ const NavBar = ({ nav }: NavBarProps) => {
           <Button
             className="edit"
             onClick={toggleEdit}
-            size="small"
+            // size="small"
             startIcon={editMode ? <CancelIcon /> : <EditIcon />}
             variant="text"
           >

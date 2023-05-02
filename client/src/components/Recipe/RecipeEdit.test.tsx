@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -20,14 +20,64 @@ describe('Recipe', () => {
 
   describe('when there is page content', () => {
     it('it renders the Recipe', async () => {
+      const titleValue = 'TITLE';
+      const slugValue = 'SLUG';
+      const abstractValue = 'ABSTRACT';
+      const prepTimeValue = '15';
+      const cookTimeValue = '30';
+      const recipeYieldValue = '10';
+
       const content = await api.getRecipePage();
 
-      const { asFragment, queryByTestId } = render(
+      const { asFragment, queryByLabelText, queryByTestId } = render(
         <RecipeEdit content={content as unknown as RecipeDefaultFragment} />
       );
 
       // assert that content is rendered
       expect(queryByTestId('RecipeEdit')).toBeInTheDocument();
+
+      // Test form field inputs
+      const titleInput = queryByLabelText('Title');
+      titleInput &&
+        fireEvent.change(titleInput, {
+          target: { value: titleValue }
+        });
+      expect(titleInput).toHaveValue(titleValue);
+
+      const slugInput = queryByLabelText('Slug');
+      slugInput &&
+        fireEvent.change(slugInput, {
+          target: { value: slugValue }
+        });
+      expect(slugInput).toHaveValue(slugValue);
+
+      const abstractInput = queryByLabelText('Abstract');
+      abstractInput &&
+        fireEvent.change(abstractInput, {
+          target: { value: abstractValue }
+        });
+      expect(abstractInput).toHaveValue(abstractValue);
+
+      const prepTimeInput = queryByLabelText('Prep Time');
+      prepTimeInput &&
+        fireEvent.change(prepTimeInput, {
+          target: { value: prepTimeValue }
+        });
+      expect(prepTimeInput).toHaveValue(prepTimeValue);
+
+      const cookTimeInput = queryByLabelText('Cook Time');
+      cookTimeInput &&
+        fireEvent.change(cookTimeInput, {
+          target: { value: cookTimeValue }
+        });
+      expect(cookTimeInput).toHaveValue(cookTimeValue);
+
+      const recipeYieldInput = queryByLabelText('Recipe Yield');
+      recipeYieldInput &&
+        fireEvent.change(recipeYieldInput, {
+          target: { value: recipeYieldValue }
+        });
+      expect(recipeYieldInput).toHaveValue(recipeYieldValue);
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

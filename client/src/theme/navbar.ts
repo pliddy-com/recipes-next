@@ -30,6 +30,7 @@ const navbarThemeOptions: ThemeOptions = {
             background: baseTheme.palette.primary.light,
             justifyContent: 'flex-end',
             minHeight: '2.625rem',
+            paddingRight: '1.6875rem',
             '& .MuiButton-root': {
               '&.edit': {
                 margin: '0.5rem 0'
