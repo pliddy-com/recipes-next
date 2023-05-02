@@ -83,7 +83,13 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
   const pageContent = { recipe, categories, cuisine };
 
-  return { props: { pageContent, preview: Boolean(preview) }, revalidate: 60 };
+  return {
+    props: {
+      pageContent,
+      preview: Boolean(preview)
+    },
+    revalidate: 10
+  };
 };
 
 RecipeSlugPage.getLayout = (page: ReactElement) => (

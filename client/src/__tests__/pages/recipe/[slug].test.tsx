@@ -64,7 +64,7 @@ describe('RecipePage in recipe/[slug].tsx', () => {
           pageContent,
           preview: false
         },
-        revalidate: 60
+        revalidate: 10
       };
 
       const expectedPaths = {

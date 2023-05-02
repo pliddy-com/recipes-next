@@ -40,7 +40,7 @@ describe('TagIndexPage in tag/index.tsx', () => {
           pageContent: tagCollectionData,
           preview: true
         },
-        revalidate: 60
+        revalidate: 10
       };
 
       const expectedDefaultProps = {

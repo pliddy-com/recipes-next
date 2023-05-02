@@ -82,8 +82,12 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   const pageContent = await getTagIndex();
 
   return {
-    props: { pageContent, page, preview: Boolean(preview) },
-    revalidate: 60
+    props: {
+      pageContent,
+      page,
+      preview: Boolean(preview)
+    },
+    revalidate: 10
   };
 };
 
