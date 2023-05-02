@@ -12,11 +12,13 @@ describe('SignInControl', () => {
     const expectedLabel = 'Sign In';
 
     const contextValues = {
+      editMode: false,
       getToken: jest.fn(),
       isAuth: false,
       isLoading: false,
       signIn: jest.fn(),
-      signOut: jest.fn()
+      signOut: jest.fn(),
+      toggleEdit: jest.fn()
     };
 
     const authSpy = jest
@@ -54,11 +56,13 @@ describe('SignInControl', () => {
     const expectedLabel = 'Sign Out';
 
     const contextValues = {
+      editMode: false,
       getToken: jest.fn(),
       isAuth: true,
       isLoading: false,
       signIn: jest.fn(),
-      signOut: jest.fn()
+      signOut: jest.fn(),
+      toggleEdit: jest.fn()
     };
 
     const authSpy = jest

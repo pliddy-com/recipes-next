@@ -41,11 +41,13 @@ describe('NavBar', () => {
   describe('when there is a properly structured nav property', () => {
     it('it renders a nav bar', async () => {
       const contextValues = {
+        editMode: false,
         getToken: jest.fn(),
         isAuth: false,
         isLoading: false,
         signIn: jest.fn(),
-        signOut: jest.fn()
+        signOut: jest.fn(),
+        toggleEdit: jest.fn()
       };
 
       const authSpy = jest
@@ -104,11 +106,13 @@ describe('NavBar', () => {
   describe('when isAuth is true', () => {
     it('it shows the user toolbar', async () => {
       const contextValues = {
+        editMode: false,
         getToken: jest.fn(),
         isAuth: true,
         isLoading: false,
         signIn: jest.fn(),
-        signOut: jest.fn()
+        signOut: jest.fn(),
+        toggleEdit: jest.fn()
       };
 
       const authSpy = jest

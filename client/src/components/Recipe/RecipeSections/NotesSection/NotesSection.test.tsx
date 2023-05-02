@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import NotesSection from 'components/RecipeSections/NotesSection/NotesSection';
+import NotesSection from 'components/Recipe/RecipeSections/NotesSection/NotesSection';
 
 describe('NotesSection', () => {
   describe('when there is properly formatted content', () => {

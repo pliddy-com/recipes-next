@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import Ingredients from 'components/RecipeSections/IngredientsSection/IngredientsSection';
+import Ingredients from 'components/Recipe/RecipeSections/IngredientsSection/IngredientsSection';
 
 import { IRecipeSection } from 'types/json';
 

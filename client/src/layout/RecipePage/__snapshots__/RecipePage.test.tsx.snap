@@ -4,11 +4,11 @@ exports[`Recipe when isAuth is true sets the container className to "auth" 1`] =
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXl page recipe auth css-19r6kue-MuiContainer-root"
-    data-testid="page"
+    data-testid="RecipePage"
   >
     <div
-      class="MuiBox-root css-0"
-      data-testid="RecipePage"
+      class="MuiBox-root css-h82jnp"
+      data-testid="RecipeEdit"
     >
       <h1
         class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom css-a4d0r7-MuiTypography-root"
@@ -54,11 +54,11 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXl page recipe noAuth css-19r6kue-MuiContainer-root"
-    data-testid="page"
+    data-testid="RecipePage"
   >
     <div
       class="MuiBox-root css-0"
-      data-testid="RecipePage"
+      data-testid="Recipe"
     >
       <h1
         class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom css-a4d0r7-MuiTypography-root"

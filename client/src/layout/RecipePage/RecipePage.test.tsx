@@ -9,15 +9,11 @@ import RecipePage from './RecipePage';
 
 import { RecipeDefaultFragment } from 'types/queries';
 
-import { recipePageConfig } from 'theme/values/images';
-
 import * as api from 'lib/api';
 import * as AuthContext from 'contexts/Authentication';
 
 jest.mock('lib/api');
 jest.mock('contexts/Authentication');
-
-jest.createMockFromModule('theme/values/images');
 
 describe('Recipe', () => {
   afterEach(() => {
@@ -27,11 +23,13 @@ describe('Recipe', () => {
   describe('when there is page content', () => {
     it('it renders the Recipe', async () => {
       const contextValues = {
+        editMode: false,
         getToken: jest.fn(),
         isAuth: false,
         isLoading: false,
         signIn: jest.fn(),
-        signOut: jest.fn()
+        signOut: jest.fn(),
+        toggleEdit: jest.fn()
       };
 
       const authSpy = jest
@@ -55,15 +53,8 @@ describe('Recipe', () => {
   });
 
   describe('when there is no page content', () => {
-    // before each test, delete images node from config
-    beforeEach(() => {
-      delete recipePageConfig.breakpoints;
-    });
-
     it('it does not render the Recipe', () => {
       const content = undefined;
-
-      render(<RecipePage content={content} />);
 
       // test if content is not rendered
       render(<RecipePage content={content} />);
@@ -76,11 +67,13 @@ describe('Recipe', () => {
   describe('when isAuth is true', () => {
     it('sets the container className to "auth"', async () => {
       const contextValues = {
+        editMode: true,
         getToken: jest.fn(),
         isAuth: true,
         isLoading: false,
         signIn: jest.fn(),
-        signOut: jest.fn()
+        signOut: jest.fn(),
+        toggleEdit: jest.fn()
       };
 
       const authSpy = jest
@@ -95,7 +88,7 @@ describe('Recipe', () => {
 
       expect(authSpy).toBeCalled();
 
-      const container = getByTestId('page');
+      const container = getByTestId('RecipePage');
       expect(container).toHaveClass('auth');
 
       // assert that the component matches the existing snapshot

@@ -32,13 +32,11 @@ export interface NavBarProps {
 
 const NavBar = ({ nav }: NavBarProps) => {
   const { categories, cuisine, tags } = nav ?? {};
-  const { isAuth } = useAuthContext();
+  const { isAuth, toggleEdit } = useAuthContext();
 
   const { asPath } = useRouter();
 
   const isRecipe = asPath.startsWith('/recipes/');
-
-  console.log({ isAuth, asPath, isRecipe });
 
   return (
     <AppBar component="nav" data-testid="navbar">
@@ -102,10 +100,11 @@ const NavBar = ({ nav }: NavBarProps) => {
       {isAuth && isRecipe ? (
         <Toolbar className="userBar">
           <Button
-            variant="text"
+            className="edit"
+            onClick={toggleEdit}
             size="small"
             startIcon={<EditIcon />}
-            className="edit"
+            variant="text"
           >
             Edit
           </Button>

@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import EquipmentSection from 'components/RecipeSections/EquipmentSection/EquipmentSection';
+import EquipmentSection from 'components/Recipe/RecipeSections/EquipmentSection/EquipmentSection';
 
 describe('EquipmentSection', () => {
   describe('when there is properly formatted content', () => {
