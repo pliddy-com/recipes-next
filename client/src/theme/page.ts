@@ -14,7 +14,10 @@ const pageThemeOptions: ThemeOptions = {
           '&.page': {
             backgroundColor: baseTheme.palette.common.white,
             paddingBottom: '3rem',
-            paddingTop: '5.5rem',
+            paddingTop: '5.25rem',
+            '&.auth': {
+              paddingTop: '8.125rem'
+            },
             '& .MuiGrid': {
               '&-root': {
                 display: 'flex'
@@ -143,7 +146,6 @@ const pageThemeOptions: ThemeOptions = {
               }
             },
             '&.search': {
-              paddingTop: '5rem',
               '& .MuiPaper': {
                 '&-root': {
                   '&.search': {

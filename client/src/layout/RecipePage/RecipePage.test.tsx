@@ -10,9 +10,12 @@ import RecipePage from './RecipePage';
 import { RecipeDefaultFragment } from 'types/queries';
 
 import { recipePageConfig } from 'theme/values/images';
+
 import * as api from 'lib/api';
+import * as AuthContext from 'contexts/Authentication';
 
 jest.mock('lib/api');
+jest.mock('contexts/Authentication');
 
 jest.createMockFromModule('theme/values/images');
 
@@ -23,12 +26,25 @@ describe('Recipe', () => {
 
   describe('when there is page content', () => {
     it('it renders the Recipe', async () => {
-      jest.spyOn(api, 'getRecipePage');
+      const contextValues = {
+        getToken: jest.fn(),
+        isAuth: false,
+        isLoading: false,
+        signIn: jest.fn(),
+        signOut: jest.fn()
+      };
+
+      const authSpy = jest
+        .spyOn(AuthContext, 'useAuthContext')
+        .mockImplementation(() => contextValues);
+
       const content = await api.getRecipePage();
 
       const { asFragment, queryByTestId } = render(
         <RecipePage content={content as unknown as RecipeDefaultFragment} />
       );
+
+      expect(authSpy).toBeCalled();
 
       // assert that content is rendered
       expect(queryByTestId('RecipePage')).toBeInTheDocument();
@@ -54,6 +70,36 @@ describe('Recipe', () => {
 
       const recipe = document.querySelector('.page');
       expect(recipe).toBeNull();
+    });
+  });
+
+  describe('when isAuth is true', () => {
+    it('sets the container className to "auth"', async () => {
+      const contextValues = {
+        getToken: jest.fn(),
+        isAuth: true,
+        isLoading: false,
+        signIn: jest.fn(),
+        signOut: jest.fn()
+      };
+
+      const authSpy = jest
+        .spyOn(AuthContext, 'useAuthContext')
+        .mockImplementation(() => contextValues);
+
+      const content = await api.getRecipePage();
+
+      const { asFragment, getByTestId } = render(
+        <RecipePage content={content as unknown as RecipeDefaultFragment} />
+      );
+
+      expect(authSpy).toBeCalled();
+
+      const container = getByTestId('page');
+      expect(container).toHaveClass('auth');
+
+      // assert that the component matches the existing snapshot
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 });

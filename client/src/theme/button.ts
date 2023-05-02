@@ -38,7 +38,7 @@ const buttonThemeOptions: ThemeOptions = {
             color: 'yellow'
           },
           '&.edit': {
-            marginBottom: '0.25rem',
+            color: colors.common.white,
             '& .MuiButton-startIcon': {
               marginRight: '0.25rem'
             }

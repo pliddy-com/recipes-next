@@ -5,15 +5,11 @@ exports[`InstructionsSection when there is properly formatted content it renders
   <div
     class="instructions css-1okj3ks-MuiStack-root"
   >
-    <div
-      class="recipe-header sub css-nen11g-MuiStack-root"
+    <h2
+      class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
     >
-      <h2
-        class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
-      >
-        Instructions
-      </h2>
-    </div>
+      Instructions
+    </h2>
     <div
       class="css-nen11g-MuiStack-root"
     >

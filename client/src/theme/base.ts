@@ -11,11 +11,6 @@ const baseTheme = createTheme({
       }
     }
   },
-  mixins: {
-    toolbar: {
-      minHeight: '3.5rem'
-    }
-  },
   breakpoints: {
     values: {
       xs: 0,
@@ -38,7 +33,7 @@ const baseTheme = createTheme({
   },
   typography: {
     fontFamily: serifFontFamily,
-    fontSize: 16,
+    fontSize: 18,
     fontWeightRegular: 400,
     fontWeightBold: 500,
     htmlFontSize: 18,

@@ -5,15 +5,11 @@ exports[`NotesSection when there is properly formatted content it renders the no
   <div
     class="notes MuiBox-root css-0"
   >
-    <div
-      class="recipe-header sub css-nen11g-MuiStack-root"
+    <h2
+      class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
     >
-      <h2
-        class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
-      >
-        Notes
-      </h2>
-    </div>
+      Notes
+    </h2>
     <ul>
       <li>
         Base for Chicken and Biscuits

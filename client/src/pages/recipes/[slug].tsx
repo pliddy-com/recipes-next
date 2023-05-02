@@ -8,8 +8,6 @@ import {
 
 import dynamic from 'next/dynamic';
 
-// import Layout from 'layout/Layout/Layout';
-
 import Loading from 'components/Loading/Loading';
 import PageTags from 'components/PageHead/PageTags/PageTags';
 import RecipeSchema from 'components/PageHead/Schema/RecipeSchema/RecipeSchema';

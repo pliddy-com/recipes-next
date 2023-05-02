@@ -12,7 +12,7 @@ exports[`FaviconTags when there is a config object it renders a Next Head tag wi
   <link
     as="font"
     crossorigin="anonymous"
-    href="/fonts/SourceSerif4-VariableFont_opsz,wght.ttf"
+    href="/fonts/Lora-VariableFont_wght.ttf"
     rel="preload"
     type="font/ttf"
   />

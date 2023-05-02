@@ -7,6 +7,7 @@ import {
   buttonFontSize,
   fontFaceOverrides,
   fontWeightBold,
+  fontWeightMedium,
   fontWeightRegular,
   sansFontFamily,
   serifFontFamily
@@ -88,7 +89,7 @@ const typeThemeOptions: ThemeOptions = {
     h3: {
       fontFamily: serifFontFamily,
       fontSize: `${22 / baseFontSize}rem`,
-      fontWeight: fontWeightBold,
+      fontWeight: fontWeightMedium,
       lineHeight: 1.125,
       marginBottom: '0.5rem'
     },

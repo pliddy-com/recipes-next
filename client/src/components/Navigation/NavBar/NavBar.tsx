@@ -1,7 +1,11 @@
+import { useRouter } from 'next/router';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 
+import EditIcon from '@mui/icons-material/Edit';
 import LanguageIcon from '@mui/icons-material/Language';
 import MenuIcon from '@mui/icons-material/Menu';
 import TagIcon from '@mui/icons-material/Tag';
@@ -11,6 +15,8 @@ import MobileNavControl from 'components/Navigation/MobileNavControl/MobileNavCo
 import NavMenuControl from 'components/Navigation/NavMenuControl/NavMenuControl';
 import SearchButton from 'components/Navigation/Buttons/SearchButton/SearchButton';
 import SignInControl from '../../SignIn/SignInControl/SignInControl';
+
+import { useAuthContext } from 'contexts/Authentication';
 
 import { TaxonomyChildrenItem } from 'types/queries';
 
@@ -26,6 +32,13 @@ export interface NavBarProps {
 
 const NavBar = ({ nav }: NavBarProps) => {
   const { categories, cuisine, tags } = nav ?? {};
+  const { isAuth } = useAuthContext();
+
+  const { asPath } = useRouter();
+
+  const isRecipe = asPath.startsWith('/recipes/');
+
+  console.log({ isAuth, asPath, isRecipe });
 
   return (
     <AppBar component="nav" data-testid="navbar">
@@ -86,6 +99,18 @@ const NavBar = ({ nav }: NavBarProps) => {
           </>
         ) : null}
       </Toolbar>
+      {isAuth && isRecipe ? (
+        <Toolbar className="userBar">
+          <Button
+            variant="text"
+            size="small"
+            startIcon={<EditIcon />}
+            className="edit"
+          >
+            Edit
+          </Button>
+        </Toolbar>
+      ) : null}
     </AppBar>
   );
 };
