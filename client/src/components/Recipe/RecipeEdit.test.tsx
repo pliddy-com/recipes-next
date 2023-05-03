@@ -10,8 +10,26 @@ import RecipeEdit from './RecipeEdit';
 import { RecipeDefaultFragment } from 'types/queries';
 
 import * as api from 'lib/api';
+import * as AuthContext from 'contexts/Authentication';
 
 jest.mock('lib/api');
+jest.mock('contexts/Authentication');
+
+const contextValues = {
+  editMode: false,
+  getToken: jest.fn(),
+  isAuth: false,
+  isLoading: false,
+  saveRecipe: jest.fn(),
+  setRecipe: jest.fn(),
+  signIn: jest.fn(),
+  signOut: jest.fn(),
+  toggleEdit: jest.fn()
+};
+
+jest
+  .spyOn(AuthContext, 'useAuthContext')
+  .mockImplementation(() => contextValues);
 
 describe('Recipe', () => {
   afterEach(() => {

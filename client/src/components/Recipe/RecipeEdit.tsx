@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -22,12 +22,13 @@ import { minToTime } from 'lib/utils';
 import { recipePageConfig } from 'theme/values/images';
 
 import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
+import { useAuthContext } from 'contexts/Authentication';
 
 interface IRecipeEdit {
   content?: RecipeDefaultFragment;
 }
 
-interface IFormState {
+export interface IFormState {
   abstract: string;
   cookTime: string | number;
   prepTime: string | number;
@@ -55,14 +56,20 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
 
   const defaultState: IFormState = {
     abstract: abstract || '',
-    cookTime: cookTime || 0,
-    prepTime: prepTime || 0,
-    recipeYield: recipeYield || 0,
+    cookTime: cookTime || '0',
+    prepTime: prepTime || '0',
+    recipeYield: recipeYield || '0',
     slug: slug || '',
     title: title || ''
   };
 
+  const { setRecipe } = useAuthContext();
+
   const [formData, setFormData] = useState<IFormState>(defaultState);
+
+  useEffect(() => {
+    setRecipe(formData);
+  });
 
   type IFormIds =
     | 'abstract'

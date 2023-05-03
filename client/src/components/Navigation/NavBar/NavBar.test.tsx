@@ -45,6 +45,8 @@ describe('NavBar', () => {
         getToken: jest.fn(),
         isAuth: false,
         isLoading: false,
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
         signIn: jest.fn(),
         signOut: jest.fn(),
         toggleEdit: jest.fn()
@@ -110,6 +112,8 @@ describe('NavBar', () => {
         getToken: jest.fn(),
         isAuth: true,
         isLoading: false,
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
         signIn: jest.fn(),
         signOut: jest.fn(),
         toggleEdit: jest.fn()
@@ -137,6 +141,8 @@ describe('NavBar', () => {
         getToken: jest.fn(),
         isAuth: true,
         isLoading: false,
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
         signIn: jest.fn(),
         signOut: jest.fn(),
         toggleEdit: jest.fn()

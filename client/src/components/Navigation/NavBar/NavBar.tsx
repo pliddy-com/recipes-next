@@ -9,6 +9,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import EditIcon from '@mui/icons-material/Edit';
 import LanguageIcon from '@mui/icons-material/Language';
 import MenuIcon from '@mui/icons-material/Menu';
+import SaveIcon from '@mui/icons-material/Save';
 import TagIcon from '@mui/icons-material/Tag';
 
 import LogoButton from 'components/Navigation/Buttons/LogoButton/LogoButton';
@@ -33,7 +34,7 @@ export interface NavBarProps {
 
 const NavBar = ({ nav }: NavBarProps) => {
   const { categories, cuisine, tags } = nav ?? {};
-  const { editMode, isAuth, toggleEdit } = useAuthContext();
+  const { editMode, isAuth, toggleEdit, saveRecipe } = useAuthContext();
 
   const { asPath } = useRouter();
 
@@ -43,7 +44,6 @@ const NavBar = ({ nav }: NavBarProps) => {
     <AppBar component="nav" data-testid="navbar">
       <Toolbar className="navbar">
         <LogoButton />
-
         {nav ? (
           <>
             <Box className="mobile-nav">
@@ -101,14 +101,23 @@ const NavBar = ({ nav }: NavBarProps) => {
       {isAuth && isRecipe ? (
         <Toolbar className="userBar">
           <Button
-            className="edit"
+            className="user edit"
             onClick={toggleEdit}
-            // size="small"
             startIcon={editMode ? <CancelIcon /> : <EditIcon />}
             variant="text"
           >
             {editMode ? 'Cancel' : 'Edit'}
           </Button>
+          {editMode && (
+            <Button
+              className="user save"
+              onClick={saveRecipe}
+              startIcon={<SaveIcon />}
+              variant="text"
+            >
+              Save
+            </Button>
+          )}
         </Toolbar>
       ) : null}
     </AppBar>
