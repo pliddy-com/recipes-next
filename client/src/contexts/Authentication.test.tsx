@@ -13,14 +13,10 @@ describe('Authentication', () => {
   const password = 'password';
 
   const TestingComponent = () => {
-    const { signIn, getToken, signOut } = useAuthContext();
+    const { signIn, signOut } = useAuthContext();
 
     return (
       <>
-        <button onClick={getToken} data-testid="getToken">
-          Get Token
-        </button>
-
         <button
           onClick={async () => signIn({ email, password })}
           data-testid="signIn"
@@ -45,16 +41,12 @@ describe('Authentication', () => {
 
       // wait for dynamic component to load
       await act(async () => {
-        waitFor(() => expect(queryByTestId('getToken')).toBeInTheDocument());
         waitFor(() => expect(queryByTestId('signIn')).toBeInTheDocument());
         waitFor(() => expect(queryByTestId('signOut')).toBeInTheDocument());
       });
 
       const signInButton = queryByTestId('signIn');
       signInButton && (await fireEvent.click(signInButton));
-
-      const getTokenButton = queryByTestId('getToken');
-      getTokenButton && fireEvent.click(getTokenButton);
 
       const signOutButton = queryByTestId('signOut');
       signOutButton && fireEvent.click(signOutButton);

@@ -1,9 +1,6 @@
 /* istanbul ignore file */
 import {
-  Dispatch,
   ReactElement,
-  SetStateAction,
-  SyntheticEvent,
   createContext,
   useContext,
   useEffect,
@@ -16,7 +13,7 @@ import {
   CognitoUserSession
 } from 'amazon-cognito-identity-js';
 
-import { IFormState } from 'components/Recipe/RecipeEdit';
+// import { IFormState } from 'components/Recipe/RecipeEdit';
 
 import userPool from 'lib/userPool';
 
@@ -25,20 +22,16 @@ interface SignInProps {
   password: string;
 }
 
-interface AuthenticationContextValue {
-  editMode: boolean;
-  getToken(): Promise<null>;
+interface IAuthenticationContext {
   isAuth: boolean;
-  isLoading: boolean;
-  saveRecipe(event: SyntheticEvent): void;
-  setRecipe: Dispatch<SetStateAction<IFormState | undefined>>;
+  authLoading: boolean;
   signIn({ email, password }: SignInProps): Promise<void>;
   signOut(): void;
-  toggleEdit(): void;
+  token: string | null | undefined;
 }
 
-const AuthenticationContext = createContext<AuthenticationContextValue>(
-  {} as AuthenticationContextValue
+const AuthenticationContext = createContext<IAuthenticationContext>(
+  {} as IAuthenticationContext
 );
 
 interface AuthenticationProps {
@@ -48,13 +41,7 @@ interface AuthenticationProps {
 const AuthenticationProvider = (props: AuthenticationProps) => {
   const [isAuth, setIsAuth] = useState<boolean>(false);
   const [token, setToken] = useState<string | null>();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [editMode, setEditMode] = useState<boolean>(false);
-  const [recipe, setRecipe] = useState<IFormState | undefined>();
-
-  const toggleEdit = () => {
-    setEditMode(!editMode);
-  };
+  const [authLoading, setAuthIsLoading] = useState<boolean>(false);
 
   const getToken = async () => {
     const user = userPool && userPool.getCurrentUser();
@@ -78,7 +65,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   }, [token]);
 
   const signIn = async ({ email, password }: SignInProps) => {
-    setIsLoading(true);
+    setAuthIsLoading(true);
 
     await new Promise((resolve, reject) => {
       const user =
@@ -99,20 +86,19 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
           onSuccess: (result) => {
             setToken(result.getIdToken().getJwtToken());
             resolve(result);
-            setIsLoading(false);
+            setAuthIsLoading(false);
           },
           onFailure: (err) => {
             reject(err);
-            setIsLoading(false);
+            setAuthIsLoading(false);
           }
         });
     });
 
-    setIsLoading(false);
+    setAuthIsLoading(false);
   };
 
   const signOut = () => {
-    setEditMode(false);
     const user = userPool && userPool.getCurrentUser();
 
     user && user.signOut();
@@ -120,52 +106,14 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     setToken(null);
   };
 
-  const updateEntry = async ({ recipe }: { recipe: IFormState }) => {
-    const restApi = `https://yac4ltvklg.execute-api.us-east-1.amazonaws.com/test/recipes/${recipe.id}`;
-
-    console.log({ recipe });
-
-    try {
-      const entry = await fetch(restApi, {
-        method: 'PUT',
-        headers: {
-          Authorization: `${token}`
-        },
-        body: JSON.stringify(recipe)
-      });
-      return entry.json();
-    } catch (e) {
-      console.error('updateEntry ERROR:', e);
-    }
-  };
-
-  const saveRecipe = async (event: SyntheticEvent) => {
-    event.preventDefault();
-
-    try {
-      recipe && (await updateEntry({ recipe }));
-
-      setEditMode(false);
-
-      console.log('saveRecipe', recipe);
-    } catch (e) {
-      // TODO: handle error in UI
-      console.error(e);
-    }
-  };
-
   return (
     <AuthenticationContext.Provider
       value={{
-        editMode,
-        getToken,
+        token,
         isAuth,
-        isLoading,
-        saveRecipe,
-        setRecipe,
+        authLoading,
         signIn,
-        signOut,
-        toggleEdit
+        signOut
       }}
     >
       {props.children}

@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 
-import { IRecipeSection } from 'types/json';
+import { IRecipeSection } from 'types/content';
 
 interface IngredientsProps {
   sections?: (IRecipeSection | null)[];

@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import { IRecipeSection } from 'types/json';
+import { IRecipeSection } from 'types/content';
 
 interface InstructionsProps {
   sections?: (IRecipeSection | null)[];

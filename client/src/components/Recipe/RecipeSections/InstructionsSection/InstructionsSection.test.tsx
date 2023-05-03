@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 
 import InstructionsSection from 'components/Recipe/RecipeSections/InstructionsSection/InstructionsSection';
 
-import { IRecipeSection } from 'types/json';
+import { IRecipeSection } from 'types/content';
 
 describe('InstructionsSection', () => {
   const expectedTitle = 'Instructions';

@@ -22,22 +22,12 @@ import { minToTime } from 'lib/utils';
 import { recipePageConfig } from 'theme/values/images';
 
 import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
-import { useAuthContext } from 'contexts/Authentication';
+import { useContentManagementContext } from 'contexts/Content';
+import { IFormState } from 'types/content';
 
 interface IRecipeEdit {
   content?: RecipeDefaultFragment;
 }
-
-export interface IFormState {
-  abstract: string;
-  cookTime: string | number;
-  id: string;
-  prepTime: string | number;
-  recipeYield: string | number;
-  slug: string;
-  title: string;
-}
-
 const RecipeEdit = ({ content }: IRecipeEdit) => {
   const {
     abstract,
@@ -66,7 +56,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     title: title || ''
   };
 
-  const { setRecipe } = useAuthContext();
+  const { setRecipe } = useContentManagementContext();
 
   const [formData, setFormData] = useState<IFormState>(defaultState);
 

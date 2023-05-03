@@ -9,9 +9,11 @@ import NavBar, { NavDataProps } from './NavBar';
 
 import * as api from 'lib/api';
 import * as AuthContext from 'contexts/Authentication';
+import * as ContentManagementContext from 'contexts/Content';
 
 jest.mock('lib/api');
 jest.mock('contexts/Authentication');
+jest.mock('contexts/Content');
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({
@@ -40,22 +42,30 @@ describe('NavBar', () => {
 
   describe('when there is a properly structured nav property', () => {
     it('it renders a nav bar', async () => {
-      const contextValues = {
-        editMode: false,
-        getToken: jest.fn(),
+      const authContextValues = {
+        authLoading: false,
         isAuth: false,
         isLoading: false,
-        saveRecipe: jest.fn(),
-        setRecipe: jest.fn(),
         signIn: jest.fn(),
         signOut: jest.fn(),
+        token: 'TOKEN'
+      };
+
+      const cmContextValues = {
+        editMode: false,
+        editLoading: false,
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
         toggleEdit: jest.fn()
       };
 
       const authSpy = jest
         .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => contextValues);
+        .mockImplementation(() => authContextValues);
 
+      const cmSpy = jest
+        .spyOn(ContentManagementContext, 'useContentManagementContext')
+        .mockImplementation(() => cmContextValues);
       const nav = await api.getNavTaxonomy();
 
       const { asFragment, queryByRole, queryByTestId } = render(
@@ -63,6 +73,7 @@ describe('NavBar', () => {
       );
 
       expect(authSpy).toBeCalled();
+      expect(cmSpy).toBeCalled();
 
       const navBar = queryByTestId('navbar');
 
@@ -107,27 +118,37 @@ describe('NavBar', () => {
 
   describe('when isAuth is true', () => {
     it('it shows the user toolbar', async () => {
-      const contextValues = {
-        editMode: false,
-        getToken: jest.fn(),
+      const authContextValues = {
+        authLoading: false,
         isAuth: true,
         isLoading: false,
-        saveRecipe: jest.fn(),
-        setRecipe: jest.fn(),
         signIn: jest.fn(),
         signOut: jest.fn(),
+        token: 'TOKEN'
+      };
+
+      const cmContextValues = {
+        editMode: false,
+        editLoading: false,
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
         toggleEdit: jest.fn()
       };
 
       const authSpy = jest
         .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => contextValues);
+        .mockImplementation(() => authContextValues);
+
+      const cmSpy = jest
+        .spyOn(ContentManagementContext, 'useContentManagementContext')
+        .mockImplementation(() => cmContextValues);
 
       const nav = await api.getNavTaxonomy();
 
       const { asFragment } = render(<NavBar nav={nav as NavDataProps} />);
 
       expect(authSpy).toBeCalled();
+      expect(cmSpy).toBeCalled();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -136,27 +157,37 @@ describe('NavBar', () => {
 
   describe('when editMode is true', () => {
     it('it shows the cancel button', async () => {
-      const contextValues = {
-        editMode: true,
-        getToken: jest.fn(),
+      const authContextValues = {
+        authLoading: false,
         isAuth: true,
         isLoading: false,
-        saveRecipe: jest.fn(),
-        setRecipe: jest.fn(),
         signIn: jest.fn(),
         signOut: jest.fn(),
+        token: 'TOKEN'
+      };
+
+      const cmContextValues = {
+        editMode: true,
+        editLoading: false,
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
         toggleEdit: jest.fn()
       };
 
       const authSpy = jest
         .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => contextValues);
+        .mockImplementation(() => authContextValues);
+
+      const cmSpy = jest
+        .spyOn(ContentManagementContext, 'useContentManagementContext')
+        .mockImplementation(() => cmContextValues);
 
       const nav = await api.getNavTaxonomy();
 
       const { asFragment } = render(<NavBar nav={nav as NavDataProps} />);
 
       expect(authSpy).toBeCalled();
+      expect(cmSpy).toBeCalled();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

@@ -4,6 +4,7 @@ import Recipe from 'components/Recipe/Recipe';
 import RecipeEdit from 'components/Recipe/RecipeEdit';
 
 import { useAuthContext } from 'contexts/Authentication';
+import { useContentManagementContext } from 'contexts/Content';
 
 import { RecipeDefaultFragment } from 'types/queries';
 
@@ -12,7 +13,8 @@ interface IRecipePage {
 }
 
 const RecipePage = ({ content }: IRecipePage) => {
-  const { isAuth, editMode } = useAuthContext();
+  const { isAuth } = useAuthContext();
+  const { editMode } = useContentManagementContext();
 
   return content ? (
     <Container

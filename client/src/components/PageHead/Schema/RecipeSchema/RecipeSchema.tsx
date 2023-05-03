@@ -6,7 +6,7 @@ import {
 } from 'types/queries';
 import { minToIso } from 'lib/utils';
 
-import { IRecipeSection } from 'types/json';
+import { IRecipeSection } from 'types/content';
 
 export interface RecipeSchemaProps {
   recipe: RecipeDefaultFragment;
