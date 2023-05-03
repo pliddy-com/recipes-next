@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] = `
+exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXl page tagGrid css-19r6kue-MuiContainer-root"
@@ -1765,7 +1765,7 @@ exports[`TagGridPage when page number is > 0 it renders the RecipeGridPage 1`] =
 </DocumentFragment>
 `;
 
-exports[`TagGridPage when there is page content it renders the page 1`] = `
+exports[`TagGridLayout when there is page content it renders the page 1`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXl page tagGrid css-19r6kue-MuiContainer-root"

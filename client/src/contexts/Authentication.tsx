@@ -122,7 +122,10 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
 
   const saveRecipe = (event: SyntheticEvent) => {
     event.preventDefault();
+
     setRecipe(recipe);
+    setEditMode(false);
+
     console.log('saveRecipe', recipe);
   };
 

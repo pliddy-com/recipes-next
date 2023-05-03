@@ -5,7 +5,7 @@ import preloadAll from 'jest-next-dynamic';
 import PagedTags from './PagedTags';
 import { ListPageItemFragment } from 'types/queries';
 
-import pagedTags from 'layout/TagGridPage/testPayloads/pagedTags.json';
+import pagedTags from 'layout/TagGridLayout/testPayloads/pagedTags.json';
 
 jest.mock('lib/api');
 

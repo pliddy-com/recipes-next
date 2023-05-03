@@ -1,10 +1,10 @@
 import { RecipeDefaultFragment } from 'types/queries';
 
-jest.createMockFromModule('../RecipeGridPage');
+jest.createMockFromModule('../RecipeGridLayout');
 
-export const RecipeGridPage = jest.fn(
+export const RecipeGridLayout = jest.fn(
   ({ recipes, title }: { recipes: RecipeDefaultFragment[]; title: string }) => (
-    <div data-testid="RecipeGridPage">
+    <div data-testid="RecipeGridLayout">
       <h1>{title}</h1>
       {recipes &&
         recipes.map(({ slug, title }) => {
@@ -19,4 +19,4 @@ export const RecipeGridPage = jest.fn(
   )
 );
 
-export default RecipeGridPage;
+export default RecipeGridLayout;

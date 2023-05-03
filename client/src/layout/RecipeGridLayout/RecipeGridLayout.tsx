@@ -12,19 +12,19 @@ import { paginateResults, loadNext } from 'lib/infiniteScroll';
 
 import { RecipeDefaultFragment } from 'types/queries';
 
-interface RecipeGridPageProps {
+interface RecipeGridLayoutProps {
   isIndex?: boolean;
   page?: number;
   recipes: (RecipeDefaultFragment | object | null)[];
   title?: string | null;
 }
 
-const RecipeGridPage = ({
+const RecipeGridLayout = ({
   isIndex = false,
   page,
   recipes,
   title
-}: RecipeGridPageProps) => {
+}: RecipeGridLayoutProps) => {
   const pageSize = 6;
   const scrollThreshold = 800;
 
@@ -102,4 +102,4 @@ const RecipeGridPage = ({
   ) : null;
 };
 
-export default RecipeGridPage;
+export default RecipeGridLayout;

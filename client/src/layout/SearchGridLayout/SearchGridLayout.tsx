@@ -3,10 +3,10 @@ import Container from '@mui/material/Container';
 import SearchResults from 'components/Search/SearchResults/SearchResults';
 import SearchBox from 'components/Search/SearchBox/SearchBox';
 
-interface SearchGridPageProps {
+interface SearchGridLayoutProps {
   title?: string | null;
 }
-const SearchGridPage = ({ title }: SearchGridPageProps) => {
+const SearchGridLayout = ({ title }: SearchGridLayoutProps) => {
   return (
     <Container
       className="page recipegrid search"
@@ -19,4 +19,4 @@ const SearchGridPage = ({ title }: SearchGridPageProps) => {
   );
 };
 
-export default SearchGridPage;
+export default SearchGridLayout;

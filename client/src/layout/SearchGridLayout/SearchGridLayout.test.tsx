@@ -1,19 +1,19 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
-import SearchGridPage from './SearchGridPage';
+import SearchGridLayout from './SearchGridLayout';
 
 jest.mock('components/Search/SearchBox/SearchBox');
 jest.mock('components/Search/SearchResults/SearchResults');
 
-describe('SearchGridPage', () => {
+describe('SearchGridLayout', () => {
   // const env = process.env;
   describe('when there is page content', () => {
-    it('it renders the SearchGridPage', async () => {
+    it('it renders the SearchGridLayout', async () => {
       const title = 'Title';
 
       const { asFragment, queryByTestId } = render(
-        <SearchGridPage title={title} />
+        <SearchGridLayout title={title} />
       );
 
       // assert that content is rendered

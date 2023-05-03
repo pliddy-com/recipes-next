@@ -2,12 +2,12 @@ import '@testing-library/jest-dom';
 import { act, render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
-import RecipeGridPage from './RecipeGridPage';
+import RecipeGridLayout from './RecipeGridLayout';
 import { RecipeDefaultFragment } from 'types/queries';
 
-import recipes from 'layout/RecipeGridPage/testPayloads/recipes.json';
+import recipes from 'layout/RecipeGridLayout/testPayloads/recipes.json';
 
-describe('RecipeGridPage', () => {
+describe('RecipeGridLayout', () => {
   afterEach(() => {
     jest.resetModules();
   });
@@ -17,11 +17,11 @@ describe('RecipeGridPage', () => {
   });
 
   describe('when there is page content', () => {
-    it('it renders the RecipeGridPage', async () => {
+    it('it renders the RecipeGridLayout', async () => {
       const title = 'Title';
 
       const { asFragment, queryByTestId } = render(
-        <RecipeGridPage
+        <RecipeGridLayout
           recipes={recipes as unknown as (RecipeDefaultFragment | null)[]}
           title={title}
         />
@@ -38,13 +38,13 @@ describe('RecipeGridPage', () => {
   });
 
   describe('when page number is > 0', () => {
-    it('it renders the RecipeGridPage', async () => {
+    it('it renders the RecipeGridLayout', async () => {
       const page = 1;
 
       const title = 'Title';
 
       const { asFragment, queryByTestId } = render(
-        <RecipeGridPage
+        <RecipeGridLayout
           recipes={recipes as unknown as (RecipeDefaultFragment | null)[]}
           title={title}
           page={page}
@@ -62,11 +62,11 @@ describe('RecipeGridPage', () => {
   });
 
   describe('when there is no pageContent', () => {
-    it('it does not render the RecipeGridPage', async () => {
+    it('it does not render the RecipeGridLayout', async () => {
       const title = 'Title';
       const recipes = [] as unknown as RecipeDefaultFragment[];
 
-      render(<RecipeGridPage title={title} recipes={recipes} />);
+      render(<RecipeGridLayout title={title} recipes={recipes} />);
 
       // test if card compoent is not rendered
       await act(async () =>

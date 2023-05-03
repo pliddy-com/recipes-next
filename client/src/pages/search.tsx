@@ -18,10 +18,10 @@ const Layout = dynamic(
   { suspense: true }
 );
 
-const SearchGridPage = dynamic(
+const SearchGridLayout = dynamic(
   () =>
     import(
-      /* webpackChunkName: 'SearchGrid' */ 'layout/SearchGridPage/SearchGridPage'
+      /* webpackChunkName: 'SearchGrid' */ 'layout/SearchGridLayout/SearchGridLayout'
     ),
   { suspense: true }
 );
@@ -50,7 +50,7 @@ const SearchPage = ({
       <InstantSearch searchClient={searchClient} indexName="recipes_index">
         <Configure hitsPerPage={100} />
         <Suspense fallback={<Loading />}>
-          <SearchGridPage title={defaultTitle} />
+          <SearchGridLayout title={defaultTitle} />
         </Suspense>
       </InstantSearch>
     </>

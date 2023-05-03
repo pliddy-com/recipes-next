@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import RecipePage from './RecipePage';
+import RecipePage from './RecipeLayout';
 
 import { RecipeDefaultFragment } from 'types/queries';
 

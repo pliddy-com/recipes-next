@@ -20,21 +20,5 @@ exports[`RecipePage in recipe/[slug].tsx when there is page content it renders t
   >
     {"@context":"https://schema.org/","@type":"Recipe","name":"Recipe Title","image":["https://recipes.pliddy.com/url?w=252&h=252&fit=fill&fm=webp&q=75","https://recipes.pliddy.com/url?w=336&h=252&fit=fill&fm=webp&q=75","https://recipes.pliddy.com/url?w=448&h=252&fit=fill&fm=webp&q=75"],"author":{"@type":"Person","name":"Patrick Liddy"},"datePublished":"2022-06-26","description":"abstract","recipeYield":4,"prepTime":"PT1H0M","totalTime":"PT1H15M","recipeIngredient":[["ingredient 1","ingredient 2"]],"recipeInstructions":[{"@type":"HowToSection","name":"Section Label 1","itemListElement":[[{"@type":"HowToStep","name":"Section Label 1 Step 1","text":"Instructions item 1"}]]},{"@type":"HowToSection","name":"Section Label 2","itemListElement":[[{"@type":"HowToStep","name":"Section Label 2 Step 2","text":"Instructions item 2"},{"@type":"HowToStep","name":"Section Label 2 Step 3","text":"Instructions item 3"}]]}],"recipeCategory":"Tag 1","recipeCuisine":"Tag 1","keywords":["keyword1","keyword2"]}
   </script>
-  <div
-    data-testid="RecipePage"
-  >
-    <h1>
-      Recipe Title
-    </h1>
-    <p>
-      slug-1
-    </p>
-    <p>
-      abstract
-    </p>
-    <p>
-      filename.jpg
-    </p>
-  </div>
 </DocumentFragment>
 `;

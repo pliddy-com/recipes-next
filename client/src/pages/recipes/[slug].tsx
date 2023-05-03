@@ -23,7 +23,9 @@ const Layout = dynamic(
 
 const RecipePage = dynamic(
   () =>
-    import(/* webpackChunkName: 'RecipePage' */ 'layout/RecipePage/RecipePage'),
+    import(
+      /* webpackChunkName: 'RecipePage' */ 'layout/RecipeLayout/RecipeLayout'
+    ),
   { suspense: true }
 );
 
