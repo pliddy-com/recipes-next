@@ -55,6 +55,7 @@ api.getRecipeList = jest.fn().mockResolvedValue([
           {
             __typename: 'Recipe',
             sys: {
+              id: 'test-id-1',
               firstPublishedAt: '2022-06-17T00:02:14.528Z',
               __typename: 'Sys'
             },
@@ -103,6 +104,7 @@ api.getRecipeList = jest.fn().mockResolvedValue([
           {
             __typename: 'Recipe',
             sys: {
+              id: 'test-id-2',
               firstPublishedAt: '2022-11-15T21:50:41.051Z',
               __typename: 'Sys'
             },
@@ -150,6 +152,7 @@ api.getRecipeList = jest.fn().mockResolvedValue([
           {
             __typename: 'Recipe',
             sys: {
+              id: 'test-id-3',
               firstPublishedAt: '2022-06-18T22:42:01.107Z',
               __typename: 'Sys'
             },
@@ -198,7 +201,10 @@ api.getRecipePage = jest.fn().mockResolvedValue({
     title: 'Recipe Title',
     slug: 'slug-1',
     __typename: 'Recipe',
-    sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
+    sys: {
+      id: 'test-id-1',
+      firstPublishedAt: '2022-06-26T07:24:30.384Z'
+    },
     abstract: 'abstract',
     recipeYield: 4,
     prepTime: 15,

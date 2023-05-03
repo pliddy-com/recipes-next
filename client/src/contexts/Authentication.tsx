@@ -120,10 +120,30 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     setToken(null);
   };
 
-  const saveRecipe = (event: SyntheticEvent) => {
+  const updateEntry = async ({ recipe }: { recipe: IFormState }) => {
+    const restApi = `https://yac4ltvklg.execute-api.us-east-1.amazonaws.com/test/recipes/${recipe.id}`;
+
+    console.log({ recipe });
+
+    try {
+      const entry = await fetch(restApi, {
+        method: 'PUT',
+        headers: {
+          Authorization: `${token}`
+        },
+        body: JSON.stringify(recipe)
+      });
+      return entry.json();
+    } catch (e) {
+      console.error('updateEntry ERROR:', e);
+    }
+  };
+
+  const saveRecipe = async (event: SyntheticEvent) => {
     event.preventDefault();
 
-    setRecipe(recipe);
+    recipe && (await updateEntry({ recipe }));
+
     setEditMode(false);
 
     console.log('saveRecipe', recipe);

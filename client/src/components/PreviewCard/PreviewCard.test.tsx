@@ -20,7 +20,10 @@ describe('PreviewCard', () => {
   describe('when there is content', () => {
     const recipe: Maybe<RecipeDefaultFragment> = {
       __typename: 'Recipe',
-      sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
+      sys: {
+        id: 'test-id',
+        firstPublishedAt: '2022-06-26T07:24:30.384Z'
+      },
       title: 'Basmati Rice',
       slug: 'basmati-rice',
       abstract: 'Traditional basmati rice cooked in a covered skillet.',
@@ -81,7 +84,10 @@ describe('PreviewCard', () => {
     const recipe: RecipeDefaultFragment = {
       title: 'Basmati Rice',
       slug: 'basmati-rice',
-      sys: { firstPublishedAt: '2022-06-26T07:24:30.384Z' },
+      sys: {
+        id: 'test-id',
+        firstPublishedAt: '2022-06-26T07:24:30.384Z'
+      },
       abstract: 'Traditional basmati rice cooked in a covered skillet.',
       image: {
         __typename: 'Asset'

@@ -31,6 +31,7 @@ interface IRecipeEdit {
 export interface IFormState {
   abstract: string;
   cookTime: string | number;
+  id: string;
   prepTime: string | number;
   recipeYield: string | number;
   slug: string;
@@ -49,6 +50,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     notes,
     prepTime,
     recipeYield,
+    sys,
     slug,
     tagsCollection,
     title
@@ -56,6 +58,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
 
   const defaultState: IFormState = {
     abstract: abstract || '',
+    id: sys?.id || '',
     cookTime: cookTime || '0',
     prepTime: prepTime || '0',
     recipeYield: recipeYield || '0',
