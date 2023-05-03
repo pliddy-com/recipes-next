@@ -5,7 +5,7 @@ import preloadAll from 'jest-next-dynamic';
 import PagedRecipes from './PagedRecipes';
 import { RecipeDefaultFragment } from 'types/queries';
 
-import pagedRecipes from 'layout/RecipeGridPage/testPayloads/pagedRecipes.json';
+import pagedRecipes from 'layout/RecipeGridLayout/testPayloads/pagedRecipes.json';
 
 jest.mock('lib/api');
 

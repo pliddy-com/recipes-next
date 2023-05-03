@@ -2,16 +2,16 @@ import '@testing-library/jest-dom';
 import { act, render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
-import TagGridPage from './TagGridPage';
+import TagGridLayout from './TagGridLayout';
 import { ListPageItemFragment } from 'types/queries';
 
 // import * as api from 'lib/api';
 
-import tags from 'layout/TagGridPage/testPayloads/tags.json';
+import tags from 'layout/TagGridLayout/testPayloads/tags.json';
 
 jest.mock('lib/api');
 
-describe('TagGridPage', () => {
+describe('TagGridLayout', () => {
   afterEach(() => {
     jest.resetModules();
   });
@@ -24,7 +24,7 @@ describe('TagGridPage', () => {
     it('it renders the page', async () => {
       // const tags = await api.getTagIndex({});
       const { asFragment, queryByTestId } = render(
-        <TagGridPage tags={tags as (ListPageItemFragment | null)[]} />
+        <TagGridLayout tags={tags as (ListPageItemFragment | null)[]} />
       );
 
       // assert that content is rendered
@@ -38,13 +38,13 @@ describe('TagGridPage', () => {
   });
 
   describe('when page number is > 0', () => {
-    it('it renders the RecipeGridPage', async () => {
+    it('it renders the RecipeGridLayout', async () => {
       const page = 1;
 
       const title = 'Title';
 
       const { asFragment, queryByTestId } = render(
-        <TagGridPage
+        <TagGridLayout
           tags={tags as unknown as (ListPageItemFragment | null)[]}
           title={title}
           page={page}
@@ -66,7 +66,7 @@ describe('TagGridPage', () => {
   //     const tags = undefined;
 
   //     const { queryByTestId } = render(
-  //       <TagGridPage tags={tags as unknown as ListPageItemFragment[]} />
+  //       <TagGridLayout tags={tags as unknown as ListPageItemFragment[]} />
   //     );
 
   //     await act(async () =>
@@ -76,11 +76,11 @@ describe('TagGridPage', () => {
   // });
 
   describe('when there is no pageContent', () => {
-    it('it does not render the RecipeGridPage', async () => {
+    it('it does not render the RecipeGridLayout', async () => {
       const title = 'Title';
       const tags = [] as unknown as ListPageItemFragment[];
 
-      render(<TagGridPage tags={tags} title={title} />);
+      render(<TagGridLayout tags={tags} title={title} />);
 
       // test if card compoent is not rendered
       await act(async () =>
@@ -95,7 +95,7 @@ describe('TagGridPage', () => {
     it('it does not render the content', () => {
       const tags = [null];
 
-      render(<TagGridPage tags={tags} />);
+      render(<TagGridLayout tags={tags} />);
 
       // test if card compoent is not rendered
       const card = document.querySelector('.MuiCard-root');
@@ -132,7 +132,7 @@ describe('TagGridPage', () => {
   //       }
   //     ];
 
-  //     const { asFragment } = render(<TagGridPage tags={tags} />);
+  //     const { asFragment } = render(<TagGridLayout tags={tags} />);
 
   //     await act(async () =>
   //       waitFor(() => expect(asFragment()).toMatchSnapshot())

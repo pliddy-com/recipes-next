@@ -45,6 +45,8 @@ describe('NavBar', () => {
         getToken: jest.fn(),
         isAuth: false,
         isLoading: false,
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
         signIn: jest.fn(),
         signOut: jest.fn(),
         toggleEdit: jest.fn()
@@ -110,6 +112,37 @@ describe('NavBar', () => {
         getToken: jest.fn(),
         isAuth: true,
         isLoading: false,
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
+        signIn: jest.fn(),
+        signOut: jest.fn(),
+        toggleEdit: jest.fn()
+      };
+
+      const authSpy = jest
+        .spyOn(AuthContext, 'useAuthContext')
+        .mockImplementation(() => contextValues);
+
+      const nav = await api.getNavTaxonomy();
+
+      const { asFragment } = render(<NavBar nav={nav as NavDataProps} />);
+
+      expect(authSpy).toBeCalled();
+
+      // assert that the component matches the existing snapshot
+      expect(asFragment()).toMatchSnapshot();
+    });
+  });
+
+  describe('when editMode is true', () => {
+    it('it shows the cancel button', async () => {
+      const contextValues = {
+        editMode: true,
+        getToken: jest.fn(),
+        isAuth: true,
+        isLoading: false,
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
         signIn: jest.fn(),
         signOut: jest.fn(),
         toggleEdit: jest.fn()

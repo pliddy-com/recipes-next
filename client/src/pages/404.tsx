@@ -13,10 +13,10 @@ const Layout = dynamic(
   { suspense: true }
 );
 
-const RecipeGridPage = dynamic(
+const RecipeGridLayout = dynamic(
   () =>
     import(
-      /* webpackChunkName: 'RecipeGrid' */ 'layout/RecipeGridPage/RecipeGridPage'
+      /* webpackChunkName: 'RecipeGrid' */ 'layout/RecipeGridLayout/RecipeGridLayout'
     ),
   { suspense: true }
 );
@@ -33,9 +33,9 @@ const NotFoundPage = ({
         defaultTitle={defaultTitle}
         description={description}
       />
-      {pageContent && pageContent.length > 0 && RecipeGridPage && (
+      {pageContent && pageContent.length > 0 && RecipeGridLayout && (
         <Suspense fallback={<Loading />}>
-          <RecipeGridPage recipes={pageContent} title={defaultTitle} />
+          <RecipeGridLayout recipes={pageContent} title={defaultTitle} />
         </Suspense>
       )}
     </>

@@ -48,7 +48,6 @@ const Recipe = ({ content }: IRecipe) => {
       <Grid container className="content">
         <Grid item lg={6} className="contentGrid">
           <Stack className="description">
-            {/* TODO: fix this with a rich text fragment */}
             {description && <RichText content={richText} />}
             {tags && <TagsSection tags={tags} />}
 

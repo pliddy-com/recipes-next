@@ -15,7 +15,7 @@ import * as api from 'lib/api';
 jest.mock('lib/config');
 jest.mock('lib/api');
 jest.mock('components/PageHead/PageTags/PageTags');
-jest.mock('layout/TagGridPage/TagGridPage');
+jest.mock('layout/TagGridLayout/TagGridLayout');
 
 const env = process.env;
 

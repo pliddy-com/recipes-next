@@ -1,6 +1,9 @@
 /* istanbul ignore file */
 import {
+  Dispatch,
   ReactElement,
+  SetStateAction,
+  SyntheticEvent,
   createContext,
   useContext,
   useEffect,
@@ -12,6 +15,8 @@ import {
   CognitoUser,
   CognitoUserSession
 } from 'amazon-cognito-identity-js';
+
+import { IFormState } from 'components/Recipe/RecipeEdit';
 
 import userPool from 'lib/userPool';
 
@@ -25,6 +30,8 @@ interface AuthenticationContextValue {
   getToken(): Promise<null>;
   isAuth: boolean;
   isLoading: boolean;
+  saveRecipe(event: SyntheticEvent): void;
+  setRecipe: Dispatch<SetStateAction<IFormState | undefined>>;
   signIn({ email, password }: SignInProps): Promise<void>;
   signOut(): void;
   toggleEdit(): void;
@@ -43,6 +50,7 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   const [token, setToken] = useState<string | null>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [editMode, setEditMode] = useState<boolean>(false);
+  const [recipe, setRecipe] = useState<IFormState | undefined>();
 
   const toggleEdit = () => {
     setEditMode(!editMode);
@@ -112,6 +120,15 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
     setToken(null);
   };
 
+  const saveRecipe = (event: SyntheticEvent) => {
+    event.preventDefault();
+
+    setRecipe(recipe);
+    setEditMode(false);
+
+    console.log('saveRecipe', recipe);
+  };
+
   return (
     <AuthenticationContext.Provider
       value={{
@@ -119,9 +136,11 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
         getToken,
         isAuth,
         isLoading,
-        toggleEdit,
+        saveRecipe,
+        setRecipe,
         signIn,
-        signOut
+        signOut,
+        toggleEdit
       }}
     >
       {props.children}

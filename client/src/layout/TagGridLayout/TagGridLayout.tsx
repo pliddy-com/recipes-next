@@ -12,14 +12,14 @@ import { paginateResults, loadNext } from 'lib/infiniteScroll';
 
 import { ListPageItemFragment } from 'types/queries';
 
-interface TagGridPageProps {
+interface TagGridLayoutProps {
   isIndex?: boolean;
   page?: number;
   tags: (ListPageItemFragment | null)[];
   title?: string | null;
 }
 
-const TagGridPage = ({ isIndex, page, tags, title }: TagGridPageProps) => {
+const TagGridLayout = ({ isIndex, page, tags, title }: TagGridLayoutProps) => {
   const pageSize = 4;
   const scrollThreshold = 800;
 
@@ -98,4 +98,4 @@ const TagGridPage = ({ isIndex, page, tags, title }: TagGridPageProps) => {
   ) : null;
 };
 
-export default TagGridPage;
+export default TagGridLayout;

@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // import the component to test
-import RecipePage from './RecipePage';
+import RecipePage from './RecipeLayout';
 
 import { RecipeDefaultFragment } from 'types/queries';
 
@@ -27,6 +27,8 @@ describe('RecipePage', () => {
         getToken: jest.fn(),
         isAuth: false,
         isLoading: false,
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
         signIn: jest.fn(),
         signOut: jest.fn(),
         toggleEdit: jest.fn()
@@ -71,6 +73,8 @@ describe('RecipePage', () => {
         getToken: jest.fn(),
         isAuth: true,
         isLoading: false,
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
         signIn: jest.fn(),
         signOut: jest.fn(),
         toggleEdit: jest.fn()

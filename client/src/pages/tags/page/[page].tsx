@@ -22,10 +22,10 @@ const Layout = dynamic(
   { suspense: true }
 );
 
-const TagGridPage = dynamic(
+const TagGridLayout = dynamic(
   () =>
     import(
-      /* webpackChunkName: 'TagGridPage' */ 'layout/TagGridPage/TagGridPage'
+      /* webpackChunkName: 'TagGridLayout' */ 'layout/TagGridLayout/TagGridLayout'
     ),
   { suspense: true }
 );
@@ -51,7 +51,7 @@ const TagListPage = ({
         title={title}
       />
       <Suspense fallback={<Loading />}>
-        <TagGridPage
+        <TagGridLayout
           page={page}
           tags={pageContent as (ListPageItemFragment | null)[]}
           title={title}

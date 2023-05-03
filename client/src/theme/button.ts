@@ -37,11 +37,9 @@ const buttonThemeOptions: ThemeOptions = {
           '&.Mui-focusVisible': {
             color: 'yellow'
           },
-          '&.edit': {
+          '&.user': {
             color: colors.common.white,
-            '& .MuiButton-startIcon': {
-              marginRight: '0.25rem'
-            }
+            marginLeft: '.5rem'
           }
         }
       }

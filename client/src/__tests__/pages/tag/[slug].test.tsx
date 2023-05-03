@@ -11,7 +11,7 @@ import config from 'lib/config';
 jest.mock('lib/api');
 jest.mock('lib/config');
 jest.mock('components/PageHead/PageTags/PageTags');
-jest.mock('layout/RecipeGridPage/RecipeGridPage');
+jest.mock('layout/RecipeGridLayout/RecipeGridLayout');
 
 const env = process.env;
 
@@ -108,7 +108,7 @@ describe('TagPage in tags/[slug].tsx', () => {
 
       // wait for dynamic component to load
       await act(async () =>
-        waitFor(() => expect(queryByTestId('RecipeGridPage')).toBeNull())
+        waitFor(() => expect(queryByTestId('RecipeGridLayout')).toBeNull())
       );
     });
   });
