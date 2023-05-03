@@ -54,6 +54,8 @@
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@aws-sdk/client-cognito-identity-provider": "^3.321.1",
+    "@aws-solutions-constructs/aws-apigateway-lambda": "^2.39.0",
+    "@aws-solutions-constructs/aws-cognito-apigateway-lambda": "^2.39.0",
     "@contentful/rich-text-plain-text-renderer": "^16.0.3",
     "algoliasearch": "^4.15.0",
     "amazon-cognito-identity-js": "^6.2.0",

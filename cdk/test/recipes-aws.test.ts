@@ -9,6 +9,8 @@ import {
   RecipesBranchStackProps
 } from '../lib/recipes-branch-stack';
 
+// TODO: update with API resources
+
 describe('RecipesSharedStack', () => {
   it('generates a shared stack for the main branch', () => {
     const testProps: RecipesSharedStackProps = {
@@ -141,9 +143,9 @@ describe('RecipesBranchStack', () => {
 
     template.resourceCountIs('AWS::Route53::RecordSet', 1);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
-    template.resourceCountIs('AWS::Lambda::Function', 1);
+    template.resourceCountIs('AWS::Lambda::Function', 2);
     template.resourceCountIs('AWS::Lambda::Version', 1);
-    template.resourceCountIs('AWS::IAM::Role', 1);
+    template.resourceCountIs('AWS::IAM::Role', 3);
     template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 
@@ -177,9 +179,9 @@ describe('RecipesBranchStack', () => {
 
     template.resourceCountIs('AWS::Route53::RecordSet', 1);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
-    template.resourceCountIs('AWS::Lambda::Function', 1);
+    template.resourceCountIs('AWS::Lambda::Function', 2);
     template.resourceCountIs('AWS::Lambda::Version', 1);
-    template.resourceCountIs('AWS::IAM::Role', 1);
+    template.resourceCountIs('AWS::IAM::Role', 3);
     template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 

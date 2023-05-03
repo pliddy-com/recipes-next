@@ -11,6 +11,7 @@ import { createDistribution } from './resources/branch/distribution';
 import { createEdgeLambda } from './resources/branch/edgeLambda';
 import { createUserPool } from './resources/branch/userPool';
 import { getHostedZone } from './resources/branch/hostedZone';
+import { createApiGateway } from './resources/branch/apiGateway';
 
 /**
  *  Generate a CloudFormation Stack to deploy site infrastructure:
@@ -108,6 +109,16 @@ export class RecipesBranchStack extends Stack {
       hostedZone,
       resourceLabel,
       siteDomain,
+      stack: this
+    });
+
+    /**
+     *  Create an API Gateway with Lambda
+     */
+
+    const apiGateway = createApiGateway({
+      branchLabel,
+      userPool,
       stack: this
     });
   }

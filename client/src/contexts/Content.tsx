@@ -73,12 +73,12 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
     }
 
     try {
-      recipe && (await updateEntry({ recipe }));
+      const res = recipe && (await updateEntry({ recipe }));
 
       setEditMode(false);
-
-      console.log('saveRecipe', recipe);
       setEditLoading(false);
+
+      console.log(JSON.parse(res));
     } catch (e) {
       // TODO: handle error in UI
       console.error(e);
