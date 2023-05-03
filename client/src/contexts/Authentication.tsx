@@ -142,11 +142,16 @@ const AuthenticationProvider = (props: AuthenticationProps) => {
   const saveRecipe = async (event: SyntheticEvent) => {
     event.preventDefault();
 
-    recipe && (await updateEntry({ recipe }));
+    try {
+      recipe && (await updateEntry({ recipe }));
 
-    setEditMode(false);
+      setEditMode(false);
 
-    console.log('saveRecipe', recipe);
+      console.log('saveRecipe', recipe);
+    } catch (e) {
+      // TODO: handle error in UI
+      console.error(e);
+    }
   };
 
   return (
