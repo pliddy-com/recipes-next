@@ -9,7 +9,8 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import EditIcon from '@mui/icons-material/Edit';
 import LanguageIcon from '@mui/icons-material/Language';
 import MenuIcon from '@mui/icons-material/Menu';
-import SaveIcon from '@mui/icons-material/Save';
+import SyncDisabledIcon from '@mui/icons-material/SyncDisabled';
+import SyncIcon from '@mui/icons-material/Sync';
 import TagIcon from '@mui/icons-material/Tag';
 
 import LogoButton from 'components/Navigation/Buttons/LogoButton/LogoButton';
@@ -115,7 +116,7 @@ const NavBar = ({ nav }: NavBarProps) => {
               className="user save"
               disabled={!canSave}
               onClick={saveRecipe}
-              startIcon={<SaveIcon />}
+              startIcon={canSave ? <SyncIcon /> : <SyncDisabledIcon />}
               variant="text"
             >
               Save

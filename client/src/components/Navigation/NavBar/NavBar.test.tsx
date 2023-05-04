@@ -199,4 +199,45 @@ describe('NavBar', () => {
       expect(asFragment()).toMatchSnapshot();
     });
   });
+
+  describe('when canSave is true', () => {
+    it('it activates the save button', async () => {
+      const authContextValues = {
+        authLoading: false,
+        isAuth: true,
+        isLoading: false,
+        signIn: jest.fn(),
+        signOut: jest.fn(),
+        token: 'TOKEN'
+      };
+
+      const cmContextValues = {
+        canSave: true,
+        editMode: true,
+        editLoading: false,
+        setCanSave: jest.fn(),
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
+        toggleEdit: jest.fn()
+      };
+
+      const authSpy = jest
+        .spyOn(AuthContext, 'useAuthContext')
+        .mockImplementation(() => authContextValues);
+
+      const cmSpy = jest
+        .spyOn(ContentManagementContext, 'useContentManagementContext')
+        .mockImplementation(() => cmContextValues);
+
+      const nav = await api.getNavTaxonomy();
+
+      const { asFragment } = render(<NavBar nav={nav as NavDataProps} />);
+
+      expect(authSpy).toBeCalled();
+      expect(cmSpy).toBeCalled();
+
+      // assert that the component matches the existing snapshot
+      expect(asFragment()).toMatchSnapshot();
+    });
+  });
 });

@@ -6,20 +6,51 @@ const formThemeOptions: ThemeOptions = {
     MuiFormControl: {
       styleOverrides: {
         root: {
-          marginBottom: '1rem',
-          //   '&.number': {
-          //     // width: '50%'
-          //   },
+          marginBottom: '1.5rem',
+          marginTop: '0',
+          width: '100%',
           '&.multiline': {
-            '& .MuiInputBase-root': {
-              padding: '0.5rem 0 0.25rem'
-            }
-          },
-          '& .MuiInputAdornment-root': {
-            '& .MuiTypography-body1': {
-              fontFamily: sansFontFamily
+            '& .MuiInputBase-inputMultiline': {
+              paddingTop: '0.375rem'
+            },
+            '& .MuiFormLabel-root[data-shrink="false"]': {
+              marginTop: '-0.125rem'
             }
           }
+        }
+      }
+    },
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          fontFamily: sansFontFamily,
+          marginTop: '0.125rem'
+        }
+      }
+    },
+    MuiInputAdornment: {
+      styleOverrides: {
+        root: {
+          marginRight: '0.25rem',
+          '& .MuiTypography-body1': {
+            fontFamily: sansFontFamily
+          }
+        }
+      }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        input: {
+          fontFamily: sansFontFamily,
+          flex: 1,
+          paddingTop: '0.75rem'
+        }
+      }
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          paddingTop: '12px'
         }
       }
     }

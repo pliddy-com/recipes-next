@@ -8,7 +8,7 @@ const colors = {
     light: 'hsl(201, 30%, 40%)',
     main: 'hsl(205, 60%, 25%)',
     dark: 'hsl(200, 61%, 17%)',
-    contrastText: 'hsl(200, 30%, 60%)'
+    contrastText: 'hsl(196, 27%, 92%)'
   },
   secondary: {
     main: 'hsl(40, 98%, 44%)',

@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 import assert from 'assert';
 
+import { OutlinedInput } from '@mui/material';
+
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
@@ -25,7 +27,10 @@ import { recipePageConfig } from 'theme/values/images';
 
 import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 import { useContentManagementContext } from 'contexts/Content';
+
 import { IFormState } from 'types/content';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 
 type IFormIds =
   | 'abstract'
@@ -93,11 +98,9 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
 
     try {
       assert.deepStrictEqual(defaultState, newData);
-      console.log('notChanged');
       setCanSave(false);
     } catch (e) {
       setCanSave(true);
-      console.log('form changed');
     }
   };
 
@@ -123,7 +126,9 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
         className="field"
         id="title"
         label="Title"
+        name="title"
         onChange={(e) => updateForm({ id: 'title', value: e.target.value })}
+        size="small"
         value={formData.title}
         variant="outlined"
       />
@@ -131,19 +136,27 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
         className="field"
         id="slug"
         label="Slug"
+        name="slug"
         onChange={(e) => updateForm({ id: 'slug', value: e.target.value })}
+        size="small"
         value={formData.slug}
         variant="outlined"
       />
-      <TextField
-        className="multiline"
-        id="abstract"
-        label="Abstract"
-        multiline
-        onChange={(e) => updateForm({ id: 'abstract', value: e.target.value })}
-        value={formData.abstract}
-        variant="outlined"
-      />
+      <FormControl className="multiline">
+        <InputLabel htmlFor="abstract">Abstract</InputLabel>
+        <OutlinedInput
+          id="abstract"
+          label="Abstract"
+          multiline
+          name="abstract"
+          onChange={(e) =>
+            updateForm({ id: 'abstract', value: e.target.value })
+          }
+          size="small"
+          value={formData.abstract}
+        />
+      </FormControl>
+
       <Grid container className="content">
         <Grid item lg={6} className="contentGrid">
           <Stack className="description">
@@ -176,6 +189,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
                     onChange={(e) =>
                       updateForm({ id: 'prepTime', value: e.target.value })
                     }
+                    size="small"
                     value={formData.prepTime}
                     variant="outlined"
                   />
@@ -192,6 +206,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
                     onChange={(e) =>
                       updateForm({ id: 'cookTime', value: e.target.value })
                     }
+                    size="small"
                     value={formData.cookTime}
                     variant="outlined"
                   />
@@ -217,6 +232,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
                   onChange={(e) =>
                     updateForm({ id: 'recipeYield', value: e.target.value })
                   }
+                  size="small"
                   value={formData.recipeYield}
                   variant="outlined"
                 />
