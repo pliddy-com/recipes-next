@@ -13,7 +13,7 @@ interface ISignInControl {
 }
 
 const SignInControl = ({ hideLabel = false }: ISignInControl) => {
-  const { isAuth, isLoading, signIn, signOut } = useAuthContext();
+  const { isAuth, authLoading, signIn, signOut } = useAuthContext();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const SignInControl = ({ hideLabel = false }: ISignInControl) => {
       />
       {isOpen && (
         <SignInDialog
-          isLoading={isLoading}
+          isLoading={authLoading}
           isOpen={isOpen}
           onClose={onClose}
           onSignIn={signIn}

@@ -7,6 +7,7 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import { AuthenticationProvider } from 'contexts/Authentication';
+import { ContentManagementProvider } from 'contexts/Content';
 
 import createEmotionCache from 'lib/createEmotionCache';
 import theme from 'theme';
@@ -39,12 +40,14 @@ const RecipesApp = (props: AppLayoutProps) => {
         <link rel="preconnect" href="https://images.ctfassets.net" />
       </Head>
       <AuthenticationProvider>
-        <CacheProvider value={emotionCache}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            {getLayout(<Component {...pageProps} />)}
-          </ThemeProvider>
-        </CacheProvider>
+        <ContentManagementProvider>
+          <CacheProvider value={emotionCache}>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              {getLayout(<Component {...pageProps} />)}
+            </ThemeProvider>
+          </CacheProvider>
+        </ContentManagementProvider>
       </AuthenticationProvider>
     </>
   );

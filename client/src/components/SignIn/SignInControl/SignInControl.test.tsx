@@ -11,21 +11,18 @@ describe('SignInControl', () => {
   it('renders a sign in button when not authenticated', async () => {
     const expectedLabel = 'Sign In';
 
-    const contextValues = {
-      editMode: false,
-      getToken: jest.fn(),
+    const authContextValues = {
+      authLoading: false,
       isAuth: false,
       isLoading: false,
-      saveRecipe: jest.fn(),
-      setRecipe: jest.fn(),
       signIn: jest.fn(),
       signOut: jest.fn(),
-      toggleEdit: jest.fn()
+      token: 'TOKEN'
     };
 
     const authSpy = jest
       .spyOn(AuthContext, 'useAuthContext')
-      .mockImplementation(() => contextValues);
+      .mockImplementation(() => authContextValues);
 
     const { asFragment, getByRole, queryByTestId } = render(<SignInControl />);
 
@@ -57,21 +54,18 @@ describe('SignInControl', () => {
   it('renders a sign out button when authenticated', () => {
     const expectedLabel = 'Sign Out';
 
-    const contextValues = {
-      editMode: false,
-      getToken: jest.fn(),
+    const authContextValues = {
+      authLoading: false,
       isAuth: true,
       isLoading: false,
-      saveRecipe: jest.fn(),
-      setRecipe: jest.fn(),
       signIn: jest.fn(),
       signOut: jest.fn(),
-      toggleEdit: jest.fn()
+      token: 'TOKEN'
     };
 
     const authSpy = jest
       .spyOn(AuthContext, 'useAuthContext')
-      .mockImplementationOnce(() => contextValues);
+      .mockImplementationOnce(() => authContextValues);
 
     const { getByRole } = render(<SignInControl />);
 

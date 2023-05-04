@@ -19,6 +19,7 @@ import SearchButton from 'components/Navigation/Buttons/SearchButton/SearchButto
 import SignInControl from '../../SignIn/SignInControl/SignInControl';
 
 import { useAuthContext } from 'contexts/Authentication';
+import { useContentManagementContext } from 'contexts/Content';
 
 import { TaxonomyChildrenItem } from 'types/queries';
 
@@ -34,8 +35,8 @@ export interface NavBarProps {
 
 const NavBar = ({ nav }: NavBarProps) => {
   const { categories, cuisine, tags } = nav ?? {};
-  const { editMode, isAuth, toggleEdit, saveRecipe } = useAuthContext();
-
+  const { isAuth } = useAuthContext();
+  const { editMode, toggleEdit, saveRecipe } = useContentManagementContext();
   const { asPath } = useRouter();
 
   const isRecipe = asPath.startsWith('/recipes/');

@@ -3,6 +3,9 @@ jest.createMockFromModule('amazon-cognito-identity-js');
 const session = {
   getIdToken: jest.fn().mockReturnValue({
     getJwtToken: jest.fn().mockReturnValue('TOKEN')
+  }),
+  getAccessToken: jest.fn().mockReturnValue({
+    getJwtToken: jest.fn().mockReturnValue('TOKEN')
   })
 };
 

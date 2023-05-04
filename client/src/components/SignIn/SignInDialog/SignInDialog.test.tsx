@@ -78,21 +78,18 @@ describe('SignInDialog', () => {
       const passwordValue = 'password';
       const testError = 'sign in failed';
 
-      const contextValues = {
-        editMode: false,
-        getToken: jest.fn(),
+      const authContextValues = {
+        authLoading: false,
         isAuth: false,
         isLoading: false,
-        saveRecipe: jest.fn(),
-        setRecipe: jest.fn(),
         signIn: jest.fn(),
         signOut: jest.fn(),
-        toggleEdit: jest.fn()
+        token: 'TOKEN'
       };
 
       jest
         .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => contextValues);
+        .mockImplementation(() => authContextValues);
 
       const { queryByTestId, queryByLabelText, queryByRole } = render(
         <SignInDialog

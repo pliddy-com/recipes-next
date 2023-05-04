@@ -30,7 +30,7 @@ interface HitProps {
     ];
   };
   __typename: 'Recipe';
-  sys: object;
+  sys: { id: string };
 }
 
 // TODO: mock for unit test; move to lib
