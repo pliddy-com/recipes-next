@@ -24,7 +24,7 @@ export const createApiGateway = ({
   stack,
   userPool
 }: ICreateApiGw) => {
-  const stageId = 'test';
+  const stageId = 'prod';
 
   const authorizer = new CognitoUserPoolsAuthorizer(
     stack,
@@ -102,7 +102,7 @@ export const createApiGateway = ({
 
   const deploy = new Deployment(stack, 'ApiGwDeployment', { api });
 
-  const stage = new Stage(stack, 'test', {
+  const stage = new Stage(stack, 'DeploymentStage', {
     deployment: deploy,
     stageName: stageId // If not passed, by default it will be 'prod'
   });
