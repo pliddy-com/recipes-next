@@ -33,7 +33,7 @@ const navbarThemeOptions: ThemeOptions = {
             paddingRight: '1.6875rem',
             '& .MuiButton-root': {
               '&.edit': {
-                margin: '0.5rem 0'
+                margin: '0.5rem 0 0.5rem 0.5rem'
               }
             }
           }

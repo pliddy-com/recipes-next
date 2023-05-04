@@ -9,7 +9,8 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import EditIcon from '@mui/icons-material/Edit';
 import LanguageIcon from '@mui/icons-material/Language';
 import MenuIcon from '@mui/icons-material/Menu';
-import SaveIcon from '@mui/icons-material/Save';
+import SyncDisabledIcon from '@mui/icons-material/SyncDisabled';
+import SyncIcon from '@mui/icons-material/Sync';
 import TagIcon from '@mui/icons-material/Tag';
 
 import LogoButton from 'components/Navigation/Buttons/LogoButton/LogoButton';
@@ -36,7 +37,8 @@ export interface NavBarProps {
 const NavBar = ({ nav }: NavBarProps) => {
   const { categories, cuisine, tags } = nav ?? {};
   const { isAuth } = useAuthContext();
-  const { editMode, toggleEdit, saveRecipe } = useContentManagementContext();
+  const { canSave, editMode, toggleEdit, saveRecipe } =
+    useContentManagementContext();
   const { asPath } = useRouter();
 
   const isRecipe = asPath.startsWith('/recipes/');
@@ -101,6 +103,17 @@ const NavBar = ({ nav }: NavBarProps) => {
       </Toolbar>
       {isAuth && isRecipe ? (
         <Toolbar className="userBar">
+          {editMode && (
+            <Button
+              className="user save"
+              disabled={!canSave}
+              onClick={saveRecipe}
+              startIcon={canSave ? <SyncIcon /> : <SyncDisabledIcon />}
+              variant="text"
+            >
+              Save
+            </Button>
+          )}
           <Button
             className="user edit"
             onClick={toggleEdit}
@@ -109,16 +122,6 @@ const NavBar = ({ nav }: NavBarProps) => {
           >
             {editMode ? 'Cancel' : 'Edit'}
           </Button>
-          {editMode && (
-            <Button
-              className="user save"
-              onClick={saveRecipe}
-              startIcon={<SaveIcon />}
-              variant="text"
-            >
-              Save
-            </Button>
-          )}
         </Toolbar>
       ) : null}
     </AppBar>

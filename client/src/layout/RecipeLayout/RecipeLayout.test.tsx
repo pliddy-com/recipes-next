@@ -34,8 +34,10 @@ describe('RecipePage', () => {
       };
 
       const cmContextValues = {
+        canSave: false,
         editMode: false,
         editLoading: false,
+        setCanSave: jest.fn(),
         saveRecipe: jest.fn(),
         setRecipe: jest.fn(),
         toggleEdit: jest.fn()
@@ -90,8 +92,10 @@ describe('RecipePage', () => {
       };
 
       const cmContextValues = {
+        canSave: false,
         editMode: true,
         editLoading: false,
+        setCanSave: jest.fn(),
         saveRecipe: jest.fn(),
         setRecipe: jest.fn(),
         toggleEdit: jest.fn()

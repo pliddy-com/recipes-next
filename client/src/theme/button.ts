@@ -2,6 +2,8 @@ import { ThemeOptions } from '@mui/material/styles';
 import colors from 'theme/values/colors';
 import { fontWeightBold, sansFontFamily } from './values/fontface';
 
+import baseTheme from './base';
+
 const buttonThemeOptions: ThemeOptions = {
   components: {
     MuiButton: {
@@ -39,7 +41,10 @@ const buttonThemeOptions: ThemeOptions = {
           },
           '&.user': {
             color: colors.common.white,
-            marginLeft: '.5rem'
+            marginLeft: '.5rem',
+            '&.Mui-disabled': {
+              color: baseTheme.palette.primary.contrastText
+            }
           }
         }
       }

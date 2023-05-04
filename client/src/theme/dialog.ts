@@ -13,9 +13,9 @@ const dialogThemeOptions: ThemeOptions = {
           '&.loading': {
             alignItems: 'center',
             display: 'flex',
-            height: '165px',
+            height: '180px',
             justifyContent: 'center',
-            maxHeight: '165px',
+            maxHeight: '180px',
             [breakpoints.up('sm')]: {
               maxWidth: '432px',
               width: '432px'
@@ -55,7 +55,8 @@ const dialogThemeOptions: ThemeOptions = {
     MuiDialogContentText: {
       styleOverrides: {
         root: {
-          fontFamily: sansFontFamily
+          fontFamily: sansFontFamily,
+          marginBottom: '1rem'
         }
       }
     },
@@ -64,43 +65,6 @@ const dialogThemeOptions: ThemeOptions = {
         root: {
           marginBottom: '1rem',
           marginRight: '1rem'
-        }
-      }
-    },
-    MuiFormControl: {
-      styleOverrides: {
-        root: {
-          width: '100%'
-        }
-      }
-    },
-    MuiFormLabel: {
-      styleOverrides: {
-        root: {
-          fontFamily: sansFontFamily,
-          paddingTop: '3.5px'
-        }
-      }
-    },
-    MuiInputAdornment: {
-      styleOverrides: {
-        root: {
-          marginRight: '-0.25rem'
-        }
-      }
-    },
-    MuiInputBase: {
-      styleOverrides: {
-        input: {
-          fontFamily: sansFontFamily,
-          flex: 1
-        }
-      }
-    },
-    MuiOutlinedInput: {
-      styleOverrides: {
-        input: {
-          padding: '0.78125rem 0.875rem 0.53125rem'
         }
       }
     }

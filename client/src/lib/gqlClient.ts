@@ -3,7 +3,7 @@ import { TypedDocumentNode, createClient } from 'urql';
 import { ResultOf, VariablesOf } from '@graphql-typed-document-node/core';
 
 const ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
-const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
+const API_ENDPOINT = process.env.NEXT_PUBLIC_CONTENTFUL_CONTENT_API;
 
 export const gqlClient = createClient({
   url: API_ENDPOINT || '',

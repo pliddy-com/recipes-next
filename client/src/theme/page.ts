@@ -151,7 +151,6 @@ const pageThemeOptions: ThemeOptions = {
                   '&.search': {
                     alignItems: 'center',
                     display: 'flex',
-                    marginBottom: '1.5rem',
                     padding: '2px 4px'
                   }
                 }

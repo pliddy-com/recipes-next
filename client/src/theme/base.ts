@@ -22,7 +22,10 @@ const baseTheme = createTheme({
   },
   palette: {
     primary: {
-      main: colors.primary.main
+      light: colors.primary.light,
+      main: colors.primary.main,
+      dark: colors.primary.dark,
+      contrastText: colors.primary.contrastText
     },
     secondary: {
       main: colors.secondary.main

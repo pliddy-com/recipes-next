@@ -14,24 +14,28 @@ import { useAuthContext } from './Authentication';
 import { IFormState } from 'types/content';
 
 interface ICMContext {
+  canSave: boolean;
   editMode: boolean;
   editLoading: boolean;
+  setCanSave: Dispatch<SetStateAction<boolean>>;
   saveRecipe(event: SyntheticEvent): void;
   setRecipe: Dispatch<SetStateAction<IFormState | undefined>>;
   toggleEdit(): void;
 }
 
-const ContentManagementContext = createContext<ICMContext>({} as ICMContext);
-
 interface ContentManagementProps {
   children: ReactElement | ReactElement[];
 }
+
+const contentApiUrl = process.env.NEXT_PUBLIC_AWS_CONTENT_API;
+
+const ContentManagementContext = createContext<ICMContext>({} as ICMContext);
 
 const ContentManagementProvider = (props: ContentManagementProps) => {
   const [editMode, setEditMode] = useState<boolean>(false);
   const [recipe, setRecipe] = useState<IFormState | undefined>();
   const [editLoading, setEditLoading] = useState<boolean>(false);
-  //   const [token, setToken] = useState<string | null>();
+  const [canSave, setCanSave] = useState<boolean>(false);
 
   const { isAuth, token } = useAuthContext();
 
@@ -45,12 +49,15 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
 
   const updateEntry = async ({ recipe }: { recipe: IFormState }) => {
     if (!isAuth || !token) {
-      throw new Error('User is not authenticated');
+      throw new Error('User is not authenticated.');
     }
 
+    if (!canSave) {
+      throw new Error('Content has not changed.');
+    }
     // TODO: move api url to env until it can be automated
 
-    const restApi = `https://uh4gk35zie.execute-api.us-east-1.amazonaws.com/test/recipes/${recipe.id}`;
+    const restApi = `${contentApiUrl}/${recipe.id}`;
 
     try {
       const entry = await fetch(restApi, {
@@ -91,8 +98,10 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
   return (
     <ContentManagementContext.Provider
       value={{
+        canSave,
         editMode,
         editLoading,
+        setCanSave,
         saveRecipe,
         setRecipe,
         toggleEdit
