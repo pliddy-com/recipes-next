@@ -65,6 +65,6 @@ runs:
     - name: Set outputs
       id: set-outputs
       run: |
-        echo "apiUrl = ${{ steps.content-api-url.outputs.result }}"
-        echo "apiUrl=${{ steps.content-api-url.outputs.result }}" >> $GITHUB_OUTPUT
+        echo "contentApi = ${{ steps.content-api-url.outputs.result }}"
+        echo "contentApi=${{ steps.content-api-url.outputs.result }}" >> $GITHUB_OUTPUT
       shell: bash
