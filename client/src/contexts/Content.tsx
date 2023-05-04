@@ -21,11 +21,13 @@ interface ICMContext {
   toggleEdit(): void;
 }
 
-const ContentManagementContext = createContext<ICMContext>({} as ICMContext);
-
 interface ContentManagementProps {
   children: ReactElement | ReactElement[];
 }
+
+const contentApiUrl = process.env.NEXT_PUBLIC_AWS_CONTENT_API;
+
+const ContentManagementContext = createContext<ICMContext>({} as ICMContext);
 
 const ContentManagementProvider = (props: ContentManagementProps) => {
   const [editMode, setEditMode] = useState<boolean>(false);
@@ -50,7 +52,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
 
     // TODO: move api url to env until it can be automated
 
-    const restApi = `https://uh4gk35zie.execute-api.us-east-1.amazonaws.com/test/recipes/${recipe.id}`;
+    const restApi = `${contentApiUrl}/${recipe.id}`;
 
     try {
       const entry = await fetch(restApi, {

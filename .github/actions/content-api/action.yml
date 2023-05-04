@@ -1,0 +1,72 @@
+name: Get API Gateway URL
+description: This is an action to get the Content API Gateway URL for this branch
+
+inputs:
+  branch:
+    description: Git branch
+    required: true
+
+outputs:
+  contentApi:
+    description: Content API URL
+    value: ${{ steps.set-outputs.apiUrl }}
+
+runs:
+  using: composite
+  steps:
+    - name: Get Content API URL
+      id: content-api-url
+      uses: actions/github-script@v6
+      with:
+        result-encoding: string
+        script: |
+          const CloudFormation = require('aws-sdk/clients/cloudformation');
+          const apiVersion = '2010-05-15';
+          const region = 'us-east-1';
+          const cloudFormation = new CloudFormation({ apiVersion, region });
+
+          const branch = '${{ inputs.branch }}'
+          console.log('branch:', branch);
+
+          let stackLabel;
+
+          if (branch === 'main') {
+            stackLabel = 'Prod';
+          } else {
+            stackLabel = branch[0].toUpperCase() + branch.slice(1);
+          }
+
+          console.log('stackLabel:', stackLabel);
+
+          const stackName = `RecipesBranchStack${ stackLabel }`
+          console.log('stackName:', stackName);
+
+          let branchLabel;
+
+          if (branch === 'main') {
+            branchLabel = 'Main';
+          } else {
+            branchLabel = stackLabel.replaceAll('-', '');
+          }
+
+          console.log('branchLabel:', branchLabel);
+
+          const apiLabel = `ExportRecipesApiGatewayUrl${ branchLabel }`
+          console.log('apiUrl:', apiUrl);
+
+          const result = await cloudFormation.describeStacks({ StackName: stackName }).promise();
+          const foundStacks = (result && result.Stacks) || [];
+          const stack = foundStacks.find(s => s.StackName === stackName);
+
+          if (!stack) throw new Error(`Unable to find stack "${stackName}" in region "${region}"`);
+
+          const apiUrl = stack.Outputs.find(({ OutputKey }) => OutputKey === apiLabel).OutputValue;
+          console.log('apiUrl:', apiUrl);
+
+          return apiUrl;
+    - name: Set outputs
+      id: set-outputs
+      run: |
+        echo "apiUrl = ${{ steps.content-api-url.outputs.result }}"
+        echo "apiUrl=${{ steps.content-api-url.outputs.result }}" >> $GITHUB_OUTPUT
+      shell: bash

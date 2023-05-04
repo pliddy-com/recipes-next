@@ -19,7 +19,7 @@ env:
   DEFAULT_PASSWORD: ${{ secrets.DEFAULT_PASSWORD }}
   NEXT_PUBLIC_ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: ${{ secrets.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY }}
-  NEXT_PUBLIC_API_ENDPOINT: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
+  NEXT_PUBLIC_CONTENTFUL_CONTENT_API: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
   NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
   NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
   NEXT_PUBLIC_SITE_URL: ${{ github.ref_name == 'main' && vars.NEXT_PUBLIC_SITE_URL || format('{0}{1}{2}', 'https://', github.ref_name, '.recipes.pliddy.com') }}
@@ -99,11 +99,16 @@ jobs:
           user: ${{ env.DEFAULT_USER }}
           password: ${{ env.DEFAULT_PASSWORD }}
 
+      - name: Get AWS Content API
+        id: content-api-url
+        uses: './.github/actions/content-api'
+
       - name: Build and Deploy Client
         id: build-and-deploy-client
         uses: './.github/actions/build-and-deploy-client'
         with:
           algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+          contentApi: ${{ steps.content-api-url.outputs.contentApi }}
           distributionId: ${{ steps.distribution-id.outputs.distributionId }}
           s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
           userPoolClientId: ${{ steps.user-pool-ids.outputs.userPoolClientId }}
