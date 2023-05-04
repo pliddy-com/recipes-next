@@ -100,7 +100,7 @@ jobs:
           password: ${{ env.DEFAULT_PASSWORD }}
 
       - name: Get AWS Content API
-        id: content-api-url
+        id: content-api
         uses: './.github/actions/content-api'
 
       - name: Build and Deploy Client
@@ -108,7 +108,7 @@ jobs:
         uses: './.github/actions/build-and-deploy-client'
         with:
           algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
-          contentApi: ${{ steps.content-api-url.outputs.contentApi }}
+          contentApi: ${{ steps.content-api.outputs.contentApi }}
           distributionId: ${{ steps.distribution-id.outputs.distributionId }}
           s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
           userPoolClientId: ${{ steps.user-pool-ids.outputs.userPoolClientId }}
