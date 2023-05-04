@@ -103,14 +103,6 @@ const NavBar = ({ nav }: NavBarProps) => {
       </Toolbar>
       {isAuth && isRecipe ? (
         <Toolbar className="userBar">
-          <Button
-            className="user edit"
-            onClick={toggleEdit}
-            startIcon={editMode ? <CancelIcon /> : <EditIcon />}
-            variant="text"
-          >
-            {editMode ? 'Cancel' : 'Edit'}
-          </Button>
           {editMode && (
             <Button
               className="user save"
@@ -122,6 +114,14 @@ const NavBar = ({ nav }: NavBarProps) => {
               Save
             </Button>
           )}
+          <Button
+            className="user edit"
+            onClick={toggleEdit}
+            startIcon={editMode ? <CancelIcon /> : <EditIcon />}
+            variant="text"
+          >
+            {editMode ? 'Cancel' : 'Edit'}
+          </Button>
         </Toolbar>
       ) : null}
     </AppBar>

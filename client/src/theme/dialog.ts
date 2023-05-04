@@ -13,9 +13,9 @@ const dialogThemeOptions: ThemeOptions = {
           '&.loading': {
             alignItems: 'center',
             display: 'flex',
-            height: '165px',
+            height: '180px',
             justifyContent: 'center',
-            maxHeight: '165px',
+            maxHeight: '180px',
             [breakpoints.up('sm')]: {
               maxWidth: '432px',
               width: '432px'

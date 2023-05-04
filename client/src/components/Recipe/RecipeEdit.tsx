@@ -89,7 +89,6 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
   }, []);
 
   const updateForm = ({ id, value }: { id: IFormIds; value: string }) => {
-    console.log('updateForm');
     const newData = { ...formData };
     newData[id] = value;
 
@@ -123,7 +122,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
   return content ? (
     <Box data-testid="RecipeEdit">
       <TextField
-        className="field"
+        className="field bold"
         id="title"
         label="Title"
         name="title"

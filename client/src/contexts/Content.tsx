@@ -27,7 +27,7 @@ interface ContentManagementProps {
   children: ReactElement | ReactElement[];
 }
 
-const contentApiUrl = `${process.env.NEXT_PUBLIC_AWS_CONTENT_API}/prod/recipes`;
+const contentApiUrl = process.env.NEXT_PUBLIC_AWS_CONTENT_API;
 
 const ContentManagementContext = createContext<ICMContext>({} as ICMContext);
 

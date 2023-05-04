@@ -1,5 +1,5 @@
 import { ThemeOptions } from '@mui/material/styles';
-import { sansFontFamily } from './values/fontface';
+import { fontWeightBold, sansFontFamily } from './values/fontface';
 
 const formThemeOptions: ThemeOptions = {
   components: {
@@ -15,6 +15,11 @@ const formThemeOptions: ThemeOptions = {
             },
             '& .MuiFormLabel-root[data-shrink="false"]': {
               marginTop: '-0.125rem'
+            }
+          },
+          '& .MuiInputBase-input': {
+            '&.bold': {
+              fontWeight: fontWeightBold
             }
           }
         }
