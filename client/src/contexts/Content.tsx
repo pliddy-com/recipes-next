@@ -48,7 +48,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
       throw new Error('User is not authenticated');
     }
 
-    // TODO: add { id } to resource path
+    // TODO: move api url to env until it can be automated
 
     const restApi = `https://uh4gk35zie.execute-api.us-east-1.amazonaws.com/test/recipes/${recipe.id}`;
 
@@ -62,7 +62,8 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
       });
       return entry.json();
     } catch (e) {
-      console.error('updateEntry ERROR:', e);
+      console.log('Could not save changes to the recipe.');
+      // console.error('updateEntry ERROR:', e);
     }
   };
 
