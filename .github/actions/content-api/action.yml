@@ -4,7 +4,7 @@ description: This is an action to get the Content API Gateway URL for this branc
 outputs:
   contentApi:
     description: Content API URL
-    value: ${{ steps.set-outputs.contentApig }}
+    value: ${{ steps.set-outputs.contentApi }}
 
 runs:
   using: composite
