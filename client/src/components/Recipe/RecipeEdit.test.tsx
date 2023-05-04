@@ -27,8 +27,10 @@ const authContextValues = {
 };
 
 const cmContextValues = {
+  canSave: false,
   editMode: false,
   editLoading: false,
+  setCanSave: jest.fn(),
   saveRecipe: jest.fn(),
   setRecipe: jest.fn(),
   toggleEdit: jest.fn()
@@ -67,6 +69,13 @@ describe('Recipe', () => {
 
       // Test form field inputs
       const titleInput = queryByLabelText('Title');
+
+      // check code for toggling Save enabled
+      titleInput && fireEvent.change(titleInput, { target: { value: '1' } });
+      expect(titleInput).toHaveValue('1');
+      titleInput && fireEvent.change(titleInput, { target: { value: '' } });
+      expect(titleInput).toHaveValue('');
+
       titleInput &&
         fireEvent.change(titleInput, {
           target: { value: titleValue }

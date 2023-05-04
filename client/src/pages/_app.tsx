@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import type { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode, StrictMode } from 'react';
 import type { NextPage } from 'next';
 import { AppProps } from 'next/app';
 
@@ -35,20 +35,25 @@ const RecipesApp = (props: AppLayoutProps) => {
 
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://images.ctfassets.net" />
-      </Head>
-      <AuthenticationProvider>
-        <ContentManagementProvider>
-          <CacheProvider value={emotionCache}>
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              {getLayout(<Component {...pageProps} />)}
-            </ThemeProvider>
-          </CacheProvider>
-        </ContentManagementProvider>
-      </AuthenticationProvider>
+      <StrictMode>
+        <Head>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+          <link rel="preconnect" href="https://images.ctfassets.net" />
+        </Head>
+        <AuthenticationProvider>
+          <ContentManagementProvider>
+            <CacheProvider value={emotionCache}>
+              <ThemeProvider theme={theme}>
+                <CssBaseline />
+                {getLayout(<Component {...pageProps} />)}
+              </ThemeProvider>
+            </CacheProvider>
+          </ContentManagementProvider>
+        </AuthenticationProvider>
+      </StrictMode>
     </>
   );
 };

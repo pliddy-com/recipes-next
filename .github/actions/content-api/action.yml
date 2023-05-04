@@ -52,7 +52,7 @@ runs:
           console.log('branchLabel:', branchLabel);
 
           const apiLabel = `ExportRecipesApiGatewayUrl${ branchLabel }`
-          console.log('apiUrl:', apiUrl);
+          console.log('apiLabel:', apiLabel);
 
           const result = await cloudFormation.describeStacks({ StackName: stackName }).promise();
           const foundStacks = (result && result.Stacks) || [];

@@ -5,7 +5,10 @@ const colors = {
     background: 'hsl(50, 70%, 95%)'
   },
   primary: {
-    main: 'hsl(205, 60%, 25%)'
+    light: 'hsl(201, 30%, 40%)',
+    main: 'hsl(205, 60%, 25%)',
+    dark: 'hsl(200, 61%, 17%)',
+    contrastText: 'hsl(200, 30%, 60%)'
   },
   secondary: {
     main: 'hsl(40, 98%, 44%)',

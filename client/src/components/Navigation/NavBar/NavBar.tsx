@@ -36,7 +36,8 @@ export interface NavBarProps {
 const NavBar = ({ nav }: NavBarProps) => {
   const { categories, cuisine, tags } = nav ?? {};
   const { isAuth } = useAuthContext();
-  const { editMode, toggleEdit, saveRecipe } = useContentManagementContext();
+  const { canSave, editMode, toggleEdit, saveRecipe } =
+    useContentManagementContext();
   const { asPath } = useRouter();
 
   const isRecipe = asPath.startsWith('/recipes/');
@@ -112,6 +113,7 @@ const NavBar = ({ nav }: NavBarProps) => {
           {editMode && (
             <Button
               className="user save"
+              disabled={!canSave}
               onClick={saveRecipe}
               startIcon={<SaveIcon />}
               variant="text"

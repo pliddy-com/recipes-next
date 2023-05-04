@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import assert from 'assert';
+
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
@@ -25,9 +27,18 @@ import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 import { useContentManagementContext } from 'contexts/Content';
 import { IFormState } from 'types/content';
 
+type IFormIds =
+  | 'abstract'
+  | 'cookTime'
+  | 'prepTime'
+  | 'recipeYield'
+  | 'slug'
+  | 'title';
+
 interface IRecipeEdit {
   content?: RecipeDefaultFragment;
 }
+
 const RecipeEdit = ({ content }: IRecipeEdit) => {
   const {
     abstract,
@@ -56,26 +67,38 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     title: title || ''
   };
 
-  const { setRecipe } = useContentManagementContext();
+  const { setCanSave, setRecipe } = useContentManagementContext();
 
   const [formData, setFormData] = useState<IFormState>(defaultState);
 
-  useEffect(() => {
-    setRecipe(formData);
-  });
+  const resetForm = () => {
+    setFormData(defaultState);
+    setCanSave(false);
+  };
 
-  type IFormIds =
-    | 'abstract'
-    | 'cookTime'
-    | 'prepTime'
-    | 'recipeYield'
-    | 'slug'
-    | 'title';
+  useEffect(() => {
+    return () => {
+      resetForm();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const updateForm = ({ id, value }: { id: IFormIds; value: string }) => {
+    console.log('updateForm');
     const newData = { ...formData };
     newData[id] = value;
+
     setFormData(newData);
+    setRecipe(formData);
+
+    try {
+      assert.deepStrictEqual(defaultState, newData);
+      console.log('notChanged');
+      setCanSave(false);
+    } catch (e) {
+      setCanSave(true);
+      console.log('form changed');
+    }
   };
 
   const { aspectRatio, breakpoints } = recipePageConfig;
