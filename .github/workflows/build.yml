@@ -74,8 +74,6 @@ jobs:
       - name: Get AWS Content API
         id: content-api-url
         uses: './.github/actions/content-api'
-        with:
-          branch: ${{ github.ref_name }}
 
       - name: Build and Deploy Client
         id: build-and-deploy-client
