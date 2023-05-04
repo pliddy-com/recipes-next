@@ -4,6 +4,7 @@ import { UserPool } from 'aws-cdk-lib/aws-cognito';
 import {
   AuthorizationType,
   CognitoUserPoolsAuthorizer,
+  Cors,
   Deployment,
   LambdaIntegration,
   RestApi,
@@ -26,7 +27,7 @@ export const createApiGateway = ({
 
   const authorizer = new CognitoUserPoolsAuthorizer(
     stack,
-    'CognitoAuthorizer',
+    'CognitoAuthorizer${branchLabel}',
     {
       cognitoUserPools: [userPool]
     }
@@ -39,23 +40,44 @@ export const createApiGateway = ({
     architecture: Architecture.X86_64
   });
 
-  const api = new RestApi(stack, 'Api', {
+  const api = new RestApi(stack, 'ApiGateway', {
     deploy: false,
-    restApiName: 'BranchApiGateway'
+    restApiName: `ApiGateway${branchLabel}`,
+    defaultCorsPreflightOptions: {
+      allowOrigins: Cors.ALL_ORIGINS,
+      allowMethods: Cors.ALL_METHODS // default value
+    }
   });
 
   const updateRecipeIntegration = new LambdaIntegration(updateLambda, {
+    integrationResponses: [
+      {
+        statusCode: '200',
+        selectionPattern: '2..',
+        responseParameters: {
+          'method.response.header.Content-Type': 'application/json'
+        }
+      }
+    ],
     proxy: true
   });
 
-  api.root.addResource('recipes').addMethod('PUT', updateRecipeIntegration, {
+  const recipes = api.root.addResource('recipes');
+  const recipe = recipes.addResource('{id}');
+
+  recipe.addMethod('PUT', updateRecipeIntegration, {
     authorizationType: AuthorizationType.COGNITO,
-    authorizer
+    authorizer,
+    methodResponses: [
+      {
+        statusCode: '200'
+      }
+    ]
   });
 
-  const deploy = new Deployment(stack, 'dev-deployment', { api });
+  const deploy = new Deployment(stack, 'ApiGwDeployment', { api });
 
-  const stage = new Stage(stack, 'devStage', {
+  const stage = new Stage(stack, 'test', {
     deployment: deploy,
     stageName: stageId // If not passed, by default it will be 'prod'
   });
@@ -70,4 +92,8 @@ export const createApiGateway = ({
       name: `Recipes-ApiGatewayUrl-${branchLabel}`
     }
   );
+
+  stack.exportValue(updateLambda.functionArn, {
+    name: `Recipes-UpdateRecipeLambda-${branchLabel}`
+  });
 };

@@ -30,7 +30,7 @@ export const createAliasRecord = ({
 }: CreateAliasRecordProps) => {
   const recordName = branch === 'main' ? branchSubdomain : siteDomain;
 
-  const record = new ARecord(stack, `BranchAliasRecord`, {
+  const record = new ARecord(stack, `SubdomainAliasRecord`, {
     recordName,
     target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
     zone: hostedZone

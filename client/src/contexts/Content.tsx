@@ -48,7 +48,9 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
       throw new Error('User is not authenticated');
     }
 
-    const restApi = `https://yac4ltvklg.execute-api.us-east-1.amazonaws.com/test/recipes/${recipe.id}`;
+    // TODO: add { id } to resource path
+
+    const restApi = `https://xszw1jiyg0.execute-api.us-east-1.amazonaws.com/test/recipes/${recipe.id}`;
 
     try {
       const entry = await fetch(restApi, {
