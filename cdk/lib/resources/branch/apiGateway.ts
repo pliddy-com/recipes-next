@@ -44,7 +44,25 @@ export const createApiGateway = ({
   const api = new RestApi(stack, 'ApiGateway', {
     deploy: false,
     restApiName: `ApiGateway${branchLabel}`,
+    // defaultCorsPreflightOptions: {
+    //   allowOrigins: Cors.ALL_ORIGINS
+    // },
     defaultCorsPreflightOptions: {
+      allowHeaders: [
+        'Content-Type',
+        'X-Amz-Date',
+        'Authorization',
+        'X-Api-Key'
+      ],
+      allowMethods: [
+        'OPTIONS',
+        // 'GET',
+        // 'POST',
+        'PUT'
+        // 'PATCH',
+        // 'DELETE'
+      ],
+      allowCredentials: true,
       allowOrigins: Cors.ALL_ORIGINS
     }
   });
