@@ -7,6 +7,7 @@ import {
   Cors,
   Deployment,
   LambdaIntegration,
+  Model,
   RestApi,
   Stage
 } from 'aws-cdk-lib/aws-apigateway';
@@ -70,6 +71,9 @@ export const createApiGateway = ({
     authorizer,
     methodResponses: [
       {
+        responseModels: {
+          'application/json': Model.EMPTY_MODEL
+        },
         statusCode: '200',
         responseParameters: {
           // a required response parameter
