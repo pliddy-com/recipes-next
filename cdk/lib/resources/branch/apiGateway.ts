@@ -50,16 +50,16 @@ export const createApiGateway = ({
   });
 
   const updateRecipeIntegration = new LambdaIntegration(updateLambda, {
+    proxy: true,
+    requestTemplates: { 'application/json': '{"statusCode": 200}' },
     integrationResponses: [
       {
         statusCode: '200',
-        selectionPattern: '2..',
         responseParameters: {
-          'method.response.header.Content-Type': 'application/json'
+          'method.response.header.Content-Type': "'application/json'"
         }
       }
-    ],
-    proxy: true
+    ]
   });
 
   const recipes = api.root.addResource('recipes');
@@ -70,7 +70,11 @@ export const createApiGateway = ({
     authorizer,
     methodResponses: [
       {
-        statusCode: '200'
+        statusCode: '200',
+        responseParameters: {
+          // a required response parameter
+          'method.response.header.Content-Type': true
+        }
       }
     ]
   });
