@@ -45,8 +45,7 @@ export const createApiGateway = ({
     deploy: false,
     restApiName: `ApiGateway${branchLabel}`,
     defaultCorsPreflightOptions: {
-      allowOrigins: Cors.ALL_ORIGINS,
-      allowMethods: Cors.ALL_METHODS // default value
+      allowOrigins: Cors.ALL_ORIGINS
     }
   });
 

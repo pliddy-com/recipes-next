@@ -50,7 +50,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
 
     // TODO: add { id } to resource path
 
-    const restApi = `https://xszw1jiyg0.execute-api.us-east-1.amazonaws.com/test/recipes/${recipe.id}`;
+    const restApi = `https://uh4gk35zie.execute-api.us-east-1.amazonaws.com/test/recipes/${recipe.id}`;
 
     try {
       const entry = await fetch(restApi, {
