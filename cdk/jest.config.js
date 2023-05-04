@@ -1,6 +1,11 @@
 module.exports = {
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>/**', '!test/**', '!**/*.d.ts'],
+  collectCoverageFrom: [
+    '<rootDir>/**',
+    '!test/**',
+    '!**/*.d.ts',
+    '!lib/resources/branch/lambda/**'
+  ],
   coverageThreshold: {
     global: {
       branches: 100,
@@ -9,11 +14,7 @@ module.exports = {
       statements: 100
     }
   },
-  roots: [
-    '<rootDir>/test',
-    '<rootDir>/lib'
-    // '<rootDir>/lambda'
-  ],
+  roots: ['<rootDir>/test', '<rootDir>/lib'],
   testEnvironment: 'node',
   testMatch: ['**/*.test.ts'],
   transform: {

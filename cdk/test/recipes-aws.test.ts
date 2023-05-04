@@ -1,15 +1,29 @@
 import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
+
 import {
   RecipesSharedStack,
   RecipesSharedStackProps
 } from '../lib/recipes-shared-stack';
+
 import {
   RecipesBranchStack,
   RecipesBranchStackProps
 } from '../lib/recipes-branch-stack';
 
 // TODO: update with API resources
+
+jest.mock('contentful-management', () => {
+  createClient: jest.fn().mockImplementation(() => ({
+    getEnvironment: jest.fn().mockImplementation(() => ({
+      getSpace: jest.fn().mockImplementation(() => ({
+        getEntry: jest.fn().mockImplementation(() => ({
+          name: 'value'
+        }))
+      }))
+    }))
+  }));
+});
 
 describe('RecipesSharedStack', () => {
   it('generates a shared stack for the main branch', () => {
