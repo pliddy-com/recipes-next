@@ -30,7 +30,7 @@ runs:
         echo "branch: ${{ github.ref_name }}"
         echo "deployment bucket: ${{ inputs.s3Bucket }}"
         echo "distribution id: ${{ inputs.distributionId }}"
-        echo "AWS content api: ${{ inputs.contentApi }}"
+        echo "AWS content api: ${{ d.contentApi }}"
         echo "Cognito user pool: ${{ inputs.userPoolId }}"
         echo "Cognito client id: ${{ inputs.userPoolClientId }}"
 

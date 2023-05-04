@@ -4,13 +4,13 @@ description: This is an action to get the Content API Gateway URL for this branc
 outputs:
   contentApi:
     description: Content API URL
-    value: ${{ steps.set-outputs.apiUrl }}
+    value: ${{ steps.set-outputs.contentApig }}
 
 runs:
   using: composite
   steps:
     - name: Get Content API URL
-      id: content-api-url
+      id: content-api
       uses: actions/github-script@v6
       with:
         result-encoding: string
@@ -65,6 +65,6 @@ runs:
     - name: Set outputs
       id: set-outputs
       run: |
-        echo "contentApi = ${{ steps.content-api-url.outputs.result }}"
-        echo "contentApi=${{ steps.content-api-url.outputs.result }}" >> $GITHUB_OUTPUT
+        echo "contentApi = ${{ steps.content-api.outputs.result }}"
+        echo "contentApi=${{ steps.content-api.outputs.result }}" >> $GITHUB_OUTPUT
       shell: bash
