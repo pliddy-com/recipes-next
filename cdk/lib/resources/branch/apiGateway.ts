@@ -35,7 +35,7 @@ export const createApiGateway = ({
 
   const updateLambda = new Function(stack, 'updateRecipe', {
     runtime: Runtime.NODEJS_18_X,
-    handler: 'index.handler',
+    handler: 'handler',
     code: Code.fromAsset('lib/resources/branch'), // from parent directory containing package.json
     architecture: Architecture.X86_64
   });
