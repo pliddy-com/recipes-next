@@ -3,12 +3,13 @@ import {
   // Context
 } from 'aws-lambda';
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 import contentful from 'contentful-management';
 
-const CONTENTFUL_ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
-
-// TODO: use contentful management package
-//       add environment variables to AWS deployment
+const CONTENTFUL_ACCESS_TOKEN =
+  process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!;
 
 exports.handler = async (
   event: APIGatewayEvent
@@ -24,9 +25,15 @@ exports.handler = async (
   // console.log({ requestContext });
   console.log({ pathParameters });
 
+  console.log({ CONTENTFUL_ACCESS_TOKEN });
+
+  console.log({ contentful });
+
   const client = contentful.createClient({
     accessToken: `${CONTENTFUL_ACCESS_TOKEN}`
   });
+
+  console.log({ client });
 
   if (id && client) {
     // This API call will request a space with the specified ID
@@ -53,7 +60,7 @@ exports.handler = async (
   }
 
   const response = {
-    statusCode: 500,
+    statusCode: 200,
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Credentials': true

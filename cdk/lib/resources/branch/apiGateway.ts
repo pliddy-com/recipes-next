@@ -12,9 +12,10 @@ import {
   RestApi,
   Stage
 } from 'aws-cdk-lib/aws-apigateway';
-import { Runtime } from 'aws-cdk-lib/aws-lambda';
+import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
 
 import dotenv from 'dotenv';
+import path from 'path';
 dotenv.config();
 
 export interface ICreateApiGw {
@@ -39,14 +40,16 @@ export const createApiGateway = ({
   );
 
   const updateLambda = new NodejsFunction(stack, 'updateRecipe', {
+    entry: path.join(__dirname, 'lambda/updateRecipe/index.js'),
+    handler: 'handler',
     bundling: {
-      command: ['bash', '-c', 'npm install contentful-management'],
+      // command: ['bash', '-c', 'npm install contentful-management'],
       define: {
         'process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN': JSON.stringify(
           process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
         )
       },
-      // nodeModules: ['contentful-management'],
+      nodeModules: ['contentful-management'],
       target: 'es2020'
     },
 
