@@ -25,7 +25,7 @@ const getEntry = async ({ id }: { id: string }) => {
       }
     });
 
-    console.log('getEntry:', entry);
+    console.log('getEntry:', entry.json());
     return entry.json();
   } catch (e) {
     console.log('GET ERROR:', e);
