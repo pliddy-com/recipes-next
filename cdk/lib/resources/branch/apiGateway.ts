@@ -51,9 +51,9 @@ export const createApiGateway = ({
     },
     bundling: {
       nodeModules: ['dotenv', 'node-fetch'],
-      format: OutputFormat.CJS
-    },
-    runtime: Runtime.NODEJS_18_X
+      format: OutputFormat.ESM
+    }
+    // runtime: Runtime.NODEJS_18_X
   });
 
   const api = new RestApi(stack, 'ApiGateway', {
