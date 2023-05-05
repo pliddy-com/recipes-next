@@ -1,10 +1,10 @@
 import { APIGatewayEvent } from 'aws-lambda';
 
 import contentful from 'contentful-management';
-import dotenv from 'dotenv';
-import fetch from 'node-fetch';
+// import dotenv from 'dotenv';
+// import fetch from 'node-fetch';
 
-dotenv.config();
+// dotenv.config();
 
 const CONTENTFUL_MANAGEMENT_API = process.env.CONTENTFUL_MANAGEMENT_API!;
 const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
@@ -20,14 +20,19 @@ const getEntry = async ({ id }: { id: string }) => {
   const url = `${restApi}/entries/${id}`;
 
   try {
-    const entry = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`
-      }
-    });
+    // const entry = await fetch(url, {
+    //   method: 'GET',
+    //   headers: {
+    //     Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`
+    //   }
+    // });
 
-    return entry.json();
+    // return entry.json();
+    const space = await client.getSpace(CONTENTFUL_SPACE_ID);
+    const env = await space.getEnvironment('master');
+    const entry = await env.getEntry(id);
+
+    return entry;
   } catch (e) {
     console.error('GET ERROR:', e);
     throw e;
@@ -127,7 +132,7 @@ export const handler = async (event: APIGatewayEvent) => {
 
 // event = {
 //   resource: '/recipes/{id}',
-//   path: '/recipes/recipe_id',
+//   path: '/recipes/3aPUmkVvKhlHUopdslrze8',
 //   httpMethod: 'PUT',
 //   headers: {
 //     accept: '*/*',
@@ -138,14 +143,41 @@ export const handler = async (event: APIGatewayEvent) => {
 //     origin: 'https://test.recipes.pliddy.com',
 //     referer: 'https://test.recipes.pliddy.com/'
 //   },
-//   pathParameters: { id: 'recipe_id' },
+//   pathParameters: { id: '3aPUmkVvKhlHUopdslrze8' },
 //   requestContext: {
 //     resourcePath: '/recipes/{id}',
 //     httpMethod: 'PUT',
-//     path: '/test/recipes/recipe_id',
+//     path: '/test/recipes/3aPUmkVvKhlHUopdslrze8',
 //     accountId: 'ACCOUNT_ID',
 //     protocol: 'HTTP/1.1',
 //     stage: 'test'
 //   },
 //   body: '{"name":"value"}'
 // };
+
+// {
+//   "resource": "/recipes/{id}",
+//   "path": "/recipes/3aPUmkVvKhlHUopdslrze8",
+//   "httpMethod": "PUT",
+//   "headers": {
+//     "accept": "*/*",
+//     "accept-encoding": "gzip, deflate, br",
+//     "accept-language": "en-US,en;q=0.9,la;q=0.8,sk;q=0.7",
+//     "Authorization": "TOKEN",
+//     "content-type": "text/plain;charset=UTF-8",
+//     "origin": "https://test.recipes.pliddy.com",
+//     "referer": "https://test.recipes.pliddy.com/"
+//   },
+//   "pathParameters": {
+//     "id": "3aPUmkVvKhlHUopdslrze8"
+//   },
+//   "requestContext": {
+//     "resourcePath": "/recipes/{id}",
+//     "httpMethod": "PUT",
+//     "path": "/test/recipes/3aPUmkVvKhlHUopdslrze8",
+//     "accountId": "ACCOUNT_ID",
+//     "protocol": "HTTP/1.1",
+//     "stage": "test"
+//   },
+//   "body": "{\"name\":\"value\"}"
+// }
