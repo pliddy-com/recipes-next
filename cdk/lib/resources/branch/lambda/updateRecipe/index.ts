@@ -46,7 +46,7 @@ export const handler = async (event: APIGatewayEvent) => {
 
   if (event.httpMethod === 'PUT' && id) {
     try {
-      const entry = getEntry({ id });
+      const entry = await getEntry({ id });
 
       console.log({ entry });
 
