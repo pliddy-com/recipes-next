@@ -2,7 +2,6 @@ import { APIGatewayEvent } from 'aws-lambda';
 
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
-// import contentful from 'contentful-management';
 
 dotenv.config();
 
@@ -15,8 +14,6 @@ const restApi = `${CONTENTFUL_MANAGEMENT_API}/spaces/${CONTENTFUL_SPACE_ID}/envi
 const getEntry = async ({ id }: { id: string }) => {
   const url = `${restApi}/entries/${id}`;
 
-  console.log({ url });
-
   try {
     const entry = await fetch(url, {
       method: 'GET',
@@ -25,12 +22,9 @@ const getEntry = async ({ id }: { id: string }) => {
       }
     });
 
-    const result = entry.json();
-
-    console.log('getEntry:', result);
-    return result;
+    return entry.json();
   } catch (e) {
-    console.log('GET ERROR:', e);
+    console.error('GET ERROR:', e);
     throw e;
   }
 };
@@ -41,16 +35,9 @@ export const handler = async (event: APIGatewayEvent) => {
   const { body, pathParameters, requestContext } = event;
   const id = pathParameters && pathParameters.id!;
 
-  console.log({ body });
-  console.log({ pathParameters });
-
-  // congole.log({ client });
-
   if (event.httpMethod === 'PUT' && id) {
     try {
       const entry = await getEntry({ id });
-
-      console.log({ entry });
 
       const response = {
         statusCode: 200,
@@ -73,7 +60,7 @@ export const handler = async (event: APIGatewayEvent) => {
         },
         body: JSON.stringify(error)
       };
-
+      console.error(error);
       return response;
     }
   }
@@ -87,6 +74,7 @@ export const handler = async (event: APIGatewayEvent) => {
     body: JSON.stringify({ message: `Recipe ${id} is not available.` })
   };
 
+  console.log({ response });
   return response;
 };
 

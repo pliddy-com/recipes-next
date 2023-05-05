@@ -67,16 +67,9 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
         body: JSON.stringify(recipe)
       });
 
-      console.log({ response });
-
-      const res = await response.json();
-
-      console.log({ res });
-
-      return res;
+      return response.json();
     } catch (e) {
-      console.log('Could not save changes to the recipe.');
-      // console.error('updateEntry ERROR:', e);
+      console.error('Could not save changes to the recipe.');
     }
   };
 
@@ -94,7 +87,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
       setEditMode(false);
       setEditLoading(false);
 
-      console.log({ res });
+      console.log('Recipe Updated => Payload:', res);
     } catch (e) {
       // TODO: handle error in UI
       console.error(e);

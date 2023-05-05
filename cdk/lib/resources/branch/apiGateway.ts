@@ -18,6 +18,7 @@ import { Runtime } from 'aws-cdk-lib/aws-lambda';
 
 import dotenv from 'dotenv';
 import path from 'path';
+
 dotenv.config();
 
 export interface ICreateApiGw {
@@ -52,10 +53,9 @@ export const createApiGateway = ({
     },
     bundling: {
       nodeModules: ['dotenv', 'node-fetch'],
-      // TODO: remove format and revert all .cjs to .js
       format: OutputFormat.ESM
-    }
-    // runtime: Runtime.NODEJS_18_X
+    },
+    runtime: Runtime.NODEJS_18_X
   });
 
   const api = new RestApi(stack, 'ApiGateway', {
@@ -107,7 +107,7 @@ export const createApiGateway = ({
         },
         statusCode: '200',
         responseParameters: {
-          // a required response parameter
+          // required response parameter
           'method.response.header.Content-Type': true
         }
       }
