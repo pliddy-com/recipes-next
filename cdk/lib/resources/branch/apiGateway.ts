@@ -2,6 +2,7 @@ import { RecipesBranchStack } from '../../recipes-branch-stack';
 
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { UserPool } from 'aws-cdk-lib/aws-cognito';
+
 import {
   AuthorizationType,
   CognitoUserPoolsAuthorizer,
@@ -12,6 +13,7 @@ import {
   RestApi,
   Stage
 } from 'aws-cdk-lib/aws-apigateway';
+
 import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
 
 import dotenv from 'dotenv';
@@ -42,12 +44,29 @@ export const createApiGateway = ({
   const updateLambda = new NodejsFunction(stack, 'updateRecipe', {
     entry: path.join(__dirname, 'lambda/updateRecipe/index.js'),
     handler: 'handler',
+    environment: {
+      NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN:
+        process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!
+    },
     bundling: {
-      command: ['bash', '-c', 'npm install contentful-management'],
-      define: {
-        'process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN': JSON.stringify(
-          process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
-        )
+      // command: ['bash', '-c', 'npm install contentful-management'],
+      // define: {
+      //   'process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN': JSON.stringify(
+      //     process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
+      //   )
+      // },
+      commandHooks: {
+        beforeBundling(_inputDir: string, _outputDir: string) {
+          return [];
+        },
+        beforeInstall(_inputDir: string, _outputDir: string) {
+          return [];
+        },
+        afterBundling(inputDir: string, outputDir: string) {
+          return [
+            `cp -R ${inputDir}/cdk/lib/resources/branch/lambda/updateRecipe/node_modules ${outputDir}/`
+          ];
+        }
       },
       nodeModules: ['contentful-management'],
       target: 'es2020'
