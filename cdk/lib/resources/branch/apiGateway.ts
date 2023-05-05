@@ -12,7 +12,7 @@ import {
   RestApi,
   Stage
 } from 'aws-cdk-lib/aws-apigateway';
-import { Architecture, Code, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
+import { Runtime } from 'aws-cdk-lib/aws-lambda';
 
 export interface ICreateApiGw {
   branchLabel: string;
@@ -35,7 +35,12 @@ export const createApiGateway = ({
     }
   );
 
-  const updateLambda = new NodejsFunction(stack, 'updateRecipe');
+  const updateLambda = new NodejsFunction(stack, 'updateRecipe', {
+    bundling: {
+      nodeModules: ['contentful-management']
+    },
+    runtime: Runtime.NODEJS_18_X
+  });
 
   // const updateLambda = negw NodejsFunction(stack, 'updateRecipe', {
   //   // architecture: Architecture.X86_64
