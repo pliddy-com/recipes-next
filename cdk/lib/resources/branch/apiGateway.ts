@@ -14,7 +14,7 @@ import {
   Stage
 } from 'aws-cdk-lib/aws-apigateway';
 
-import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
+import { Runtime } from 'aws-cdk-lib/aws-lambda';
 
 import dotenv from 'dotenv';
 import path from 'path';
@@ -42,53 +42,26 @@ export const createApiGateway = ({
   );
 
   const updateLambda = new NodejsFunction(stack, 'updateRecipe', {
-    entry: path.join(__dirname, 'lambda/updateRecipe/index.js'),
-    handler: 'handler',
+    // entry: path.join(__dirname, 'lambda/updateRecipe/index.js'),
+    // handler: 'handler',
     environment: {
       NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN:
-        process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!
+        process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
+      CONTENTFUL_MANAGEMENT_API: process.env.CONTENTFUL_MANAGEMENT_API!,
+      CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID!,
+      CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!
     },
     bundling: {
-      // command: ['bash', '-c', 'npm install contentful-management'],
-      // define: {
-      //   'process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN': JSON.stringify(
-      //     process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
-      //   )
-      // },
-      commandHooks: {
-        beforeBundling(_inputDir: string, _outputDir: string) {
-          return [];
-        },
-        beforeInstall(_inputDir: string, _outputDir: string) {
-          return [];
-        },
-        afterBundling(inputDir: string, outputDir: string) {
-          return [
-            `cp -R ${inputDir}/cdk/lib/resources/branch/lambda/updateRecipe/node_modules ${outputDir}/`
-          ];
-        }
-      },
-      nodeModules: ['contentful-management'],
+      externalModules: ['node-fetch'],
       target: 'es2020'
     },
 
     runtime: Runtime.NODEJS_18_X
   });
 
-  // const updateLambda = negw NodejsFunction(stack, 'updateRecipe', {
-  //   // architecture: Architecture.X86_64
-  //   entry: 'lib/resources/branch/lambda/updateRecipe',
-  //   // code: Code.fromAsset('lib/resources/branch/lambda/updateRecipe'), // from parent directory containing package.json
-  //   handler: 'index.handler',
-  //   runtime: Runtime.NODEJS_18_X
-  // });
-
   const api = new RestApi(stack, 'ApiGateway', {
     deploy: false,
     restApiName: `ApiGateway${branchLabel}`,
-    // defaultCorsPreflightOptions: {
-    //   allowOrigins: Cors.ALL_ORIGINS
-    // },
     defaultCorsPreflightOptions: {
       allowHeaders: [
         'Content-Type',
