@@ -17,8 +17,8 @@ const formThemeOptions: ThemeOptions = {
               marginTop: '-0.125rem'
             }
           },
-          '& .MuiInputBase-input': {
-            '&.bold': {
+          '&.bold': {
+            '& .MuiInputBase-root': {
               fontWeight: fontWeightBold
             }
           }

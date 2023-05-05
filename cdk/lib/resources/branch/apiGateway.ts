@@ -1,6 +1,8 @@
 import { RecipesBranchStack } from '../../recipes-branch-stack';
 
+import { NodejsFunction, OutputFormat } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { UserPool } from 'aws-cdk-lib/aws-cognito';
+
 import {
   AuthorizationType,
   CognitoUserPoolsAuthorizer,
@@ -11,7 +13,13 @@ import {
   RestApi,
   Stage
 } from 'aws-cdk-lib/aws-apigateway';
-import { Architecture, Code, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
+
+import { Runtime } from 'aws-cdk-lib/aws-lambda';
+
+import dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config();
 
 export interface ICreateApiGw {
   branchLabel: string;
@@ -28,25 +36,31 @@ export const createApiGateway = ({
 
   const authorizer = new CognitoUserPoolsAuthorizer(
     stack,
-    'CognitoAuthorizer${branchLabel}',
+    'CognitoAuthorizer',
     {
       cognitoUserPools: [userPool]
     }
   );
 
-  const updateLambda = new Function(stack, 'updateRecipe', {
-    runtime: Runtime.NODEJS_18_X,
-    handler: 'index.handler',
-    code: Code.fromAsset('lib/resources/branch/updateRecipe'), // from parent directory containing package.json
-    architecture: Architecture.X86_64
+  const updateLambda = new NodejsFunction(stack, 'updateRecipe', {
+    // needs to reference *.ts to bundle npm modules
+    entry: path.join(__dirname, 'lambda/updateRecipe/index.ts'),
+    handler: 'handler',
+    environment: {
+      CONTENTFUL_MANAGEMENT_API: process.env.CONTENTFUL_MANAGEMENT_API!,
+      CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID!,
+      CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!
+    },
+    bundling: {
+      nodeModules: ['dotenv', 'node-fetch'],
+      format: OutputFormat.ESM
+    },
+    runtime: Runtime.NODEJS_18_X
   });
 
   const api = new RestApi(stack, 'ApiGateway', {
     deploy: false,
     restApiName: `ApiGateway${branchLabel}`,
-    // defaultCorsPreflightOptions: {
-    //   allowOrigins: Cors.ALL_ORIGINS
-    // },
     defaultCorsPreflightOptions: {
       allowHeaders: [
         'Content-Type',
@@ -93,7 +107,7 @@ export const createApiGateway = ({
         },
         statusCode: '200',
         responseParameters: {
-          // a required response parameter
+          // required response parameter
           'method.response.header.Content-Type': true
         }
       }

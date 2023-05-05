@@ -1,0 +1,18 @@
+{
+  "name": "update-recipe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "build": "esbuild index.ts --bundle --platform=node --target=es2020 --outfile=./index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "contentful-management": "^10.34.1",
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.3.1"
+  }
+}
