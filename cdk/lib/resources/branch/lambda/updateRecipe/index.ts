@@ -76,8 +76,10 @@ export const handler = async (event: APIGatewayEvent) => {
   console.log({ event });
   console.log({ client });
 
-  const { body, pathParameters } = event;
-  const id = pathParameters && pathParameters.id!;
+  const body = event.body!;
+  const pathParameters = event.pathParameters;
+
+  const id = pathParameters?.id!;
 
   if (event.httpMethod !== 'PUT') {
     return {
@@ -119,7 +121,7 @@ export const handler = async (event: APIGatewayEvent) => {
   }
 
   if (event.httpMethod === 'PUT' && id && client) {
-    const recipe = body && JSON.parse(body);
+    const recipe = JSON.parse(body);
 
     console.log({ recipe });
 
