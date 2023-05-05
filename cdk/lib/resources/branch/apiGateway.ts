@@ -14,6 +14,9 @@ import {
 } from 'aws-cdk-lib/aws-apigateway';
 import { Runtime } from 'aws-cdk-lib/aws-lambda';
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 export interface ICreateApiGw {
   branchLabel: string;
   stack: RecipesBranchStack;
@@ -37,8 +40,14 @@ export const createApiGateway = ({
 
   const updateLambda = new NodejsFunction(stack, 'updateRecipe', {
     bundling: {
+      define: {
+        'process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN': JSON.stringify(
+          process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
+        )
+      },
       nodeModules: ['contentful-management']
     },
+
     runtime: Runtime.NODEJS_18_X
   });
 
