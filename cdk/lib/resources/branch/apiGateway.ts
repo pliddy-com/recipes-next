@@ -32,7 +32,7 @@ export const createApiGateway = ({
 
   const authorizer = new CognitoUserPoolsAuthorizer(
     stack,
-    'CognitoAuthorizer${branchLabel}',
+    `CognitoAuthorizer${branchLabel}`,
     {
       cognitoUserPools: [userPool]
     }

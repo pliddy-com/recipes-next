@@ -5,7 +5,6 @@
     "recipes-aws": "./bin/recipes-aws.js"
   },
   "scripts": {
-    "build": "tsc",
     "cdk": "cdk",
     "deploy": "cdk --require-approval never deploy --context scope=branch --outputs-file ./cdk-outputs.json",
     "deploy:shared": "cdk --require-approval never deploy --context scope=shared",
