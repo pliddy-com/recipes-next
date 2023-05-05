@@ -64,7 +64,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
         headers: {
           Authorization: `${token}`
         },
-        body: JSON.stringify(recipe)
+        body: JSON.stringify({ ...recipe })
       });
 
       return response.json();

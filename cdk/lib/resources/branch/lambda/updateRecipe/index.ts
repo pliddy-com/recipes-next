@@ -66,7 +66,6 @@ const updateEntry = async ({
   id: string;
   recipe: IFormState;
 }) => {
-  console.log('updateEntry recipe:', recipe);
   console.log('updateEntry id:', id);
 
   try {
@@ -74,7 +73,8 @@ const updateEntry = async ({
     const env = await space.getEnvironment('master');
     const entry = await env.getEntry(id);
 
-    console.log({ entry });
+    console.log('updateEntry entry:', entry);
+    console.log('updateEntry recipe:', recipe);
 
     for (const [key, value] of Object.entries(recipe)) {
       console.log(`${key}: ${value}`);
@@ -132,7 +132,7 @@ export const handler = async (event: APIGatewayEvent) => {
   if (event.httpMethod === 'PUT' && id && client) {
     const recipe = JSON.parse(body);
 
-    console.log({ recipe });
+    console.log('recipe:', recipe);
 
     if (recipe) {
       try {
