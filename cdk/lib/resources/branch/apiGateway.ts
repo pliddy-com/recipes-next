@@ -51,9 +51,9 @@ export const createApiGateway = ({
       CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!
     },
     bundling: {
-      nodeModules: ['dotenv', 'node-fetch']
+      nodeModules: ['dotenv', 'node-fetch'],
       // TODO: remove format and revert all .cjs to .js
-      // format: OutputFormat.ESM
+      format: OutputFormat.ESM
     }
     // runtime: Runtime.NODEJS_18_X
   });
