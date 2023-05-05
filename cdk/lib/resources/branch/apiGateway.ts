@@ -33,7 +33,7 @@ export const createApiGateway = ({
 
   const authorizer = new CognitoUserPoolsAuthorizer(
     stack,
-    `CognitoAuthorizer${branchLabel}`,
+    'CognitoAuthorizer',
     {
       cognitoUserPools: [userPool]
     }
@@ -43,7 +43,7 @@ export const createApiGateway = ({
     entry: path.join(__dirname, 'lambda/updateRecipe/index.js'),
     handler: 'handler',
     bundling: {
-      // command: ['bash', '-c', 'npm install contentful-management'],
+      command: ['bash', '-c', 'npm install contentful-management'],
       define: {
         'process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN': JSON.stringify(
           process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
