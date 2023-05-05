@@ -25,8 +25,10 @@ const getEntry = async ({ id }: { id: string }) => {
       }
     });
 
-    console.log('getEntry:', await entry.json());
-    return entry.json();
+    const result = entry.json();
+
+    console.log('getEntry:', result);
+    return result;
   } catch (e) {
     console.log('GET ERROR:', e);
     throw e;

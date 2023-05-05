@@ -42,6 +42,7 @@ export const createApiGateway = ({
   );
 
   const updateLambda = new NodejsFunction(stack, 'updateRecipe', {
+    // needs to reference *.ts to bundle npm modules
     entry: path.join(__dirname, 'lambda/updateRecipe/index.ts'),
     handler: 'handler',
     environment: {
@@ -50,8 +51,9 @@ export const createApiGateway = ({
       CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!
     },
     bundling: {
-      nodeModules: ['dotenv', 'node-fetch'],
-      format: OutputFormat.ESM
+      nodeModules: ['dotenv', 'node-fetch']
+      // TODO: remove format and revert all .cjs to .js
+      // format: OutputFormat.ESM
     }
     // runtime: Runtime.NODEJS_18_X
   });
