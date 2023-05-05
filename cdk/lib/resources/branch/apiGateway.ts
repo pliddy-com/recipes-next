@@ -1,6 +1,6 @@
 import { RecipesBranchStack } from '../../recipes-branch-stack';
 
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
+import { NodejsFunction, OutputFormat } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { UserPool } from 'aws-cdk-lib/aws-cognito';
 
 import {
@@ -50,7 +50,8 @@ export const createApiGateway = ({
       CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!
     },
     bundling: {
-      nodeModules: ['dotenv', 'node-fetch']
+      nodeModules: ['dotenv', 'node-fetch'],
+      format: OutputFormat.CJS
     },
     runtime: Runtime.NODEJS_18_X
   });
