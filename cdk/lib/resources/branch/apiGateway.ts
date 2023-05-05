@@ -45,7 +45,8 @@ export const createApiGateway = ({
           process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
         )
       },
-      nodeModules: ['contentful-management']
+      nodeModules: ['contentful-management'],
+      target: 'es2020'
     },
 
     runtime: Runtime.NODEJS_18_X
