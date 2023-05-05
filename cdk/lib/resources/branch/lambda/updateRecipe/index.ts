@@ -1,10 +1,5 @@
 import { APIGatewayEvent } from 'aws-lambda';
-
 import contentful from 'contentful-management';
-// import dotenv from 'dotenv';
-// import fetch from 'node-fetch';
-
-// dotenv.config();
 
 const CONTENTFUL_MANAGEMENT_API = process.env.CONTENTFUL_MANAGEMENT_API!;
 const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
@@ -16,23 +11,57 @@ const client = contentful.createClient({
   accessToken: CONTENTFUL_MANAGEMENT_TOKEN
 });
 
-const getEntry = async ({ id }: { id: string }) => {
-  const url = `${restApi}/entries/${id}`;
+// const getEntry = async ({ id }: { id: string }) => {
+//   try {
+//     const space = await client.getSpace(CONTENTFUL_SPACE_ID);
+//     const env = await space.getEnvironment('master');
+//     const entry = await env.getEntry(id);
+
+//     return entry;
+//   } catch (e) {
+//     console.error('GET ERROR:', e);
+//     throw e;
+//   }
+// };
+
+// TODO: share this defintion with client without crossing workspaces (shared space?)
+export interface IFormState {
+  abstract: string;
+  cookTime: string | number;
+  id: string;
+  prepTime: string | number;
+  recipeYield: string | number;
+  slug: string;
+  title: string;
+}
+
+type ObjEntries<T> = {
+  [K in keyof T]: [K, T[K]];
+}[keyof T][];
+
+type RecipeObjEntries = ObjEntries<IFormState>;
+
+const updateEntry = async ({ recipe }: { recipe: IFormState }) => {
+  const { id } = recipe;
 
   try {
-    // const entry = await fetch(url, {
-    //   method: 'GET',
-    //   headers: {
-    //     Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`
-    //   }
-    // });
-
-    // return entry.json();
     const space = await client.getSpace(CONTENTFUL_SPACE_ID);
     const env = await space.getEnvironment('master');
     const entry = await env.getEntry(id);
 
-    return entry;
+    for (const [key, value] of Object.entries(recipe)) {
+      console.log(`${key}: ${value}`);
+      entry.fields[key]['en-US'] = value;
+    }
+
+    await entry.update();
+
+    for (const [key, value] of Object.entries(recipe) as RecipeObjEntries) {
+      console.log(`${key}: ${value}`);
+      recipe[key] = entry.fields[key]['en-US'];
+    }
+
+    return recipe;
   } catch (e) {
     console.error('GET ERROR:', e);
     throw e;
@@ -43,7 +72,7 @@ export const handler = async (event: APIGatewayEvent) => {
   console.log({ event });
   console.log({ client });
 
-  const { body, pathParameters, requestContext } = event;
+  const { body, pathParameters } = event;
   const id = pathParameters && pathParameters.id!;
 
   if (event.httpMethod !== 'PUT') {
@@ -86,34 +115,38 @@ export const handler = async (event: APIGatewayEvent) => {
   }
 
   if (event.httpMethod === 'PUT' && id && client) {
-    try {
-      const entry = await getEntry({ id });
+    const recipe = body && (JSON.parse(body) as IFormState);
 
-      const response = {
-        statusCode: 200,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': true
-        },
-        body: JSON.stringify(entry)
-      };
+    if (recipe) {
+      try {
+        const entry = await updateEntry({ recipe });
 
-      console.log({ response });
+        const response = {
+          statusCode: 200,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true
+          },
+          body: JSON.stringify(entry)
+        };
 
-      return response;
-    } catch (error) {
-      const response = {
-        statusCode: 500,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': true
-        },
-        body: JSON.stringify(error)
-      };
+        console.log({ response });
 
-      console.error(error);
+        return response;
+      } catch (error) {
+        const response = {
+          statusCode: 500,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true
+          },
+          body: JSON.stringify(error)
+        };
 
-      return response;
+        console.error(error);
+
+        return response;
+      }
     }
   }
 
