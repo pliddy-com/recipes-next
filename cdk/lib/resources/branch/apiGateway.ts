@@ -42,7 +42,7 @@ export const createApiGateway = ({
   );
 
   const updateLambda = new NodejsFunction(stack, 'updateRecipe', {
-    entry: path.join(__dirname, 'lambda/updateRecipe/index.js'),
+    entry: path.join(__dirname, 'lambda/updateRecipe/index.ts'),
     handler: 'handler',
     environment: {
       CONTENTFUL_MANAGEMENT_API: process.env.CONTENTFUL_MANAGEMENT_API!,
