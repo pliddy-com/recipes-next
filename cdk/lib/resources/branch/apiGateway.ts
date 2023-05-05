@@ -50,7 +50,7 @@ export const createApiGateway = ({
       CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!
     },
     bundling: {
-      nodeModules: ['node-fetch', 'dotenv']
+      nodeModules: ['dotenv', 'contentful-management', 'node-fetch']
     },
     runtime: Runtime.NODEJS_18_X
   });
