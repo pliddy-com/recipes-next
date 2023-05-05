@@ -42,7 +42,11 @@ type ObjEntries<T> = {
 type RecipeObjEntries = ObjEntries<IFormState>;
 
 const updateEntry = async ({ recipe }: { recipe: IFormState }) => {
+  console.log('updateEntry recipe:', recipe);
+
   const { id } = recipe;
+
+  console.log('updateEntry id:', id);
 
   try {
     const space = await client.getSpace(CONTENTFUL_SPACE_ID);
@@ -115,7 +119,9 @@ export const handler = async (event: APIGatewayEvent) => {
   }
 
   if (event.httpMethod === 'PUT' && id && client) {
-    const recipe = body && (JSON.parse(body) as IFormState);
+    const recipe = body && JSON.parse(body);
+
+    console.log({ recipe });
 
     if (recipe) {
       try {
