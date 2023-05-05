@@ -1,15 +1,20 @@
 import { APIGatewayEvent } from 'aws-lambda';
 
-import fetch from 'node-fetch';
+import contentful from 'contentful-management';
 import dotenv from 'dotenv';
+import fetch from 'node-fetch';
 
 dotenv.config();
 
 const CONTENTFUL_MANAGEMENT_API = process.env.CONTENTFUL_MANAGEMENT_API!;
-const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
 const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
+const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
 
 const restApi = `${CONTENTFUL_MANAGEMENT_API}/spaces/${CONTENTFUL_SPACE_ID}/environments/master`;
+
+const client = contentful.createClient({
+  accessToken: CONTENTFUL_MANAGEMENT_TOKEN
+});
 
 const getEntry = async ({ id }: { id: string }) => {
   const url = `${restApi}/entries/${id}`;
@@ -31,11 +36,51 @@ const getEntry = async ({ id }: { id: string }) => {
 
 export const handler = async (event: APIGatewayEvent) => {
   console.log({ event });
+  console.log({ client });
 
   const { body, pathParameters, requestContext } = event;
   const id = pathParameters && pathParameters.id!;
 
-  if (event.httpMethod === 'PUT' && id) {
+  if (event.httpMethod !== 'PUT') {
+    return {
+      statusCode: 405,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true
+      },
+      body: JSON.stringify({
+        message: `${event.httpMethod} is not allowed.`
+      })
+    };
+  }
+
+  if (!id) {
+    return {
+      statusCode: 400,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true
+      },
+      body: JSON.stringify({
+        message: `No recipe specified.`
+      })
+    };
+  }
+
+  if (!client) {
+    return {
+      statusCode: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true
+      },
+      body: JSON.stringify({
+        message: `Client unavailable.`
+      })
+    };
+  }
+
+  if (event.httpMethod === 'PUT' && id && client) {
     try {
       const entry = await getEntry({ id });
 
@@ -53,14 +98,16 @@ export const handler = async (event: APIGatewayEvent) => {
       return response;
     } catch (error) {
       const response = {
-        statusCode: 403,
+        statusCode: 500,
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': true
         },
         body: JSON.stringify(error)
       };
+
       console.error(error);
+
       return response;
     }
   }
