@@ -73,7 +73,7 @@ export const handler = async (event: APIGatewayEvent) => {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Credentials': true
     },
-    body: JSON.stringify(`Recipe ${id} is not available.`)
+    body: JSON.stringify({ message: `Recipe ${id} is not available.` })
   };
 
   return response;
