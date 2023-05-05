@@ -2,7 +2,7 @@ import { APIGatewayEvent } from 'aws-lambda';
 
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
-import contentful from 'contentful-management';
+// import contentful from 'contentful-management';
 
 dotenv.config();
 
@@ -42,11 +42,7 @@ export const handler = async (event: APIGatewayEvent) => {
   console.log({ body });
   console.log({ pathParameters });
 
-  const client = contentful.createClient({
-    accessToken: CONTENTFUL_MANAGEMENT_TOKEN
-  });
-
-  console.log({ client });
+  // congole.log({ client });
 
   if (event.httpMethod === 'PUT' && id) {
     try {
