@@ -30,7 +30,8 @@
   },
   "dependencies": {
     "aws-cdk-lib": "2.76.0",
-    "current-git-branch": "^1.1.0"
+    "current-git-branch": "^1.1.0",
+    "contentful-management": "^10.34.1"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.113",
