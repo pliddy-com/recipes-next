@@ -24,6 +24,10 @@ exports.handler = async (
   // console.log({ requestContext });
   console.log({ pathParameters });
 
+  console.log({ CONTENTFUL_ACCESS_TOKEN });
+
+  console.log({ contentful });
+
   const client = contentful.createClient({
     accessToken: `${CONTENTFUL_ACCESS_TOKEN}`
   });
