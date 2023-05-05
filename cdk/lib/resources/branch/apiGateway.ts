@@ -42,21 +42,18 @@ export const createApiGateway = ({
   );
 
   const updateLambda = new NodejsFunction(stack, 'updateRecipe', {
-    // entry: path.join(__dirname, 'lambda/updateRecipe/index.js'),
-    // handler: 'handler',
+    entry: path.join(__dirname, 'lambda/updateRecipe/index.js'),
+    handler: 'handler',
     environment: {
-      NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN:
-        process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
       CONTENTFUL_MANAGEMENT_API: process.env.CONTENTFUL_MANAGEMENT_API!,
       CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID!,
       CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!
     },
     bundling: {
-      externalModules: ['node-fetch'],
-      target: 'es2020'
-    },
+      nodeModules: ['node-fetch', 'dotenv']
+    }
 
-    runtime: Runtime.NODEJS_18_X
+    // runtime: Runtime.NODEJS_18_X
   });
 
   const api = new RestApi(stack, 'ApiGateway', {

@@ -5,7 +5,9 @@
     "recipes-aws": "./bin/recipes-aws.js"
   },
   "scripts": {
-    "cdk": "cdk",
+    "build": "tsc",
+    "buildLambda": "esbuild ./lib/resources/branch/updateRecipe/index.ts --bundle --platform=node --target=es2020 --outfile=./lib/resources/branch/updateRecipe/index.js",
+    "cdk": "npm run buildLambda && cdk",
     "deploy": "cdk --require-approval never deploy --context scope=branch --outputs-file ./cdk-outputs.json",
     "deploy:shared": "cdk --require-approval never deploy --context scope=shared",
     "destroy": "cdk --require-approval never destroy --force --context scope=branch --context branch=$BRANCH",
@@ -30,7 +32,9 @@
   "dependencies": {
     "aws-cdk-lib": "2.76.0",
     "contentful-management": "^10.34.1",
-    "current-git-branch": "^1.1.0"
+    "current-git-branch": "^1.1.0",
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.3.1"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.113",
