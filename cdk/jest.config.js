@@ -4,6 +4,7 @@ module.exports = {
     '<rootDir>/**',
     '!test/**',
     '!**/*.d.ts',
+    '!lib/resources/branch/apiGateway.updateRecipe.*',
     '!lib/resources/branch/lambda/**'
   ],
   coverageThreshold: {
@@ -16,6 +17,7 @@ module.exports = {
   },
   roots: ['<rootDir>/test', '<rootDir>/lib'],
   testEnvironment: 'node',
+  testPathIgnorePatterns: ['lib/resources/branch/apiGateway.updateRecipe.ts'],
   testMatch: ['**/*.test.ts'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest'

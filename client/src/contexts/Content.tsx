@@ -67,7 +67,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
         },
         body: JSON.stringify(recipe)
       });
-      return entry.json();
+      if (entry) return entry.json();
     } catch (e) {
       console.log('Could not save changes to the recipe.');
       // console.error('updateEntry ERROR:', e);

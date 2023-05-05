@@ -1,5 +1,6 @@
 import { RecipesBranchStack } from '../../recipes-branch-stack';
 
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { UserPool } from 'aws-cdk-lib/aws-cognito';
 import {
   AuthorizationType,
@@ -34,12 +35,15 @@ export const createApiGateway = ({
     }
   );
 
-  const updateLambda = new Function(stack, 'updateRecipe', {
-    runtime: Runtime.NODEJS_18_X,
-    handler: 'index.handler',
-    code: Code.fromAsset('lib/resources/branch/lambda/updateRecipe'), // from parent directory containing package.json
-    architecture: Architecture.X86_64
-  });
+  const updateLambda = new NodejsFunction(stack, 'updateRecipe');
+
+  // const updateLambda = negw NodejsFunction(stack, 'updateRecipe', {
+  //   // architecture: Architecture.X86_64
+  //   entry: 'lib/resources/branch/lambda/updateRecipe',
+  //   // code: Code.fromAsset('lib/resources/branch/lambda/updateRecipe'), // from parent directory containing package.json
+  //   handler: 'index.handler',
+  //   runtime: Runtime.NODEJS_18_X
+  // });
 
   const api = new RestApi(stack, 'ApiGateway', {
     deploy: false,
