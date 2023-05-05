@@ -25,6 +25,24 @@ const client = contentful.createClient({
 // };
 
 // TODO: share this defintion with client without crossing workspaces (shared space?)
+
+const getResponse = ({
+  statusCode,
+  body
+}: {
+  statusCode: number;
+  body: string;
+}) => {
+  return {
+    statusCode,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true
+    },
+    body
+  };
+};
+
 export interface IFormState {
   abstract: string;
   cookTime: string | number;
@@ -41,17 +59,22 @@ type ObjEntries<T> = {
 
 type RecipeObjEntries = ObjEntries<IFormState>;
 
-const updateEntry = async ({ recipe }: { recipe: IFormState }) => {
+const updateEntry = async ({
+  id,
+  recipe
+}: {
+  id: string;
+  recipe: IFormState;
+}) => {
   console.log('updateEntry recipe:', recipe);
-
-  const { id } = recipe;
-
   console.log('updateEntry id:', id);
 
   try {
     const space = await client.getSpace(CONTENTFUL_SPACE_ID);
     const env = await space.getEnvironment('master');
     const entry = await env.getEntry(id);
+
+    console.log({ entry });
 
     for (const [key, value] of Object.entries(recipe)) {
       console.log(`${key}: ${value}`);
@@ -65,7 +88,10 @@ const updateEntry = async ({ recipe }: { recipe: IFormState }) => {
       recipe[key] = entry.fields[key]['en-US'];
     }
 
-    return recipe;
+    console.log('updated recipe:', recipe);
+    console.log('updated entry:', entry);
+
+    return entry;
   } catch (e) {
     console.error('GET ERROR:', e);
     throw e;
@@ -81,43 +107,26 @@ export const handler = async (event: APIGatewayEvent) => {
 
   const id = pathParameters?.id!;
 
+  // TODO: make response creation a shared function with status code && body
   if (event.httpMethod !== 'PUT') {
-    return {
+    return getResponse({
       statusCode: 405,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true
-      },
-      body: JSON.stringify({
-        message: `${event.httpMethod} is not allowed.`
-      })
-    };
+      body: JSON.stringify({ message: `${event.httpMethod} is not allowed.` })
+    });
   }
 
   if (!id) {
-    return {
+    return getResponse({
       statusCode: 400,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true
-      },
-      body: JSON.stringify({
-        message: `No recipe specified.`
-      })
-    };
+      body: JSON.stringify({ message: 'No recipe specified.' })
+    });
   }
 
   if (!client) {
-    return {
+    return getResponse({
       statusCode: 500,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true
-      },
-      body: JSON.stringify({
-        message: `Client unavailable.`
-      })
-    };
+      body: JSON.stringify({ message: 'Client unavailable.' })
+    });
   }
 
   if (event.httpMethod === 'PUT' && id && client) {
@@ -127,29 +136,21 @@ export const handler = async (event: APIGatewayEvent) => {
 
     if (recipe) {
       try {
-        const entry = await updateEntry({ recipe });
+        const entry = await updateEntry({ id, recipe });
 
-        const response = {
+        const response = getResponse({
           statusCode: 200,
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': true
-          },
           body: JSON.stringify(entry)
-        };
+        });
 
         console.log({ response });
 
         return response;
       } catch (error) {
-        const response = {
+        const response = getResponse({
           statusCode: 500,
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': true
-          },
           body: JSON.stringify(error)
-        };
+        });
 
         console.error(error);
 
@@ -158,14 +159,10 @@ export const handler = async (event: APIGatewayEvent) => {
     }
   }
 
-  const response = {
+  const response = getResponse({
     statusCode: 401,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Credentials': true
-    },
     body: JSON.stringify({ message: `Recipe ${id} is not available.` })
-  };
+  });
 
   console.log({ response });
   return response;
@@ -181,8 +178,8 @@ export const handler = async (event: APIGatewayEvent) => {
 //     'accept-language': 'en-US,en;q=0.9,la;q=0.8,sk;q=0.7',
 //     Authorization: 'TOKEN',
 //     'content-type': 'text/plain;charset=UTF-8',
-//     origin: 'https://test.recipes.pliddy.com',
-//     referer: 'https://test.recipes.pliddy.com/'
+//     origin: 'https://151-update.recipes.recipes.pliddy.com',
+//     referer: 'https://151-update.recipes.recipes.pliddy.com/'
 //   },
 //   pathParameters: { id: '3aPUmkVvKhlHUopdslrze8' },
 //   requestContext: {
