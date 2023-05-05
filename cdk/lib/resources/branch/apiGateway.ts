@@ -51,9 +51,8 @@ export const createApiGateway = ({
     },
     bundling: {
       nodeModules: ['node-fetch', 'dotenv']
-    }
-
-    // runtime: Runtime.NODEJS_18_X
+    },
+    runtime: Runtime.NODEJS_18_X
   });
 
   const api = new RestApi(stack, 'ApiGateway', {
