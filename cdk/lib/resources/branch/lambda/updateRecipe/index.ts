@@ -2,6 +2,7 @@ import { APIGatewayEvent } from 'aws-lambda';
 
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
+import contentful from 'contentful-management';
 
 dotenv.config();
 
@@ -14,6 +15,8 @@ const restApi = `${CONTENTFUL_MANAGEMENT_API}/spaces/${CONTENTFUL_SPACE_ID}/envi
 const getEntry = async ({ id }: { id: string }) => {
   const url = `${restApi}/entries/${id}`;
 
+  console.log({ url });
+
   try {
     const entry = await fetch(url, {
       method: 'GET',
@@ -22,6 +25,7 @@ const getEntry = async ({ id }: { id: string }) => {
       }
     });
 
+    console.log('getEntry:', entry);
     return entry.json();
   } catch (e) {
     console.log('GET ERROR:', e);
@@ -35,13 +39,20 @@ export const handler = async (event: APIGatewayEvent) => {
   const { body, pathParameters, requestContext } = event;
   const id = pathParameters && pathParameters.id!;
 
-  // if (event.httpMethod === 'PUT') {
   console.log({ body });
   console.log({ pathParameters });
 
-  if (id) {
+  const client = contentful.createClient({
+    accessToken: CONTENTFUL_MANAGEMENT_TOKEN
+  });
+
+  console.log({ client });
+
+  if (event.httpMethod === 'PUT' && id) {
     try {
       const entry = getEntry({ id });
+
+      console.log({ entry });
 
       const response = {
         statusCode: 200,
@@ -52,10 +63,12 @@ export const handler = async (event: APIGatewayEvent) => {
         body: JSON.stringify(entry)
       };
 
+      console.log({ response });
+
       return response;
     } catch (error) {
       const response = {
-        statusCode: 400,
+        statusCode: 403,
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': true
@@ -68,7 +81,7 @@ export const handler = async (event: APIGatewayEvent) => {
   }
 
   const response = {
-    statusCode: 404,
+    statusCode: 401,
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Credentials': true

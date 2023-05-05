@@ -55,12 +55,11 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
     if (!canSave) {
       throw new Error('Content has not changed.');
     }
-    // TODO: move api url to env until it can be automated
 
     const restApi = `${contentApiUrl}/${recipe.id}`;
 
     try {
-      const entry = await fetch(restApi, {
+      const response = await fetch(restApi, {
         method: 'PUT',
         headers: {
           Authorization: `${token}`
@@ -68,9 +67,13 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
         body: JSON.stringify(recipe)
       });
 
-      console.log({ entry });
+      console.log({ response });
 
-      if (entry) return entry.json();
+      const res = response.json();
+
+      console.log({ res });
+
+      return res;
     } catch (e) {
       console.log('Could not save changes to the recipe.');
       // console.error('updateEntry ERROR:', e);
@@ -91,7 +94,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
       setEditMode(false);
       setEditLoading(false);
 
-      console.log(JSON.parse(res));
+      console.log({ res });
     } catch (e) {
       // TODO: handle error in UI
       console.error(e);
