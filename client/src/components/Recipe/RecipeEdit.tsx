@@ -28,7 +28,7 @@ import { recipePageConfig } from 'theme/values/images';
 import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 import { useContentManagementContext } from 'contexts/Content';
 
-import { IFormState } from 'types/content';
+import { IRecipeChangeSet } from 'types/content';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 
@@ -62,7 +62,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     title
   } = content ?? {};
 
-  const defaultState: IFormState = {
+  const defaultState: IRecipeChangeSet = {
     abstract: abstract || '',
     id: sys?.id || '',
     cookTime: cookTime || '0',
@@ -74,7 +74,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
 
   const { setCanSave, setRecipe } = useContentManagementContext();
 
-  const [formData, setFormData] = useState<IFormState>(defaultState);
+  const [formData, setFormData] = useState<IRecipeChangeSet>(defaultState);
 
   const resetForm = () => {
     setFormData(defaultState);

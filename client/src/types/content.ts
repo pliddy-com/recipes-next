@@ -3,7 +3,7 @@ export interface IRecipeSection {
   sectionItems: string[] | null;
 }
 
-export interface IFormState {
+export interface IRecipeChangeSet {
   abstract: string;
   cookTime: string | number;
   id: string;
