@@ -1,0 +1,101 @@
+import { IRecipeChangeSet } from './types';
+import contentful from 'contentful-management';
+
+/**
+ *  Environment variables
+ */
+
+const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
+const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
+
+/**
+ *  Contentful client
+ */
+
+const client = contentful.createClient({
+  accessToken: CONTENTFUL_MANAGEMENT_TOKEN
+});
+
+/**
+ *  Standardized response with required CORS headers
+ */
+
+export const getResponse = ({
+  statusCode,
+  body
+}: {
+  statusCode: number;
+  body: string;
+}) => {
+  return {
+    statusCode,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true
+    },
+    body
+  };
+};
+
+/**
+ *  Retrieves an entry from the contentful space
+ */
+
+export const getEntry = async ({ id }: { id: string }) => {
+  try {
+    const space = await client.getSpace(CONTENTFUL_SPACE_ID);
+    const env = await space.getEnvironment('master');
+    const entry = await env.getEntry(id);
+
+    return entry;
+  } catch (e) {
+    console.error('GET ERROR:', e);
+    throw e;
+  }
+};
+
+/**
+ *  Updates an entry from the contentful space
+ */
+
+type ObjEntries<T> = {
+  [K in keyof T]: [K, T[K]];
+}[keyof T][];
+
+type RecipeObjEntries = ObjEntries<IRecipeChangeSet>;
+
+export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
+  const { id } = recipe;
+
+  try {
+    const space = await client.getSpace(CONTENTFUL_SPACE_ID);
+    const env = await space.getEnvironment('master');
+    const entry = await env.getEntry(id);
+
+    console.log('entry:', entry);
+    console.log('recipe:', recipe);
+
+    for (const [key, value] of Object.entries(recipe)) {
+      if (key !== 'id') entry.fields[key]['en-US'] = value;
+    }
+
+    const updated = await entry.update();
+
+    // return object in IFormData
+    for (const [key, value] of Object.entries(recipe) as RecipeObjEntries) {
+      if (key !== 'id') recipe[key] = updated.fields[key]['en-US'];
+    }
+
+    console.log('updated recipe:', recipe);
+    console.log('updated entry:', updated);
+
+    const published = await updated.publish();
+
+    console.log('published entry:', published);
+
+    return entry;
+  } catch (e) {
+    console.error('GET ERROR:', e);
+    throw e;
+  }
+};
