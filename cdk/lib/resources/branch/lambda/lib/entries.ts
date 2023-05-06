@@ -65,15 +65,22 @@ type ObjEntries<T> = {
 type RecipeObjEntries = ObjEntries<IRecipeChangeSet>;
 
 export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
-  const { id } = recipe;
+  console.log('update recipe:', recipe);
+
+  const id = recipe['id'];
+
+  console.log('update id:', id);
 
   try {
+    if (!id) throw Error('No ID provided');
+
     const space = await client.getSpace(CONTENTFUL_SPACE_ID);
     const env = await space.getEnvironment('master');
     const entry = await env.getEntry(id);
 
-    console.log('entry:', entry);
-    console.log('recipe:', recipe);
+    console.log('update entry:', entry);
+
+    // map recipe values to entry fields
 
     for (const [key, value] of Object.entries(recipe)) {
       if (key !== 'id') entry.fields[key]['en-US'] = value;
@@ -81,7 +88,8 @@ export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
 
     const updated = await entry.update();
 
-    // return object in IFormData
+    // return updated values in IRecipeChangeSet object
+
     for (const [key, value] of Object.entries(recipe) as RecipeObjEntries) {
       if (key !== 'id') recipe[key] = updated.fields[key]['en-US'];
     }
@@ -95,7 +103,7 @@ export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
 
     return entry;
   } catch (e) {
-    console.error('GET ERROR:', e);
+    console.error('UPDATE ERROR:', e);
     throw e;
   }
 };
