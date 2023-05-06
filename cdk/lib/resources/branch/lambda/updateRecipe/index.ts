@@ -78,7 +78,7 @@ const updateEntry = async ({
 
     for (const [key, value] of Object.entries(recipe)) {
       console.log(`${key}: ${value}`);
-      entry.fields[key]['en-US'] = value;
+      if (key !== 'id') entry.fields[key]['en-US'] = value;
     }
 
     await entry.update();
