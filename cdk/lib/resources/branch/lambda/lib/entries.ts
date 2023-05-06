@@ -97,7 +97,7 @@ export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
     console.log('updated recipe:', recipe);
     console.log('updated entry:', updated);
 
-    const published = await updated.publish();
+    const published = await entry.publish();
 
     console.log('published entry:', published);
 

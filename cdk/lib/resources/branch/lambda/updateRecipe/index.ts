@@ -27,6 +27,8 @@ export const handler = async (event: APIGatewayEvent) => {
   if (event.httpMethod === 'PUT' && id) {
     const recipe = JSON.parse(body);
 
+    console.log('index:', recipe);
+
     if (recipe) {
       try {
         const entry = await updateEntry({ recipe });
