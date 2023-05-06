@@ -81,7 +81,9 @@ const updateEntry = async ({
       if (key !== 'id') entry.fields[key]['en-US'] = value;
     }
 
-    await entry.update();
+    const updateRes = await entry.update();
+
+    console.log('entry update:', updateRes);
 
     for (const [key, value] of Object.entries(recipe) as RecipeObjEntries) {
       console.log(`${key}: ${value}`);
@@ -90,6 +92,10 @@ const updateEntry = async ({
 
     console.log('updated recipe:', recipe);
     console.log('updated entry:', entry);
+
+    const publishRes = await entry.publish();
+
+    console.log('entry publish:', publishRes);
 
     return entry;
   } catch (e) {
