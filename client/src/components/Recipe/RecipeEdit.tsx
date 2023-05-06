@@ -93,7 +93,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     newData[id] = value;
 
     setFormData(newData);
-    setRecipe(formData);
+    setRecipe(newData);
 
     try {
       assert.deepStrictEqual(defaultState, newData);
