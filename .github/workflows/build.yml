@@ -45,7 +45,7 @@ jobs:
         id: checkout-repo
         uses: actions/checkout@v3
         with:
-          ref: ${{ BUILD_BRANCH }}
+          ref: ${{ env.BUILD_BRANCH }}
 
       - name: Setup Node
         id: setup-node
