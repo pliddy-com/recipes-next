@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 import { IRecipeChangeSet } from './types';
 import contentful from 'contentful-management';
 
@@ -37,6 +39,32 @@ export const getResponse = ({
   };
 };
 
+/**
+ *  POST to GitHub Actions webhook
+ */
+
+// TODO: move webhook URL & GHA auth token
+//       get branch ID from event requester URL
+
+// export const buildWebhook = () => {
+//   const webhookUrl =
+//     'https://api.github.com/repos/pliddy-com/recipes-next/dispatches';
+//   fetch(webhookUrl, {
+//     method: 'POST',
+//     headers: {
+//       Accept: 'application/vnd.github+json',
+//       Authorization: 'Bearer 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'
+//     },
+//     body: JSON.stringify({
+//       event_type: 'publish-event',
+//       client_payload: {
+//         build_branch: 'main'
+//       }
+//     })
+//   })
+//     .then((response) => response.json())
+//     .then((response) => console.log(JSON.stringify(response)));
+// };
 /**
  *  Retrieves an entry from the contentful space
  */

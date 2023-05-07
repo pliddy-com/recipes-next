@@ -42,7 +42,7 @@ jobs:
         run: |
           echo "github.event.ref: ${{ github.event.ref }}"
           echo "github.ref_name: ${{ github.ref_name }}"
-          echo "BUILD_BRANCH: "${{ env.BUILD_BRANCH }}"
+          echo "BUILD_BRANCH: ${{ env.BUILD_BRANCH }}"
 
       - name: Setup Node
         id: setup-node
