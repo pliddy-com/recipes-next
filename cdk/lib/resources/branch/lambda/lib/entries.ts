@@ -65,11 +65,11 @@ type ObjEntries<T> = {
 type RecipeObjEntries = ObjEntries<IRecipeChangeSet>;
 
 export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
-  console.log('update recipe:', recipe);
+  console.log('update:', recipe);
 
-  const id = recipe['id'];
+  const id = JSON.parse(JSON.stringify(recipe)).id;
 
-  console.log('update id:', id);
+  console.log('update:', id);
 
   try {
     if (!id) throw Error('No ID provided');
@@ -78,7 +78,7 @@ export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
     const env = await space.getEnvironment('master');
     const entry = await env.getEntry(id);
 
-    console.log('update entry:', entry);
+    console.log('update:', entry);
 
     // map recipe values to entry fields
 
@@ -94,12 +94,12 @@ export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
       if (key !== 'id') recipe[key] = updated.fields[key]['en-US'];
     }
 
-    console.log('updated recipe:', recipe);
-    console.log('updated entry:', updated);
+    console.log('updated:', recipe);
+    console.log('updated:', updated);
 
-    const published = await entry.publish();
+    const published = await updated.publish();
 
-    console.log('published entry:', published);
+    console.log('published:', published);
 
     return entry;
   } catch (e) {
