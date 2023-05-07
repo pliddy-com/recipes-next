@@ -101,6 +101,17 @@ export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
 
     console.log('published:', published);
 
+    // trigger build with call to GitHub Actions webhook
+    // with payload:
+    //
+    // {
+    //   "event_type": "publish-event",
+    //   "client_payload": {
+    //     "build_branch": "main" || "branch_id"
+    // }
+    //
+    // TODO: pass branch ID into Lambda build
+
     return entry;
   } catch (e) {
     console.error('UPDATE ERROR:', e);
