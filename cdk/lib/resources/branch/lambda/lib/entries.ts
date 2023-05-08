@@ -61,7 +61,7 @@ export const callBuildWebhook = async () => {
 
     console.log('build payload:', payload);
 
-    await fetch(webhookUrl, {
+    fetch(webhookUrl, {
       method: 'POST',
       headers: {
         Accept: 'application/vnd.github+json',
