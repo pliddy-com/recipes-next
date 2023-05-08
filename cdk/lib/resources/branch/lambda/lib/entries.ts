@@ -11,7 +11,7 @@ const BUILD_BRANCH = process.env.BUILD_BRANCH;
 const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
 const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
 const GH_WEBHOOK_TOKEN = process.env.GITHUB_WEBHOOK_TOKEN;
-const GH_WEBHOOK_URL = process.env.BUILD_WEBHOOK_URL;
+const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL;
 
 /**
  *  Contentful client

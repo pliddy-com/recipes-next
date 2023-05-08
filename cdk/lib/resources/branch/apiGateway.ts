@@ -42,7 +42,7 @@ export const createApiGateway = ({
     }
   );
 
-  const updateLambda = new NodejsFunction(stack, 'updateRecipe', {
+  const updateLambda = new NodejsFunction(stack, 'UpdateRecipeLambda', {
     // needs to reference *.ts to bundle npm modules
     entry: path.join(__dirname, 'lambda/updateRecipe/index.ts'),
     handler: 'handler',
