@@ -61,16 +61,18 @@ export const callBuildWebhook = async () => {
 
     console.log('build payload:', payload);
 
-    const build = await fetch(webhookUrl, {
+    const buildResult = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${GH_WEBHOOK_TOKEN}`
+        Authorization: `token ${GH_WEBHOOK_TOKEN}`
       },
       body: JSON.stringify(payload)
     });
 
-    console.log('build webhook:', build);
+    console.log('build webhook:', buildResult);
+
+    const build = await buildResult.json();
 
     return build;
   } catch (e) {
