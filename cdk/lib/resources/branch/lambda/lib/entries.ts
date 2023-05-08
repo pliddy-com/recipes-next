@@ -46,11 +46,7 @@ export const getResponse = ({
  *  POST to GitHub Actions webhook
  */
 
-// TODO: move webhook URL & GHA auth token
-// TODO: pass branch ID into Lambda build (better than using URL)
-
 export const callBuildWebhook = async () => {
-  // DON'T COMMIT THIS URL
   const webhookUrl = GH_WEBHOOK_URL;
 
   try {
@@ -65,7 +61,6 @@ export const callBuildWebhook = async () => {
       body: JSON.stringify({
         event_type: 'publish-event',
         client_payload: {
-          // DON'T COMMIT THIS BRANCH ID
           build_branch: BUILD_BRANCH
         }
       })
