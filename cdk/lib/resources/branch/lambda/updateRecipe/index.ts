@@ -31,7 +31,7 @@ export const handler = async (event: APIGatewayEvent) => {
 
     if (recipe) {
       try {
-        const entry = await updateEntry({ recipe });
+        const entry = await updateEntry({ id, recipe });
 
         const response = getResponse({
           statusCode: 200,

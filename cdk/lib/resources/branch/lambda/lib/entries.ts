@@ -106,10 +106,14 @@ type ObjEntries<T> = {
 
 type RecipeObjEntries = ObjEntries<IRecipeChangeSet>;
 
-export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
+export const updateEntry = async ({
+  id,
+  recipe
+}: {
+  id: string;
+  recipe: IRecipeChangeSet;
+}) => {
   console.log('update:', recipe);
-
-  const id = recipe.id;
 
   console.log('update:', id);
 
