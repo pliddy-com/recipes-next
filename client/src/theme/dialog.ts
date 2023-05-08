@@ -10,20 +10,20 @@ const dialogThemeOptions: ThemeOptions = {
     MuiContainer: {
       styleOverrides: {
         root: {
-          '&.loading': {
-            alignItems: 'center',
-            display: 'flex',
-            height: '180px',
-            justifyContent: 'center',
-            maxHeight: '180px',
-            [breakpoints.up('sm')]: {
-              maxWidth: '432px',
-              width: '432px'
-            },
-            [breakpoints.down('sm')]: {
-              maxWidth: 'calc(100vw - 7rem)'
-            }
-          }
+          // '&.loading': {
+          //   alignItems: 'center',
+          //   display: 'flex',
+          //   height: '180px',
+          //   justifyContent: 'center',
+          //   maxHeight: '180px',
+          //   [breakpoints.up('sm')]: {
+          //     maxWidth: '432px',
+          //     width: '432px'
+          //   },
+          //   [breakpoints.down('sm')]: {
+          //     maxWidth: 'calc(100vw - 7rem)'
+          //   }
+          // }
         }
       }
     },
@@ -40,6 +40,21 @@ const dialogThemeOptions: ThemeOptions = {
                 padding: '1rem 1rem .375rem',
                 marginBottom: '1rem'
               }
+            }
+          },
+          '& .MuiContainer-root.loading': {
+            alignItems: 'center',
+            display: 'flex',
+            height: '180px',
+            justifyContent: 'center',
+            maxHeight: '180px',
+            minHeight: 'auto',
+            [breakpoints.up('sm')]: {
+              maxWidth: '432px',
+              width: '432px'
+            },
+            [breakpoints.down('sm')]: {
+              maxWidth: 'calc(100vw - 7rem)'
             }
           }
         },

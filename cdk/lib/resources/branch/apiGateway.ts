@@ -18,6 +18,7 @@ import { Runtime } from 'aws-cdk-lib/aws-lambda';
 
 import dotenv from 'dotenv';
 import path from 'path';
+import { Duration } from 'aws-cdk-lib';
 
 dotenv.config();
 
@@ -58,7 +59,8 @@ export const createApiGateway = ({
       nodeModules: ['contentful-management'],
       format: OutputFormat.ESM
     },
-    runtime: Runtime.NODEJS_18_X
+    runtime: Runtime.NODEJS_18_X,
+    timeout: Duration.seconds(30)
   });
 
   const api = new RestApi(stack, 'ApiGateway', {

@@ -7,7 +7,7 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
     data-testid="RecipePage"
   >
     <div
-      class="MuiBox-root css-0"
+      class="recipe-edit MuiBox-root css-0"
       data-testid="RecipeEdit"
     >
       <div

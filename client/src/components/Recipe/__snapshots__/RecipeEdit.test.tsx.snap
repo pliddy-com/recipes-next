@@ -1,9 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Recipe when editLoading is true displays the Loading component 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg loading css-1oqqzyl-MuiContainer-root"
+  >
+    <span
+      aria-label="spinner"
+      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+      role="graphics-symbol"
+      style="width: 40px; height: 40px;"
+    >
+      <svg
+        class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20.2"
+          stroke-width="3.6"
+        />
+      </svg>
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Recipe when there is page content it renders the Recipe 1`] = `
 <DocumentFragment>
   <div
-    class="MuiBox-root css-0"
+    class="recipe-edit MuiBox-root css-0"
     data-testid="RecipeEdit"
   >
     <div
