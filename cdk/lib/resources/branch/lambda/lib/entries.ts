@@ -52,21 +52,27 @@ export const callBuildWebhook = async () => {
   try {
     if (!webhookUrl) throw new Error('Webhook URL not available.');
 
-    const response = fetch(webhookUrl, {
+    const payload = {
+      event_type: 'publish-event',
+      client_payload: {
+        build_branch: BUILD_BRANCH
+      }
+    };
+
+    console.log('build payload:', payload);
+
+    const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         Accept: 'application/vnd.github+json',
         Authorization: `Bearer ${GH_WEBHOOK_TOKEN}`
       },
-      body: JSON.stringify({
-        event_type: 'publish-event',
-        client_payload: {
-          build_branch: BUILD_BRANCH
-        }
-      })
+      body: JSON.stringify(payload)
     });
 
-    const res = (await response).json();
+    const res = await response.json();
+
+    console.log('build webhook SUCCESS:', res);
 
     return res;
   } catch (e) {
@@ -145,9 +151,7 @@ export const updateEntry = async ({
 
     // trigger build with call to GitHub Actions webhook
 
-    const build = await callBuildWebhook();
-
-    console.log('build:', build);
+    await callBuildWebhook();
 
     return recipe;
   } catch (e) {
