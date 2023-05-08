@@ -65,7 +65,8 @@ export const callBuildWebhook = async () => {
       method: 'POST',
       headers: {
         Accept: 'application/vnd.github+json',
-        Authorization: `token ${GH_WEBHOOK_TOKEN}`
+        Authorization: `Bearer ${GH_WEBHOOK_TOKEN}`,
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(payload)
     });
