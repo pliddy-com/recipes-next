@@ -47,6 +47,7 @@ export const createApiGateway = ({
     entry: path.join(__dirname, 'lambda/updateRecipe/index.ts'),
     handler: 'handler',
     environment: {
+      BUILD_BRANCH: process.env.BUILD_BRANCH!,
       CONTENTFUL_MANAGEMENT_API: process.env.CONTENTFUL_MANAGEMENT_API!,
       CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID!,
       CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!,
