@@ -7,9 +7,11 @@ import contentful from 'contentful-management';
  *  Environment variables
  */
 
-const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
+const BUILD_BRANCH = process.env.BUILD_BRANCH;
 const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
-
+const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
+const GH_WEBHOOK_TOKEN = process.env.GITHUB_WEBHOOK_TOKEN;
+const GH_WEBHOOK_URL = process.env.BUILD_WEBHOOK_URL;
 /**
  *  Contentful client
  */
@@ -44,27 +46,38 @@ export const getResponse = ({
  */
 
 // TODO: move webhook URL & GHA auth token
-//       get branch ID from event requester URL
+// TODO: pass branch ID into Lambda build (better than using URL)
 
-// export const buildWebhook = () => {
-//   const webhookUrl =
-//     'https://api.github.com/repos/pliddy-com/recipes-next/dispatches';
-//   fetch(webhookUrl, {
-//     method: 'POST',
-//     headers: {
-//       Accept: 'application/vnd.github+json',
-//       Authorization: 'Bearer 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'
-//     },
-//     body: JSON.stringify({
-//       event_type: 'publish-event',
-//       client_payload: {
-//         build_branch: 'main'
-//       }
-//     })
-//   })
-//     .then((response) => response.json())
-//     .then((response) => console.log(JSON.stringify(response)));
-// };
+export const callBuildWebhook = async () => {
+  // DON'T COMMIT THIS URL
+  const webhookUrl = GH_WEBHOOK_URL;
+
+  try {
+    if (!webhookUrl) throw new Error('Webhook URL not available.');
+
+    const response = fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/vnd.github+json',
+        Authorization: `Bearer ${GH_WEBHOOK_TOKEN}`
+      },
+      body: JSON.stringify({
+        event_type: 'publish-event',
+        client_payload: {
+          // DON'T COMMIT THIS BRANCH ID
+          build_branch: BUILD_BRANCH
+        }
+      })
+    });
+
+    const res = (await response).json();
+
+    return res;
+  } catch (e) {
+    throw e;
+  }
+};
+
 /**
  *  Retrieves an entry from the contentful space
  */
@@ -130,15 +143,8 @@ export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
     console.log('published:', published);
 
     // trigger build with call to GitHub Actions webhook
-    // with payload:
-    //
-    // {
-    //   "event_type": "publish-event",
-    //   "client_payload": {
-    //     "build_branch": "main" || "branch_id"
-    // }
-    //
-    // TODO: pass branch ID into Lambda build
+
+    callBuildWebhook();
 
     return entry;
   } catch (e) {

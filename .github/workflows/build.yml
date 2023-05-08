@@ -2,10 +2,17 @@ name: Build and Deploy
 run-name: Build and Deploy
 
 on:
-  workflow_dispatch:
   # Allows external webhook trigger with "event_type" = "publish-event"
+  # Payload should look like:
+  #   {
+  #     event_type: 'publish-event',
+  #     client_payload: {
+  #       build_branch: 'main' || { branch_id }
+  #     }
+  #   }
   repository_dispatch:
     types: [publish-event]
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.ref }}
@@ -20,6 +27,8 @@ env:
   CONTENTFUL_MANAGEMENT_API: ${{ vars.CONTENTFUL_MANAGEMENT_API }}
   CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}
   CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+  GH_WEBHOOK_URL: ${{ vars.GH_WEBHOOK_URL }}
+  GH_WEBHOOK_TOKEN: ${{ secrets.GH_WEBHOOK_TOKEN }}
   NEXT_PUBLIC_ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: ${{ secrets.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY }}
   NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
@@ -59,7 +68,6 @@ jobs:
         id: setup-next
         uses: './.github/actions/next-build-cache'
 
-      # TODO: set correct branch for
       - name: Install Dependencies
         id: install-dependencies
         uses: './.github/actions/install-dependencies'
