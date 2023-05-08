@@ -130,14 +130,7 @@ export const updateEntry = async ({
 
     for (const [key, value] of Object.entries(recipe)) {
       console.log({ key, value });
-      if (
-        key !== 'id' &&
-        entry &&
-        entry.fields &&
-        entry.fields[key] &&
-        entry.fields[key]['en-US']
-      )
-        entry.fields[key]['en-US'] = value;
+      if (key !== 'id') entry.fields[key]['en-US'] = value;
     }
 
     const updated = await entry.update();
@@ -161,7 +154,7 @@ export const updateEntry = async ({
 
     console.log('build:', build);
 
-    return entry;
+    return recipe;
   } catch (e) {
     console.error('UPDATE ERROR:', e);
     throw e;
