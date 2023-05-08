@@ -60,6 +60,7 @@ export const handler = async (event: APIGatewayEvent) => {
   });
 
   console.log({ response });
+
   return response;
 };
 

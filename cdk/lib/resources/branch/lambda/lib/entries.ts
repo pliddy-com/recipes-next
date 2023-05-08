@@ -7,11 +7,11 @@ import contentful from 'contentful-management';
  *  Environment variables
  */
 
-const BUILD_BRANCH = process.env.BUILD_BRANCH;
+const BUILD_BRANCH = process.env.BUILD_BRANCH!;
 const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
 const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
-const GH_WEBHOOK_TOKEN = process.env.GITHUB_WEBHOOK_TOKEN;
-const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL;
+const GH_WEBHOOK_TOKEN = process.env.GITHUB_WEBHOOK_TOKEN!;
+const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL!;
 
 /**
  *  Contentful client
@@ -43,7 +43,7 @@ export const getResponse = ({
 };
 
 /**
- *  POST to GitHub Actions webhook
+ *  POST to GitHub Actions build webhook
  */
 
 export const callBuildWebhook = async () => {
@@ -61,7 +61,7 @@ export const callBuildWebhook = async () => {
 
     console.log('build payload:', payload);
 
-    const response = await fetch(webhookUrl, {
+    await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         Accept: 'application/vnd.github+json',
@@ -70,11 +70,9 @@ export const callBuildWebhook = async () => {
       body: JSON.stringify(payload)
     });
 
-    const res = await response.json();
+    console.log('build webhook SUCCESS:');
 
-    console.log('build webhook SUCCESS:', res);
-
-    return res;
+    return true;
   } catch (e) {
     throw e;
   }
