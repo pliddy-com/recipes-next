@@ -4,7 +4,6 @@ module.exports = {
     '<rootDir>/**',
     '!test/**',
     '!**/*.d.ts',
-    '!lib/resources/branch/apiGateway.updateRecipe.*',
     '!lib/resources/branch/lambda/**'
   ],
   coverageThreshold: {

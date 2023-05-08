@@ -1,7 +1,4 @@
-export interface IRecipeSection {
-  sectionTitle: string | null;
-  sectionItems: string[] | null;
-}
+// TODO: share this defintion with client without crossing workspaces (shared space?)
 
 export interface IRecipeChangeSet {
   abstract: string;

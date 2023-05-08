@@ -10,22 +10,25 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  NODE_VERSION_FILE: '.nvmrc'
   ALGOLIA_SEARCH_ADMIN_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_DEFAULT_REGION: ${{ vars.AWS_DEFAULT_REGION }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-  CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}
+  BUILD_BRANCH: ${{ github.ref_name }}
   CONTENTFUL_MANAGEMENT_API: ${{ vars.CONTENTFUL_MANAGEMENT_API }}
-  DEFAULT_USER: ${{ vars.DEFAULT_USER }}
+  CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}
+  CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
   DEFAULT_PASSWORD: ${{ secrets.DEFAULT_PASSWORD }}
+  DEFAULT_USER: ${{ vars.DEFAULT_USER }}
+  GH_WEBHOOK_URL: ${{ vars.GH_WEBHOOK_URL }}
+  GH_WEBHOOK_TOKEN: ${{ secrets.GH_WEBHOOK_TOKEN }}
   NEXT_PUBLIC_ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: ${{ secrets.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY }}
-  NEXT_PUBLIC_CONTENTFUL_CONTENT_API: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
   NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+  NEXT_PUBLIC_CONTENTFUL_CONTENT_API: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
   NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
   NEXT_PUBLIC_SITE_URL: ${{ github.ref_name == 'main' && vars.NEXT_PUBLIC_SITE_URL || format('{0}{1}{2}', 'https://', github.ref_name, '.recipes.pliddy.com') }}
+  NODE_VERSION_FILE: '.nvmrc'
 
 jobs:
   ScanBuildAndDeployBranch:
@@ -41,6 +44,7 @@ jobs:
         run: |
           echo "github.event.ref: ${{ github.event.ref }}"
           echo "github.ref_name: ${{ github.ref_name }}"
+          echo "BUILD_BRANCH: ${{ env.BUILD_BRANCH }}"
 
       - name: Setup Node
         id: setup-node

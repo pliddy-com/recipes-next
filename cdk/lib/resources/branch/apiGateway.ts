@@ -47,12 +47,15 @@ export const createApiGateway = ({
     entry: path.join(__dirname, 'lambda/updateRecipe/index.ts'),
     handler: 'handler',
     environment: {
+      BUILD_BRANCH: process.env.BUILD_BRANCH!,
       CONTENTFUL_MANAGEMENT_API: process.env.CONTENTFUL_MANAGEMENT_API!,
       CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID!,
-      CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!
+      CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!,
+      GH_WEBHOOK_TOKEN: process.env.GH_WEBHOOK_TOKEN!,
+      GH_WEBHOOK_URL: process.env.GH_WEBHOOK_URL!
     },
     bundling: {
-      nodeModules: ['dotenv', 'node-fetch'],
+      nodeModules: ['contentful-management'],
       format: OutputFormat.ESM
     },
     runtime: Runtime.NODEJS_18_X

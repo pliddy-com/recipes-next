@@ -1,7 +1,7 @@
 import { ThemeOptions } from '@mui/material/styles';
 
 import colors from 'theme/values/colors';
-import { fontWeightMedium, sansFontFamily } from './values/fontface';
+import { fontWeightRegular, sansFontFamily } from './values/fontface';
 
 import baseTheme from 'theme/base';
 
@@ -50,7 +50,7 @@ const cardThemeOptions: ThemeOptions = {
             '&-subheader': {
               fontFamily: sansFontFamily,
               fontSize: '0.875rem',
-              fontWeight: fontWeightMedium,
+              fontWeight: fontWeightRegular,
               letterSpacing: '.2px',
               marginTop: '0.25rem',
               marginBottom: '0.5rem'

@@ -11,7 +11,7 @@ import {
 } from 'react';
 
 import { useAuthContext } from './Authentication';
-import { IFormState } from 'types/content';
+import { IRecipeChangeSet } from 'types/content';
 
 interface ICMContext {
   canSave: boolean;
@@ -19,7 +19,7 @@ interface ICMContext {
   editLoading: boolean;
   setCanSave: Dispatch<SetStateAction<boolean>>;
   saveRecipe(event: SyntheticEvent): void;
-  setRecipe: Dispatch<SetStateAction<IFormState | undefined>>;
+  setRecipe: Dispatch<SetStateAction<IRecipeChangeSet | undefined>>;
   toggleEdit(): void;
 }
 
@@ -33,7 +33,7 @@ const ContentManagementContext = createContext<ICMContext>({} as ICMContext);
 
 const ContentManagementProvider = (props: ContentManagementProps) => {
   const [editMode, setEditMode] = useState<boolean>(false);
-  const [recipe, setRecipe] = useState<IFormState | undefined>();
+  const [recipe, setRecipe] = useState<IRecipeChangeSet | undefined>();
   const [editLoading, setEditLoading] = useState<boolean>(false);
   const [canSave, setCanSave] = useState<boolean>(false);
 
@@ -47,7 +47,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
     setEditMode(!editMode);
   };
 
-  const updateEntry = async ({ recipe }: { recipe: IFormState }) => {
+  const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
     if (!isAuth || !token) {
       throw new Error('User is not authenticated.');
     }
@@ -57,6 +57,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
     }
 
     const restApi = `${contentApiUrl}/${recipe.id}`;
+    console.log(recipe);
 
     try {
       const response = await fetch(restApi, {

@@ -2,30 +2,40 @@ name: Build and Deploy
 run-name: Build and Deploy
 
 on:
-  workflow_dispatch:
   # Allows external webhook trigger with "event_type" = "publish-event"
+  # Payload should look like:
+  #   {
+  #     event_type: 'publish-event',
+  #     client_payload: {
+  #       build_branch: 'main' || { branch_id }
+  #     }
+  #   }
   repository_dispatch:
     types: [publish-event]
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.ref }}
   cancel-in-progress: true
 
 env:
-  NODE_VERSION_FILE: '.nvmrc'
   ALGOLIA_SEARCH_ADMIN_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
+  BUILD_BRANCH: ${{ github.event.client_payload.build_branch || github.ref_name }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_DEFAULT_REGION: ${{ vars.AWS_DEFAULT_REGION }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-  CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}
   CONTENTFUL_MANAGEMENT_API: ${{ vars.CONTENTFUL_MANAGEMENT_API }}
+  CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}
+  CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+  GH_WEBHOOK_URL: ${{ vars.GH_WEBHOOK_URL }}
+  GH_WEBHOOK_TOKEN: ${{ secrets.GH_WEBHOOK_TOKEN }}
   NEXT_PUBLIC_ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
-  NEXT_PUBLIC_CONTENTFUL_CONTENT_API: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
   NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: ${{ secrets.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY }}
   NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+  NEXT_PUBLIC_CONTENTFUL_CONTENT_API: https://graphql.contentful.com/content/v1/spaces/${{secrets.CONTENTFUL_SPACE_ID}}/
   NEXT_PUBLIC_CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
   NEXT_PUBLIC_SITE_URL: ${{ github.ref_name == 'main' && vars.NEXT_PUBLIC_SITE_URL || format('{0}{1}{2}', 'https://', github.ref_name, '.recipes.pliddy.com') }}
+  NODE_VERSION_FILE: '.nvmrc'
   S3_BUCKET_BASE: ${{ vars.S3_BUCKET_BASE }}
 
 jobs:
@@ -33,15 +43,18 @@ jobs:
     name: Build and Deploy Site
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        id: checkout-repo
-        uses: actions/checkout@v3
-
       - name: Display Branch Labels
         id: test-branch-labels
         run: |
           echo "github.event.ref: ${{ github.event.ref }}"
           echo "github.ref_name: ${{ github.ref_name }}"
+          echo "BUILD_BRANCH: ${{ env.BUILD_BRANCH }}"
+
+      - name: Checkout Repo
+        id: checkout-repo
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ env.BUILD_BRANCH }}
 
       - name: Setup Node
         id: setup-node

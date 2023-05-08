@@ -13,7 +13,7 @@ import {
   CognitoUserSession
 } from 'amazon-cognito-identity-js';
 
-// import { IFormState } from 'components/Recipe/RecipeEdit';
+// import { IRecipeChangeSet } from 'components/Recipe/RecipeEdit';
 
 import userPool from 'lib/userPool';
 

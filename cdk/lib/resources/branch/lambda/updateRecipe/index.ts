@@ -1,104 +1,91 @@
 import { APIGatewayEvent } from 'aws-lambda';
 
-import fetch from 'node-fetch';
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-const CONTENTFUL_MANAGEMENT_API = process.env.CONTENTFUL_MANAGEMENT_API!;
-const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
-const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
-
-const restApi = `${CONTENTFUL_MANAGEMENT_API}/spaces/${CONTENTFUL_SPACE_ID}/environments/master`;
-
-const getEntry = async ({ id }: { id: string }) => {
-  const url = `${restApi}/entries/${id}`;
-
-  try {
-    const entry = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${CONTENTFUL_MANAGEMENT_TOKEN}`
-      }
-    });
-
-    return entry.json();
-  } catch (e) {
-    console.error('GET ERROR:', e);
-    throw e;
-  }
-};
+import { getResponse, updateEntry } from '../lib/entries';
 
 export const handler = async (event: APIGatewayEvent) => {
   console.log({ event });
 
-  const { body, pathParameters, requestContext } = event;
-  const id = pathParameters && pathParameters.id!;
+  const body = event.body!;
+  const pathParameters = event.pathParameters;
+
+  const id = pathParameters?.id!;
+
+  if (event.httpMethod !== 'PUT') {
+    return getResponse({
+      statusCode: 405,
+      body: JSON.stringify({ message: `${event.httpMethod} is not allowed.` })
+    });
+  }
+
+  if (!id) {
+    return getResponse({
+      statusCode: 400,
+      body: JSON.stringify({ message: 'No recipe specified.' })
+    });
+  }
 
   if (event.httpMethod === 'PUT' && id) {
-    try {
-      const entry = await getEntry({ id });
+    const recipe = JSON.parse(body);
 
-      const response = {
-        statusCode: 200,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': true
-        },
-        body: JSON.stringify(entry)
-      };
+    console.log('index:', recipe);
 
-      console.log({ response });
+    if (recipe) {
+      try {
+        const entry = await updateEntry({ id, recipe });
 
-      return response;
-    } catch (error) {
-      const response = {
-        statusCode: 403,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': true
-        },
-        body: JSON.stringify(error)
-      };
-      console.error(error);
-      return response;
+        const response = getResponse({
+          statusCode: 200,
+          body: JSON.stringify(entry)
+        });
+
+        console.log({ response });
+
+        return response;
+      } catch (error) {
+        const response = getResponse({
+          statusCode: 500,
+          body: JSON.stringify(error)
+        });
+
+        console.error(error);
+
+        return response;
+      }
     }
   }
 
-  const response = {
+  const response = getResponse({
     statusCode: 401,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Credentials': true
-    },
     body: JSON.stringify({ message: `Recipe ${id} is not available.` })
-  };
+  });
 
   console.log({ response });
   return response;
 };
 
-// event = {
-//   resource: '/recipes/{id}',
-//   path: '/recipes/recipe_id',
-//   httpMethod: 'PUT',
-//   headers: {
-//     accept: '*/*',
-//     'accept-encoding': 'gzip, deflate, br',
-//     'accept-language': 'en-US,en;q=0.9,la;q=0.8,sk;q=0.7',
-//     Authorization: 'TOKEN',
-//     'content-type': 'text/plain;charset=UTF-8',
-//     origin: 'https://test.recipes.pliddy.com',
-//     referer: 'https://test.recipes.pliddy.com/'
+// {
+//   "resource": "/recipes/{id}",
+//   "path": "/recipes/UPi7NotPy5eJLOltfyocJ",
+//   "httpMethod": "PUT",
+//   "headers": {
+//     "accept": "*/*",
+//     "accept-encoding": "gzip, deflate, br",
+//     "accept-language": "en-US,en;q=0.9,la;q=0.8,sk;q=0.7",
+//     "Authorization": "TOKEN",
+//     "content-type": "text/plain;charset=UTF-8",
+//     "origin": "https://151-update.recipes.pliddy.com/",
+//     "referer": "https://151-update.recipes.pliddy.com//"
 //   },
-//   pathParameters: { id: 'recipe_id' },
-//   requestContext: {
-//     resourcePath: '/recipes/{id}',
-//     httpMethod: 'PUT',
-//     path: '/test/recipes/recipe_id',
-//     accountId: 'ACCOUNT_ID',
-//     protocol: 'HTTP/1.1',
-//     stage: 'test'
+//   "pathParameters": {
+//     "id": "UPi7NotPy5eJLOltfyocJ"
 //   },
-//   body: '{"name":"value"}'
-// };
+//   "requestContext": {
+//     "resourcePath": "/recipes/{id}",
+//     "httpMethod": "PUT",
+//     "path": "/prod/recipes/UPi7NotPy5eJLOltfyocJ",
+//     "accountId": "ACCOUNT_ID",
+//     "protocol": "HTTP/1.1",
+//     "stage": "test"
+//   },
+//   "body": "{ \"recipe\": { \"abstract\": \"A simple, smooth, and elegant soup made from pureed carrots and cream with the addition of a Sauce Velouté for extra silkiness.\", \"id\": \"UPi7NotPy5eJLOltfyocJ\", \"cookTime\": \"30\", \"prepTime\": \"10\", \"recipeYield\": \"2\", \"slug\": \"carrot-soup\", \"title\": \"Test Recipe\" } }"
+// }
