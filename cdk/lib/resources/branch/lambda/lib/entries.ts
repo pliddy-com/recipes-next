@@ -109,7 +109,7 @@ type RecipeObjEntries = ObjEntries<IRecipeChangeSet>;
 export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
   console.log('update:', recipe);
 
-  const id = JSON.parse(JSON.stringify(recipe)).id;
+  const id = recipe.id;
 
   console.log('update:', id);
 
