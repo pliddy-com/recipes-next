@@ -145,7 +145,9 @@ export const updateEntry = async ({ recipe }: { recipe: IRecipeChangeSet }) => {
 
     // trigger build with call to GitHub Actions webhook
 
-    callBuildWebhook();
+    const build = await callBuildWebhook();
+
+    console.log('build:', build);
 
     return entry;
   } catch (e) {
