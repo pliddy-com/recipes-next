@@ -42,7 +42,7 @@ export const createApiGateway = ({
     }
   );
 
-  const updateLambda = new NodejsFunction(stack, 'UpdateRecipeLambda', {
+  const updateLambda = new NodejsFunction(stack, 'updateRecipe', {
     // needs to reference *.ts to bundle npm modules
     entry: path.join(__dirname, 'lambda/updateRecipe/index.ts'),
     handler: 'handler',
@@ -55,10 +55,7 @@ export const createApiGateway = ({
       GH_WEBHOOK_URL: process.env.GH_WEBHOOK_URL!
     },
     bundling: {
-      nodeModules: [
-        'contentful-management'
-        // 'dotegfetch'
-      ],
+      nodeModules: ['contentful-management'],
       format: OutputFormat.ESM
     },
     runtime: Runtime.NODEJS_18_X
