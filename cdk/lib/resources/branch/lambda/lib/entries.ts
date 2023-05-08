@@ -129,7 +129,15 @@ export const updateEntry = async ({
     // map recipe values to entry fields
 
     for (const [key, value] of Object.entries(recipe)) {
-      if (key !== 'id') entry.fields[key]['en-US'] = value;
+      console.log({ key, value });
+      if (
+        key !== 'id' &&
+        entry &&
+        entry.fields &&
+        entry.fields[key] &&
+        entry.fields[key]['en-US']
+      )
+        entry.fields[key]['en-US'] = value;
     }
 
     const updated = await entry.update();
