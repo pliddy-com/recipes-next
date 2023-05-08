@@ -61,7 +61,7 @@ export const callBuildWebhook = async () => {
 
     console.log('build payload:', payload);
 
-    fetch(webhookUrl, {
+    const build = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         Accept: 'application/vnd.github+json',
@@ -70,9 +70,9 @@ export const callBuildWebhook = async () => {
       body: JSON.stringify(payload)
     });
 
-    console.log('build webhook SUCCESS:');
+    console.log('build webhook:', build);
 
-    return true;
+    return build;
   } catch (e) {
     throw e;
   }
@@ -112,10 +112,6 @@ export const updateEntry = async ({
   id: string;
   recipe: IRecipeChangeSet;
 }) => {
-  console.log('update:', recipe);
-
-  console.log('update:', id);
-
   try {
     if (!id) throw Error('No ID provided');
 
@@ -123,12 +119,11 @@ export const updateEntry = async ({
     const env = await space.getEnvironment('master');
     const entry = await env.getEntry(id);
 
-    console.log('update:', entry);
+    console.log('update entry:', entry);
 
     // map recipe values to entry fields
 
     for (const [key, value] of Object.entries(recipe)) {
-      console.log({ key, value });
       if (key !== 'id') entry.fields[key]['en-US'] = value;
     }
 
@@ -140,16 +135,18 @@ export const updateEntry = async ({
       if (key !== 'id') recipe[key] = updated.fields[key]['en-US'];
     }
 
-    console.log('updated:', recipe);
-    console.log('updated:', updated);
+    console.log('updated recipe:', recipe);
+    console.log('updated entry:', updated);
 
     const published = await updated.publish();
 
-    console.log('published:', published);
+    console.log('published entry:', published);
 
     // trigger build with call to GitHub Actions webhook
 
-    await callBuildWebhook();
+    const build = await callBuildWebhook();
+
+    console.log('update build:', build);
 
     return recipe;
   } catch (e) {
