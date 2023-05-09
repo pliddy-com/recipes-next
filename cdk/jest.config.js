@@ -4,7 +4,8 @@ module.exports = {
     '<rootDir>/**',
     '!test/**',
     '!**/*.d.ts',
-    '!**/*.json'
+    '!**/*.json',
+    '!**/*.test.*'
     // '!lib/resources/branch/lambda/**'
   ],
   // coverageThreshold: {
