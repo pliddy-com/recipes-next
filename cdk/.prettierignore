@@ -4,7 +4,7 @@ bin/*.js
 lib/**/*.js
 resources/*.js
 test/*.js
-
+**/*.js
 
 # JetBrains IDE configs
 .idea/

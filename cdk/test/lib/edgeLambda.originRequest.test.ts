@@ -1,4 +1,4 @@
-import { handler } from '../lib/resources/branch/edgeLambda.originRequest';
+import { handler } from '../../lib/resources/branch/edgeLambda.originRequest';
 
 import type { CloudFrontRequestEvent } from 'aws-lambda';
 

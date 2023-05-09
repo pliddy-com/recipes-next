@@ -3,7 +3,7 @@ import {
   Certificate,
   CertificateValidation
 } from 'aws-cdk-lib/aws-certificatemanager';
-import { HostedZone, IHostedZone } from 'aws-cdk-lib/aws-route53';
+import { IHostedZone } from 'aws-cdk-lib/aws-route53';
 import { RecipesSharedStack } from '../../recipes-shared-stack';
 
 /**
@@ -15,10 +15,9 @@ import { RecipesSharedStack } from '../../recipes-shared-stack';
  *  Generate a CloudFormation output value for the certificate ARN if it creates a certificate
  */
 
-export interface CreateCertificateProps {
+export interface ICreateCertificate {
   branch: string;
   branchSubdomain: string;
-  // domain: string;
   hostedZone: IHostedZone;
   label: string;
   stack: RecipesSharedStack;
@@ -27,16 +26,10 @@ export interface CreateCertificateProps {
 export const createCertificate = ({
   branch,
   branchSubdomain,
-  // domain,
   hostedZone,
   label,
   stack
-}: CreateCertificateProps) => {
-  // Identify the Route 53 hosted zone for the domain
-  // const hostedZone = HostedZone.fromLookup(stack, 'HostedZone', {
-  //   domainName: domain
-  // });
-
+}: ICreateCertificate) => {
   const certDomain = `*.${branchSubdomain}`;
 
   const domainName = branch === 'main' ? branchSubdomain : certDomain;
