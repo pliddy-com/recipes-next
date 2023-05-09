@@ -74,8 +74,8 @@ export const handler = async (event: APIGatewayEvent) => {
 //     "accept-language": "en-US,en;q=0.9,la;q=0.8,sk;q=0.7",
 //     "Authorization": "TOKEN",
 //     "content-type": "text/plain;charset=UTF-8",
-//     "origin": "https://152-finish-update.recipes.pliddy.com/",
-//     "referer": "https://152-finish-update.recipes.pliddy.com//"
+//     "origin": "https://153-lambda-test.recipes.pliddy.com/",
+//     "referer": "https://153-lambda-test.recipes.pliddy.com//"
 //   },
 //   "pathParameters": {
 //     "id": "UPi7NotPy5eJLOltfyocJ"
@@ -88,5 +88,5 @@ export const handler = async (event: APIGatewayEvent) => {
 //     "protocol": "HTTP/1.1",
 //     "stage": "test"
 //   },
-//   "body": "{ \"recipe\": { \"abstract\": \"A simple, smooth, and elegant soup made from pureed carrots and cream with the addition of a Sauce Velouté for extra silkiness.\", \"id\": \"UPi7NotPy5eJLOltfyocJ\", \"cookTime\": \"30\", \"prepTime\": \"10\", \"recipeYield\": \"2\", \"slug\": \"carrot-soup\", \"title\": \"Test Recipe\" } }"
+//   "body": "{ \"abstract\": \"A simple, smooth, and elegant soup made from pureed carrots and cream with the addition of a Sauce Velouté for extra silkiness.\", \"id\": \"UPi7NotPy5eJLOltfyocJ\", \"cookTime\": \"30\", \"prepTime\": \"10\", \"recipeYield\": \"2\", \"slug\": \"test-recipe\", \"title\": \"Test Recipe\" }"
 // }

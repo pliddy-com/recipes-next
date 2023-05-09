@@ -4,12 +4,12 @@ import { Template } from 'aws-cdk-lib/assertions';
 import {
   RecipesSharedStack,
   RecipesSharedStackProps
-} from '../lib/recipes-shared-stack';
+} from '../../lib/recipes-shared-stack';
 
 import {
   RecipesBranchStack,
   RecipesBranchStackProps
-} from '../lib/recipes-branch-stack';
+} from '../../lib/recipes-branch-stack';
 
 // TODO: update with API resources
 
@@ -27,6 +27,8 @@ jest.mock('contentful-management', () => {
 
 describe('RecipesSharedStack', () => {
   it('generates a shared stack for the main branch', () => {
+    console.log('shared stack');
+
     const testProps: RecipesSharedStackProps = {
       domain: 'pliddy.com',
       subdomain: 'recipes',

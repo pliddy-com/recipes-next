@@ -69,7 +69,7 @@ export const callBuildWebhook = async () => {
 
     console.log('build webhook:', build);
 
-    return build;
+    return true;
   } catch (error) {
     console.log('Build Webhook error:', error);
     throw error;

@@ -15,9 +15,6 @@ module.exports = {
   ],
   ignorePatterns: [
     '**/*.js',
-    '/bin/*.js',
-    '/lib/*.js',
-    '/resources/*.js',
     '/cdk.out/**/*.*',
     '.*rc.js',
     '**/*.d.ts',
