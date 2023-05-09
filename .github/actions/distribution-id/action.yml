@@ -1,6 +1,11 @@
 name: Distribution ID
 description: This is an action to get the CloudFront distribution id for the workflow.
 
+inputs:
+  branch:
+    description: Git branch
+    required: true
+
 outputs:
   distributionId:
     description: 'Cloudfront distribution id'
@@ -20,10 +25,7 @@ runs:
           const region = 'us-east-1';
           const cloudFormation = new CloudFormation({ apiVersion, region });
 
-          const refArray = context.ref.split('/');
-          console.log('refArray:', refArray);
-
-          const branch = refArray[refArray.length - 1];
+          const branch = '${{ inputs.branch }}'
           console.log('branch:', branch);
 
           let stackLabel;

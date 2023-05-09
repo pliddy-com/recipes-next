@@ -52,33 +52,24 @@ export const callBuildWebhook = async () => {
   try {
     if (!webhookUrl) throw new Error('Webhook URL not available.');
 
-    const payload = {
-      event_type: 'publish-event',
-      client_payload: {
-        build_branch: BUILD_BRANCH
-      }
-    };
-
-    const headers = {
-      Accept: 'application/vnd.github+json',
-      Authorization: `token ${GH_WEBHOOK_TOKEN}`,
-      'Content-Type': 'application/json'
-    };
-
-    console.log('build payload:', payload);
-    console.log('build headers:', headers);
-
     const build = await fetch(webhookUrl, {
       method: 'POST',
-      headers,
-      body: JSON.stringify(payload)
+      headers: {
+        Accept: 'application/vnd.github+json',
+        Authorization: `token ${GH_WEBHOOK_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        event_type: 'publish-event',
+        client_payload: {
+          build_branch: BUILD_BRANCH
+        }
+      })
     });
 
     console.log('build webhook:', build);
 
-    // const build = await buildResult.json();
-
-    return true;
+    return build;
   } catch (error) {
     console.log('Build Webhook error:', error);
     throw error;

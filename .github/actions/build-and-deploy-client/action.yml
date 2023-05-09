@@ -5,6 +5,9 @@ inputs:
   algoliaAppId:
     description: 'Algolia app id secret'
     required: true
+  branch:
+    description: Git branch
+    required: true
   contentApi:
     description: AWS content API url
     required: true
@@ -27,7 +30,7 @@ runs:
     - name: Build and Deploy Client
       id: build-and-deploy-client
       run: |
-        echo "branch: ${{ github.ref_name }}"
+        echo "branch: ${{ inputs.branch }}"
         echo "deployment bucket: ${{ inputs.s3Bucket }}"
         echo "distribution id: ${{ inputs.distributionId }}"
         echo "AWS content api: ${{ inputs.contentApi }}"

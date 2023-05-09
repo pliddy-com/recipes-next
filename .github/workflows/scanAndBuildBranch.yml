@@ -15,7 +15,7 @@ env:
   AWS_DEFAULT_REGION: ${{ vars.AWS_DEFAULT_REGION }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   BUILD_BRANCH: ${{ github.ref_name }}
-  # CONTENTFUL_MANAGEMENT_API: ${{ vars.CONTENTFUL_MANAGEMENT_API }}
+  CONTENTFUL_MANAGEMENT_API: ${{ vars.CONTENTFUL_MANAGEMENT_API }}
   CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}
   CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
   DEFAULT_PASSWORD: ${{ secrets.DEFAULT_PASSWORD }}
@@ -92,10 +92,14 @@ jobs:
       - name: Get Distribution ID
         id: distribution-id
         uses: './.github/actions/distribution-id'
+        with:
+          branch: ${{ github.ref_name }}
 
       - name: Get User Pool IDs
         id: user-pool-ids
         uses: './.github/actions/user-pool-ids'
+        with:
+          branch: ${{ github.ref_name }}
 
       - name: Create Default User
         id: create-default-user
@@ -109,12 +113,15 @@ jobs:
       - name: Get AWS Content API
         id: content-api
         uses: './.github/actions/content-api'
+        with:
+          branch: ${{ github.ref_name }}
 
       - name: Build and Deploy Client
         id: build-and-deploy-client
         uses: './.github/actions/build-and-deploy-client'
         with:
           algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+          branch: ${{ github.ref_name }}
           contentApi: ${{ steps.content-api.outputs.contentApi }}
           distributionId: ${{ steps.distribution-id.outputs.distributionId }}
           s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}

@@ -76,26 +76,33 @@ jobs:
         id: bucket-name
         uses: './.github/actions/bucket-name'
         with:
-          branch: ${{ github.ref_name }}
+          branch: ${{ env.BUILD_BRANCH }}
           bucketBase: ${{ vars.S3_BUCKET_BASE }}
 
       - name: Get Distribution ID
         id: distribution-id
         uses: './.github/actions/distribution-id'
+        with:
+          branch: ${{ env.BUILD_BRANCH }}
 
       - name: Get User Pool IDs
         id: user-pool-ids
         uses: './.github/actions/user-pool-ids'
+        with:
+          branch: ${{ env.BUILD_BRANCH }}
 
       - name: Get AWS Content API
         id: content-api-url
         uses: './.github/actions/content-api'
+        with:
+          branch: ${{ env.BUILD_BRANCH }}
 
       - name: Build and Deploy Client
         id: build-and-deploy-client
         uses: './.github/actions/build-and-deploy-client'
         with:
           algoliaAppId: ${{ env.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+          branch: ${{ env.BUILD_BRANCH }}
           contentApi: ${{ steps.content-api-url.outputs.contentApi }}
           distributionId: ${{ steps.distribution-id.outputs.distributionId }}
           s3Bucket: ${{ steps.bucket-name.outputs.bucketName }}
