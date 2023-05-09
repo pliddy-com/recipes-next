@@ -74,8 +74,8 @@ export const handler = async (event: APIGatewayEvent) => {
 //     "accept-language": "en-US,en;q=0.9,la;q=0.8,sk;q=0.7",
 //     "Authorization": "TOKEN",
 //     "content-type": "text/plain;charset=UTF-8",
-//     "origin": "https://151-update.recipes.pliddy.com/",
-//     "referer": "https://151-update.recipes.pliddy.com//"
+//     "origin": "https://152-finish-update.recipes.pliddy.com/",
+//     "referer": "https://152-finish-update.recipes.pliddy.com//"
 //   },
 //   "pathParameters": {
 //     "id": "UPi7NotPy5eJLOltfyocJ"

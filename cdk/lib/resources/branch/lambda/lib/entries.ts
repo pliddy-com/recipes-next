@@ -59,15 +59,18 @@ export const callBuildWebhook = async () => {
       }
     };
 
+    const headers = {
+      Accept: 'application/vnd.github+json',
+      Authorization: `token ${GH_WEBHOOK_TOKEN}`,
+      'Content-Type': 'application/json'
+    };
+
     console.log('build payload:', payload);
+    console.log('build headers:', headers);
 
     const buildResult = await fetch(webhookUrl, {
       method: 'POST',
-      headers: {
-        Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${GH_WEBHOOK_TOKEN}`,
-        'Content-Type': 'application/json'
-      },
+      headers,
       body: JSON.stringify(payload)
     });
 
@@ -76,8 +79,9 @@ export const callBuildWebhook = async () => {
     const build = await buildResult.json();
 
     return build;
-  } catch (e) {
-    throw e;
+  } catch (error) {
+    console.log('Build Webhook error:', error);
+    throw error;
   }
 };
 
@@ -92,9 +96,9 @@ export const getEntry = async ({ id }: { id: string }) => {
     const entry = await env.getEntry(id);
 
     return entry;
-  } catch (e) {
-    console.error('GET ERROR:', e);
-    throw e;
+  } catch (error) {
+    console.error('GET ERROR:', error);
+    throw error;
   }
 };
 
