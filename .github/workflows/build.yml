@@ -1,5 +1,5 @@
-name: Build and Deploy
-run-name: Build and Deploy
+name: Build and Deploy Site
+run-name: Build and Deploy Site
 
 on:
   # Allows external webhook trigger with "event_type" = "publish-event"
