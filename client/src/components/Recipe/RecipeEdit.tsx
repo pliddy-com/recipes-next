@@ -15,6 +15,7 @@ import EquipmentSection from 'components/Recipe/RecipeSections/EquipmentSection/
 import IngredientsSection from 'components/Recipe/RecipeSections/IngredientsSection/IngredientsSection';
 import InputAdornment from '@mui/material/InputAdornment';
 import InstructionsSection from 'components/Recipe/RecipeSections/InstructionsSection/InstructionsSection';
+import Loading from 'components/Loading/Loading';
 import NotesSection from 'components/Recipe/RecipeSections/NotesSection/NotesSection';
 import RichText from 'components/RichText/RichText';
 import TagsSection from 'components/Recipe/RecipeSections/TagsSection/TagsSection';
@@ -72,7 +73,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     title: title || ''
   };
 
-  const { setCanSave, setRecipe } = useContentManagementContext();
+  const { editLoading, setCanSave, setRecipe } = useContentManagementContext();
 
   const [formData, setFormData] = useState<IRecipeChangeSet>(defaultState);
 
@@ -119,8 +120,10 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
 
   // const richTextOutput = documentToPlainTextString(json);
 
+  if (editLoading) return <Loading />;
+
   return content ? (
-    <Box data-testid="RecipeEdit">
+    <Box data-testid="RecipeEdit" className="recipe-edit">
       <TextField
         className="field bold"
         id="title"

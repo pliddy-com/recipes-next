@@ -122,6 +122,37 @@ describe('Recipe', () => {
     });
   });
 
+  describe('when editLoading is true', () => {
+    it('displays the Loading component', async () => {
+      const content = await api.getRecipePage();
+
+      const contextValues = {
+        canSave: false,
+        editMode: false,
+        editLoading: true,
+        setCanSave: jest.fn(),
+        saveRecipe: jest.fn(),
+        setRecipe: jest.fn(),
+        toggleEdit: jest.fn()
+      };
+
+      jest
+        .spyOn(ContentManagementContext, 'useContentManagementContext')
+        .mockImplementationOnce(() => contextValues);
+
+      const { asFragment, queryByRole } = render(
+        <RecipeEdit content={content as unknown as RecipeDefaultFragment} />
+      );
+
+      // assert that an SVG with an aria role of 'graphics-symbol' exists
+      const component = queryByRole('graphics-symbol', { name: 'spinner' });
+      expect(component).toBeInTheDocument();
+
+      // assert that the component matches the existing snapshot
+      expect(asFragment()).toMatchSnapshot();
+    });
+  });
+
   describe('when there is no page content', () => {
     it('it does not render the Recipe', () => {
       const content = undefined;

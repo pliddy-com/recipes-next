@@ -7,11 +7,11 @@ import contentful from 'contentful-management';
  *  Environment variables
  */
 
-const BUILD_BRANCH = process.env.BUILD_BRANCH;
+const BUILD_BRANCH = process.env.BUILD_BRANCH!;
 const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
 const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
-const GH_WEBHOOK_TOKEN = process.env.GITHUB_WEBHOOK_TOKEN;
-const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL;
+const GH_WEBHOOK_TOKEN = process.env.GH_WEBHOOK_TOKEN!;
+const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL!;
 
 /**
  *  Contentful client
@@ -43,7 +43,7 @@ export const getResponse = ({
 };
 
 /**
- *  POST to GitHub Actions webhook
+ *  POST to GitHub Actions build webhook
  */
 
 export const callBuildWebhook = async () => {
@@ -52,11 +52,12 @@ export const callBuildWebhook = async () => {
   try {
     if (!webhookUrl) throw new Error('Webhook URL not available.');
 
-    const response = fetch(webhookUrl, {
+    const build = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${GH_WEBHOOK_TOKEN}`
+        Authorization: `token ${GH_WEBHOOK_TOKEN}`,
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         event_type: 'publish-event',
@@ -66,11 +67,12 @@ export const callBuildWebhook = async () => {
       })
     });
 
-    const res = (await response).json();
+    console.log('build webhook:', build);
 
-    return res;
-  } catch (e) {
-    throw e;
+    return build;
+  } catch (error) {
+    console.log('Build Webhook error:', error);
+    throw error;
   }
 };
 
@@ -85,9 +87,9 @@ export const getEntry = async ({ id }: { id: string }) => {
     const entry = await env.getEntry(id);
 
     return entry;
-  } catch (e) {
-    console.error('GET ERROR:', e);
-    throw e;
+  } catch (error) {
+    console.error('GET ERROR:', error);
+    throw error;
   }
 };
 
@@ -108,10 +110,6 @@ export const updateEntry = async ({
   id: string;
   recipe: IRecipeChangeSet;
 }) => {
-  console.log('update:', recipe);
-
-  console.log('update:', id);
-
   try {
     if (!id) throw Error('No ID provided');
 
@@ -119,12 +117,11 @@ export const updateEntry = async ({
     const env = await space.getEnvironment('master');
     const entry = await env.getEntry(id);
 
-    console.log('update:', entry);
+    console.log('update entry:', entry);
 
     // map recipe values to entry fields
 
     for (const [key, value] of Object.entries(recipe)) {
-      console.log({ key, value });
       if (key !== 'id') entry.fields[key]['en-US'] = value;
     }
 
@@ -136,18 +133,18 @@ export const updateEntry = async ({
       if (key !== 'id') recipe[key] = updated.fields[key]['en-US'];
     }
 
-    console.log('updated:', recipe);
-    console.log('updated:', updated);
+    console.log('updated recipe:', recipe);
+    console.log('updated entry:', updated);
 
     const published = await updated.publish();
 
-    console.log('published:', published);
+    console.log('published entry:', published);
 
     // trigger build with call to GitHub Actions webhook
 
     const build = await callBuildWebhook();
 
-    console.log('build:', build);
+    console.log('update build:', build);
 
     return recipe;
   } catch (e) {

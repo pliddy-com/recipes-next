@@ -13,6 +13,10 @@ const pageThemeOptions: ThemeOptions = {
         root: {
           '&.page': {
             backgroundColor: baseTheme.palette.common.white,
+            height: '100%',
+            minHeight: '100%',
+            display: 'flex',
+            flexDirection: 'column',
             paddingBottom: '3rem',
             paddingTop: '5.25rem',
             '&.auth': {
@@ -55,18 +59,9 @@ const pageThemeOptions: ThemeOptions = {
                 '& .MuiTypography-h1': {
                   flexGrow: 1
                 },
-                '& .edit-box': {
-                  alignItems: 'center',
-                  borderBottom: `1px solid ${baseTheme.palette.secondary.main}`,
-                  display: 'flex',
-                  marginBottom: '10.5px'
-                },
                 '&.sub': {
                   '& .MuiTypography-h2': {
                     flexGrow: 1
-                  },
-                  '& .edit-box': {
-                    marginBottom: '8px'
                   }
                 }
               },
@@ -155,13 +150,18 @@ const pageThemeOptions: ThemeOptions = {
                   }
                 }
               }
+            },
+            '& .recipe-edit': {
+              marginTop: '0.5rem'
             }
           },
           '&.loading': {
             alignItems: 'center',
             display: 'flex',
-            height: '100vh',
-            justifyContent: 'center'
+            flex: 1,
+            height: '75vh',
+            justifyContent: 'center',
+            minHeight: '75vh'
           }
         }
       }

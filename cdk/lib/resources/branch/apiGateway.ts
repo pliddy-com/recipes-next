@@ -18,6 +18,7 @@ import { Runtime } from 'aws-cdk-lib/aws-lambda';
 
 import dotenv from 'dotenv';
 import path from 'path';
+import { Duration } from 'aws-cdk-lib';
 
 dotenv.config();
 
@@ -48,7 +49,7 @@ export const createApiGateway = ({
     handler: 'handler',
     environment: {
       BUILD_BRANCH: process.env.BUILD_BRANCH!,
-      CONTENTFUL_MANAGEMENT_API: process.env.CONTENTFUL_MANAGEMENT_API!,
+      // CONTENTFUL_MANAGEMENT_API: process.env.CONTENTFUL_MANAGEMENT_API!,
       CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID!,
       CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!,
       GH_WEBHOOK_TOKEN: process.env.GH_WEBHOOK_TOKEN!,
@@ -58,7 +59,8 @@ export const createApiGateway = ({
       nodeModules: ['contentful-management'],
       format: OutputFormat.ESM
     },
-    runtime: Runtime.NODEJS_18_X
+    runtime: Runtime.NODEJS_18_X,
+    timeout: Duration.seconds(30)
   });
 
   const api = new RestApi(stack, 'ApiGateway', {
