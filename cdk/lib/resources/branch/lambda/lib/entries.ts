@@ -68,17 +68,17 @@ export const callBuildWebhook = async () => {
     console.log('build payload:', payload);
     console.log('build headers:', headers);
 
-    const buildResult = await fetch(webhookUrl, {
+    const build = await fetch(webhookUrl, {
       method: 'POST',
       headers,
       body: JSON.stringify(payload)
     });
 
-    console.log('build webhook:', buildResult);
+    console.log('build webhook:', build);
 
-    const build = await buildResult.json();
+    // const build = await buildResult.json();
 
-    return build;
+    return true;
   } catch (error) {
     console.log('Build Webhook error:', error);
     throw error;
