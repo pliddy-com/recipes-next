@@ -49,7 +49,7 @@ export const createApiGateway = ({
     handler: 'handler',
     environment: {
       BUILD_BRANCH: process.env.BUILD_BRANCH!,
-      CONTENTFUL_MANAGEMENT_API: process.env.CONTENTFUL_MANAGEMENT_API!,
+      // CONTENTFUL_MANAGEMENT_API: process.env.CONTENTFUL_MANAGEMENT_API!,
       CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID!,
       CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!,
       GH_WEBHOOK_TOKEN: process.env.GH_WEBHOOK_TOKEN!,
