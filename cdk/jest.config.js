@@ -16,7 +16,7 @@ module.exports = {
   //     statements: 100
   //   }
   // },
-  roots: ['<rootDir>/test', '<rootDir>/lib'],
+  roots: ['<rootDir>/test', '<rootDir>/lib', '<rootDir>/bin'],
   testEnvironment: 'node',
   testPathIgnorePatterns: [],
   testMatch: ['**/*.test.ts'],

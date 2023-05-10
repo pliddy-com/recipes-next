@@ -1,14 +1,13 @@
 import fetch from 'node-fetch';
 
 import { IRecipeChangeSet } from './types';
-import contentful from 'contentful-management';
 
+import { getClient } from './contentful';
 /**
  *  Environment variables
  */
 
 const BUILD_BRANCH = process.env.BUILD_BRANCH!;
-const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
 const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
 const GH_WEBHOOK_TOKEN = process.env.GH_WEBHOOK_TOKEN!;
 const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL!;
@@ -17,9 +16,7 @@ const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL!;
  *  Contentful client
  */
 
-const client = contentful.createClient({
-  accessToken: CONTENTFUL_MANAGEMENT_TOKEN
-});
+const client = getClient();
 
 /**
  *  Standardized response with required CORS headers
