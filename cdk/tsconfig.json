@@ -28,7 +28,8 @@
     "test/**/*.test.ts",
     "lib/resources",
     "test/updateRecipe",
-    "test/bin/recipes-aws.xxx.ts"
+    "test/bin/recipes-aws.xxx.ts",
+    "test/lib/edgeLambda.originRequest.xxx.ts"
   ],
-  "exclude": ["node_modules", "cdk.out"]
+  "exclude": ["node_modules", "cdk.out", "**/__mocks__/*"]
 }

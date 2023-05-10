@@ -1,5 +1,5 @@
-import 'node-fetch';
-import * as contentful from 'contentful-management';
+import * as fetch from 'node-fetch';
+import client from './contentful';
 
 import {
   callBuildWebhook,
@@ -19,25 +19,7 @@ const fields = {
 };
 
 jest.mock('node-fetch', () => jest.fn().mockResolvedValue({}));
-
-jest.mock('contentful-management', () => ({
-  ...jest.requireActual('contentful-management'),
-  createClient: jest.fn().mockImplementation(() => ({
-    getSpace: jest.fn().mockImplementation(() => ({
-      getEnvironment: jest.fn().mockImplementation(() => ({
-        getEntry: jest.fn().mockImplementation(() => ({
-          fields,
-          update: jest.fn().mockImplementation(() => ({
-            fields,
-            publish: jest.fn().mockImplementation(() => ({
-              fields
-            }))
-          }))
-        }))
-      }))
-    }))
-  }))
-}));
+jest.mock('./contentful');
 
 const env = process.env;
 
@@ -53,6 +35,7 @@ describe('in entries.ts', () => {
 
   afterEach(() => {
     process.env = env;
+    jest.resetModules();
   });
 
   describe('when getResponse() is called', () => {
@@ -82,15 +65,64 @@ describe('in entries.ts', () => {
     });
   });
 
+  describe('when callBuldHook() throws an error', () => {
+    it('it handles the error', async () => {
+      const mockFetch = Promise.reject({
+        status: 400,
+        json: jest.fn().mockResolvedValue({
+          success: false,
+          error: 'Fetch returned an error.'
+        })
+      });
+
+      const fetchSpy = jest
+        .spyOn(fetch, 'default')
+        .mockImplementationOnce(() => mockFetch);
+
+      try {
+        await callBuildWebhook();
+      } catch (e) {
+        console.log({ e });
+        expect(e).toBeDefined();
+      }
+
+      expect(fetchSpy).toBeCalled();
+    });
+  });
+
   describe('when getEntry() is called', () => {
-    const entrySpy = jest.spyOn(contentful, 'createClient');
-
     it('it returns an entry from contentful', async () => {
-      const expected = fields;
-
       const res = await getEntry({ id: 'ID' });
 
-      expect(res.fields).toEqual(expected);
+      console.log('getEntry', { res });
+
+      expect(res.fields).toEqual(fields);
+    });
+  });
+
+  describe('when getEntry() throws an error', () => {
+    const restore = client.getSpace;
+
+    afterEach(() => {
+      client.getSpace = restore;
+    });
+
+    it('it handles the error', async () => {
+      const error = new Error('fail');
+
+      client.getSpace = jest.fn().mockImplementationOnce(() => ({
+        getEnvironment: jest.fn().mockImplementationOnce(() => ({
+          getEntry: jest.fn().mockRejectedValueOnce(error)
+        }))
+      }));
+
+      try {
+        await getEntry({ id: 'ID' });
+      } catch (e) {
+        console.log('getEntry ERROR:', { e });
+        expect(e).toBeDefined();
+        expect(e).toBe(error);
+      }
     });
   });
 
@@ -108,6 +140,8 @@ describe('in entries.ts', () => {
       };
 
       const res = await updateEntry({ id, recipe });
+
+      console.log('updateEntry', res);
 
       expect(res).toEqual(recipe);
     });

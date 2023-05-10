@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
-import contentful from 'contentful-management';
+
+import client from './contentful';
 
 import { IRecipeChangeSet } from './types';
 
@@ -11,18 +12,9 @@ dotenv.config();
  */
 
 const BUILD_BRANCH = process.env.BUILD_BRANCH!;
-const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
 const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
 const GH_WEBHOOK_TOKEN = process.env.GH_WEBHOOK_TOKEN!;
 const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL!;
-
-/**
- *  Contentful client
- */
-
-const client = contentful.createClient({
-  accessToken: CONTENTFUL_MANAGEMENT_TOKEN
-});
 
 /**
  *  Standardized response with required CORS headers
@@ -72,7 +64,7 @@ export const callBuildWebhook = async () => {
 
     return true;
   } catch (error) {
-    console.log('Build Webhook error:', error);
+    console.error('Build Webhook error:', error);
     throw error;
   }
 };
