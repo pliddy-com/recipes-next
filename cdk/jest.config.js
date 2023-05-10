@@ -1,7 +1,8 @@
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
-    '<rootDir>/**',
+    '<rootDir>/lib/**',
+    '<rootDir>/bin/**',
     '!test/**',
     '!**/*.d.ts',
     '!**/*.json',

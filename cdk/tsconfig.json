@@ -27,7 +27,8 @@
     "lib",
     "test/**/*.test.ts",
     "lib/resources",
-    "test/updateRecipe"
+    "test/updateRecipe",
+    "test/bin/recipes-aws.xxx.ts"
   ],
   "exclude": ["node_modules", "cdk.out"]
 }

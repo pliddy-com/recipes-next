@@ -1,13 +1,17 @@
 import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+import contentful from 'contentful-management';
 
 import { IRecipeChangeSet } from './types';
 
-import { getClient } from './contentful';
+dotenv.config();
+
 /**
  *  Environment variables
  */
 
 const BUILD_BRANCH = process.env.BUILD_BRANCH!;
+const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
 const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
 const GH_WEBHOOK_TOKEN = process.env.GH_WEBHOOK_TOKEN!;
 const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL!;
@@ -16,7 +20,9 @@ const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL!;
  *  Contentful client
  */
 
-const client = getClient();
+const client = contentful.createClient({
+  accessToken: CONTENTFUL_MANAGEMENT_TOKEN
+});
 
 /**
  *  Standardized response with required CORS headers
@@ -44,12 +50,10 @@ export const getResponse = ({
  */
 
 export const callBuildWebhook = async () => {
-  const webhookUrl = GH_WEBHOOK_URL;
-
   try {
-    if (!webhookUrl) throw new Error('Webhook URL not available.');
+    if (!GH_WEBHOOK_URL) throw new Error('Webhook URL not available.');
 
-    const build = await fetch(webhookUrl, {
+    const build = await fetch(GH_WEBHOOK_URL, {
       method: 'POST',
       headers: {
         Accept: 'application/vnd.github+json',
