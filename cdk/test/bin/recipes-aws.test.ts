@@ -27,8 +27,6 @@ jest.mock('contentful-management', () => {
 
 describe('RecipesSharedStack', () => {
   it('generates a shared stack for the main branch', () => {
-    console.log('shared stack');
-
     const testProps: RecipesSharedStackProps = {
       domain: 'pliddy.com',
       subdomain: 'recipes',
