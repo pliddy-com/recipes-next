@@ -13,8 +13,6 @@ dotenv.config();
 
 const BUILD_BRANCH = process.env.BUILD_BRANCH!;
 const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
-const GH_WEBHOOK_TOKEN = process.env.GH_WEBHOOK_TOKEN!;
-const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL!;
 
 /**
  *  Standardized response with required CORS headers
@@ -43,6 +41,9 @@ export const getResponse = ({
 
 export const callBuildWebhook = async () => {
   try {
+    const GH_WEBHOOK_TOKEN = process.env.GH_WEBHOOK_TOKEN!;
+    const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL!;
+
     if (!GH_WEBHOOK_URL) throw new Error('Webhook URL not available.');
 
     const build = await fetch(GH_WEBHOOK_URL, {
@@ -59,8 +60,6 @@ export const callBuildWebhook = async () => {
         }
       })
     });
-
-    console.log('build webhook:', build);
 
     return true;
   } catch (error) {
@@ -104,7 +103,7 @@ export const updateEntry = async ({
   recipe: IRecipeChangeSet;
 }) => {
   try {
-    if (!id) throw Error('No ID provided');
+    if (!id) throw Error('No ID provided.');
 
     const space = await client.getSpace(CONTENTFUL_SPACE_ID);
     const env = await space.getEnvironment('master');

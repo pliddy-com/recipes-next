@@ -1,5 +1,7 @@
 import * as fetch from 'node-fetch';
 import client from './contentful';
+import dotenv from 'dotenv';
+dotenv.config();
 
 import {
   callBuildWebhook,
@@ -7,6 +9,18 @@ import {
   getResponse,
   updateEntry
 } from './entries';
+
+const id = 'ID';
+
+const recipe = {
+  abstract: 'abstract',
+  cookTime: 30,
+  id: 'ID',
+  prepTime: 15,
+  recipeYield: 4,
+  slug: 'slug',
+  title: 'title'
+};
 
 const fields = {
   abstract: { 'en-US': 'abstract' },
@@ -21,20 +35,8 @@ const fields = {
 jest.mock('node-fetch', () => jest.fn().mockResolvedValue({}));
 jest.mock('./contentful');
 
-const env = process.env;
-
 describe('in entries.ts', () => {
   beforeEach(() => {
-    jest.resetModules();
-
-    process.env = {
-      ...env,
-      GH_WEBHOOK_URL: 'https://test.webhook.com'
-    };
-  });
-
-  afterEach(() => {
-    process.env = env;
     jest.resetModules();
   });
 
@@ -58,92 +60,160 @@ describe('in entries.ts', () => {
     });
   });
 
-  describe('when callBuildWebhook() is called', () => {
-    it('it returns true on success', async () => {
-      const result = await callBuildWebhook();
-      expect(result).toEqual(true);
+  describe('for callBuildWebhook()', () => {
+    describe('when callBuildWebhook() is called', () => {
+      it('it returns true on success', async () => {
+        const result = await callBuildWebhook();
+        expect(result).toEqual(true);
+      });
     });
-  });
 
-  describe('when callBuldHook() throws an error', () => {
-    it('it handles the error', async () => {
-      const mockFetch = Promise.reject({
-        status: 400,
-        json: jest.fn().mockResolvedValue({
-          success: false,
-          error: 'Fetch returned an error.'
-        })
+    describe('when there is no webhook url', () => {
+      const env = process.env;
+
+      beforeEach(() => {
+        process.env = {
+          ...env
+        };
+        delete process.env.GH_WEBHOOK_URL;
+
+        jest.spyOn(console, 'error').mockImplementation(() => {});
       });
 
-      const fetchSpy = jest
-        .spyOn(fetch, 'default')
-        .mockImplementationOnce(() => mockFetch);
+      afterEach(() => {
+        process.env = env;
+      });
 
-      try {
-        await callBuildWebhook();
-      } catch (e) {
-        console.log({ e });
-        expect(e).toBeDefined();
-      }
+      it('it throws an error', async () => {
+        const error = new Error('Webhook URL not available.');
 
-      expect(fetchSpy).toBeCalled();
+        try {
+          await await callBuildWebhook();
+        } catch (err) {
+          expect(err).toEqual(error);
+        }
+      });
+    });
+
+    describe('when fetch throws an error', () => {
+      beforeEach(() => {
+        jest.spyOn(console, 'error').mockImplementation(() => {});
+      });
+
+      it('it handles the error', async () => {
+        const mockFetch = Promise.reject({
+          status: 400,
+          json: jest.fn().mockResolvedValue({
+            success: false,
+            error: 'Fetch returned an error.'
+          })
+        });
+
+        const fetchSpy = jest
+          .spyOn(fetch, 'default')
+          .mockImplementationOnce(() => mockFetch);
+
+        try {
+          await callBuildWebhook();
+        } catch (e) {
+          expect(e).toBeDefined();
+        }
+
+        expect(fetchSpy).toBeCalled();
+      });
     });
   });
 
-  describe('when getEntry() is called', () => {
-    it('it returns an entry from contentful', async () => {
-      const res = await getEntry({ id: 'ID' });
-
-      console.log('getEntry', { res });
-
-      expect(res.fields).toEqual(fields);
-    });
-  });
-
-  describe('when getEntry() throws an error', () => {
-    const restore = client.getSpace;
-
-    afterEach(() => {
-      client.getSpace = restore;
+  describe('for getEntry()', () => {
+    describe('when getEntry() is called', () => {
+      it('it returns an entry from contentful', async () => {
+        const res = await getEntry({ id });
+        expect(res.fields).toEqual(fields);
+      });
     });
 
-    it('it handles the error', async () => {
-      const error = new Error('fail');
+    describe('when getEntry() throws an error', () => {
+      const restoreSpace = client.getSpace;
 
-      client.getSpace = jest.fn().mockImplementationOnce(() => ({
-        getEnvironment: jest.fn().mockImplementationOnce(() => ({
-          getEntry: jest.fn().mockRejectedValueOnce(error)
-        }))
-      }));
+      beforeEach(() => {
+        jest.spyOn(console, 'error').mockImplementation(() => {});
+      });
 
-      try {
-        await getEntry({ id: 'ID' });
-      } catch (e) {
-        console.log('getEntry ERROR:', { e });
-        expect(e).toBeDefined();
-        expect(e).toBe(error);
-      }
+      afterEach(() => {
+        client.getSpace = restoreSpace;
+      });
+
+      it('it handles the error', async () => {
+        const error = new Error('fail');
+
+        client.getSpace = jest.fn().mockImplementationOnce(() => ({
+          getEnvironment: jest.fn().mockImplementationOnce(() => ({
+            getEntry: jest.fn().mockRejectedValueOnce(error)
+          }))
+        }));
+
+        try {
+          await getEntry({ id });
+        } catch (err) {
+          expect(err).toBeDefined();
+          expect(err).toBe(error);
+        }
+      });
     });
-  });
 
-  describe('when updateEntry() is called', () => {
-    it('it returns the updated recipe properties', async () => {
-      const id = 'ID';
-      const recipe = {
-        abstract: 'abstract',
-        cookTime: 30,
-        id: 'ID',
-        prepTime: 15,
-        recipeYield: 4,
-        slug: 'slug',
-        title: 'title'
-      };
+    describe('for updateEntry()', () => {
+      describe('when updateEntry() is called', () => {
+        it('it returns the updated recipe properties', async () => {
+          const res = await updateEntry({ id, recipe });
+          expect(res).toEqual(recipe);
+        });
+      });
 
-      const res = await updateEntry({ id, recipe });
+      describe('when there is no id', () => {
+        beforeEach(() => {
+          jest.spyOn(console, 'error').mockImplementation(() => {});
+        });
 
-      console.log('updateEntry', res);
+        it('it throws an error', async () => {
+          const error = new Error('No ID provided.');
 
-      expect(res).toEqual(recipe);
+          try {
+            await updateEntry({ id: undefined as unknown as string, recipe });
+          } catch (err) {
+            expect(err).toBeDefined();
+            expect(err).toEqual(error);
+          }
+        });
+      });
+    });
+
+    describe('when updateEntry() throws an error', () => {
+      const restoreSpace = client.getSpace;
+
+      beforeEach(() => {
+        jest.spyOn(console, 'error').mockImplementation(() => {});
+      });
+
+      afterEach(() => {
+        client.getSpace = restoreSpace;
+      });
+
+      it('it handles the error', async () => {
+        const error = new Error('fail');
+
+        client.getSpace = jest.fn().mockImplementationOnce(() => ({
+          getEnvironment: jest.fn().mockImplementationOnce(() => ({
+            getEntry: jest.fn().mockRejectedValueOnce(error)
+          }))
+        }));
+
+        try {
+          await updateEntry({ id, recipe });
+        } catch (err) {
+          expect(err).toBeDefined();
+          expect(err).toBe(error);
+        }
+      });
     });
   });
 });
