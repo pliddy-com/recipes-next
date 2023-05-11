@@ -35,6 +35,8 @@ const fields = {
 jest.mock('node-fetch', () => jest.fn().mockResolvedValue({}));
 jest.mock('./contentful');
 
+jest.spyOn(console, 'log').mockImplementation(() => {});
+
 describe('in entries.ts', () => {
   beforeEach(() => {
     jest.resetModules();
