@@ -17,6 +17,7 @@ module.exports = {
   //     statements: 100
   //   }
   // },
+  // modulePathIgnorePatterns: ['**/__mocks__'],
   roots: ['<rootDir>/test', '<rootDir>/lib', '<rootDir>/bin'],
   testEnvironment: 'node',
   testPathIgnorePatterns: [],

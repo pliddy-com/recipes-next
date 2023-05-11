@@ -4,6 +4,7 @@
 bin/**/*.js
 lib/**/*.js
 *.d.ts
+!**/__mocks__/*.js
 
 # CDK asset staging directory
 .cdk.staging
