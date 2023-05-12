@@ -27,6 +27,7 @@ describe('TagListSchema', () => {
   afterEach(() => {
     process.env = env;
   });
+
   describe('when there is content', () => {
     it('it renders the component', async () => {
       const tags = await api.getTagIndex({});

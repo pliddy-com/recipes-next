@@ -28,7 +28,6 @@ There is a collection of npm scripts in the root `package.json` file that are us
 #### Quality Control Scanning Scripts
 
 - `scan` - runs typecheck, linting, and unit testing on all workspaces
-- `scan:local` - runs quality control scans referencing a local `.env` file
 
 #### Linting Scripts
 
@@ -84,7 +83,6 @@ There is a collection of npm scripts in the root `package.json` file that are us
 - `deploy` - deploys a branch-specific stack of AWS resources
 - `deploy:shared` - deploys a shared stack of AWS resoursed for the `dev` or `prod` environment
 - `destroy` - removes the AWS resources for the branch-specific stack (for use with GitHub Actions)
-- `destroy:local` - removes the AWS resources for the branch-specific stack (for use in the local development environment)
 - `destroy:shared` - removes the shared AWS resources for an environment
 
 ### Unit Testing

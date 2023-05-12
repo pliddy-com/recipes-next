@@ -1,25 +1,18 @@
 import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+
+import client from './contentful';
 
 import { IRecipeChangeSet } from './types';
-import contentful from 'contentful-management';
+
+dotenv.config();
 
 /**
  *  Environment variables
  */
 
 const BUILD_BRANCH = process.env.BUILD_BRANCH!;
-const CONTENTFUL_MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN!;
 const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID!;
-const GH_WEBHOOK_TOKEN = process.env.GH_WEBHOOK_TOKEN!;
-const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL!;
-
-/**
- *  Contentful client
- */
-
-const client = contentful.createClient({
-  accessToken: CONTENTFUL_MANAGEMENT_TOKEN
-});
 
 /**
  *  Standardized response with required CORS headers
@@ -47,12 +40,13 @@ export const getResponse = ({
  */
 
 export const callBuildWebhook = async () => {
-  const webhookUrl = GH_WEBHOOK_URL;
-
   try {
-    if (!webhookUrl) throw new Error('Webhook URL not available.');
+    const GH_WEBHOOK_TOKEN = process.env.GH_WEBHOOK_TOKEN!;
+    const GH_WEBHOOK_URL = process.env.GH_WEBHOOK_URL!;
 
-    const build = await fetch(webhookUrl, {
+    if (!GH_WEBHOOK_URL) throw new Error('Webhook URL not available.');
+
+    const build = await fetch(GH_WEBHOOK_URL, {
       method: 'POST',
       headers: {
         Accept: 'application/vnd.github+json',
@@ -67,11 +61,9 @@ export const callBuildWebhook = async () => {
       })
     });
 
-    console.log('build webhook:', build);
-
     return true;
   } catch (error) {
-    console.log('Build Webhook error:', error);
+    console.error('Build Webhook error:', error);
     throw error;
   }
 };
@@ -111,7 +103,7 @@ export const updateEntry = async ({
   recipe: IRecipeChangeSet;
 }) => {
   try {
-    if (!id) throw Error('No ID provided');
+    if (!id) throw Error('No ID provided.');
 
     const space = await client.getSpace(CONTENTFUL_SPACE_ID);
     const env = await space.getEnvironment('master');
