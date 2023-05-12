@@ -54,7 +54,7 @@ The technology stack for this project is built using:
 
 - <a href="https://www.algolia.com/" target="_blank"><strong>Algolia</strong></a> for headless site search
 
-- <a href="https://www.typescriptlang.org/" target="_blank"><strong>Typescript</strong></a> for type definition
+- <a href="https://www.typescriptlang.org/" target="_blank"><strong>Typescript</strong></a> for client type definition
 
 - <a href="https://jestjs.io/" target="_blank"><strong>Jest</strong></a> with <a href="https://testing-library.com/docs/react-testing-library/intro/" target="_blank">React Testing Library</a> for unit tests
 
@@ -62,9 +62,9 @@ The technology stack for this project is built using:
 
 - <a href="https://mui.com/" target="_blank"><strong>Material UI</strong></a> with a custom theme
 
-- <a href="https://aws.amazon.com/cdk/" target="_blank"><strong>AWS Cloud Development Kit (CDK)</strong></a> for serverless deployment of identical environments on a global content delivery network (CDN) using <a href="https://aws.amazon.com/s3/" target="_blank">AWS S3</a> and <a href="https://aws.amazon.com/cloudfront/" target="_blank">Cloudfront</a> with <a href="https://aws.amazon.com/lambda/edge/" target="_blank">lambda@edge</a> for middleware functions and <a href="https://aws.amazon.com/cognito/">Cognito</a> for user authentication
+- <a href="https://aws.amazon.com/cdk/" target="_blank"><strong>AWS Cloud Development Kit (CDK)</strong></a> for serverless deployment of identical environments on a global content delivery network (CDN) using <a href="https://aws.amazon.com/s3/" target="_blank">AWS S3</a> and <a href="https://aws.amazon.com/cloudfront/" target="_blank">Cloudfront</a> with <a href="https://aws.amazon.com/lambda/edge/" target="_blank">lambda@edge</a> for middleware functions and <a href="https://aws.amazon.com/cognito/">Cognito</a> for user authentication with <a href="https://aws.amazon.com/api-gateway/" target="_blank">API Gateway</a> and <a href="https://aws.amazon.com/lambda" target="_blank">Lambda</a> functions for a secure API
 
-- <a href="https://docs.github.com/en/actions" target="_blank"><strong>GitHub Actions</strong></a> as a CI/CD pipeline for code quality scans, build processes, and deployment automation
+- <a href="https://docs.github.com/en/actions" target="_blank"><strong>GitHub Actions</strong></a> as a CI/CD pipeline for code quality scans, build processes, and deployment automation with webhooks to trigger actions from other resources
 
 - <a href="https://openai.com/blog/chatgpt" target="\_blank"><strong>ChatGPT</strong></a> for generation of realistic placeholder content for testing SEO performance.
 
@@ -91,6 +91,7 @@ recipes-next
  |
  |_ .github            # directory for github-specific resources
  |   |
+ |   |_ actions        # contains .yml files defining re-usable actions
  |   |_ workflows      # contains .yml files defining Github Actions workflows
  |
  |_ cdk                # npm workspace defining the AWS CDK project for IAC
@@ -109,6 +110,7 @@ recipes-next
  |   |_ .env           # local environment variables used by the NextJs app
  |   |_ package.json   # definition of the 'cdk' workspace, including npm scripts & dependencies
  |
+ |_ .env               # top-level environment variables used across workspaces and by GitHub Actions
  |_ package-lock.json  # lock file for shared package dependencies
  |_ package.json       # repository-level definition of the project, including shared dependencies and npm scripts that execute on all workspaces
 ```
@@ -119,7 +121,10 @@ The root level of the monorepo contains a package.json file with npm packages sh
 
 ```bash
 # Contentful api credentials
-NEXT_PUBLIC_CONTENTFUL_SPACE_ID={CONTENTFUL_SPACE_ID}
+CONTENTFUL_SPACE_ID={CONTENTFUL_SPACE_ID}
+CONTENTFUL_MANAGEMENT_TOKEN={CONTENTFUL_MANAGEMENT_TOKEN}
+CONTENTFUL_MANAGEMENT_API=https://api.contentful.com
+
 NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN={CONTENTFUL_ACCESS_TOKEN}
 NEXT_PUBLIC_CONTENTFUL_CONTENT_API={API_ENDPOINT}
 
@@ -149,18 +154,24 @@ Before running the application, a local `.env` file should be created at the roo
 NEXT_PUBLIC_SITE_URL=https://recipes.pliddy.com
 
 # Contentful api credentials
-NEXT_PUBLIC_CONTENTFUL_SPACE_ID={CONTENTFUL_SPACE_ID}
 NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN={CONTENTFUL_ACCESS_TOKEN}
+NEXT_PUBLIC_CONTENTFUL_CLIENT_ID={CONTENTFUL_CLIENT_ID}
+NEXT_PUBLIC_CONTENTFUL_CLIENT_SECRET={CONTENTFUL_CLIENT_SECRET}
 NEXT_PUBLIC_CONTENTFUL_CONTENT_API={API_ENDPOINT}
-
-# AWS S3 and CloudFront identifiers
-DISTRIBUTION_ID={DISTRIBUTION_ID}
-S3_BUCKET={S3_BUCKET_NAME}
+NEXT_PUBLIC_CONTENTFUL_SPACE_ID={CONTENTFUL_SPACE_ID}
 
 # Algolia search credentials
 NEXT_PUBLIC_ALGOLIA_APP_ID={ALGOLIA_APP_ID}
 NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY={ALGOLIA_SEARCH_API_KEY}
 ALGOLIA_SEARCH_ADMIN_KEY={ALGOLIA_SEARCH_ADMIN_KEY}
+
+# Branch-specific values for AWS servivces
+NEXT_PUBLIC_COGNITO_USER_POOL_ID={COGNITO_USER_POOL_ID}
+NEXT_PUBLIC_COGNITO_APP_CLIENT_ID={COGNITO_APP_CLIENT_ID}
+NEXT_PUBLIC_AWS_CONTENT_API={AWS_CONTENT_API}
+DISTRIBUTION_ID={DISTRIBUTION_ID}
+S3_BUCKET={S3_BUCKET_NAME}
+
 
 ```
 
@@ -191,7 +202,20 @@ For local development, an `.env` file should be created at the root level of the
 ```bash
 CDK_DEFAULT_ACCOUNT={AWS_ACCOUNT_ID}
 CDK_DEFAULT_REGION={AWS_DEFAULT_REGION}
+
 S3_BUCKET_BASE={S3_BUCKET_NAME_BASE}
+
+NEXT_PUBLIC_API_ENDPOINT={NEXT_PUBLIC_API_ENDPOINT}/
+NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN={NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}
+
+CONTENTFUL_SPACE_ID={CONTENTFUL_SPACE_ID}
+CONTENTFUL_MANAGEMENT_TOKEN={CONTENTFUL_MANAGEMENT_TOKEN}
+CONTENTFUL_MANAGEMENT_API=https://api.contentful.com
+
+GH_WEBHOOK_TOKEN={GH_WEBHOOK_TOKEN}
+GH_WEBHOOK_URL=https://api.github.com/repos/pliddy-com/recipes-next/dispatches
+
+BUILD_BRANCH={current branch for local testing}
 ```
 
 There is no local instance of the `cdk` workspace, but there is full unit test coverage for the CDK application, as well as linting and typechecking. These can be run from the terminal in the local development environment:
@@ -201,10 +225,8 @@ npm run typecheck -w cdk    # runs a typecheck on the cdk workspace
 npm run lint -w cdk         # runs linting on the cdk workspace
 npm run test -w cdk         # runs jest unit tests on the cdk workspace
 
-npm run scan:local -w cdk   # runs typecheck, lint, and unit testing on the cdk workspace
+npm run scan -w cdk   # runs typecheck, lint, and unit testing on the cdk workspace
 ```
-
-The npm `scan` script is being called using the `scan:local` variant to handle using `dotenv` to load environment variables into the npm scripts. The non-local variant, `scan`, is used in with GitHub Actions where values are retrieved from the GitHub repository's global secrets store.
 
 ---
 
