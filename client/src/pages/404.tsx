@@ -1,4 +1,4 @@
-import { ReactElement, Suspense } from 'react';
+import { ReactElement, Suspense, useEffect } from 'react';
 import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
 
@@ -7,6 +7,7 @@ import PageTags from 'components/PageHead/PageTags/PageTags';
 
 import { getRecipeIndex } from 'lib/api';
 import config from 'lib/config';
+import { useContentManagementContext } from 'contexts/Content';
 
 const Layout = dynamic(
   () => import(/* webpackChunkName: 'Layout' */ 'layout/Layout/Layout'),
@@ -24,8 +25,16 @@ const RecipeGridLayout = dynamic(
 const NotFoundPage = ({
   pageContent
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { setSupressEdit } = useContentManagementContext();
+
   const { defaultTitle, description } = config?.microcopy?.notFound ?? {};
 
+  useEffect(() => {
+    setSupressEdit(true);
+
+    return () => setSupressEdit(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return defaultTitle && description ? (
     <>
       <PageTags

@@ -1,3 +1,5 @@
+import slugify from 'slugify';
+
 /*
  * Check if the value arg is null or undefined.
  * Useful for use in Array.prototype.filter() where TS can't infer without a type guard.
@@ -19,3 +21,5 @@ export const minToTime = (num: number) => {
     hours && min ? ' ' : ''
   }${min > 0 ? `${min} min` : ''}`;
 };
+
+export const toSlug = (str: string) => slugify(str.toLowerCase());

@@ -37,11 +37,11 @@ export interface NavBarProps {
 const NavBar = ({ nav }: NavBarProps) => {
   const { categories, cuisine, tags } = nav ?? {};
   const { isAuth } = useAuthContext();
-  const { canSave, editMode, toggleEdit, saveRecipe } =
+  const { canSave, editMode, toggleEdit, saveRecipe, supressEdit } =
     useContentManagementContext();
   const { asPath } = useRouter();
 
-  const isRecipe = asPath.startsWith('/recipes/');
+  const isRecipePage = asPath.startsWith('/recipes/');
 
   return (
     <AppBar component="nav" data-testid="navbar">
@@ -101,7 +101,7 @@ const NavBar = ({ nav }: NavBarProps) => {
           </>
         ) : null}
       </Toolbar>
-      {isAuth && isRecipe ? (
+      {isAuth && isRecipePage && !supressEdit ? (
         <Toolbar className="userBar">
           {editMode && (
             <Button

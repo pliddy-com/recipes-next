@@ -3,15 +3,35 @@ import { act, render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
 import NotFoundPage, { getStaticProps } from 'pages/404';
-import { RecipeSummaryFragment } from 'types/queries';
 
 import config from 'lib/config';
 import * as api from 'lib/api';
 
+import { RecipeSummaryFragment } from 'types/queries';
+
+import * as ContentManagementContext from 'contexts/Content';
+
 jest.mock('lib/config');
 jest.mock('lib/api');
-jest.mock('components/PageHead/PageTags/PageTags');
+jest.mock('contexts/Content');
 jest.mock('layout/RecipeGridLayout/RecipeGridLayout');
+jest.mock('components/PageHead/PageTags/PageTags');
+
+const cmContextValues = {
+  canSave: false,
+  editMode: false,
+  editLoading: false,
+  setCanSave: jest.fn(),
+  saveRecipe: jest.fn(),
+  setRecipe: jest.fn(),
+  setSupressEdit: jest.fn(),
+  supressEdit: false,
+  toggleEdit: jest.fn()
+};
+
+jest
+  .spyOn(ContentManagementContext, 'useContentManagementContext')
+  .mockImplementation(() => cmContextValues);
 
 describe('NotFoundPage in 404.tsx', () => {
   afterEach(() => {

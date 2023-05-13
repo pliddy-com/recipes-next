@@ -27,6 +27,27 @@ jest.mock('next/router', () => ({
   })
 }));
 
+const authContextValues = {
+  authLoading: false,
+  isAuth: false,
+  isLoading: false,
+  signIn: jest.fn(),
+  signOut: jest.fn(),
+  token: 'TOKEN'
+};
+
+const cmContextValues = {
+  canSave: false,
+  editMode: false,
+  editLoading: false,
+  setCanSave: jest.fn(),
+  saveRecipe: jest.fn(),
+  setRecipe: jest.fn(),
+  setSupressEdit: jest.fn(),
+  supressEdit: false,
+  toggleEdit: jest.fn()
+};
+
 describe('NavBar', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'matchMedia', {
@@ -42,25 +63,6 @@ describe('NavBar', () => {
 
   describe('when there is a properly structured nav property', () => {
     it('it renders a nav bar', async () => {
-      const authContextValues = {
-        authLoading: false,
-        isAuth: false,
-        isLoading: false,
-        signIn: jest.fn(),
-        signOut: jest.fn(),
-        token: 'TOKEN'
-      };
-
-      const cmContextValues = {
-        canSave: false,
-        editMode: false,
-        editLoading: false,
-        setCanSave: jest.fn(),
-        saveRecipe: jest.fn(),
-        setRecipe: jest.fn(),
-        toggleEdit: jest.fn()
-      };
-
       const authSpy = jest
         .spyOn(AuthContext, 'useAuthContext')
         .mockImplementation(() => authContextValues);
@@ -120,28 +122,11 @@ describe('NavBar', () => {
 
   describe('when isAuth is true', () => {
     it('it shows the user toolbar', async () => {
-      const authContextValues = {
-        authLoading: false,
-        isAuth: true,
-        isLoading: false,
-        signIn: jest.fn(),
-        signOut: jest.fn(),
-        token: 'TOKEN'
-      };
-
-      const cmContextValues = {
-        canSave: false,
-        editMode: false,
-        editLoading: false,
-        setCanSave: jest.fn(),
-        saveRecipe: jest.fn(),
-        setRecipe: jest.fn(),
-        toggleEdit: jest.fn()
-      };
+      const testAuth = { ...authContextValues, isAuth: true };
 
       const authSpy = jest
         .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => authContextValues);
+        .mockImplementation(() => testAuth);
 
       const cmSpy = jest
         .spyOn(ContentManagementContext, 'useContentManagementContext')
@@ -161,32 +146,19 @@ describe('NavBar', () => {
 
   describe('when editMode is true', () => {
     it('it shows the cancel button', async () => {
-      const authContextValues = {
-        authLoading: false,
-        isAuth: true,
-        isLoading: false,
-        signIn: jest.fn(),
-        signOut: jest.fn(),
-        token: 'TOKEN'
-      };
-
-      const cmContextValues = {
-        canSave: false,
-        editMode: true,
-        editLoading: false,
-        setCanSave: jest.fn(),
-        saveRecipe: jest.fn(),
-        setRecipe: jest.fn(),
-        toggleEdit: jest.fn()
+      const testAuthContext = { ...authContextValues, isAuth: true };
+      const testContentManagementContext = {
+        ...cmContextValues,
+        editMode: true
       };
 
       const authSpy = jest
         .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => authContextValues);
+        .mockImplementation(() => testAuthContext);
 
       const cmSpy = jest
         .spyOn(ContentManagementContext, 'useContentManagementContext')
-        .mockImplementation(() => cmContextValues);
+        .mockImplementation(() => testContentManagementContext);
 
       const nav = await api.getNavTaxonomy();
 
@@ -202,32 +174,20 @@ describe('NavBar', () => {
 
   describe('when canSave is true', () => {
     it('it activates the save button', async () => {
-      const authContextValues = {
-        authLoading: false,
-        isAuth: true,
-        isLoading: false,
-        signIn: jest.fn(),
-        signOut: jest.fn(),
-        token: 'TOKEN'
-      };
-
-      const cmContextValues = {
+      const testAuthContext = { ...authContextValues, isAuth: true };
+      const testContentManagementContext = {
+        ...cmContextValues,
         canSave: true,
-        editMode: true,
-        editLoading: false,
-        setCanSave: jest.fn(),
-        saveRecipe: jest.fn(),
-        setRecipe: jest.fn(),
-        toggleEdit: jest.fn()
+        editMode: true
       };
 
       const authSpy = jest
         .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => authContextValues);
+        .mockImplementation(() => testAuthContext);
 
       const cmSpy = jest
         .spyOn(ContentManagementContext, 'useContentManagementContext')
-        .mockImplementation(() => cmContextValues);
+        .mockImplementation(() => testContentManagementContext);
 
       const nav = await api.getNavTaxonomy();
 

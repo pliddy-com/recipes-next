@@ -33,6 +33,8 @@ const cmContextValues = {
   setCanSave: jest.fn(),
   saveRecipe: jest.fn(),
   setRecipe: jest.fn(),
+  setSupressEdit: jest.fn(),
+  supressEdit: false,
   toggleEdit: jest.fn()
 };
 
@@ -52,7 +54,7 @@ describe('Recipe', () => {
   describe('when there is page content', () => {
     it('it renders the Recipe', async () => {
       const titleValue = 'TITLE';
-      const slugValue = 'SLUG';
+      const slugValue = 'title';
       const abstractValue = 'ABSTRACT';
       const prepTimeValue = '15';
       const cookTimeValue = '30';
@@ -82,11 +84,8 @@ describe('Recipe', () => {
         });
       expect(titleInput).toHaveValue(titleValue);
 
+      // slug is slugified title
       const slugInput = queryByLabelText('Slug');
-      slugInput &&
-        fireEvent.change(slugInput, {
-          target: { value: slugValue }
-        });
       expect(slugInput).toHaveValue(slugValue);
 
       const abstractInput = queryByLabelText('Abstract');
@@ -126,19 +125,14 @@ describe('Recipe', () => {
     it('displays the Loading component', async () => {
       const content = await api.getRecipePage();
 
-      const contextValues = {
-        canSave: false,
-        editMode: false,
-        editLoading: true,
-        setCanSave: jest.fn(),
-        saveRecipe: jest.fn(),
-        setRecipe: jest.fn(),
-        toggleEdit: jest.fn()
+      const testContentManagementContext = {
+        ...cmContextValues,
+        editLoading: true
       };
 
       jest
         .spyOn(ContentManagementContext, 'useContentManagementContext')
-        .mockImplementationOnce(() => contextValues);
+        .mockImplementationOnce(() => testContentManagementContext);
 
       const { asFragment, queryByRole } = render(
         <RecipeEdit content={content as unknown as RecipeDefaultFragment} />

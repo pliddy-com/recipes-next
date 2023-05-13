@@ -17,6 +17,27 @@ jest.mock('lib/api');
 jest.mock('contexts/Authentication');
 jest.mock('contexts/Content');
 
+const authContextValues = {
+  authLoading: false,
+  isAuth: false,
+  isLoading: false,
+  signIn: jest.fn(),
+  signOut: jest.fn(),
+  token: 'TOKEN'
+};
+
+const cmContextValues = {
+  canSave: false,
+  editMode: false,
+  editLoading: false,
+  setCanSave: jest.fn(),
+  saveRecipe: jest.fn(),
+  setRecipe: jest.fn(),
+  setSupressEdit: jest.fn(),
+  supressEdit: false,
+  toggleEdit: jest.fn()
+};
+
 describe('RecipePage', () => {
   afterEach(() => {
     jest.resetModules();
@@ -24,25 +45,6 @@ describe('RecipePage', () => {
 
   describe('when there is page content', () => {
     it('it renders the RecipePage', async () => {
-      const authContextValues = {
-        authLoading: false,
-        isAuth: false,
-        isLoading: false,
-        signIn: jest.fn(),
-        signOut: jest.fn(),
-        token: 'TOKEN'
-      };
-
-      const cmContextValues = {
-        canSave: false,
-        editMode: false,
-        editLoading: false,
-        setCanSave: jest.fn(),
-        saveRecipe: jest.fn(),
-        setRecipe: jest.fn(),
-        toggleEdit: jest.fn()
-      };
-
       const authSpy = jest
         .spyOn(AuthContext, 'useAuthContext')
         .mockImplementation(() => authContextValues);
@@ -82,32 +84,19 @@ describe('RecipePage', () => {
 
   describe('when isAuth is true', () => {
     it('sets the container className to "auth"', async () => {
-      const authContextValues = {
-        authLoading: false,
-        isAuth: true,
-        isLoading: false,
-        signIn: jest.fn(),
-        signOut: jest.fn(),
-        token: 'TOKEN'
-      };
-
-      const cmContextValues = {
-        canSave: false,
-        editMode: true,
-        editLoading: false,
-        setCanSave: jest.fn(),
-        saveRecipe: jest.fn(),
-        setRecipe: jest.fn(),
-        toggleEdit: jest.fn()
+      const testAuthContext = { ...authContextValues, isAuth: true };
+      const testContentManagementContext = {
+        ...cmContextValues,
+        editMode: true
       };
 
       const authSpy = jest
         .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => authContextValues);
+        .mockImplementation(() => testAuthContext);
 
       const cmSpy = jest
         .spyOn(ContentManagementContext, 'useContentManagementContext')
-        .mockImplementation(() => cmContextValues);
+        .mockImplementation(() => testContentManagementContext);
 
       const content = await api.getRecipePage();
 

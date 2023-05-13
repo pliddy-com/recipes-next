@@ -10,6 +10,8 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
+import LockIcon from '@mui/icons-material/Lock';
+
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 import EquipmentSection from 'components/Recipe/RecipeSections/EquipmentSection/EquipmentSection';
 import IngredientsSection from 'components/Recipe/RecipeSections/IngredientsSection/IngredientsSection';
@@ -22,7 +24,7 @@ import TagsSection from 'components/Recipe/RecipeSections/TagsSection/TagsSectio
 
 // import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 
-import { minToTime } from 'lib/utils';
+import { minToTime, toSlug } from 'lib/utils';
 
 import { recipePageConfig } from 'theme/values/images';
 
@@ -89,9 +91,16 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const updateForm = ({ id, value }: { id: IFormIds; value: string }) => {
+  const updateForm = ({
+    values
+  }: {
+    values: { id: IFormIds; value: string }[];
+  }) => {
     const newData = { ...formData };
-    newData[id] = value;
+
+    values.forEach(({ id, value }) => {
+      newData[id] = value;
+    });
 
     setFormData(newData);
     setRecipe(newData);
@@ -102,6 +111,15 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     } catch (e) {
       setCanSave(true);
     }
+  };
+
+  const updateTitle = ({ id, value }: { id: IFormIds; value: string }) => {
+    updateForm({
+      values: [
+        { id, value },
+        { id: 'slug', value: toSlug(value) }
+      ]
+    });
   };
 
   const { aspectRatio, breakpoints } = recipePageConfig;
@@ -124,35 +142,49 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
 
   return content ? (
     <Box data-testid="RecipeEdit" className="recipe-edit">
+      <Typography variant="h1" sx={{ visibility: 'hidden', height: 0 }}>
+        {title}
+      </Typography>
+
       <TextField
         className="field bold"
         id="title"
         label="Title"
         name="title"
-        onChange={(e) => updateForm({ id: 'title', value: e.target.value })}
+        onChange={(e) => updateTitle({ id: 'title', value: e.target.value })}
         size="small"
         value={formData.title}
         variant="outlined"
       />
       <TextField
         className="field"
+        disabled={true}
         id="slug"
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <LockIcon />
+            </InputAdornment>
+          )
+        }}
         label="Slug"
         name="slug"
-        onChange={(e) => updateForm({ id: 'slug', value: e.target.value })}
         size="small"
         value={formData.slug}
         variant="outlined"
       />
       <FormControl className="multiline">
-        <InputLabel htmlFor="abstract">Abstract</InputLabel>
+        <InputLabel htmlFor="abstract" id="abstractLabel">
+          Abstract
+        </InputLabel>
         <OutlinedInput
           id="abstract"
+          inputProps={{ 'data-test': 'TEST' }}
           label="Abstract"
           multiline
           name="abstract"
           onChange={(e) =>
-            updateForm({ id: 'abstract', value: e.target.value })
+            updateForm({ values: [{ id: 'abstract', value: e.target.value }] })
           }
           size="small"
           value={formData.abstract}
@@ -189,7 +221,9 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
                     }}
                     label="Prep Time"
                     onChange={(e) =>
-                      updateForm({ id: 'prepTime', value: e.target.value })
+                      updateForm({
+                        values: [{ id: 'prepTime', value: e.target.value }]
+                      })
                     }
                     size="small"
                     value={formData.prepTime}
@@ -206,7 +240,9 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
                     }}
                     label="Cook Time"
                     onChange={(e) =>
-                      updateForm({ id: 'cookTime', value: e.target.value })
+                      updateForm({
+                        values: [{ id: 'cookTime', value: e.target.value }]
+                      })
                     }
                     size="small"
                     value={formData.cookTime}
@@ -232,7 +268,9 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
                   }}
                   label="Recipe Yield"
                   onChange={(e) =>
-                    updateForm({ id: 'recipeYield', value: e.target.value })
+                    updateForm({
+                      values: [{ id: 'recipeYield', value: e.target.value }]
+                    })
                   }
                   size="small"
                   value={formData.recipeYield}

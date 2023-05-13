@@ -10,6 +10,7 @@ import {
   useState
 } from 'react';
 
+import { useRouter } from 'next/router';
 import { useAuthContext } from './Authentication';
 import { IRecipeChangeSet } from 'types/content';
 
@@ -20,6 +21,8 @@ interface ICMContext {
   setCanSave: Dispatch<SetStateAction<boolean>>;
   saveRecipe(event: SyntheticEvent): void;
   setRecipe: Dispatch<SetStateAction<IRecipeChangeSet | undefined>>;
+  supressEdit: boolean;
+  setSupressEdit: Dispatch<SetStateAction<boolean>>;
   toggleEdit(): void;
 }
 
@@ -36,8 +39,10 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
   const [recipe, setRecipe] = useState<IRecipeChangeSet | undefined>();
   const [editLoading, setEditLoading] = useState<boolean>(false);
   const [canSave, setCanSave] = useState<boolean>(false);
+  const [supressEdit, setSupressEdit] = useState<boolean>(false);
 
   const { isAuth, token } = useAuthContext();
+  const { asPath, push } = useRouter();
 
   useEffect(() => {
     if (!isAuth) setEditMode(false);
@@ -57,7 +62,8 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
     }
 
     const restApi = `${contentApiUrl}/${recipe.id}`;
-    console.log(recipe);
+
+    // console.log(recipe);
 
     try {
       const response = await fetch(restApi, {
@@ -82,16 +88,25 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
       throw new Error('User is not authenticated');
     }
 
-    try {
-      const res = recipe && (await updateEntry({ recipe }));
+    if (recipe) {
+      try {
+        // const res = recipe && (await updateEntry({ recipe }));
+        recipe && (await updateEntry({ recipe }));
 
-      setEditMode(false);
-      setEditLoading(false);
+        const page = asPath.split('/').slice(-1)[0];
+        if (recipe && page !== recipe.slug) push('/');
 
-      console.log('Recipe Updated => Payload:', res);
-    } catch (e) {
-      // TODO: handle error in UI
-      console.error(e);
+        setEditMode(false);
+        setEditLoading(false);
+
+        // console.log('Recipe Updated => Payload:', res);
+      } catch (e) {
+        // TODO: handle error in UI
+        console.error(e);
+      }
+    } else {
+      const err = new Error('No recipe payload to save.');
+      throw err;
     }
   };
 
@@ -99,11 +114,13 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
     <ContentManagementContext.Provider
       value={{
         canSave,
-        editMode,
         editLoading,
-        setCanSave,
+        editMode,
         saveRecipe,
+        setCanSave,
         setRecipe,
+        setSupressEdit,
+        supressEdit,
         toggleEdit
       }}
     >
