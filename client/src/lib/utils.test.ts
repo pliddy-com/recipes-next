@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { hasValue, minToIso, minToTime } from './utils';
+import { hasValue, minToIso, minToTime, toSlug } from './utils';
 
 describe('utils', () => {
   describe('when hasValue() is called', () => {
@@ -60,6 +60,14 @@ describe('utils', () => {
       const res = minToTime(num);
 
       expect(res).toEqual('2 hours');
+    });
+  });
+
+  describe('when toSlug() is called', () => {
+    it('it returns a slugified string', () => {
+      const str = 'Sautéed, Baked, & Fried';
+      const expected = 'sauteed-baked-and-fried';
+      expect(toSlug(str)).toEqual(expected);
     });
   });
 });
