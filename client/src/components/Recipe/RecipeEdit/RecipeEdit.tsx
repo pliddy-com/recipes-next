@@ -5,7 +5,9 @@ import assert from 'assert';
 import { OutlinedInput } from '@mui/material';
 
 import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
+import InputLabel from '@mui/material/InputLabel';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -17,6 +19,7 @@ import EquipmentSection from 'components/Recipe/RecipeSections/EquipmentSection/
 import IngredientsSection from 'components/Recipe/RecipeSections/IngredientsSection/IngredientsSection';
 import InputAdornment from '@mui/material/InputAdornment';
 import InstructionsSection from 'components/Recipe/RecipeSections/InstructionsSection/InstructionsSection';
+import ListEdit from './EditComponents/ListEdit';
 import Loading from 'components/Loading/Loading';
 import NotesSection from 'components/Recipe/RecipeSections/NotesSection/NotesSection';
 import RichText from 'components/RichText/RichText';
@@ -32,12 +35,12 @@ import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 import { useContentManagementContext } from 'contexts/Content';
 
 import { IRecipeChangeSet } from 'types/content';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
 
-type IFormIds =
+export type IFormIds =
   | 'abstract'
   | 'cookTime'
+  // | 'equipment'
+  // | 'keywords'
   | 'prepTime'
   | 'recipeYield'
   | 'slug'
@@ -56,6 +59,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     image,
     ingredientsList,
     instructionsList,
+    keywords,
     notes,
     prepTime,
     recipeYield,
@@ -69,6 +73,8 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     abstract: abstract || '',
     id: sys?.id || '',
     cookTime: cookTime || '0',
+    // equipment: equipment || [],
+    // keywords: equipment || [],
     prepTime: prepTime || '0',
     recipeYield: recipeYield || '0',
     slug: slug || '',
@@ -91,16 +97,28 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const updateForm = ({
-    values
-  }: {
-    values: { id: IFormIds; value: string }[];
-  }) => {
+  const updateForm = ({ id, value }: { id: IFormIds; value: string }) => {
     const newData = { ...formData };
 
-    values.forEach(({ id, value }) => {
-      newData[id] = value;
-    });
+    newData[id] = value;
+
+    setFormData(newData);
+    setRecipe(newData);
+
+    try {
+      console.log('updateForm:', { defaultState, newData });
+      assert.deepStrictEqual(defaultState, newData);
+      setCanSave(false);
+    } catch (e) {
+      setCanSave(true);
+    }
+  };
+
+  const updateTitle = ({ title }: { title: string }) => {
+    const newData = { ...formData };
+
+    newData['title'] = title;
+    newData['slug'] = toSlug(title);
 
     setFormData(newData);
     setRecipe(newData);
@@ -113,13 +131,13 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     }
   };
 
-  const updateTitle = ({ id, value }: { id: IFormIds; value: string }) => {
-    updateForm({
-      values: [
-        { id, value },
-        { id: 'slug', value: toSlug(value) }
-      ]
-    });
+  // const updateTitle = ({ id, title }: { id: IFormIds; title: string }) => {
+  //   updateForm({ id, value: title });
+  //   updateForm({ id: 'slug', value: toSlug(title) });
+  // };
+
+  const updateList = () => {
+    console.log('updateList');
   };
 
   const { aspectRatio, breakpoints } = recipePageConfig;
@@ -151,7 +169,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
         id="title"
         label="Title"
         name="title"
-        onChange={(e) => updateTitle({ id: 'title', value: e.target.value })}
+        onChange={(e) => updateTitle({ title: e.target.value })}
         size="small"
         value={formData.title}
         variant="outlined"
@@ -184,7 +202,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
           multiline
           name="abstract"
           onChange={(e) =>
-            updateForm({ values: [{ id: 'abstract', value: e.target.value }] })
+            updateForm({ id: 'abstract', value: e.target.value })
           }
           size="small"
           value={formData.abstract}
@@ -221,9 +239,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
                     }}
                     label="Prep Time"
                     onChange={(e) =>
-                      updateForm({
-                        values: [{ id: 'prepTime', value: e.target.value }]
-                      })
+                      updateForm({ id: 'prepTime', value: e.target.value })
                     }
                     size="small"
                     value={formData.prepTime}
@@ -240,9 +256,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
                     }}
                     label="Cook Time"
                     onChange={(e) =>
-                      updateForm({
-                        values: [{ id: 'cookTime', value: e.target.value }]
-                      })
+                      updateForm({ id: 'cookTime', value: e.target.value })
                     }
                     size="small"
                     value={formData.cookTime}
@@ -268,9 +282,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
                   }}
                   label="Recipe Yield"
                   onChange={(e) =>
-                    updateForm({
-                      values: [{ id: 'recipeYield', value: e.target.value }]
-                    })
+                    updateForm({ id: 'recipeYield', value: e.target.value })
                   }
                   size="small"
                   value={formData.recipeYield}
@@ -299,11 +311,19 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
 
         {equipment && <EquipmentSection equipment={equipment} />}
 
+        {equipment && (
+          <ListEdit label="Equipment" list={equipment} onChange={updateList} />
+        )}
+
         {instructionsList && (
           <InstructionsSection sections={instructionsList} />
         )}
 
         {notes && <NotesSection notes={notes} />}
+
+        {keywords && (
+          <ListEdit label="Keywords" list={keywords} onChange={updateList} />
+        )}
       </Stack>
     </Box>
   ) : null;

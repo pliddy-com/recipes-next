@@ -199,16 +199,16 @@ api.getRecipeList = jest.fn().mockResolvedValue([
 api.getRecipePage = jest.fn().mockResolvedValue({
   recipe: {
     title: 'Recipe Title',
-    slug: 'slug-1',
+    slug: 'recipe-title',
     __typename: 'Recipe',
     sys: {
       id: 'test-id-1',
       firstPublishedAt: '2022-06-26T07:24:30.384Z'
     },
     abstract: 'abstract',
-    recipeYield: 4,
-    prepTime: 15,
-    cookTime: 60,
+    recipeYield: '4',
+    prepTime: '15',
+    cookTime: '60',
     keywords: ['keyword1', 'keyword2'],
     image: {
       sys: {
