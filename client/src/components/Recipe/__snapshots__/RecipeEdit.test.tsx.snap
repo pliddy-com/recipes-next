@@ -35,6 +35,9 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
     class="recipe-edit MuiBox-root css-0"
     data-testid="RecipeEdit"
   >
+    <h1
+      class="MuiTypography-root MuiTypography-h1 css-ec67a2-MuiTypography-root"
+    />
     <div
       class="MuiFormControl-root MuiTextField-root field bold css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
     >
@@ -130,6 +133,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
         data-shrink="true"
         for="abstract"
+        id="abstractLabel"
       >
         Abstract
       </label>
@@ -139,6 +143,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         <textarea
           aria-invalid="false"
           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputSizeSmall css-12tl3rr-MuiInputBase-input-MuiOutlinedInput-input"
+          data-test="TEST"
           id="abstract"
           name="abstract"
           style="height: 0px; overflow: hidden;"

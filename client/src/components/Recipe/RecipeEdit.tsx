@@ -142,6 +142,10 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
 
   return content ? (
     <Box data-testid="RecipeEdit" className="recipe-edit">
+      <Typography variant="h1" sx={{ visibility: 'hidden', height: 0 }}>
+        {title}
+      </Typography>
+
       <TextField
         className="field bold"
         id="title"
@@ -170,9 +174,12 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
         variant="outlined"
       />
       <FormControl className="multiline">
-        <InputLabel htmlFor="abstract">Abstract</InputLabel>
+        <InputLabel htmlFor="abstract" id="abstractLabel">
+          Abstract
+        </InputLabel>
         <OutlinedInput
           id="abstract"
+          inputProps={{ 'data-test': 'TEST' }}
           label="Abstract"
           multiline
           name="abstract"
