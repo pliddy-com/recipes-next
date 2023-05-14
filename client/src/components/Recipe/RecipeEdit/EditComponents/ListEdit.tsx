@@ -69,11 +69,7 @@ const ListEdit = ({ label, list, onChange }: IListEdit) => {
     <Stack direction="column" className="listEdit">
       <Typography variant="h2">{label}</Typography>
       {values.map((value, index) => (
-        <FormControl
-          sx={{ m: 1, width: '25ch' }}
-          variant="outlined"
-          key={`${label}-${index}`}
-        >
+        <FormControl variant="outlined" key={`${label}-${index}`}>
           <InputLabel htmlFor={`${label.toLowerCase()}`}>{`${label} ${
             index + 1
           }`}</InputLabel>

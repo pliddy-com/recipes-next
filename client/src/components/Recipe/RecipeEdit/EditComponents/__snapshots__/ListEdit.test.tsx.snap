@@ -11,7 +11,7 @@ exports[`ListEdit when there is content renders the component 1`] = `
       List Label
     </h2>
     <div
-      class="MuiFormControl-root css-r47a1p-MuiFormControl-root"
+      class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
@@ -110,7 +110,7 @@ exports[`ListEdit when there is content renders the component 1`] = `
       </div>
     </div>
     <div
-      class="MuiFormControl-root css-r47a1p-MuiFormControl-root"
+      class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
@@ -211,7 +211,7 @@ exports[`ListEdit when there is content renders the component 1`] = `
       </div>
     </div>
     <div
-      class="MuiFormControl-root css-r47a1p-MuiFormControl-root"
+      class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"

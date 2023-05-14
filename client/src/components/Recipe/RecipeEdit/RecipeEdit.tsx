@@ -9,7 +9,6 @@ import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 import LockIcon from '@mui/icons-material/Lock';
@@ -17,11 +16,9 @@ import LockIcon from '@mui/icons-material/Lock';
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 import EquipmentSection from 'components/Recipe/RecipeSections/EquipmentSection/EquipmentSection';
 import IngredientsSection from 'components/Recipe/RecipeSections/IngredientsSection/IngredientsSection';
-import InputAdornment from '@mui/material/InputAdornment';
 import InstructionsSection from 'components/Recipe/RecipeSections/InstructionsSection/InstructionsSection';
 import ListEdit from './EditComponents/ListEdit';
 import Loading from 'components/Loading/Loading';
-import NotesSection from 'components/Recipe/RecipeSections/NotesSection/NotesSection';
 import RichText from 'components/RichText/RichText';
 import TagsSection from 'components/Recipe/RecipeSections/TagsSection/TagsSection';
 
@@ -35,6 +32,7 @@ import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 import { useContentManagementContext } from 'contexts/Content';
 
 import { IRecipeChangeSet } from 'types/content';
+import TextEdit from './EditComponents/TextEdit';
 
 export type IFormIds =
   | 'abstract'
@@ -97,7 +95,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const updateForm = ({ id, value }: { id: IFormIds; value: string }) => {
+  const updateField = ({ id, value }: { id: IFormIds; value: string }) => {
     const newData = { ...formData };
 
     newData[id] = value;
@@ -114,27 +112,30 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     }
   };
 
-  const updateTitle = ({ title }: { title: string }) => {
-    const newData = { ...formData };
+  const updateTitle = ({
+    id = 'title',
+    value
+  }: {
+    id?: string;
+    value: string;
+  }) => {
+    if (id === 'title') {
+      const newData = { ...formData };
 
-    newData['title'] = title;
-    newData['slug'] = toSlug(title);
+      newData[id] = value;
+      newData['slug'] = toSlug(value);
 
-    setFormData(newData);
-    setRecipe(newData);
+      setFormData(newData);
+      setRecipe(newData);
 
-    try {
-      assert.deepStrictEqual(defaultState, newData);
-      setCanSave(false);
-    } catch (e) {
-      setCanSave(true);
+      try {
+        assert.deepStrictEqual(defaultState, newData);
+        setCanSave(false);
+      } catch (e) {
+        setCanSave(true);
+      }
     }
   };
-
-  // const updateTitle = ({ id, title }: { id: IFormIds; title: string }) => {
-  //   updateForm({ id, value: title });
-  //   updateForm({ id: 'slug', value: toSlug(title) });
-  // };
 
   const updateList = () => {
     console.log('updateList');
@@ -164,33 +165,22 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
         {title}
       </Typography>
 
-      <TextField
-        className="field bold"
+      <TextEdit
+        className="bold"
         id="title"
         label="Title"
-        name="title"
-        onChange={(e) => updateTitle({ title: e.target.value })}
-        size="small"
+        onChange={(e) => updateTitle({ value: e.target.value })}
         value={formData.title}
-        variant="outlined"
       />
-      <TextField
-        className="field"
+
+      <TextEdit
         disabled={true}
+        endAdornment={<LockIcon />}
         id="slug"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <LockIcon />
-            </InputAdornment>
-          )
-        }}
         label="Slug"
-        name="slug"
-        size="small"
         value={formData.slug}
-        variant="outlined"
       />
+
       <FormControl className="multiline">
         <InputLabel htmlFor="abstract" id="abstractLabel">
           Abstract
@@ -202,7 +192,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
           multiline
           name="abstract"
           onChange={(e) =>
-            updateForm({ id: 'abstract', value: e.target.value })
+            updateField({ id: 'abstract', value: e.target.value })
           }
           size="small"
           value={formData.abstract}
@@ -229,38 +219,26 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
             <Grid container className="details" spacing={2}>
               <Grid item xs={6}>
                 <Stack direction="column">
-                  <TextField
-                    className="field number"
+                  <TextEdit
+                    className="number"
+                    endAdornment={'Min'}
                     id="prepTime"
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">Min</InputAdornment>
-                      )
-                    }}
                     label="Prep Time"
                     onChange={(e) =>
-                      updateForm({ id: 'prepTime', value: e.target.value })
+                      updateField({ id: 'prepTime', value: e.target.value })
                     }
-                    size="small"
                     value={formData.prepTime}
-                    variant="outlined"
                   />
 
-                  <TextField
-                    className="field number"
+                  <TextEdit
+                    className="number"
+                    endAdornment={'Min'}
                     id="cookTime"
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">Min</InputAdornment>
-                      )
-                    }}
                     label="Cook Time"
                     onChange={(e) =>
-                      updateForm({ id: 'cookTime', value: e.target.value })
+                      updateField({ id: 'cookTime', value: e.target.value })
                     }
-                    size="small"
                     value={formData.cookTime}
-                    variant="outlined"
                   />
 
                   <Typography variant="subtitle2">
@@ -272,21 +250,15 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
                 </Stack>
               </Grid>
               <Grid item xs={6} className="yield">
-                <TextField
-                  className="field number"
+                <TextEdit
+                  className="number"
+                  endAdornment={'Servings'}
                   id="recipeYield"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">Servings</InputAdornment>
-                    )
-                  }}
                   label="Recipe Yield"
                   onChange={(e) =>
-                    updateForm({ id: 'recipeYield', value: e.target.value })
+                    updateField({ id: 'recipeYield', value: e.target.value })
                   }
-                  size="small"
                   value={formData.recipeYield}
-                  variant="outlined"
                 />
               </Grid>
             </Grid>
@@ -319,7 +291,9 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
           <InstructionsSection sections={instructionsList} />
         )}
 
-        {notes && <NotesSection notes={notes} />}
+        {/* {notes && <NotesSection notes={notes} />} */}
+
+        {notes && <ListEdit label="Notes" list={notes} onChange={updateList} />}
 
         {keywords && (
           <ListEdit label="Keywords" list={keywords} onChange={updateList} />

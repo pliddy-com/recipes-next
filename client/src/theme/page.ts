@@ -140,7 +140,7 @@ const pageThemeOptions: ThemeOptions = {
                 }
               },
               '& .listEdit': {
-                width: '100%',
+                // width: '100%',
                 justifyItems: 'flex-start',
                 '& .icon': {
                   width: '1.5rem',
@@ -148,7 +148,9 @@ const pageThemeOptions: ThemeOptions = {
                 },
                 '& .MuiFormControl-root': {
                   marginLeft: 0,
-                  marginRight: 0
+                  marginRight: 0,
+                  marginTop: '1rem',
+                  marginBottom: '0.5rem'
                 },
                 '& .MuiButton-root': {
                   alignSelf: 'flex-start',
