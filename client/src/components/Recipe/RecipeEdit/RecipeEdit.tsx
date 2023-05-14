@@ -73,7 +73,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     id: sys?.id || '',
     cookTime: cookTime || '0',
     equipment: equipment || [],
-    keywords: equipment || [],
+    keywords: keywords || [],
     notes: notes || [],
     prepTime: prepTime || '0',
     recipeYield: recipeYield || '0',
