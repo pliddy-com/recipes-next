@@ -24,15 +24,15 @@ const TextEdit = ({
     <TextField
       className={`field${className ? ` ${className}` : ''}`}
       disabled={disabled}
-      {...(endAdornment
-        ? {
-            InputProps: {
+      InputProps={{
+        ...(endAdornment
+          ? {
               endAdornment: (
                 <InputAdornment position="end">{endAdornment}</InputAdornment>
               )
             }
-          }
-        : {})}
+          : {})
+      }}
       id={id}
       label={label}
       name={id}

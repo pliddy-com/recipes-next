@@ -3,7 +3,10 @@
 export interface IRecipeChangeSet {
   abstract: string;
   cookTime: string | number;
+  equipment: (string | null)[];
   id: string;
+  keywords: (string | null)[];
+  notes: (string | null)[];
   prepTime: string | number;
   recipeYield: string | number;
   slug: string;

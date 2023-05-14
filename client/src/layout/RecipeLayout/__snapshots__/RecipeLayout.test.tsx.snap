@@ -117,8 +117,8 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
         >
           <textarea
             aria-invalid="false"
+            aria-label="Abstract"
             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputSizeSmall css-12tl3rr-MuiInputBase-input-MuiOutlinedInput-input"
-            data-test="TEST"
             id="abstract"
             name="abstract"
             style="height: 0px; overflow: hidden;"

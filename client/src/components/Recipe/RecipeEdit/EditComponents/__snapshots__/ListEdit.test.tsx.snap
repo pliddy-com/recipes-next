@@ -16,7 +16,7 @@ exports[`ListEdit when there is content renders the component 1`] = `
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
         data-shrink="true"
-        for="list label"
+        for="list label-1"
       >
         List Label 1
       </label>
@@ -26,7 +26,7 @@ exports[`ListEdit when there is content renders the component 1`] = `
         <input
           aria-invalid="false"
           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-          id="list label"
+          id="list label-1"
           type="text"
           value="item 1"
         />
@@ -115,7 +115,7 @@ exports[`ListEdit when there is content renders the component 1`] = `
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
         data-shrink="true"
-        for="list label"
+        for="list label-2"
       >
         List Label 2
       </label>
@@ -125,7 +125,7 @@ exports[`ListEdit when there is content renders the component 1`] = `
         <input
           aria-invalid="false"
           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-          id="list label"
+          id="list label-2"
           type="text"
           value="item 2"
         />
@@ -216,7 +216,7 @@ exports[`ListEdit when there is content renders the component 1`] = `
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
         data-shrink="true"
-        for="list label"
+        for="list label-3"
       >
         List Label 3
       </label>
@@ -226,7 +226,7 @@ exports[`ListEdit when there is content renders the component 1`] = `
         <input
           aria-invalid="false"
           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-          id="list label"
+          id="list label-3"
           type="text"
           value="item 3"
         />

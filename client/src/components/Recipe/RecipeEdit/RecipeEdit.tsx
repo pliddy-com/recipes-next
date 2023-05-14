@@ -32,13 +32,15 @@ import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 import { useContentManagementContext } from 'contexts/Content';
 
 import { IRecipeChangeSet } from 'types/content';
+
 import TextEdit from './EditComponents/TextEdit';
 
 export type IFormIds =
   | 'abstract'
   | 'cookTime'
-  // | 'equipment'
-  // | 'keywords'
+  | 'equipment'
+  | 'keywords'
+  | 'notes'
   | 'prepTime'
   | 'recipeYield'
   | 'slug'
@@ -71,8 +73,9 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     abstract: abstract || '',
     id: sys?.id || '',
     cookTime: cookTime || '0',
-    // equipment: equipment || [],
-    // keywords: equipment || [],
+    equipment: equipment || [],
+    keywords: equipment || [],
+    notes: notes || [],
     prepTime: prepTime || '0',
     recipeYield: recipeYield || '0',
     slug: slug || '',
@@ -95,16 +98,21 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const updateField = ({ id, value }: { id: IFormIds; value: string }) => {
-    const newData = { ...formData };
+  const updateField = ({
+    id,
+    value
+  }: {
+    id: IFormIds;
+    value: string | number | (string | null)[];
+  }) => {
+    const newData: IRecipeChangeSet = { ...formData };
 
-    newData[id] = value;
+    newData[id] = value as string & (string | null)[];
 
     setFormData(newData);
     setRecipe(newData);
 
     try {
-      // console.log('updateForm:', { defaultState, newData });
       assert.deepStrictEqual(defaultState, newData);
       setCanSave(false);
     } catch (e) {
@@ -137,8 +145,14 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     }
   };
 
-  const updateList = () => {
-    console.log('updateList');
+  const updateList = ({
+    id,
+    values
+  }: {
+    id: IFormIds;
+    values: (string | null)[];
+  }) => {
+    updateField({ id, value: values });
   };
 
   const { aspectRatio, breakpoints } = recipePageConfig;
@@ -187,7 +201,9 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
         </InputLabel>
         <OutlinedInput
           id="abstract"
-          inputProps={{ 'data-test': 'TEST' }}
+          inputProps={{
+            'aria-label': 'Abstract'
+          }}
           label="Abstract"
           multiline
           name="abstract"
@@ -284,7 +300,12 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
         {equipment && <EquipmentSection equipment={equipment} />}
 
         {equipment && (
-          <ListEdit label="Equipment" list={equipment} onChange={updateList} />
+          <ListEdit
+            id="equipment"
+            label="Equipment"
+            list={equipment}
+            onChange={updateList}
+          />
         )}
 
         {instructionsList && (
@@ -293,10 +314,22 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
 
         {/* {notes && <NotesSection notes={notes} />} */}
 
-        {notes && <ListEdit label="Notes" list={notes} onChange={updateList} />}
+        {notes && (
+          <ListEdit
+            id="notes"
+            label="Notes"
+            list={notes}
+            onChange={updateList}
+          />
+        )}
 
         {keywords && (
-          <ListEdit label="Keywords" list={keywords} onChange={updateList} />
+          <ListEdit
+            id="keywords"
+            label="Keywords"
+            list={keywords}
+            onChange={updateList}
+          />
         )}
       </Stack>
     </Box>

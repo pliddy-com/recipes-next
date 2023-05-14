@@ -144,8 +144,8 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
       >
         <textarea
           aria-invalid="false"
+          aria-label="Abstract"
           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputSizeSmall css-12tl3rr-MuiInputBase-input-MuiOutlinedInput-input"
-          data-test="TEST"
           id="abstract"
           name="abstract"
           style="height: 0px; overflow: hidden;"
@@ -696,7 +696,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
-            for="equipment"
+            for="equipment-1"
           >
             Equipment 1
           </label>
@@ -706,7 +706,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             <input
               aria-invalid="false"
               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-              id="equipment"
+              id="equipment-1"
               type="text"
               value="equipment 1"
             />
@@ -795,7 +795,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
-            for="equipment"
+            for="equipment-2"
           >
             Equipment 2
           </label>
@@ -805,7 +805,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             <input
               aria-invalid="false"
               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-              id="equipment"
+              id="equipment-2"
               type="text"
               value="equipment 2"
             />
@@ -1040,7 +1040,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
-            for="notes"
+            for="notes-1"
           >
             Notes 1
           </label>
@@ -1050,7 +1050,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             <input
               aria-invalid="false"
               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-              id="notes"
+              id="notes-1"
               type="text"
               value="note 1"
             />
@@ -1181,7 +1181,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
-            for="keywords"
+            for="keywords-1"
           >
             Keywords 1
           </label>
@@ -1191,7 +1191,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             <input
               aria-invalid="false"
               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-              id="keywords"
+              id="keywords-1"
               type="text"
               value="test"
             />
@@ -1280,7 +1280,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
-            for="keywords"
+            for="keywords-2"
           >
             Keywords 2
           </label>
@@ -1290,7 +1290,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             <input
               aria-invalid="false"
               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-              id="keywords"
+              id="keywords-2"
               type="text"
               value="keyword2"
             />

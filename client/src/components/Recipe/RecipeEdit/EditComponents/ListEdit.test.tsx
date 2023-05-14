@@ -13,7 +13,9 @@ describe('ListEdit', () => {
       const testValue = 'test value';
 
       const { asFragment, queryByLabelText, queryAllByRole, queryByRole } =
-        render(<ListEdit label={label} list={list} onChange={onChange} />);
+        render(
+          <ListEdit id="test" label={label} list={list} onChange={onChange} />
+        );
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

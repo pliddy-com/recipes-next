@@ -10,6 +10,7 @@ exports[`SearchBox when there is properly formatted content it renders the Searc
       class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
     >
       <div
+        aria-label="search"
         class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth Mui-focused MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-8j6b76-MuiInputBase-root-MuiOutlinedInput-root"
       >
         <div
@@ -34,7 +35,6 @@ exports[`SearchBox when there is properly formatted content it renders the Searc
         </div>
         <input
           aria-invalid="false"
-          aria-label="search"
           autocomplete="false"
           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input"
           id="search"

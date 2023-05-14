@@ -17,11 +17,12 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import PayloadRender from 'components/PayloadRender/PayloadRender';
 
 interface IListEdit {
+  id: string;
   label: string;
   list: (string | null)[];
-  onChange(): void;
+  onChange({ id, values }: { id: string; values: (string | null)[] }): void;
 }
-const ListEdit = ({ label, list, onChange }: IListEdit) => {
+const ListEdit = ({ id, label, list, onChange }: IListEdit) => {
   const [values, setValues] = useState<(string | null)[]>(list);
 
   const updateValues = (
@@ -35,7 +36,7 @@ const ListEdit = ({ label, list, onChange }: IListEdit) => {
     updatedValues[index] = valueString;
     setValues(updatedValues);
 
-    onChange();
+    onChange({ id, values: updatedValues });
   };
 
   const moveItem = ({
@@ -70,9 +71,9 @@ const ListEdit = ({ label, list, onChange }: IListEdit) => {
       <Typography variant="h2">{label}</Typography>
       {values.map((value, index) => (
         <FormControl variant="outlined" key={`${label}-${index}`}>
-          <InputLabel htmlFor={`${label.toLowerCase()}`}>{`${label} ${
-            index + 1
-          }`}</InputLabel>
+          <InputLabel
+            htmlFor={`${label.toLowerCase()}-${index + 1}`}
+          >{`${label} ${index + 1}`}</InputLabel>
           <OutlinedInput
             className="field"
             endAdornment={
@@ -102,7 +103,7 @@ const ListEdit = ({ label, list, onChange }: IListEdit) => {
                 </IconButton>
               </InputAdornment>
             }
-            id={`${label.toLowerCase()}`}
+            id={`${label.toLowerCase()}-${index + 1}`}
             label={`${label} ${index + 1}`}
             onChange={(e) => updateValues(index, e)}
             size="small"
