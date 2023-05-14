@@ -600,89 +600,6 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         </div>
       </div>
       <div
-        class="equipment css-nen11g-MuiStack-root"
-      >
-        <h2
-          class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
-        >
-          Equipment
-        </h2>
-        <ul
-          class="MuiList-root MuiList-padding recipeList unorderedList css-h4y409-MuiList-root"
-        >
-          <li
-            class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"
-          >
-            <div
-              class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
-            >
-              <div
-                aria-label="skillet"
-                class="icon MuiBox-root css-0"
-                data-testid="skillet"
-                role="graphics-symbol"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icon css-i4bv87-MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M1.818.002c-.272-.018-.572.069-.867.36L.699.607l-.25.248c-.946.93.209 1.916.209 1.916l3.77 3.176c1.1.982 3.103 3.201 4.167 4.4a8.596 8.541 0 1 0 1.819-1.787C9.218 7.49 7.006 5.477 6.03 4.372L2.878.59S2.415.042 1.818.002zM1.741 1.23a.448.445 0 0 1 .317.133l.98.985a.449.446 0 1 1-.638.627l-.98-.985a.45.447 0 0 1 .32-.76Z"
-                    style="fill: hsl(205, 60%, 25%); stroke: none;"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div
-              class="MuiListItemText-root css-tlelie-MuiListItemText-root"
-            >
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
-              >
-                equipment 1
-              </span>
-            </div>
-          </li>
-          <li
-            class="MuiListItem-root MuiListItem-padding css-1tnift2-MuiListItem-root"
-          >
-            <div
-              class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
-            >
-              <div
-                aria-label="skillet"
-                class="icon MuiBox-root css-0"
-                data-testid="skillet"
-                role="graphics-symbol"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium icon css-i4bv87-MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M1.818.002c-.272-.018-.572.069-.867.36L.699.607l-.25.248c-.946.93.209 1.916.209 1.916l3.77 3.176c1.1.982 3.103 3.201 4.167 4.4a8.596 8.541 0 1 0 1.819-1.787C9.218 7.49 7.006 5.477 6.03 4.372L2.878.59S2.415.042 1.818.002zM1.741 1.23a.448.445 0 0 1 .317.133l.98.985a.449.446 0 1 1-.638.627l-.98-.985a.45.447 0 0 1 .32-.76Z"
-                    style="fill: hsl(205, 60%, 25%); stroke: none;"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div
-              class="MuiListItemText-root css-tlelie-MuiListItemText-root"
-            >
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
-              >
-                equipment 2
-              </span>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div
         class="listEdit css-nen11g-MuiStack-root"
       >
         <h2
@@ -914,16 +831,6 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
-        <pre
-          style="white-space: pre-wrap; overflow-wrap: anywhere;"
-        >
-          {
-  "values": [
-    "equipment 1",
-    "equipment 2"
-  ]
-}
-        </pre>
       </div>
       <div
         class="instructions css-1okj3ks-MuiStack-root"
@@ -1157,15 +1064,6 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
-        <pre
-          style="white-space: pre-wrap; overflow-wrap: anywhere;"
-        >
-          {
-  "values": [
-    "note 1"
-  ]
-}
-        </pre>
       </div>
       <div
         class="listEdit css-nen11g-MuiStack-root"
@@ -1399,16 +1297,6 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
-        <pre
-          style="white-space: pre-wrap; overflow-wrap: anywhere;"
-        >
-          {
-  "values": [
-    "test",
-    "keyword2"
-  ]
-}
-        </pre>
       </div>
     </div>
   </div>

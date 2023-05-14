@@ -14,8 +14,6 @@ import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import CancelIcon from '@mui/icons-material/Cancel';
 
-import PayloadRender from 'components/PayloadRender/PayloadRender';
-
 interface IListEdit {
   id: string;
   label: string;
@@ -51,6 +49,7 @@ const ListEdit = ({ id, label, list, onChange }: IListEdit) => {
       const element = array.splice(index, 1)[0];
       array.splice(direction === 'up' ? index - 1 : index + 1, 0, element);
       setValues(array);
+      onChange({ id, values: array });
     }
   };
 
@@ -58,12 +57,14 @@ const ListEdit = ({ id, label, list, onChange }: IListEdit) => {
     const array = [...values];
     array.splice(index, 1);
     setValues(array);
+    onChange({ id, values: array });
   };
 
   const addItem = () => {
     const array = [...values];
     array.push('');
     setValues(array);
+    onChange({ id, values: array });
   };
 
   return (
@@ -120,8 +121,6 @@ const ListEdit = ({ id, label, list, onChange }: IListEdit) => {
       >
         Add Item
       </Button>
-
-      <PayloadRender payload={{ values }} />
     </Stack>
   );
 };

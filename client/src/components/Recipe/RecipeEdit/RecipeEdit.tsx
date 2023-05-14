@@ -14,7 +14,6 @@ import Typography from '@mui/material/Typography';
 import LockIcon from '@mui/icons-material/Lock';
 
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
-import EquipmentSection from 'components/Recipe/RecipeSections/EquipmentSection/EquipmentSection';
 import IngredientsSection from 'components/Recipe/RecipeSections/IngredientsSection/IngredientsSection';
 import InstructionsSection from 'components/Recipe/RecipeSections/InstructionsSection/InstructionsSection';
 import ListEdit from './EditComponents/ListEdit';
@@ -297,8 +296,6 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
       <Stack direction="column" spacing={3}>
         {ingredientsList && <IngredientsSection sections={ingredientsList} />}
 
-        {equipment && <EquipmentSection equipment={equipment} />}
-
         {equipment && (
           <ListEdit
             id="equipment"
@@ -311,8 +308,6 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
         {instructionsList && (
           <InstructionsSection sections={instructionsList} />
         )}
-
-        {/* {notes && <NotesSection notes={notes} />} */}
 
         {notes && (
           <ListEdit

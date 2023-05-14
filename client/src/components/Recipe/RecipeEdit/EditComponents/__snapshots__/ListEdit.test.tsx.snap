@@ -335,17 +335,6 @@ exports[`ListEdit when there is content renders the component 1`] = `
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
-    <pre
-      style="white-space: pre-wrap; overflow-wrap: anywhere;"
-    >
-      {
-  "values": [
-    "item 1",
-    "item 2",
-    "item 3"
-  ]
-}
-    </pre>
   </div>
 </DocumentFragment>
 `;
