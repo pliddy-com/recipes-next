@@ -117,8 +117,8 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
         >
           <textarea
             aria-invalid="false"
+            aria-label="Abstract"
             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputSizeSmall css-12tl3rr-MuiInputBase-input-MuiOutlinedInput-input"
-            data-test="TEST"
             id="abstract"
             name="abstract"
             style="height: 0px; overflow: hidden;"
@@ -180,6 +180,7 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
                         aria-invalid="false"
                         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
                         id="prepTime"
+                        name="prepTime"
                         type="text"
                         value="0"
                       />
@@ -224,6 +225,7 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
                         aria-invalid="false"
                         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
                         id="cookTime"
+                        name="cookTime"
                         type="text"
                         value="0"
                       />
@@ -281,6 +283,7 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
                       id="recipeYield"
+                      name="recipeYield"
                       type="text"
                       value="0"
                     />

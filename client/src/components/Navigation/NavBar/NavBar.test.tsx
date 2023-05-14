@@ -30,7 +30,6 @@ jest.mock('next/router', () => ({
 const authContextValues = {
   authLoading: false,
   isAuth: false,
-  isLoading: false,
   signIn: jest.fn(),
   signOut: jest.fn(),
   token: 'TOKEN'

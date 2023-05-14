@@ -20,7 +20,6 @@ jest.mock('contexts/Content');
 const authContextValues = {
   authLoading: false,
   isAuth: false,
-  isLoading: false,
   signIn: jest.fn(),
   signOut: jest.fn(),
   token: 'TOKEN'
@@ -54,39 +53,53 @@ describe('Recipe', () => {
   describe('when there is page content', () => {
     it('it renders the Recipe', async () => {
       const titleValue = 'TITLE';
-      const slugValue = 'title';
+      // const slugValue = 'title';
       const abstractValue = 'ABSTRACT';
-      const prepTimeValue = '15';
+      const prepTimeValue = '30';
       const cookTimeValue = '30';
       const recipeYieldValue = '10';
+      // const equipmentValue = 'test_equipment';
+      // const keywordsValue = 'test_keyword';
 
-      const content = await api.getRecipePage();
+      const { recipe } = await api.getRecipePage();
 
       const { asFragment, queryByLabelText, queryByTestId } = render(
-        <RecipeEdit content={content as unknown as RecipeDefaultFragment} />
+        <RecipeEdit content={recipe} />
       );
 
       // assert that content is rendered
       expect(queryByTestId('RecipeEdit')).toBeInTheDocument();
 
+      // check code for toggling Save enabled
+
+      const recipeYieldInput = queryByLabelText('Recipe Yield');
+      recipeYieldInput &&
+        fireEvent.change(recipeYieldInput, {
+          target: { value: recipeYieldValue }
+        });
+      expect(recipeYieldInput).toHaveValue(recipeYieldValue);
+
+      recipeYieldInput &&
+        fireEvent.change(recipeYieldInput, {
+          target: { value: '4' }
+        });
+      expect(recipeYieldInput).toHaveValue('4');
+
       // Test form field inputs
       const titleInput = queryByLabelText('Title');
 
       // check code for toggling Save enabled
-      titleInput && fireEvent.change(titleInput, { target: { value: '1' } });
-      expect(titleInput).toHaveValue('1');
-      titleInput && fireEvent.change(titleInput, { target: { value: '' } });
-      expect(titleInput).toHaveValue('');
+      titleInput &&
+        fireEvent.change(titleInput, { target: { value: titleValue } });
+      expect(titleInput).toHaveValue(titleValue);
 
       titleInput &&
-        fireEvent.change(titleInput, {
-          target: { value: titleValue }
-        });
-      expect(titleInput).toHaveValue(titleValue);
+        fireEvent.change(titleInput, { target: { value: 'Recipe Title' } });
+      expect(titleInput).toHaveValue('Recipe Title');
 
       // slug is slugified title
       const slugInput = queryByLabelText('Slug');
-      expect(slugInput).toHaveValue(slugValue);
+      expect(slugInput).toHaveValue('recipe-title');
 
       const abstractInput = queryByLabelText('Abstract');
       abstractInput &&
@@ -109,12 +122,16 @@ describe('Recipe', () => {
         });
       expect(cookTimeInput).toHaveValue(cookTimeValue);
 
-      const recipeYieldInput = queryByLabelText('Recipe Yield');
-      recipeYieldInput &&
-        fireEvent.change(recipeYieldInput, {
-          target: { value: recipeYieldValue }
+      const equipmentInput = queryByLabelText('Equipment 1');
+      expect(equipmentInput).toBeInTheDocument();
+
+      const keywordsInput = queryByLabelText('Keywords 1');
+      keywordsInput &&
+        fireEvent.change(keywordsInput, {
+          target: { value: 'test' }
         });
-      expect(recipeYieldInput).toHaveValue(recipeYieldValue);
+
+      expect(keywordsInput).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

@@ -138,6 +138,24 @@ const pageThemeOptions: ThemeOptions = {
                   width: '1.5rem',
                   height: '1.5rem'
                 }
+              },
+              '& .listEdit': {
+                // width: '100%',
+                justifyItems: 'flex-start',
+                '& .icon': {
+                  width: '1.5rem',
+                  height: '1.5rem'
+                },
+                '& .MuiFormControl-root': {
+                  marginLeft: 0,
+                  marginRight: 0,
+                  marginTop: '1rem',
+                  marginBottom: '0.5rem'
+                },
+                '& .MuiButton-root': {
+                  alignSelf: 'flex-start',
+                  marginTop: '0.5rem'
+                }
               }
             },
             '&.search': {

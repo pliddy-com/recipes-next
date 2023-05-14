@@ -1,7 +1,7 @@
 import Container from '@mui/material/Container';
 
 import Recipe from 'components/Recipe/Recipe';
-import RecipeEdit from 'components/Recipe/RecipeEdit';
+import RecipeEdit from 'components/Recipe/RecipeEdit/RecipeEdit';
 
 import { useAuthContext } from 'contexts/Authentication';
 import { useContentManagementContext } from 'contexts/Content';

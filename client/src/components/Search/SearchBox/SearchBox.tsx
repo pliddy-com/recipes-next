@@ -37,8 +37,8 @@ const SearchBox = () => {
         autoComplete="false"
         autoFocus={true}
         fullWidth
-        inputProps={{ 'aria-label': 'search' }}
         InputProps={{
+          'aria-label': 'search',
           startAdornment: (
             <InputAdornment position="start">
               <SearchIcon color="primary" />
