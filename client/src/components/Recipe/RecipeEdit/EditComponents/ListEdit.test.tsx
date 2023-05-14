@@ -12,9 +12,11 @@ describe('ListEdit', () => {
 
       const testValue = 'test value';
 
-      const { asFragment, queryByLabelText, queryAllByRole } = render(
-        <ListEdit label={label} list={list} onChange={onChange} />
-      );
+      const { asFragment, queryByLabelText, queryAllByRole, queryByRole } =
+        render(<ListEdit label={label} list={list} onChange={onChange} />);
+
+      // assert that the component matches the existing snapshot
+      expect(asFragment()).toMatchSnapshot();
 
       // assert that onChange executes
       const firstInput = queryByLabelText('List Label 1');
@@ -46,8 +48,9 @@ describe('ListEdit', () => {
       expect(removeItemButon).toBeDefined();
       removeItemButon && fireEvent.click(removeItemButon as unknown as Element);
 
-      // assert that the component matches the existing snapshot
-      expect(asFragment()).toMatchSnapshot();
+      const addItemButton = queryByRole('button', { name: 'add item' });
+      expect(addItemButton).toBeDefined();
+      addItemButton && fireEvent.click(addItemButton as unknown as Element);
     });
   });
 });

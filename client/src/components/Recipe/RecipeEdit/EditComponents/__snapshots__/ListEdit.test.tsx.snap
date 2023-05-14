@@ -28,7 +28,7 @@ exports[`ListEdit when there is content renders the component 1`] = `
           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
           id="list label"
           type="text"
-          value="test value"
+          value="item 1"
         />
         <div
           class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
@@ -340,7 +340,7 @@ exports[`ListEdit when there is content renders the component 1`] = `
     >
       {
   "values": [
-    "test value",
+    "item 1",
     "item 2",
     "item 3"
   ]

@@ -38,16 +38,31 @@ const ListEdit = ({ label, list, onChange }: IListEdit) => {
     onChange();
   };
 
-  const moveUp = () => {
-    console.log('move up');
+  const moveItem = ({
+    index,
+    direction
+  }: {
+    index: number;
+    direction: 'up' | 'down';
+  }) => {
+    if (index < values.length) {
+      const array = [...values];
+      const element = array.splice(index, 1)[0];
+      array.splice(direction === 'up' ? index - 1 : index + 1, 0, element);
+      setValues(array);
+    }
   };
 
-  const moveDown = () => {
-    console.log('move down');
+  const removeItem = ({ index }: { index: number }) => {
+    const array = [...values];
+    array.splice(index, 1);
+    setValues(array);
   };
 
-  const removeItem = () => {
-    console.log('remove item');
+  const addItem = () => {
+    const array = [...values];
+    array.push('');
+    setValues(array);
   };
 
   return (
@@ -68,24 +83,24 @@ const ListEdit = ({ label, list, onChange }: IListEdit) => {
               <InputAdornment position="end">
                 <IconButton
                   aria-label="move item up"
-                  disabled={index === 0}
+                  disabled={index === 0 || !value}
                   edge="end"
-                  onClick={moveUp}
+                  onClick={() => moveItem({ index, direction: 'up' })}
                 >
                   <ArrowCircleUpIcon />
                 </IconButton>
                 <IconButton
                   aria-label="move item down"
-                  disabled={index === values.length - 1}
+                  disabled={index === values.length - 1 || !value}
                   edge="end"
-                  onClick={moveDown}
+                  onClick={() => moveItem({ index, direction: 'down' })}
                 >
                   <ArrowCircleDownIcon />
                 </IconButton>
                 <IconButton
                   aria-label="remove item"
                   edge="end"
-                  onClick={removeItem}
+                  onClick={() => removeItem({ index })}
                 >
                   <CancelIcon />
                 </IconButton>
@@ -102,6 +117,7 @@ const ListEdit = ({ label, list, onChange }: IListEdit) => {
       ))}
       <Button
         aria-label="add item"
+        onClick={addItem}
         startIcon={<AddCircleIcon />}
         variant="outlined"
       >

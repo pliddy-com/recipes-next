@@ -14,8 +14,11 @@ const formThemeOptions: ThemeOptions = {
               paddingTop: '0.375rem'
             },
             '& .MuiFormLabel-root[data-shrink="false"]': {
-              marginTop: '-0.125rem'
+              marginTop: '-0.1875rem'
             }
+          },
+          '& .MuiInputLabel-root[data-shrink="false"]': {
+            marginTop: '-0.25rem'
           },
           '&.bold': {
             '& .MuiInputBase-root': {
@@ -47,8 +50,7 @@ const formThemeOptions: ThemeOptions = {
       styleOverrides: {
         input: {
           fontFamily: sansFontFamily,
-          flex: 1,
-          paddingTop: '0.75rem'
+          flex: 1
         }
       }
     },
@@ -56,6 +58,16 @@ const formThemeOptions: ThemeOptions = {
       styleOverrides: {
         input: {
           paddingTop: '12px'
+        }
+      }
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          fontFamily: sansFontFamily,
+          '& .MuiInputLabel-root[data-shrink="false"]': {
+            marginTop: '0.125rem'
+          }
         }
       }
     }
