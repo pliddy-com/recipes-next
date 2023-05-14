@@ -106,7 +106,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     setRecipe(newData);
 
     try {
-      console.log('updateForm:', { defaultState, newData });
+      // console.log('updateForm:', { defaultState, newData });
       assert.deepStrictEqual(defaultState, newData);
       setCanSave(false);
     } catch (e) {
