@@ -53,13 +53,10 @@ describe('Recipe', () => {
   describe('when there is page content', () => {
     it('it renders the Recipe', async () => {
       const titleValue = 'TITLE';
-      // const slugValue = 'title';
       const abstractValue = 'ABSTRACT';
       const prepTimeValue = '30';
       const cookTimeValue = '30';
       const recipeYieldValue = '10';
-      // const equipmentValue = 'test_equipment';
-      // const keywordsValue = 'test_keyword';
 
       const { recipe } = await api.getRecipePage();
 
@@ -123,15 +120,41 @@ describe('Recipe', () => {
       expect(cookTimeInput).toHaveValue(cookTimeValue);
 
       const equipmentInput = queryByLabelText('Equipment 1');
+      equipmentInput &&
+        fireEvent.change(equipmentInput, {
+          target: { value: 'test' }
+        });
       expect(equipmentInput).toBeInTheDocument();
+
+      const notesInput = queryByLabelText('Notes 1');
+      notesInput &&
+        fireEvent.change(notesInput, {
+          target: { value: 'test' }
+        });
+      expect(notesInput).toBeInTheDocument();
 
       const keywordsInput = queryByLabelText('Keywords 1');
       keywordsInput &&
         fireEvent.change(keywordsInput, {
           target: { value: 'test' }
         });
-
       expect(keywordsInput).toBeInTheDocument();
+
+      const ingredientsInput = queryByLabelText('Ingredients Section Label 1');
+      ingredientsInput &&
+        fireEvent.change(ingredientsInput, {
+          target: { value: 'test' }
+        });
+      expect(ingredientsInput).toBeInTheDocument();
+
+      const instructionsInput = queryByLabelText(
+        'Instructions Section Label 1'
+      );
+      instructionsInput &&
+        fireEvent.change(instructionsInput, {
+          target: { value: 'test' }
+        });
+      expect(instructionsInput).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

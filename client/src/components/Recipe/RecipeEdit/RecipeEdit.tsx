@@ -14,8 +14,6 @@ import Typography from '@mui/material/Typography';
 import LockIcon from '@mui/icons-material/Lock';
 
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
-import IngredientsSection from 'components/Recipe/RecipeSections/IngredientsSection/IngredientsSection';
-import InstructionsSection from 'components/Recipe/RecipeSections/InstructionsSection/InstructionsSection';
 import ListEdit from './EditComponents/ListEdit';
 import Loading from 'components/Loading/Loading';
 import RichText from 'components/RichText/RichText';
@@ -30,14 +28,17 @@ import { recipePageConfig } from 'theme/values/images';
 import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
 import { useContentManagementContext } from 'contexts/Content';
 
-import { IRecipeChangeSet } from 'types/content';
+import { IRecipeChangeSet, IRecipeSection } from 'types/content';
 
 import TextEdit from './EditComponents/TextEdit';
+import SectionEdit from './EditComponents/SectionEdit';
 
 export type IFormIds =
   | 'abstract'
   | 'cookTime'
   | 'equipment'
+  | 'ingredientsList'
+  | 'instructionsList'
   | 'keywords'
   | 'notes'
   | 'prepTime'
@@ -73,6 +74,8 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     id: sys?.id || '',
     cookTime: cookTime || '0',
     equipment: equipment || [],
+    ingredientsList: ingredientsList || [],
+    instructionsList: instructionsList || [],
     keywords: keywords || [],
     notes: notes || [],
     prepTime: prepTime || '0',
@@ -83,7 +86,9 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
 
   const { editLoading, setCanSave, setRecipe } = useContentManagementContext();
 
-  const [formData, setFormData] = useState<IRecipeChangeSet>(defaultState);
+  const [formData, setFormData] = useState<IRecipeChangeSet>({
+    ...defaultState
+  });
 
   const resetForm = () => {
     setFormData(defaultState);
@@ -102,11 +107,11 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     value
   }: {
     id: IFormIds;
-    value: string | number | (string | null)[];
+    value: string | number | (string | null | IRecipeSection)[];
   }) => {
     const newData: IRecipeChangeSet = { ...formData };
 
-    newData[id] = value as string & (string | null)[];
+    newData[id] = value as string & (string | null)[] & IRecipeSection[];
 
     setFormData(newData);
     setRecipe(newData);
@@ -142,16 +147,6 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
         setCanSave(true);
       }
     }
-  };
-
-  const updateList = ({
-    id,
-    values
-  }: {
-    id: IFormIds;
-    values: (string | null)[];
-  }) => {
-    updateField({ id, value: values });
   };
 
   const { aspectRatio, breakpoints } = recipePageConfig;
@@ -294,36 +289,55 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
       </Grid>
 
       <Stack direction="column" spacing={3}>
-        {ingredientsList && <IngredientsSection sections={ingredientsList} />}
+        {ingredientsList && (
+          <SectionEdit
+            id="ingredientsList"
+            label="Ingredients"
+            onChange={({ value }) =>
+              updateField({ id: 'ingredientsList', value })
+            }
+            sectionList={ingredientsList}
+          />
+        )}
 
         {equipment && (
           <ListEdit
+            heading="h2"
             id="equipment"
             label="Equipment"
             list={equipment}
-            onChange={updateList}
+            onChange={({ value }) => updateField({ id: 'equipment', value })}
           />
         )}
 
         {instructionsList && (
-          <InstructionsSection sections={instructionsList} />
+          <SectionEdit
+            id="instructionsList"
+            label="Instructions"
+            onChange={({ value }) =>
+              updateField({ id: 'instructionsList', value })
+            }
+            sectionList={instructionsList}
+          />
         )}
 
         {notes && (
           <ListEdit
+            heading="h2"
             id="notes"
             label="Notes"
             list={notes}
-            onChange={updateList}
+            onChange={({ value }) => updateField({ id: 'notes', value })}
           />
         )}
 
         {keywords && (
           <ListEdit
+            heading="h2"
             id="keywords"
             label="Keywords"
             list={keywords}
-            onChange={updateList}
+            onChange={({ value }) => updateField({ id: 'keywords', value })}
           />
         )}
       </Stack>

@@ -20,11 +20,19 @@ const TextEdit = ({
   onChange,
   value
 }: ITextEdit) => {
+  const handleUpdate = (
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    e.preventDefault();
+    onChange && onChange(e);
+  };
+
   return (
     <TextField
       className={`field${className ? ` ${className}` : ''}`}
       disabled={disabled}
       InputProps={{
+        inputProps: { 'data-testid': id },
         ...(endAdornment
           ? {
               endAdornment: (
@@ -36,7 +44,7 @@ const TextEdit = ({
       id={id}
       label={label}
       name={id}
-      onChange={onChange ? (e) => onChange(e) : undefined}
+      onChange={onChange ? (e) => handleUpdate(e) : undefined}
       size="small"
       value={value}
       variant="outlined"

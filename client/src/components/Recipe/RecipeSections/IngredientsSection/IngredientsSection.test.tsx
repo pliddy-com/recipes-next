@@ -58,7 +58,7 @@ describe('IngredientsSection', () => {
       const sections: IRecipeSection[] = [
         {
           sectionTitle: null,
-          sectionItems: null
+          sectionItems: [null]
         }
       ];
 
