@@ -140,7 +140,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     fetchpriority="high"
                     height="200"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=600&h=400&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=300&h=200&fit=fill&q=75"
                     width="300"
                   />
                 </picture>
@@ -287,7 +287,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     fetchpriority="high"
                     height="200"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=600&h=400&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/7gEyzXQDA6yaKh2JovooBW/1e2df5ef83916f8a99fb3e464922c838/summer-pickles-2.JPG?w=300&h=200&fit=fill&q=75"
                     width="300"
                   />
                 </picture>
@@ -374,7 +374,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     fetchpriority="auto"
                     height="200"
                     loading="lazy"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/2kqqWaXbSCvNUA5ksGTe0i/1d03f37175663bd657c21dabc94ab3c7/tzatziki.jpg?w=300&h=200&fit=fill&q=75"
                     width="300"
                   />
                 </picture>
@@ -546,7 +546,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     fetchpriority="high"
                     height="200"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=300&h=200&fit=fill&q=75"
                     width="300"
                   />
                 </picture>
@@ -718,7 +718,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     fetchpriority="high"
                     height="200"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=300&h=200&fit=fill&q=75"
                     width="300"
                   />
                 </picture>
@@ -865,7 +865,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     fetchpriority="high"
                     height="200"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/5zNTJ123dvhd8SjebvlRhr/4b18387089deffa6686944f81d52f711/carrot-soup.jpg?w=300&h=200&fit=fill&q=75"
                     width="300"
                   />
                 </picture>
@@ -952,7 +952,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     fetchpriority="auto"
                     height="200"
                     loading="lazy"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/sAKom0ClVFs6veyzYZh9p/dd1c3f39c08c7078a2906a360e336c6a/chicken-gravy.jpg?w=300&h=200&fit=fill&q=75"
                     width="300"
                   />
                 </picture>
@@ -1039,7 +1039,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     fetchpriority="auto"
                     height="200"
                     loading="lazy"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/7JzbZn07fY62akLYWhNqDg/df3f00e87d2ebab4f807caac8e2befcb/sole-meuniere.jpg?w=300&h=200&fit=fill&q=75"
                     width="300"
                   />
                 </picture>
@@ -1211,7 +1211,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     fetchpriority="high"
                     height="200"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/6IA6NdUNZwM9keB5NPGbKl/7f3312667b6c69a525e2b526eeb950ed/hassselback-potato.jpg?w=300&h=200&fit=fill&q=75"
                     width="300"
                   />
                 </picture>
@@ -1358,7 +1358,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     fetchpriority="high"
                     height="200"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/4qQKT56x04FWVLm1No3LFo/e9e886c9b89151a06098d91b098dda4c/pizza-bianca.jpg?w=300&h=200&fit=fill&q=75"
                     width="300"
                   />
                 </picture>
@@ -1445,7 +1445,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
                     fetchpriority="auto"
                     height="200"
                     loading="lazy"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/5Wggb1rx8BNzLQ0j94gocJ/5d6b48746a782028dedf30b8c2d510df/garlic-shrimp.jpg?w=300&h=200&fit=fill&q=75"
                     width="300"
                   />
                 </picture>

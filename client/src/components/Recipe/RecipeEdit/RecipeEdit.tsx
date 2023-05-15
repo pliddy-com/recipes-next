@@ -110,7 +110,6 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     value: string | number | (string | null | IRecipeSection)[];
   }) => {
     const newData: IRecipeChangeSet = { ...formData };
-
     newData[id] = value as string & (string | null)[] & IRecipeSection[];
 
     setFormData(newData);
@@ -296,7 +295,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
             onChange={({ value }) =>
               updateField({ id: 'ingredientsList', value })
             }
-            sectionList={ingredientsList}
+            sectionList={formData.ingredientsList}
           />
         )}
 
@@ -305,7 +304,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
             heading="h2"
             id="equipment"
             label="Equipment"
-            list={equipment}
+            list={formData.equipment}
             onChange={({ value }) => updateField({ id: 'equipment', value })}
           />
         )}
@@ -317,7 +316,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
             onChange={({ value }) =>
               updateField({ id: 'instructionsList', value })
             }
-            sectionList={instructionsList}
+            sectionList={formData.instructionsList}
           />
         )}
 
@@ -326,7 +325,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
             heading="h2"
             id="notes"
             label="Notes"
-            list={notes}
+            list={formData.notes}
             onChange={({ value }) => updateField({ id: 'notes', value })}
           />
         )}
@@ -336,7 +335,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
             heading="h2"
             id="keywords"
             label="Keywords"
-            list={keywords}
+            list={formData.keywords}
             onChange={({ value }) => updateField({ id: 'keywords', value })}
           />
         )}

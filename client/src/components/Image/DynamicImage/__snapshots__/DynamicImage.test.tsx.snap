@@ -54,7 +54,7 @@ exports[`DynamicImage when there is a url & image object it renders a picture co
       fetchpriority="high"
       height="300"
       loading="eager"
-      src="https://URL.test?w=800&h=600&fit=fill&fm=webp&q=75"
+      src="https://URL.test?w=400&h=300&fit=fill&q=75"
       width="400"
     />
   </picture>

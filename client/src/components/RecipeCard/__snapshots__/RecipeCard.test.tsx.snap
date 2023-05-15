@@ -125,7 +125,7 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
             fetchpriority="high"
             height="267"
             loading="eager"
-            src="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fit=fill&fm=webp&q=75"
+            src="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fit=fill&q=75"
             width="400"
           />
         </picture>

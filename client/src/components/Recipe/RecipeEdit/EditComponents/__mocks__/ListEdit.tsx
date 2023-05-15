@@ -19,8 +19,13 @@ export const ListEdit = jest.fn(
         <p>{label}</p>
         {list.map((item, index) => (
           <div key={index}>
-            <label>{`label-${index}`}</label>
-            <input value={item || ''} onChange={onChange} />
+            <label htmlFor={`${id}-${index}`}>{`label-${id}-${index}`}</label>
+            <input
+              id={`${id}-${index}`}
+              name={`${id}-${index}`}
+              value={item || ''}
+              onChange={onChange}
+            />
           </div>
         ))}
       </div>

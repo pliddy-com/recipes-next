@@ -146,7 +146,7 @@ exports[`RecipeGridLayout when page number is > 0 it renders the RecipeGridLayou
                   fetchpriority="high"
                   height="267"
                   loading="eager"
-                  src="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&h=534&fit=fill&fm=webp&q=75"
+                  src="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fit=fill&q=75"
                   width="400"
                 />
               </picture>
@@ -355,7 +355,7 @@ exports[`RecipeGridLayout when page number is > 0 it renders the RecipeGridLayou
                   fetchpriority="high"
                   height="267"
                   loading="eager"
-                  src="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fit=fill&fm=webp&q=75"
+                  src="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fit=fill&q=75"
                   width="400"
                 />
               </picture>
@@ -542,7 +542,7 @@ exports[`RecipeGridLayout when page number is > 0 it renders the RecipeGridLayou
                   fetchpriority="high"
                   height="267"
                   loading="eager"
-                  src="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&h=534&fit=fill&fm=webp&q=75"
+                  src="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fit=fill&q=75"
                   width="400"
                 />
               </picture>
@@ -692,7 +692,7 @@ exports[`RecipeGridLayout when page number is > 0 it renders the RecipeGridLayou
                   fetchpriority="auto"
                   height="267"
                   loading="lazy"
-                  src="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&h=534&fit=fill&fm=webp&q=75"
+                  src="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&h=267&fit=fill&q=75"
                   width="400"
                 />
               </picture>
@@ -842,7 +842,7 @@ exports[`RecipeGridLayout when page number is > 0 it renders the RecipeGridLayou
                   fetchpriority="auto"
                   height="267"
                   loading="lazy"
-                  src="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=800&h=534&fit=fill&fm=webp&q=75"
+                  src="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=400&h=267&fit=fill&q=75"
                   width="400"
                 />
               </picture>
@@ -981,7 +981,7 @@ exports[`RecipeGridLayout when page number is > 0 it renders the RecipeGridLayou
                   fetchpriority="auto"
                   height="267"
                   loading="lazy"
-                  src="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&h=534&fit=fill&fm=webp&q=75"
+                  src="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&h=267&fit=fill&q=75"
                   width="400"
                 />
               </picture>
@@ -1245,7 +1245,7 @@ exports[`RecipeGridLayout when there is page content it renders the RecipeGridLa
                     fetchpriority="high"
                     height="267"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=800&h=534&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=400&h=267&fit=fill&q=75"
                     width="400"
                   />
                 </picture>
@@ -1454,7 +1454,7 @@ exports[`RecipeGridLayout when there is page content it renders the RecipeGridLa
                     fetchpriority="high"
                     height="267"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=800&h=534&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/2Y8FHjjNDYCcsflAJq4Q5j/6615d77fa788a39e5d9135b9def8d006/basmati-rice.jpg?w=400&h=267&fit=fill&q=75"
                     width="400"
                   />
                 </picture>
@@ -1641,7 +1641,7 @@ exports[`RecipeGridLayout when there is page content it renders the RecipeGridLa
                     fetchpriority="high"
                     height="267"
                     loading="eager"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=800&h=534&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=267&fit=fill&q=75"
                     width="400"
                   />
                 </picture>
@@ -1791,7 +1791,7 @@ exports[`RecipeGridLayout when there is page content it renders the RecipeGridLa
                     fetchpriority="auto"
                     height="267"
                     loading="lazy"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=800&h=534&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/7CSu5w16cd1WlqCPl3Zm1j/c88a5c79f229a3388b7a61824deb3175/boeuf-bourguignon.jpg?w=400&h=267&fit=fill&q=75"
                     width="400"
                   />
                 </picture>
@@ -1941,7 +1941,7 @@ exports[`RecipeGridLayout when there is page content it renders the RecipeGridLa
                     fetchpriority="auto"
                     height="267"
                     loading="lazy"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=800&h=534&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/51O0AwpiOfzN6kRAW1NOlj/782d31a1bc9c67d346f1effde2e65778/brined-chicken-breast.jpg?w=400&h=267&fit=fill&q=75"
                     width="400"
                   />
                 </picture>
@@ -2080,7 +2080,7 @@ exports[`RecipeGridLayout when there is page content it renders the RecipeGridLa
                     fetchpriority="auto"
                     height="267"
                     loading="lazy"
-                    src="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=800&h=534&fit=fill&fm=webp&q=75"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/2Xuw321ZL1GAqHK3KJh1F9/b8bdd58f65c1b0384340f7cc3f1b500c/pickles.JPG?w=400&h=267&fit=fill&q=75"
                     width="400"
                   />
                 </picture>
