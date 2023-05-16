@@ -14,9 +14,9 @@ import Typography from '@mui/material/Typography';
 import LockIcon from '@mui/icons-material/Lock';
 
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
-import ListEdit from './EditComponents/ListEdit';
+import ListEdit from 'components/Recipe/RecipeEdit/EditComponents/ListEdit';
 import Loading from 'components/Loading/Loading';
-import RichText from 'components/RichText/RichText';
+// import RichText from 'components/RichText/RichText';
 import TagsSection from 'components/Recipe/RecipeSections/TagsSection/TagsSection';
 
 // import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
@@ -32,6 +32,7 @@ import { IRecipeChangeSet, IRecipeSection } from 'types/content';
 
 import TextEdit from './EditComponents/TextEdit';
 import SectionEdit from './EditComponents/SectionEdit';
+import RichTextEdit from './EditComponents/RichTextEdit';
 
 export type IFormIds =
   | 'abstract'
@@ -211,7 +212,9 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
       <Grid container className="content">
         <Grid item lg={6} className="contentGrid">
           <Stack className="description">
-            {description && <RichText content={richText} />}
+            {/* {description && <RichText content={richText} />} */}
+
+            {description && <RichTextEdit payload={richText} />}
 
             {/* {description && (
               <TextField
