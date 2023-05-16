@@ -21,7 +21,10 @@ import {
   NavMenuDataQuery,
   RecipeSlugsQuery,
   TagSlugsQuery,
-  RecipeListQuery
+  RecipeListQuery,
+  TagListQuery,
+  TagListDocument,
+  TagListQueryVariables
 } from '../types/queries';
 
 import { hasValue } from './utils';
@@ -81,6 +84,18 @@ export const getTagSlugs = async (variables?: TagSlugsQueryVariables) => {
     });
 
   return tags ? filterSlugs(tags) : [];
+};
+
+// used to edit tag list on recipe
+export const getTagList = async (variables?: TagListQueryVariables) => {
+  const results: TagListQuery = await queryGraphQLContent(
+    TagListDocument,
+    variables
+  );
+
+  const { tagCollection } = results;
+
+  return tagCollection ? tagCollection.items.filter(hasValue) : [];
 };
 
 // used to query content for home index page

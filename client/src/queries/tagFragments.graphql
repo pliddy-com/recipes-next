@@ -7,6 +7,18 @@ fragment TagDefault on Tag {
   slug
 }
 
+## Fragments with default fields for:
+#   * Tag
+
+fragment TagEntry on Tag {
+  sys {
+    id
+  }
+  __typename
+  title
+  slug
+}
+
 # Fragment with fields for Tag with linkedFrom Recipes
 
 fragment TagWithLinks on Tag {

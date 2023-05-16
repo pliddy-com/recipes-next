@@ -6,6 +6,7 @@ export interface ApiTestProps {
   getRecipeList: () => [{ slug: string }];
   getRecipePage: () => { slug: string; title: string };
   getTagIndex: () => [{ slug: string; title: string }];
+  getTagList: () => [{ slug: string; title: string }];
 }
 
 jest.mock('urql');
@@ -34,12 +35,36 @@ api.getTagSlugs = jest.fn().mockResolvedValue(['slug-1', 'slug-2']);
 
 api.getRecipeIndex = jest.fn().mockResolvedValue([
   {
-    slug: 'slug-1',
+    slug: 'title-1',
     title: 'Title 1'
   },
   {
-    slug: 'slug-2',
+    slug: 'title-2',
     title: 'Title 2'
+  }
+]);
+
+api.getTagList = jest.fn().mockResolvedValue([
+  {
+    sys: {
+      id: 'id-1'
+    },
+    slug: 'title-1',
+    title: 'Title 1'
+  },
+  {
+    sys: {
+      id: 'id-2'
+    },
+    slug: 'title-2',
+    title: 'Title 2'
+  },
+  {
+    sys: {
+      id: 'id-3'
+    },
+    slug: 'title-3',
+    title: 'Title 3'
   }
 ]);
 

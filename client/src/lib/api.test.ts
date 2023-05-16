@@ -8,7 +8,8 @@ import {
   getRecipeIndex,
   getRecipeList,
   getRecipePage,
-  getTagIndex
+  getTagIndex,
+  getTagList
 } from './api';
 
 jest.mock('lib/gqlClient');
@@ -303,6 +304,67 @@ describe('api', () => {
 
         const variables = {};
         const res = await getTagSlugs(variables);
+
+        expect(gqlSpy).toHaveBeenCalled();
+        expect(res).toEqual(expected);
+      });
+    });
+  });
+
+  describe('when getTagList() is called', () => {
+    it('it returns a collection of all tags', async () => {
+      const tags = [
+        {
+          sys: {
+            id: 'id-1'
+          },
+          slug: 'title-1',
+          title: 'Title 1'
+        },
+        {
+          sys: {
+            id: 'id-2'
+          },
+          slug: 'title-2',
+          title: 'Title 2'
+        },
+        {
+          sys: {
+            id: 'id-3'
+          },
+          slug: 'title-3',
+          title: 'Title 3'
+        }
+      ];
+
+      const payload = {
+        tagCollection: {
+          items: tags
+        }
+      };
+
+      // const variables = {};
+
+      const gqlSpy = jest
+        .spyOn(gqlClient, 'queryGraphQLContent')
+        .mockResolvedValueOnce(payload);
+
+      const res = await getTagList();
+      console.log({ res });
+      expect(gqlSpy).toHaveBeenCalled();
+      expect(res).toEqual(tags);
+    });
+
+    describe('if no valid data is returned', () => {
+      it('it returns an empty array', async () => {
+        const payload = { tagsCollection: null };
+        const expected: unknown[] = [];
+
+        const gqlSpy = jest
+          .spyOn(gqlClient, 'queryGraphQLContent')
+          .mockResolvedValueOnce(payload);
+
+        const res = await getTagList();
 
         expect(gqlSpy).toHaveBeenCalled();
         expect(res).toEqual(expected);

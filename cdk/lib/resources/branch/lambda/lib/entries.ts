@@ -114,7 +114,8 @@ export const updateEntry = async ({
     // map recipe values to entry fields
 
     for (const [key, value] of Object.entries(recipe)) {
-      if (key !== 'id') entry.fields[key]['en-US'] = value;
+      // add 'en-US' as property in case fields[key] does not exist in entry
+      if (key !== 'id') entry.fields[key] = { 'en-US': value };
     }
 
     const updated = await entry.update();

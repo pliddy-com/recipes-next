@@ -26,7 +26,7 @@ describe('PagedRecipes', () => {
       const { asFragment, queryByTestId } = render(
         <PagedTags
           key={`results-${pageNum}`}
-          data={pagedTags[pageNum] as ListPageItemFragment[]}
+          data={pagedTags[pageNum] as unknown as ListPageItemFragment[]}
           pageNum={pageNum}
           numPages={numPages}
           hideLinks={true}
@@ -49,7 +49,7 @@ describe('PagedRecipes', () => {
       const { queryByTestId, queryByText } = render(
         <PagedTags
           key={`results-${pageNum}`}
-          data={pagedTags[pageNum] as ListPageItemFragment[]}
+          data={pagedTags[pageNum] as unknown as ListPageItemFragment[]}
           pageNum={pageNum}
           numPages={numPages}
           hideLinks={false}
@@ -77,7 +77,7 @@ describe('PagedRecipes', () => {
       const { queryByTestId, queryByText } = render(
         <PagedTags
           key={`results-${pageNum}`}
-          data={pagedTags[pageNum] as ListPageItemFragment[]}
+          data={pagedTags[pageNum] as unknown as ListPageItemFragment[]}
           pageNum={pageNum}
           numPages={numPages}
           hideLinks={false}
@@ -112,7 +112,7 @@ describe('PagedRecipes', () => {
       const { queryByTestId, queryByText } = render(
         <PagedTags
           key={`results-${pageNum}`}
-          data={pagedTags[pageNum] as ListPageItemFragment[]}
+          data={pagedTags[pageNum] as unknown as ListPageItemFragment[]}
           pageNum={pageNum}
           numPages={numPages}
           hideLinks={true}

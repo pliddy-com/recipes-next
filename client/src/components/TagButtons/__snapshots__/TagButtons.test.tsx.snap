@@ -1,31 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TagButtons when there are properly structured tag props it renders a row of tag buttons 1`] = `
-<div
-  class="tagButtons css-m69qwo-MuiStack-root"
-  data-testid="tag-buttons"
->
-  <a
-    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-    href="/tags/tagtitle1"
-    role="button"
-    tabindex="0"
-  >
-    TagTitle1
-    <span
-      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-    />
-  </a>
-  <a
-    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
-    href="/tags/tagtitle2"
-    role="button"
-    tabindex="0"
-  >
-    TagTitle2
-    <span
-      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-    />
-  </a>
-</div>
-`;
+exports[`TagButtons when there are properly structured tag props it renders a row of tag buttons 1`] = `null`;

@@ -17,7 +17,7 @@ import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 import ListEdit from './EditComponents/ListEdit';
 import Loading from 'components/Loading/Loading';
 import RichText from 'components/RichText/RichText';
-import TagsSection from 'components/Recipe/RecipeSections/TagsSection/TagsSection';
+// import TagsSection from 'components/Recipe/RecipeSections/TagsSection/TagsSection';
 
 // import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 
@@ -32,6 +32,7 @@ import { IRecipeChangeSet, IRecipeSection } from 'types/content';
 
 import TextEdit from './EditComponents/TextEdit';
 import SectionEdit from './EditComponents/SectionEdit';
+import TagsEdit from './EditComponents/TagsEdit';
 
 export type IFormIds =
   | 'abstract'
@@ -112,6 +113,8 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     const newData: IRecipeChangeSet = { ...formData };
     newData[id] = value as string & (string | null)[] & IRecipeSection[];
 
+    if (id === 'title') newData['slug'] = toSlug(value as string);
+
     setFormData(newData);
     setRecipe(newData);
 
@@ -120,31 +123,6 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
       setCanSave(false);
     } catch (e) {
       setCanSave(true);
-    }
-  };
-
-  const updateTitle = ({
-    id = 'title',
-    value
-  }: {
-    id?: string;
-    value: string;
-  }) => {
-    if (id === 'title') {
-      const newData = { ...formData };
-
-      newData[id] = value;
-      newData['slug'] = toSlug(value);
-
-      setFormData(newData);
-      setRecipe(newData);
-
-      try {
-        assert.deepStrictEqual(defaultState, newData);
-        setCanSave(false);
-      } catch (e) {
-        setCanSave(true);
-      }
     }
   };
 
@@ -176,7 +154,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
         className="bold"
         id="title"
         label="Title"
-        onChange={(e) => updateTitle({ value: e.target.value })}
+        onChange={(e) => updateField({ id: 'title', value: e.target.value })}
         value={formData.title}
       />
 
@@ -223,7 +201,8 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
               />
             )} */}
 
-            {tags && <TagsSection tags={tags} />}
+            {/* {tags && <TagsSection tags={tags} />} */}
+            {tags && <TagsEdit tags={tags} />}
 
             <Grid container className="details" spacing={2}>
               <Grid item xs={6}>
