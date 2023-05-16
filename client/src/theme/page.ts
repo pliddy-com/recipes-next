@@ -140,21 +140,38 @@ const pageThemeOptions: ThemeOptions = {
                 }
               },
               '& .listEdit': {
-                // width: '100%',
+                '& .MuiTypography': {
+                  '&-h2': {
+                    marginBottom: '1.5rem'
+                  }
+                },
                 justifyItems: 'flex-start',
                 '& .icon': {
                   width: '1.5rem',
                   height: '1.5rem'
                 },
+                '& .MuiBox-root': {
+                  '&.section': {
+                    marginLeft: '1rem',
+                    marginRight: '1rem'
+                  }
+                },
                 '& .MuiFormControl-root': {
                   marginLeft: 0,
-                  marginRight: 0,
-                  marginTop: '1rem',
-                  marginBottom: '0.5rem'
+                  marginRight: 0
                 },
                 '& .MuiButton-root': {
-                  alignSelf: 'flex-start',
-                  marginTop: '0.5rem'
+                  alignSelf: 'flex-start'
+                }
+              },
+              '& .sectionEdit': {
+                '& .MuiTypography': {
+                  '&-h2': {
+                    marginBottom: '1.5rem'
+                  }
+                },
+                '& .edit-section': {
+                  marginBottom: '3rem'
                 }
               }
             },
@@ -170,7 +187,10 @@ const pageThemeOptions: ThemeOptions = {
               }
             },
             '& .recipe-edit': {
-              marginTop: '0.5rem'
+              marginTop: '0.5rem',
+              '& .edit-section': {
+                marginBottom: '1rem'
+              }
             }
           },
           '&.loading': {

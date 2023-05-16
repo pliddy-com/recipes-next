@@ -6,16 +6,16 @@ import ListEdit from './ListEdit';
 describe('ListEdit', () => {
   describe('when there is content', () => {
     it('renders the component', () => {
-      const label = 'List Label';
-      const list = ['item 1', 'item 2', 'item 3'];
-      const onChange = jest.fn();
+      const props = {
+        label: 'List Label',
+        list: ['item 1', 'item 2', 'item 3'],
+        onChange: jest.fn()
+      };
 
       const testValue = 'test value';
 
       const { asFragment, queryByLabelText, queryAllByRole, queryByRole } =
-        render(
-          <ListEdit id="test" label={label} list={list} onChange={onChange} />
-        );
+        render(<ListEdit id="test" {...props} />);
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

@@ -154,7 +154,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="high"
                       height="200"
                       loading="eager"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -301,7 +301,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="high"
                       height="200"
                       loading="eager"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -388,7 +388,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="auto"
                       height="200"
                       loading="lazy"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -560,7 +560,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="high"
                       height="200"
                       loading="eager"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -707,7 +707,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="high"
                       height="200"
                       loading="eager"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -794,7 +794,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="auto"
                       height="200"
                       loading="lazy"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -966,7 +966,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="high"
                       height="200"
                       loading="eager"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -1113,7 +1113,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="high"
                       height="200"
                       loading="eager"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -1200,7 +1200,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="auto"
                       height="200"
                       loading="lazy"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -1372,7 +1372,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="high"
                       height="200"
                       loading="eager"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -1519,7 +1519,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="high"
                       height="200"
                       loading="eager"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -1606,7 +1606,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="auto"
                       height="200"
                       loading="lazy"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -1693,7 +1693,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
                       fetchpriority="auto"
                       height="200"
                       loading="lazy"
-                      src="https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                      src="https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=300&h=200&fit=fill&q=75"
                       width="300"
                     />
                   </picture>
@@ -1918,7 +1918,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="high"
                         height="200"
                         loading="eager"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/ursMGvvyUVV1n6zMIiWMj/5fac1dc474d2a0e5b25d823b2972e51e/bean-sprouts.JPG?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>
@@ -2065,7 +2065,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="high"
                         height="200"
                         loading="eager"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/6yV1Ji9fNQARq5PRTcbDcK/a667ed897c46a9cdfe4fa3bfb168b8a7/peanut-sauce.jpg?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>
@@ -2152,7 +2152,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="auto"
                         height="200"
                         loading="lazy"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/6bNRrPcDODtsy7uCufYq3s/9999dbe879430d3fdb269caf570e1603/ginger-scallion-relish.jpg?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>
@@ -2324,7 +2324,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="high"
                         height="200"
                         loading="eager"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/6jqFtp2EVWwPWTIkb4P425/37b8e6dc73073e35bb9be4e34d5749aa/bacon-wrapped-dates.jpg?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>
@@ -2471,7 +2471,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="high"
                         height="200"
                         loading="eager"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/3dMYwvOeAq5isHEAXUDC6G/4159eb23e7ff17ee10c54dd6f4ae79eb/cabbage-pie.jpg?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>
@@ -2558,7 +2558,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="auto"
                         height="200"
                         loading="lazy"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/rWES2e3nBtvbAe1xqHf7e/c23bc5869e0774d75e25955a30bc4215/bacon.JPG?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>
@@ -2730,7 +2730,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="high"
                         height="200"
                         loading="eager"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>
@@ -2877,7 +2877,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="high"
                         height="200"
                         loading="eager"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>
@@ -2964,7 +2964,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="auto"
                         height="200"
                         loading="lazy"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>
@@ -3136,7 +3136,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="high"
                         height="200"
                         loading="eager"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/tyjI8Z9VCufOo7bdh5hBy/56e08d5f33a914927f3227b8987f61d6/escarole-soup.jpg?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>
@@ -3283,7 +3283,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="high"
                         height="200"
                         loading="eager"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/6efC05pI5G81eB4pzaXzyb/6f77d36695a1db1668ca416cdb1be308/green-chicken-chili.jpg?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>
@@ -3370,7 +3370,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="auto"
                         height="200"
                         loading="lazy"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/59bzmBhMW1kbUqrZuUdKmR/b690c9f4e0c7b9cc825709e5a8e0d122/red-beans.JPG?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>
@@ -3457,7 +3457,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                         fetchpriority="auto"
                         height="200"
                         loading="lazy"
-                        src="https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=600&h=400&fit=fill&fm=webp&q=75"
+                        src="https://images.ctfassets.net/fo9qwg6zarbt/3p1OocWrYz24MFpPevlcjk/2f03e0b9fa4d3cfa4270d5ec53f0e860/white-bean-soup.jpg?w=300&h=200&fit=fill&q=75"
                         width="300"
                       />
                     </picture>

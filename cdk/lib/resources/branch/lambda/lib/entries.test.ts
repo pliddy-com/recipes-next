@@ -17,6 +17,18 @@ const recipe = {
   cookTime: 30,
   equipment: ['equipment 1'],
   id: 'ID',
+  ingredientsList: [
+    {
+      sectionTitle: 'Ingredients Section',
+      sectionItems: ['ingredient 1', 'ingredient 2']
+    }
+  ],
+  instructionsList: [
+    {
+      sectionTitle: 'Instructions Section',
+      sectionItems: ['Instruction 1', 'Instruction 2']
+    }
+  ],
   keywords: ['keyword 1', 'keyword 2'],
   notes: ['note 1'],
   prepTime: 15,
@@ -30,6 +42,22 @@ const fields = {
   cookTime: { 'en-US': 30 },
   id: { 'en-US': 'ID' },
   equipment: { 'en-US': ['equipment 1'] },
+  ingredientsList: {
+    'en-US': [
+      {
+        sectionTitle: 'Ingredients Section',
+        sectionItems: ['ingredient 1', 'ingredient 2']
+      }
+    ]
+  },
+  instructionsList: {
+    'en-US': [
+      {
+        sectionTitle: 'Instructions Section',
+        sectionItems: ['Instruction 1', 'Instruction 2']
+      }
+    ]
+  },
   keywords: { 'en-US': ['keyword 1', 'keyword 2'] },
   notes: { 'en-US': ['note 1'] },
   prepTime: { 'en-US': 15 },

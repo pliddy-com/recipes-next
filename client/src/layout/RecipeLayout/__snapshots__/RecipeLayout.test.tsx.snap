@@ -30,6 +30,7 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
           <input
             aria-invalid="false"
             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input"
+            data-testid="title"
             id="title"
             name="title"
             type="text"
@@ -66,6 +67,7 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
           <input
             aria-invalid="false"
             class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
+            data-testid="slug"
             disabled=""
             id="slug"
             name="slug"
@@ -179,6 +181,7 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
                       <input
                         aria-invalid="false"
                         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
+                        data-testid="prepTime"
                         id="prepTime"
                         name="prepTime"
                         type="text"
@@ -224,6 +227,7 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
                       <input
                         aria-invalid="false"
                         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
+                        data-testid="cookTime"
                         id="cookTime"
                         name="cookTime"
                         type="text"
@@ -282,6 +286,7 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="recipeYield"
                       id="recipeYield"
                       name="recipeYield"
                       type="text"

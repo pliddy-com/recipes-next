@@ -19,6 +19,7 @@ exports[`TextEdit when there is content renders the component 1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="test-id"
         id="test-id"
         name="test-id"
         type="text"
@@ -60,6 +61,7 @@ exports[`TextEdit with optional props renders the component 1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="test-id"
         id="test-id"
         name="test-id"
         type="text"
