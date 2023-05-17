@@ -109,7 +109,7 @@ export const updateEntry = async ({
     const env = await space.getEnvironment('master');
     const entry = await env.getEntry(id);
 
-    console.log('update entry:', entry);
+    console.log('updateEntry:', entry);
 
     // map recipe values to entry fields
 
@@ -122,15 +122,16 @@ export const updateEntry = async ({
 
     const updated = await entry.update();
 
+    console.log('updated entry:', updated);
+
     // return updated values in IRecipeChangeSet object
 
     for (const [key, value] of Object.entries(recipe) as RecipeObjEntries) {
-      if (key !== 'id' && updated.fields[key]['en-US'])
+      if (key !== 'id' && updated.fields[key] && updated.fields[key]['en-US'])
         recipe[key] = updated.fields[key]['en-US'];
     }
 
     console.log('updated recipe:', recipe);
-    console.log('updated entry:', updated);
 
     const published = await updated.publish();
 

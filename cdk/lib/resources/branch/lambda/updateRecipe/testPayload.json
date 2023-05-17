@@ -1,6 +1,6 @@
 {
   "resource": "/recipes/{id}",
-  "path": "/recipes/RECIPE_ID",
+  "path": "/recipes/UPi7NotPy5eJLOltfyocJ",
   "httpMethod": "PUT",
   "headers": {
     "accept": "*/*",
@@ -12,15 +12,15 @@
     "referer": "https://test.recipes.pliddy.com//"
   },
   "pathParameters": {
-    "id": "RECIPE_ID"
+    "id": "UPi7NotPy5eJLOltfyocJ"
   },
   "requestContext": {
     "resourcePath": "/recipes/{id}",
     "httpMethod": "PUT",
-    "path": "/prod/recipes/RECIPE_ID",
+    "path": "/prod/recipes/UPi7NotPy5eJLOltfyocJ",
     "accountId": "ACCOUNT_ID",
     "protocol": "HTTP/1.1",
     "stage": "test"
   },
-  "body": "{\"abstract\":\"A simple, smooth, and elegant soup made from pureed carrots and cream with the addition of a Sauce Velouté for extra silkiness.\",\"id\":\"UPi7NotPy5eJLOltfyocJ\",\"cookTime\":\"30\",\"prepTime\":\"10\",\"recipeYield\":\"2\",\"slug\":\"test-recipe\",\"title\":\"Test Recipe\"}"
+  "body": "{\"title\":\"Test Recipe\",\"slug\":\"test-recipe\",\"abstract\":\"A simple, smooth, and elegant soup made from pureed carrots and cream with the addition of a Sauce Velouté for extra silkiness.\",\"recipeYield\":\"2\",\"prepTime\":\"10\",\"cookTime\":\"30\",\"ingredientsList\":[{\"sectionItems\":[\"1 cup of carrots, sliced\",\"2 cups of water\",\"½ cup of Sauce Velouté\",\"½ cup of cream\",\"1 egg yolk\",\"Salt\",\"Black pepper\",\"Thyme\",\"Parsley\"],\"sectionTitle\":\"Ingredients\"},{\"sectionItems\":[\"Ingredient for second part\"],\"sectionTitle\":\"Second Part of Ingredients\"}],\"equipment\":[\"Blender\",\"Whisk\"],\"instructionsList\":[{\"sectionItems\":[\"Simmer the carrots in boiling water until tender.\",\"Drain carrots, but keep ½ cup of the liquid from the pot.\",\"Puree carrots with ¼ to ½ cup of the pot liquid.\"],\"sectionTitle\":\"Prep\"},{\"sectionItems\":[\"Add the pureed carrots to a saucepan.\",\"Add ½ cup of velouté.\",\"Add salt, pepper, thyme, and parsley to taste.\",\"Stir the ingredients together and let it simmer.\"],\"sectionTitle\":\"Base\"},{\"sectionItems\":[\"Heat ½ cup of cream and whisk in the egg yolk.\",\"Slowly add the cream mixture to the carrots and whisk together.\",\"Increase the heat to low and let the soup reduce until it has reached the desired consistency.\",\"Serve as it is or puree it for extra smoothness.\",\"Garnish with chopped parsley.\"],\"sectionTitle\":\"Finish\"}],\"notes\":[],\"keywords\":[\"carrots\",\"velouté\",\"cream\"]}"
 }

@@ -14,7 +14,7 @@ const id = 'ID';
 
 const recipe = {
   abstract: 'abstract',
-  cookTime: 30,
+  cookTime: '30',
   equipment: ['equipment 1'],
   id: 'ID',
   ingredientsList: [
@@ -31,8 +31,8 @@ const recipe = {
   ],
   keywords: ['keyword 1', 'keyword 2'],
   notes: ['note 1'],
-  prepTime: 15,
-  recipeYield: 4,
+  prepTime: '15',
+  recipeYield: '4',
   slug: 'slug',
   title: 'title'
 };
