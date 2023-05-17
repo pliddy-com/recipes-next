@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/system/Stack';
-import PayloadRender from 'components/PayloadRender/PayloadRender';
+// import PayloadRender from 'components/PayloadRender/PayloadRender';
 import { TagDefaultFragment } from 'types/queries';
 import Chip from '@mui/material/Chip';
 
@@ -39,7 +39,7 @@ const TagsEdit = ({ tags }: ITagsEdit) => {
               />
             ) : null;
           })}
-        <PayloadRender payload={tags} />
+        {/* <PayloadRender payload={tags} /> */}
       </Stack>
     </Stack>
   );

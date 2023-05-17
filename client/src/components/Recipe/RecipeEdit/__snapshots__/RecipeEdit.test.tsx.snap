@@ -206,21 +206,6 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                   Tag 1
                 </span>
               </div>
-              <pre
-                style="white-space: pre-wrap; overflow-wrap: anywhere;"
-              >
-                [
-  {
-    "sys": {
-      "id": "sysid-4",
-      "__typename": "Sys"
-    },
-    "__typename": "Tag",
-    "title": "Tag 1",
-    "slug": "tag-1"
-  }
-]
-              </pre>
             </div>
           </div>
           <div
