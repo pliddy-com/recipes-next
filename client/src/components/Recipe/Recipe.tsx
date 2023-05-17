@@ -22,7 +22,6 @@ interface IRecipe {
 }
 
 const Recipe = ({ content }: IRecipe) => {
-  console.log({ content });
   const {
     cookTime,
     description,

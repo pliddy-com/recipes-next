@@ -24,6 +24,7 @@ const fields = {
   prepTime: { 'en-US': 15 },
   recipeYield: { 'en-US': 4 },
   slug: { 'en-US': 'slug' },
+  tags: { 'en-US': [] },
   title: { 'en-US': 'title' }
 };
 

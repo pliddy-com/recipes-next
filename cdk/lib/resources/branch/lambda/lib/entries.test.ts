@@ -34,6 +34,7 @@ const recipe = {
   prepTime: '15',
   recipeYield: '4',
   slug: 'slug',
+  tags: [],
   title: 'title'
 };
 
@@ -63,6 +64,7 @@ const fields = {
   prepTime: { 'en-US': 15 },
   recipeYield: { 'en-US': 4 },
   slug: { 'en-US': 'slug' },
+  tags: { 'en-US': [] },
   title: { 'en-US': 'title' }
 };
 

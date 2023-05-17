@@ -132,6 +132,7 @@ export const updateEntry = async ({
     }
 
     console.log('updated recipe:', recipe);
+    console.log('tags:', updated.fields.tags['en-US']);
 
     const published = await updated.publish();
 
