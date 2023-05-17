@@ -111,10 +111,16 @@ export const updateEntry = async ({
 
     console.log('update entry:', entry);
 
+    console.log('recipe notes:', recipe.notes);
+    console.log('entry notes:', entry.fields['notes']);
+    console.log('entry notes JSON:', JSON.stringify(entry.fields['notes']));
+
     // map recipe values to entry fields
 
     for (const [key, value] of Object.entries(recipe)) {
       // add 'en-US' as property in case fields[key] does not exist in entry
+      // field[key] may not exist (notes or keywords) but may be trying to be added
+      // may need to add prop to entry while seting value
       if (key !== 'id') entry.fields[key] = { 'en-US': value };
     }
 
@@ -123,7 +129,19 @@ export const updateEntry = async ({
     // return updated values in IRecipeChangeSet object
 
     for (const [key, value] of Object.entries(recipe) as RecipeObjEntries) {
-      if (key !== 'id') recipe[key] = updated.fields[key]['en-US'];
+      console.log('parse recipe payload:', { key, value });
+
+      if (key !== 'id') {
+        // if (!updated.fields[key]) {
+        //   console.log('add fields prop', key);
+        //   Object.defineProperty(updated.fields, key, {
+        //     value
+        //   });
+        // }
+        console.log('updated.fields[key]:', updated.fields[key]);
+        if (updated.fields[key]['en-US'])
+          recipe[key] = updated.fields[key]['en-US'];
+      }
     }
 
     console.log('updated recipe:', recipe);

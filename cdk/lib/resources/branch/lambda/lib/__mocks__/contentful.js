@@ -20,7 +20,7 @@ const fields = {
     ]
   },
   keywords: { 'en-US': ['keyword 1', 'keyword 2'] },
-  notes: { 'en-US': ['note 1'] },
+  // notes: { 'en-US': ['note 1'] },
   prepTime: { 'en-US': 15 },
   recipeYield: { 'en-US': 4 },
   slug: { 'en-US': 'slug' },
