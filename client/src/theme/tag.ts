@@ -13,9 +13,13 @@ const tagThemeOptions: ThemeOptions = {
             minHeight: '33px'
           },
           '&.tags-edit': {
-            '& .MuiTypography-h2': {
-              marginBottom: '1rem'
+            marginTop: '1rem',
+            '& .MuiSelect-select': {
+              paddingTop: '1.75rem'
             }
+            // '& .MuiTypography-h2': {
+            //   marginBottom: '1rem'
+            // }
           }
         }
       }

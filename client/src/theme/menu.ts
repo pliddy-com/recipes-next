@@ -23,6 +23,9 @@ const menuThemeOptions: ThemeOptions = {
     MuiMenuItem: {
       styleOverrides: {
         root: {
+          fontFamily: sansFontFamily,
+          paddingTop: '0.5rem',
+          paddingBottom: '0.5rem',
           '&.menuItem': {
             padding: 0,
             '&.featured': {
