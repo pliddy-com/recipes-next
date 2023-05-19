@@ -27,26 +27,6 @@ jest.mock('next/router', () => ({
   })
 }));
 
-const authContextValues = {
-  authLoading: false,
-  isAuth: false,
-  signIn: jest.fn(),
-  signOut: jest.fn(),
-  token: 'TOKEN'
-};
-
-const cmContextValues = {
-  canSave: false,
-  editMode: false,
-  editLoading: false,
-  setCanSave: jest.fn(),
-  saveRecipe: jest.fn(),
-  setRecipe: jest.fn(),
-  setSupressEdit: jest.fn(),
-  supressEdit: false,
-  toggleEdit: jest.fn()
-};
-
 describe('NavBar', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'matchMedia', {
@@ -62,13 +42,13 @@ describe('NavBar', () => {
 
   describe('when there is a properly structured nav property', () => {
     it('it renders a nav bar', async () => {
-      const authSpy = jest
-        .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => authContextValues);
+      const authSpy = jest.spyOn(AuthContext, 'useAuthContext');
 
-      const cmSpy = jest
-        .spyOn(ContentManagementContext, 'useContentManagementContext')
-        .mockImplementation(() => cmContextValues);
+      const cmSpy = jest.spyOn(
+        ContentManagementContext,
+        'useContentManagementContext'
+      );
+
       const nav = await api.getNavTaxonomy();
 
       const { asFragment, queryByRole, queryByTestId } = render(
@@ -121,15 +101,16 @@ describe('NavBar', () => {
 
   describe('when isAuth is true', () => {
     it('it shows the user toolbar', async () => {
-      const testAuth = { ...authContextValues, isAuth: true };
+      const testAuth = { ...AuthContext.useAuthContext(), isAuth: true };
 
       const authSpy = jest
         .spyOn(AuthContext, 'useAuthContext')
         .mockImplementation(() => testAuth);
 
-      const cmSpy = jest
-        .spyOn(ContentManagementContext, 'useContentManagementContext')
-        .mockImplementation(() => cmContextValues);
+      const cmSpy = jest.spyOn(
+        ContentManagementContext,
+        'useContentManagementContext'
+      );
 
       const nav = await api.getNavTaxonomy();
 
@@ -145,9 +126,9 @@ describe('NavBar', () => {
 
   describe('when editMode is true', () => {
     it('it shows the cancel button', async () => {
-      const testAuthContext = { ...authContextValues, isAuth: true };
+      const testAuthContext = { ...AuthContext.useAuthContext(), isAuth: true };
       const testContentManagementContext = {
-        ...cmContextValues,
+        ...ContentManagementContext.useContentManagementContext(),
         editMode: true
       };
 
@@ -173,9 +154,9 @@ describe('NavBar', () => {
 
   describe('when canSave is true', () => {
     it('it activates the save button', async () => {
-      const testAuthContext = { ...authContextValues, isAuth: true };
+      const testAuthContext = { ...AuthContext.useAuthContext(), isAuth: true };
       const testContentManagementContext = {
-        ...cmContextValues,
+        ...ContentManagementContext.useContentManagementContext(),
         canSave: true,
         editMode: true
       };

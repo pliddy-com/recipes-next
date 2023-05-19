@@ -114,12 +114,12 @@ export const updateEntry = async ({
     // map recipe values to entry fields
 
     for (const [key, value] of Object.entries(recipe)) {
-      // add 'en-US' as property in case fields[key] does not exist in entry
-      // field[key] may not exist (notes or keywords) but may be trying to be added
-      // may need to add prop to entry while seting
+      // TODO: remove id from recipe payload and use id from event
       if (key !== 'id') {
         if (key === 'tags') {
-          recipe[key] = value.map((tag: TagDefaultFragment) => {
+          console.log('tags:', value);
+
+          const entryTags = value.map((tag: TagDefaultFragment) => {
             return {
               sys: {
                 type: 'Link',
@@ -128,6 +128,10 @@ export const updateEntry = async ({
               }
             };
           });
+
+          console.log('entry tags:', entryTags);
+
+          recipe[key] = entryTags;
         } else {
           entry.fields[key] = { 'en-US': value };
         }
@@ -137,6 +141,8 @@ export const updateEntry = async ({
     const updated = await entry.update();
 
     console.log('updated entry:', updated);
+
+    console.log('updated entry tags:', updated.fields.tags['en-US']);
 
     // return updated values in IRecipeChangeSet object
 

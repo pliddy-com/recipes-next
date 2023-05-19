@@ -8,7 +8,7 @@ import RecipeEdit from './RecipeEdit';
 import { RecipeDefaultFragment } from 'types/queries';
 
 import * as api from 'lib/api';
-import * as AuthContext from 'contexts/Authentication';
+// import * as AuthContext from 'contexts/Authentication';
 import * as ContentManagementContext from 'contexts/Content';
 
 jest.mock('lib/api');
@@ -16,34 +16,6 @@ jest.mock('contexts/Authentication');
 jest.mock('contexts/Content');
 
 jest.mock('./EditComponents/TagsEdit');
-
-const authContextValues = {
-  authLoading: false,
-  isAuth: false,
-  signIn: jest.fn(),
-  signOut: jest.fn(),
-  token: 'TOKEN'
-};
-
-const cmContextValues = {
-  canSave: false,
-  editMode: false,
-  editLoading: false,
-  setCanSave: jest.fn(),
-  saveRecipe: jest.fn(),
-  setRecipe: jest.fn(),
-  setSupressEdit: jest.fn(),
-  supressEdit: false,
-  toggleEdit: jest.fn()
-};
-
-jest
-  .spyOn(AuthContext, 'useAuthContext')
-  .mockImplementation(() => authContextValues);
-
-jest
-  .spyOn(ContentManagementContext, 'useContentManagementContext')
-  .mockImplementation(() => cmContextValues);
 
 describe('Recipe', () => {
   afterEach(() => {
@@ -179,7 +151,7 @@ describe('Recipe', () => {
       const content = await api.getRecipePage();
 
       const testContentManagementContext = {
-        ...cmContextValues,
+        ...ContentManagementContext.useContentManagementContext(),
         editLoading: true
       };
 

@@ -17,26 +17,6 @@ jest.mock('lib/api');
 jest.mock('contexts/Authentication');
 jest.mock('contexts/Content');
 
-const authContextValues = {
-  authLoading: false,
-  isAuth: false,
-  signIn: jest.fn(),
-  signOut: jest.fn(),
-  token: 'TOKEN'
-};
-
-const cmContextValues = {
-  canSave: false,
-  editMode: false,
-  editLoading: false,
-  setCanSave: jest.fn(),
-  saveRecipe: jest.fn(),
-  setRecipe: jest.fn(),
-  setSupressEdit: jest.fn(),
-  supressEdit: false,
-  toggleEdit: jest.fn()
-};
-
 describe('RecipePage', () => {
   afterEach(() => {
     jest.resetModules();
@@ -44,13 +24,12 @@ describe('RecipePage', () => {
 
   describe('when there is page content', () => {
     it('it renders the RecipePage', async () => {
-      const authSpy = jest
-        .spyOn(AuthContext, 'useAuthContext')
-        .mockImplementation(() => authContextValues);
+      const authSpy = jest.spyOn(AuthContext, 'useAuthContext');
 
-      const cmSpy = jest
-        .spyOn(ContentManagementContext, 'useContentManagementContext')
-        .mockImplementation(() => cmContextValues);
+      const cmSpy = jest.spyOn(
+        ContentManagementContext,
+        'useContentManagementContext'
+      );
 
       const content = await api.getRecipePage();
 
@@ -83,9 +62,12 @@ describe('RecipePage', () => {
 
   describe('when isAuth is true', () => {
     it('sets the container className to "auth"', async () => {
-      const testAuthContext = { ...authContextValues, isAuth: true };
+      const testAuthContext = {
+        ...AuthContext.useAuthContext(),
+        isAuth: true
+      };
       const testContentManagementContext = {
-        ...cmContextValues,
+        ...ContentManagementContext.useContentManagementContext(),
         editMode: true
       };
 
