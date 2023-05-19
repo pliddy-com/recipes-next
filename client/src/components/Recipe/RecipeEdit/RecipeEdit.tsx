@@ -133,7 +133,6 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
 
     setFormData(newData);
     setRecipe(newData);
-
     try {
       assert.deepStrictEqual(defaultState, newData);
       setCanSave(false);

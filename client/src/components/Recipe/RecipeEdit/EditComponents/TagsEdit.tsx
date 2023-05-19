@@ -50,7 +50,6 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
 
       const tagTitles = selectedTags.map((tag) => tag?.title as string);
 
-      console.log('handleSelect');
       setTagLabels(tagTitles);
       setTagData(selectedTags);
       onChange({ value: selectedTags });

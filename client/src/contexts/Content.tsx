@@ -63,7 +63,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
 
     const restApi = `${contentApiUrl}/${recipe.id}`;
 
-    // console.log(recipe);
+    console.log('updateEntry', { recipe });
 
     try {
       const response = await fetch(restApi, {
