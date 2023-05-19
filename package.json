@@ -47,6 +47,7 @@
     "jest-environment-jsdom": "29.4.1",
     "lint-staged": "13.1.2",
     "prettier": "2.8.4",
+    "react-select-event": "^5.5.1",
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
     "tslint-config-prettier": "1.18.0",

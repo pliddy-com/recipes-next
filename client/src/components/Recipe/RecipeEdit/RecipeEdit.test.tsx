@@ -2,9 +2,6 @@ import '@testing-library/jest-dom';
 // import testing-library methods
 import { fireEvent, render, waitFor } from '@testing-library/react';
 
-// add custom jest matchers from jest-dom
-import '@testing-library/jest-dom';
-
 // import the component to test
 import RecipeEdit from './RecipeEdit';
 
@@ -17,6 +14,8 @@ import * as ContentManagementContext from 'contexts/Content';
 jest.mock('lib/api');
 jest.mock('contexts/Authentication');
 jest.mock('contexts/Content');
+
+jest.mock('./EditComponents/TagsEdit');
 
 const authContextValues = {
   authLoading: false,
@@ -70,9 +69,6 @@ describe('Recipe', () => {
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
 
-      // assert that content is rendered
-      // expect(queryByTestId('RecipeEdit')).toBeInTheDocument();
-
       // check code for toggling Save enabled
 
       const recipeYieldInput = queryByLabelText('Recipe Yield');
@@ -110,6 +106,20 @@ describe('Recipe', () => {
           target: { value: abstractValue }
         });
       expect(abstractInput).toHaveValue(abstractValue);
+
+      const tagControl = queryByTestId('tags-select') as HTMLInputElement;
+
+      // assert that callback is called on click & there was a change in the DOM
+      tagControl && fireEvent.click(tagControl);
+
+      const tagItem = queryByTestId('test-value');
+
+      waitFor(async () => expect(tagItem).toBeVisible());
+
+      tagControl &&
+        fireEvent.change(tagControl, { target: { value: 'Test Value' } });
+
+      tagControl && expect(tagControl.value).toBe('test-value');
 
       const prepTimeInput = queryByLabelText('Prep Time');
       prepTimeInput &&

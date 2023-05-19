@@ -10,17 +10,21 @@ import MenuItem from '@mui/material/MenuItem';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
-// import Typography from '@mui/material/Typography';
 
 import { getTagList } from 'lib/api';
 
 import { TagDefaultFragment } from 'types/queries';
 
 interface ITagsEdit {
-  tags: (TagDefaultFragment | null)[];
+  onChange: ({
+    value
+  }: {
+    value: (TagDefaultFragment | null | undefined)[];
+  }) => void;
+  tags: (TagDefaultFragment | null | undefined)[];
 }
 
-const TagsEdit = ({ tags }: ITagsEdit) => {
+const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
   const [tagData, setTagData] =
     useState<(TagDefaultFragment | null | undefined)[]>(tags);
   const [tagList, setTagList] = useState<(TagDefaultFragment | null)[]>();
@@ -46,39 +50,27 @@ const TagsEdit = ({ tags }: ITagsEdit) => {
 
       const tagTitles = selectedTags.map((tag) => tag?.title as string);
 
-      console.log({ tagTitles, selectedTags });
-
+      console.log('handleSelect');
       setTagLabels(tagTitles);
       setTagData(selectedTags);
+      onChange({ value: selectedTags });
     }
   };
 
   return (
     <Stack className="tags-edit">
-      {/* <Typography variant="h2">Tags</Typography> */}
-      {/* <Stack direction="row">
-        {tagData &&
-          tagData.map((tag) => {
-            const { slug, title } = tag ?? {};
-
-            return tag && slug && title ? (
-              <Chip
-                className="tag"
-                color="primary"
-                label={title}
-                key={slug}
-                role="button"
-                size="small"
-                variant="outlined"
-              />
-            ) : null;
-          })}
-      </Stack> */}
       <FormControl>
         <InputLabel id="tag-select-label">Tags</InputLabel>
         <Select
+          data-testid="tag-select"
           id="tag-select"
-          input={<OutlinedInput id="tag-select-input" label="Tags" />}
+          input={
+            <OutlinedInput
+              id="tag-select-input"
+              label="Tags"
+              data-testid="tag-select"
+            />
+          }
           labelId="tag-select-label"
           MenuProps={{ PaperProps: { sx: { maxHeight: 42 * 6 } } }}
           multiple
@@ -108,7 +100,12 @@ const TagsEdit = ({ tags }: ITagsEdit) => {
             tagList.map((tag) => {
               const { slug, title } = tag ?? {};
               return slug && title ? (
-                <MenuItem key={slug} value={title} className="selectMenu">
+                <MenuItem
+                  data-testid={`tag-select-${slug}`}
+                  key={slug}
+                  value={title}
+                  className="selectMenu"
+                >
                   {title}
                 </MenuItem>
               ) : null;
@@ -116,25 +113,7 @@ const TagsEdit = ({ tags }: ITagsEdit) => {
         </Select>
       </FormControl>
     </Stack>
-    // </Stack>
   );
 };
 
 export default TagsEdit;
-
-/*
-  tags: [
-    {
-      sys: { type: 'Link', linkType: 'Entry', id: '6NXdZjbTklEUEYXWzqjWRy' }
-    },
-    {
-      sys: { type: 'Link', linkType: 'Entry', id: '6qEA8xrN8koGKvQfFlq15m' }
-    },
-    {
-      sys: { type: 'Link', linkType: 'Entry', id: '1XgN8rqu0clUQxQS0wVaKA' }
-    },
-    {
-      sys: { type: 'Link', linkType: 'Entry', id: '2RDCNcjSZzLSEQgjf1Nw4R' }
-    }
-  ]
-*/

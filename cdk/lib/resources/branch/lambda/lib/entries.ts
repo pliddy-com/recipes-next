@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 import client from './contentful';
 
-import { IRecipeChangeSet } from './types';
+import { IRecipeChangeSet, TagDefaultFragment } from './types';
 
 dotenv.config();
 
@@ -117,7 +117,19 @@ export const updateEntry = async ({
       // add 'en-US' as property in case fields[key] does not exist in entry
       // field[key] may not exist (notes or keywords) but may be trying to be added
       // may need to add prop to entry while seting
-      if (key !== 'id') entry.fields[key] = { 'en-US': value };
+      if (key === 'tags') {
+        recipe[key] = value.map((tag: TagDefaultFragment) => {
+          return {
+            sys: {
+              type: 'Link',
+              linkType: 'Entry',
+              id: tag?.sys?.id
+            }
+          };
+        });
+      } else {
+        entry.fields[key] = { 'en-US': value };
+      }
     }
 
     const updated = await entry.update();
@@ -127,7 +139,7 @@ export const updateEntry = async ({
     // return updated values in IRecipeChangeSet object
 
     for (const [key, value] of Object.entries(recipe) as RecipeObjEntries) {
-      if (key !== 'id' && updated.fields[key] && updated.fields[key]['en-US'])
+      if (updated.fields[key] && updated.fields[key]['en-US'])
         recipe[key] = updated.fields[key]['en-US'];
     }
 
@@ -150,3 +162,65 @@ export const updateEntry = async ({
     throw e;
   }
 };
+
+/*
+  tags: [
+    {
+      sys: { type: 'Link', linkType: 'Entry', id: '6NXdZjbTklEUEYXWzqjWRy' }
+    },
+    {
+      sys: { type: 'Link', linkType: 'Entry', id: '6qEA8xrN8koGKvQfFlq15m' }
+    },
+    {
+      sys: { type: 'Link', linkType: 'Entry', id: '1XgN8rqu0clUQxQS0wVaKA' }
+    },
+    {
+      sys: { type: 'Link', linkType: 'Entry', id: '2RDCNcjSZzLSEQgjf1Nw4R' }
+    }
+  ]
+*/
+
+/*
+{
+    "items": [
+        {
+            "__typename": "Tag",
+            "sys": {
+                "id": "5bxtq0paorSpC7uYchMPyD",
+                "__typename": "Sys"
+            },
+            "title": "Soup",
+            "slug": "soup"
+        },
+        {
+            "__typename": "Tag",
+            "sys": {
+                "id": "48wBBA4RKpmb0pdCKve7cR",
+                "__typename": "Sys"
+            },
+            "title": "Vegetables",
+            "slug": "vegetables"
+        },
+        {
+            "__typename": "Tag",
+            "sys": {
+                "id": "2RDCNcjSZzLSEQgjf1Nw4R",
+                "__typename": "Sys"
+            },
+            "title": "French",
+            "slug": "french"
+        },
+        {
+            "__typename": "Tag",
+            "sys": {
+                "id": "33CNYIbkW49vrRw5iSKnih",
+                "__typename": "Sys"
+            },
+            "title": "Mother Sauces",
+            "slug": "mother-sauces"
+        }
+    ],
+    "__typename": "RecipeTagsCollection"
+}
+
+*/

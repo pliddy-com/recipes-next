@@ -39,8 +39,6 @@ describe('SignInDialog', () => {
         waitFor(() => expect(queryByTestId('signInDialog')).toBeInTheDocument())
       );
 
-      // expect(authSpy).toBeCalled();
-
       const submitButton = queryByRole('button', {
         name: 'submit'
       });

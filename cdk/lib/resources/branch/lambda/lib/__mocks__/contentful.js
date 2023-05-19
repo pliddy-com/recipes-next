@@ -20,11 +20,15 @@ const fields = {
     ]
   },
   keywords: { 'en-US': ['keyword 1', 'keyword 2'] },
-  // notes: { 'en-US': ['note 1'] },
+  notes: { 'en-US': ['note 1'] },
   prepTime: { 'en-US': 15 },
   recipeYield: { 'en-US': 4 },
   slug: { 'en-US': 'slug' },
-  tags: { 'en-US': [] },
+  tags: [
+    {
+      sys: { type: 'Link', linkType: 'Entry', id: 'id-1' }
+    }
+  ],
   title: { 'en-US': 'title' }
 };
 

@@ -278,6 +278,15 @@ api.getRecipePage = jest.fn().mockResolvedValue({
           __typename: 'Tag',
           title: 'Tag 1',
           slug: 'tag-1'
+        },
+        {
+          sys: {
+            id: 'sysid-5',
+            __typename: 'Sys'
+          },
+          __typename: 'Tag',
+          title: 'Tag 2',
+          slug: 'tag-2'
         }
       ],
       __typename: 'RecipeTagsCollection'

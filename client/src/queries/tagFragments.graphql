@@ -14,10 +14,10 @@ fragment TagDefault on Tag {
 #   * Tag
 
 fragment TagEntry on Tag {
+  __typename
   sys {
     id
   }
-  __typename
   title
   slug
 }
