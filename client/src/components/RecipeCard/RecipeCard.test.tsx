@@ -42,6 +42,9 @@ describe('RecipeCard', () => {
         items: [
           {
             __typename: 'Tag',
+            sys: {
+              id: 'tag-id-1'
+            },
             title: 'Vegetables',
             slug: 'vegetables'
           }
@@ -96,6 +99,9 @@ describe('RecipeCard', () => {
         items: [
           {
             __typename: 'Tag',
+            sys: {
+              id: 'tag-id-1'
+            },
             title: 'Vegetables',
             slug: 'vegetables'
           }

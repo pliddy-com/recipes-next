@@ -24,6 +24,9 @@ interface HitProps {
     items: [
       {
         __typename: 'Tag';
+        sys: {
+          id: string;
+        };
         title?: string | null | undefined;
         slug?: string | null | undefined;
       }

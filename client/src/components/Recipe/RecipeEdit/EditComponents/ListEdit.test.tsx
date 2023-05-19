@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';
 // import testing-library methods
 import { fireEvent, render } from '@testing-library/react';
 

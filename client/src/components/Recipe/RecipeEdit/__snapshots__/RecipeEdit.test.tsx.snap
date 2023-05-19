@@ -152,7 +152,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
           name="abstract"
           style="height: 0px; overflow: hidden;"
         >
-          ABSTRACT
+          abstract
         </textarea>
         <textarea
           aria-hidden="true"
@@ -287,7 +287,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                       id="prepTime"
                       name="prepTime"
                       type="text"
-                      value="30"
+                      value="15"
                     />
                     <div
                       class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
@@ -333,7 +333,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                       id="cookTime"
                       name="cookTime"
                       type="text"
-                      value="30"
+                      value="60"
                     />
                     <div
                       class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
@@ -364,7 +364,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                   <strong>
                     Total Time:
                   </strong>
-                   1 hour
+                   1 hour 15 min
                 </h6>
               </div>
             </div>
@@ -596,10 +596,10 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="true"
-              for="test-title"
-              id="test-title-label"
+              for="ingredients-section-label-1-title"
+              id="ingredients-section-label-1-title-label"
             >
-              test
+              Ingredients Section Label 1
             </label>
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
@@ -607,11 +607,11 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-                data-testid="test-title"
-                id="test-title"
-                name="test-title"
+                data-testid="ingredients-section-label-1-title"
+                id="ingredients-section-label-1-title"
+                name="ingredients-section-label-1-title"
                 type="text"
-                value="test"
+                value="Ingredients Section Label 1"
               />
               <div
                 class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
@@ -684,7 +684,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                   class="css-14lo706"
                 >
                   <span>
-                    test
+                    Ingredients Section Label 1
                   </span>
                 </legend>
               </fieldset>
@@ -702,10 +702,10 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
-                  for="test-1"
-                  id="test-1-label"
+                  for="ingredients-section-label-1-1"
+                  id="ingredients-section-label-1-1-label"
                 >
-                  test 1
+                  Ingredients Section Label 1 1
                 </label>
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
@@ -713,7 +713,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="test-1"
+                    id="ingredients-section-label-1-1"
                     type="text"
                     value="ingredient 1"
                   />
@@ -790,7 +790,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                       class="css-14lo706"
                     >
                       <span>
-                        test 1
+                        Ingredients Section Label 1 1
                       </span>
                     </legend>
                   </fieldset>
@@ -802,10 +802,10 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
-                  for="test-2"
-                  id="test-2-label"
+                  for="ingredients-section-label-1-2"
+                  id="ingredients-section-label-1-2-label"
                 >
-                  test 2
+                  Ingredients Section Label 1 2
                 </label>
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
@@ -813,7 +813,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="test-2"
+                    id="ingredients-section-label-1-2"
                     type="text"
                     value="ingredient 2"
                   />
@@ -890,7 +890,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                       class="css-14lo706"
                     >
                       <span>
-                        test 2
+                        Ingredients Section Label 1 2
                       </span>
                     </legend>
                   </fieldset>
@@ -982,7 +982,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
                 id="equipment-1"
                 type="text"
-                value="test"
+                value="equipment 1"
               />
               <div
                 class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
@@ -1208,10 +1208,10 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="true"
-              for="test-title"
-              id="test-title-label"
+              for="instructions-section-label-1-title"
+              id="instructions-section-label-1-title-label"
             >
-              test
+              Instructions Section Label 1
             </label>
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1219,11 +1219,11 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-                data-testid="test-title"
-                id="test-title"
-                name="test-title"
+                data-testid="instructions-section-label-1-title"
+                id="instructions-section-label-1-title"
+                name="instructions-section-label-1-title"
                 type="text"
-                value="test"
+                value="Instructions Section Label 1"
               />
               <div
                 class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
@@ -1298,7 +1298,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                   class="css-14lo706"
                 >
                   <span>
-                    test
+                    Instructions Section Label 1
                   </span>
                 </legend>
               </fieldset>
@@ -1316,10 +1316,10 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
-                  for="test-1"
-                  id="test-1-label"
+                  for="instructions-section-label-1-1"
+                  id="instructions-section-label-1-1-label"
                 >
-                  test 1
+                  Instructions Section Label 1 1
                 </label>
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
@@ -1327,7 +1327,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="test-1"
+                    id="instructions-section-label-1-1"
                     type="text"
                     value="Instructions item 1"
                   />
@@ -1402,7 +1402,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                       class="css-14lo706"
                     >
                       <span>
-                        test 1
+                        Instructions Section Label 1 1
                       </span>
                     </legend>
                   </fieldset>
@@ -1834,7 +1834,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
                 id="notes-1"
                 type="text"
-                value="test"
+                value="note 1"
               />
               <div
                 class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
@@ -1971,7 +1971,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input"
                 id="keywords-1"
                 type="text"
-                value="test"
+                value="keyword1"
               />
               <div
                 class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"

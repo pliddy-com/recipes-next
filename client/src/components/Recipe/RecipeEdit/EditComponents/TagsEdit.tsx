@@ -46,6 +46,8 @@ const TagsEdit = ({ tags }: ITagsEdit) => {
 
       const tagTitles = selectedTags.map((tag) => tag?.title as string);
 
+      console.log({ tagTitles, selectedTags });
+
       setTagLabels(tagTitles);
       setTagData(selectedTags);
     }

@@ -350,7 +350,6 @@ describe('api', () => {
         .mockResolvedValueOnce(payload);
 
       const res = await getTagList();
-      console.log({ res });
       expect(gqlSpy).toHaveBeenCalled();
       expect(res).toEqual(tags);
     });

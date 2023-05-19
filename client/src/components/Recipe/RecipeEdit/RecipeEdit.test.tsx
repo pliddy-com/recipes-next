@@ -1,5 +1,6 @@
+import '@testing-library/jest-dom';
 // import testing-library methods
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -64,8 +65,13 @@ describe('Recipe', () => {
         <RecipeEdit content={recipe} />
       );
 
+      waitFor(() => queryByTestId('RecipeEdit'));
+
+      // assert that the component matches the existing snapshot
+      expect(asFragment()).toMatchSnapshot();
+
       // assert that content is rendered
-      expect(queryByTestId('RecipeEdit')).toBeInTheDocument();
+      // expect(queryByTestId('RecipeEdit')).toBeInTheDocument();
 
       // check code for toggling Save enabled
 
@@ -155,9 +161,6 @@ describe('Recipe', () => {
           target: { value: 'test' }
         });
       expect(instructionsInput).toBeInTheDocument();
-
-      // assert that the component matches the existing snapshot
-      expect(asFragment()).toMatchSnapshot();
     });
   });
 

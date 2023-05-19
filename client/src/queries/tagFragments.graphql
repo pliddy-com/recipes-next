@@ -3,6 +3,9 @@
 
 fragment TagDefault on Tag {
   __typename
+  sys {
+    id
+  }
   title
   slug
 }
@@ -23,6 +26,9 @@ fragment TagEntry on Tag {
 
 fragment TagWithLinks on Tag {
   __typename
+  sys {
+    id
+  }
   title
   slug
 
@@ -37,6 +43,9 @@ fragment TagWithLinks on Tag {
 # TODO: investigate reducing complexity
 fragment ListPageItem on Tag {
   __typename
+  sys {
+    id
+  }
   slug
   title
   linkedFrom {
