@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+
 import {
   Dispatch,
   ReactElement,
@@ -64,9 +65,9 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
 
     const restApi = `${contentApiUrl}/${recipe.id}`;
 
-    console.log('updateEntry', { recipe });
-
     try {
+      console.log({ fetch });
+
       const response = await fetch(restApi, {
         method: 'PUT',
         headers: {
