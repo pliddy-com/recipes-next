@@ -131,7 +131,7 @@ export const updateEntry = async ({
 
           console.log('entry tags:', entryTags);
 
-          recipe[key] = entryTags;
+          entry.fields[key] = { 'en-US': entryTags };
         } else {
           entry.fields[key] = { 'en-US': value };
         }
@@ -144,14 +144,6 @@ export const updateEntry = async ({
 
     console.log('updated entry tags:', updated.fields.tags['en-US']);
 
-    // return updated values in IRecipeChangeSet object
-
-    for (const [key, value] of Object.entries(recipe) as RecipeObjEntries) {
-      if (key !== 'id' && updated.fields[key] && updated.fields[key]['en-US'])
-        recipe[key] = updated.fields[key]['en-US'];
-    }
-
-    console.log('updated recipe:', recipe);
     console.log('tags:', updated.fields.tags['en-US']);
 
     const published = await updated.publish();
@@ -164,6 +156,7 @@ export const updateEntry = async ({
 
     console.log('update build:', build);
 
+    console.log('return ', recipe);
     return recipe;
   } catch (e) {
     console.error('UPDATE ERROR:', e);
