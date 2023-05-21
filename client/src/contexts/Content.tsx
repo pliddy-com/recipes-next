@@ -66,8 +66,6 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
     const restApi = `${contentApiUrl}/${recipe.id}`;
 
     try {
-      console.log({ fetch });
-
       const response = await fetch(restApi, {
         method: 'PUT',
         headers: {

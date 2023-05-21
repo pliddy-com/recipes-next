@@ -27,6 +27,9 @@ jest.mock('next/router', () => ({
 }));
 
 describe('Content', () => {
+  afterEach(() => {
+    jest.resetModules();
+  });
   const TestingComponent = () => {
     const {
       setCanSave,
@@ -134,7 +137,9 @@ describe('Content', () => {
 
       const saveRecipeButton = queryByTestId('saveRecipe');
       saveRecipeButton &&
-        act(async () => waitFor(async () => fireEvent.click(saveRecipeButton)));
+        (await act(async () =>
+          waitFor(async () => fireEvent.click(saveRecipeButton))
+        ));
 
       const setEditModeButton = queryByTestId('setEditMode');
       setEditModeButton && (await fireEvent.click(setEditModeButton));

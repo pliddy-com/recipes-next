@@ -49,22 +49,22 @@ api.getTagList = jest.fn().mockResolvedValue([
     sys: {
       id: 'id-1'
     },
-    slug: 'title-1',
-    title: 'Title 1'
+    slug: 'Tag-1',
+    title: 'Tag 1'
   },
   {
     sys: {
       id: 'id-2'
     },
-    slug: 'title-2',
-    title: 'Title 2'
+    slug: 'tag-2',
+    title: 'Tag 2'
   },
   {
     sys: {
       id: 'id-3'
     },
-    slug: 'title-3',
-    title: 'Title 3'
+    slug: 'tag-3',
+    title: 'Tag 3'
   }
 ]);
 

@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import { useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
@@ -15,7 +13,7 @@ import { getTagList } from 'lib/api';
 
 import { TagDefaultFragment } from 'types/queries';
 
-interface ITagsEdit {
+export interface ITagsEdit {
   onChange: ({
     value
   }: {
@@ -25,24 +23,28 @@ interface ITagsEdit {
 }
 
 const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
-  const [tagData, setTagData] =
-    useState<(TagDefaultFragment | null | undefined)[]>(tags);
-  const [tagList, setTagList] = useState<(TagDefaultFragment | null)[]>();
+  const [tagData, setTagData] = useState<
+    (TagDefaultFragment | null | undefined)[]
+  >(tags || []);
+  const [tagList, setTagList] = useState<TagDefaultFragment[]>();
   const [tagLabels, setTagLabels] = useState<string[]>([]);
 
   useEffect(() => {
-    setTagData(tags);
-    setTagLabels(tags.map((tag) => tag?.title as string));
+    if (tags) {
+      setTagData(tags);
+      setTagLabels(tags.map((tag) => tag?.title as string));
+    }
   }, [tags]);
 
   useEffect(() => {
-    getTagList().then((tags) => setTagList(tags));
+    getTagList().then((taglist) => setTagList(taglist));
   }, []);
 
   const handleSelect = (event: SelectChangeEvent<typeof tagLabels>) => {
     const {
       target: { value }
     } = event;
+
     if (Array.isArray(value)) {
       const selectedTags = value?.map((title: string) =>
         tagList?.find((tag) => tag?.title === title)
@@ -56,8 +58,8 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
     }
   };
 
-  return (
-    <Stack className="tags-edit">
+  return tagData && tagList ? (
+    <Stack className="tags-edit" data-testid="tags-edit">
       <FormControl>
         <InputLabel id="tag-select-label">Tags</InputLabel>
         <Select
@@ -67,9 +69,10 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
             <OutlinedInput
               id="tag-select-input"
               label="Tags"
-              data-testid="tag-select"
+              data-testid="tag-select-input"
             />
           }
+          inputProps={{ 'aria-label': 'tag select input' }}
           labelId="tag-select-label"
           MenuProps={{ PaperProps: { sx: { maxHeight: 42 * 6 } } }}
           multiple
@@ -78,27 +81,27 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {tagData &&
                 tagData.map((tag) => {
-                  const { slug, title } = tag ?? {};
-                  return slug && title ? (
+                  return (
                     <Chip
                       className="tag"
                       color="primary"
-                      label={title}
-                      key={slug}
+                      label={tag?.title}
+                      key={tag?.slug}
                       role="button"
                       size="small"
                       variant="outlined"
                     />
-                  ) : null;
+                  );
                 })}
             </Box>
           )}
           value={tagLabels}
         >
-          {tagList &&
-            tagList.map((tag) => {
-              const { slug, title } = tag ?? {};
-              return slug && title ? (
+          {tagList.map((tag) => {
+            const { slug, title } = tag;
+            return (
+              slug &&
+              title && (
                 <MenuItem
                   data-testid={`tag-select-${slug}`}
                   key={slug}
@@ -107,12 +110,13 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
                 >
                   {title}
                 </MenuItem>
-              ) : null;
-            })}
+              )
+            );
+          })}
         </Select>
       </FormControl>
     </Stack>
-  );
+  ) : null;
 };
 
 export default TagsEdit;
