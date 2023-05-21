@@ -18,6 +18,9 @@ describe('apiFilter', () => {
       const payload: TagWithLinksFragment[] = [
         {
           __typename: 'Tag',
+          sys: {
+            id: 'tag-id-1'
+          },
           slug: 'tag-a',
           title: 'Tag A',
           linkedFrom: {
@@ -30,6 +33,9 @@ describe('apiFilter', () => {
         },
         {
           __typename: 'Tag',
+          sys: {
+            id: 'tag-id-2'
+          },
           slug: 'tag-b',
           title: 'Tag B',
           linkedFrom: {
@@ -42,6 +48,9 @@ describe('apiFilter', () => {
         },
         {
           __typename: 'Tag',
+          sys: {
+            id: 'tag-id-3'
+          },
           slug: 'tag-c',
           title: 'Tag C',
           linkedFrom: {
@@ -66,6 +75,9 @@ describe('apiFilter', () => {
       const expectedTags = [
         {
           __typename: 'Tag',
+          sys: {
+            id: 'tag-id-2'
+          },
           slug: 'tag-b',
           title: 'Tag B',
           linkedFrom: {
@@ -78,6 +90,9 @@ describe('apiFilter', () => {
         },
         {
           __typename: 'Tag',
+          sys: {
+            id: 'tag-id-3'
+          },
           slug: 'tag-c',
           title: 'Tag C',
           linkedFrom: {
@@ -96,6 +111,9 @@ describe('apiFilter', () => {
         items: [
           {
             __typename: 'Tag',
+            sys: {
+              id: 'tag-id-1'
+            },
             slug: 'tag-a',
             title: 'Tag A',
             linkedFrom: {
@@ -108,6 +126,9 @@ describe('apiFilter', () => {
           },
           {
             __typename: 'Tag',
+            sys: {
+              id: 'tag-id-2'
+            },
             slug: 'tag-b',
             title: 'Tag B',
             linkedFrom: {
@@ -120,6 +141,9 @@ describe('apiFilter', () => {
           },
           {
             __typename: 'Tag',
+            sys: {
+              id: 'tag-id-3'
+            },
             slug: 'tag-c',
             title: 'Tag C',
             linkedFrom: {
@@ -145,6 +169,9 @@ describe('apiFilter', () => {
       const expected = [
         {
           __typename: 'Tag',
+          sys: {
+            id: 'tag-id-1'
+          },
           title: 'Baking',
           slug: 'baking',
           linkedFrom: {
@@ -161,6 +188,9 @@ describe('apiFilter', () => {
           slug: 'meat',
           tag: {
             __typename: 'Tag',
+            sys: {
+              id: 'tag-id-3'
+            },
             title: 'Meat',
             slug: 'meat',
             linkedFrom: {
@@ -176,6 +206,9 @@ describe('apiFilter', () => {
             items: [
               {
                 __typename: 'Tag',
+                sys: {
+                  id: 'tag-id-4'
+                },
                 title: 'Beef',
                 slug: 'beef',
                 linkedFrom: {
@@ -188,6 +221,9 @@ describe('apiFilter', () => {
               },
               {
                 __typename: 'Tag',
+                sys: {
+                  id: 'tag-id-5'
+                },
                 title: 'Chicken',
                 slug: 'chicken',
                 linkedFrom: {
@@ -200,6 +236,9 @@ describe('apiFilter', () => {
               },
               {
                 __typename: 'Tag',
+                sys: {
+                  id: 'tag-id-6'
+                },
                 title: 'Pork',
                 slug: 'pork',
                 linkedFrom: {
@@ -227,6 +266,9 @@ describe('apiFilter', () => {
               items: [
                 {
                   __typename: 'Tag',
+                  sys: {
+                    id: 'tag-id-1'
+                  },
                   title: 'Baking',
                   slug: 'baking',
                   linkedFrom: {
@@ -239,6 +281,9 @@ describe('apiFilter', () => {
                 },
                 {
                   __typename: 'Tag',
+                  sys: {
+                    id: 'tag-id-2'
+                  },
                   title: 'Dessert',
                   slug: 'dessert',
                   linkedFrom: {
@@ -255,6 +300,9 @@ describe('apiFilter', () => {
                   slug: 'meat',
                   tag: {
                     __typename: 'Tag',
+                    sys: {
+                      id: 'tag-id-3'
+                    },
                     title: 'Meat',
                     slug: 'meat',
                     linkedFrom: {
@@ -270,6 +318,9 @@ describe('apiFilter', () => {
                     items: [
                       {
                         __typename: 'Tag',
+                        sys: {
+                          id: 'tag-id-4'
+                        },
                         title: 'Beef',
                         slug: 'beef',
                         linkedFrom: {
@@ -282,6 +333,9 @@ describe('apiFilter', () => {
                       },
                       {
                         __typename: 'Tag',
+                        sys: {
+                          id: 'tag-id-5'
+                        },
                         title: 'Chicken',
                         slug: 'chicken',
                         linkedFrom: {
@@ -294,6 +348,9 @@ describe('apiFilter', () => {
                       },
                       {
                         __typename: 'Tag',
+                        sys: {
+                          id: 'tag-id-6'
+                        },
                         title: 'Pork',
                         slug: 'pork',
                         linkedFrom: {

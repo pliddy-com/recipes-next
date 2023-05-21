@@ -79,7 +79,7 @@ describe('in updateRecipe/index.handler', () => {
         body: undefined
       };
 
-      const id = 'RECIPE_ID';
+      const id = 'UPi7NotPy5eJLOltfyocJ';
 
       const expected = entries.getResponse({
         statusCode: 401,

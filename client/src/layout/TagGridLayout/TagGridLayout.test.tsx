@@ -24,7 +24,9 @@ describe('TagGridLayout', () => {
     it('it renders the page', async () => {
       // const tags = await api.getTagIndex({});
       const { asFragment, queryByTestId } = render(
-        <TagGridLayout tags={tags as (ListPageItemFragment | null)[]} />
+        <TagGridLayout
+          tags={tags as unknown as (ListPageItemFragment | null)[]}
+        />
       );
 
       // assert that content is rendered

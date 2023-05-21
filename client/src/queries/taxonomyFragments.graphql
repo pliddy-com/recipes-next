@@ -55,6 +55,9 @@ fragment NavTaxonomy on TaxonomyCollection {
 
     tag {
       __typename
+      sys {
+        id
+      }
       title
       slug
     }
@@ -64,6 +67,9 @@ fragment NavTaxonomy on TaxonomyCollection {
       items {
         ... on Tag {
           __typename
+          sys {
+            id
+          }
           title
           slug
 
@@ -104,6 +110,9 @@ fragment SchemaTaxonomy on TaxonomyCollection {
       items {
         ... on Tag {
           __typename
+          sys {
+            id
+          }
           title
           slug
         }

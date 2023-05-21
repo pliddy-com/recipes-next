@@ -1,3 +1,5 @@
+import { TagDefaultFragment } from './queries';
+
 export interface IRecipeSection {
   sectionTitle: string | null;
   sectionItems: (string | null)[];
@@ -15,5 +17,6 @@ export interface IRecipeChangeSet {
   prepTime: string | number;
   recipeYield: string | number;
   slug: string;
+  tags: (TagDefaultFragment | null | undefined)[];
   title: string;
 }

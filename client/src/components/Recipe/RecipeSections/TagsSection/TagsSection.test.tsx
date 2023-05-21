@@ -32,7 +32,7 @@ describe('Tags', () => {
     ];
 
     it('it renders the notes section', () => {
-      const tagButtonsId = 'tag-buttons';
+      const tagButtonsId = 'tags-buttons';
       const expectedTitle = tags[0]?.title;
       const expectedSlug = tags[0]?.slug;
 

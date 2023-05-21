@@ -9,12 +9,13 @@ import {
   getResponse,
   updateEntry
 } from './entries';
+import { IRecipeChangeSet } from './types';
 
 const id = 'ID';
 
-const recipe = {
+const recipe: IRecipeChangeSet = {
   abstract: 'abstract',
-  cookTime: 30,
+  cookTime: '30',
   equipment: ['equipment 1'],
   id: 'ID',
   ingredientsList: [
@@ -31,9 +32,19 @@ const recipe = {
   ],
   keywords: ['keyword 1', 'keyword 2'],
   notes: ['note 1'],
-  prepTime: 15,
-  recipeYield: 4,
+  prepTime: '15',
+  recipeYield: '4',
   slug: 'slug',
+  tags: [
+    {
+      __typename: 'Tag',
+      sys: {
+        id: 'id-1'
+      },
+      slug: 'title-1',
+      title: 'Title 1'
+    }
+  ],
   title: 'title'
 };
 
@@ -63,6 +74,11 @@ const fields = {
   prepTime: { 'en-US': 15 },
   recipeYield: { 'en-US': 4 },
   slug: { 'en-US': 'slug' },
+  tags: [
+    {
+      sys: { type: 'Link', linkType: 'Entry', id: 'id-1' }
+    }
+  ],
   title: { 'en-US': 'title' }
 };
 

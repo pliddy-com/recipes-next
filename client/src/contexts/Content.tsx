@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+
 import {
   Dispatch,
   ReactElement,
@@ -19,6 +20,7 @@ interface ICMContext {
   editMode: boolean;
   editLoading: boolean;
   setCanSave: Dispatch<SetStateAction<boolean>>;
+  setEditMode: Dispatch<SetStateAction<boolean>>;
   saveRecipe(event: SyntheticEvent): void;
   setRecipe: Dispatch<SetStateAction<IRecipeChangeSet | undefined>>;
   supressEdit: boolean;
@@ -63,8 +65,6 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
 
     const restApi = `${contentApiUrl}/${recipe.id}`;
 
-    // console.log(recipe);
-
     try {
       const response = await fetch(restApi, {
         method: 'PUT',
@@ -90,7 +90,6 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
 
     if (recipe) {
       try {
-        // const res = recipe && (await updateEntry({ recipe }));
         recipe && (await updateEntry({ recipe }));
 
         const page = asPath.split('/').slice(-1)[0];
@@ -98,8 +97,6 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
 
         setEditMode(false);
         setEditLoading(false);
-
-        // console.log('Recipe Updated => Payload:', res);
       } catch (e) {
         // TODO: handle error in UI
         console.error(e);
@@ -118,6 +115,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
         editMode,
         saveRecipe,
         setCanSave,
+        setEditMode,
         setRecipe,
         setSupressEdit,
         supressEdit,

@@ -44,6 +44,17 @@ query tagSlugs($where: TagFilter) {
   }
 }
 
+# query for list of tas
+# getTagList
+
+query tagList($where: TagFilter) {
+  tagCollection(where: $where, order: title_ASC) {
+    items {
+      ...TagEntry
+    }
+  }
+}
+
 # Query for List Page RecipeCollection (all recipes matching tag)
 # getRecipeList
 

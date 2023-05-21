@@ -14,10 +14,12 @@ import Typography from '@mui/material/Typography';
 import LockIcon from '@mui/icons-material/Lock';
 
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
-import ListEdit from './EditComponents/ListEdit';
+import ListEdit from 'components/Recipe/RecipeEdit/EditComponents/ListEdit';
 import Loading from 'components/Loading/Loading';
 import RichText from 'components/RichText/RichText';
-import TagsSection from 'components/Recipe/RecipeSections/TagsSection/TagsSection';
+import SectionEdit from 'components/Recipe/RecipeEdit/EditComponents/SectionEdit';
+import TagsEdit from 'components/Recipe/RecipeEdit/EditComponents/TagsEdit';
+import TextEdit from 'components/Recipe/RecipeEdit/EditComponents/TextEdit';
 
 // import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 
@@ -25,13 +27,14 @@ import { minToTime, toSlug } from 'lib/utils';
 
 import { recipePageConfig } from 'theme/values/images';
 
-import { RecipeDefaultFragment, RecipeDescription } from 'types/queries';
+import {
+  RecipeDefaultFragment,
+  RecipeDescription,
+  TagDefaultFragment
+} from 'types/queries';
 import { useContentManagementContext } from 'contexts/Content';
 
 import { IRecipeChangeSet, IRecipeSection } from 'types/content';
-
-import TextEdit from './EditComponents/TextEdit';
-import SectionEdit from './EditComponents/SectionEdit';
 
 export type IFormIds =
   | 'abstract'
@@ -44,6 +47,7 @@ export type IFormIds =
   | 'prepTime'
   | 'recipeYield'
   | 'slug'
+  | 'tags'
   | 'title';
 
 interface IRecipeEdit {
@@ -69,6 +73,11 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     title
   } = content ?? {};
 
+  const { aspectRatio, breakpoints } = recipePageConfig;
+  const richText = description as RecipeDescription;
+
+  const { items: tags } = tagsCollection ?? {};
+
   const defaultState: IRecipeChangeSet = {
     abstract: abstract || '',
     id: sys?.id || '',
@@ -81,6 +90,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     prepTime: prepTime || '0',
     recipeYield: recipeYield || '0',
     slug: slug || '',
+    tags: tags || [],
     title: title || ''
   };
 
@@ -107,14 +117,22 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     value
   }: {
     id: IFormIds;
-    value: string | number | (string | null | IRecipeSection)[];
+    value:
+      | string
+      | number
+      | (string | null | IRecipeSection)[]
+      | (TagDefaultFragment | null | undefined)[];
   }) => {
     const newData: IRecipeChangeSet = { ...formData };
-    newData[id] = value as string & (string | null)[] & IRecipeSection[];
+    newData[id] = value as string &
+      (string | null)[] &
+      IRecipeSection[] &
+      (TagDefaultFragment | null | undefined)[];
+
+    if (id === 'title') newData['slug'] = toSlug(value as string);
 
     setFormData(newData);
     setRecipe(newData);
-
     try {
       assert.deepStrictEqual(defaultState, newData);
       setCanSave(false);
@@ -122,36 +140,6 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
       setCanSave(true);
     }
   };
-
-  const updateTitle = ({
-    id = 'title',
-    value
-  }: {
-    id?: string;
-    value: string;
-  }) => {
-    if (id === 'title') {
-      const newData = { ...formData };
-
-      newData[id] = value;
-      newData['slug'] = toSlug(value);
-
-      setFormData(newData);
-      setRecipe(newData);
-
-      try {
-        assert.deepStrictEqual(defaultState, newData);
-        setCanSave(false);
-      } catch (e) {
-        setCanSave(true);
-      }
-    }
-  };
-
-  const { aspectRatio, breakpoints } = recipePageConfig;
-  const richText = description as RecipeDescription;
-
-  const { items: tags } = tagsCollection ?? {};
 
   /**
    *
@@ -176,7 +164,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
         className="bold"
         id="title"
         label="Title"
-        onChange={(e) => updateTitle({ value: e.target.value })}
+        onChange={(e) => updateField({ id: 'title', value: e.target.value })}
         value={formData.title}
       />
 
@@ -223,7 +211,17 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
               />
             )} */}
 
-            {tags && <TagsSection tags={tags} />}
+            {tags && (
+              <TagsEdit
+                tags={formData.tags}
+                onChange={({ value }) =>
+                  updateField({
+                    id: 'tags',
+                    value
+                  })
+                }
+              />
+            )}
 
             <Grid container className="details" spacing={2}>
               <Grid item xs={6}>

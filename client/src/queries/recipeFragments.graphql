@@ -116,7 +116,6 @@ fragment RecipeSummary on Recipe {
   __typename
   sys {
     id
-    firstPublishedAt
   }
   title
   slug

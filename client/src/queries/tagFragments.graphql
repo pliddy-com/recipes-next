@@ -3,6 +3,21 @@
 
 fragment TagDefault on Tag {
   __typename
+  sys {
+    id
+  }
+  title
+  slug
+}
+
+## Fragments with default fields for:
+#   * Tag
+
+fragment TagEntry on Tag {
+  __typename
+  sys {
+    id
+  }
   title
   slug
 }
@@ -11,6 +26,9 @@ fragment TagDefault on Tag {
 
 fragment TagWithLinks on Tag {
   __typename
+  sys {
+    id
+  }
   title
   slug
 
@@ -25,6 +43,9 @@ fragment TagWithLinks on Tag {
 # TODO: investigate reducing complexity
 fragment ListPageItem on Tag {
   __typename
+  sys {
+    id
+  }
   slug
   title
   linkedFrom {
