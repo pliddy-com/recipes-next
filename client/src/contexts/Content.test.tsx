@@ -45,6 +45,20 @@ describe('Content', () => {
       cookTime: '30',
       equipment: ['equipment'],
       id: 'id',
+      image: {
+        sys: {
+          id: 'img-id'
+        },
+        title: 'Placeholder',
+        description: 'Image description.',
+        contentType: 'image/png',
+        fileName: 'placeholder.png',
+        size: 33142,
+        url: 'https://images.url',
+        height: 1350,
+        width: 1800,
+        __typename: 'Asset'
+      },
       ingredientsList: [
         {
           sectionTitle: 'Ingredients',

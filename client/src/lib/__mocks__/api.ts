@@ -1,12 +1,18 @@
+import { ImageDefaultFragment, TagDefaultFragment } from 'types/queries';
+
 export interface ApiTestProps {
+  getLinkedEntries: () => {
+    tags: TagDefaultFragment[];
+    images: ImageDefaultFragment[];
+  };
   getNavTaxonomy: () => [{ slug: string }];
-  getRecipeSlugs: () => string[];
-  getTagSlugs: () => string[];
   getRecipeIndex: () => [{ slug: string }];
   getRecipeList: () => [{ slug: string }];
   getRecipePage: () => { slug: string; title: string };
+  getRecipeSlugs: () => string[];
   getTagIndex: () => [{ slug: string; title: string }];
-  getTagList: () => [{ slug: string; title: string }];
+  getTagSlugs: () => string[];
+  // getTagList: () => [{ slug: string; title: string }];
 }
 
 jest.mock('urql');
@@ -44,30 +50,100 @@ api.getRecipeIndex = jest.fn().mockResolvedValue([
   }
 ]);
 
-api.getTagList = jest.fn().mockResolvedValue([
-  {
-    sys: {
-      id: 'id-1'
-    },
-    slug: 'Tag-1',
-    title: 'Tag 1'
-  },
-  {
-    sys: {
-      id: 'id-2'
-    },
-    slug: 'tag-2',
-    title: 'Tag 2'
-  },
-  {
-    sys: {
-      id: 'id-3'
-    },
-    slug: 'tag-3',
-    title: 'Tag 3'
-  }
-]);
+// api.getTagList = jest.fn().mockResolvedValue([
+//   {
+//     sys: {
+//       id: 'id-1'
+//     },
+//     slug: 'Tag-1',
+//     title: 'Tag 1'
+//   },
+//   {
+//     sys: {
+//       id: 'id-2'
+//     },
+//     slug: 'tag-2',
+//     title: 'Tag 2'
+//   },
+//   {
+//     sys: {
+//       id: 'id-3'
+//     },
+//     slug: 'tag-3',
+//     title: 'Tag 3'
+//   }
+// ]);
 
+api.getLinkedEntries = jest.fn().mockResolvedValue({
+  images: [
+    {
+      __typename: 'Asset',
+      sys: {
+        id: 'img-id-1'
+      },
+      title: 'Biscuits',
+      description:
+        'A batch of baking soda biscuits on a parchment-lined baking sheet.',
+      contentType: 'image/jpeg',
+      fileName: 'biscuits.jpg',
+      size: 2583242,
+      url: 'https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg',
+      height: 3024,
+      width: 4032
+    },
+    {
+      __typename: 'Asset',
+      sys: {
+        id: 'img-id-2'
+      },
+      title: 'Olive Bread',
+      description: 'Loaf of no-knead olive bread',
+      contentType: 'image/jpeg',
+      fileName: 'olive-bread.JPG',
+      size: 2849709,
+      url: 'https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG',
+      height: 3024,
+      width: 4032
+    },
+    {
+      __typename: 'Asset',
+      sys: {
+        id: 'img-id-3'
+      },
+      title: 'No Knead Bread',
+      description: 'Loaf of no-knead bread cooling on a wire baking rack.',
+      contentType: 'image/jpeg',
+      fileName: 'no-knead-bread.JPG',
+      size: 2943075,
+      url: 'https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG',
+      height: 3024,
+      width: 4032
+    }
+  ],
+  tags: [
+    {
+      sys: {
+        id: 'id-1'
+      },
+      slug: 'Tag-1',
+      title: 'Tag 1'
+    },
+    {
+      sys: {
+        id: 'id-2'
+      },
+      slug: 'tag-2',
+      title: 'Tag 2'
+    },
+    {
+      sys: {
+        id: 'id-3'
+      },
+      slug: 'tag-3',
+      title: 'Tag 3'
+    }
+  ]
+});
 api.getRecipeList = jest.fn().mockResolvedValue([
   {
     __typename: 'Tag',

@@ -102,7 +102,6 @@ const pageThemeOptions: ThemeOptions = {
                   marginLeft: 0,
                   marginRight: 0,
                   [breakpoints.up('lg')]: {
-                    marginLeft: '2rem',
                     marginTop: 0,
                     marginBottom: 0
                   },
@@ -190,6 +189,38 @@ const pageThemeOptions: ThemeOptions = {
               marginTop: '0.5rem',
               '& .edit-section': {
                 marginBottom: '1rem'
+              },
+              '& .image-edit': {
+                '& .original': {
+                  marginBottom: '1rem'
+                },
+                '& .MuiImageList-root': {
+                  aspectRatio: '4/3',
+                  objectFit: 'cover',
+                  gridTemplateColumns: 'repeat(3, 33%)',
+                  '& .MuiImageListItem-root': {
+                    '& .dynamicImage': {
+                      display: 'block'
+                    },
+                    '& .image': {
+                      marginBottom: 0,
+                      marginTop: 0
+                    }
+                  },
+                  '& .MuiImageListItemBar': {
+                    '&-titleWrap': {
+                      padding: '0.25rem .75rem'
+                    },
+                    '&-title': {
+                      fontFamily: sansFontFamily,
+                      fontWeight: 600,
+                      fontSize: '12px'
+                    },
+                    '&-subtitle': {
+                      fontFamily: sansFontFamily
+                    }
+                  }
+                }
               }
             }
           },

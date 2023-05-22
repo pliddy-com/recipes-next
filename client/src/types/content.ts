@@ -1,4 +1,4 @@
-import { TagDefaultFragment } from './queries';
+import { ImageDefaultFragment, TagDefaultFragment } from './queries';
 
 export interface IRecipeSection {
   sectionTitle: string | null;
@@ -10,6 +10,7 @@ export interface IRecipeChangeSet {
   cookTime: string | number;
   equipment: (string | null)[];
   id: string;
+  image: ImageDefaultFragment;
   ingredientsList: IRecipeSection[];
   instructionsList: IRecipeSection[];
   keywords: (string | null)[];

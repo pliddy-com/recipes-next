@@ -138,9 +138,16 @@ export const updateEntry = async ({
             };
           });
 
-          console.log('entry tags:', entryTags);
-
           entry.fields[key] = { 'en-US': entryTags };
+        } else if (key === 'image') {
+          const imageEntry = {
+            sys: {
+              type: 'Link',
+              linkType: 'Asset',
+              id: value.sys?.id
+            }
+          };
+          entry.fields[key] = { 'en-US': imageEntry };
         } else {
           entry.fields[key] = { 'en-US': value };
         }
@@ -151,9 +158,8 @@ export const updateEntry = async ({
 
     console.log('updated entry:', updated);
 
-    console.log('updated entry tags:', updated.fields.tags['en-US']);
-
-    console.log('tags:', updated.fields.tags['en-US']);
+    console.log('image:', updated.fields.image);
+    console.log('image JSON:', JSON.stringify(updated.fields.image));
 
     const published = await updated.publish();
 

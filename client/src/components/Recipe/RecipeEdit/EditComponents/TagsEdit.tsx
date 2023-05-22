@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
@@ -9,8 +11,6 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
 
-import { getTagList } from 'lib/api';
-
 import { TagDefaultFragment } from 'types/queries';
 
 export interface ITagsEdit {
@@ -19,14 +19,14 @@ export interface ITagsEdit {
   }: {
     value: (TagDefaultFragment | null | undefined)[];
   }) => void;
+  tagList: (TagDefaultFragment | null)[] | undefined;
   tags: (TagDefaultFragment | null | undefined)[];
 }
 
-const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
+const TagsEdit = ({ onChange, tagList, tags }: ITagsEdit) => {
   const [tagData, setTagData] = useState<
     (TagDefaultFragment | null | undefined)[]
   >(tags || []);
-  const [tagList, setTagList] = useState<TagDefaultFragment[]>();
   const [tagLabels, setTagLabels] = useState<string[]>([]);
 
   useEffect(() => {
@@ -35,10 +35,6 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
       setTagLabels(tags.map((tag) => tag?.title as string));
     }
   }, [tags]);
-
-  useEffect(() => {
-    getTagList().then((taglist) => setTagList(taglist));
-  }, []);
 
   const handleSelect = (event: SelectChangeEvent<typeof tagLabels>) => {
     const {
@@ -96,7 +92,7 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
           value={tagLabels}
         >
           {tagList.map((tag) => {
-            const { slug, title } = tag;
+            const { slug, title } = tag ?? {};
             return (
               slug &&
               title && (

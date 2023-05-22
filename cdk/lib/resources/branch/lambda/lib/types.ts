@@ -7,6 +7,19 @@ export type TagDefaultFragment = {
   sys: { __typename?: 'Sys'; id: string };
 };
 
+export type ImageDefaultFragment = {
+  __typename?: 'Asset';
+  title?: string | null;
+  description?: string | null;
+  contentType?: string | null;
+  fileName?: string | null;
+  size?: number | null;
+  url?: string | null;
+  height?: number | null;
+  width?: number | null;
+  sys: { __typename?: 'Sys'; id: string };
+};
+
 export interface IRecipeSection {
   sectionTitle: string | null;
   sectionItems: (string | null)[];
@@ -17,6 +30,7 @@ export interface IRecipeChangeSet {
   cookTime: string | number;
   equipment: (string | null)[];
   id: string;
+  image: ImageDefaultFragment;
   ingredientsList: IRecipeSection[];
   instructionsList: IRecipeSection[];
   keywords: (string | null)[];
