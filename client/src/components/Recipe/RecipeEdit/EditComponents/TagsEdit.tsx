@@ -67,16 +67,9 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
         <Select
           data-testid="tag-select"
           id="tag-select"
-          input={
-            <OutlinedInput
-              id="tag-select-input"
-              label="Tags"
-              // data-testid="tag-select-input"
-            />
-          }
+          input={<OutlinedInput id="tag-select-input" label="Tags" />}
           inputProps={{
             'aria-label': 'tag select input'
-            // id: 'tag-select-input'
           }}
           labelId="tag-select-label"
           MenuProps={{ PaperProps: { sx: { maxHeight: 42 * 6 } } }}

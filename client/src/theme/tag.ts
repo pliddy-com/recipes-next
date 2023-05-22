@@ -16,10 +16,10 @@ const tagThemeOptions: ThemeOptions = {
             marginTop: '1rem',
             '& .MuiSelect-select': {
               paddingTop: '1.75rem'
+            },
+            '& .MuiInputLabel-root[data-shrink="false"]': {
+              marginTop: '0.5rem'
             }
-            // '& .MuiTypography-h2': {
-            //   marginBottom: '1rem'
-            // }
           }
         }
       }

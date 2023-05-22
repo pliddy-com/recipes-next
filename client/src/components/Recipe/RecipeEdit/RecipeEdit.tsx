@@ -211,17 +211,15 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
               />
             )} */}
 
-            {tags && (
-              <TagsEdit
-                tags={formData.tags}
-                onChange={({ value }) =>
-                  updateField({
-                    id: 'tags',
-                    value
-                  })
-                }
-              />
-            )}
+            <TagsEdit
+              tags={formData.tags}
+              onChange={({ value }) =>
+                updateField({
+                  id: 'tags',
+                  value
+                })
+              }
+            />
 
             <Grid container className="details" spacing={2}>
               <Grid item xs={6}>
@@ -286,57 +284,47 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
       </Grid>
 
       <Stack direction="column" spacing={3}>
-        {ingredientsList && (
-          <SectionEdit
-            id="ingredientsList"
-            label="Ingredients"
-            onChange={({ value }) =>
-              updateField({ id: 'ingredientsList', value })
-            }
-            sectionList={formData.ingredientsList}
-          />
-        )}
+        <SectionEdit
+          id="ingredientsList"
+          label="Ingredients"
+          onChange={({ value }) =>
+            updateField({ id: 'ingredientsList', value })
+          }
+          sectionList={formData.ingredientsList}
+        />
 
-        {equipment && (
-          <ListEdit
-            heading="h2"
-            id="equipment"
-            label="Equipment"
-            list={formData.equipment}
-            onChange={({ value }) => updateField({ id: 'equipment', value })}
-          />
-        )}
+        <ListEdit
+          heading="h2"
+          id="equipment"
+          label="Equipment"
+          list={formData.equipment}
+          onChange={({ value }) => updateField({ id: 'equipment', value })}
+        />
 
-        {instructionsList && (
-          <SectionEdit
-            id="instructionsList"
-            label="Instructions"
-            onChange={({ value }) =>
-              updateField({ id: 'instructionsList', value })
-            }
-            sectionList={formData.instructionsList}
-          />
-        )}
+        <SectionEdit
+          id="instructionsList"
+          label="Instructions"
+          onChange={({ value }) =>
+            updateField({ id: 'instructionsList', value })
+          }
+          sectionList={formData.instructionsList}
+        />
 
-        {notes && (
-          <ListEdit
-            heading="h2"
-            id="notes"
-            label="Notes"
-            list={formData.notes}
-            onChange={({ value }) => updateField({ id: 'notes', value })}
-          />
-        )}
+        <ListEdit
+          heading="h2"
+          id="notes"
+          label="Notes"
+          list={formData.notes}
+          onChange={({ value }) => updateField({ id: 'notes', value })}
+        />
 
-        {keywords && (
-          <ListEdit
-            heading="h2"
-            id="keywords"
-            label="Keywords"
-            list={formData.keywords}
-            onChange={({ value }) => updateField({ id: 'keywords', value })}
-          />
-        )}
+        <ListEdit
+          heading="h2"
+          id="keywords"
+          label="Keywords"
+          list={formData.keywords}
+          onChange={({ value }) => updateField({ id: 'keywords', value })}
+        />
       </Stack>
     </Box>
   ) : null;

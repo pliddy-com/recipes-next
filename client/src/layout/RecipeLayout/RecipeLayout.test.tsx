@@ -16,6 +16,7 @@ import * as ContentManagementContext from 'contexts/Content';
 jest.mock('lib/api');
 jest.mock('contexts/Authentication');
 jest.mock('contexts/Content');
+jest.mock('components/Recipe/RecipeEdit/EditComponents/TagsEdit');
 
 describe('RecipePage', () => {
   afterEach(() => {
