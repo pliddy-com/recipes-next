@@ -61,7 +61,9 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
   return tagData && tagList ? (
     <Stack className="tags-edit" data-testid="tags-edit">
       <FormControl>
-        <InputLabel id="tag-select-label">Tags</InputLabel>
+        <InputLabel id="tag-select-label" htmlFor="tag-select-input">
+          Tags
+        </InputLabel>
         <Select
           data-testid="tag-select"
           id="tag-select"
@@ -69,10 +71,13 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
             <OutlinedInput
               id="tag-select-input"
               label="Tags"
-              data-testid="tag-select-input"
+              // data-testid="tag-select-input"
             />
           }
-          inputProps={{ 'aria-label': 'tag select input' }}
+          inputProps={{
+            'aria-label': 'tag select input'
+            // id: 'tag-select-input'
+          }}
           labelId="tag-select-label"
           MenuProps={{ PaperProps: { sx: { maxHeight: 42 * 6 } } }}
           multiple

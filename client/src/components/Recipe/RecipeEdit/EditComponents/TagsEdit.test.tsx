@@ -27,17 +27,15 @@ describe('TagsEdit', () => {
           onChange: jest.fn()
         };
 
-        const { asFragment, getByTestId, queryByLabelText, queryByTestId } =
-          render(<TagsEdit {...props} />);
+        const { asFragment, getByTestId, queryByLabelText } = render(
+          <TagsEdit {...props} />
+        );
 
         await waitFor(async () => {
-          const tagsEdit = queryByTestId('tags-edit');
-          expect(tagsEdit).toBeInTheDocument();
+          const tagSelect = queryByLabelText('tag select input');
+          expect(tagSelect).toBeInTheDocument();
+          tagSelect && fireEvent.mouseDown(tagSelect);
         });
-
-        const tagSelect = queryByLabelText('Tags');
-
-        tagSelect && fireEvent.mouseDown(tagSelect);
 
         await waitFor(async () => {
           const tagItem = screen.getByText('Tag 3');
