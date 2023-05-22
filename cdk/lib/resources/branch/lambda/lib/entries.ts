@@ -111,14 +111,16 @@ export const updateEntry = async ({
 
     console.log('updateEntry:', entry);
 
+    console.log('image:', entry.fields.image);
+    console.log('image JSON:', JSON.stringify(entry.fields.image));
+
     // map recipe values to entry fields
 
     for (const [key, value] of Object.entries(recipe)) {
       // TODO: remove id from recipe payload and use id from event
       if (key !== 'id') {
+        // TODO: pass type along with property so keys don't need to be hard-coded in logic
         if (key === 'tags') {
-          console.log('tags:', value);
-
           const entryTags = value.map((tag: TagDefaultFragment) => {
             return {
               sys: {
