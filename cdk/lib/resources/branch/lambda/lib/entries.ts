@@ -111,10 +111,17 @@ export const updateEntry = async ({
 
     console.log('updateEntry:', entry);
 
+    // TODO: remove when data handling code is created
     console.log('image:', entry.fields.image);
     console.log('image JSON:', JSON.stringify(entry.fields.image));
 
     // map recipe values to entry fields
+
+    // image: {
+    //   'en-US': {
+    //     sys: { type: 'Link', linkType: 'Asset', id: '5zNTJ123dvhd8SjebvlRhr' }
+    //   }
+    // }
 
     for (const [key, value] of Object.entries(recipe)) {
       // TODO: remove id from recipe payload and use id from event

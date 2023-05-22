@@ -90,6 +90,9 @@ api.getRecipeList = jest.fn().mockResolvedValue([
               'Traditional baking powder biscuits that use grated frozen butter and folded dough to give the biscuits a soft, flaky texture.',
             image: {
               __typename: 'Asset',
+              sys: {
+                id: 'img-id-1'
+              },
               title: 'Biscuits',
               description:
                 'A batch of baking soda biscuits on a parchment-lined baking sheet.',
@@ -139,6 +142,9 @@ api.getRecipeList = jest.fn().mockResolvedValue([
               'A savory variation of no-knead bread with the addition of olives, garlic, and rosemary to give it a Mediterranean twist.',
             image: {
               __typename: 'Asset',
+              sys: {
+                id: 'img-id-2'
+              },
               title: 'Olive Bread',
               description: 'Loaf of no-knead olive bread',
               contentType: 'image/jpeg',
@@ -187,6 +193,9 @@ api.getRecipeList = jest.fn().mockResolvedValue([
               'No-knead bread using instant yeast and a dutch oven or covered ceramic bread pan for a classic, crispy crust.',
             image: {
               __typename: 'Asset',
+              sys: {
+                id: 'img-id-3'
+              },
               title: 'No Knead Bread',
               description:
                 'Loaf of no-knead bread cooling on a wire baking rack.',
@@ -237,8 +246,7 @@ api.getRecipePage = jest.fn().mockResolvedValue({
     keywords: ['keyword1', 'keyword2'],
     image: {
       sys: {
-        id: 'sysid-1',
-        __typename: 'Sys'
+        id: 'img-id'
       },
       __typename: 'Asset',
       title: 'Image Title',

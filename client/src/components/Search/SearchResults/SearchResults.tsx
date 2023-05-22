@@ -13,7 +13,9 @@ interface HitProps {
   title: string;
   abstract: string;
   image: {
-    __typename: 'Asset';
+    sys: {
+      id: string;
+    };
     description: string;
     height: number;
     url: string;
