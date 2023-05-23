@@ -16,6 +16,9 @@ const colors = {
   },
   error: {
     main: '#cb2314'
+  },
+  action: {
+    disabled: 'rgba(0, 0, 0, 0.5)'
   }
 };
 

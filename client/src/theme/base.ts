@@ -32,6 +32,9 @@ const baseTheme = createTheme({
     },
     error: {
       main: colors.error.main
+    },
+    action: {
+      disabled: colors.action.disabled
     }
   },
   typography: {

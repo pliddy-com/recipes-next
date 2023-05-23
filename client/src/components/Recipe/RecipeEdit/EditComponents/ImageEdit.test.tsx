@@ -7,6 +7,10 @@ import ImageEdit, { IImageEdit } from './ImageEdit';
 import { ImageDefaultFragment } from 'types/queries';
 
 describe('ImageEdit', () => {
+  afterEach(() => {
+    jest.resetModules();
+  });
+
   const aspectRatio = '4 / 3';
 
   const breakpoints = [
@@ -94,11 +98,27 @@ describe('ImageEdit', () => {
         expect(asFragment()).toMatchSnapshot();
       });
 
-      const clickImage = getByRole('button', {
-        name: 'select image image-file-1.jpg'
+      const changeImageButton = getByRole('button', {
+        name: 'change image button'
+      });
+      changeImageButton && fireEvent.click(changeImageButton);
+
+      await waitFor(async () => {
+        const clickImage = getByRole('button', {
+          name: 'select image image-file-1.jpg'
+        });
+
+        clickImage && fireEvent.click(clickImage);
       });
 
-      clickImage && fireEvent.click(clickImage);
+      const uploadImageButton = getByRole('button', {
+        name: 'upload image button'
+      });
+      uploadImageButton && fireEvent.click(uploadImageButton);
+
+      await waitFor(async () => {
+        expect(asFragment()).toMatchSnapshot();
+      });
     });
   });
   describe('when imageList is undefined', () => {
@@ -128,18 +148,21 @@ describe('ImageEdit', () => {
         aspectRatio,
         breakpoints,
         image,
-        imageList: [null],
+        imageList: [undefined as unknown as ImageDefaultFragment],
         onChange: jest.fn(),
         thumbBreakpoints
       };
 
-      render(<ImageEdit {...props} />);
-
-      const { asFragment } = render(<ImageEdit {...props} />);
+      const { asFragment, getByRole } = render(<ImageEdit {...props} />);
 
       await waitFor(async () => {
         expect(asFragment()).toMatchSnapshot();
       });
+
+      const changeImageButton = getByRole('button', {
+        name: 'change image button'
+      });
+      changeImageButton && fireEvent.click(changeImageButton);
     });
   });
 });

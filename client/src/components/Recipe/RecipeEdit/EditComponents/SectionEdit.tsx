@@ -143,6 +143,7 @@ const SectionEdit = ({ id, label, onChange, sectionList }: ISectionEdit) => {
       <Button
         aria-label="add section"
         onClick={addSection}
+        size="large"
         startIcon={<AddCircleIcon />}
         variant="outlined"
       >

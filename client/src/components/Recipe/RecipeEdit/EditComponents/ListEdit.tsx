@@ -10,6 +10,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import CancelIcon from '@mui/icons-material/Cancel';
+
 import { toSlug } from 'lib/utils';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -119,6 +120,7 @@ const ListEdit = ({ id, heading = 'h3', label, list, onChange }: IListEdit) => {
         <Button
           aria-label="add item"
           onClick={addItem}
+          size="large"
           startIcon={<AddCircleIcon />}
           variant="outlined"
         >

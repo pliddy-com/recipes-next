@@ -7,28 +7,32 @@ import { MouseEventHandler } from 'react';
 
 interface NavIconButtonProps {
   ariaLabel: string;
-  className: string;
+  className?: string;
+  disabled?: boolean;
   hideLabel?: boolean;
-  id?: string;
-  isMenu?: boolean;
   href?: string;
   icon: JSX.Element;
+  id?: string;
+  isMenu?: boolean;
+  isOpen?: boolean;
   label?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  disabled?: boolean;
+  variant?: 'text' | 'outlined' | 'contained';
 }
 
 const NavIconButton = ({
   ariaLabel,
   className,
   disabled = false,
-  isMenu = false,
-  label,
-  onClick,
   hideLabel = false,
   href,
   icon,
-  id
+  id,
+  isMenu = false,
+  isOpen = false,
+  label,
+  onClick,
+  variant
 }: NavIconButtonProps) =>
   !hideLabel ? (
     <Button
@@ -43,9 +47,10 @@ const NavIconButton = ({
       role="button"
       size="large"
       startIcon={icon}
+      variant={variant}
     >
       {label}
-      {isMenu && <span className="dropdown-icon">▼</span>}
+      {isMenu && <span className="dropdown-icon">{isOpen ? '▲' : '▼'}</span>}
     </Button>
   ) : (
     <IconButton

@@ -7,9 +7,12 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import Stack from '@mui/material/Stack';
 
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import IconButton from '@mui/material/IconButton';
+import ImageIcon from '@mui/icons-material/Image';
 
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
+import NavIconButton from 'components/Navigation/Buttons/NavIconButton/NavIconButton';
 
 import { Breakpoints } from 'lib/responsiveImage';
 
@@ -39,6 +42,9 @@ const ImageEdit = ({
   const [selectedImage, setSelectedImage] =
     useState<ImageDefaultFragment>(image);
 
+  const [openChangeImage, setOpenChangeImage] = useState<boolean>(false);
+  const [openUploadImage, setOpenUploadImage] = useState<boolean>(false);
+
   useEffect(() => {
     setSelectedImage(image);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -47,6 +53,17 @@ const ImageEdit = ({
   const handleClick = (image: ImageDefaultFragment) => {
     setSelectedImage(image);
     onChange({ value: image });
+    setOpenChangeImage(false);
+  };
+
+  const showChangeImage = () => {
+    setOpenChangeImage(!openChangeImage);
+    setOpenUploadImage(false);
+  };
+
+  const showUploadImage = () => {
+    setOpenUploadImage(!openUploadImage);
+    setOpenChangeImage(false);
   };
 
   return imageList ? (
@@ -59,33 +76,64 @@ const ImageEdit = ({
           preload={preload}
         />
       </Box>
-      <ImageList className="edit-image-list">
-        {imageList.map((image) =>
-          image ? (
-            <ImageListItem key={image.url}>
-              <Box className="image">
-                <DynamicImage
-                  aspectRatio={aspectRatio}
-                  breakpoints={thumbBreakpoints}
-                  image={image}
-                  preload={preload}
+
+      <Stack
+        direction={'row'}
+        sx={{ justifyContent: 'space-between', marginBottom: '1.5rem' }}
+      >
+        <NavIconButton
+          ariaLabel={'change image button'}
+          className="edit-button"
+          hideLabel={false}
+          icon={<ImageIcon />}
+          isMenu={true}
+          isOpen={openChangeImage}
+          label={'Change Image'}
+          onClick={showChangeImage}
+          variant="outlined"
+        />
+
+        <NavIconButton
+          ariaLabel={'upload image button'}
+          className="edit-button"
+          disabled={openUploadImage}
+          hideLabel={false}
+          icon={<CloudUploadIcon />}
+          label={'Add Image'}
+          onClick={showUploadImage}
+          variant="outlined"
+        />
+      </Stack>
+
+      {openChangeImage && (
+        <ImageList className="edit-image-list">
+          {imageList.map((image) =>
+            image ? (
+              <ImageListItem key={image.url}>
+                <Box className="image">
+                  <DynamicImage
+                    aspectRatio={aspectRatio}
+                    breakpoints={thumbBreakpoints}
+                    image={image}
+                    preload={preload}
+                  />
+                </Box>
+                <ImageListItemBar
+                  actionIcon={
+                    <IconButton
+                      aria-label={`select image ${image.fileName}`}
+                      onClick={() => handleClick(image)}
+                    >
+                      <AddCircleIcon />
+                    </IconButton>
+                  }
+                  title={image.fileName}
                 />
-              </Box>
-              <ImageListItemBar
-                actionIcon={
-                  <IconButton
-                    aria-label={`select image ${image.fileName}`}
-                    onClick={() => handleClick(image)}
-                  >
-                    <AddCircleIcon />
-                  </IconButton>
-                }
-                title={image.fileName}
-              />
-            </ImageListItem>
-          ) : null
-        )}
-      </ImageList>
+              </ImageListItem>
+            ) : null
+          )}
+        </ImageList>
+      )}
     </Stack>
   ) : null;
 };

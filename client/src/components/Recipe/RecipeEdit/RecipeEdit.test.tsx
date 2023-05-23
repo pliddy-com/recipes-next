@@ -110,6 +110,15 @@ describe('Recipe', () => {
         });
       expect(cookTimeInput).toHaveValue(cookTimeValue);
 
+      const changeImage = getByRole('button', { name: 'change image button' });
+      changeImage && fireEvent.click(changeImage);
+
+      await act(async () =>
+        getByRole('button', {
+          name: 'select image biscuits.jpg'
+        })
+      );
+
       const clickImage = getByRole('button', {
         name: 'select image biscuits.jpg'
       });
