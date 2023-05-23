@@ -2,27 +2,27 @@
 
 export type TagDefaultFragment = {
   __typename: 'Tag';
-  title?: string | null;
   slug?: string | null;
   sys: { __typename?: 'Sys'; id: string };
+  title?: string | null;
 };
 
 export type ImageDefaultFragment = {
   __typename?: 'Asset';
-  title?: string | null;
-  description?: string | null;
   contentType?: string | null;
+  description?: string | null;
   fileName?: string | null;
-  size?: number | null;
-  url?: string | null;
   height?: number | null;
-  width?: number | null;
+  size?: number | null;
   sys: { __typename?: 'Sys'; id: string };
+  title?: string | null;
+  url?: string | null;
+  width?: number | null;
 };
 
 export interface IRecipeSection {
-  sectionTitle: string | null;
   sectionItems: (string | null)[];
+  sectionTitle: string | null;
 }
 
 export interface IRecipeChangeSet {

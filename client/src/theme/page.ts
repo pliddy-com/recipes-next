@@ -195,9 +195,18 @@ const pageThemeOptions: ThemeOptions = {
                   marginBottom: '1rem'
                 },
                 '& .MuiImageList-root': {
-                  aspectRatio: '4/3',
-                  objectFit: 'cover',
-                  gridTemplateColumns: 'repeat(3, 33%)',
+                  '&.edit-image-list': {
+                    [breakpoints.down('sm')]: {
+                      gridTemplateColumns: 'repeat(2, 1fr) !important'
+                    },
+                    gridTemplateColumns: 'repeat(3, 1fr) !important',
+                    aspectRatio: '4/3',
+                    gap: '4px !important',
+                    marginBlockEnd: '0',
+                    marginBlockStart: '0',
+                    objectFit: 'cover',
+                    overflowY: 'auto'
+                  },
                   '& .MuiImageListItem-root': {
                     '& .dynamicImage': {
                       display: 'block'
@@ -218,6 +227,12 @@ const pageThemeOptions: ThemeOptions = {
                     },
                     '&-subtitle': {
                       fontFamily: sansFontFamily
+                    },
+                    '&-actionIcon': {
+                      '& .MuiIconButton-root': {
+                        color: baseTheme.palette.common.white,
+                        opacity: '0.75'
+                      }
                     }
                   }
                 }

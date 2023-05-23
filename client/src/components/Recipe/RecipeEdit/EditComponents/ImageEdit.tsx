@@ -24,21 +24,8 @@ export interface IImageEdit {
   imageList: (ImageDefaultFragment | null)[] | undefined;
   onChange: ({ value }: { value: ImageDefaultFragment }) => void;
   preload?: boolean;
+  thumbBreakpoints: Breakpoints[];
 }
-
-const thumbBreakponts = [
-  {
-    viewMin: 960,
-    imgWidth: 300
-  },
-  {
-    viewMin: 656,
-    imgWidth: 200
-  },
-  {
-    imgWidth: 200
-  }
-];
 
 const ImageEdit = ({
   aspectRatio,
@@ -46,7 +33,8 @@ const ImageEdit = ({
   imageList,
   breakpoints,
   onChange,
-  preload
+  preload,
+  thumbBreakpoints
 }: IImageEdit) => {
   const [selectedImage, setSelectedImage] =
     useState<ImageDefaultFragment>(image);
@@ -71,24 +59,14 @@ const ImageEdit = ({
           preload={preload}
         />
       </Box>
-      <ImageList
-        cols={3}
-        //   TODO: check specificity to override inline style injected by Material UI
-        sx={{
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '4px',
-          overflowY: 'scroll',
-          marginBlockStart: '0',
-          marginBlockEnd: '0'
-        }}
-      >
+      <ImageList className="edit-image-list">
         {imageList.map((image) =>
           image ? (
             <ImageListItem key={image.url}>
               <Box className="image">
                 <DynamicImage
                   aspectRatio={aspectRatio}
-                  breakpoints={thumbBreakponts}
+                  breakpoints={thumbBreakpoints}
                   image={image}
                   preload={preload}
                 />
@@ -96,7 +74,6 @@ const ImageEdit = ({
               <ImageListItemBar
                 actionIcon={
                   <IconButton
-                    sx={{ color: 'rgba(255, 255, 255, .75)' }}
                     aria-label={`select image ${image.fileName}`}
                     onClick={() => handleClick(image)}
                   >

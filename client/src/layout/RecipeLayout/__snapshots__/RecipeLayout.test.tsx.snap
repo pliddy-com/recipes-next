@@ -351,8 +351,8 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
               class="image original MuiBox-root css-0"
             />
             <ul
-              class="MuiImageList-root MuiImageList-standard css-193qa7j-MuiImageList-root"
-              style="grid-template-columns: repeat(3, 1fr); gap: 4px;"
+              class="MuiImageList-root MuiImageList-standard edit-image-list css-rvv586-MuiImageList-root"
+              style="grid-template-columns: repeat(2, 1fr); gap: 4px;"
             />
           </div>
         </div>

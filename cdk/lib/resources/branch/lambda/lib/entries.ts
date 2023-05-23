@@ -111,17 +111,7 @@ export const updateEntry = async ({
 
     console.log('updateEntry:', entry);
 
-    // TODO: remove when data handling code is created
-    console.log('image:', entry.fields.image);
-    console.log('image JSON:', JSON.stringify(entry.fields.image));
-
     // map recipe values to entry fields
-
-    // image: {
-    //   'en-US': {
-    //     sys: { type: 'Link', linkType: 'Asset', id: '5zNTJ123dvhd8SjebvlRhr' }
-    //   }
-    // }
 
     for (const [key, value] of Object.entries(recipe)) {
       // TODO: remove id from recipe payload and use id from event
@@ -158,9 +148,6 @@ export const updateEntry = async ({
 
     console.log('updated entry:', updated);
 
-    console.log('image:', updated.fields.image);
-    console.log('image JSON:', JSON.stringify(updated.fields.image));
-
     const published = await updated.publish();
 
     console.log('published entry:', published);
@@ -178,65 +165,3 @@ export const updateEntry = async ({
     throw e;
   }
 };
-
-/*
-  tags: [
-    {
-      sys: { type: 'Link', linkType: 'Entry', id: '6NXdZjbTklEUEYXWzqjWRy' }
-    },
-    {
-      sys: { type: 'Link', linkType: 'Entry', id: '6qEA8xrN8koGKvQfFlq15m' }
-    },
-    {
-      sys: { type: 'Link', linkType: 'Entry', id: '1XgN8rqu0clUQxQS0wVaKA' }
-    },
-    {
-      sys: { type: 'Link', linkType: 'Entry', id: '2RDCNcjSZzLSEQgjf1Nw4R' }
-    }
-  ]
-*/
-
-/*
-{
-    "items": [
-        {
-            "__typename": "Tag",
-            "sys": {
-                "id": "5bxtq0paorSpC7uYchMPyD",
-                "__typename": "Sys"
-            },
-            "title": "Soup",
-            "slug": "soup"
-        },
-        {
-            "__typename": "Tag",
-            "sys": {
-                "id": "48wBBA4RKpmb0pdCKve7cR",
-                "__typename": "Sys"
-            },
-            "title": "Vegetables",
-            "slug": "vegetables"
-        },
-        {
-            "__typename": "Tag",
-            "sys": {
-                "id": "2RDCNcjSZzLSEQgjf1Nw4R",
-                "__typename": "Sys"
-            },
-            "title": "French",
-            "slug": "french"
-        },
-        {
-            "__typename": "Tag",
-            "sys": {
-                "id": "33CNYIbkW49vrRw5iSKnih",
-                "__typename": "Sys"
-            },
-            "title": "Mother Sauces",
-            "slug": "mother-sauces"
-        }
-    ],
-    "__typename": "RecipeTagsCollection"
-}
-
-*/

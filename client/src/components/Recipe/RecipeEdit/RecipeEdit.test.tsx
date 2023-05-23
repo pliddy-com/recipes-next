@@ -8,7 +8,6 @@ import RecipeEdit from './RecipeEdit';
 import { RecipeDefaultFragment } from 'types/queries';
 
 import * as api from 'lib/api';
-// import * as AuthContext from 'contexts/Authentication';
 import * as ContentManagementContext from 'contexts/Content';
 
 jest.mock('lib/api');

@@ -13,7 +13,6 @@ import Typography from '@mui/material/Typography';
 
 import LockIcon from '@mui/icons-material/Lock';
 
-// import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 import ImageEdit from './EditComponents/ImageEdit';
 import ListEdit from 'components/Recipe/RecipeEdit/EditComponents/ListEdit';
 import Loading from 'components/Loading/Loading';
@@ -83,7 +82,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     title
   } = content ?? {};
 
-  const { aspectRatio, breakpoints } = recipePageConfig;
+  const { aspectRatio, breakpoints, thumbBreakpoints } = recipePageConfig;
   const richText = description as RecipeDescription;
 
   const { items: tags } = tagsCollection ?? {};
@@ -297,7 +296,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
           </Stack>
         </Grid>
         <Grid item lg={6}>
-          {breakpoints && formData.image && (
+          {breakpoints && thumbBreakpoints && formData.image && (
             <ImageEdit
               aspectRatio={aspectRatio}
               breakpoints={breakpoints}
@@ -305,6 +304,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
               imageList={imageList}
               preload={true}
               onChange={({ value }) => updateField({ id: 'image', value })}
+              thumbBreakpoints={thumbBreakpoints}
             />
           )}
         </Grid>

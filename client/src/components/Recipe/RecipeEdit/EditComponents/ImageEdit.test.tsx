@@ -23,6 +23,20 @@ describe('ImageEdit', () => {
     }
   ];
 
+  const thumbBreakpoints = [
+    {
+      viewMin: 960,
+      imgWidth: 300
+    },
+    {
+      viewMin: 656,
+      imgWidth: 200
+    },
+    {
+      imgWidth: 200
+    }
+  ];
+
   const image: ImageDefaultFragment = {
     __typename: 'Asset',
     sys: {
@@ -70,7 +84,8 @@ describe('ImageEdit', () => {
         breakpoints,
         image,
         imageList,
-        onChange: jest.fn()
+        onChange: jest.fn(),
+        thumbBreakpoints
       };
 
       const { asFragment, getByRole } = render(<ImageEdit {...props} />);
@@ -88,13 +103,13 @@ describe('ImageEdit', () => {
   });
   describe('when imageList is undefined', () => {
     it('it does not render the component', async () => {
-      // const tags = undefined as unknown as TagDefaultFragment[];
       const props: IImageEdit = {
         aspectRatio,
         breakpoints,
         image,
         imageList: undefined,
-        onChange: jest.fn()
+        onChange: jest.fn(),
+        thumbBreakpoints
       };
 
       render(<ImageEdit {...props} />);
@@ -109,13 +124,13 @@ describe('ImageEdit', () => {
 
   describe('when images in list imageList are null', () => {
     it('it does not render the component', async () => {
-      // const tags = undefined as unknown as TagDefaultFragment[];
       const props: IImageEdit = {
         aspectRatio,
         breakpoints,
         image,
         imageList: [null],
-        onChange: jest.fn()
+        onChange: jest.fn(),
+        thumbBreakpoints
       };
 
       render(<ImageEdit {...props} />);

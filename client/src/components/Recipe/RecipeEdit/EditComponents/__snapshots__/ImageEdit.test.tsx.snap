@@ -38,8 +38,8 @@ exports[`ImageEdit when images in list imageList are null it does not render the
       </picture>
     </div>
     <ul
-      class="MuiImageList-root MuiImageList-standard css-193qa7j-MuiImageList-root"
-      style="grid-template-columns: repeat(3, 1fr); gap: 4px;"
+      class="MuiImageList-root MuiImageList-standard edit-image-list css-rvv586-MuiImageList-root"
+      style="grid-template-columns: repeat(2, 1fr); gap: 4px;"
     />
   </div>
 </DocumentFragment>
@@ -81,8 +81,8 @@ exports[`ImageEdit when there is content renders the component 1`] = `
       </picture>
     </div>
     <ul
-      class="MuiImageList-root MuiImageList-standard css-193qa7j-MuiImageList-root"
-      style="grid-template-columns: repeat(3, 1fr); gap: 4px;"
+      class="MuiImageList-root MuiImageList-standard edit-image-list css-rvv586-MuiImageList-root"
+      style="grid-template-columns: repeat(2, 1fr); gap: 4px;"
     >
       <li
         class="MuiImageListItem-root MuiImageListItem-standard css-ta95xa-MuiImageListItem-root"
@@ -135,7 +135,7 @@ exports[`ImageEdit when there is content renders the component 1`] = `
           >
             <button
               aria-label="select image image-file-1.jpg"
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-yon2v9-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
@@ -208,7 +208,7 @@ exports[`ImageEdit when there is content renders the component 1`] = `
           >
             <button
               aria-label="select image image-file-2.jpg"
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-yon2v9-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >

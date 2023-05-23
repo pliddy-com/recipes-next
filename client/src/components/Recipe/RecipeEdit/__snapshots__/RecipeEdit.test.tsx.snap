@@ -537,8 +537,8 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             </picture>
           </div>
           <ul
-            class="MuiImageList-root MuiImageList-standard css-193qa7j-MuiImageList-root"
-            style="grid-template-columns: repeat(3, 1fr); gap: 4px;"
+            class="MuiImageList-root MuiImageList-standard edit-image-list css-rvv586-MuiImageList-root"
+            style="grid-template-columns: repeat(2, 1fr); gap: 4px;"
           >
             <li
               class="MuiImageListItem-root MuiImageListItem-standard css-ta95xa-MuiImageListItem-root"
@@ -621,7 +621,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                 >
                   <button
                     aria-label="select image biscuits.jpg"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-yon2v9-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -724,7 +724,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                 >
                   <button
                     aria-label="select image olive-bread.JPG"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-yon2v9-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
                     type="button"
                   >
@@ -827,7 +827,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
                 >
                   <button
                     aria-label="select image no-knead-bread.JPG"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-yon2v9-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
                     type="button"
                   >
