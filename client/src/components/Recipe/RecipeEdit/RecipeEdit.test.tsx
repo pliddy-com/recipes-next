@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 // import testing-library methods
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
 // import the component to test
 import RecipeEdit from './RecipeEdit';
@@ -8,7 +8,6 @@ import RecipeEdit from './RecipeEdit';
 import { RecipeDefaultFragment } from 'types/queries';
 
 import * as api from 'lib/api';
-// import * as AuthContext from 'contexts/Authentication';
 import * as ContentManagementContext from 'contexts/Content';
 
 jest.mock('lib/api');
@@ -32,11 +31,13 @@ describe('Recipe', () => {
 
       const { recipe } = await api.getRecipePage();
 
-      const { asFragment, queryByLabelText, queryByTestId } = render(
+      const { asFragment, getByRole, queryByLabelText, queryByTestId } = render(
         <RecipeEdit content={recipe} />
       );
 
-      waitFor(() => queryByTestId('RecipeEdit'));
+      await act(async () =>
+        expect(queryByTestId('RecipeEdit')).toBeInTheDocument()
+      );
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -91,7 +92,9 @@ describe('Recipe', () => {
       tagControl &&
         fireEvent.change(tagControl, { target: { value: 'Test Value' } });
 
-      tagControl && expect(tagControl.value).toBe('test-value');
+      await act(
+        async () => tagControl && expect(tagControl.value).toBe('test-value')
+      );
 
       const prepTimeInput = queryByLabelText('Prep Time');
       prepTimeInput &&
@@ -106,6 +109,12 @@ describe('Recipe', () => {
           target: { value: cookTimeValue }
         });
       expect(cookTimeInput).toHaveValue(cookTimeValue);
+
+      const clickImage = getByRole('button', {
+        name: 'select image biscuits.jpg'
+      });
+
+      clickImage && fireEvent.click(clickImage);
 
       const equipmentInput = queryByLabelText('Equipment 1');
       equipmentInput &&

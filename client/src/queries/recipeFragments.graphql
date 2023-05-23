@@ -12,24 +12,26 @@ fragment RecipeSlug on Recipe {
 #   * RecipeDefault (full)
 #   * RecipeSummary (card)
 
-fragment IngredientsDefault on IngredientSection {
-  __typename
-  title
-  slug
-  label
-  ingredientList
-}
+# fragment IngredientsDefault on IngredientSection {
+#   __typename
+#   title
+#   slug
+#   label
+#   ingredientList
+# }
 
-fragment InstructionsDefault on InstructionSection {
-  __typename
-  title
-  slug
-  label
-  instructionList
-}
+# fragment InstructionsDefault on InstructionSection {
+#   __typename
+#   title
+#   slug
+#   label
+#   instructionList
+# }
 
 fragment ImageDefault on Asset {
-  __typename
+  sys {
+    id
+  }
   title
   description
   contentType

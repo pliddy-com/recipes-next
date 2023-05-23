@@ -17,6 +17,20 @@ const recipe: IRecipeChangeSet = {
   abstract: 'abstract',
   cookTime: '30',
   equipment: ['equipment 1'],
+  image: {
+    sys: {
+      id: 'img-id'
+    },
+    title: 'Placeholder',
+    description: 'Image description.',
+    contentType: 'image/png',
+    fileName: 'placeholder.png',
+    size: 33142,
+    url: 'https://images.url',
+    height: 1350,
+    width: 1800,
+    __typename: 'Asset'
+  },
   id: 'ID',
   ingredientsList: [
     {

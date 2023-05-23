@@ -9,8 +9,6 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
 
-import { getTagList } from 'lib/api';
-
 import { TagDefaultFragment } from 'types/queries';
 
 export interface ITagsEdit {
@@ -19,14 +17,14 @@ export interface ITagsEdit {
   }: {
     value: (TagDefaultFragment | null | undefined)[];
   }) => void;
+  tagList: (TagDefaultFragment | null)[] | undefined;
   tags: (TagDefaultFragment | null | undefined)[];
 }
 
-const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
+const TagsEdit = ({ onChange, tagList, tags }: ITagsEdit) => {
   const [tagData, setTagData] = useState<
     (TagDefaultFragment | null | undefined)[]
   >(tags || []);
-  const [tagList, setTagList] = useState<TagDefaultFragment[]>();
   const [tagLabels, setTagLabels] = useState<string[]>([]);
 
   useEffect(() => {
@@ -35,10 +33,6 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
       setTagLabels(tags.map((tag) => tag?.title as string));
     }
   }, [tags]);
-
-  useEffect(() => {
-    getTagList().then((taglist) => setTagList(taglist));
-  }, []);
 
   const handleSelect = (event: SelectChangeEvent<typeof tagLabels>) => {
     const {
@@ -58,7 +52,7 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
     }
   };
 
-  return tagData && tagList ? (
+  return tagData && tagData.length > 0 && tagList && tagList.length > 0 ? (
     <Stack className="tags-edit" data-testid="tags-edit">
       <FormControl>
         <InputLabel id="tag-select-label" htmlFor="tag-select-input">
@@ -96,12 +90,12 @@ const TagsEdit = ({ tags, onChange }: ITagsEdit) => {
           value={tagLabels}
         >
           {tagList.map((tag) => {
-            const { slug, title } = tag;
+            const { slug, title } = tag ?? {};
             return (
               slug &&
               title && (
                 <MenuItem
-                  data-testid={`tag-select-${slug}`}
+                  data-testid={`tag-select-$slug}`}
                   key={slug}
                   value={title}
                   className="selectMenu"

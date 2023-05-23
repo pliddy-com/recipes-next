@@ -37,6 +37,9 @@ describe('PageTags', () => {
       const description = 'Decription';
       const image: ImageDefaultFragment = {
         __typename: 'Asset',
+        sys: {
+          id: 'img-id'
+        },
         title: 'Image Title',
         description: 'Image Description',
         contentType: 'image/jpeg',

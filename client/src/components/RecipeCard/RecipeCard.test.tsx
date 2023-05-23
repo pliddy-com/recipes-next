@@ -29,6 +29,9 @@ describe('RecipeCard', () => {
       abstract: 'Traditional basmati rice cooked in a covered skillet.',
       image: {
         __typename: 'Asset',
+        sys: {
+          id: 'img-id'
+        },
         title: 'basmati-rice',
         description: 'Skillet with basmati rice and chopped parsley.',
         contentType: 'image/jpeg',
@@ -93,7 +96,10 @@ describe('RecipeCard', () => {
       },
       abstract: 'Traditional basmati rice cooked in a covered skillet.',
       image: {
-        __typename: 'Asset'
+        __typename: 'Asset',
+        sys: {
+          id: 'img-id'
+        }
       },
       tagsCollection: {
         items: [

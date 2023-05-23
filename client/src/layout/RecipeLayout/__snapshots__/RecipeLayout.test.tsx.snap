@@ -147,7 +147,7 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container content css-11lq3yg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 content css-480o17-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-6 contentGrid css-1i6hukq-MuiGrid-root"
@@ -343,7 +343,19 @@ exports[`RecipePage when isAuth is true sets the container className to "auth" 1
         </div>
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-6 css-1i6hukq-MuiGrid-root"
-        />
+        >
+          <div
+            class="image-edit css-nen11g-MuiStack-root"
+          >
+            <div
+              class="image original MuiBox-root css-0"
+            />
+            <ul
+              class="MuiImageList-root MuiImageList-standard edit-image-list css-rvv586-MuiImageList-root"
+              style="grid-template-columns: repeat(2, 1fr); gap: 4px;"
+            />
+          </div>
+        </div>
       </div>
       <div
         class="css-1lwbda4-MuiStack-root"
@@ -555,7 +567,7 @@ exports[`RecipePage when there is page content it renders the RecipePage 1`] = `
         class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom css-a4d0r7-MuiTypography-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container content css-11lq3yg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 content css-480o17-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-6 contentGrid css-1i6hukq-MuiGrid-root"

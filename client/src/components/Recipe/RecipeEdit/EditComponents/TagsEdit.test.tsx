@@ -18,12 +18,14 @@ describe('TagsEdit', () => {
   describe('when there is content', () => {
     it('renders the component', async () => {
       const { recipe } = await api.getRecipePage();
+      const { tags: tagList } = await api.getLinkedEntries();
 
       const tags = recipe?.tagsCollection?.items;
 
-      if (tags) {
+      if (tags && tagList) {
         const props: ITagsEdit = {
           tags,
+          tagList,
           onChange: jest.fn()
         };
 
@@ -52,9 +54,11 @@ describe('TagsEdit', () => {
     describe('when tags are undefined', () => {
       it('it does not render the component', async () => {
         // const tags = undefined as unknown as TagDefaultFragment[];
+        const { tags: tagList } = await api.getLinkedEntries();
 
         const props: ITagsEdit = {
           tags: undefined as unknown as TagDefaultFragment[],
+          tagList,
           onChange: jest.fn()
         };
 
@@ -68,15 +72,16 @@ describe('TagsEdit', () => {
 
     describe('when tags array is empty', () => {
       it('it does not render the component', async () => {
-        const tagListSpy = jest.spyOn(api, 'getTagList').mockResolvedValueOnce([
-          {
-            sys: {
-              id: 'id-3'
-            },
-            slug: undefined,
-            title: undefined
-          }
-        ] as unknown as TagDefaultFragment[]);
+        const { tags: tagList } = await api.getLinkedEntries();
+
+        if (tagList && tagList[0]) {
+          tagList[0].slug = undefined;
+          tagList[0].title = undefined;
+        }
+
+        tagList &&
+          (tagList[tagList.length] =
+            undefined as unknown as TagDefaultFragment);
 
         const { recipe } = await api.getRecipePage();
 
@@ -84,13 +89,13 @@ describe('TagsEdit', () => {
 
         const props: ITagsEdit = {
           tags: tags as unknown as TagDefaultFragment[],
+          tagList,
           onChange: jest.fn()
         };
 
         const { asFragment } = render(<TagsEdit {...props} />);
 
         await waitFor(async () => {
-          expect(tagListSpy).toBeCalled();
           expect(asFragment()).toMatchSnapshot();
         });
       });

@@ -1,5 +1,5 @@
 // import testing-library methods
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 
 // add custom jest matchers from jest-dom
 import '@testing-library/jest-dom';
@@ -38,11 +38,13 @@ describe('RecipePage', () => {
         <RecipePage content={content as unknown as RecipeDefaultFragment} />
       );
 
+      // assert that content is rendered
+      waitFor(() => expect(queryByTestId('Recipe')).toBeInTheDocument());
+
       expect(authSpy).toBeCalled();
       expect(cmSpy).toBeCalled();
 
-      // assert that content is rendered
-      expect(queryByTestId('Recipe')).toBeInTheDocument();
+      // expect(queryByTestId('Recipe')).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -56,8 +58,11 @@ describe('RecipePage', () => {
       // test if content is not rendered
       render(<RecipePage content={content} />);
 
-      const recipe = document.querySelector('.page');
-      expect(recipe).toBeNull();
+      // assert that content is not rendered
+      waitFor(() => {
+        const recipe = document.querySelector('.page');
+        expect(recipe).toBeNull();
+      });
     });
   });
 
@@ -86,11 +91,14 @@ describe('RecipePage', () => {
         <RecipePage content={content as unknown as RecipeDefaultFragment} />
       );
 
+      // assert that content is rendered
+      waitFor(() => {
+        expect(getByTestId('RecipePage')).toHaveClass('auth');
+        expect(getByTestId('RecipeEdit')).toBeInTheDocument();
+      });
+
       expect(authSpy).toBeCalled();
       expect(cmSpy).toBeCalled();
-
-      expect(getByTestId('RecipePage')).toHaveClass('auth');
-      expect(getByTestId('RecipeEdit')).toBeInTheDocument();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

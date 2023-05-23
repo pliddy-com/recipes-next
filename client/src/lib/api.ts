@@ -22,9 +22,8 @@ import {
   RecipeSlugsQuery,
   TagSlugsQuery,
   RecipeListQuery,
-  TagListQuery,
-  TagListDocument,
-  TagListQueryVariables
+  LinkedEntriesQuery,
+  LinkedEntriesDocument
 } from '../types/queries';
 
 import { hasValue } from './utils';
@@ -50,6 +49,27 @@ export const getNavTaxonomy = async () => {
     }),
     ...(tags && {
       tags: filterTagsWithRecipes({ tagCollection: tags })
+    })
+  };
+};
+
+// used to get linked entries for recipe edit
+
+export const getLinkedEntries = async () => {
+  const { queryGraphQLContent } = await import('lib/gqlClient');
+
+  const results: LinkedEntriesQuery = await queryGraphQLContent(
+    LinkedEntriesDocument
+  );
+
+  const { images, tags } = results;
+
+  return {
+    ...(images && {
+      images: images.items
+    }),
+    ...(tags && {
+      tags: tags.items
     })
   };
 };
@@ -84,18 +104,6 @@ export const getTagSlugs = async (variables?: TagSlugsQueryVariables) => {
     });
 
   return tags ? filterSlugs(tags) : [];
-};
-
-// used to edit tag list on recipe
-export const getTagList = async (variables?: TagListQueryVariables) => {
-  const results: TagListQuery = await queryGraphQLContent(
-    TagListDocument,
-    variables
-  );
-
-  const { tagCollection } = results;
-
-  return tagCollection ? tagCollection.items.filter(hasValue) : [];
 };
 
 // used to query content for home index page

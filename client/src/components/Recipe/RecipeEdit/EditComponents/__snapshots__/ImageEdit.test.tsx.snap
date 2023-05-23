@@ -1,0 +1,236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageEdit when imageList is undefined it does not render the component 1`] = `<DocumentFragment />`;
+
+exports[`ImageEdit when images in list imageList are null it does not render the component 1`] = `
+<DocumentFragment>
+  <div
+    class="image-edit css-nen11g-MuiStack-root"
+  >
+    <div
+      class="image original MuiBox-root css-0"
+    >
+      <picture>
+        <source
+          media="(min-width: 1000px)"
+          sizes="400px"
+          srcset="https://image.url?w=400&h=300&fit=fill&fm=webp&q=75 1x, https://image.url?w=800&h=600&fit=fill&fm=webp&q=75 2x"
+        />
+        <source
+          media="(min-width: 500px) and (max-width: 999px)"
+          sizes="200px"
+          srcset="https://image.url?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://image.url?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+        />
+        <source
+          media="(max-width: 499px)"
+          sizes="100px"
+          srcset="https://image.url?w=100&h=75&fit=fill&fm=webp&q=75 1x, https://image.url?w=200&h=150&fit=fill&fm=webp&q=75 2x"
+        />
+        <img
+          alt="Image Description"
+          class="dynamicImage"
+          fetchpriority="auto"
+          height="300"
+          loading="lazy"
+          src="https://image.url?w=400&h=300&fit=fill&q=75"
+          width="400"
+        />
+      </picture>
+    </div>
+    <ul
+      class="MuiImageList-root MuiImageList-standard edit-image-list css-rvv586-MuiImageList-root"
+      style="grid-template-columns: repeat(2, 1fr); gap: 4px;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ImageEdit when there is content renders the component 1`] = `
+<DocumentFragment>
+  <div
+    class="image-edit css-nen11g-MuiStack-root"
+  >
+    <div
+      class="image original MuiBox-root css-0"
+    >
+      <picture>
+        <source
+          media="(min-width: 1000px)"
+          sizes="400px"
+          srcset="https://image.url?w=400&h=300&fit=fill&fm=webp&q=75 1x, https://image.url?w=800&h=600&fit=fill&fm=webp&q=75 2x"
+        />
+        <source
+          media="(min-width: 500px) and (max-width: 999px)"
+          sizes="200px"
+          srcset="https://image.url?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://image.url?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+        />
+        <source
+          media="(max-width: 499px)"
+          sizes="100px"
+          srcset="https://image.url?w=100&h=75&fit=fill&fm=webp&q=75 1x, https://image.url?w=200&h=150&fit=fill&fm=webp&q=75 2x"
+        />
+        <img
+          alt="Image Description"
+          class="dynamicImage"
+          fetchpriority="auto"
+          height="300"
+          loading="lazy"
+          src="https://image.url?w=400&h=300&fit=fill&q=75"
+          width="400"
+        />
+      </picture>
+    </div>
+    <ul
+      class="MuiImageList-root MuiImageList-standard edit-image-list css-rvv586-MuiImageList-root"
+      style="grid-template-columns: repeat(2, 1fr); gap: 4px;"
+    >
+      <li
+        class="MuiImageListItem-root MuiImageListItem-standard css-ta95xa-MuiImageListItem-root"
+        style="height: auto; grid-column-end: span 1; grid-row-end: span 1;"
+      >
+        <div
+          class="image MuiBox-root css-0"
+        >
+          <picture>
+            <source
+              media="(min-width: 960px)"
+              sizes="300px"
+              srcset="https://image.url/1?w=300&h=225&fit=fill&fm=webp&q=75 1x, https://image.url/1?w=600&h=450&fit=fill&fm=webp&q=75 2x"
+            />
+            <source
+              media="(min-width: 656px) and (max-width: 959px)"
+              sizes="200px"
+              srcset="https://image.url/1?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://image.url/1?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+            />
+            <source
+              media="(max-width: 655px)"
+              sizes="200px"
+              srcset="https://image.url/1?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://image.url/1?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+            />
+            <img
+              alt="Image Description 1"
+              class="dynamicImage"
+              fetchpriority="auto"
+              height="225"
+              loading="lazy"
+              src="https://image.url/1?w=300&h=225&fit=fill&q=75"
+              width="300"
+            />
+          </picture>
+        </div>
+        <div
+          class="MuiImageListItemBar-root MuiImageListItemBar-positionBottom css-ztrqiq-MuiImageListItemBar-root"
+        >
+          <div
+            class="MuiImageListItemBar-titleWrap MuiImageListItemBar-titleWrapBottom MuiImageListItemBar-titleWrapActionPosRight css-14q7c0c-MuiImageListItemBar-titleWrap"
+          >
+            <div
+              class="MuiImageListItemBar-title css-dasnyc-MuiImageListItemBar-title"
+            >
+              image-file-1.jpg
+            </div>
+          </div>
+          <div
+            class="MuiImageListItemBar-actionIcon MuiImageListItemBar-actionIconActionPosRight css-mjbero-MuiImageListItemBar-actionIcon"
+          >
+            <button
+              aria-label="select image image-file-1.jpg"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="AddCircleIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </li>
+      <li
+        class="MuiImageListItem-root MuiImageListItem-standard css-ta95xa-MuiImageListItem-root"
+        style="height: auto; grid-column-end: span 1; grid-row-end: span 1;"
+      >
+        <div
+          class="image MuiBox-root css-0"
+        >
+          <picture>
+            <source
+              media="(min-width: 960px)"
+              sizes="300px"
+              srcset="https://image.url/2?w=300&h=225&fit=fill&fm=webp&q=75 1x, https://image.url/2?w=600&h=450&fit=fill&fm=webp&q=75 2x"
+            />
+            <source
+              media="(min-width: 656px) and (max-width: 959px)"
+              sizes="200px"
+              srcset="https://image.url/2?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://image.url/2?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+            />
+            <source
+              media="(max-width: 655px)"
+              sizes="200px"
+              srcset="https://image.url/2?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://image.url/2?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+            />
+            <img
+              alt="Image Description 2"
+              class="dynamicImage"
+              fetchpriority="auto"
+              height="225"
+              loading="lazy"
+              src="https://image.url/2?w=300&h=225&fit=fill&q=75"
+              width="300"
+            />
+          </picture>
+        </div>
+        <div
+          class="MuiImageListItemBar-root MuiImageListItemBar-positionBottom css-ztrqiq-MuiImageListItemBar-root"
+        >
+          <div
+            class="MuiImageListItemBar-titleWrap MuiImageListItemBar-titleWrapBottom MuiImageListItemBar-titleWrapActionPosRight css-14q7c0c-MuiImageListItemBar-titleWrap"
+          >
+            <div
+              class="MuiImageListItemBar-title css-dasnyc-MuiImageListItemBar-title"
+            >
+              image-file-2.jpg
+            </div>
+          </div>
+          <div
+            class="MuiImageListItemBar-actionIcon MuiImageListItemBar-actionIconActionPosRight css-mjbero-MuiImageListItemBar-actionIcon"
+          >
+            <button
+              aria-label="select image image-file-2.jpg"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="AddCircleIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

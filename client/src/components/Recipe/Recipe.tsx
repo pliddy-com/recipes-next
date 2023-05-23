@@ -45,7 +45,7 @@ const Recipe = ({ content }: IRecipe) => {
       <Typography variant="h1" gutterBottom>
         {title}
       </Typography>
-      <Grid container className="content">
+      <Grid container className="content" spacing={4}>
         <Grid item lg={6} className="contentGrid">
           <Stack className="description">
             {description && <RichText content={richText} />}

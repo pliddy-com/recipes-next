@@ -8,6 +8,7 @@ export interface Breakpoints {
 export interface ImageConfig {
   aspectRatio: AspectRatio;
   breakpoints?: Breakpoints[];
+  thumbBreakpoints?: Breakpoints[];
 }
 
 export const previewCardConfig: ImageConfig = {
@@ -111,13 +112,18 @@ export const recipePageConfig: ImageConfig = {
     {
       imgWidth: 300
     }
+  ],
+  thumbBreakpoints: [
+    {
+      viewMin: 960,
+      imgWidth: 300
+    },
+    {
+      viewMin: 656,
+      imgWidth: 200
+    },
+    {
+      imgWidth: 200
+    }
   ]
 };
-
-// const config = {
-//   previewCard,
-//   recipeCard,
-//   recipePage
-// };
-
-// export default config;

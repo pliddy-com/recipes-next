@@ -2,14 +2,14 @@ import '@testing-library/jest-dom';
 import * as gqlClient from 'lib/gqlClient';
 
 import {
+  getLinkedEntries,
   getNavTaxonomy,
-  getRecipeSlugs,
-  getTagSlugs,
   getRecipeIndex,
   getRecipeList,
   getRecipePage,
+  getRecipeSlugs,
   getTagIndex,
-  getTagList
+  getTagSlugs
 } from './api';
 
 jest.mock('lib/gqlClient');
@@ -53,6 +53,57 @@ const expectedTags = [
     }
   }
 ];
+
+const expectedImages = [
+  {
+    __typename: 'Asset',
+    sys: {
+      id: 'img-id-1'
+    },
+    title: 'Biscuits',
+    description:
+      'A batch of baking soda biscuits on a parchment-lined baking sheet.',
+    contentType: 'image/jpeg',
+    fileName: 'biscuits.jpg',
+    size: 2583242,
+    url: 'https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg',
+    height: 3024,
+    width: 4032
+  },
+  {
+    __typename: 'Asset',
+    sys: {
+      id: 'img-id-2'
+    },
+    title: 'Olive Bread',
+    description: 'Loaf of no-knead olive bread',
+    contentType: 'image/jpeg',
+    fileName: 'olive-bread.JPG',
+    size: 2849709,
+    url: 'https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG',
+    height: 3024,
+    width: 4032
+  },
+  {
+    __typename: 'Asset',
+    sys: {
+      id: 'img-id-3'
+    },
+    title: 'No Knead Bread',
+    description: 'Loaf of no-knead bread cooling on a wire baking rack.',
+    contentType: 'image/jpeg',
+    fileName: 'no-knead-bread.JPG',
+    size: 2943075,
+    url: 'https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG',
+    height: 3024,
+    width: 4032
+  }
+];
+
+const linkedEntriesPayload = {
+  images: { items: expectedImages },
+  tags: { items: expectedTags }
+};
 
 const tagCollectionPayload = {
   __typename: 'TagCollection',
@@ -167,6 +218,35 @@ describe('api', () => {
           .mockResolvedValueOnce(payload);
 
         const res = await getNavTaxonomy();
+
+        expect(gqlSpy).toHaveBeenCalled();
+        expect(res).toEqual(expected);
+      });
+    });
+  });
+
+  describe('when getLinkedEntries() is called', () => {
+    it('it returns collections of all tags and all images', async () => {
+      const gqlSpy = jest
+        .spyOn(gqlClient, 'queryGraphQLContent')
+        .mockResolvedValueOnce(linkedEntriesPayload);
+
+      const { tags, images } = await getLinkedEntries();
+      expect(gqlSpy).toHaveBeenCalled();
+      expect(tags).toEqual(expectedTags);
+      expect(images).toEqual(expectedImages);
+    });
+
+    describe('if no valid data is returned', () => {
+      it('it returns an empty array', async () => {
+        const payload = { tags: null, images: null };
+        const expected = {};
+
+        const gqlSpy = jest
+          .spyOn(gqlClient, 'queryGraphQLContent')
+          .mockResolvedValueOnce(payload);
+
+        const res = await getLinkedEntries();
 
         expect(gqlSpy).toHaveBeenCalled();
         expect(res).toEqual(expected);
@@ -304,66 +384,6 @@ describe('api', () => {
 
         const variables = {};
         const res = await getTagSlugs(variables);
-
-        expect(gqlSpy).toHaveBeenCalled();
-        expect(res).toEqual(expected);
-      });
-    });
-  });
-
-  describe('when getTagList() is called', () => {
-    it('it returns a collection of all tags', async () => {
-      const tags = [
-        {
-          sys: {
-            id: 'id-1'
-          },
-          slug: 'title-1',
-          title: 'Title 1'
-        },
-        {
-          sys: {
-            id: 'id-2'
-          },
-          slug: 'title-2',
-          title: 'Title 2'
-        },
-        {
-          sys: {
-            id: 'id-3'
-          },
-          slug: 'title-3',
-          title: 'Title 3'
-        }
-      ];
-
-      const payload = {
-        tagCollection: {
-          items: tags
-        }
-      };
-
-      // const variables = {};
-
-      const gqlSpy = jest
-        .spyOn(gqlClient, 'queryGraphQLContent')
-        .mockResolvedValueOnce(payload);
-
-      const res = await getTagList();
-      expect(gqlSpy).toHaveBeenCalled();
-      expect(res).toEqual(tags);
-    });
-
-    describe('if no valid data is returned', () => {
-      it('it returns an empty array', async () => {
-        const payload = { tagsCollection: null };
-        const expected: unknown[] = [];
-
-        const gqlSpy = jest
-          .spyOn(gqlClient, 'queryGraphQLContent')
-          .mockResolvedValueOnce(payload);
-
-        const res = await getTagList();
 
         expect(gqlSpy).toHaveBeenCalled();
         expect(res).toEqual(expected);

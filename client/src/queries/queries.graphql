@@ -44,13 +44,18 @@ query tagSlugs($where: TagFilter) {
   }
 }
 
-# query for list of tas
-# getTagList
+# query for lists of linked entries for tags and images
+# getLinkedEntries
 
-query tagList($where: TagFilter) {
-  tagCollection(where: $where, order: title_ASC) {
+query linkedEntries {
+  tags: tagCollection(order: title_ASC) {
     items {
-      ...TagEntry
+      ...TagDefault
+    }
+  }
+  images: assetCollection(order: fileName_ASC) {
+    items {
+      ...ImageDefault
     }
   }
 }

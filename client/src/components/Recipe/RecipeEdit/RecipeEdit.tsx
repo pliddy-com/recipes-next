@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 
 import LockIcon from '@mui/icons-material/Lock';
 
-import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
+import ImageEdit from './EditComponents/ImageEdit';
 import ListEdit from 'components/Recipe/RecipeEdit/EditComponents/ListEdit';
 import Loading from 'components/Loading/Loading';
 import RichText from 'components/RichText/RichText';
@@ -28,6 +28,7 @@ import { minToTime, toSlug } from 'lib/utils';
 import { recipePageConfig } from 'theme/values/images';
 
 import {
+  ImageDefaultFragment,
   RecipeDefaultFragment,
   RecipeDescription,
   TagDefaultFragment
@@ -35,11 +36,13 @@ import {
 import { useContentManagementContext } from 'contexts/Content';
 
 import { IRecipeChangeSet, IRecipeSection } from 'types/content';
+import { getLinkedEntries } from 'lib/api';
 
 export type IFormIds =
   | 'abstract'
   | 'cookTime'
   | 'equipment'
+  | 'image'
   | 'ingredientsList'
   | 'instructionsList'
   | 'keywords'
@@ -49,6 +52,12 @@ export type IFormIds =
   | 'slug'
   | 'tags'
   | 'title';
+
+// type ObjEntries<T> = {
+//   [K in keyof T]: [K, T[K]];
+// }[keyof T][];
+
+// export type IFormIds = ObjEntries<IRecipeChangeSet>;
 
 interface IRecipeEdit {
   content?: RecipeDefaultFragment;
@@ -73,7 +82,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     title
   } = content ?? {};
 
-  const { aspectRatio, breakpoints } = recipePageConfig;
+  const { aspectRatio, breakpoints, thumbBreakpoints } = recipePageConfig;
   const richText = description as RecipeDescription;
 
   const { items: tags } = tagsCollection ?? {};
@@ -83,6 +92,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     id: sys?.id || '',
     cookTime: cookTime || '0',
     equipment: equipment || [],
+    image: image || { sys: { id: '' } },
     ingredientsList: ingredientsList || [],
     instructionsList: instructionsList || [],
     keywords: keywords || [],
@@ -100,12 +110,25 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     ...defaultState
   });
 
+  const [imageList, setImageList] = useState<
+    (ImageDefaultFragment | null)[] | undefined
+  >([]);
+
+  const [tagList, setTagList] = useState<
+    (TagDefaultFragment | null)[] | undefined
+  >([]);
+
   const resetForm = () => {
     setFormData(defaultState);
     setCanSave(false);
   };
 
   useEffect(() => {
+    getLinkedEntries().then(({ images, tags }) => {
+      setImageList(images);
+      setTagList(tags);
+    });
+
     return () => {
       resetForm();
     };
@@ -121,13 +144,15 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
       | string
       | number
       | (string | null | IRecipeSection)[]
-      | (TagDefaultFragment | null | undefined)[];
+      | (TagDefaultFragment | null | undefined)[]
+      | ImageDefaultFragment;
   }) => {
     const newData: IRecipeChangeSet = { ...formData };
     newData[id] = value as string &
       (string | null)[] &
       IRecipeSection[] &
-      (TagDefaultFragment | null | undefined)[];
+      (TagDefaultFragment | null | undefined)[] &
+      ImageDefaultFragment;
 
     if (id === 'title') newData['slug'] = toSlug(value as string);
 
@@ -196,7 +221,7 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
         />
       </FormControl>
 
-      <Grid container className="content">
+      <Grid container className="content" spacing={4}>
         <Grid item lg={6} className="contentGrid">
           <Stack className="description">
             {description && <RichText content={richText} />}
@@ -212,13 +237,14 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
             )} */}
 
             <TagsEdit
-              tags={formData.tags}
               onChange={({ value }) =>
                 updateField({
                   id: 'tags',
                   value
                 })
               }
+              tagList={tagList}
+              tags={formData.tags}
             />
 
             <Grid container className="details" spacing={2}>
@@ -270,15 +296,16 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
           </Stack>
         </Grid>
         <Grid item lg={6}>
-          {breakpoints && image && (
-            <Box className="image">
-              <DynamicImage
-                aspectRatio={aspectRatio}
-                breakpoints={breakpoints}
-                image={image}
-                preload={true}
-              />
-            </Box>
+          {breakpoints && thumbBreakpoints && formData.image && (
+            <ImageEdit
+              aspectRatio={aspectRatio}
+              breakpoints={breakpoints}
+              image={formData.image}
+              imageList={imageList}
+              preload={true}
+              onChange={({ value }) => updateField({ id: 'image', value })}
+              thumbBreakpoints={thumbBreakpoints}
+            />
           )}
         </Grid>
       </Grid>

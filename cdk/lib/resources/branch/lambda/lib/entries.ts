@@ -116,9 +116,8 @@ export const updateEntry = async ({
     for (const [key, value] of Object.entries(recipe)) {
       // TODO: remove id from recipe payload and use id from event
       if (key !== 'id') {
+        // TODO: pass type along with property so keys don't need to be hard-coded in logic
         if (key === 'tags') {
-          console.log('tags:', value);
-
           const entryTags = value.map((tag: TagDefaultFragment) => {
             return {
               sys: {
@@ -129,9 +128,16 @@ export const updateEntry = async ({
             };
           });
 
-          console.log('entry tags:', entryTags);
-
           entry.fields[key] = { 'en-US': entryTags };
+        } else if (key === 'image') {
+          const imageEntry = {
+            sys: {
+              type: 'Link',
+              linkType: 'Asset',
+              id: value.sys?.id
+            }
+          };
+          entry.fields[key] = { 'en-US': imageEntry };
         } else {
           entry.fields[key] = { 'en-US': value };
         }
@@ -141,10 +147,6 @@ export const updateEntry = async ({
     const updated = await entry.update();
 
     console.log('updated entry:', updated);
-
-    console.log('updated entry tags:', updated.fields.tags['en-US']);
-
-    console.log('tags:', updated.fields.tags['en-US']);
 
     const published = await updated.publish();
 
@@ -163,65 +165,3 @@ export const updateEntry = async ({
     throw e;
   }
 };
-
-/*
-  tags: [
-    {
-      sys: { type: 'Link', linkType: 'Entry', id: '6NXdZjbTklEUEYXWzqjWRy' }
-    },
-    {
-      sys: { type: 'Link', linkType: 'Entry', id: '6qEA8xrN8koGKvQfFlq15m' }
-    },
-    {
-      sys: { type: 'Link', linkType: 'Entry', id: '1XgN8rqu0clUQxQS0wVaKA' }
-    },
-    {
-      sys: { type: 'Link', linkType: 'Entry', id: '2RDCNcjSZzLSEQgjf1Nw4R' }
-    }
-  ]
-*/
-
-/*
-{
-    "items": [
-        {
-            "__typename": "Tag",
-            "sys": {
-                "id": "5bxtq0paorSpC7uYchMPyD",
-                "__typename": "Sys"
-            },
-            "title": "Soup",
-            "slug": "soup"
-        },
-        {
-            "__typename": "Tag",
-            "sys": {
-                "id": "48wBBA4RKpmb0pdCKve7cR",
-                "__typename": "Sys"
-            },
-            "title": "Vegetables",
-            "slug": "vegetables"
-        },
-        {
-            "__typename": "Tag",
-            "sys": {
-                "id": "2RDCNcjSZzLSEQgjf1Nw4R",
-                "__typename": "Sys"
-            },
-            "title": "French",
-            "slug": "french"
-        },
-        {
-            "__typename": "Tag",
-            "sys": {
-                "id": "33CNYIbkW49vrRw5iSKnih",
-                "__typename": "Sys"
-            },
-            "title": "Mother Sauces",
-            "slug": "mother-sauces"
-        }
-    ],
-    "__typename": "RecipeTagsCollection"
-}
-
-*/

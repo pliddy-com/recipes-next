@@ -13,14 +13,14 @@ fragment TagDefault on Tag {
 ## Fragments with default fields for:
 #   * Tag
 
-fragment TagEntry on Tag {
-  __typename
-  sys {
-    id
-  }
-  title
-  slug
-}
+# fragment TagEntry on Tag {
+#   __typename
+#   sys {
+#     id
+#   }
+#   title
+#   slug
+# }
 
 # Fragment with fields for Tag with linkedFrom Recipes
 
