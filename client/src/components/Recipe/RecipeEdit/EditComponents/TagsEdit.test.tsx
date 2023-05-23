@@ -72,23 +72,16 @@ describe('TagsEdit', () => {
 
     describe('when tags array is empty', () => {
       it('it does not render the component', async () => {
-        // const tagListSpy = jest
-        //   .spyOn(api, 'getLinkedEntries')
-        //   .mockResolvedValueOnce([
-        //     {
-        //       sys: {
-        //         id: 'id-3'
-        //       },
-        //       slug: undefined,
-        //       title: undefined
-        //     }
-        //   ] as unknown as TagDefaultFragment[]);
-
         const { tags: tagList } = await api.getLinkedEntries();
+
         if (tagList && tagList[0]) {
           tagList[0].slug = undefined;
           tagList[0].title = undefined;
         }
+
+        tagList &&
+          (tagList[tagList.length] =
+            undefined as unknown as TagDefaultFragment);
 
         const { recipe } = await api.getRecipePage();
 
@@ -103,7 +96,6 @@ describe('TagsEdit', () => {
         const { asFragment } = render(<TagsEdit {...props} />);
 
         await waitFor(async () => {
-          // expect(tagListSpy).toBeCalled();
           expect(asFragment()).toMatchSnapshot();
         });
       });

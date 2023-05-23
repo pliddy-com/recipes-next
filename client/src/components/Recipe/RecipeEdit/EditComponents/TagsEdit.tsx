@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import { useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
@@ -54,7 +52,7 @@ const TagsEdit = ({ onChange, tagList, tags }: ITagsEdit) => {
     }
   };
 
-  return tagData && tagList ? (
+  return tagData && tagData.length > 0 && tagList && tagList.length > 0 ? (
     <Stack className="tags-edit" data-testid="tags-edit">
       <FormControl>
         <InputLabel id="tag-select-label" htmlFor="tag-select-input">
@@ -97,7 +95,7 @@ const TagsEdit = ({ onChange, tagList, tags }: ITagsEdit) => {
               slug &&
               title && (
                 <MenuItem
-                  data-testid={`tag-select-${slug}`}
+                  data-testid={`tag-select-$slug}`}
                   key={slug}
                   value={title}
                   className="selectMenu"

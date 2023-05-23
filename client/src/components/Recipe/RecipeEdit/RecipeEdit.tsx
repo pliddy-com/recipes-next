@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import { useEffect, useState } from 'react';
 
 import assert from 'assert';
@@ -299,19 +297,11 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
           </Stack>
         </Grid>
         <Grid item lg={6}>
-          {breakpoints && image && (
-            // <Box className="image">
-            //   <DynamicImage
-            //     aspectRatio={aspectRatio}
-            //     breakpoints={breakpoints}
-            //     image={image}
-            //     preload={true}
-            //   />
-            // </Box>
+          {breakpoints && formData.image && (
             <ImageEdit
               aspectRatio={aspectRatio}
               breakpoints={breakpoints}
-              image={image}
+              image={formData.image}
               imageList={imageList}
               preload={true}
               onChange={({ value }) => updateField({ id: 'image', value })}

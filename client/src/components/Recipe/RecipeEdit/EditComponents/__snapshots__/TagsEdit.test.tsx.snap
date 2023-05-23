@@ -102,78 +102,7 @@ exports[`TagsEdit when there is content renders the component 1`] = `
 </DocumentFragment>
 `;
 
-exports[`TagsEdit when there is content when tags are undefined it does not render the component 1`] = `
-<DocumentFragment>
-  <div
-    class="tags-edit css-nen11g-MuiStack-root"
-    data-testid="tags-edit"
-  >
-    <div
-      class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
-        data-shrink="false"
-        for="tag-select-input"
-        id="tag-select-label"
-      >
-        Tags
-      </label>
-      <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
-        data-testid="tag-select"
-      >
-        <div
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-label="tag select input"
-          aria-labelledby="tag-select-label tag-select"
-          class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-          id="tag-select"
-          role="button"
-          tabindex="0"
-        >
-          <span
-            class="notranslate"
-          >
-            ​
-          </span>
-        </div>
-        <input
-          aria-hidden="true"
-          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-          id="tag-select-input"
-          tabindex="-1"
-          value=""
-        />
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
-          data-testid="ArrowDropDownIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M7 10l5 5 5-5z"
-          />
-        </svg>
-        <fieldset
-          aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-        >
-          <legend
-            class="css-yjsfm1"
-          >
-            <span>
-              Tags
-            </span>
-          </legend>
-        </fieldset>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
+exports[`TagsEdit when there is content when tags are undefined it does not render the component 1`] = `<DocumentFragment />`;
 
 exports[`TagsEdit when there is content when tags array is empty it does not render the component 1`] = `
 <DocumentFragment>

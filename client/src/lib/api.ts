@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import { queryGraphQLContent } from './gqlClient';
 
 import {

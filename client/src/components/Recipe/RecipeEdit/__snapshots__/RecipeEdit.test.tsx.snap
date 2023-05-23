@@ -539,7 +539,317 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
           <ul
             class="MuiImageList-root MuiImageList-standard css-193qa7j-MuiImageList-root"
             style="grid-template-columns: repeat(3, 1fr); gap: 4px;"
-          />
+          >
+            <li
+              class="MuiImageListItem-root MuiImageListItem-standard css-ta95xa-MuiImageListItem-root"
+              style="height: auto; grid-column-end: span 1; grid-row-end: span 1;"
+            >
+              <div
+                class="image MuiBox-root css-0"
+              >
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=225&fit=fill&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=225&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&h=450&fit=fill&fm=webp&q=75 2x"
+                  media="(min-width: 960px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=225&fit=fill&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+                  media="(min-width: 656px) and (max-width: 959px)"
+                  rel="preload"
+                  sizes="200px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=225&fit=fill&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+                  media="(max-width: 655px)"
+                  rel="preload"
+                  sizes="200px"
+                  type="image/webp"
+                />
+                <picture>
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=225&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=600&h=450&fit=fill&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 656px) and (max-width: 959px)"
+                    sizes="200px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 655px)"
+                    sizes="200px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="A batch of baking soda biscuits on a parchment-lined baking sheet."
+                    class="dynamicImage"
+                    fetchpriority="high"
+                    height="225"
+                    loading="eager"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/B6C4D23gXNDNfGVrxb1DK/9d8e62c1faf660f7e542eed14e044b57/biscuits.jpg?w=300&h=225&fit=fill&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiImageListItemBar-root MuiImageListItemBar-positionBottom css-ztrqiq-MuiImageListItemBar-root"
+              >
+                <div
+                  class="MuiImageListItemBar-titleWrap MuiImageListItemBar-titleWrapBottom MuiImageListItemBar-titleWrapActionPosRight css-14q7c0c-MuiImageListItemBar-titleWrap"
+                >
+                  <div
+                    class="MuiImageListItemBar-title css-dasnyc-MuiImageListItemBar-title"
+                  >
+                    biscuits.jpg
+                  </div>
+                </div>
+                <div
+                  class="MuiImageListItemBar-actionIcon MuiImageListItemBar-actionIconActionPosRight css-mjbero-MuiImageListItemBar-actionIcon"
+                >
+                  <button
+                    aria-label="select image biscuits.jpg"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-yon2v9-MuiButtonBase-root-MuiIconButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="AddCircleIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li
+              class="MuiImageListItem-root MuiImageListItem-standard css-ta95xa-MuiImageListItem-root"
+              style="height: auto; grid-column-end: span 1; grid-row-end: span 1;"
+            >
+              <div
+                class="image MuiBox-root css-0"
+              >
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=300&h=225&fit=fill&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=300&h=225&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=600&h=450&fit=fill&fm=webp&q=75 2x"
+                  media="(min-width: 960px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=300&h=225&fit=fill&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+                  media="(min-width: 656px) and (max-width: 959px)"
+                  rel="preload"
+                  sizes="200px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=300&h=225&fit=fill&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+                  media="(max-width: 655px)"
+                  rel="preload"
+                  sizes="200px"
+                  type="image/webp"
+                />
+                <picture>
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=300&h=225&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=600&h=450&fit=fill&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 656px) and (max-width: 959px)"
+                    sizes="200px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 655px)"
+                    sizes="200px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="Loaf of no-knead olive bread"
+                    class="dynamicImage"
+                    fetchpriority="high"
+                    height="225"
+                    loading="eager"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/2rUa4IhfkLtRRBmHS6ihcD/e953337e00d1eba9551b15e7eee18229/olive-bread.JPG?w=300&h=225&fit=fill&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiImageListItemBar-root MuiImageListItemBar-positionBottom css-ztrqiq-MuiImageListItemBar-root"
+              >
+                <div
+                  class="MuiImageListItemBar-titleWrap MuiImageListItemBar-titleWrapBottom MuiImageListItemBar-titleWrapActionPosRight css-14q7c0c-MuiImageListItemBar-titleWrap"
+                >
+                  <div
+                    class="MuiImageListItemBar-title css-dasnyc-MuiImageListItemBar-title"
+                  >
+                    olive-bread.JPG
+                  </div>
+                </div>
+                <div
+                  class="MuiImageListItemBar-actionIcon MuiImageListItemBar-actionIconActionPosRight css-mjbero-MuiImageListItemBar-actionIcon"
+                >
+                  <button
+                    aria-label="select image olive-bread.JPG"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-yon2v9-MuiButtonBase-root-MuiIconButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="AddCircleIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li
+              class="MuiImageListItem-root MuiImageListItem-standard css-ta95xa-MuiImageListItem-root"
+              style="height: auto; grid-column-end: span 1; grid-row-end: span 1;"
+            >
+              <div
+                class="image MuiBox-root css-0"
+              >
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=300&h=225&fit=fill&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=300&h=225&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&h=450&fit=fill&fm=webp&q=75 2x"
+                  media="(min-width: 960px)"
+                  rel="preload"
+                  sizes="300px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=300&h=225&fit=fill&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+                  media="(min-width: 656px) and (max-width: 959px)"
+                  rel="preload"
+                  sizes="200px"
+                  type="image/webp"
+                />
+                <link
+                  as="image"
+                  fetchpriority="high"
+                  href="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=300&h=225&fit=fill&fm=webp&q=75"
+                  imagesrcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+                  media="(max-width: 655px)"
+                  rel="preload"
+                  sizes="200px"
+                  type="image/webp"
+                />
+                <picture>
+                  <source
+                    media="(min-width: 960px)"
+                    sizes="300px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=300&h=225&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=600&h=450&fit=fill&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(min-width: 656px) and (max-width: 959px)"
+                    sizes="200px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+                  />
+                  <source
+                    media="(max-width: 655px)"
+                    sizes="200px"
+                    srcset="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=200&h=150&fit=fill&fm=webp&q=75 1x, https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=400&h=300&fit=fill&fm=webp&q=75 2x"
+                  />
+                  <img
+                    alt="Loaf of no-knead bread cooling on a wire baking rack."
+                    class="dynamicImage"
+                    fetchpriority="high"
+                    height="225"
+                    loading="eager"
+                    src="https://images.ctfassets.net/fo9qwg6zarbt/6HZDSm8AK4iQHr9v2UOGpq/17569d5be00441216338c7800e5ebc2c/no-knead-bread.JPG?w=300&h=225&fit=fill&q=75"
+                    width="300"
+                  />
+                </picture>
+              </div>
+              <div
+                class="MuiImageListItemBar-root MuiImageListItemBar-positionBottom css-ztrqiq-MuiImageListItemBar-root"
+              >
+                <div
+                  class="MuiImageListItemBar-titleWrap MuiImageListItemBar-titleWrapBottom MuiImageListItemBar-titleWrapActionPosRight css-14q7c0c-MuiImageListItemBar-titleWrap"
+                >
+                  <div
+                    class="MuiImageListItemBar-title css-dasnyc-MuiImageListItemBar-title"
+                  >
+                    no-knead-bread.JPG
+                  </div>
+                </div>
+                <div
+                  class="MuiImageListItemBar-actionIcon MuiImageListItemBar-actionIconActionPosRight css-mjbero-MuiImageListItemBar-actionIcon"
+                >
+                  <button
+                    aria-label="select image no-knead-bread.JPG"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-yon2v9-MuiButtonBase-root-MuiIconButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="AddCircleIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

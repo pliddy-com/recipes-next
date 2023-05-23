@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import { useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
@@ -19,7 +17,7 @@ import { AspectRatio } from 'theme/values/images';
 
 import { ImageDefaultFragment } from 'types/queries';
 
-export interface ImageProps {
+export interface IImageEdit {
   aspectRatio?: AspectRatio;
   breakpoints: Breakpoints[];
   image: ImageDefaultFragment;
@@ -43,13 +41,13 @@ const thumbBreakponts = [
 ];
 
 const ImageEdit = ({
-  aspectRatio = '4 / 3',
+  aspectRatio,
   image,
   imageList,
   breakpoints,
   onChange,
-  preload = false
-}: ImageProps) => {
+  preload
+}: IImageEdit) => {
   const [selectedImage, setSelectedImage] =
     useState<ImageDefaultFragment>(image);
 
@@ -60,9 +58,9 @@ const ImageEdit = ({
 
   const handleClick = (image: ImageDefaultFragment) => {
     setSelectedImage(image);
-    console.log(image);
     onChange({ value: image });
   };
+
   return imageList ? (
     <Stack className="image-edit">
       <Box className="image original">
@@ -98,7 +96,7 @@ const ImageEdit = ({
               <ImageListItemBar
                 actionIcon={
                   <IconButton
-                    sx={{ color: 'rgba(255, 255, 255, 1)' }}
+                    sx={{ color: 'rgba(255, 255, 255, .75)' }}
                     aria-label={`select image ${image.fileName}`}
                     onClick={() => handleClick(image)}
                   >
