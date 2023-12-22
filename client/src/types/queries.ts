@@ -463,9 +463,33 @@ export type IngredientSectionLinkingCollectionsEntryCollectionArgs = {
 export type IngredientSectionLinkingCollectionsRecipeCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<IngredientSectionLinkingCollectionsRecipeCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
+
+export enum IngredientSectionLinkingCollectionsRecipeCollectionOrder {
+  AbstractAsc = 'abstract_ASC',
+  AbstractDesc = 'abstract_DESC',
+  CookTimeAsc = 'cookTime_ASC',
+  CookTimeDesc = 'cookTime_DESC',
+  PrepTimeAsc = 'prepTime_ASC',
+  PrepTimeDesc = 'prepTime_DESC',
+  RecipeYieldAsc = 'recipeYield_ASC',
+  RecipeYieldDesc = 'recipeYield_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
 
 export enum IngredientSectionOrder {
   LabelAsc = 'label_ASC',
@@ -584,9 +608,33 @@ export type InstructionSectionLinkingCollectionsEntryCollectionArgs = {
 export type InstructionSectionLinkingCollectionsRecipeCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<InstructionSectionLinkingCollectionsRecipeCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
+
+export enum InstructionSectionLinkingCollectionsRecipeCollectionOrder {
+  AbstractAsc = 'abstract_ASC',
+  AbstractDesc = 'abstract_DESC',
+  CookTimeAsc = 'cookTime_ASC',
+  CookTimeDesc = 'cookTime_DESC',
+  PrepTimeAsc = 'prepTime_ASC',
+  PrepTimeDesc = 'prepTime_DESC',
+  RecipeYieldAsc = 'recipeYield_ASC',
+  RecipeYieldDesc = 'recipeYield_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
 
 export enum InstructionSectionOrder {
   LabelAsc = 'label_ASC',
@@ -794,8 +842,10 @@ export type RecipeImageArgs = {
 export type RecipeIngredientsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<RecipeIngredientsCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<IngredientSectionFilter>;
 };
 
 
@@ -809,8 +859,10 @@ export type RecipeIngredientsListArgs = {
 export type RecipeInstructionsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<RecipeInstructionsCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<InstructionSectionFilter>;
 };
 
 
@@ -860,8 +912,10 @@ export type RecipeSlugArgs = {
 export type RecipeTagsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<RecipeTagsCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<TagFilter>;
 };
 
 
@@ -901,6 +955,14 @@ export type RecipeDescriptionLinks = {
   __typename?: 'RecipeDescriptionLinks';
   assets: RecipeDescriptionAssets;
   entries: RecipeDescriptionEntries;
+  resources: RecipeDescriptionResources;
+};
+
+export type RecipeDescriptionResources = {
+  __typename?: 'RecipeDescriptionResources';
+  block: Array<ResourceLink>;
+  hyperlink: Array<ResourceLink>;
+  inline: Array<ResourceLink>;
 };
 
 export type RecipeFilter = {
@@ -984,6 +1046,23 @@ export type RecipeIngredientsCollection = {
   total: Scalars['Int'];
 };
 
+export enum RecipeIngredientsCollectionOrder {
+  LabelAsc = 'label_ASC',
+  LabelDesc = 'label_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
+
 export type RecipeInstructionsCollection = {
   __typename?: 'RecipeInstructionsCollection';
   items: Array<Maybe<InstructionSection>>;
@@ -991,6 +1070,23 @@ export type RecipeInstructionsCollection = {
   skip: Scalars['Int'];
   total: Scalars['Int'];
 };
+
+export enum RecipeInstructionsCollectionOrder {
+  LabelAsc = 'label_ASC',
+  LabelDesc = 'label_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
 
 export type RecipeLinkingCollections = {
   __typename?: 'RecipeLinkingCollections';
@@ -1034,6 +1130,33 @@ export type RecipeTagsCollection = {
   limit: Scalars['Int'];
   skip: Scalars['Int'];
   total: Scalars['Int'];
+};
+
+export enum RecipeTagsCollectionOrder {
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
+
+export type ResourceLink = {
+  __typename?: 'ResourceLink';
+  sys: ResourceSys;
+};
+
+export type ResourceSys = {
+  __typename?: 'ResourceSys';
+  linkType: Scalars['String'];
+  type: Scalars['String'];
+  urn: Scalars['String'];
 };
 
 export type Sys = {
@@ -1159,6 +1282,7 @@ export type TagLinkingCollectionsEntryCollectionArgs = {
 export type TagLinkingCollectionsRecipeCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<TagLinkingCollectionsRecipeCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
@@ -1167,9 +1291,48 @@ export type TagLinkingCollectionsRecipeCollectionArgs = {
 export type TagLinkingCollectionsTaxonomyCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<TagLinkingCollectionsTaxonomyCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
+
+export enum TagLinkingCollectionsRecipeCollectionOrder {
+  AbstractAsc = 'abstract_ASC',
+  AbstractDesc = 'abstract_DESC',
+  CookTimeAsc = 'cookTime_ASC',
+  CookTimeDesc = 'cookTime_DESC',
+  PrepTimeAsc = 'prepTime_ASC',
+  PrepTimeDesc = 'prepTime_DESC',
+  RecipeYieldAsc = 'recipeYield_ASC',
+  RecipeYieldDesc = 'recipeYield_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
+
+export enum TagLinkingCollectionsTaxonomyCollectionOrder {
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
 
 export enum TagOrder {
   SlugAsc = 'slug_ASC',
@@ -1205,6 +1368,7 @@ export type TaxonomyChildrenCollectionArgs = {
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<TaxonomyChildrenFilter>;
 };
 
 
@@ -1224,6 +1388,7 @@ export type TaxonomySlugArgs = {
 export type TaxonomyTagArgs = {
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
+  where?: InputMaybe<TagFilter>;
 };
 
 
@@ -1240,6 +1405,27 @@ export type TaxonomyChildrenCollection = {
   total: Scalars['Int'];
 };
 
+export type TaxonomyChildrenFilter = {
+  AND?: InputMaybe<Array<InputMaybe<TaxonomyChildrenFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<TaxonomyChildrenFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  slug?: InputMaybe<Scalars['String']>;
+  slug_contains?: InputMaybe<Scalars['String']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not?: InputMaybe<Scalars['String']>;
+  slug_not_contains?: InputMaybe<Scalars['String']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']>;
+  title_contains?: InputMaybe<Scalars['String']>;
+  title_exists?: InputMaybe<Scalars['Boolean']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  title_not?: InputMaybe<Scalars['String']>;
+  title_not_contains?: InputMaybe<Scalars['String']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
 export type TaxonomyChildrenItem = Tag | Taxonomy;
 
 export type TaxonomyCollection = {
@@ -1253,6 +1439,7 @@ export type TaxonomyCollection = {
 export type TaxonomyFilter = {
   AND?: InputMaybe<Array<InputMaybe<TaxonomyFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<TaxonomyFilter>>>;
+  children?: InputMaybe<CfchildrenMultiTypeNestedFilter>;
   childrenCollection_exists?: InputMaybe<Scalars['Boolean']>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   slug?: InputMaybe<Scalars['String']>;
@@ -1292,9 +1479,25 @@ export type TaxonomyLinkingCollectionsEntryCollectionArgs = {
 export type TaxonomyLinkingCollectionsTaxonomyCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<TaxonomyLinkingCollectionsTaxonomyCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
 };
+
+export enum TaxonomyLinkingCollectionsTaxonomyCollectionOrder {
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
 
 export enum TaxonomyOrder {
   SlugAsc = 'slug_ASC',
@@ -1378,6 +1581,27 @@ export type CfInstructionSectionNestedFilter = {
 export type CfTagNestedFilter = {
   AND?: InputMaybe<Array<InputMaybe<CfTagNestedFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<CfTagNestedFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  slug?: InputMaybe<Scalars['String']>;
+  slug_contains?: InputMaybe<Scalars['String']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not?: InputMaybe<Scalars['String']>;
+  slug_not_contains?: InputMaybe<Scalars['String']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']>;
+  title_contains?: InputMaybe<Scalars['String']>;
+  title_exists?: InputMaybe<Scalars['Boolean']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  title_not?: InputMaybe<Scalars['String']>;
+  title_not_contains?: InputMaybe<Scalars['String']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type CfchildrenMultiTypeNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfchildrenMultiTypeNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfchildrenMultiTypeNestedFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   slug?: InputMaybe<Scalars['String']>;
   slug_contains?: InputMaybe<Scalars['String']>;

@@ -43,7 +43,7 @@
     "@mui/system": "5.11.5",
     "@mui/utils": "5.11.2",
     "@types/next": "^9.0.0",
-    "next": "13.1.2",
+    "next": "^13.1.2",
     "next-unused": "^0.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -52,7 +52,7 @@
     "slugify": "^1.6.6"
   },
   "devDependencies": {
-    "@contentful/rich-text-types": "16.0.2",
+    "@contentful/rich-text-types": "^16.0.2",
     "@graphql-codegen/cli": "2.16.5",
     "@graphql-codegen/typed-document-node": "2.3.12",
     "@graphql-codegen/typescript": "2.8.7",
