@@ -26,6 +26,8 @@ try {
     limit: 1000
   });
 
+  console.log('items:', items);
+
   const recipes = items.map((recipe) => ({
     // remove markdown syntax for better search results
     content: richTextPlainTextRenderer.documentToPlainTextString(
