@@ -29,8 +29,8 @@ try {
   console.log('items:', items.length);
 
   items.forEach((item) => {
-    console.log({ item });
-    console.log('item.fields', item.fields);
+    console.log('item.fields.title', item.fields.title);
+    console.log('item.fields.image', item.fields.image);
   });
 
   const recipes = items.map((recipe) => ({
