@@ -7,7 +7,7 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import Stack from '@mui/material/Stack';
 
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+// import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import IconButton from '@mui/material/IconButton';
 import ImageIcon from '@mui/icons-material/Image';
 
@@ -43,7 +43,7 @@ const ImageEdit = ({
     useState<ImageDefaultFragment>(image);
 
   const [openChangeImage, setOpenChangeImage] = useState<boolean>(false);
-  const [openUploadImage, setOpenUploadImage] = useState<boolean>(false);
+  // const [openUploadImage, setOpenUploadImage] = useState<boolean>(false);
 
   useEffect(() => {
     setSelectedImage(image);
@@ -53,18 +53,18 @@ const ImageEdit = ({
   const handleClick = (image: ImageDefaultFragment) => {
     setSelectedImage(image);
     onChange({ value: image });
-    setOpenChangeImage(false);
+    // setOpenChangeImage(false);
   };
 
   const showChangeImage = () => {
     setOpenChangeImage(!openChangeImage);
-    setOpenUploadImage(false);
+    // setOpenUploadImage(false);
   };
 
-  const showUploadImage = () => {
-    setOpenUploadImage(!openUploadImage);
-    setOpenChangeImage(false);
-  };
+  // const showUploadImage = () => {
+  //   setOpenUploadImage(!openUploadImage);
+  //   setOpenChangeImage(false);
+  // };
 
   return imageList ? (
     <Stack className="image-edit">
@@ -93,7 +93,7 @@ const ImageEdit = ({
           variant="outlined"
         />
 
-        <NavIconButton
+        {/* <NavIconButton
           ariaLabel={'upload image button'}
           className="edit-button"
           disabled={openUploadImage}
@@ -102,7 +102,7 @@ const ImageEdit = ({
           label={'Add Image'}
           onClick={showUploadImage}
           variant="outlined"
-        />
+        /> */}
       </Stack>
 
       {openChangeImage && (

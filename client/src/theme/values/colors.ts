@@ -18,7 +18,7 @@ const colors = {
     main: '#cb2314'
   },
   action: {
-    disabled: 'rgba(0, 0, 0, 0.5)'
+    disabled: 'rgba(0, 0, 0, 0.25)'
   }
 };
 

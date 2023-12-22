@@ -217,8 +217,11 @@ const pageThemeOptions: ThemeOptions = {
                     }
                   },
                   '& .MuiImageListItemBar': {
+                    '&-root': {
+                      flexDirection: 'row-reverse'
+                    },
                     '&-titleWrap': {
-                      padding: '0.25rem .75rem'
+                      padding: '0.25rem .75rem 0.25rem 0'
                     },
                     '&-title': {
                       fontFamily: sansFontFamily,
