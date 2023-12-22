@@ -28,6 +28,10 @@ try {
 
   console.log('items:', items);
 
+  items.forEach((item) => {
+    console.log('item:', JSON.stringify(item.fields.image));
+  });
+
   const recipes = items.map((recipe) => ({
     // remove markdown syntax for better search results
     content: richTextPlainTextRenderer.documentToPlainTextString(
