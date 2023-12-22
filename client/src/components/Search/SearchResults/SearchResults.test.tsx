@@ -7,9 +7,9 @@ import '@testing-library/jest-dom';
 // import the component to test
 import SearchResults from './SearchResults';
 
-import * as hooks from 'react-instantsearch-hooks-web';
+import * as hooks from 'react-instantsearch';
 
-jest.mock('react-instantsearch-hooks-web', () => ({
+jest.mock('react-instantsearch', () => ({
   useSearchBox: jest.fn(),
   useHits: jest.fn().mockReturnValue({
     hits: [

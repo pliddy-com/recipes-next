@@ -26,6 +26,14 @@ try {
     limit: 1000
   });
 
+  console.log('items:', items.length);
+
+  items.forEach((item) =>
+    console.log(
+      `${item.fields.title}: ${items.fields.image.fields.sys.id},  ${items.fields.image.fields.description}`
+    )
+  );
+
   const recipes = items.map((recipe) => ({
     // remove markdown syntax for better search results
     content: richTextPlainTextRenderer.documentToPlainTextString(

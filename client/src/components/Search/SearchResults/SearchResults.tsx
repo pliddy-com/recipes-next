@@ -1,8 +1,4 @@
-import {
-  useHits,
-  useSearchBox,
-  UseSearchBoxProps
-} from 'react-instantsearch-hooks-web';
+import { useHits, useSearchBox, UseSearchBoxProps } from 'react-instantsearch';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -54,7 +50,11 @@ const SearchResults = ({ title }: SearchResultsProps) => {
     queryHook
   });
 
+  console.log({ query });
+
   const results = useHits();
+
+  console.log({ results });
 
   // TODO: infer props?
   const hits = results.hits as unknown as Array<HitProps>;
