@@ -21,7 +21,7 @@ const client = createClient({
 });
 
 try {
-  const { items } = await client.getEntries({
+  const { items } = await client.getPublishedEntries({
     content_type: 'recipe',
     limit: 1000
   });
@@ -34,7 +34,7 @@ try {
     abstract: recipe.fields.abstract,
     image: {
       sys: {
-        id: recipe.fields.image.fields.sys.id
+        id: recipe.fields.image.sys.id
       },
       url: recipe.fields.image.fields.file.url,
       description: recipe.fields.image.fields.description,

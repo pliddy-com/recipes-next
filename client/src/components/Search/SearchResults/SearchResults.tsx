@@ -1,8 +1,4 @@
-import {
-  useHits,
-  useSearchBox,
-  UseSearchBoxProps
-} from 'react-instantsearch-hooks-web';
+import { useHits, useSearchBox, UseSearchBoxProps } from 'react-instantsearch';
 
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';

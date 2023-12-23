@@ -3,7 +3,7 @@ import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
 
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, Configure } from 'react-instantsearch-hooks-web';
+import { InstantSearch, Configure } from 'react-instantsearch';
 
 import Typography from '@mui/material/Typography';
 
@@ -47,7 +47,13 @@ const SearchPage = ({
         {defaultTitle}
       </Typography>
 
-      <InstantSearch searchClient={searchClient} indexName="recipes_index">
+      <InstantSearch
+        future={{
+          preserveSharedStateOnUnmount: false
+        }}
+        indexName="recipes_index"
+        searchClient={searchClient}
+      >
         <Configure hitsPerPage={100} />
         <Suspense fallback={<Loading />}>
           <SearchGridLayout title={defaultTitle} />
