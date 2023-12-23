@@ -21,7 +21,7 @@ const client = createClient({
 });
 
 try {
-  const { items } = await client.getPublishedEntries({
+  const { items } = await client.getEntries({
     content_type: 'recipe',
     limit: 1000
   });
