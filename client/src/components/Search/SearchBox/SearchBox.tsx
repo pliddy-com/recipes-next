@@ -2,7 +2,7 @@ import {
   useCurrentRefinements,
   useSearchBox,
   UseSearchBoxProps
-} from 'react-instantsearch-hooks-web';
+} from 'react-instantsearch';
 
 import InputAdornment from '@mui/material/InputAdornment';
 import Paper from '@mui/material/Paper';
