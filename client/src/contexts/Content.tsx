@@ -143,7 +143,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
           headers: {
             Authorization: `${token}`
           },
-          body
+          body: JSON.stringify(body)
         });
 
         return response.json();
