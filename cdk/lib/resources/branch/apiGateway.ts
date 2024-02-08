@@ -182,7 +182,7 @@ export const createApiGateway = ({
 
   // define allowed methods for assets resource
 
-  recipe.addMethod('POST', createAssetIntegration, {
+  assets.addMethod('POST', createAssetIntegration, {
     authorizationType: AuthorizationType.COGNITO,
     authorizer,
     methodResponses: [
