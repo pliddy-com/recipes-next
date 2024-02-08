@@ -215,7 +215,7 @@ export const createApiGateway = ({
   });
 
   stack.exportValue(
-    `https://${api.restApiId}.execute-api.${stack.region}.amazonaws.com/${stageId}/recipes`,
+    `https://${api.restApiId}.execute-api.${stack.region}.amazonaws.com/${stageId}`,
     {
       name: `Recipes-ApiGatewayUrl-${branchLabel}`
     }

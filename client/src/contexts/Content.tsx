@@ -138,7 +138,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
 
       try {
         const response = await fetch(assetsApiUrl, {
-          method: 'PUT',
+          method: 'POST',
           headers: {
             Authorization: `${token}`
           },
