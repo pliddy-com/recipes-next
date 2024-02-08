@@ -37,6 +37,6 @@ runs:
         echo "Cognito user pool: ${{ inputs.userPoolId }}"
         echo "Cognito client id: ${{ inputs.userPoolClientId }}"
 
-        NEXT_PUBLIC_AWS_CONTENT_API=${{ inputs.contentApi }} NEXT_PUBLIC_ALGOLIA_APP_ID=${{ inputs.algoliaAppId }} NEXT_PUBLIC_COGNITO_USER_POOL_ID=${{ inputs.userPoolId }} NEXT_PUBLIC_COGNITO_APP_CLIENT_ID=${{ inputs.userPoolClientId }} S3_BUCKET=${{ inputs.s3Bucket }} npm run deploy -w client
+        NEXT_PUBLIC_AWS_API=${{ inputs.contentApi }} NEXT_PUBLIC_ALGOLIA_APP_ID=${{ inputs.algoliaAppId }} NEXT_PUBLIC_COGNITO_USER_POOL_ID=${{ inputs.userPoolId }} NEXT_PUBLIC_COGNITO_APP_CLIENT_ID=${{ inputs.userPoolClientId }} S3_BUCKET=${{ inputs.s3Bucket }} npm run deploy -w client
         DISTRIBUTION_ID=${{ inputs.distributionId }} npm run invalidate -w client
       shell: bash

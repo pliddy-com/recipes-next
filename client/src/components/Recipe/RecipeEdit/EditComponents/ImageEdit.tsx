@@ -16,7 +16,8 @@ import ImageIcon from '@mui/icons-material/Image';
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 import NavIconButton from 'components/Navigation/Buttons/NavIconButton/NavIconButton';
 
-import { uploadImage } from 'lib/api';
+import { useContentManagementContext } from 'contexts/Content';
+
 import { Breakpoints } from 'lib/responsiveImage';
 
 import { AspectRatio } from 'theme/values/images';
@@ -42,6 +43,7 @@ const ImageEdit = ({
   preload,
   thumbBreakpoints
 }: IImageEdit) => {
+  const { uploadImage } = useContentManagementContext();
   const [selectedImage, setSelectedImage] =
     useState<ImageDefaultFragment>(image);
 

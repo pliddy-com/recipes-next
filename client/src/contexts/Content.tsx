@@ -26,13 +26,15 @@ interface ICMContext {
   supressEdit: boolean;
   setSupressEdit: Dispatch<SetStateAction<boolean>>;
   toggleEdit(): void;
+  uploadImage(file: File): void;
 }
 
 interface ContentManagementProps {
   children: ReactElement | ReactElement[];
 }
 
-const contentApiUrl = process.env.NEXT_PUBLIC_AWS_CONTENT_API;
+const contentApiUrl = `${process.env.NEXT_PUBLIC_AWS_API}/content`;
+const assetsApiUrl = `${process.env.NEXT_PUBLIC_AWS_API}/assets`;
 
 const ContentManagementContext = createContext<ICMContext>({} as ICMContext);
 
@@ -107,6 +109,90 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
     }
   };
 
+  // upload media asset to Contentful
+
+  // MOVE TO AWS API
+  // UPLOAD IMAGE TO S3 USING SECURE URL
+  // SEND SECURE DOWNLOAD URL TO CONTENTFUL WITH CREATE ASSET REQUEST
+
+  const bufferToText = (buffer: ArrayBufferLike) => {
+    const bufferByteLength = buffer.byteLength;
+    const bufferUint8Array = new Uint8Array(buffer, 0, bufferByteLength);
+
+    return new TextDecoder().decode(bufferUint8Array);
+  };
+
+  const uploadImage = async (file: File) => {
+    try {
+      if (!isAuth || !token) {
+        throw new Error('User is not authenticated.');
+      }
+
+      console.log({ file });
+
+      // const { name, type } = file;
+
+      const buffer = await file.arrayBuffer();
+
+      console.log('.buffer()', bufferToText(buffer));
+
+      try {
+        const response = await fetch(assetsApiUrl, {
+          method: 'PUT',
+          headers: {
+            Authorization: `${token}`
+          },
+          body: JSON.stringify(buffer)
+        });
+
+        return response.json();
+      } catch (e) {
+        console.error('Could not save changes to the recipe.');
+      }
+
+      // const upload =
+      //   buffer &&
+      //   (await client
+      //     .getSpace(SPACE_ID)
+      //     .then((space) => space.getEnvironment('master'))
+      //     .then((environment) =>
+      //       environment.createAssetFromFiles({
+      //         fields: {
+      //           title: {
+      //             'en-US': name
+      //           },
+      //           description: {
+      //             'en-US': 'Asset description'
+      //           },
+      //           file: {
+      //             'en-US': {
+      //               contentType: type,
+      //               fileName: name,
+      //               file: buffer
+      //             }
+      //           }
+      //         }
+      //       })
+      //     )
+      //     .then((asset) => {
+      //       console.log('processing upload');
+      //       return asset.processForAllLocales({ processingCheckWait: 2000 });
+      //     })
+      //     .then((asset) => {
+      //       console.log('publishing upload');
+      //       return asset.publish();
+      //     })
+      //     .then((asset) => {
+      //       console.log({ asset });
+      //       return asset;
+      //     }));
+
+      // console.log('Upload ', upload);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <ContentManagementContext.Provider
       value={{
@@ -119,7 +205,8 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
         setRecipe,
         setSupressEdit,
         supressEdit,
-        toggleEdit
+        toggleEdit,
+        uploadImage
       }}
     >
       {props.children}
