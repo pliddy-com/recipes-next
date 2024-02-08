@@ -33,7 +33,7 @@ interface ContentManagementProps {
   children: ReactElement | ReactElement[];
 }
 
-const contentApiUrl = `${process.env.NEXT_PUBLIC_AWS_API}/content`;
+const recipeApiUrl = `${process.env.NEXT_PUBLIC_AWS_API}/recipes`;
 const assetsApiUrl = `${process.env.NEXT_PUBLIC_AWS_API}/assets`;
 
 const ContentManagementContext = createContext<ICMContext>({} as ICMContext);
@@ -65,7 +65,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
       throw new Error('Content has not changed.');
     }
 
-    const restApi = `${contentApiUrl}/${recipe.id}`;
+    const restApi = `${recipeApiUrl}/${recipe.id}`;
 
     try {
       const response = await fetch(restApi, {
@@ -133,8 +133,9 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
       // const { name, type } = file;
 
       const buffer = await file.arrayBuffer();
+      const body = bufferToText(buffer);
 
-      console.log('.buffer()', bufferToText(buffer));
+      console.log('body', body);
 
       try {
         const response = await fetch(assetsApiUrl, {
@@ -142,7 +143,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
           headers: {
             Authorization: `${token}`
           },
-          body: JSON.stringify(buffer)
+          body
         });
 
         return response.json();
