@@ -114,11 +114,11 @@ describe('in entries.ts', () => {
       const expected = {
         statusCode,
         headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': '*',
           'Access-Control-Allow-Credentials': true,
           'Access-Control-Allow-Headers':
-            'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
+            'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+          'Access-Control-Allow-Methods': 'OPTIONS, POST, PUT',
+          'Access-Control-Allow-Origin': '*'
         },
         body
       };

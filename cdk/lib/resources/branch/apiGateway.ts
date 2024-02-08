@@ -54,10 +54,16 @@ export const createApiGateway = ({
     restApiName: `ApiGateway${branchLabel}`,
     defaultCorsPreflightOptions: {
       allowHeaders: [
+        'Authorization',
         'Content-Type',
         'X-Amz-Date',
-        'Authorization',
+        'X-Amz-Security-Token',
+        'X-Amz-User-Agent',
         'X-Api-Key'
+        // 'Authorization',
+        // 'Content-Type',
+        // 'X-Amz-Date',
+        // 'X-Api-Key'
       ],
       allowMethods: [
         'OPTIONS',
