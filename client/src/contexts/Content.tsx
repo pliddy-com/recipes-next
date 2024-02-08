@@ -147,7 +147,7 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
 
         return response.json();
       } catch (e) {
-        console.error('Could not save changes to the recipe.');
+        console.error('Could not upload the image.');
       }
 
       // const upload =

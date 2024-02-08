@@ -29,7 +29,8 @@ export const getResponse = ({
     statusCode,
     headers: {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Credentials': true
+      'Access-Control-Allow-Credentials': true,
+      'Access-Control-Allow-Methods': 'OPTIONS,POST,PUT,GET'
     },
     body
   };
