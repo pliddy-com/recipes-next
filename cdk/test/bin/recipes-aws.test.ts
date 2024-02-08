@@ -157,9 +157,9 @@ describe('RecipesBranchStack', () => {
 
     template.resourceCountIs('AWS::Route53::RecordSet', 1);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
-    template.resourceCountIs('AWS::Lambda::Function', 2);
+    template.resourceCountIs('AWS::Lambda::Function', 3);
     template.resourceCountIs('AWS::Lambda::Version', 1);
-    template.resourceCountIs('AWS::IAM::Role', 3);
+    template.resourceCountIs('AWS::IAM::Role', 4);
     template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 
@@ -193,9 +193,9 @@ describe('RecipesBranchStack', () => {
 
     template.resourceCountIs('AWS::Route53::RecordSet', 1);
     template.resourceCountIs('AWS::CloudFront::Distribution', 1);
-    template.resourceCountIs('AWS::Lambda::Function', 2);
+    template.resourceCountIs('AWS::Lambda::Function', 3);
     template.resourceCountIs('AWS::Lambda::Version', 1);
-    template.resourceCountIs('AWS::IAM::Role', 3);
+    template.resourceCountIs('AWS::IAM::Role', 4);
     template.resourceCountIs('AWS::Cognito::UserPool', 1);
   });
 

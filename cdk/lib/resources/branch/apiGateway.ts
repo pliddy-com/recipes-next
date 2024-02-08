@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { RecipesBranchStack } from '../../recipes-branch-stack';
 
 import { NodejsFunction, OutputFormat } from 'aws-cdk-lib/aws-lambda-nodejs';
@@ -35,6 +37,8 @@ export const createApiGateway = ({
 }: ICreateApiGw) => {
   const stageId = 'prod';
 
+  // create authorizer to require authenticated cognito user
+
   const authorizer = new CognitoUserPoolsAuthorizer(
     stack,
     'CognitoAuthorizer',
@@ -43,7 +47,38 @@ export const createApiGateway = ({
     }
   );
 
-  const updateLambda = new NodejsFunction(stack, 'updateRecipe', {
+  // create API gateway
+
+  const api = new RestApi(stack, 'ApiGateway', {
+    deploy: false,
+    restApiName: `ApiGateway${branchLabel}`,
+    defaultCorsPreflightOptions: {
+      allowHeaders: [
+        'Content-Type',
+        'X-Amz-Date',
+        'Authorization',
+        'X-Api-Key'
+      ],
+      allowMethods: [
+        'OPTIONS',
+        // 'GET',
+        'POST',
+        'PUT'
+        // 'PATCH',
+        // 'DELETE'
+      ],
+      allowCredentials: true,
+      allowOrigins: Cors.ALL_ORIGINS
+    }
+  });
+
+  /* 
+      updateRecipe Lambda
+   */
+
+  // define updateRecipe lambda
+
+  const updateRecipeLambda = new NodejsFunction(stack, 'updateRecipe', {
     // needs to reference *.ts to bundle npm modules
     entry: path.join(__dirname, 'lambda/updateRecipe/index.ts'),
     handler: 'handler',
@@ -62,30 +97,9 @@ export const createApiGateway = ({
     timeout: Duration.seconds(30)
   });
 
-  const api = new RestApi(stack, 'ApiGateway', {
-    deploy: false,
-    restApiName: `ApiGateway${branchLabel}`,
-    defaultCorsPreflightOptions: {
-      allowHeaders: [
-        'Content-Type',
-        'X-Amz-Date',
-        'Authorization',
-        'X-Api-Key'
-      ],
-      allowMethods: [
-        'OPTIONS',
-        // 'GET',
-        // 'POST',
-        'PUT'
-        // 'PATCH',
-        // 'DELETE'
-      ],
-      allowCredentials: true,
-      allowOrigins: Cors.ALL_ORIGINS
-    }
-  });
+  // define updateRecipe lambda integration
 
-  const updateRecipeIntegration = new LambdaIntegration(updateLambda, {
+  const updateRecipeIntegration = new LambdaIntegration(updateRecipeLambda, {
     proxy: true,
     requestTemplates: { 'application/json': '{"statusCode": 200}' },
     integrationResponses: [
@@ -98,8 +112,12 @@ export const createApiGateway = ({
     ]
   });
 
+  // add recipe resource paths to api gateway
+
   const recipes = api.root.addResource('recipes');
   const recipe = recipes.addResource('{id}');
+
+  // define allowed methods for recipe resource
 
   recipe.addMethod('PUT', updateRecipeIntegration, {
     authorizationType: AuthorizationType.COGNITO,
@@ -118,12 +136,79 @@ export const createApiGateway = ({
     ]
   });
 
+  /* 
+      createAsset Lambda
+   */
+
+  // define createAsset lambda
+
+  const createAssetLambda = new NodejsFunction(stack, 'createAsset', {
+    // needs to reference *.ts to bundle npm modules
+    entry: path.join(__dirname, 'lambda/createAsset/index.ts'),
+    handler: 'handler',
+    environment: {
+      BUILD_BRANCH: process.env.BUILD_BRANCH!,
+      CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID!,
+      CONTENTFUL_MANAGEMENT_TOKEN: process.env.CONTENTFUL_MANAGEMENT_TOKEN!,
+      GH_WEBHOOK_TOKEN: process.env.GH_WEBHOOK_TOKEN!,
+      GH_WEBHOOK_URL: process.env.GH_WEBHOOK_URL!
+    },
+    bundling: {
+      nodeModules: ['contentful-management', 'dotenv'],
+      format: OutputFormat.ESM
+    },
+    runtime: Runtime.NODEJS_18_X,
+    timeout: Duration.seconds(30)
+  });
+
+  // define createAsset lambda integration
+
+  const createAssetIntegration = new LambdaIntegration(createAssetLambda, {
+    proxy: true,
+    requestTemplates: { 'application/json': '{"statusCode": 200}' },
+    integrationResponses: [
+      {
+        statusCode: '200',
+        responseParameters: {
+          'method.response.header.Content-Type': "'application/json'"
+        }
+      }
+    ]
+  });
+
+  // add assets resource paths to api gateway
+
+  const assets = api.root.addResource('assets');
+
+  // define allowed methods for assets resource
+
+  recipe.addMethod('POST', createAssetIntegration, {
+    authorizationType: AuthorizationType.COGNITO,
+    authorizer,
+    methodResponses: [
+      {
+        responseModels: {
+          'application/json': Model.EMPTY_MODEL
+        },
+        statusCode: '200',
+        responseParameters: {
+          // required response parameter
+          'method.response.header.Content-Type': true
+        }
+      }
+    ]
+  });
+
+  // create deployment for API gateway
+
   const deploy = new Deployment(stack, 'ApiGwDeployment', { api });
 
   const stage = new Stage(stack, 'DeploymentStage', {
     deployment: deploy,
     stageName: stageId // If not passed, by default it will be 'prod'
   });
+
+  // export values for created resources
 
   stack.exportValue(api.restApiId, {
     name: `Recipes-ApiGatewayId-${branchLabel}`
@@ -136,7 +221,11 @@ export const createApiGateway = ({
     }
   );
 
-  stack.exportValue(updateLambda.functionArn, {
+  stack.exportValue(updateRecipeLambda.functionArn, {
     name: `Recipes-UpdateRecipeLambda-${branchLabel}`
+  });
+
+  stack.exportValue(createAssetLambda.functionArn, {
+    name: `Recipes-createAssetLambda-${branchLabel}`
   });
 };

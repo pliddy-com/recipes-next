@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+/* istanbul ignore file */
+
+import { ChangeEvent, useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
@@ -7,13 +9,14 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import Stack from '@mui/material/Stack';
 
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-// import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import IconButton from '@mui/material/IconButton';
 import ImageIcon from '@mui/icons-material/Image';
 
 import DynamicImage from 'components/Image/DynamicImage/DynamicImage';
 import NavIconButton from 'components/Navigation/Buttons/NavIconButton/NavIconButton';
 
+import { uploadImage } from 'lib/api';
 import { Breakpoints } from 'lib/responsiveImage';
 
 import { AspectRatio } from 'theme/values/images';
@@ -43,17 +46,19 @@ const ImageEdit = ({
     useState<ImageDefaultFragment>(image);
 
   const [openChangeImage, setOpenChangeImage] = useState<boolean>(false);
-  // const [openUploadImage, setOpenUploadImage] = useState<boolean>(false);
+  const [openUploadImage, setOpenUploadImage] = useState<boolean>(false);
+  // const [selectedFile, setSelectedFile] = useState<File>();
 
   useEffect(() => {
     setSelectedImage(image);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleClick = (image: ImageDefaultFragment) => {
+  const handleImageSelect = (image: ImageDefaultFragment) => {
     setSelectedImage(image);
     onChange({ value: image });
-    // setOpenChangeImage(false);
+    setOpenChangeImage(false);
+    setOpenUploadImage(false);
   };
 
   const showChangeImage = () => {
@@ -61,10 +66,28 @@ const ImageEdit = ({
     // setOpenUploadImage(false);
   };
 
-  // const showUploadImage = () => {
-  //   setOpenUploadImage(!openUploadImage);
-  //   setOpenChangeImage(false);
-  // };
+  const showUploadImage = () => {
+    setOpenUploadImage(true);
+  };
+
+  const selectFile = (e: ChangeEvent<HTMLInputElement>) => {
+    // e.preventDefault();
+
+    const file =
+      e && e.currentTarget && e.currentTarget.files && e.currentTarget.files[0];
+
+    console.log({ file });
+    if (file) {
+      console.log('file selected', file);
+      uploadImage(file);
+    }
+
+    setOpenUploadImage(false);
+  };
+
+  const handleFileOpenFocus = () => {
+    setOpenUploadImage(!openUploadImage);
+  };
 
   return imageList ? (
     <Stack className="image-edit">
@@ -93,16 +116,29 @@ const ImageEdit = ({
           variant="outlined"
         />
 
-        {/* <NavIconButton
-          ariaLabel={'upload image button'}
-          className="edit-button"
-          disabled={openUploadImage}
-          hideLabel={false}
-          icon={<CloudUploadIcon />}
-          label={'Add Image'}
-          onClick={showUploadImage}
-          variant="outlined"
-        /> */}
+        <input
+          accept="image/*"
+          id="upload-image"
+          name="upload-image"
+          onChange={(e) => selectFile(e)}
+          style={{ display: 'none' }}
+          type="file"
+        />
+
+        <label htmlFor="upload-image">
+          <NavIconButton
+            ariaLabel={'upload image button'}
+            className="edit-button"
+            disabled={openUploadImage}
+            hideLabel={false}
+            icon={<CloudUploadIcon />}
+            label={'Upload Image'}
+            onClick={showUploadImage}
+            component="span"
+            variant="outlined"
+            onFocus={handleFileOpenFocus}
+          />
+        </label>
       </Stack>
 
       {openChangeImage && (
@@ -122,7 +158,7 @@ const ImageEdit = ({
                   actionIcon={
                     <IconButton
                       aria-label={`select image ${image.fileName}`}
-                      onClick={() => handleClick(image)}
+                      onClick={() => handleImageSelect(image)}
                     >
                       <AddCircleIcon />
                     </IconButton>

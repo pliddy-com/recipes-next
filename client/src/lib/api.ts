@@ -1,4 +1,8 @@
+/* istanbul ignore file */
+
+import * as contentful from 'contentful-management';
 import { queryGraphQLContent } from './gqlClient';
+// import * as fs from 'fs';
 
 import {
   filterSlugs,
@@ -27,6 +31,15 @@ import {
 } from '../types/queries';
 
 import { hasValue } from './utils';
+
+const ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_MANAGEMENT_TOKEN ?? '';
+const SPACE_ID = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID ?? '';
+// const API_ENDPOINT = process.env.NEXT_PUBLIC_CONTENTFUL_CONTENT_API;
+
+const client = contentful.createClient({
+  accessToken: ACCESS_TOKEN,
+  space: SPACE_ID
+});
 
 // used to query content for nav menu taxonomy on client layout
 export const getNavTaxonomy = async () => {
@@ -160,4 +173,69 @@ export const getTagIndex = async (variables?: RecipeListQueryVariables) => {
         tagCollection
       })
     : [];
+};
+
+// upload media asset to Contentful
+
+// MOVE TO AWS API
+// UPLOAD IMAGE TO S3 USING SECURE URL
+// SEND SECURE DOWNLOAD URL TO CONTENTFUL WITH CREATE ASSET REQUEST
+
+const bufferToText = (buffer: ArrayBufferLike) => {
+  const bufferByteLength = buffer.byteLength;
+  const bufferUint8Array = new Uint8Array(buffer, 0, bufferByteLength);
+
+  return new TextDecoder().decode(bufferUint8Array);
+};
+
+export const uploadImage = async (file: File) => {
+  try {
+    console.log({ file });
+
+    const { name, type } = file;
+    const buffer = await file.arrayBuffer();
+
+    console.log('.buffer()', bufferToText(buffer));
+
+    const upload =
+      buffer &&
+      (await client
+        .getSpace(SPACE_ID)
+        .then((space) => space.getEnvironment('master'))
+        .then((environment) =>
+          environment.createAssetFromFiles({
+            fields: {
+              title: {
+                'en-US': name
+              },
+              description: {
+                'en-US': 'Asset description'
+              },
+              file: {
+                'en-US': {
+                  contentType: type,
+                  fileName: name,
+                  file: buffer
+                }
+              }
+            }
+          })
+        )
+        .then((asset) => {
+          console.log('processing upload');
+          return asset.processForAllLocales({ processingCheckWait: 2000 });
+        })
+        .then((asset) => {
+          console.log('publishing upload');
+          return asset.publish();
+        })
+        .then((asset) => {
+          console.log({ asset });
+          return asset;
+        }));
+
+    console.log('Upload ', upload);
+  } catch (e) {
+    console.error(e);
+  }
 };

@@ -3,11 +3,12 @@ import Link from 'next/link';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 
-import { MouseEventHandler } from 'react';
+import { FocusEventHandler, MouseEventHandler } from 'react';
 
 interface NavIconButtonProps {
   ariaLabel: string;
   className?: string;
+  component?: string;
   disabled?: boolean;
   hideLabel?: boolean;
   href?: string;
@@ -17,12 +18,14 @@ interface NavIconButtonProps {
   isOpen?: boolean;
   label?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  onFocus?: FocusEventHandler<HTMLButtonElement>;
   variant?: 'text' | 'outlined' | 'contained';
 }
 
 const NavIconButton = ({
   ariaLabel,
   className,
+  component,
   disabled = false,
   hideLabel = false,
   href,
@@ -32,6 +35,7 @@ const NavIconButton = ({
   isOpen = false,
   label,
   onClick,
+  onFocus,
   variant
 }: NavIconButtonProps) =>
   !hideLabel ? (
@@ -42,8 +46,9 @@ const NavIconButton = ({
       color="primary"
       id={id}
       onClick={onClick}
+      onFocus={onFocus}
       {...(href ? { href } : {})}
-      {...(href ? { component: Link } : {})}
+      {...(href ? { component: Link } : { component })}
       role="button"
       size="large"
       startIcon={icon}

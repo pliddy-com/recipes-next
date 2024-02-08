@@ -655,6 +655,7 @@ export enum InstructionSectionOrder {
 
 export type Query = {
   __typename?: 'Query';
+  _node?: Maybe<_Node>;
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
   entryCollection?: Maybe<EntryCollection>;
@@ -668,6 +669,13 @@ export type Query = {
   tagCollection?: Maybe<TagCollection>;
   taxonomy?: Maybe<Taxonomy>;
   taxonomyCollection?: Maybe<TaxonomyCollection>;
+};
+
+
+export type Query_NodeArgs = {
+  id: Scalars['ID'];
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -1513,6 +1521,10 @@ export enum TaxonomyOrder {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC'
 }
+
+export type _Node = {
+  _id: Scalars['ID'];
+};
 
 export type CfIngredientSectionNestedFilter = {
   AND?: InputMaybe<Array<InputMaybe<CfIngredientSectionNestedFilter>>>;
