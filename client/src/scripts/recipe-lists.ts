@@ -76,32 +76,31 @@ const getEntryData = async ({ id }: { id: string }) => {
     entryVariables
   );
 
-  const { ingredientsCollection, instructionsCollection, sys } =
-    entry.recipe ?? {};
+  const { ingredientsList, instructionsList, sys } = entry.recipe ?? {};
   const { publishedVersion } = sys ?? {};
 
-  const ingredientSections = ingredientsCollection?.items;
-  const instructionSections = instructionsCollection?.items;
+  // const ingredientSections = ingredientsCollection?.items;
+  // const instructionSections = instructionsCollection?.items;
 
-  const ingredientsList = ingredientSections?.map((section) => {
-    const sectionTitle = section?.label;
-    const sectionItems = section?.ingredientList;
+  // const ingredientsList = ingredientSections?.map(({section}) => {
+  //   const sectionTitle = section?.label;
+  //   const sectionItems = section?.ingredientList;
 
-    return {
-      sectionTitle,
-      sectionItems
-    };
-  });
+  //   return {
+  //     sectionTitle,
+  //     sectionItems
+  //   };
+  // });
 
-  const instructionsList = instructionSections?.map((section) => {
-    const sectionTitle = section?.label;
-    const sectionItems = section?.instructionList;
+  // const instructionsList = instructionSections?.map((section) => {
+  //   const sectionTitle = section?.label;
+  //   const sectionItems = section?.instructionList;
 
-    return {
-      sectionTitle,
-      sectionItems
-    };
-  });
+  //   return {
+  //     sectionTitle,
+  //     sectionItems
+  //   };
+  // });
 
   return { id, publishedVersion, ingredientsList, instructionsList };
 };

@@ -65,7 +65,7 @@ query linkedEntries {
 
 query recipeList($where: TagFilter) {
   __typename
-  tagCollection(where: $where, order: title_ASC) {
+  tagCollection(where: $where, order: title_ASC, limit: 1) {
     __typename
     total
     items {
@@ -121,20 +121,9 @@ query recipeEntryQuery($id: String!) {
       id
       publishedVersion
     }
-    ingredientsCollection {
-      total
-      items {
-        label
-        ingredientList
-      }
-    }
-    instructionsCollection {
-      total
-      items {
-        label
-        instructionList
-      }
-    }
+
+    ingredientsList
+    instructionsList
   }
 }
 
@@ -147,20 +136,7 @@ query recipeCollectionQuery {
         id
         publishedVersion
       }
-      # ingredientsCollection(limit: 10) {
-      #   total
-      #   items {
-      #     label
-      #     ingredientList
-      #   }
-      # }
-      # instructionsCollection(limit: 10) {
-      #   total
-      #   items {
-      #     label
-      #     instructionList
-      #   }
-      # }
+
       ingredientsList
       instructionsList
     }
