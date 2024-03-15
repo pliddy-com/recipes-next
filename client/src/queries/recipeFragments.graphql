@@ -6,27 +6,9 @@ fragment RecipeSlug on Recipe {
 }
 
 # Fragments with default fields for Recipe-specific sections:
-#   * Ingredients
-#   * Instructions
 #   * Image
 #   * RecipeDefault (full)
 #   * RecipeSummary (card)
-
-# fragment IngredientsDefault on IngredientSection {
-#   __typename
-#   title
-#   slug
-#   label
-#   ingredientList
-# }
-
-# fragment InstructionsDefault on InstructionSection {
-#   __typename
-#   title
-#   slug
-#   label
-#   instructionList
-# }
 
 fragment ImageDefault on Asset {
   sys {
