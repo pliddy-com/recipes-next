@@ -19,7 +19,7 @@ export const handler = async (event: APIGatewayEvent) => {
   if (body) {
     const asset = JSON.parse(body);
 
-    console.log('asset:', asset);
+    // console.log('asset:', asset);
 
     const result = 'SUCCESS';
 

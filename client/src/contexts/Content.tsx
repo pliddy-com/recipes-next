@@ -128,14 +128,10 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
         throw new Error('User is not authenticated.');
       }
 
-      console.log({ file });
-
       // const { name, type } = file;
 
       const buffer = await file.arrayBuffer();
       const body = bufferToText(buffer);
-
-      console.log('body', body);
 
       try {
         const response = await fetch(assetsApiUrl, {
@@ -145,6 +141,8 @@ const ContentManagementProvider = (props: ContentManagementProps) => {
           },
           body: JSON.stringify(body)
         });
+
+        console.log({ response });
 
         return response.json();
       } catch (e) {
