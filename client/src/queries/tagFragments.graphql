@@ -49,7 +49,7 @@ fragment ListPageItem on Tag {
   slug
   title
   linkedFrom {
-    recipeCollection(limit: 13) {
+    recipeCollection {
       total
       items {
         ...RecipeSummary
