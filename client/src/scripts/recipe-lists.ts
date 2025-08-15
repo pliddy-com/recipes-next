@@ -7,9 +7,11 @@
 
 import { RecipeEntryQueryDocument } from '../types/queries';
 
-import * as dotenv from 'dotenv';
+// import * as dotenv from 'dotenv';
 
-dotenv.config();
+// dotenv.config();
+
+import 'dotenv/config';
 
 const {
   CONTENTFUL_MANAGEMENT_API,

@@ -213,10 +213,26 @@ export enum AssetOrder {
 
 export type ContentfulMetadata = {
   __typename?: 'ContentfulMetadata';
+  concepts: Array<Maybe<TaxonomyConcept>>;
   tags: Array<Maybe<ContentfulTag>>;
 };
 
+export type ContentfulMetadataConceptsDescendantsFilter = {
+  id_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type ContentfulMetadataConceptsFilter = {
+  descendants?: InputMaybe<ContentfulMetadataConceptsDescendantsFilter>;
+  id_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
 export type ContentfulMetadataFilter = {
+  concepts?: InputMaybe<ContentfulMetadataConceptsFilter>;
+  concepts_exists?: InputMaybe<Scalars['Boolean']>;
   tags?: InputMaybe<ContentfulMetadataTagsFilter>;
   tags_exists?: InputMaybe<Scalars['Boolean']>;
 };
@@ -229,7 +245,7 @@ export type ContentfulMetadataTagsFilter = {
 
 /**
  * Represents a tag entity for finding and organizing content easily.
- *     Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags
+ *       Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags
  */
 export type ContentfulTag = {
   __typename?: 'ContentfulTag';
@@ -269,6 +285,7 @@ export enum EntryOrder {
 }
 
 export enum ImageFormat {
+  /** AVIF image format. */
   Avif = 'AVIF',
   /** JPG image format. */
   Jpg = 'JPG',
@@ -363,240 +380,13 @@ export type ImageTransformOptions = {
   width?: InputMaybe<Scalars['Dimension']>;
 };
 
-/** This is a list of ingredients grouped into a section with a title. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/ingredientSection) */
-export type IngredientSection = Entry & {
-  __typename?: 'IngredientSection';
-  contentfulMetadata: ContentfulMetadata;
-  ingredientList?: Maybe<Array<Maybe<Scalars['String']>>>;
-  label?: Maybe<Scalars['String']>;
-  linkedFrom?: Maybe<IngredientSectionLinkingCollections>;
-  slug?: Maybe<Scalars['String']>;
-  sys: Sys;
-  title?: Maybe<Scalars['String']>;
-};
-
-
-/** This is a list of ingredients grouped into a section with a title. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/ingredientSection) */
-export type IngredientSectionIngredientListArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** This is a list of ingredients grouped into a section with a title. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/ingredientSection) */
-export type IngredientSectionLabelArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** This is a list of ingredients grouped into a section with a title. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/ingredientSection) */
-export type IngredientSectionLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-/** This is a list of ingredients grouped into a section with a title. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/ingredientSection) */
-export type IngredientSectionSlugArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** This is a list of ingredients grouped into a section with a title. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/ingredientSection) */
-export type IngredientSectionTitleArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-export type IngredientSectionCollection = {
-  __typename?: 'IngredientSectionCollection';
-  items: Array<Maybe<IngredientSection>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
-};
-
-export type IngredientSectionFilter = {
-  AND?: InputMaybe<Array<InputMaybe<IngredientSectionFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<IngredientSectionFilter>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  ingredientList_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ingredientList_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ingredientList_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ingredientList_exists?: InputMaybe<Scalars['Boolean']>;
-  label?: InputMaybe<Scalars['String']>;
-  label_contains?: InputMaybe<Scalars['String']>;
-  label_exists?: InputMaybe<Scalars['Boolean']>;
-  label_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  label_not?: InputMaybe<Scalars['String']>;
-  label_not_contains?: InputMaybe<Scalars['String']>;
-  label_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  slug?: InputMaybe<Scalars['String']>;
-  slug_contains?: InputMaybe<Scalars['String']>;
-  slug_exists?: InputMaybe<Scalars['Boolean']>;
-  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  slug_not?: InputMaybe<Scalars['String']>;
-  slug_not_contains?: InputMaybe<Scalars['String']>;
-  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  sys?: InputMaybe<SysFilter>;
-  title?: InputMaybe<Scalars['String']>;
-  title_contains?: InputMaybe<Scalars['String']>;
-  title_exists?: InputMaybe<Scalars['Boolean']>;
-  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  title_not?: InputMaybe<Scalars['String']>;
-  title_not_contains?: InputMaybe<Scalars['String']>;
-  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type IngredientSectionLinkingCollections = {
-  __typename?: 'IngredientSectionLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-
-export type IngredientSectionLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-export enum IngredientSectionOrder {
-  LabelAsc = 'label_ASC',
-  LabelDesc = 'label_DESC',
-  SlugAsc = 'slug_ASC',
-  SlugDesc = 'slug_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
-}
-
-/** This is a list of Instructions grouped into a section with a title." [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/instructionSection) */
-export type InstructionSection = Entry & {
-  __typename?: 'InstructionSection';
-  contentfulMetadata: ContentfulMetadata;
-  instructionList?: Maybe<Array<Maybe<Scalars['String']>>>;
-  label?: Maybe<Scalars['String']>;
-  linkedFrom?: Maybe<InstructionSectionLinkingCollections>;
-  slug?: Maybe<Scalars['String']>;
-  sys: Sys;
-  title?: Maybe<Scalars['String']>;
-};
-
-
-/** This is a list of Instructions grouped into a section with a title." [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/instructionSection) */
-export type InstructionSectionInstructionListArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** This is a list of Instructions grouped into a section with a title." [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/instructionSection) */
-export type InstructionSectionLabelArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** This is a list of Instructions grouped into a section with a title." [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/instructionSection) */
-export type InstructionSectionLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-/** This is a list of Instructions grouped into a section with a title." [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/instructionSection) */
-export type InstructionSectionSlugArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** This is a list of Instructions grouped into a section with a title." [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/instructionSection) */
-export type InstructionSectionTitleArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-export type InstructionSectionCollection = {
-  __typename?: 'InstructionSectionCollection';
-  items: Array<Maybe<InstructionSection>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
-};
-
-export type InstructionSectionFilter = {
-  AND?: InputMaybe<Array<InputMaybe<InstructionSectionFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<InstructionSectionFilter>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  instructionList_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  instructionList_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  instructionList_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  instructionList_exists?: InputMaybe<Scalars['Boolean']>;
-  label?: InputMaybe<Scalars['String']>;
-  label_contains?: InputMaybe<Scalars['String']>;
-  label_exists?: InputMaybe<Scalars['Boolean']>;
-  label_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  label_not?: InputMaybe<Scalars['String']>;
-  label_not_contains?: InputMaybe<Scalars['String']>;
-  label_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  slug?: InputMaybe<Scalars['String']>;
-  slug_contains?: InputMaybe<Scalars['String']>;
-  slug_exists?: InputMaybe<Scalars['Boolean']>;
-  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  slug_not?: InputMaybe<Scalars['String']>;
-  slug_not_contains?: InputMaybe<Scalars['String']>;
-  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  sys?: InputMaybe<SysFilter>;
-  title?: InputMaybe<Scalars['String']>;
-  title_contains?: InputMaybe<Scalars['String']>;
-  title_exists?: InputMaybe<Scalars['Boolean']>;
-  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  title_not?: InputMaybe<Scalars['String']>;
-  title_not_contains?: InputMaybe<Scalars['String']>;
-  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type InstructionSectionLinkingCollections = {
-  __typename?: 'InstructionSectionLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-
-export type InstructionSectionLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-export enum InstructionSectionOrder {
-  LabelAsc = 'label_ASC',
-  LabelDesc = 'label_DESC',
-  SlugAsc = 'slug_ASC',
-  SlugDesc = 'slug_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
-}
-
 export type Query = {
   __typename?: 'Query';
   _node?: Maybe<_Node>;
+  _nodes: Array<Maybe<_Node>>;
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
   entryCollection?: Maybe<EntryCollection>;
-  ingredientSection?: Maybe<IngredientSection>;
-  ingredientSectionCollection?: Maybe<IngredientSectionCollection>;
-  instructionSection?: Maybe<InstructionSection>;
-  instructionSectionCollection?: Maybe<InstructionSectionCollection>;
   recipe?: Maybe<Recipe>;
   recipeCollection?: Maybe<RecipeCollection>;
   tag?: Maybe<Tag>;
@@ -608,6 +398,13 @@ export type Query = {
 
 export type Query_NodeArgs = {
   id: Scalars['ID'];
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type Query_NodesArgs = {
+  ids: Array<Scalars['ID']>;
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
 };
@@ -637,40 +434,6 @@ export type QueryEntryCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<EntryFilter>;
-};
-
-
-export type QueryIngredientSectionArgs = {
-  id: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-export type QueryIngredientSectionCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<IngredientSectionOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<IngredientSectionFilter>;
-};
-
-
-export type QueryInstructionSectionArgs = {
-  id: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-export type QueryInstructionSectionCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<InstructionSectionOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<InstructionSectionFilter>;
 };
 
 
@@ -724,9 +487,10 @@ export type QueryTaxonomyCollectionArgs = {
   where?: InputMaybe<TaxonomyFilter>;
 };
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
-export type Recipe = Entry & {
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+export type Recipe = Entry & _Node & {
   __typename?: 'Recipe';
+  _id: Scalars['ID'];
   abstract?: Maybe<Scalars['String']>;
   contentfulMetadata: ContentfulMetadata;
   cookTime?: Maybe<Scalars['String']>;
@@ -747,86 +511,86 @@ export type Recipe = Entry & {
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeAbstractArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeCookTimeArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeEquipmentArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeImageArgs = {
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeIngredientsListArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeInstructionsListArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeKeywordsArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeNotesArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipePrepTimeArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeRecipeYieldArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeSlugArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeTagsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
@@ -837,7 +601,7 @@ export type RecipeTagsCollectionArgs = {
 };
 
 
-/** This is a full recipe with ingredients, equipment, and directions. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/recipe) */
 export type RecipeTitleArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
@@ -1041,6 +805,8 @@ export type Sys = {
   environmentId: Scalars['String'];
   firstPublishedAt?: Maybe<Scalars['DateTime']>;
   id: Scalars['String'];
+  /** The locale that was requested. */
+  locale?: Maybe<Scalars['String']>;
   publishedAt?: Maybe<Scalars['DateTime']>;
   publishedVersion?: Maybe<Scalars['Int']>;
   spaceId: Scalars['String'];
@@ -1083,9 +849,10 @@ export type SysFilter = {
   publishedVersion_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
 };
 
-/** This is a string used as a tag for organizing content. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/tag) */
-export type Tag = Entry & {
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/tag) */
+export type Tag = Entry & _Node & {
   __typename?: 'Tag';
+  _id: Scalars['ID'];
   contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<TagLinkingCollections>;
   slug?: Maybe<Scalars['String']>;
@@ -1094,19 +861,19 @@ export type Tag = Entry & {
 };
 
 
-/** This is a string used as a tag for organizing content. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/tag) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/tag) */
 export type TagLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-/** This is a string used as a tag for organizing content. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/tag) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/tag) */
 export type TagSlugArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a string used as a tag for organizing content. [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/tag) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/tag) */
 export type TagTitleArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
@@ -1226,9 +993,10 @@ export enum TagOrder {
   TitleDesc = 'title_DESC'
 }
 
-/** This is a structured collection of tags with a title [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/taxonomy) */
-export type Taxonomy = Entry & {
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/taxonomy) */
+export type Taxonomy = Entry & _Node & {
   __typename?: 'Taxonomy';
+  _id: Scalars['ID'];
   childrenCollection?: Maybe<TaxonomyChildrenCollection>;
   contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<TaxonomyLinkingCollections>;
@@ -1239,7 +1007,7 @@ export type Taxonomy = Entry & {
 };
 
 
-/** This is a structured collection of tags with a title [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/taxonomy) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/taxonomy) */
 export type TaxonomyChildrenCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
@@ -1249,19 +1017,19 @@ export type TaxonomyChildrenCollectionArgs = {
 };
 
 
-/** This is a structured collection of tags with a title [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/taxonomy) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/taxonomy) */
 export type TaxonomyLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-/** This is a structured collection of tags with a title [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/taxonomy) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/taxonomy) */
 export type TaxonomySlugArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
-/** This is a structured collection of tags with a title [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/taxonomy) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/taxonomy) */
 export type TaxonomyTagArgs = {
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
@@ -1269,7 +1037,7 @@ export type TaxonomyTagArgs = {
 };
 
 
-/** This is a structured collection of tags with a title [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/taxonomy) */
+/** [See type definition](https://app.contentful.com/spaces/fo9qwg6zarbt/content_types/taxonomy) */
 export type TaxonomyTitleArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
@@ -1311,6 +1079,15 @@ export type TaxonomyCollection = {
   limit: Scalars['Int'];
   skip: Scalars['Int'];
   total: Scalars['Int'];
+};
+
+/**
+ * Represents a taxonomy concept entity for finding and organizing content easily.
+ *         Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-concepts
+ */
+export type TaxonomyConcept = {
+  __typename?: 'TaxonomyConcept';
+  id?: Maybe<Scalars['String']>;
 };
 
 export type TaxonomyFilter = {
@@ -1480,7 +1257,7 @@ export type RecipePageQueryVariables = Exact<{
 }>;
 
 
-export type RecipePageQuery = { __typename?: 'Query', recipeCollection?: { __typename: 'RecipeCollection', items: Array<{ __typename: 'Recipe', title?: string | null, slug?: string | null, abstract?: string | null, recipeYield?: string | null, prepTime?: string | null, cookTime?: string | null, ingredientsList?: any | null, equipment?: Array<string | null> | null, instructionsList?: any | null, notes?: Array<string | null> | null, keywords?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, firstPublishedAt?: any | null }, image?: { __typename?: 'Asset', title?: string | null, description?: string | null, contentType?: string | null, fileName?: string | null, size?: number | null, url?: string | null, height?: number | null, width?: number | null, sys: { __typename?: 'Sys', id: string } } | null, tagsCollection?: { __typename?: 'RecipeTagsCollection', items: Array<{ __typename: 'Tag', title?: string | null, slug?: string | null, sys: { __typename?: 'Sys', id: string } } | null> } | null, description?: { __typename?: 'RecipeDescription', json: any, links: { __typename?: 'RecipeDescriptionLinks', assets: { __typename?: 'RecipeDescriptionAssets', block: Array<{ __typename: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null>, hyperlink: Array<{ __typename: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null> }, entries: { __typename?: 'RecipeDescriptionEntries', inline: Array<{ __typename: 'IngredientSection', sys: { __typename?: 'Sys', id: string } } | { __typename: 'InstructionSection', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Recipe', slug?: string | null, title?: string | null, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Tag', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', sys: { __typename?: 'Sys', id: string } } | null>, hyperlink: Array<{ __typename: 'IngredientSection', sys: { __typename?: 'Sys', id: string } } | { __typename: 'InstructionSection', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Recipe', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Tag', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', sys: { __typename?: 'Sys', id: string } } | null> } } } | null } | null> } | null, categoriesTaxonomy?: { __typename: 'TaxonomyCollection', items: Array<{ __typename?: 'Taxonomy', childrenCollection?: { __typename?: 'TaxonomyChildrenCollection', total: number, items: Array<{ __typename: 'Tag', title?: string | null, slug?: string | null, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', title?: string | null, slug?: string | null } | null> } | null } | null> } | null, cuisineTaxonomy?: { __typename: 'TaxonomyCollection', items: Array<{ __typename?: 'Taxonomy', childrenCollection?: { __typename?: 'TaxonomyChildrenCollection', total: number, items: Array<{ __typename: 'Tag', title?: string | null, slug?: string | null, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', title?: string | null, slug?: string | null } | null> } | null } | null> } | null };
+export type RecipePageQuery = { __typename?: 'Query', recipeCollection?: { __typename: 'RecipeCollection', items: Array<{ __typename: 'Recipe', title?: string | null, slug?: string | null, abstract?: string | null, recipeYield?: string | null, prepTime?: string | null, cookTime?: string | null, ingredientsList?: any | null, equipment?: Array<string | null> | null, instructionsList?: any | null, notes?: Array<string | null> | null, keywords?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, firstPublishedAt?: any | null }, image?: { __typename?: 'Asset', title?: string | null, description?: string | null, contentType?: string | null, fileName?: string | null, size?: number | null, url?: string | null, height?: number | null, width?: number | null, sys: { __typename?: 'Sys', id: string } } | null, tagsCollection?: { __typename?: 'RecipeTagsCollection', items: Array<{ __typename: 'Tag', title?: string | null, slug?: string | null, sys: { __typename?: 'Sys', id: string } } | null> } | null, description?: { __typename?: 'RecipeDescription', json: any, links: { __typename?: 'RecipeDescriptionLinks', assets: { __typename?: 'RecipeDescriptionAssets', block: Array<{ __typename: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null>, hyperlink: Array<{ __typename: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null> }, entries: { __typename?: 'RecipeDescriptionEntries', inline: Array<{ __typename: 'Recipe', slug?: string | null, title?: string | null, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Tag', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', sys: { __typename?: 'Sys', id: string } } | null>, hyperlink: Array<{ __typename: 'Recipe', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Tag', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', sys: { __typename?: 'Sys', id: string } } | null> } } } | null } | null> } | null, categoriesTaxonomy?: { __typename: 'TaxonomyCollection', items: Array<{ __typename?: 'Taxonomy', childrenCollection?: { __typename?: 'TaxonomyChildrenCollection', total: number, items: Array<{ __typename: 'Tag', title?: string | null, slug?: string | null, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', title?: string | null, slug?: string | null } | null> } | null } | null> } | null, cuisineTaxonomy?: { __typename: 'TaxonomyCollection', items: Array<{ __typename?: 'Taxonomy', childrenCollection?: { __typename?: 'TaxonomyChildrenCollection', total: number, items: Array<{ __typename: 'Tag', title?: string | null, slug?: string | null, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', title?: string | null, slug?: string | null } | null> } | null } | null> } | null };
 
 export type RecipeEntryQueryQueryVariables = Exact<{
   id: Scalars['String'];
@@ -1498,9 +1275,9 @@ export type RecipeSlugFragment = { __typename: 'Recipe', slug?: string | null };
 
 export type ImageDefaultFragment = { __typename?: 'Asset', title?: string | null, description?: string | null, contentType?: string | null, fileName?: string | null, size?: number | null, url?: string | null, height?: number | null, width?: number | null, sys: { __typename?: 'Sys', id: string } };
 
-export type DescriptionDefaultFragment = { __typename?: 'Recipe', description?: { __typename?: 'RecipeDescription', json: any, links: { __typename?: 'RecipeDescriptionLinks', assets: { __typename?: 'RecipeDescriptionAssets', block: Array<{ __typename: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null>, hyperlink: Array<{ __typename: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null> }, entries: { __typename?: 'RecipeDescriptionEntries', inline: Array<{ __typename: 'IngredientSection', sys: { __typename?: 'Sys', id: string } } | { __typename: 'InstructionSection', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Recipe', slug?: string | null, title?: string | null, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Tag', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', sys: { __typename?: 'Sys', id: string } } | null>, hyperlink: Array<{ __typename: 'IngredientSection', sys: { __typename?: 'Sys', id: string } } | { __typename: 'InstructionSection', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Recipe', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Tag', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', sys: { __typename?: 'Sys', id: string } } | null> } } } | null };
+export type DescriptionDefaultFragment = { __typename?: 'Recipe', description?: { __typename?: 'RecipeDescription', json: any, links: { __typename?: 'RecipeDescriptionLinks', assets: { __typename?: 'RecipeDescriptionAssets', block: Array<{ __typename: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null>, hyperlink: Array<{ __typename: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null> }, entries: { __typename?: 'RecipeDescriptionEntries', inline: Array<{ __typename: 'Recipe', slug?: string | null, title?: string | null, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Tag', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', sys: { __typename?: 'Sys', id: string } } | null>, hyperlink: Array<{ __typename: 'Recipe', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Tag', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', sys: { __typename?: 'Sys', id: string } } | null> } } } | null };
 
-export type RecipeDefaultFragment = { __typename: 'Recipe', title?: string | null, slug?: string | null, abstract?: string | null, recipeYield?: string | null, prepTime?: string | null, cookTime?: string | null, ingredientsList?: any | null, equipment?: Array<string | null> | null, instructionsList?: any | null, notes?: Array<string | null> | null, keywords?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, firstPublishedAt?: any | null }, image?: { __typename?: 'Asset', title?: string | null, description?: string | null, contentType?: string | null, fileName?: string | null, size?: number | null, url?: string | null, height?: number | null, width?: number | null, sys: { __typename?: 'Sys', id: string } } | null, tagsCollection?: { __typename?: 'RecipeTagsCollection', items: Array<{ __typename: 'Tag', title?: string | null, slug?: string | null, sys: { __typename?: 'Sys', id: string } } | null> } | null, description?: { __typename?: 'RecipeDescription', json: any, links: { __typename?: 'RecipeDescriptionLinks', assets: { __typename?: 'RecipeDescriptionAssets', block: Array<{ __typename: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null>, hyperlink: Array<{ __typename: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null> }, entries: { __typename?: 'RecipeDescriptionEntries', inline: Array<{ __typename: 'IngredientSection', sys: { __typename?: 'Sys', id: string } } | { __typename: 'InstructionSection', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Recipe', slug?: string | null, title?: string | null, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Tag', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', sys: { __typename?: 'Sys', id: string } } | null>, hyperlink: Array<{ __typename: 'IngredientSection', sys: { __typename?: 'Sys', id: string } } | { __typename: 'InstructionSection', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Recipe', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Tag', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', sys: { __typename?: 'Sys', id: string } } | null> } } } | null };
+export type RecipeDefaultFragment = { __typename: 'Recipe', title?: string | null, slug?: string | null, abstract?: string | null, recipeYield?: string | null, prepTime?: string | null, cookTime?: string | null, ingredientsList?: any | null, equipment?: Array<string | null> | null, instructionsList?: any | null, notes?: Array<string | null> | null, keywords?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, firstPublishedAt?: any | null }, image?: { __typename?: 'Asset', title?: string | null, description?: string | null, contentType?: string | null, fileName?: string | null, size?: number | null, url?: string | null, height?: number | null, width?: number | null, sys: { __typename?: 'Sys', id: string } } | null, tagsCollection?: { __typename?: 'RecipeTagsCollection', items: Array<{ __typename: 'Tag', title?: string | null, slug?: string | null, sys: { __typename?: 'Sys', id: string } } | null> } | null, description?: { __typename?: 'RecipeDescription', json: any, links: { __typename?: 'RecipeDescriptionLinks', assets: { __typename?: 'RecipeDescriptionAssets', block: Array<{ __typename: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null>, hyperlink: Array<{ __typename: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null> }, entries: { __typename?: 'RecipeDescriptionEntries', inline: Array<{ __typename: 'Recipe', slug?: string | null, title?: string | null, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Tag', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', sys: { __typename?: 'Sys', id: string } } | null>, hyperlink: Array<{ __typename: 'Recipe', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Tag', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Taxonomy', sys: { __typename?: 'Sys', id: string } } | null> } } } | null };
 
 export type RecipeSummaryFragment = { __typename: 'Recipe', title?: string | null, slug?: string | null, abstract?: string | null, sys: { __typename?: 'Sys', id: string }, image?: { __typename?: 'Asset', title?: string | null, description?: string | null, contentType?: string | null, fileName?: string | null, size?: number | null, url?: string | null, height?: number | null, width?: number | null, sys: { __typename?: 'Sys', id: string } } | null, tagsCollection?: { __typename?: 'RecipeTagsCollection', items: Array<{ __typename: 'Tag', title?: string | null, slug?: string | null, sys: { __typename?: 'Sys', id: string } } | null> } | null };
 
