@@ -1,8 +1,10 @@
 #!/usr/bin/env ts-node
 
-import * as dotenv from 'dotenv';
+// import * as dotenv from 'dotenv';
 
-dotenv.config();
+// dotenv.config();
+
+import 'dotenv/config';
 
 import path from 'path';
 import fs from 'fs';

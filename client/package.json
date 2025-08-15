@@ -16,7 +16,7 @@
     "invalidate": "dotenv -- cross-var aws cloudfront create-invalidation --distribution-id %DISTRIBUTION_ID% --paths '/*' --no-cli-pager",
     "lint": "prettier --check . && next lint",
     "lint:fix": "prettier --write . && next lint --fix",
-    "nav": "node --no-warnings --loader ts-node/esm ./src/scripts/getNavData.ts",
+    "nav": "ts-node ./src/scripts/getNavData.ts",
     "prestart": "npm run build",
     "remove": "dotenv -- cross-var aws s3 rm --recursive %S3_BUCKET%/branches/$(git symbolic-ref --short HEAD)",
     "scan": "dotenv -- cross-var npm run typegen && npm run nav && npm run typecheck && npm run lint && npm run test",
