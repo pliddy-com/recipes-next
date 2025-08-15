@@ -8,5 +8,5 @@ runs:
       id: set-node-version
       uses: actions/setup-node@v4
       with:
-        node-version-file: ${{ env.NODE_VERSION_FILE }}
+        node-version-file: '.nvmrc'
         cache: 'npm'
