@@ -14,7 +14,7 @@ import {
   PriceClass,
   Distribution
 } from 'aws-cdk-lib/aws-cloudfront';
-import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
+import { S3BucketOrigin } from 'aws-cdk-lib/aws-cloudfront-origins';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { RecipesBranchStack } from '../../recipes-branch-stack';
 
@@ -98,18 +98,43 @@ export const createDistribution = ({
     responsePagePath: '/404.html'
   };
 
+  // const origin = new S3Origin(siteBucket, {
+  //   originAccessIdentity: cloudfrontOAI,
+  //   originPath
+  //   // originShieldEnabled: true,
+  //   // originShieldRegion: process.env.CDK_DEFAULT_REGION
+  // });
+
+  const origin = S3BucketOrigin.withOriginAccessIdentity(siteBucket, {
+    originAccessIdentity: cloudfrontOAI,
+    originPath
+  });
+
+  /*
+    const origin = S3BucketOrigin.withOriginAccessIdentity(myBucket, {
+      originAccessIdentity: cloudfrontOAI
+    });
+    new cloudfront.Distribution(this, 'myDist', {
+      defaultBehavior: {
+        origin,
+        originPath
+      },
+    });
+
+  {
+    defaultBehavior: {
+      origin: S3BucketOrigin.withOriginAccessControl(siteBucket)
+    },
+  }
+  */
+
   const distributionConfig: DistributionProps = {
     certificate,
     defaultBehavior: {
       allowedMethods: AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
       compress: true,
       edgeLambdas: [edgeLambda],
-      origin: new S3Origin(siteBucket, {
-        originAccessIdentity: cloudfrontOAI,
-        originPath
-        // originShieldEnabled: true,
-        // originShieldRegion: process.env.CDK_DEFAULT_REGION
-      }),
+      origin,
       originRequestPolicy: OriginRequestPolicy.CORS_S3_ORIGIN,
       responseHeadersPolicy,
       viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS
