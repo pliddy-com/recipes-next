@@ -7,10 +7,8 @@ import Typography from '@mui/material/Typography';
 
 import SkilletIcon from 'components/Icons/SkilletIcon/SkilletIcon';
 
-import { Maybe, Scalars } from 'types/queries';
-
 interface EquipmentSectionProps {
-  equipment?: Maybe<Array<Maybe<Scalars['String']>>>;
+  equipment?: Array<string | null>;
 }
 
 const EquipmentSection = ({ equipment }: EquipmentSectionProps) => {

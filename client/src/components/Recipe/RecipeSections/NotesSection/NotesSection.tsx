@@ -1,10 +1,8 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import { Maybe, Scalars } from 'types/queries';
-
 interface NotesProps {
-  notes?: Maybe<Array<Maybe<Scalars['String']>>>;
+  notes?: Array<string | null>;
 }
 
 const Notes = ({ notes }: NotesProps) => {
