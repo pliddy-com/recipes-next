@@ -32,8 +32,8 @@
     "typegen:watch": "graphql-codegen --watch --config codegen.yml --require dotenv/config"
   },
   "dependencies": {
-    "@contentful/rich-text-plain-text-renderer": "^16.0.3",
-    "@contentful/rich-text-react-renderer": "^15.16.2",
+    "@contentful/rich-text-plain-text-renderer": "^17.1.0",
+    "@contentful/rich-text-react-renderer": "^16.1.0",
     "@emotion/cache": "11.10.5",
     "@emotion/react": "11.10.5",
     "@emotion/server": "11.10.0",
@@ -52,7 +52,7 @@
     "slugify": "^1.6.6"
   },
   "devDependencies": {
-    "@contentful/rich-text-types": "^16.0.2",
+    "@contentful/rich-text-types": "^17.1.0",
     "@graphql-codegen/cli": "^5.0.7",
     "@graphql-codegen/typed-document-node": "5.1.2",
     "@graphql-codegen/typescript": "4.1.6",
