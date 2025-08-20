@@ -1,12 +1,13 @@
 /* istanbul ignore file */
-import { TypedDocumentNode, createClient } from 'urql';
+import { cacheExchange, Client, fetchExchange, TypedDocumentNode } from 'urql';
 import { ResultOf, VariablesOf } from '@graphql-typed-document-node/core';
 
 const ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
 const API_ENDPOINT = process.env.NEXT_PUBLIC_CONTENTFUL_CONTENT_API;
 
-export const gqlClient = createClient({
+export const gqlClient = new Client({
   url: API_ENDPOINT || '',
+  exchanges: [cacheExchange, fetchExchange],
   fetchOptions: () => ({
     headers: { authorization: ACCESS_TOKEN ? `Bearer ${ACCESS_TOKEN}` : '' }
   })

@@ -1,0 +1,71 @@
+Latest commit
+
+TODO: AWS SDK for JavaScript (v3)
+
+NextJS from 13 to 14
+NextJS from 14 to 15 - NO
+
+NextJS & testing libraries
+urql
+material UI & emotion
+
+
+Done:
+
+* updated contentful pkgs
+* updated urql
+
+
+npm warn deprecated @types/next@9.0.0: This is a stub types definition. next provides its own type definitions, so you do not need this installed.
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated flatten@1.0.3: flatten is deprecated in favor of utility frameworks such as lodash.
+npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+npm warn deprecated are-we-there-yet@4.0.2: This package is no longer supported.
+npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+npm warn deprecated domexception@4.0.0: Use your platform's native DOMException instead
+npm warn deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+npm warn deprecated mkdirp@0.3.0: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+npm warn deprecated gauge@5.0.2: This package is no longer supported.
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+npm warn deprecated @mui/base@5.0.0-alpha.114: This package has been replaced by @base-ui-components/react
+
+
+npm install urql@latest --workspace=client
+
+
+    "@emotion/cache": "11.10.5",
+    "@emotion/react": "11.10.5",
+    "@emotion/server": "11.10.0",
+    "@emotion/styled": "11.10.5",
+
+    "@mui/icons-material": "5.11.0",
+    "@mui/material": "5.11.5",
+    "@mui/system": "5.11.5",
+    "@mui/utils": "5.11.2",
+
+
+    "next": "^13.1.2",
+    "next-unused": "^0.0.6",
+
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+
+
+dev
+
+    "@next/bundle-analyzer": "^13.2.4",
+    "@testing-library/dom": "8.20.0",
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "13.4.0",
+    "@testing-library/user-event": "14.4.3",
+    "@types/next": "^9.0.0",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "18.0.10",
+    "eslint-config-next": "13.1.2",
+    "jest-next-dynamic": "1.0.1",
+    "next-sitemap": "^3.1.52",
+    "urql": "3.0.3"
