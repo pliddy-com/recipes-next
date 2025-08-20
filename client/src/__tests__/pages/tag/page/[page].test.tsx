@@ -46,8 +46,7 @@ describe('TagListPage in [page].tsx', () => {
           pageContent: tagData,
           preview: true,
           page
-        },
-        revalidate: 10
+        }
       };
 
       const context = {
@@ -92,8 +91,7 @@ describe('TagListPage in [page].tsx', () => {
           pageContent: tagData,
           preview: true,
           page: undefined
-        },
-        revalidate: 10
+        }
       };
 
       const context = {

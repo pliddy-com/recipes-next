@@ -46,8 +46,7 @@ describe('RecipeListPage in [page].tsx', () => {
           pageContent: recipeCollectionData,
           preview: true,
           page
-        },
-        revalidate: 10
+        }
       };
 
       const context = {
@@ -92,8 +91,7 @@ describe('RecipeListPage in [page].tsx', () => {
           pageContent: recipeCollectionData,
           preview: true,
           page: undefined
-        },
-        revalidate: 10
+        }
       };
 
       const context = {

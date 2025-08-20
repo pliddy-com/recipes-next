@@ -49,8 +49,7 @@ describe('TagPage in tags/[slug].tsx', () => {
         props: {
           pageContent,
           preview: false
-        },
-        revalidate: 10
+        }
       };
 
       const expectedPaths = {
