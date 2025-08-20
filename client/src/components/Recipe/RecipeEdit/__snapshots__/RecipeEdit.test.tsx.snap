@@ -971,7 +971,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             class="listEdit css-nen11g-MuiStack-root"
           >
             <div
-              class=" section MuiBox-root css-0"
+              class="section MuiBox-root css-0"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root field css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -1585,7 +1585,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             class="listEdit css-nen11g-MuiStack-root"
           >
             <div
-              class=" section MuiBox-root css-0"
+              class="section MuiBox-root css-0"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root field css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -1823,7 +1823,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
             class="listEdit css-nen11g-MuiStack-root"
           >
             <div
-              class=" section MuiBox-root css-0"
+              class="section MuiBox-root css-0"
             >
               <div
                 class="MuiFormControl-root MuiTextField-root field css-1u3bzj6-MuiFormControl-root-MuiTextField-root"

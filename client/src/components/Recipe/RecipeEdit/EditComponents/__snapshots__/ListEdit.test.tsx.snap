@@ -6,7 +6,7 @@ exports[`ListEdit when there is content renders the component 1`] = `
     class="listEdit css-nen11g-MuiStack-root"
   >
     <div
-      class=" section MuiBox-root css-0"
+      class="section MuiBox-root css-0"
     >
       <div
         class="MuiFormControl-root MuiTextField-root field css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
