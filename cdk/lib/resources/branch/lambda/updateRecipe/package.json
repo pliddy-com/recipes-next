@@ -13,6 +13,9 @@
   "dependencies": {
     "contentful-management": "^10.34.1",
     "dotenv": "^16.0.3",
-    "node-fetch": "^3.3.1"
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.13"
   }
 }
