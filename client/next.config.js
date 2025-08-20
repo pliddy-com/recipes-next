@@ -23,10 +23,9 @@ const nextConfig = {
     ],
     unoptimized: true
   },
+  output: 'export',
   reactStrictMode: true
 };
-
-// module.exports = nextConfig;
 
 module.exports = withBundleAnalyzer({
   ...nextConfig

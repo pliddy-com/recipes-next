@@ -27,8 +27,6 @@ This build generates a page for each recipe in the site, as well as a pre-render
 
 Additionally, Next.js uses **lazy pre-fetching** of `json` data files for linked pages. Navigating to a page type that has previously been viewed is almost instantaneous since all resources except for images are cached by the browser.
 
-Pages also utilize the Next `revalidate` feature, which means when a current page renders, it uses the content API to check if its content has been updated in the CMS. If the content has changed, the page will fetch a new `json` payload with the latest content without requiring a full site rebuild.
-
 If a new page is published, the site will require a full rebuild in order to know about the new page url. Building and deploying individual statically-generated pages would requrie some type of server to handle the request. If this feature is identified as a priority, it could potentially be handled through GitHub Actions or a standalone AWS Lambda function.
 
 While a full deployment of new AWS resources can take up to 10 minutes, a static site build of the Next.js browser client only takes **90-120 seconds** to build and deploy across the AWS CloudFront CDN, the site can be re-generated **hundreds of times a month** within the free-tier limits of GitHub Actions and AWS.

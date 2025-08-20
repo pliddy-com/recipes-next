@@ -206,7 +206,8 @@ describe('SearchResults', () => {
       jest.spyOn(hooks, 'useHits').mockReturnValueOnce({
         hits: [],
         sendEvent: jest.fn(),
-        bindEvent: jest.fn()
+        bindEvent: jest.fn(),
+        items: []
       });
 
       const title = 'Recipe Title';

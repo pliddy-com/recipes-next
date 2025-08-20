@@ -86,8 +86,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
       pageContent,
       page,
       preview: Boolean(preview)
-    },
-    revalidate: 10
+    }
   };
 };
 

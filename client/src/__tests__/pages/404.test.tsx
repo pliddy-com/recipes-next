@@ -33,8 +33,7 @@ describe('NotFoundPage in 404.tsx', () => {
         props: {
           pageContent: recipeCollectionData,
           preview: true
-        },
-        revalidate: 10
+        }
       };
 
       const expectedDefaultProps = {
