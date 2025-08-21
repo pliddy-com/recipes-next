@@ -58,7 +58,7 @@ export const createApiGateway = ({
       nodeModules: ['contentful-management', 'dotenv'],
       format: OutputFormat.ESM
     },
-    runtime: Runtime.NODEJS_18_X,
+    runtime: Runtime.NODEJS_20_X,
     timeout: Duration.seconds(30)
   });
 
