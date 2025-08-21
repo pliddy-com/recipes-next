@@ -60,3 +60,20 @@ dev
 "@testing-library/user-event": "14.4.3",
 
 "jest-next-dynamic": "1.0.1",
+
+
+AWS
+
+[Warning at /RecipesBranchStack172-lambda-node] Be aware that the NodeJS runtime of Node 16 will be deprecated by Lambda on June 12, 2024. 
+Lambda runtimes Node 18 and higher include SDKv3 and not SDKv2. 
+Updating your Lambda runtime will require bundling the SDK, or updating all SDK calls in your handler code to use SDKv3 
+(which is not a trivial update). Please account for this added complexity and update as soon as possible. 
+[ack: aws-cdk-lib/aws-lambda-nodejs:runtimeUpdateSdkV2Breakage]
+
+[Info at /RecipesBranchStack172-lambda-node/originRequest] Removed AWS_NODEJS_CONNECTION_REUSE_ENABLED environment variable for Lambda@Edge compatibility
+
+[Warning at /RecipesBranchStack172-lambda-node/SiteDistribution/Origin1] 
+Cannot update bucket policy of an imported bucket. You will need to update the policy manually instead.
+
+See the "Setting up OAI with imported S3 buckets (legacy)" section of module's README for more info. 
+[ack: @aws-cdk/aws-cloudfront-origins:updateImportedBucketPolicyOai]
