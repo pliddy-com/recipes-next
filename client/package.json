@@ -68,7 +68,7 @@
     "css-mediaquery": "^0.1.2",
     "eslint-config-next": "^14.2.32",
     "jest-next-dynamic": "^1.0.1",
-    "next-sitemap": "^4.2.3ff",
+    "next-sitemap": "^4.2.3",
     "urql": "^5.0.0"
   }
 }
