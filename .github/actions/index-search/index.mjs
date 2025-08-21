@@ -1,9 +1,7 @@
 import core from '@actions/core';
 import algoliasearch from 'algoliasearch';
-import contentful from 'contentful';
+import { createClient } from 'contentful';
 import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer';
-
-const { createClient } = contentful;
 
 const algoliaAppId = core.getInput('algoliaAppId');
 const algoliaSearchAdminKey = core.getInput('algoliaSearchAdminKey');
