@@ -4,7 +4,6 @@ import event from './testPayload.json';
 import * as entries from '../lib/entries';
 
 jest.createMockFromModule('../lib/entries');
-// jest.mock('node-fetch', () => jest.fn().mockResolvedValue({}));
 jest.mock('../lib/contentful');
 
 jest

@@ -1,6 +1,6 @@
-// import * as fetch from 'node-fetch';
 import client from './contentful';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 import {
@@ -95,8 +95,6 @@ const fields = {
   ],
   title: { 'en-US': 'title' }
 };
-
-// jest.mock('node-fetch', () => jest.fn().mockResolvedValue({}));
 
 jest
   .spyOn(global, 'fetch')
