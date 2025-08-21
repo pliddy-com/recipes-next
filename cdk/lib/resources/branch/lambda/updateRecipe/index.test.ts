@@ -4,8 +4,15 @@ import event from './testPayload.json';
 import * as entries from '../lib/entries';
 
 jest.createMockFromModule('../lib/entries');
-jest.mock('node-fetch', () => jest.fn().mockResolvedValue({}));
 jest.mock('../lib/contentful');
+
+jest
+  .spyOn(global, 'fetch')
+  .mockImplementation(
+    jest.fn(() =>
+      Promise.resolve({ json: () => Promise.resolve({}) })
+    ) as jest.Mock
+  );
 
 const responseSpy = jest.spyOn(entries, 'getResponse');
 

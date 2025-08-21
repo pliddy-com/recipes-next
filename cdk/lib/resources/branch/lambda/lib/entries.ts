@@ -1,8 +1,5 @@
-import fetch from 'node-fetch';
 import dotenv from 'dotenv';
-
 import client from './contentful';
-
 import { IRecipeChangeSet, TagDefaultFragment } from './types';
 
 dotenv.config();

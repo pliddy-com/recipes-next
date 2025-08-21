@@ -55,7 +55,7 @@ export const createApiGateway = ({
       GH_WEBHOOK_URL: process.env.GH_WEBHOOK_URL!
     },
     bundling: {
-      nodeModules: ['contentful-management', 'dotenv', 'node-fetch'],
+      nodeModules: ['contentful-management', 'dotenv'],
       format: OutputFormat.ESM
     },
     runtime: Runtime.NODEJS_20_X,
