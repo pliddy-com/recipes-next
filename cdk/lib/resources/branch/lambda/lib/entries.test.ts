@@ -1,4 +1,4 @@
-import * as fetch from 'node-fetch';
+// import * as fetch from 'node-fetch';
 import client from './contentful';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -96,7 +96,16 @@ const fields = {
   title: { 'en-US': 'title' }
 };
 
-jest.mock('node-fetch', () => jest.fn().mockResolvedValue({}));
+// jest.mock('node-fetch', () => jest.fn().mockResolvedValue({}));
+
+jest
+  .spyOn(global, 'fetch')
+  .mockImplementation(
+    jest.fn(() =>
+      Promise.resolve({ json: () => Promise.resolve({}) })
+    ) as jest.Mock
+  );
+
 jest.mock('./contentful');
 
 jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -176,7 +185,7 @@ describe('in entries.ts', () => {
         });
 
         const fetchSpy = jest
-          .spyOn(fetch, 'default')
+          .spyOn(global, 'fetch')
           .mockImplementationOnce(() => mockFetch);
 
         try {

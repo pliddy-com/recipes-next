@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 import dotenv from 'dotenv';
 
 import client from './contentful';
