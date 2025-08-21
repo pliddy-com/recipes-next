@@ -11,7 +11,7 @@ const defaultAspectRatio = 3 / 2;
 
 (async () => {
   // initialize environment variables
-  dotenv.config();
+  dotenv.config({ quiet: true });
 
   const {
     ALGOLIA_SEARCH_ADMIN_KEY,

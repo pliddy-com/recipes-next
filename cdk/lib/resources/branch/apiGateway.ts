@@ -20,7 +20,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { Duration } from 'aws-cdk-lib';
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 export interface ICreateApiGw {
   branchLabel: string;

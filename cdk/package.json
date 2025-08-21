@@ -29,13 +29,13 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "aws-cdk-lib": "^2.211.0",
+    "aws-cdk-lib": "^2.212.0",
     "contentful-management": "^11.54.4",
     "current-git-branch": "^2.0.1",
     "dotenv": "^17.2.1"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.113",
+    "@types/aws-lambda": "^8.10.152",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.19.123",
     "aws-cdk": "^2.1025.0",
