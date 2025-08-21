@@ -3,8 +3,6 @@ import algoliasearch from 'algoliasearch';
 import { createClient } from 'contentful';
 import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer';
 
-// const { createClient } = contentful;
-
 const algoliaAppId = core.getInput('algoliaAppId');
 const algoliaSearchAdminKey = core.getInput('algoliaSearchAdminKey');
 const contentfulAccessToken = core.getInput('contentfulAccessToken');
