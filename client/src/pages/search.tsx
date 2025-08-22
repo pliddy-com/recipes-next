@@ -2,7 +2,7 @@ import { ReactElement, Suspense } from 'react';
 import { InferGetStaticPropsType } from 'next';
 import dynamic from 'next/dynamic';
 
-import algoliasearch from 'algoliasearch/lite';
+import { algoliasearch } from 'algoliasearch';
 import { InstantSearch, Configure } from 'react-instantsearch';
 
 import Typography from '@mui/material/Typography';

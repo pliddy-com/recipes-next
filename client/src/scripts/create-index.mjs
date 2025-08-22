@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import algoliasearch from 'algoliasearch';
+import { algoliasearch } from 'algoliasearch';
 import dotenv from 'dotenv';
 import contentful from 'contentful';
 const { createClient } = contentful;

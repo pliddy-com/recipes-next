@@ -1,5 +1,5 @@
 import core from '@actions/core';
-import algoliasearch from 'algoliasearch';
+import { algoliasearch } from 'algoliasearch';
 import { createClient } from 'contentful';
 import richTextPlainTextRenderer from '@contentful/rich-text-plain-text-renderer';
 

@@ -58,7 +58,7 @@
     "@aws-sdk/client-cognito-identity-provider": "^3.873.0",
     "@aws-solutions-constructs/aws-apigateway-lambda": "^2.92.0",
     "@aws-solutions-constructs/aws-cognito-apigateway-lambda": "^2.92.0",
-    "algoliasearch": "^4.15.0",
+    "algoliasearch": "^5.35.0",
     "amazon-cognito-identity-js": "^6.3.15",
     "aws-cdk": "^2.1025.0",
     "contentful": "^11.7.15",
