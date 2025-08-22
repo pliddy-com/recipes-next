@@ -60,10 +60,7 @@ try {
     objects: recipes
   });
 
-  console.log('response from algoliaClient.saveObjects');
-  console.log(indexedContent);
-
-  // console.log(`${indexedContent.objectIDs.length} recipes indexed`);
+  console.log(`${indexedContent[0].objectIDs.length} recipes indexed`);
 } catch (err) {
   console.error(err);
 }
