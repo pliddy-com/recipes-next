@@ -9,8 +9,6 @@ const contentfulAccessToken = core.getInput('contentfulAccessToken');
 const contentfulSpaceId = core.getInput('contentfulSpaceId');
 
 const algoliaClient = algoliasearch(algoliaAppId, algoliaSearchAdminKey);
-const algoliaIndex = algoliaClient.initIndex('recipes_index');
-
 const defaultAspectRatio = 3 / 2;
 
 const client = createClient({
@@ -57,7 +55,10 @@ try {
     url: `/recipe/${recipe.fields.slug}`
   }));
 
-  const indexedContent = await algoliaIndex.saveObjects(recipes);
+  const indexedContent = await algoliaClient.saveObjects({
+    indexName: 'recipes_index',
+    objects: recipes
+  });
 
   console.log(`${indexedContent.objectIDs.length} recipes indexed`);
 } catch (err) {
