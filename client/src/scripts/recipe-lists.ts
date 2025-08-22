@@ -9,7 +9,7 @@ import { RecipeEntryQueryDocument } from '../types/queries';
 
 // import * as dotenv from 'dotenv';
 
-// dotenv.config();
+// dotenv.config({ quiet: true });
 
 import 'dotenv/config';
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import algoliasearch from 'algoliasearch';
+import { algoliasearch } from 'algoliasearch';
 import dotenv from 'dotenv';
 import contentful from 'contentful';
 const { createClient } = contentful;
@@ -11,7 +11,7 @@ const defaultAspectRatio = 3 / 2;
 
 (async () => {
   // initialize environment variables
-  dotenv.config();
+  dotenv.config({ quiet: true });
 
   const {
     ALGOLIA_SEARCH_ADMIN_KEY,

@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-import algoliasearch from 'algoliasearch';
+import { algoliasearch } from 'algoliasearch';
 import dotenv from 'dotenv';
 
 (async () => {
   // initialize environment variables
-  dotenv.config();
+  dotenv.config({ quiet: true });
 
   const { NEXT_PUBLIC_ALGOLIA_APP_ID, ALGOLIA_SEARCH_ADMIN_KEY } = process.env;
 

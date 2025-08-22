@@ -1,7 +1,7 @@
 import { CodegenConfig } from '@graphql-codegen/cli';
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 const {
   NEXT_PUBLIC_CONTENTFUL_SPACE_ID: spaceId,

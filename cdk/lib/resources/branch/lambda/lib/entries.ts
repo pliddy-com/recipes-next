@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import client from './contentful';
 import { IRecipeChangeSet, TagDefaultFragment } from './types';
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 /**
  *  Environment variables

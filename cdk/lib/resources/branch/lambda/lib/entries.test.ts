@@ -1,7 +1,7 @@
 import client from './contentful';
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 import {
   callBuildWebhook,

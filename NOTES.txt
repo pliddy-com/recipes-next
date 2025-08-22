@@ -18,6 +18,39 @@ Done:
 * updated @types/node for cdk
 
 
+Updated Packages:
+
+all @types/node to ^18.19.123
+all @types/jest to ^29.5.0
+all dotenv to ^16.0.3
+Added caret to all package.json version numbers
+updated dotenv and dotenv-cli 
+updated typescript support pkgs
+ * ts-jest
+ * ts-node
+ * @tsconfig/recommended
+ * @types/node
+updated aws pkgs
+ * @aws-sdk/client-cognito-identity-provider
+ * @aws-solutions-constructs/aws-apigateway-lambda
+ * @aws-solutions-constructs/aws-cognito-apigateway-lambda
+ * constructs for GHA
+config dotenv to quiet
+updated additional aws pkgs
+ * amazon-cognito-identity-js
+ * aws-cdk-lib
+ * @types/aws-lambda
+updated type pkgs
+ * @types/css-mediaquery
+ * @types/body-scroll-lock
+ * @types/react-infinite-scroller
+updated algolia pkgs 
+ * algoliasearch
+ * react-instantsearch
+updated husky to v9
+
+
+
 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
@@ -64,16 +97,18 @@ dev
 
 AWS
 
-[Warning at /RecipesBranchStack172-lambda-node] Be aware that the NodeJS runtime of Node 16 will be deprecated by Lambda on June 12, 2024. 
-Lambda runtimes Node 18 and higher include SDKv3 and not SDKv2. 
-Updating your Lambda runtime will require bundling the SDK, or updating all SDK calls in your handler code to use SDKv3 
-(which is not a trivial update). Please account for this added complexity and update as soon as possible. 
+[Warning at /RecipesBranchStackProd] Be aware that the NodeJS runtime of Node 16 will be deprecated by Lambda on June 12, 2024. 
+Lambda runtimes Node 18 and higher include SDKv3 and not SDKv2. Updating your Lambda runtime will require bundling the SDK, 
+or updating all SDK calls in your handler code to use SDKv3 (which is not a trivial update). Please account for this added complexity 
+and update as soon as possible. 
+
 [ack: aws-cdk-lib/aws-lambda-nodejs:runtimeUpdateSdkV2Breakage]
 
-[Info at /RecipesBranchStack172-lambda-node/originRequest] Removed AWS_NODEJS_CONNECTION_REUSE_ENABLED environment variable for Lambda@Edge compatibility
+[Info at /RecipesBranchStackProd/originRequest] Removed AWS_NODEJS_CONNECTION_REUSE_ENABLED environment variable for Lambda@Edge compatibility
 
-[Warning at /RecipesBranchStack172-lambda-node/SiteDistribution/Origin1] 
-Cannot update bucket policy of an imported bucket. You will need to update the policy manually instead.
+[Warning at /RecipesBranchStackProd/SiteDistribution/Origin1] Cannot update bucket policy of an imported bucket. You will need to update the policy manually instead.
 
 See the "Setting up OAI with imported S3 buckets (legacy)" section of module's README for more info. 
+
 [ack: @aws-cdk/aws-cloudfront-origins:updateImportedBucketPolicyOai]
+
