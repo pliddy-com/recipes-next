@@ -47,6 +47,7 @@ updated type pkgs
 updated algolia pkgs 
  * algoliasearch
  * react-instantsearch
+updated husky to v9
 
 
 
