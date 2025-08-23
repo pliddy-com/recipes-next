@@ -35,8 +35,8 @@ describe('in updateRecipe/index.handler', () => {
 
       const result = await handler(event as unknown as APIGatewayEvent);
 
-      expect(entrySpy).toBeCalled();
-      expect(responseSpy).toBeCalled();
+      expect(entrySpy).toHaveBeenCalled();
+      expect(responseSpy).toHaveBeenCalled();
       expect(result).toEqual(expected);
     });
   });
@@ -56,7 +56,7 @@ describe('in updateRecipe/index.handler', () => {
       });
 
       const result = await handler(testEvent as unknown as APIGatewayEvent);
-      expect(responseSpy).toBeCalled();
+      expect(responseSpy).toHaveBeenCalled();
       expect(result).toEqual(expected);
     });
   });
@@ -74,7 +74,7 @@ describe('in updateRecipe/index.handler', () => {
       });
 
       const result = await handler(testEvent as unknown as APIGatewayEvent);
-      expect(responseSpy).toBeCalled();
+      expect(responseSpy).toHaveBeenCalled();
       expect(result).toEqual(expected);
     });
   });
@@ -95,7 +95,7 @@ describe('in updateRecipe/index.handler', () => {
 
       const result = await handler(testEvent as unknown as APIGatewayEvent);
 
-      expect(responseSpy).toBeCalled();
+      expect(responseSpy).toHaveBeenCalled();
       expect(result).toEqual(expected);
     });
   });
@@ -117,7 +117,7 @@ describe('in updateRecipe/index.handler', () => {
         await handler(event as unknown as APIGatewayEvent);
       } catch (err) {
         expect(err).toEqual(expected);
-        expect(entrySpy).toBeCalled();
+        expect(entrySpy).toHaveBeenCalled();
       }
     });
   });

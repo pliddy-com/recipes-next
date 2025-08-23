@@ -15,7 +15,7 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "types": ["react-dom/next", "jest", "node"],
+    "types": ["../node_modules/@types/react-dom", "jest", "node"],
     "strict": true
   },
   "exclude": ["node_modules", "out", ".next", ".swc", "src/types", "*.js"],

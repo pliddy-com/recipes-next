@@ -6,11 +6,11 @@ exports[`Tags when there is a properly formatted tags property it renders the no
     class="tags MuiBox-root css-h5fkc8"
   >
     <div
-      class="tags-buttons css-m69qwo-MuiStack-root"
+      class="MuiStack-root tags-buttons css-m69qwo-MuiStack-root"
       data-testid="tags-buttons"
     >
       <a
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
         href="/tags/tag-1"
         role="button"
         tabindex="0"
@@ -21,7 +21,7 @@ exports[`Tags when there is a properly formatted tags property it renders the no
         />
       </a>
       <a
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
         href="/tags/tag-2"
         role="button"
         tabindex="0"

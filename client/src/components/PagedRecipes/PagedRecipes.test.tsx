@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { act, render, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
 import PagedRecipes from './PagedRecipes';
@@ -33,9 +33,7 @@ describe('PagedRecipes', () => {
         />
       );
 
-      await act(async () =>
-        waitFor(() => expect(queryByTestId('results-page')).toBeInTheDocument())
-      );
+      waitFor(() => expect(queryByTestId('results-page')).toBeInTheDocument());
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -56,9 +54,7 @@ describe('PagedRecipes', () => {
         />
       );
 
-      await act(async () =>
-        waitFor(() => expect(queryByTestId('results-page')).toBeInTheDocument())
-      );
+      waitFor(() => expect(queryByTestId('results-page')).toBeInTheDocument());
 
       const nextLink = queryByText('Load Next');
 
@@ -84,9 +80,7 @@ describe('PagedRecipes', () => {
         />
       );
 
-      await act(async () =>
-        waitFor(() => expect(queryByTestId('results-page')).toBeInTheDocument())
-      );
+      waitFor(() => expect(queryByTestId('results-page')).toBeInTheDocument());
 
       const nextLink = queryByText('Load Next');
 
@@ -119,9 +113,7 @@ describe('PagedRecipes', () => {
         />
       );
 
-      await act(async () =>
-        waitFor(() => expect(queryByTestId('results-page')).toBeInTheDocument())
-      );
+      waitFor(() => expect(queryByTestId('results-page')).toBeInTheDocument());
 
       const nextLink = queryByText('Load Next');
 
@@ -148,10 +140,8 @@ describe('PagedRecipes', () => {
         />
       );
 
-      await act(async () =>
-        waitFor(() =>
-          expect(queryByTestId('results-page')).not.toBeInTheDocument()
-        )
+      waitFor(() =>
+        expect(queryByTestId('results-page')).not.toBeInTheDocument()
       );
     });
   });

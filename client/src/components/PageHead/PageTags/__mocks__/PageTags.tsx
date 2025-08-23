@@ -4,9 +4,6 @@ import Head from 'next/head';
 import { ImageDefaultFragment } from 'types/queries';
 
 // create mock version of npm package
-jest.genMockFromModule('../PageTags');
-
-jest.mock('next/head');
 
 interface PageTagsProps {
   title?: string | null;

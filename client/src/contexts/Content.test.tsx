@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 
 import {
   ContentManagementProvider,
@@ -130,17 +130,15 @@ describe('Content', () => {
         </ContentManagementProvider>
       );
 
-      // wait for dynamic component to load
-      await act(async () => {
-        waitFor(() => expect(queryByTestId('setCanSave')).toBeInTheDocument());
-        waitFor(() => expect(queryByTestId('setEditMode')).toBeInTheDocument());
-        waitFor(() => expect(queryByTestId('saveRecipe')).toBeInTheDocument());
-        waitFor(() => expect(queryByTestId('setRecipe')).toBeInTheDocument());
-        waitFor(() =>
-          expect(queryByTestId('setSupressEdit')).toBeInTheDocument()
-        );
-        waitFor(() => expect(queryByTestId('toggleEdit')).toBeInTheDocument());
-      });
+      // wait for dynamic components to load
+      waitFor(() => expect(queryByTestId('setCanSave')).toBeInTheDocument());
+      waitFor(() => expect(queryByTestId('setEditMode')).toBeInTheDocument());
+      waitFor(() => expect(queryByTestId('saveRecipe')).toBeInTheDocument());
+      waitFor(() => expect(queryByTestId('setRecipe')).toBeInTheDocument());
+      waitFor(() =>
+        expect(queryByTestId('setSupressEdit')).toBeInTheDocument()
+      );
+      waitFor(() => expect(queryByTestId('toggleEdit')).toBeInTheDocument());
 
       const setCanSaveButton = queryByTestId('setCanSave');
       setCanSaveButton && (await fireEvent.click(setCanSaveButton));
@@ -151,9 +149,7 @@ describe('Content', () => {
 
       const saveRecipeButton = queryByTestId('saveRecipe');
       saveRecipeButton &&
-        (await act(async () =>
-          waitFor(async () => fireEvent.click(saveRecipeButton))
-        ));
+        waitFor(async () => fireEvent.click(saveRecipeButton));
 
       const setEditModeButton = queryByTestId('setEditMode');
       setEditModeButton && (await fireEvent.click(setEditModeButton));

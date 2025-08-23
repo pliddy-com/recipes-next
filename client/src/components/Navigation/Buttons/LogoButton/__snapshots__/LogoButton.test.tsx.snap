@@ -3,13 +3,13 @@
 exports[`LogoButton renders a logo button with a label 1`] = `
 <a
   aria-label="home"
-  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge logo css-kpm0tx-MuiButtonBase-root-MuiButton-root"
+  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary logo css-kpm0tx-MuiButtonBase-root-MuiButton-root"
   href="/"
   role="button"
   tabindex="0"
 >
   <span
-    class="MuiButton-startIcon MuiButton-iconSizeLarge css-htszrh-MuiButton-startIcon"
+    class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeLarge css-htszrh-MuiButton-startIcon"
   >
     <div
       aria-label="logo"

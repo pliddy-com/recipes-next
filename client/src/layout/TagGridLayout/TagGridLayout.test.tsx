@@ -1,11 +1,9 @@
 import '@testing-library/jest-dom';
-import { act, render, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
 import TagGridLayout from './TagGridLayout';
 import { ListPageItemFragment } from 'types/queries';
-
-// import * as api from 'lib/api';
 
 import tags from 'layout/TagGridLayout/testPayloads/tags.json';
 
@@ -22,7 +20,6 @@ describe('TagGridLayout', () => {
 
   describe('when there is page content', () => {
     it('it renders the page', async () => {
-      // const tags = await api.getTagIndex({});
       const { asFragment, queryByTestId } = render(
         <TagGridLayout
           tags={tags as unknown as (ListPageItemFragment | null)[]}
@@ -30,9 +27,7 @@ describe('TagGridLayout', () => {
       );
 
       // assert that content is rendered
-      await act(async () =>
-        waitFor(() => expect(queryByTestId('page')).toBeInTheDocument())
-      );
+      waitFor(() => expect(queryByTestId('page')).toBeInTheDocument());
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -54,9 +49,7 @@ describe('TagGridLayout', () => {
       );
 
       // assert that content is rendered
-      await act(async () =>
-        waitFor(() => expect(queryByTestId('page')).toBeInTheDocument())
-      );
+      waitFor(() => expect(queryByTestId('page')).toBeInTheDocument());
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -85,11 +78,7 @@ describe('TagGridLayout', () => {
       render(<TagGridLayout tags={tags} title={title} />);
 
       // test if card compoent is not rendered
-      await act(async () =>
-        waitFor(() =>
-          expect(document.querySelector('.MuiCard-root')).toBeNull()
-        )
-      );
+      waitFor(() => expect(document.querySelector('.MuiCard-root')).toBeNull());
     });
   });
 

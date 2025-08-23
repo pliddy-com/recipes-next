@@ -19,6 +19,6 @@ describe('in contentful.ts', () => {
   it('client is defined', () => {
     const contentfulSpy = jest.spyOn(contentful, 'createClient');
     expect(client).toBeDefined();
-    expect(contentfulSpy).toBeCalled();
+    expect(contentfulSpy).toHaveBeenCalled();
   });
 });

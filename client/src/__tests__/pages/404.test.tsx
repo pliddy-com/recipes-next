@@ -1,5 +1,7 @@
 import '@testing-library/jest-dom';
-import { act, render, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
+import { act } from 'react';
+
 import preloadAll from 'jest-next-dynamic';
 
 import NotFoundPage, { getStaticProps } from 'pages/404';

@@ -16,7 +16,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-6 contentGrid css-1i6hukq-MuiGrid-root"
       >
         <div
-          class="description css-nen11g-MuiStack-root"
+          class="MuiStack-root description css-nen11g-MuiStack-root"
         >
           <div
             class="MuiGrid-root MuiGrid-container details css-11lq3yg-MuiGrid-root"
@@ -25,7 +25,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
             >
               <div
-                class="css-nen11g-MuiStack-root"
+                class="MuiStack-root css-nen11g-MuiStack-root"
               />
             </div>
             <div
@@ -39,7 +39,7 @@ exports[`Recipe when there is page content it renders the Recipe 1`] = `
       />
     </div>
     <div
-      class="css-1lwbda4-MuiStack-root"
+      class="MuiStack-root css-v2woy3-MuiStack-root"
     />
   </div>
 </DocumentFragment>

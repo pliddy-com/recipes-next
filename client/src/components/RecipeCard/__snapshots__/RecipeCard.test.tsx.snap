@@ -6,7 +6,7 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
     class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root recipe css-1v5z4dq-MuiPaper-root-MuiCard-root"
   >
     <a
-      class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+      class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
       href="/recipes/basmati-rice"
       tabindex="0"
     >
@@ -165,14 +165,14 @@ exports[`RecipeCard when there is content it renders the RecipeCard 1`] = `
       />
     </a>
     <div
-      class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
+      class="MuiCardActions-root MuiCardActions-spacing css-dnrpxu-MuiCardActions-root"
     >
       <div
-        class="tags-buttons css-m69qwo-MuiStack-root"
+        class="MuiStack-root tags-buttons css-m69qwo-MuiStack-root"
         data-testid="tags-buttons"
       >
         <a
-          class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary tag css-1k23hlb-MuiButtonBase-root-MuiButton-root"
           href="/tags/vegetables"
           role="button"
           tabindex="0"

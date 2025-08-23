@@ -38,7 +38,7 @@ describe('CategoryListItemButton', () => {
 
       // assert that the callback is called on click
       link && fireEvent.click(link);
-      expect(callback).toBeCalled();
+      expect(callback).toHaveBeenCalled();
 
       // assert that the component matches the existing snapshot
       expect(container).toMatchSnapshot();

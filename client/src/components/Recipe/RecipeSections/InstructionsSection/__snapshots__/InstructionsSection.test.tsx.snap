@@ -3,7 +3,7 @@
 exports[`InstructionsSection when there is properly formatted content it renders the instructions section if there is content 1`] = `
 <div>
   <div
-    class="instructions css-1okj3ks-MuiStack-root"
+    class="MuiStack-root instructions css-jfdv4h-MuiStack-root"
   >
     <h2
       class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
@@ -11,7 +11,7 @@ exports[`InstructionsSection when there is properly formatted content it renders
       Instructions
     </h2>
     <div
-      class="css-nen11g-MuiStack-root"
+      class="MuiStack-root css-nen11g-MuiStack-root"
     >
       <ol
         class="MuiList-root MuiList-padding recipeList orderedList css-h4y409-MuiList-root"
@@ -23,7 +23,7 @@ exports[`InstructionsSection when there is properly formatted content it renders
             class="MuiListItemAvatar-root css-1e9lk82-MuiListItemAvatar-root"
           >
             <div
-              class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-2s90m6-MuiAvatar-root"
+              class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-17o22dy-MuiAvatar-root"
             >
               1
               .

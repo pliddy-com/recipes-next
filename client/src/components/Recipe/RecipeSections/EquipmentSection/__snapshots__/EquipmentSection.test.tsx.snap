@@ -3,7 +3,7 @@
 exports[`EquipmentSection when there is properly formatted content it renders the equipment section if there is content 1`] = `
 <div>
   <div
-    class="equipment css-nen11g-MuiStack-root"
+    class="MuiStack-root equipment css-nen11g-MuiStack-root"
   >
     <h2
       class="MuiTypography-root MuiTypography-h2 css-1sra7t5-MuiTypography-root"
