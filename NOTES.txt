@@ -57,7 +57,8 @@ Dev env packages:
 
 
 Trouble Packages
-mui to latest v5
+ * mui to latest v5 pkg
+ * jest & testing-library
 
 
 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
@@ -98,9 +99,8 @@ See the "Setting up OAI with imported S3 buckets (legacy)" section of module's R
 
 [ack: @aws-cdk/aws-cloudfront-origins:updateImportedBucketPolicyOai]
 
-@mui/icons-material@5.18.0
-@mui/material@5.18.0
-@mui/system@5.18.0
-@mui/utils@5.17.1
 
-npm i @mui/material@5.18.0 --workspace=client && npm i @mui/icons-material@5.18.0 --workspace=client && npm i @mui/system@5.18.0 --workspace=client && npm i @mui/utils@5.17.1 --workspace=client
+
+npm i jest@29.7.0 -D && npm i jest-environment-jsdom@29.7.0 && npm i @types/jest@29.5.14 -D
+
+npm i pkg@v --workspace=client && 

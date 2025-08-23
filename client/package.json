@@ -56,10 +56,10 @@
     "@graphql-codegen/typescript-operations": "^4.6.1",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@next/bundle-analyzer": "^14.2.32",
-    "@testing-library/dom": "^8.20.0",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/dom": "^8.20.1",
+    "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^14.4.3",
+    "@testing-library/user-event": "^14.6.1",
     "@types/body-scroll-lock": "^3.1.2",
     "@types/css-mediaquery": "^0.1.4",
     "@types/react": "^18.0.26",
@@ -67,7 +67,7 @@
     "@types/react-infinite-scroller": "^1.2.5",
     "css-mediaquery": "^0.1.2",
     "eslint-config-next": "^14.2.32",
-    "jest-next-dynamic": "^1.0.1",
+    "jest-next-dynamic": "^1.0.2",
     "next-sitemap": "^4.2.3",
     "urql": "^5.0.0"
   }
