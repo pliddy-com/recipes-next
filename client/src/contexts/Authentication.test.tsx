@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
+import { act } from 'react';
 
 import {
   AuthenticationProvider,

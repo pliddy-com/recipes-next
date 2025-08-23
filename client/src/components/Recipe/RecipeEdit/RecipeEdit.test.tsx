@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 // import testing-library methods
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
+import { act } from 'react';
 
 // import the component to test
 import RecipeEdit from './RecipeEdit';

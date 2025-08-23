@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { act, render, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import preloadAll from 'jest-next-dynamic';
 
 import RecipeGridLayout from './RecipeGridLayout';
@@ -28,9 +28,7 @@ describe('RecipeGridLayout', () => {
       );
 
       // assert that content is rendered
-      await act(async () =>
-        waitFor(() => expect(queryByTestId('page')).toBeInTheDocument())
-      );
+      waitFor(() => expect(queryByTestId('page')).toBeInTheDocument());
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -52,9 +50,7 @@ describe('RecipeGridLayout', () => {
       );
 
       // assert that content is rendered
-      await act(async () =>
-        waitFor(() => expect(queryByTestId('page')).toBeInTheDocument())
-      );
+      waitFor(() => expect(queryByTestId('page')).toBeInTheDocument());
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -69,11 +65,7 @@ describe('RecipeGridLayout', () => {
       render(<RecipeGridLayout title={title} recipes={recipes} />);
 
       // test if card compoent is not rendered
-      await act(async () =>
-        waitFor(() =>
-          expect(document.querySelector('.MuiCard-root')).toBeNull()
-        )
-      );
+      waitFor(() => expect(document.querySelector('.MuiCard-root')).toBeNull());
     });
   });
 });
