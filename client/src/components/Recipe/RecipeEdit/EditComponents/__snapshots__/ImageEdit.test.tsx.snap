@@ -5,7 +5,7 @@ exports[`ImageEdit when imageList is undefined it does not render the component 
 exports[`ImageEdit when images in list imageList are null it does not render the component 1`] = `
 <DocumentFragment>
   <div
-    class="image-edit css-nen11g-MuiStack-root"
+    class="MuiStack-root image-edit css-nen11g-MuiStack-root"
   >
     <div
       class="image original MuiBox-root css-0"
@@ -48,7 +48,7 @@ exports[`ImageEdit when images in list imageList are null it does not render the
 exports[`ImageEdit when there is content renders the component 1`] = `
 <DocumentFragment>
   <div
-    class="image-edit css-nen11g-MuiStack-root"
+    class="MuiStack-root image-edit css-nen11g-MuiStack-root"
   >
     <div
       class="image original MuiBox-root css-0"
@@ -147,7 +147,7 @@ exports[`ImageEdit when there is content renders the component 1`] = `
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m5 11h-4v4h-2v-4H7v-2h4V7h2v4h4z"
                 />
               </svg>
               <span
@@ -220,7 +220,7 @@ exports[`ImageEdit when there is content renders the component 1`] = `
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m5 11h-4v4h-2v-4H7v-2h4V7h2v4h4z"
                 />
               </svg>
               <span

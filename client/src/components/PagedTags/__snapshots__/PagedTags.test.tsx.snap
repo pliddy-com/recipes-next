@@ -22,7 +22,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           viewBox="0 0 24 24"
         >
           <path
-            d="m10 17 5-5-5-5v10z"
+            d="m10 17 5-5-5-5z"
           />
         </svg>
       </a>
@@ -36,7 +36,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               href="/recipes/canned-pickles"
               tabindex="0"
             >
@@ -183,7 +183,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               href="/recipes/summer-pickles"
               tabindex="0"
             >
@@ -330,7 +330,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               href="/recipes/tzatziki"
               tabindex="0"
             >
@@ -428,7 +428,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           viewBox="0 0 24 24"
         >
           <path
-            d="m10 17 5-5-5-5v10z"
+            d="m10 17 5-5-5-5z"
           />
         </svg>
       </a>
@@ -442,7 +442,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               href="/recipes/cabbage-pie"
               tabindex="0"
             >
@@ -600,7 +600,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           viewBox="0 0 24 24"
         >
           <path
-            d="m10 17 5-5-5-5v10z"
+            d="m10 17 5-5-5-5z"
           />
         </svg>
       </a>
@@ -614,7 +614,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               href="/recipes/boeuf-bourguignon"
               tabindex="0"
             >
@@ -761,7 +761,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               href="/recipes/carrot-soup"
               tabindex="0"
             >
@@ -908,7 +908,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               href="/recipes/chicken-gravy"
               tabindex="0"
             >
@@ -995,7 +995,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               href="/recipes/sole-meuniere"
               tabindex="0"
             >
@@ -1093,7 +1093,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
           viewBox="0 0 24 24"
         >
           <path
-            d="m10 17 5-5-5-5v10z"
+            d="m10 17 5-5-5-5z"
           />
         </svg>
       </a>
@@ -1107,7 +1107,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               href="/recipes/hasselback-potatoes"
               tabindex="0"
             >
@@ -1254,7 +1254,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               href="/recipes/pizza-bianca"
               tabindex="0"
             >
@@ -1401,7 +1401,7 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
             class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               href="/recipes/sauteed-garlic-shrimp"
               tabindex="0"
             >
@@ -1487,12 +1487,12 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
       class="MuiBox-root css-12vrgl9"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-oywzk5-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-6m1nex-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
         href="/tags/page/2"
         tabindex="0"
       >
         <span
-          class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+          class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
         >
           <svg
             aria-hidden="true"
@@ -1512,13 +1512,13 @@ exports[`PagedRecipes when there is paged content it renders the pageinated tags
         />
       </a>
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-2sjepu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-h6h6iu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
         href="/tags/page/4"
         tabindex="0"
       >
         Load Next
         <span
-          class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+          class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
         >
           <svg
             aria-hidden="true"

@@ -36,7 +36,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
             viewBox="0 0 24 24"
           >
             <path
-              d="m10 17 5-5-5-5v10z"
+              d="m10 17 5-5-5-5z"
             />
           </svg>
         </a>
@@ -50,7 +50,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/korean-bean-sprouts"
                 tabindex="0"
               >
@@ -197,7 +197,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/peanut-sauce"
                 tabindex="0"
               >
@@ -344,7 +344,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/scallion-ginger-relish"
                 tabindex="0"
               >
@@ -442,7 +442,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
             viewBox="0 0 24 24"
           >
             <path
-              d="m10 17 5-5-5-5v10z"
+              d="m10 17 5-5-5-5z"
             />
           </svg>
         </a>
@@ -456,7 +456,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/bacon-wrapped-dates"
                 tabindex="0"
               >
@@ -603,7 +603,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/cabbage-pie"
                 tabindex="0"
               >
@@ -750,7 +750,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/oven-bacon"
                 tabindex="0"
               >
@@ -848,7 +848,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
             viewBox="0 0 24 24"
           >
             <path
-              d="m10 17 5-5-5-5v10z"
+              d="m10 17 5-5-5-5z"
             />
           </svg>
         </a>
@@ -862,7 +862,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/biscuits"
                 tabindex="0"
               >
@@ -1009,7 +1009,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/no-knead-bread"
                 tabindex="0"
               >
@@ -1156,7 +1156,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/no-knead-olive-bread"
                 tabindex="0"
               >
@@ -1254,7 +1254,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
             viewBox="0 0 24 24"
           >
             <path
-              d="m10 17 5-5-5-5v10z"
+              d="m10 17 5-5-5-5z"
             />
           </svg>
         </a>
@@ -1268,7 +1268,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/escarole-soup"
                 tabindex="0"
               >
@@ -1415,7 +1415,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/green-chicken-chili"
                 tabindex="0"
               >
@@ -1562,7 +1562,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/red-beans-and-rice"
                 tabindex="0"
               >
@@ -1649,7 +1649,7 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
               class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
             >
               <a
-                class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                 href="/recipes/tuscan-white-bean-soup"
                 tabindex="0"
               >
@@ -1735,13 +1735,13 @@ exports[`TagGridLayout when page number is > 0 it renders the RecipeGridLayout 1
         class="MuiBox-root css-zf4woo"
       >
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-2sjepu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-h6h6iu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
           href="/tags/page/2"
           tabindex="0"
         >
           Load Next
           <span
-            class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+            class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
           >
             <svg
               aria-hidden="true"
@@ -1800,7 +1800,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
               viewBox="0 0 24 24"
             >
               <path
-                d="m10 17 5-5-5-5v10z"
+                d="m10 17 5-5-5-5z"
               />
             </svg>
           </a>
@@ -1814,7 +1814,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/korean-bean-sprouts"
                   tabindex="0"
                 >
@@ -1961,7 +1961,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/peanut-sauce"
                   tabindex="0"
                 >
@@ -2108,7 +2108,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/scallion-ginger-relish"
                   tabindex="0"
                 >
@@ -2206,7 +2206,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
               viewBox="0 0 24 24"
             >
               <path
-                d="m10 17 5-5-5-5v10z"
+                d="m10 17 5-5-5-5z"
               />
             </svg>
           </a>
@@ -2220,7 +2220,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/bacon-wrapped-dates"
                   tabindex="0"
                 >
@@ -2367,7 +2367,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/cabbage-pie"
                   tabindex="0"
                 >
@@ -2514,7 +2514,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/oven-bacon"
                   tabindex="0"
                 >
@@ -2612,7 +2612,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
               viewBox="0 0 24 24"
             >
               <path
-                d="m10 17 5-5-5-5v10z"
+                d="m10 17 5-5-5-5z"
               />
             </svg>
           </a>
@@ -2626,7 +2626,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/biscuits"
                   tabindex="0"
                 >
@@ -2773,7 +2773,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/no-knead-bread"
                   tabindex="0"
                 >
@@ -2920,7 +2920,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/no-knead-olive-bread"
                   tabindex="0"
                 >
@@ -3018,7 +3018,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
               viewBox="0 0 24 24"
             >
               <path
-                d="m10 17 5-5-5-5v10z"
+                d="m10 17 5-5-5-5z"
               />
             </svg>
           </a>
@@ -3032,7 +3032,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/escarole-soup"
                   tabindex="0"
                 >
@@ -3179,7 +3179,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/green-chicken-chili"
                   tabindex="0"
                 >
@@ -3326,7 +3326,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/red-beans-and-rice"
                   tabindex="0"
                 >
@@ -3413,7 +3413,7 @@ exports[`TagGridLayout when there is page content it renders the page 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root preview css-1v5z4dq-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/recipes/tuscan-white-bean-soup"
                   tabindex="0"
                 >

@@ -3,14 +3,14 @@
 exports[`TagsEdit when there is content renders the component 1`] = `
 <DocumentFragment>
   <div
-    class="tags-edit css-nen11g-MuiStack-root"
+    class="MuiStack-root tags-edit css-nen11g-MuiStack-root"
     data-testid="tags-edit"
   >
     <div
       class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
     >
       <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-focused MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-focused MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1jy569b-MuiFormLabel-root-MuiInputLabel-root"
         data-shrink="true"
         for="tag-select-input"
         id="tag-select-label"
@@ -22,44 +22,45 @@ exports[`TagsEdit when there is content renders the component 1`] = `
         data-testid="tag-select"
       >
         <div
+          aria-controls=":r0:"
           aria-expanded="true"
           aria-haspopup="listbox"
           aria-label="tag select input"
           aria-labelledby="tag-select-label tag-select"
           class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
           id="tag-select"
-          role="button"
+          role="combobox"
           tabindex="0"
         >
           <div
             class="MuiBox-root css-yi3mkw"
           >
             <div
-              class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorPrimary MuiChip-outlinedPrimary tag css-b5gvsl-MuiChip-root"
+              class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorPrimary MuiChip-outlinedPrimary tag css-1y6wsfa-MuiChip-root"
               role="button"
             >
               <span
-                class="MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label"
+                class="MuiChip-label MuiChip-labelSmall css-rrn746-MuiChip-label"
               >
                 Tag 1
               </span>
             </div>
             <div
-              class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorPrimary MuiChip-outlinedPrimary tag css-b5gvsl-MuiChip-root"
+              class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorPrimary MuiChip-outlinedPrimary tag css-1y6wsfa-MuiChip-root"
               role="button"
             >
               <span
-                class="MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label"
+                class="MuiChip-label MuiChip-labelSmall css-rrn746-MuiChip-label"
               >
                 Tag 2
               </span>
             </div>
             <div
-              class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorPrimary MuiChip-outlinedPrimary tag css-b5gvsl-MuiChip-root"
+              class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorPrimary MuiChip-outlinedPrimary tag css-1y6wsfa-MuiChip-root"
               role="button"
             >
               <span
-                class="MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label"
+                class="MuiChip-label MuiChip-labelSmall css-rrn746-MuiChip-label"
               >
                 Tag 3
               </span>
@@ -68,6 +69,7 @@ exports[`TagsEdit when there is content renders the component 1`] = `
         </div>
         <input
           aria-hidden="true"
+          aria-invalid="false"
           class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
           id="tag-select-input"
           tabindex="-1"
@@ -86,10 +88,10 @@ exports[`TagsEdit when there is content renders the component 1`] = `
         </svg>
         <fieldset
           aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+          class="MuiOutlinedInput-notchedOutline css-r01yff-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="css-14lo706"
+            class="css-sl37lx-MuiNotchedOutlined-root"
           >
             <span>
               Tags
@@ -107,14 +109,14 @@ exports[`TagsEdit when there is content when tags are undefined it does not rend
 exports[`TagsEdit when there is content when tags array is empty it does not render the component 1`] = `
 <DocumentFragment>
   <div
-    class="tags-edit css-nen11g-MuiStack-root"
+    class="MuiStack-root tags-edit css-nen11g-MuiStack-root"
     data-testid="tags-edit"
   >
     <div
       class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
     >
       <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1jy569b-MuiFormLabel-root-MuiInputLabel-root"
         data-shrink="true"
         for="tag-select-input"
         id="tag-select-label"
@@ -126,34 +128,35 @@ exports[`TagsEdit when there is content when tags array is empty it does not ren
         data-testid="tag-select"
       >
         <div
+          aria-controls=":r1:"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="tag select input"
           aria-labelledby="tag-select-label tag-select"
           class="MuiSelect-select MuiSelect-outlined MuiSelect-multiple MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
           id="tag-select"
-          role="button"
+          role="combobox"
           tabindex="0"
         >
           <div
             class="MuiBox-root css-yi3mkw"
           >
             <div
-              class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorPrimary MuiChip-outlinedPrimary tag css-b5gvsl-MuiChip-root"
+              class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorPrimary MuiChip-outlinedPrimary tag css-1y6wsfa-MuiChip-root"
               role="button"
             >
               <span
-                class="MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label"
+                class="MuiChip-label MuiChip-labelSmall css-rrn746-MuiChip-label"
               >
                 Tag 1
               </span>
             </div>
             <div
-              class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorPrimary MuiChip-outlinedPrimary tag css-b5gvsl-MuiChip-root"
+              class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorPrimary MuiChip-outlinedPrimary tag css-1y6wsfa-MuiChip-root"
               role="button"
             >
               <span
-                class="MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label"
+                class="MuiChip-label MuiChip-labelSmall css-rrn746-MuiChip-label"
               >
                 Tag 2
               </span>
@@ -162,6 +165,7 @@ exports[`TagsEdit when there is content when tags array is empty it does not ren
         </div>
         <input
           aria-hidden="true"
+          aria-invalid="false"
           class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
           id="tag-select-input"
           tabindex="-1"
@@ -180,10 +184,10 @@ exports[`TagsEdit when there is content when tags array is empty it does not ren
         </svg>
         <fieldset
           aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+          class="MuiOutlinedInput-notchedOutline css-r01yff-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="css-14lo706"
+            class="css-sl37lx-MuiNotchedOutlined-root"
           >
             <span>
               Tags
