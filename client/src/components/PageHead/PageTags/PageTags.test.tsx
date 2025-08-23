@@ -16,6 +16,9 @@ jest.mock('next/router', () => ({
   })
 }));
 
+jest.mock('next/head');
+jest.createMockFromModule('./PageTags');
+
 const env = process.env;
 
 describe('PageTags', () => {

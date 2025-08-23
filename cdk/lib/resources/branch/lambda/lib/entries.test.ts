@@ -192,7 +192,7 @@ describe('in entries.ts', () => {
           expect(e).toBeDefined();
         }
 
-        expect(fetchSpy).toBeCalled();
+        expect(fetchSpy).toHaveBeenCalled();
       });
     });
   });

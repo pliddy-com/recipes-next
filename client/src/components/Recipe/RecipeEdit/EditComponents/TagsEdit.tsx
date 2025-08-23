@@ -39,6 +39,8 @@ const TagsEdit = ({ onChange, tagList, tags }: ITagsEdit) => {
       target: { value }
     } = event;
 
+    // needs test case if value is not an array (is this functionally possible?)
+    /* istanbul ignore next */
     if (Array.isArray(value)) {
       const selectedTags = value?.map((title: string) =>
         tagList?.find((tag) => tag?.title === title)

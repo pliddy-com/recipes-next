@@ -41,8 +41,8 @@ describe('RecipePage', () => {
       // assert that content is rendered
       waitFor(() => expect(queryByTestId('Recipe')).toBeInTheDocument());
 
-      expect(authSpy).toBeCalled();
-      expect(cmSpy).toBeCalled();
+      expect(authSpy).toHaveBeenCalled();
+      expect(cmSpy).toHaveBeenCalled();
 
       // expect(queryByTestId('Recipe')).toBeInTheDocument();
 
@@ -97,8 +97,8 @@ describe('RecipePage', () => {
         expect(getByTestId('RecipeEdit')).toBeInTheDocument();
       });
 
-      expect(authSpy).toBeCalled();
-      expect(cmSpy).toBeCalled();
+      expect(authSpy).toHaveBeenCalled();
+      expect(cmSpy).toHaveBeenCalled();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();

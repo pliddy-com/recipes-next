@@ -16,7 +16,7 @@ describe('SignInControl', () => {
 
     const { asFragment, getByRole, queryByTestId } = render(<SignInControl />);
 
-    expect(authSpy).toBeCalled();
+    expect(authSpy).toHaveBeenCalled();
 
     // assert that the component has been rendered
     const signInButton = getByRole('button', { name: 'sign in' });
@@ -52,7 +52,7 @@ describe('SignInControl', () => {
 
     const { getByRole } = render(<SignInControl />);
 
-    expect(authSpy).toBeCalled();
+    expect(authSpy).toHaveBeenCalled();
 
     // assert that the component has been rendered
     const component = getByRole('button', { name: 'sign out' });

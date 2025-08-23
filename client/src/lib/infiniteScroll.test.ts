@@ -47,5 +47,35 @@ describe('infiniteScroll.ts', () => {
         pagedResults.slice(0, pageNum + 1)
       );
     });
+
+    describe('when pageNum > pagedResult.length() ', () => {
+      it('setPageNumCallback is not called', () => {
+        const setDataCallback = jest.fn();
+        const setPageNumCallback = jest.fn();
+
+        const pagedResults = [
+          [{ id: 1 }, { id: 2 }],
+          [{ id: 3 }, { id: 4 }],
+          [{ id: 5 }, { id: 6 }]
+        ];
+        const pageNum = 4;
+        const pageSize = 2;
+
+        const params = {
+          pagedResults,
+          pageNum,
+          pageSize,
+          setDataCallback,
+          setPageNumCallback
+        };
+
+        loadNext({ ...params });
+
+        expect(setPageNumCallback).not.toHaveBeenCalledWith(pageNum + 1);
+        expect(setDataCallback).toHaveBeenCalledWith(
+          pagedResults.slice(0, pageNum + 1)
+        );
+      });
+    });
   });
 });

@@ -55,8 +55,8 @@ describe('NavBar', () => {
         <NavBar nav={nav as NavDataProps} />
       );
 
-      expect(authSpy).toBeCalled();
-      expect(cmSpy).toBeCalled();
+      expect(authSpy).toHaveBeenCalled();
+      expect(cmSpy).toHaveBeenCalled();
 
       const navBar = queryByTestId('navbar');
 
@@ -116,8 +116,8 @@ describe('NavBar', () => {
 
       const { asFragment } = render(<NavBar nav={nav as NavDataProps} />);
 
-      expect(authSpy).toBeCalled();
-      expect(cmSpy).toBeCalled();
+      expect(authSpy).toHaveBeenCalled();
+      expect(cmSpy).toHaveBeenCalled();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -144,8 +144,8 @@ describe('NavBar', () => {
 
       const { asFragment } = render(<NavBar nav={nav as NavDataProps} />);
 
-      expect(authSpy).toBeCalled();
-      expect(cmSpy).toBeCalled();
+      expect(authSpy).toHaveBeenCalled();
+      expect(cmSpy).toHaveBeenCalled();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
@@ -173,8 +173,8 @@ describe('NavBar', () => {
 
       const { asFragment } = render(<NavBar nav={nav as NavDataProps} />);
 
-      expect(authSpy).toBeCalled();
-      expect(cmSpy).toBeCalled();
+      expect(authSpy).toHaveBeenCalled();
+      expect(cmSpy).toHaveBeenCalled();
 
       // assert that the component matches the existing snapshot
       expect(asFragment()).toMatchSnapshot();
