@@ -6,9 +6,7 @@ module.exports = {
   /* Note the order of extended configs is important because of cascading overrides. */
   extends: [
     'eslint:recommended',
-    'plugin:json/recommended',
     'plugin:@typescript-eslint/recommended',
-    // 'plugin:@typescript-eslint/recommended-requiring-typecheck',
     'next/core-web-vitals', // Next should always be second to last.
     'prettier' // Prettier should always be last.
   ],
