@@ -32,9 +32,8 @@ import { hasValue } from './utils';
 export const getNavTaxonomy = async () => {
   const { queryGraphQLContent } = await import('lib/gqlClient');
 
-  const results: NavMenuDataQuery = await queryGraphQLContent(
-    NavMenuDataDocument
-  );
+  const results: NavMenuDataQuery =
+    await queryGraphQLContent(NavMenuDataDocument);
 
   const { categories, cuisine, tags } = results;
 
