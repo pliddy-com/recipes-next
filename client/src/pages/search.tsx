@@ -54,7 +54,7 @@ const SearchPage = ({
         indexName="recipes_index"
         searchClient={searchClient}
       >
-        <Configure hitsPerPage={100} />
+        <Configure hitsPerPage={200} />
         <Suspense fallback={<Loading />}>
           <SearchGridLayout title={defaultTitle} />
         </Suspense>

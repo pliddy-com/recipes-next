@@ -27,7 +27,7 @@ query navMenuData {
 # getRecipeSlugs
 
 query recipeSlugs($where: RecipeFilter) {
-  recipeCollection(where: $where, order: title_ASC) {
+  recipeCollection(where: $where, order: title_ASC, limit: 200) {
     __typename
     items {
       ...RecipeSlug
@@ -79,7 +79,7 @@ query recipeList($where: TagFilter) {
 
 query recipeIndex($where: RecipeFilter) {
   __typename
-  recipeCollection(where: $where, order: title_ASC) {
+  recipeCollection(where: $where, order: title_ASC, limit: 200) {
     total
     items {
       ...RecipeSummary
