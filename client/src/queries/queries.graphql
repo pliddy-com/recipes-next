@@ -142,3 +142,39 @@ query recipeCollectionQuery {
     }
   }
 }
+
+# Query for List Page tagCollection (all tags with recipes)
+# getRecipeList
+
+query tagList($where: TagFilter) {
+  __typename
+  tagCollection(where: $where, order: title_ASC) {
+    __typename
+    total
+    items {
+      __typename
+      sys {
+        id
+      }
+      slug
+      title
+      linkedFrom {
+        recipeCollection(limit: 54) {
+          total
+          items {
+            __typename
+            sys {
+              id
+            }
+            title
+            slug
+            abstract
+            image {
+              ...ImageDefault
+            }
+          }
+        }
+      }
+    }
+  }
+}
