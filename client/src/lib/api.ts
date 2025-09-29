@@ -21,9 +21,10 @@ import {
   NavMenuDataQuery,
   RecipeSlugsQuery,
   TagSlugsQuery,
-  RecipeListQuery,
   LinkedEntriesQuery,
-  LinkedEntriesDocument
+  LinkedEntriesDocument,
+  TagListQueryVariables,
+  TagListDocument
 } from '../types/queries';
 
 import { hasValue } from './utils';
@@ -147,13 +148,11 @@ export const getRecipePage = async (variables?: RecipePageQueryVariables) => {
 };
 
 // used to query content for tag index page
-export const getTagIndex = async (variables?: RecipeListQueryVariables) => {
-  const results: RecipeListQuery = await queryGraphQLContent(
-    RecipeListDocument,
+export const getTagIndex = async (variables?: TagListQueryVariables) => {
+  const { tagCollection } = await queryGraphQLContent(
+    TagListDocument,
     variables
   );
-
-  const { tagCollection } = results;
 
   return tagCollection
     ? filterTagsWithRecipes({
