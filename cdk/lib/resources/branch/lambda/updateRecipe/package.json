@@ -12,7 +12,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "contentful-management": "^11.54.4",
+    "contentful-management": "^11.60.4",
     "dotenv": "^17.2.1"
   }
 }
