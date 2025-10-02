@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "aws-cdk-lib": "^2.212.0",
-    "contentful-management": "^11.54.4",
+    "contentful-management": "^11.60.4",
     "current-git-branch": "^2.0.1",
     "dotenv": "^17.2.1"
   },
