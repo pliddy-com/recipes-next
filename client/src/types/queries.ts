@@ -1170,6 +1170,13 @@ export enum TaxonomyOrder {
   TitleDesc = 'title_DESC'
 }
 
+export type TimelineFilterInput = {
+  /** Preview content starting from a given release date */
+  release_lte?: InputMaybe<Scalars['String']['input']>;
+  /** Preview content starting from a given timestamp */
+  timestamp_lte?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
 export type _Node = {
   _id: Scalars['ID']['output'];
 };
