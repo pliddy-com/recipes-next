@@ -22,6 +22,16 @@ interface IListEdit {
   onChange({ id, value }: { id: string; value: (string | null)[] }): void;
 }
 const ListEdit = ({ id, heading = 'h3', label, list, onChange }: IListEdit) => {
+  /*
+    values passed are objects:
+    [
+      {
+        id: string or generate uuidv4(),
+        value: string
+      }
+    ]
+  */
+
   const [values, setValues] = useState<(string | null)[]>(list);
 
   useEffect(() => {

@@ -12,6 +12,16 @@ import { IRecipeSection } from 'types/content';
 describe('IngredientsSection', () => {
   const expectedTitle = 'Ingredients';
 
+  /*
+    sectionItems are ISectionItems objects:
+    [
+      {
+        id: string or generate uuidv4(),
+        value: string
+      }
+    ]
+*/
+
   describe('when there is properly formatted content', () => {
     it('renders the ingredients section if there is content', () => {
       const sections: IRecipeSection[] = [
@@ -52,6 +62,16 @@ describe('IngredientsSection', () => {
       expect(title).toBeNull();
     });
   });
+
+  /*
+    sectionItems are ISectionItems objects:
+    [
+      {
+        id: string or generate uuidv4(),
+        value: string
+      }
+    ]
+*/
 
   describe('when there are missing properties', () => {
     it('it does not render', () => {

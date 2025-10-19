@@ -8,6 +8,16 @@ import Typography from '@mui/material/Typography';
 
 import { IRecipeSection } from 'types/content';
 
+/*
+    sectionItems are ISectionItems objects:
+    [
+      {
+        id: string or generate uuidv4(),
+        value: string
+      }
+    ]
+*/
+
 interface InstructionsProps {
   sections?: (IRecipeSection | null)[];
 }

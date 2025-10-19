@@ -19,6 +19,15 @@ export type ImageDefaultFragment = {
   url?: string | null;
   width?: number | null;
 };
+/*
+    sectionItems are ISectionItems objects:
+    [
+      {
+        id: string or generate uuidv4(),
+        value: string
+      }
+    ]
+*/
 
 export interface IRecipeSection {
   sectionItems: (string | null)[];

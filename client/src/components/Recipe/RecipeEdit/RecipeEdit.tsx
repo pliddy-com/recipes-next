@@ -135,6 +135,16 @@ const RecipeEdit = ({ content }: IRecipeEdit) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  /*
+    sectionItems are ISectionItems objects:
+    [
+      {
+        id: string or generate uuidv4(),
+        value: string
+      }
+    ]
+*/
+
   const updateField = ({
     id,
     value

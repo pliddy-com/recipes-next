@@ -17,6 +17,16 @@ import { IRecipeSection } from 'types/content';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 
+/*
+    sectionItems are ISectionItems objects:
+    [
+      {
+        id: string or generate uuidv4(),
+        value: string
+      }
+    ]
+*/
+
 interface ISectionEdit {
   id: string;
   label: string;
@@ -75,6 +85,16 @@ const SectionEdit = ({ id, label, onChange, sectionList }: ISectionEdit) => {
     setSectionData(array);
     onChange({ id, value: array });
   };
+
+  /*
+    sectionItems are ISectionItems objects:
+    [
+      {
+        id: string or generate uuidv4(),
+        value: string
+      }
+    ]
+*/
 
   const addSection = () => {
     const array = [...sectionData];

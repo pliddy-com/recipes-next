@@ -10,6 +10,16 @@ describe('InstructionsSection', () => {
 
   describe('when there is properly formatted content', () => {
     it('it renders the instructions section if there is content', () => {
+      /*
+    sectionItems are ISectionItems objects:
+    [
+      {
+        id: string or generate uuidv4(),
+        value: string
+      }
+    ]
+*/
+
       const sections: IRecipeSection[] = [
         {
           sectionTitle: 'Sole Meunière, Setup',
@@ -47,6 +57,16 @@ describe('InstructionsSection', () => {
       expect(title).toBeNull();
     });
   });
+
+  /*
+    sectionItems are ISectionItems objects:
+    [
+      {
+        id: string or generate uuidv4(),
+        value: string
+      }
+    ]
+*/
 
   describe('when there are missing content properties', () => {
     it('it does not render', () => {
