@@ -311,6 +311,11 @@ api.getRecipePage = jest.fn().mockResolvedValue({
     },
     ingredientsList: [
       {
+        id: 'ingredients-1',
+        itemList: [
+          { id: 'ingredient-1', value: 'ingredient 1' },
+          { id: 'ingredient-2', value: 'ingredient 2' }
+        ],
         sectionTitle: 'Ingredients Section Label 1',
         sectionItems: ['ingredient 1', 'ingredient 2']
       }
@@ -318,10 +323,20 @@ api.getRecipePage = jest.fn().mockResolvedValue({
     equipment: ['equipment 1', 'equipment 2'],
     instructionsList: [
       {
+        id: 'instructions-1',
+        itemList: [
+          { id: 'instruction-1-1', value: 'instruction 1' },
+          { id: 'instruction-1-2', value: 'instruction 2' }
+        ],
         sectionTitle: 'Instructions Section Label 1',
         sectionItems: ['Instructions item 1']
       },
       {
+        id: 'instructions-2',
+        itemList: [
+          { id: 'ingredient-2-1', value: 'ingredient 1' },
+          { id: 'ingredient-2-2', value: 'ingredient 2' }
+        ],
         sectionTitle: 'Instructions Section Label 2',
         sectionItems: ['Instructions item 2', 'Instructions item 3']
       }

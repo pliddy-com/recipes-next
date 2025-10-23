@@ -8,16 +8,6 @@ import Typography from '@mui/material/Typography';
 
 import { IRecipeSection } from 'types/content';
 
-/*
-    sectionItems are ISectionItems objects:
-    [
-      {
-        id: string or generate uuidv4(),
-        value: string
-      }
-    ]
-*/
-
 interface InstructionsProps {
   sections?: (IRecipeSection | null)[];
 }
@@ -33,22 +23,25 @@ const InstructionsSection = ({ sections }: InstructionsProps) => {
 
       {sections &&
         sections.map((section) => {
-          const { sectionTitle, sectionItems } = section ?? {};
+          const { id, sectionTitle, itemList } = section ?? {};
           return (
             section && (
-              <Stack key={sectionTitle} direction="column" spacing={0}>
+              <Stack key={id} direction="column" spacing={0}>
                 {sections.length > 1 && (
                   <Typography variant="h3">{sectionTitle}</Typography>
                 )}
 
                 <List className="recipeList orderedList" component="ol">
-                  {sectionItems &&
-                    sectionItems.map((instruction) => (
-                      <ListItem key={`instruction-${num}`} disableGutters>
+                  {itemList &&
+                    itemList.map((instruction) => (
+                      <ListItem
+                        key={`instruction-${instruction?.id}`}
+                        disableGutters
+                      >
                         <ListItemAvatar>
                           <Avatar>{num++}.</Avatar>
                         </ListItemAvatar>
-                        <ListItemText primary={instruction} />
+                        <ListItemText primary={instruction?.value} />
                       </ListItem>
                     ))}
                 </List>

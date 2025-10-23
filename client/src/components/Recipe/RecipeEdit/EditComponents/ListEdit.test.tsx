@@ -4,6 +4,16 @@ import { fireEvent, render } from '@testing-library/react';
 
 import ListEdit from './ListEdit';
 
+/*
+    values passed are objects:
+    [
+      {
+        id: string or generate uuidv4(),
+        value: string
+      }
+    ]
+  */
+
 describe('ListEdit', () => {
   describe('when there is content', () => {
     it('renders the component', () => {

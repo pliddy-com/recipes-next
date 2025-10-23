@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`RecipePage in recipe/[slug].tsx when there is page content it renders the page 1`] = `
 <DocumentFragment>
@@ -18,7 +18,7 @@ exports[`RecipePage in recipe/[slug].tsx when there is page content it renders t
     id="recipe-schema"
     type="application/ld+json"
   >
-    {"@context":"https://schema.org/","@type":"Recipe","name":"Recipe Title","image":["https://recipes.pliddy.com/url?w=252&h=252&fit=fill&fm=webp&q=75","https://recipes.pliddy.com/url?w=336&h=252&fit=fill&fm=webp&q=75","https://recipes.pliddy.com/url?w=448&h=252&fit=fill&fm=webp&q=75"],"author":{"@type":"Person","name":"Patrick Liddy"},"datePublished":"2022-06-26","description":"abstract","recipeYield":"4","prepTime":"PT1H0M","totalTime":"PT1H15M","recipeIngredient":[["ingredient 1","ingredient 2"]],"recipeInstructions":[{"@type":"HowToSection","name":"Instructions Section Label 1","itemListElement":[[{"@type":"HowToStep","name":"Instructions Section Label 1 Step 1","text":"Instructions item 1"}]]},{"@type":"HowToSection","name":"Instructions Section Label 2","itemListElement":[[{"@type":"HowToStep","name":"Instructions Section Label 2 Step 2","text":"Instructions item 2"},{"@type":"HowToStep","name":"Instructions Section Label 2 Step 3","text":"Instructions item 3"}]]}],"recipeCategory":"Tag 1","recipeCuisine":"Tag 1","keywords":["keyword1","keyword2"]}
+    {"@context":"https://schema.org/","@type":"Recipe","name":"Recipe Title","image":["https://recipes.pliddy.com/url?w=252&h=252&fit=fill&fm=webp&q=75","https://recipes.pliddy.com/url?w=336&h=252&fit=fill&fm=webp&q=75","https://recipes.pliddy.com/url?w=448&h=252&fit=fill&fm=webp&q=75"],"author":{"@type":"Person","name":"Patrick Liddy"},"datePublished":"2022-06-26","description":"abstract","recipeYield":"4","prepTime":"PT1H0M","totalTime":"PT1H15M","recipeIngredient":[["ingredient 1","ingredient 2"]],"recipeInstructions":[{"@type":"HowToSection","name":"Instructions Section Label 1","itemListElement":[[{"@type":"HowToStep","name":"Instructions Section Label 1 Step 1","text":"instruction 1"},{"@type":"HowToStep","name":"Instructions Section Label 1 Step 2","text":"instruction 2"}]]},{"@type":"HowToSection","name":"Instructions Section Label 2","itemListElement":[[{"@type":"HowToStep","name":"Instructions Section Label 2 Step 3","text":"ingredient 1"},{"@type":"HowToStep","name":"Instructions Section Label 2 Step 4","text":"ingredient 2"}]]}],"recipeCategory":"Tag 1","recipeCuisine":"Tag 1","keywords":["keyword1","keyword2"]}
   </script>
 </DocumentFragment>
 `;

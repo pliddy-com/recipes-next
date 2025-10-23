@@ -40,6 +40,8 @@ const Recipe = ({ content }: IRecipe) => {
   const richText = description as RecipeDescription;
   const { items: tags } = tagsCollection ?? {};
 
+  // console.log({ content });
+
   return content ? (
     <Box data-testid="Recipe">
       <Typography variant="h1" gutterBottom>

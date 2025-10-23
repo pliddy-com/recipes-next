@@ -10,31 +10,25 @@ describe('InstructionsSection', () => {
 
   describe('when there is properly formatted content', () => {
     it('it renders the instructions section if there is content', () => {
-      /*
-    sectionItems are ISectionItems objects:
-    [
-      {
-        id: string or generate uuidv4(),
-        value: string
-      }
-    ]
-*/
+      const expectedItem = {
+        id: 'instruction-id-1',
+        value: 'Heat saute pan over medium-high heat.'
+      };
 
       const sections: IRecipeSection[] = [
         {
-          sectionTitle: 'Sole Meunière, Setup',
-          sectionItems: ['Heat saute pan over medium-high heat.']
+          id: 'section-id',
+          sectionTitle: 'Recipe Setup',
+          itemList: [expectedItem]
         }
       ];
-
-      const expectedItem = sections?.[0].sectionItems?.[0];
 
       const { container, queryByText } = render(
         <InstructionsSection sections={sections} />
       );
 
       const title = queryByText(expectedTitle);
-      const item = expectedItem && queryByText(expectedItem);
+      const item = expectedItem && queryByText(expectedItem.value);
 
       expect(title).toBeInTheDocument();
       expect(item).toBeInTheDocument();
@@ -58,22 +52,18 @@ describe('InstructionsSection', () => {
     });
   });
 
-  /*
-    sectionItems are ISectionItems objects:
-    [
-      {
-        id: string or generate uuidv4(),
-        value: string
-      }
-    ]
-*/
-
   describe('when there are missing content properties', () => {
     it('it does not render', () => {
       const sections: IRecipeSection[] = [
         {
+          id: 'section-id',
           sectionTitle: 'Sole Meunière, Setup',
-          sectionItems: ['Heat saute pan over medium-high heat.']
+          itemList: [
+            {
+              id: 'instruction-id-2',
+              value: 'Heat saute pan over medium-high heat.'
+            }
+          ]
         }
       ];
 

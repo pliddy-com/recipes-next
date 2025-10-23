@@ -44,20 +44,10 @@ const RecipeSchema = ({ recipe, categories, cuisine }: RecipeSchemaProps) => {
     `${imageUrl}?w=${(imgHeight / 9) * 16}&h=${imgHeight}&fit=fill&fm=webp&q=75`
   ];
 
-  /*
-    sectionItems are ISectionItems objects:
-    [
-      {
-        id: string or generate uuidv4(),
-        value: string
-      }
-    ]
-*/
-
   const ingredients =
     ingredientsList &&
     ingredientsList?.map((section: IRecipeSection) =>
-      section?.sectionItems?.map((item) => item)
+      section?.itemList?.map((item) => item?.value)
     );
 
   let instructionStep = 1;
@@ -68,10 +58,10 @@ const RecipeSchema = ({ recipe, categories, cuisine }: RecipeSchemaProps) => {
       '@type': 'HowToSection',
       name: section?.sectionTitle,
       itemListElement: [
-        section?.sectionItems?.map((item) => ({
+        section?.itemList?.map((item) => ({
           '@type': 'HowToStep',
           name: `${section?.sectionTitle} Step ${instructionStep++}`,
-          text: item
+          text: item?.value
         }))
       ]
     }));

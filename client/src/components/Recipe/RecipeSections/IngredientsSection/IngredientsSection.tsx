@@ -9,16 +9,6 @@ import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 
 import { IRecipeSection } from 'types/content';
 
-/*
-    sectionItems are ISectionItems objects:
-    [
-      {
-        id: string or generate uuidv4(),
-        value: string
-      }
-    ]
-*/
-
 interface IngredientsProps {
   sections?: (IRecipeSection | null)[];
 }
@@ -29,23 +19,23 @@ const IngredientsSection = ({ sections }: IngredientsProps) => {
       <Typography variant="h2">Ingredients</Typography>
       {sections &&
         sections.map((section) => {
-          const { sectionTitle, sectionItems } = section ?? {};
+          const { id, sectionTitle, itemList } = section ?? {};
 
           return (
             section &&
             sectionTitle &&
-            sectionItems && (
-              <Stack key={sectionTitle} direction="column" spacing={0}>
+            itemList && (
+              <Stack key={id} direction="column" spacing={0}>
                 {sectionTitle !== 'Ingredients' && (
                   <Typography variant="h3">{sectionTitle}</Typography>
                 )}
                 <List className="recipeList unorderedList">
-                  {sectionItems.map((ingredient) => (
-                    <ListItem key={ingredient} disableGutters>
+                  {itemList.map((ingredient) => (
+                    <ListItem key={ingredient?.id} disableGutters>
                       <ListItemIcon>
                         <RestaurantMenuIcon color="secondary" />
                       </ListItemIcon>
-                      <ListItemText primary={ingredient} />
+                      <ListItemText primary={ingredient?.value} />
                     </ListItem>
                   ))}
                 </List>

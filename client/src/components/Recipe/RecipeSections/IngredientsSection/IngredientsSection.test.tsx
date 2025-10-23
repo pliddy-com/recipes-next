@@ -12,27 +12,22 @@ import { IRecipeSection } from 'types/content';
 describe('IngredientsSection', () => {
   const expectedTitle = 'Ingredients';
 
-  /*
-    sectionItems are ISectionItems objects:
-    [
-      {
-        id: string or generate uuidv4(),
-        value: string
-      }
-    ]
-*/
-
   describe('when there is properly formatted content', () => {
     it('renders the ingredients section if there is content', () => {
+      const expectedItem = {
+        id: 'ingredient-id-1',
+        value: 'ingredient 1.'
+      };
       const sections: IRecipeSection[] = [
         {
+          id: 'section-id',
           sectionTitle: 'Section 1 Title',
-          sectionItems: ['section 1 item 1', 'section 1 item 2']
+          itemList: [expectedItem]
         }
       ];
 
       const expectedSubtitle = sections?.[0].sectionTitle;
-      const expectedItem = sections?.[0].sectionItems?.[0];
+      // const expectedItem = sections?.[0].sectionItems?.[0];
 
       const { container, queryByText } = render(
         <Ingredients sections={sections} />
@@ -40,7 +35,7 @@ describe('IngredientsSection', () => {
 
       const title = queryByText(expectedTitle);
       const subtitle = expectedSubtitle && queryByText(expectedSubtitle);
-      const item = expectedItem && queryByText(expectedItem);
+      const item = expectedItem && queryByText(expectedItem.value);
 
       expect(title).toBeInTheDocument();
       expect(subtitle).toBeInTheDocument();
@@ -63,22 +58,12 @@ describe('IngredientsSection', () => {
     });
   });
 
-  /*
-    sectionItems are ISectionItems objects:
-    [
-      {
-        id: string or generate uuidv4(),
-        value: string
-      }
-    ]
-*/
-
   describe('when there are missing properties', () => {
     it('it does not render', () => {
       const sections: IRecipeSection[] = [
         {
           sectionTitle: null,
-          sectionItems: [null]
+          itemList: [null]
         }
       ];
 

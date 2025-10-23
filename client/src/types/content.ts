@@ -1,18 +1,15 @@
 import { ImageDefaultFragment, TagDefaultFragment } from './queries';
 
-/*
-    sectionItems are objects (define ISectionItem):
-    [
-      {
-        id: string or generate uuidv4(),
-        value: string
-      }
-    ]
-*/
+export interface IRecipeItemObject {
+  id: string | null;
+  value: string | null;
+}
 
 export interface IRecipeSection {
+  id?: string | null;
+  itemList?: (IRecipeItemObject | null)[];
+  sectionItems?: (string | null)[];
   sectionTitle: string | null;
-  sectionItems: (string | null)[];
 }
 
 export interface IRecipeChangeSet {
